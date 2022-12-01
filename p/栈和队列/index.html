@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='[toc]
+栈的定义和操作名称 定义 栈是限定仅可在表尾进行删除和插入的线性表 后进先出形(LIFO)的线性表 基本概念 栈顶(top) 栈可删除和插入的一端 栈底(bottom) 另一端为栈底 空栈 没有元素的栈 操作 插入 也叫进栈，压栈，入栈 删除 弹栈，出栈 栈的ADT 1 2 3 4 5 6 7 8 9 10 11 12 Data 同线性表 Operation IintStack(*S):初始化建立空栈 DestroyStack(*S): 摧毁一个栈 ClearStack(*S):清空栈 StackEmpty(S):栈为空，返回true,否则返回false GetTop(S,*e):若栈存在且非空，用e返回S的栈顶元素 Push(*S,e):插入 Pop(*S,*e):删除，并用e返回被删除的元素 StackLength:返回栈S的元素个数 endADT 栈的顺序存储结构 结构定义 1 2 3 4 5 6 typedef int SElemType; //根据实际情况确定栈的元素类型 typedef struct { SElemType data[MAXSIZE]; int top;//用于栈顶指针 }SqStack; 入栈
+1 2 3 4 5 6 7 8 Status Push(SqStack *S, SElemType e) { if (S-&amp;gt;top==MAXSIZE-1)//栈满 return -1; S-&amp;gt;top&#43;&#43;; S-&amp;gt;data[S-&amp;gt;top]=e; return 0; } 出栈'>
+<title>栈和队列</title>
+
+<link rel='canonical' href='https://example.com/p/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='栈和队列'>
+<meta property='og:description' content='[toc]
+栈的定义和操作名称 定义 栈是限定仅可在表尾进行删除和插入的线性表 后进先出形(LIFO)的线性表 基本概念 栈顶(top) 栈可删除和插入的一端 栈底(bottom) 另一端为栈底 空栈 没有元素的栈 操作 插入 也叫进栈，压栈，入栈 删除 弹栈，出栈 栈的ADT 1 2 3 4 5 6 7 8 9 10 11 12 Data 同线性表 Operation IintStack(*S):初始化建立空栈 DestroyStack(*S): 摧毁一个栈 ClearStack(*S):清空栈 StackEmpty(S):栈为空，返回true,否则返回false GetTop(S,*e):若栈存在且非空，用e返回S的栈顶元素 Push(*S,e):插入 Pop(*S,*e):删除，并用e返回被删除的元素 StackLength:返回栈S的元素个数 endADT 栈的顺序存储结构 结构定义 1 2 3 4 5 6 typedef int SElemType; //根据实际情况确定栈的元素类型 typedef struct { SElemType data[MAXSIZE]; int top;//用于栈顶指针 }SqStack; 入栈
+1 2 3 4 5 6 7 8 Status Push(SqStack *S, SElemType e) { if (S-&amp;gt;top==MAXSIZE-1)//栈满 return -1; S-&amp;gt;top&#43;&#43;; S-&amp;gt;data[S-&amp;gt;top]=e; return 0; } 出栈'>
+<meta property='og:url' content='https://example.com/p/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-01T23:55:15&#43;08:00'/><meta property='article:modified_time' content='2022-12-01T23:55:15&#43;08:00'/>
+<meta name="twitter:title" content="栈和队列">
+<meta name="twitter:description" content="[toc]
+栈的定义和操作名称 定义 栈是限定仅可在表尾进行删除和插入的线性表 后进先出形(LIFO)的线性表 基本概念 栈顶(top) 栈可删除和插入的一端 栈底(bottom) 另一端为栈底 空栈 没有元素的栈 操作 插入 也叫进栈，压栈，入栈 删除 弹栈，出栈 栈的ADT 1 2 3 4 5 6 7 8 9 10 11 12 Data 同线性表 Operation IintStack(*S):初始化建立空栈 DestroyStack(*S): 摧毁一个栈 ClearStack(*S):清空栈 StackEmpty(S):栈为空，返回true,否则返回false GetTop(S,*e):若栈存在且非空，用e返回S的栈顶元素 Push(*S,e):插入 Pop(*S,*e):删除，并用e返回被删除的元素 StackLength:返回栈S的元素个数 endADT 栈的顺序存储结构 结构定义 1 2 3 4 5 6 typedef int SElemType; //根据实际情况确定栈的元素类型 typedef struct { SElemType data[MAXSIZE]; int top;//用于栈顶指针 }SqStack; 入栈
+1 2 3 4 5 6 7 8 Status Push(SqStack *S, SElemType e) { if (S-&amp;gt;top==MAXSIZE-1)//栈满 return -1; S-&amp;gt;top&#43;&#43;; S-&amp;gt;data[S-&amp;gt;top]=e; return 0; } 出栈">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://example.com/" selected>English</option>
+                        
+                            <option value="https://example.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://example.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#栈的定义和操作名称">栈的定义和操作名称</a>
+      <ol>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#基本概念">基本概念</a></li>
+        <li><a href="#操作">操作</a></li>
+      </ol>
+    </li>
+    <li><a href="#栈的adt">栈的ADT</a></li>
+    <li><a href="#栈的顺序存储结构">栈的顺序存储结构</a>
+      <ol>
+        <li><a href="#结构定义">结构定义</a></li>
+      </ol>
+    </li>
+    <li><a href="#两栈共享空间">两栈共享空间</a>
+      <ol>
+        <li><a href="#结构">结构</a></li>
+        <li><a href="#结构代码">结构代码</a></li>
+        <li><a href="#操作-1">操作</a></li>
+      </ol>
+    </li>
+    <li><a href="#栈的链式存储结构">栈的链式存储结构</a>
+      <ol>
+        <li><a href="#定义-1">定义</a></li>
+        <li><a href="#特点">特点</a></li>
+        <li><a href="#结构代码-1">结构代码</a></li>
+        <li><a href="#操作-2">操作</a>
+          <ol>
+            <li><a href="#进栈">进栈</a></li>
+            <li><a href="#出栈">出栈</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#栈的应用-递归">栈的应用-递归</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" >
+                数据结构
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">栈和队列</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 01, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>[toc]</p>
+<h1 id="栈的定义和操作名称">栈的定义和操作名称</h1>
+<h2 id="定义">定义</h2>
+<ol>
+<li>栈是限定仅可在表尾进行删除和插入的线性表</li>
+<li>后进先出形(LIFO)的线性表</li>
+</ol>
+<h2 id="基本概念">基本概念</h2>
+<ol>
+<li>栈顶(top)</li>
+</ol>
+<ul>
+<li>栈可删除和插入的一端</li>
+</ul>
+<ol start="2">
+<li>栈底(bottom)</li>
+</ol>
+<ul>
+<li>另一端为栈底</li>
+</ul>
+<ol start="3">
+<li>空栈</li>
+</ol>
+<ul>
+<li>没有元素的栈</li>
+</ul>
+<h2 id="操作">操作</h2>
+<ol>
+<li>插入</li>
+</ol>
+<ul>
+<li>也叫进栈，压栈，入栈</li>
+</ul>
+<ol start="2">
+<li>删除</li>
+</ol>
+<ul>
+<li>弹栈，出栈</li>
+</ul>
+<h1 id="栈的adt">栈的ADT</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Data</span>
+</span></span><span class="line"><span class="cl">	<span class="err">同线性表</span>
+</span></span><span class="line"><span class="cl"><span class="n">Operation</span>
+</span></span><span class="line"><span class="cl">	<span class="n">IintStack</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="o">:</span><span class="err">初始化建立空栈</span>
+</span></span><span class="line"><span class="cl">	<span class="n">DestroyStack</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="o">:</span> <span class="err">摧毁一个栈</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ClearStack</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="o">:</span><span class="err">清空栈</span>
+</span></span><span class="line"><span class="cl">	<span class="n">StackEmpty</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">:</span><span class="err">栈为空，返回</span><span class="nb">true</span><span class="p">,</span><span class="err">否则返回</span><span class="nb">false</span>
+</span></span><span class="line"><span class="cl">	<span class="n">GetTop</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="o">*</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="err">若栈存在且非空，用</span><span class="n">e返回S的栈顶元素</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Push</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="err">插入</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Pop</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">,</span><span class="o">*</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="err">删除，并用</span><span class="n">e返回被删除的元素</span>
+</span></span><span class="line"><span class="cl">	<span class="nl">StackLength</span><span class="p">:</span><span class="err">返回栈</span><span class="n">S的元素个数</span>
+</span></span><span class="line"><span class="cl"><span class="n">endADT</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="栈的顺序存储结构">栈的顺序存储结构</h1>
+<h2 id="结构定义">结构定义</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">SElemType</span><span class="p">;</span> <span class="c1">//根据实际情况确定栈的元素类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">SElemType</span> <span class="n">data</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">top</span><span class="p">;</span><span class="c1">//用于栈顶指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="n">SqStack</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>入栈</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Status</span> <span class="nf">Push</span><span class="p">(</span><span class="n">SqStack</span> <span class="o">*</span><span class="n">S</span><span class="p">,</span> <span class="n">SElemType</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">==</span><span class="n">MAXSIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="c1">//栈满
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">S</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="p">]</span><span class="o">=</span><span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>出栈</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Status</span> <span class="nf">Pop</span><span class="p">(</span><span class="n">SqStack</span> <span class="o">*</span><span class="n">S</span><span class="p">,</span> <span class="n">SElemType</span> <span class="o">*</span><span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="c1">//空栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="n">e</span> <span class="o">=</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="两栈共享空间">两栈共享空间</h1>
+<h2 id="结构">结构</h2>
+<ul>
+<li>将两栈的顶部接到一起</li>
+</ul>
+<h2 id="结构代码">结构代码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">SElemType</span> <span class="n">data</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">top1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">top2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">SqDoubleStack</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="操作-1">操作</h2>
+<ul>
+<li>插入</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Status</span> <span class="nf">Push</span><span class="p">(</span><span class="n">SqDoubleStack</span> <span class="o">*</span><span class="n">S</span><span class="p">,</span> <span class="n">SElemType</span> <span class="n">e</span><span class="p">,</span> <span class="kt">int</span> <span class="n">StackNumber</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//StackNumber 用来判断插入栈1还是栈2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top1</span><span class="o">++=</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top2</span><span class="p">)</span><span class="c1">//栈满
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">StackNumber</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">S</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="o">++</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top1</span><span class="p">]</span><span class="o">=</span><span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">StackNumber</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">S</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="o">--</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top2</span><span class="p">]</span><span class="o">=</span><span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Status</span> <span class="nf">Pop</span><span class="p">(</span><span class="n">SqDoubleStack</span> <span class="o">*</span><span class="n">S</span><span class="p">,</span> <span class="n">SElemType</span> <span class="o">*</span><span class="n">e</span><span class="p">,</span><span class="kt">int</span> <span class="n">StackNumber</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">StackNumber</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top1</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="c1">//空栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">*</span><span class="n">e</span> <span class="o">=</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="n">top1</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">StackNumber</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top2</span> <span class="o">==</span> <span class="n">MAXSIZE</span><span class="p">)</span><span class="c1">//空栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">*</span><span class="n">e</span> <span class="o">=</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="n">top2</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="栈的链式存储结构">栈的链式存储结构</h1>
+<h2 id="定义-1">定义</h2>
+<ul>
+<li>简称链栈</li>
+</ul>
+<h2 id="特点">特点</h2>
+<ul>
+<li>栈顶在头部</li>
+<li>没有头结点</li>
+</ul>
+<h2 id="结构代码-1">结构代码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">StackNode</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">SElemType</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">struct</span> <span class="n">StackNode</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">StackNode</span><span class="p">,</span><span class="o">*</span><span class="n">LinkStackPtr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">LinkStack</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">LinkStackPtr</span> <span class="n">top</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">LinkStack</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="操作-2">操作</h2>
+<h3 id="进栈">进栈</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Status</span> <span class="nf">Push</span><span class="p">(</span><span class="n">LinkStack</span> <span class="o">*</span><span class="n">S</span><span class="p">,</span> <span class="n">SElemType</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">LinkStackPtr</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">LinkStackPtr</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">StackNode</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">=</span><span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">S</span><span class="o">-&gt;</span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="出栈">出栈</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Status</span> <span class="nf">Pop</span><span class="p">(</span><span class="n">LinkStack</span> <span class="o">*</span><span class="n">S</span><span class="p">,</span> <span class="n">SElemType</span> <span class="o">*</span><span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">LinkStackPtr</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">StackEmpty</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">))</span><span class="c1">//空栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="n">e</span> <span class="o">=</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">p</span> <span class="o">=</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">=</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">S</span><span class="o">-&gt;</span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="栈的应用-递归">栈的应用-递归</h1>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">线性表</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
