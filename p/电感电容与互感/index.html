@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='[toc]
-一、基尔霍夫定理 1.1 基尔霍夫电流定律 定义 在电路中，任何节点上的所有电流的代数和为0
-其中，基尔霍夫电流方程被称为KCL方程 1.2 基尔霍夫电压定律 定义 在电路中，环绕任何闭合路径的电压为0
-1.3 应用 1.3.1 含源受控电路的分析 二、常见的特殊电路 2.1 惠斯通电桥 图示
-推导 $$ KCL\begin{cases}i_1=i_3 \\ i_2=i_x\end{cases} \\\ \\ KVL\begin{cases} i_1R_1=i_2R_2\\ i_3R_3=i_xR_x\end{cases}\\\ \\ \Rightarrow R_1R_x=R_2R_3\Leftrightarrow R_x=\frac{R_2}{R_1}R_3 $$
-2.2 $\Delta - Y(\pi-T)$等效电路 $\Delta$与$\pi$结构的转换 $Y$和$T$的转换 $\Delta-Y$变换
-图示 公式
-$$ 通过串并联的简单计算可以得到\\\ \\ R_1=\frac{R_bR_c}{R_a&#43;R_b&#43;R_C} \\\ \\ R_2=\frac{R_aR_c}{R_a&#43;R_b&#43;R_C} \\\ \\ R_3=\frac{R_aR_b}{R_a&#43;R_b&#43;R_C} \\\ \\ 反过来\\\ \\ R_a=\frac{R_1R_2&#43;R_2R_3&#43;R_1R_3}{R_1}\\\ \\ R_b=\frac{R_1R_2&#43;R_2R_3&#43;R_1R_3}{R_2} \\\ \\ R_c=\frac{R_1R_2&#43;R_2R_3&#43;R_1R_3}{R_3} $$'>
-<title>电阻元件与简单电阻电路</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='电感 电感的电压与电流 $$ 根据定义\\\ \\ v=L\frac{di}{dt} \\\ \\ di = \frac{v}{L}dt \\\ \\ L\int_{i(0)}^{i(t)} di = \int_0^t vd\tau \\\ \\ i(t)=\frac{1}{L}\int_0^tvd\tau &#43;i(0) $$
+电感的功率和能量 $$ p = vi =Li\frac{di}{dt} \\\ \\ \int_0^t p d\tau = \int_{i(0)}^{i(t)}Lidi \\\ \\ pt = \frac{1}{2}L(i(t)^2-i(0)^2) \\\ \\ 当i(0)=0时,W=\frac{1}{2}Li^2 $$
+特点 端电流不允许跃变
+端电压允许跃变
+端电流为常量时，短路
+电容 电压 电流 功率 能量 $$ 推导方式与电感相同，可以得出 \\\ \\ i = C\frac{dV}{dt} \\\ \\ V =\frac{1}{C} \int_0^ti(\tau) d\tau &#43; v(0) \\\ \\ W =\frac{1}{2}Cv^2 $$'>
+<title>电感、电容与互感</title>
 
-<link rel='canonical' href='https://example.com/p/%E7%94%B5%E9%98%BB%E5%85%83%E4%BB%B6%E4%B8%8E%E7%AE%80%E5%8D%95%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF/'>
+<link rel='canonical' href='https://example.com/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='电阻元件与简单电阻电路'>
-<meta property='og:description' content='[toc]
-一、基尔霍夫定理 1.1 基尔霍夫电流定律 定义 在电路中，任何节点上的所有电流的代数和为0
-其中，基尔霍夫电流方程被称为KCL方程 1.2 基尔霍夫电压定律 定义 在电路中，环绕任何闭合路径的电压为0
-1.3 应用 1.3.1 含源受控电路的分析 二、常见的特殊电路 2.1 惠斯通电桥 图示
-推导 $$ KCL\begin{cases}i_1=i_3 \\ i_2=i_x\end{cases} \\\ \\ KVL\begin{cases} i_1R_1=i_2R_2\\ i_3R_3=i_xR_x\end{cases}\\\ \\ \Rightarrow R_1R_x=R_2R_3\Leftrightarrow R_x=\frac{R_2}{R_1}R_3 $$
-2.2 $\Delta - Y(\pi-T)$等效电路 $\Delta$与$\pi$结构的转换 $Y$和$T$的转换 $\Delta-Y$变换
-图示 公式
-$$ 通过串并联的简单计算可以得到\\\ \\ R_1=\frac{R_bR_c}{R_a&#43;R_b&#43;R_C} \\\ \\ R_2=\frac{R_aR_c}{R_a&#43;R_b&#43;R_C} \\\ \\ R_3=\frac{R_aR_b}{R_a&#43;R_b&#43;R_C} \\\ \\ 反过来\\\ \\ R_a=\frac{R_1R_2&#43;R_2R_3&#43;R_1R_3}{R_1}\\\ \\ R_b=\frac{R_1R_2&#43;R_2R_3&#43;R_1R_3}{R_2} \\\ \\ R_c=\frac{R_1R_2&#43;R_2R_3&#43;R_1R_3}{R_3} $$'>
-<meta property='og:url' content='https://example.com/p/%E7%94%B5%E9%98%BB%E5%85%83%E4%BB%B6%E4%B8%8E%E7%AE%80%E5%8D%95%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='电感、电容与互感'>
+<meta property='og:description' content='电感 电感的电压与电流 $$ 根据定义\\\ \\ v=L\frac{di}{dt} \\\ \\ di = \frac{v}{L}dt \\\ \\ L\int_{i(0)}^{i(t)} di = \int_0^t vd\tau \\\ \\ i(t)=\frac{1}{L}\int_0^tvd\tau &#43;i(0) $$
+电感的功率和能量 $$ p = vi =Li\frac{di}{dt} \\\ \\ \int_0^t p d\tau = \int_{i(0)}^{i(t)}Lidi \\\ \\ pt = \frac{1}{2}L(i(t)^2-i(0)^2) \\\ \\ 当i(0)=0时,W=\frac{1}{2}Li^2 $$
+特点 端电流不允许跃变
+端电压允许跃变
+端电流为常量时，短路
+电容 电压 电流 功率 能量 $$ 推导方式与电感相同，可以得出 \\\ \\ i = C\frac{dV}{dt} \\\ \\ V =\frac{1}{C} \int_0^ti(\tau) d\tau &#43; v(0) \\\ \\ W =\frac{1}{2}Cv^2 $$'>
+<meta property='og:url' content='https://example.com/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-11-27T06:07:17&#43;08:00'/><meta property='article:modified_time' content='2022-11-27T06:07:17&#43;08:00'/>
-<meta name="twitter:title" content="电阻元件与简单电阻电路">
-<meta name="twitter:description" content="[toc]
-一、基尔霍夫定理 1.1 基尔霍夫电流定律 定义 在电路中，任何节点上的所有电流的代数和为0
-其中，基尔霍夫电流方程被称为KCL方程 1.2 基尔霍夫电压定律 定义 在电路中，环绕任何闭合路径的电压为0
-1.3 应用 1.3.1 含源受控电路的分析 二、常见的特殊电路 2.1 惠斯通电桥 图示
-推导 $$ KCL\begin{cases}i_1=i_3 \\ i_2=i_x\end{cases} \\\ \\ KVL\begin{cases} i_1R_1=i_2R_2\\ i_3R_3=i_xR_x\end{cases}\\\ \\ \Rightarrow R_1R_x=R_2R_3\Leftrightarrow R_x=\frac{R_2}{R_1}R_3 $$
-2.2 $\Delta - Y(\pi-T)$等效电路 $\Delta$与$\pi$结构的转换 $Y$和$T$的转换 $\Delta-Y$变换
-图示 公式
-$$ 通过串并联的简单计算可以得到\\\ \\ R_1=\frac{R_bR_c}{R_a&#43;R_b&#43;R_C} \\\ \\ R_2=\frac{R_aR_c}{R_a&#43;R_b&#43;R_C} \\\ \\ R_3=\frac{R_aR_b}{R_a&#43;R_b&#43;R_C} \\\ \\ 反过来\\\ \\ R_a=\frac{R_1R_2&#43;R_2R_3&#43;R_1R_3}{R_1}\\\ \\ R_b=\frac{R_1R_2&#43;R_2R_3&#43;R_1R_3}{R_2} \\\ \\ R_c=\frac{R_1R_2&#43;R_2R_3&#43;R_1R_3}{R_3} $$">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-03T01:56:41&#43;08:00'/><meta property='article:modified_time' content='2022-12-03T01:56:41&#43;08:00'/>
+<meta name="twitter:title" content="电感、电容与互感">
+<meta name="twitter:description" content="电感 电感的电压与电流 $$ 根据定义\\\ \\ v=L\frac{di}{dt} \\\ \\ di = \frac{v}{L}dt \\\ \\ L\int_{i(0)}^{i(t)} di = \int_0^t vd\tau \\\ \\ i(t)=\frac{1}{L}\int_0^tvd\tau &#43;i(0) $$
+电感的功率和能量 $$ p = vi =Li\frac{di}{dt} \\\ \\ \int_0^t p d\tau = \int_{i(0)}^{i(t)}Lidi \\\ \\ pt = \frac{1}{2}L(i(t)^2-i(0)^2) \\\ \\ 当i(0)=0时,W=\frac{1}{2}Li^2 $$
+特点 端电流不允许跃变
+端电压允许跃变
+端电流为常量时，短路
+电容 电压 电流 功率 能量 $$ 推导方式与电感相同，可以得出 \\\ \\ i = C\frac{dV}{dt} \\\ \\ V =\frac{1}{C} \int_0^ti(\tau) d\tau &#43; v(0) \\\ \\ W =\frac{1}{2}Cv^2 $$">
     </head>
     <body class="
     article-page
@@ -270,23 +264,26 @@ $$ 通过串并联的简单计算可以得到\\\ \\ R_1=\frac{R_bR_c}{R_a&#43;R_
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#一基尔霍夫定理">一、基尔霍夫定理</a>
+    <li><a href="#电感">电感</a>
       <ol>
-        <li><a href="#11-基尔霍夫电流定律">1.1 基尔霍夫电流定律</a></li>
-        <li><a href="#12-基尔霍夫电压定律">1.2 基尔霍夫电压定律</a></li>
-        <li><a href="#13-应用">1.3 应用</a>
-          <ol>
-            <li><a href="#131-含源受控电路的分析">1.3.1 含源受控电路的分析</a></li>
-          </ol>
-        </li>
+        <li><a href="#电感的电压与电流">电感的电压与电流</a></li>
+        <li><a href="#电感的功率和能量">电感的功率和能量</a></li>
+        <li><a href="#特点">特点</a></li>
       </ol>
     </li>
-    <li><a href="#二常见的特殊电路">二、常见的特殊电路</a>
+    <li><a href="#电容">电容</a>
       <ol>
-        <li><a href="#21-惠斯通电桥">2.1 惠斯通电桥</a></li>
-        <li><a href="#22-delta---ypi-t等效电路">2.2 $\Delta - Y(\pi-T)$等效电路</a></li>
+        <li><a href="#电压-电流-功率-能量">电压 电流 功率 能量</a></li>
+        <li><a href="#特点-1">特点</a></li>
       </ol>
     </li>
+    <li><a href="#电容-电感-串并联">电容 电感 串并联</a>
+      <ol>
+        <li><a href="#电感串并联">电感串并联</a></li>
+        <li><a href="#电容串并联">电容串并联</a></li>
+      </ol>
+    </li>
+    <li><a href="#互感">互感</a></li>
   </ol>
 </nav>
         </div>
@@ -314,7 +311,7 @@ $$ 通过串并联的简单计算可以得到\\\ \\ R_1=\frac{R_bR_c}{R_a&#43;R_
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E7%94%B5%E9%98%BB%E5%85%83%E4%BB%B6%E4%B8%8E%E7%AE%80%E5%8D%95%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF/">电阻元件与简单电阻电路</a>
+            <a href="/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/">电感、电容与互感</a>
         </h2>
     
         
@@ -336,7 +333,7 @@ $$ 通过串并联的简单计算可以得到\\\ \\ R_1=\frac{R_bR_c}{R_a&#43;R_
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Nov 27, 2022</time>
+                <time class="article-time--published">Dec 03, 2022</time>
             </div>
         
 
@@ -366,118 +363,79 @@ $$ 通过串并联的简单计算可以得到\\\ \\ R_1=\frac{R_bR_c}{R_a&#43;R_
     <section class="article-content">
     
     
-    <p>[toc]</p>
-<h1 id="一基尔霍夫定理">一、基尔霍夫定理</h1>
-<h2 id="11-基尔霍夫电流定律">1.1 基尔霍夫电流定律</h2>
-<ol>
-<li>定义</li>
-</ol>
-<blockquote>
-<p>在电路中，任何节点上的所有电流的代数和为0</p>
-</blockquote>
-<ul>
-<li>其中，基尔霍夫电流方程被称为<strong>KCL</strong>方程</li>
-</ul>
-<h2 id="12-基尔霍夫电压定律">1.2 基尔霍夫电压定律</h2>
-<ol>
-<li>定义</li>
-</ol>
-<blockquote>
-<p>在电路中，环绕任何闭合路径的电压为0</p>
-</blockquote>
-<h2 id="13-应用">1.3 应用</h2>
-<h3 id="131-含源受控电路的分析">1.3.1 含源受控电路的分析</h3>
-<h1 id="二常见的特殊电路">二、常见的特殊电路</h1>
-<h2 id="21-惠斯通电桥">2.1 惠斯通电桥</h2>
-<ol>
-<li>
-<p>图示</p>
-</li>
-<li>
-<p>推导
-<img src="/home/flyfan/Downloads/Pictures/ScreenShots/%e6%83%a0%e6%96%af%e9%80%9a%e7%94%b5%e6%a1%a5.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="Image 1"
-	
-	
->
-$$
-KCL\begin{cases}i_1=i_3 \\ i_2=i_x\end{cases} \\\
-\\ KVL\begin{cases} i_1R_1=i_2R_2\\ i_3R_3=i_xR_x\end{cases}\\\
-\\ \Rightarrow R_1R_x=R_2R_3\Leftrightarrow R_x=\frac{R_2}{R_1}R_3
-$$</p>
-</li>
-</ol>
-<h2 id="22-delta---ypi-t等效电路">2.2 $\Delta - Y(\pi-T)$等效电路</h2>
-<ol>
-<li>
-<p><strong>$\Delta$与$\pi$结构的转换</strong>
-<img src="/home/flyfan/Downloads/Pictures/ScreenShots/%e7%bb%93%e6%9e%84%e8%bd%ac%e6%8d%a2.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="avatar"
-	
-	
-></p>
-</li>
-<li>
-<p>$Y$和$T$的转换
-<img src="/home/flyfan/Downloads/Pictures/ScreenShots/%e7%bb%93%e6%9e%84%e8%bd%ac%e6%8d%a2YT.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="avatar"
-	
-	
-></p>
-</li>
-<li>
-<p>$\Delta-Y$变换</p>
-</li>
-</ol>
-<ul>
-<li>
-<p>图示
-<img src="/home/flyfan/Downloads/Pictures/ScreenShots/%e7%bb%93%e6%9e%84%e8%bd%ac%e6%8d%a2YDelta.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="avatar"
-	
-	
-></p>
-</li>
-<li>
-<p>公式</p>
-</li>
-</ul>
+    <h1 id="电感">电感</h1>
+<h2 id="电感的电压与电流">电感的电压与电流</h2>
 <p>$$
-通过串并联的简单计算可以得到\\\
-\\ R_1=\frac{R_bR_c}{R_a+R_b+R_C} \\\
-\\ R_2=\frac{R_aR_c}{R_a+R_b+R_C} \\\
-\\ R_3=\frac{R_aR_b}{R_a+R_b+R_C} \\\
-\\ 反过来\\\
-\\ R_a=\frac{R_1R_2+R_2R_3+R_1R_3}{R_1}\\\
-\\ R_b=\frac{R_1R_2+R_2R_3+R_1R_3}{R_2} \\\
-\\ R_c=\frac{R_1R_2+R_2R_3+R_1R_3}{R_3}
+根据定义\\\
+\\ v=L\frac{di}{dt} \\\
+\\ di = \frac{v}{L}dt \\\
+\\ L\int_{i(0)}^{i(t)} di = \int_0^t vd\tau \\\
+\\ i(t)=\frac{1}{L}\int_0^tvd\tau +i(0)
 $$</p>
+<h2 id="电感的功率和能量">电感的功率和能量</h2>
+<p>$$
+p = vi =Li\frac{di}{dt} \\\
+\\ \int_0^t p d\tau = \int_{i(0)}^{i(t)}Lidi \\\
+\\ pt = \frac{1}{2}L(i(t)^2-i(0)^2) \\\
+\\ 当i(0)=0时,W=\frac{1}{2}Li^2
+$$</p>
+<h2 id="特点">特点</h2>
+<ol>
+<li>
+<p>端电流不允许跃变</p>
+</li>
+<li>
+<p>端电压允许跃变</p>
+</li>
+<li>
+<p>端电流为常量时，<strong>短路</strong></p>
+</li>
+</ol>
+<h1 id="电容">电容</h1>
+<h2 id="电压-电流-功率-能量">电压 电流 功率 能量</h2>
+<p>$$
+推导方式与电感相同，可以得出 \\\
+\\ i = C\frac{dV}{dt} \\\
+\\ V =\frac{1}{C} \int_0^ti(\tau) d\tau + v(0) \\\
+\\ W =\frac{1}{2}Cv^2
+$$</p>
+<h2 id="特点-1">特点</h2>
+<ol>
+<li>
+<p>端电压不能突变</p>
+</li>
+<li>
+<p>端电流可以突变</p>
+</li>
+<li>
+<p>当电压为常数时，相当于<strong>断路</strong></p>
+</li>
+</ol>
+<h1 id="电容-电感-串并联">电容 电感 串并联</h1>
+<h2 id="电感串并联">电感串并联</h2>
+<p>$$
+串联：\frac{1}{L_{eq}}= \sum_{i=1}^n \frac{1}{L_i} \\\
+\\ 并联: L_{eq}  =\sum_{i=1}^n L_i
+$$</p>
+<h2 id="电容串并联">电容串并联</h2>
+<p>$$
+串联: C_{eq} = \sum_{i=1}^n C_i \\\
+\\ 并联: \frac{1}{C_{eq}} = \sum_{i=1}^n \frac{1}{C_i}
+$$</p>
+<h1 id="互感">互感</h1>
+<blockquote>
+<p>详见物理学——电磁感应部分</p>
+</blockquote>
 
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+    </section>
+
 
     
     <section class="article-copyright">
@@ -531,19 +489,6 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">电感、电容与互感</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/">
         
         
@@ -563,6 +508,19 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">电路分析法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E7%94%B5%E9%98%BB%E5%85%83%E4%BB%B6%E4%B8%8E%E7%AE%80%E5%8D%95%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">电阻元件与简单电阻电路</h2>
         </div>
     </a>
 </article>
