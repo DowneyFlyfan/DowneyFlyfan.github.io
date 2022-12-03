@@ -286,8 +286,26 @@
         <li><a href="#频域下的无源电路元件">频域下的无源电路元件</a>
           <ol>
             <li><a href="#伏安特性">伏安特性</a></li>
+            <li><a href="#阻抗和电抗">阻抗和电抗</a></li>
           </ol>
         </li>
+      </ol>
+    </li>
+    <li><a href="#串并联-三角形-星形变换">串并联 三角形-星形变换</a>
+      <ol>
+        <li><a href="#并联阻抗与串联阻抗的合并">并联阻抗与串联阻抗的合并</a>
+          <ol>
+            <li><a href="#串联阻抗">串联阻抗</a></li>
+            <li><a href="#并联阻抗与串联阻抗的合并-1">并联阻抗与串联阻抗的合并</a></li>
+          </ol>
+        </li>
+        <li><a href="#三角形-星形变换">三角形-星形变换</a></li>
+      </ol>
+    </li>
+    <li><a href="#电源变换-戴维南-诺顿等效电路">电源变换 戴维南-诺顿等效电路</a></li>
+    <li><a href="#变压器">变压器</a>
+      <ol>
+        <li><a href="#线性变压器电路">线性变压器电路</a></li>
       </ol>
     </li>
   </ol>
@@ -444,9 +462,142 @@ i =I_mcos(\omega t + \phi) \\\
 \\ v = L\frac{di}{dt} = -\omega LI_msin(\omega t + \phi) = -\omega L I_m cos(\omega t  +\phi -\frac{\pi}{2}) \\\
 \\ \pmb V = -\omega L I_m e^{j(\phi - \frac{\pi}{2})} = -\omega L I_m e^{j\phi}e^{j(-\pi/2)} = j\omega I_m L e^{j\phi} = j\omega L \pmb I \\\
 \\ 对于电容 \\\
-\\ \pmb V =\frac{1}{j\omega C} \pmb I \\\
-\\ \pmb V = Z\pmb I
+\\ \pmb V =\frac{1}{j\omega C} \pmb I  = -\frac{j}{\omega C} \pmb I
 $$</p>
+<h3 id="阻抗和电抗">阻抗和电抗</h3>
+<ol>
+<li>公式</li>
+</ol>
+<p>$$
+\pmb V = Z\pmb I
+$$</p>
+<ol start="2">
+<li>阻抗和电抗</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">电路元件</th>
+<th style="text-align:center">阻抗</th>
+<th style="text-align:center">电抗</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">电阻</td>
+<td style="text-align:center">$R$</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">电感</td>
+<td style="text-align:center">$j\omega L$</td>
+<td style="text-align:center">$\omega L$</td>
+</tr>
+<tr>
+<td style="text-align:center">电容</td>
+<td style="text-align:center">$j(-1/\omega C)$</td>
+<td style="text-align:center">$-1/\omega C$</td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="串并联-三角形-星形变换">串并联 三角形-星形变换</h1>
+<h2 id="并联阻抗与串联阻抗的合并">并联阻抗与串联阻抗的合并</h2>
+<h3 id="串联阻抗">串联阻抗</h3>
+<p>$$
+Z_{ab}=\sum_{i=1}^n Z_i
+$$</p>
+<h3 id="并联阻抗与串联阻抗的合并-1">并联阻抗与串联阻抗的合并</h3>
+<ol>
+<li>公式</li>
+</ol>
+<p>$$
+导纳 Y= \frac{1}{Z_{ab}}=\sum_{i=1}^n\frac{1}{Z_i} \\\
+\\ Y = \frac{1}{Z} = G +jB(S)
+$$</p>
+<ol start="2">
+<li>导纳和电纳</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">电路参数</th>
+<th style="text-align:center">导纳</th>
+<th style="text-align:center">电纳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">电阻</td>
+<td style="text-align:center">G</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">电感</td>
+<td style="text-align:center">$j(-1/\omega L)$</td>
+<td style="text-align:center">$-1/\omega L$</td>
+</tr>
+<tr>
+<td style="text-align:center">电容</td>
+<td style="text-align:center">$j\omega C$</td>
+<td style="text-align:center">$\omega C$</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="三角形-星形变换">三角形-星形变换</h2>
+<ol>
+<li>图示</li>
+</ol>
+<p><img src="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/2.png"
+	width="803"
+	height="704"
+	srcset="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/2_hufd8dcc2ae4e60b4a57634a032ba395c1_121649_480x0_resize_box_3.png 480w, /p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/2_hufd8dcc2ae4e60b4a57634a032ba395c1_121649_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="273px"
+	
+></p>
+<ol start="2">
+<li>关系</li>
+</ol>
+<ul>
+<li>与时域下的关系一样一样</li>
+</ul>
+<h1 id="电源变换-戴维南-诺顿等效电路">电源变换 戴维南-诺顿等效电路</h1>
+<ul>
+<li>同时域</li>
+</ul>
+<h1 id="变压器">变压器</h1>
+<h2 id="线性变压器电路">线性变压器电路</h2>
+<ol>
+<li>电路图</li>
+</ol>
+<p><img src="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/3.png"
+	width="798"
+	height="357"
+	srcset="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/3_hu9b1d0f87446f1c9d32ff856e7fcce955_232461_480x0_resize_box_3.png 480w, /p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/3_hu9b1d0f87446f1c9d32ff856e7fcce955_232461_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="223"
+		data-flex-basis="536px"
+	
+></p>
+<ol start="2">
+<li>推导</li>
+</ol>
+<p>$$
+左边电路KVL方程: \pmb {V_s} = \pmb I_1(Z_s + R_1 + j\omega L_1 ) - j\omega M\pmb I_2 \\\
+\\ 右边KVL方程 :\pmb{I_2}(R_2+Z_L+j\omega L_2) - j\omega M \pmb{I_1} = 0 \\\
+\\ 令 Z_{11} = Z_s+R_1+j\omega L_1， Z_2 = Z_L+R_2 + j\omega L_2 \\\
+\\
+$$</p>
+<ol start="3">
+<li></li>
+</ol>
 
 </section>
 
@@ -549,12 +700,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E6%B3%95/">
+    <a href="/p/%E7%94%B5%E8%B7%AF%E8%8B%B1%E8%AF%AD%E4%B8%93%E4%B8%9A%E8%AF%8D%E8%AF%AD/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">电路分析法</h2>
+            <h2 class="article-title">电路英语专业词语</h2>
         </div>
     </a>
 </article>
@@ -562,12 +713,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E7%94%B5%E9%98%BB%E5%85%83%E4%BB%B6%E4%B8%8E%E7%AE%80%E5%8D%95%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF/">
+    <a href="/p/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E6%B3%95/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">电阻元件与简单电阻电路</h2>
+            <h2 class="article-title">电路分析法</h2>
         </div>
     </a>
 </article>
