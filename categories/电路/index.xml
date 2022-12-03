@@ -6,7 +6,93 @@
         <description>Recent content in 电路 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 03 Dec 2022 02:18:32 +0800</lastBuildDate><atom:link href="https://example.com/categories/%E7%94%B5%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 03 Dec 2022 18:42:48 +0800</lastBuildDate><atom:link href="https://example.com/categories/%E7%94%B5%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>正弦稳态分析</title>
+        <link>https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/</link>
+        <pubDate>Sat, 03 Dec 2022 18:42:48 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/</guid>
+        <description>&lt;h1 id=&#34;正弦信号源-正弦响应&#34;&gt;正弦信号源 正弦响应&lt;/h1&gt;
+&lt;h2 id=&#34;表达&#34;&gt;表达&lt;/h2&gt;
+&lt;p&gt;$$
+v =V_mcos(\omega t+\phi) \ [1] \\\
+\\ f =\frac{1}{T} \\\
+\\ \omega=2\pi f =\frac{2\pi}{T} \\\
+\\ 均方根V_{rms} = \sqrt{\frac{1}{T} \int_{t_0}^{t_0+T}V_m^2cos^2(\omega t +\phi)dt} \\\
+\\ 对于[1]，均方根为\frac{V_m}{\sqrt{2}}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;正弦响应&#34;&gt;正弦响应&lt;/h2&gt;
+&lt;h3 id=&#34;正弦电源激励下的rl电路&#34;&gt;正弦电源激励下的RL电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/1.png&#34;
+	width=&#34;784&#34;
+	height=&#34;356&#34;
+	srcset=&#34;https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/1_hu80f879e97d501282a43809d644ff53d0_46834_480x0_resize_box_3.png 480w, https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/1_hu80f879e97d501282a43809d644ff53d0_46834_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;220&#34;
+		data-flex-basis=&#34;528px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;电流与时间&#34;&gt;电流与时间&lt;/h3&gt;
+&lt;p&gt;$$
+L\frac{di}{dt} + Ri = V_mcos(\omega t + \phi) \Rightarrow \\\
+\\ i = \frac{-V_m}{\sqrt{R^2+\omega^2L^2}}cos(\phi -\theta)e^{-(R/L)t}+\frac{V_m}{\sqrt{R^2+\omega^2L^2}}cos(\omega t + \phi - \theta)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;稳态响应的性质&#34;&gt;稳态响应的性质&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;稳态响应为一正弦函数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;响应频率与信号源频率相同&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;稳态响应的最大值$\neq$ 信号源的幅值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;稳态响应的相位角与信号源的不同&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;相量-频域&#34;&gt;相量 频域&lt;/h1&gt;
+&lt;h2 id=&#34;正弦信号源的相量&#34;&gt;正弦信号源的相量&lt;/h2&gt;
+&lt;p&gt;$$
+欧拉定律: e^{\pm j \theta} = cos\theta \pm j\cdot sin\theta \\\
+\\ \therefore  v = V_mcos(\omega t +\phi) = V_m \Re\lbrace e^{j(\omega t +\phi)} \rbrace = \Re\lbrace{V_me^{j\omega t}\cdot e^{j\phi}}\rbrace \\\
+\\ 相量\pmb V = V_me^{j\phi} =P\lbrace{V_mcos(\omega t + \phi)}\rbrace \\\
+\\ \pmb V = V_mcos\theta + jV_msin\theta \\\
+\\ 注意, 1e^{j\phi} = 1 \angle{\phi \deg}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;反相量变换&#34;&gt;反相量变换&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+P^{-1}\lbrace V_me^{j\phi}\rbrace = \Re \lbrace V_m e^{j\omega t} e^{j\phi}\rbrace
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;相量法的特点&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+如果V = \sum_{i=1}^n V_i\Rightarrow \pmb{V = \sum_{i=1}^n V_i}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;频域下的无源电路元件&#34;&gt;频域下的无源电路元件&lt;/h2&gt;
+&lt;h3 id=&#34;伏安特性&#34;&gt;伏安特性&lt;/h3&gt;
+&lt;p&gt;$$
+i =I_mcos(\omega t + \phi) \\\
+\\ 对于电阻\\\
+\\ \pmb V=R\pmb I \\\
+\\ 对于电感 \\\
+\\ v = L\frac{di}{dt} = -\omega LI_msin(\omega t + \phi) = -\omega L I_m cos(\omega t  +\phi -\frac{\pi}{2}) \\\
+\\ \pmb V = -\omega L I_m e^{j(\phi - \frac{\pi}{2})} = -\omega L I_m e^{j\phi}e^{j(-\pi/2)} = j\omega I_m L e^{j\phi} = j\omega L \pmb I \\\
+\\ 对于电容 \\\
+\\ \pmb V =\frac{1}{j\omega C} \pmb I \\\
+\\ \pmb V = Z\pmb I
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>RL,RC电路的响应</title>
         <link>https://example.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/</link>
         <pubDate>Sat, 03 Dec 2022 02:18:32 +0800</pubDate>

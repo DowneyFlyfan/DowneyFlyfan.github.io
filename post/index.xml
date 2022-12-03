@@ -442,12 +442,37 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;正弦信号源的相量&#34;&gt;正弦信号源的相量&lt;/h2&gt;
 &lt;p&gt;$$
 欧拉定律: e^{\pm j \theta} = cos\theta \pm j\cdot sin\theta \\\
-\\ \therefore  v = V_mcos(\omega t +\phi) = V_m \Re\lbrace e^{j(\omega t +\phi)} \rbrace = V_m \Re\lbrace{e^{j\omega t}\cdot e^{j\phi}}\rbrace \\\
-\\ 相量\pmb V = V_me^{j\phi} = \P{V_mcos(\omega t + \phi)} \\\
-\\ \pmb V = V_mcos\theta  +jV_msin\theta \\\
+\\ \therefore  v = V_mcos(\omega t +\phi) = V_m \Re\lbrace e^{j(\omega t +\phi)} \rbrace = \Re\lbrace{V_me^{j\omega t}\cdot e^{j\phi}}\rbrace \\\
+\\ 相量\pmb V = V_me^{j\phi} =P\lbrace{V_mcos(\omega t + \phi)}\rbrace \\\
+\\ \pmb V = V_mcos\theta + jV_msin\theta \\\
 \\ 注意, 1e^{j\phi} = 1 \angle{\phi \deg}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;反相量变换&#34;&gt;反相量变换&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+P^{-1}\lbrace V_me^{j\phi}\rbrace = \Re \lbrace V_m e^{j\omega t} e^{j\phi}\rbrace
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;相量法的特点&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+如果V = \sum_{i=1}^n V_i\Rightarrow \pmb{V = \sum_{i=1}^n V_i}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;频域下的无源电路元件&#34;&gt;频域下的无源电路元件&lt;/h2&gt;
+&lt;h3 id=&#34;伏安特性&#34;&gt;伏安特性&lt;/h3&gt;
+&lt;p&gt;$$
+i =I_mcos(\omega t + \phi) \\\
+\\ 对于电阻\\\
+\\ \pmb V=R\pmb I \\\
+\\ 对于电感 \\\
+\\ v = L\frac{di}{dt} = -\omega LI_msin(\omega t + \phi) = -\omega L I_m cos(\omega t  +\phi -\frac{\pi}{2}) \\\
+\\ \pmb V = -\omega L I_m e^{j(\phi - \frac{\pi}{2})} = -\omega L I_m e^{j\phi}e^{j(-\pi/2)} = j\omega I_m L e^{j\phi} = j\omega L \pmb I \\\
+\\ 对于电容 \\\
+\\ \pmb V =\frac{1}{j\omega C} \pmb I \\\
+\\ \pmb V = Z\pmb I
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
