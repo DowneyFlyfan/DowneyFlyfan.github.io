@@ -306,6 +306,7 @@
     <li><a href="#变压器">变压器</a>
       <ol>
         <li><a href="#线性变压器电路">线性变压器电路</a></li>
+        <li><a href="#理想变压器">理想变压器</a></li>
       </ol>
     </li>
   </ol>
@@ -372,7 +373,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -567,7 +568,7 @@ $$</p>
 </ul>
 <h1 id="电源变换-戴维南-诺顿等效电路">电源变换 戴维南-诺顿等效电路</h1>
 <ul>
-<li>同时域</li>
+<li>具体情况与时域下的相同</li>
 </ul>
 <h1 id="变压器">变压器</h1>
 <h2 id="线性变压器电路">线性变压器电路</h2>
@@ -593,11 +594,51 @@ $$</p>
 左边电路KVL方程: \pmb {V_s} = \pmb I_1(Z_s + R_1 + j\omega L_1 ) - j\omega M\pmb I_2 \\\
 \\ 右边KVL方程 :\pmb{I_2}(R_2+Z_L+j\omega L_2) - j\omega M \pmb{I_1} = 0 \\\
 \\ 令 Z_{11} = Z_s+R_1+j\omega L_1， Z_2 = Z_L+R_2 + j\omega L_2 \\\
-\\
+\\ 我们可以得到
 $$</p>
 <ol start="3">
-<li></li>
+<li><strong>结论</strong></li>
 </ol>
+<p>$$
+\pmb I_1 =\frac{Z_{22}}{Z_{11}Z_{22}+\omega^2M^2} \pmb V_s \\\
+\\ \pmb I_2 = \frac{j\omega M}{Z_{11}Z_{22}+\omega^2M^2}\pmb V_s = \frac{j\omega M}{Z_{22}}\pmb I_1 \\\
+\\ 对于电源内部, Z_{int} =  \frac{V_s}{I} = Z_{11}+ \frac{\omega^2M^2}{Z_{22}}\\\
+\\ Z_{ab} = Z_{11} + \frac{\omega^2 M^2}{Z_{22}}-Z_s = R_1+j\omega L_1 + \frac{\omega^2 M^2}{(R_2+j\omega L_2+Z_L)} [1]
+$$</p>
+<ol start="4">
+<li>反射阻抗</li>
+</ol>
+<p>$$
+[1]式中的Z_r =\frac{\omega^2 M^2}{(R_2+j\omega L_2+Z_L)}被称为\pmb{反射阻抗} \\\
+\\ 将Z_L=R_L+jX_L \\\
+\\ 得到Z_r = \frac{\omega^2 M^2}{|Z_{22}|^2}[(R_2+R_L)-j(\omega L_2 + X_L)]
+$$</p>
+<h2 id="理想变压器">理想变压器</h2>
+<ol>
+<li>前提</li>
+</ol>
+<ul>
+<li>
+<p>耦合系数为1($k=1$)</p>
+</li>
+<li>
+<p>$L_1 = L_2 \rightarrow +\infin$</p>
+</li>
+<li>
+<p>寄生电阻造成的线圈损失忽略不计</p>
+</li>
+</ul>
+<ol start="2">
+<li>继续推导</li>
+</ol>
+<p>$$
+当耦合为紧耦合时，两磁通相同 \\\
+\\ \frac{L_1}{L_2} = (\frac{N_1}{N_2})^2 \\\
+\\ \because L_1 = L_2 \rightarrow +\infin \\\
+\\ \therefore X_{ab} = (\frac{N_1}{N_2})^2 X_L \\\
+\\ Z_{ab} = R_1 + (\frac{N_1}{N_2})^2 R_2 + (\frac{N_1}{N_2})^2 (R_L + jX_L) \\\
+\\
+$$</p>
 
 </section>
 
