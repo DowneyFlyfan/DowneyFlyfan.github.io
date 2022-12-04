@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='RL电路的固有响应 电路图 电流与时间 $$ 对于最右边的网孔列KVL方程 \\\ \\ L\frac{di}{dt}&#43;iR = 0 \\\ \\ \pmb{i(t)=I_0e^{(-R/L)t}，t\gt 0}\\\ \\ 零时刻，电压产生结语变化 \\\ \\ v(0^-) = 0，v(0^&#43;) = I_0R ，v(0)位置 $$
-功率 能量 $$ p =i^2R = I_0^2Re^{(-2R/L)t} \\\ \\ W = \int_0^t p d\tau = \frac{1}{2}LI_0^2(1-e^{-2(R/L)t}), t\ge 0 $$
-时间常数 定义 $\tau =L/R$ 替换后 $$ i(t) = I_0e^{-(t/\tau)} \\\ \\ v(t)= I_0Re^{-(t/\tau)} \\\ \\ p =I_0^2 R e^{-2t/\tau} \\\ \\ W =\frac{1}{2}LI_0^2(1-e^{-2t/\tau}) $$
-总结 先求$I_0$'>
-<title>RL,RC电路的响应</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本概念 定义 树是n个节点的有限集，有且仅有一个特定的称为根的节点
+图示 特点
+根节点是唯一的 子树的个数没有限制，但他们一定是互不相交的 树中的概念 结点的度(Degree) 结点拥有的子树数 叶结点 度为0的结点 分支结点 度不为0的节点 内部结点 除了根节点以外的分支节点 树的度 树内各结点的度的最大值 结点的关系 Child 结点的子树 Parent 该结点 Sibing 同一个Parent的Child 其他概念 树的深度(Depth)
+结点的最大层次 有序树
+树中结点的各子树从左至右是有序的，则称其为有序树 森林
+m棵互不相交的树的集合 树的ADT 树的存储结构 Parent表示法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #define MAXSIZE 100 //具体数字依实际情况而定 typedef int TElemType; typedef struct PTNode { TElemType data; int parent; }PTNode; typedef struct { PTNode Nodes[MAXSIZE]; int r,n; }PTree; Child表示法 '>
+<title>树(Tree)</title>
 
-<link rel='canonical' href='https://example.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/'>
+<link rel='canonical' href='https://example.com/p/%E6%A0%91tree/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='RL,RC电路的响应'>
-<meta property='og:description' content='RL电路的固有响应 电路图 电流与时间 $$ 对于最右边的网孔列KVL方程 \\\ \\ L\frac{di}{dt}&#43;iR = 0 \\\ \\ \pmb{i(t)=I_0e^{(-R/L)t}，t\gt 0}\\\ \\ 零时刻，电压产生结语变化 \\\ \\ v(0^-) = 0，v(0^&#43;) = I_0R ，v(0)位置 $$
-功率 能量 $$ p =i^2R = I_0^2Re^{(-2R/L)t} \\\ \\ W = \int_0^t p d\tau = \frac{1}{2}LI_0^2(1-e^{-2(R/L)t}), t\ge 0 $$
-时间常数 定义 $\tau =L/R$ 替换后 $$ i(t) = I_0e^{-(t/\tau)} \\\ \\ v(t)= I_0Re^{-(t/\tau)} \\\ \\ p =I_0^2 R e^{-2t/\tau} \\\ \\ W =\frac{1}{2}LI_0^2(1-e^{-2t/\tau}) $$
-总结 先求$I_0$'>
-<meta property='og:url' content='https://example.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='树(Tree)'>
+<meta property='og:description' content='基本概念 定义 树是n个节点的有限集，有且仅有一个特定的称为根的节点
+图示 特点
+根节点是唯一的 子树的个数没有限制，但他们一定是互不相交的 树中的概念 结点的度(Degree) 结点拥有的子树数 叶结点 度为0的结点 分支结点 度不为0的节点 内部结点 除了根节点以外的分支节点 树的度 树内各结点的度的最大值 结点的关系 Child 结点的子树 Parent 该结点 Sibing 同一个Parent的Child 其他概念 树的深度(Depth)
+结点的最大层次 有序树
+树中结点的各子树从左至右是有序的，则称其为有序树 森林
+m棵互不相交的树的集合 树的ADT 树的存储结构 Parent表示法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #define MAXSIZE 100 //具体数字依实际情况而定 typedef int TElemType; typedef struct PTNode { TElemType data; int parent; }PTNode; typedef struct { PTNode Nodes[MAXSIZE]; int r,n; }PTree; Child表示法 '>
+<meta property='og:url' content='https://example.com/p/%E6%A0%91tree/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-03T02:18:32&#43;08:00'/><meta property='article:modified_time' content='2022-12-03T02:18:32&#43;08:00'/>
-<meta name="twitter:title" content="RL,RC电路的响应">
-<meta name="twitter:description" content="RL电路的固有响应 电路图 电流与时间 $$ 对于最右边的网孔列KVL方程 \\\ \\ L\frac{di}{dt}&#43;iR = 0 \\\ \\ \pmb{i(t)=I_0e^{(-R/L)t}，t\gt 0}\\\ \\ 零时刻，电压产生结语变化 \\\ \\ v(0^-) = 0，v(0^&#43;) = I_0R ，v(0)位置 $$
-功率 能量 $$ p =i^2R = I_0^2Re^{(-2R/L)t} \\\ \\ W = \int_0^t p d\tau = \frac{1}{2}LI_0^2(1-e^{-2(R/L)t}), t\ge 0 $$
-时间常数 定义 $\tau =L/R$ 替换后 $$ i(t) = I_0e^{-(t/\tau)} \\\ \\ v(t)= I_0Re^{-(t/\tau)} \\\ \\ p =I_0^2 R e^{-2t/\tau} \\\ \\ W =\frac{1}{2}LI_0^2(1-e^{-2t/\tau}) $$
-总结 先求$I_0$">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-05T03:16:42&#43;08:00'/><meta property='article:modified_time' content='2022-12-05T03:16:42&#43;08:00'/>
+<meta name="twitter:title" content="树(Tree)">
+<meta name="twitter:description" content="基本概念 定义 树是n个节点的有限集，有且仅有一个特定的称为根的节点
+图示 特点
+根节点是唯一的 子树的个数没有限制，但他们一定是互不相交的 树中的概念 结点的度(Degree) 结点拥有的子树数 叶结点 度为0的结点 分支结点 度不为0的节点 内部结点 除了根节点以外的分支节点 树的度 树内各结点的度的最大值 结点的关系 Child 结点的子树 Parent 该结点 Sibing 同一个Parent的Child 其他概念 树的深度(Depth)
+结点的最大层次 有序树
+树中结点的各子树从左至右是有序的，则称其为有序树 森林
+m棵互不相交的树的集合 树的ADT 树的存储结构 Parent表示法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #define MAXSIZE 100 //具体数字依实际情况而定 typedef int TElemType; typedef struct PTNode { TElemType data; int parent; }PTNode; typedef struct { PTNode Nodes[MAXSIZE]; int r,n; }PTree; Child表示法 ">
     </head>
     <body class="
     article-page
@@ -258,51 +264,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#rl电路的固有响应">RL电路的固有响应</a>
+    <li><a href="#基本概念">基本概念</a></li>
+    <li><a href="#树的adt">树的ADT</a></li>
+    <li><a href="#树的存储结构">树的存储结构</a>
       <ol>
-        <li><a href="#电路图">电路图</a></li>
-        <li><a href="#电流与时间">电流与时间</a></li>
-        <li><a href="#功率-能量">功率 能量</a></li>
-        <li><a href="#时间常数">时间常数</a></li>
-        <li><a href="#总结">总结</a></li>
-      </ol>
-    </li>
-    <li><a href="#rc电路的固有响应">RC电路的固有响应</a>
-      <ol>
-        <li><a href="#电路图-1">电路图</a></li>
-        <li><a href="#电压与时间-功率-能量">电压与时间 功率 能量</a></li>
-      </ol>
-    </li>
-    <li><a href="#rl-rc电路的阶跃响应">RL RC电路的阶跃响应</a>
-      <ol>
-        <li><a href="#rl-电路的阶跃响应">RL 电路的阶跃响应</a>
-          <ol>
-            <li><a href="#图示">图示</a></li>
-            <li><a href="#电流与时间-1">电流与时间</a></li>
-            <li><a href="#电流与时间的变化率">电流与时间的变化率</a></li>
-            <li><a href="#其他变量">其他变量</a></li>
-          </ol>
-        </li>
-        <li><a href="#rc电路的阶跃响应">RC电路的阶跃响应</a>
-          <ol>
-            <li><a href="#电路图-2">电路图</a></li>
-            <li><a href="#公式">公式</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#阶跃响应与固有响应的一般解法">阶跃响应与固有响应的一般解法</a>
-      <ol>
-        <li><a href="#公式表达">公式表达</a></li>
-        <li><a href="#步骤">步骤</a></li>
-      </ol>
-    </li>
-    <li><a href="#按序换路">按序换路</a></li>
-    <li><a href="#无限响应">无限响应</a></li>
-    <li><a href="#积分放大器">积分放大器</a>
-      <ol>
-        <li><a href="#图示-1">图示</a></li>
-        <li><a href="#推导">推导</a></li>
+        <li><a href="#parent表示法">Parent表示法</a></li>
+        <li><a href="#child表示法">Child表示法</a></li>
       </ol>
     </li>
   </ol>
@@ -323,8 +290,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E7%94%B5%E8%B7%AF/" style="background-color: #2a9d8f; color: #fff;">
-                电路
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="background-color: #2a9d8f; color: #fff;">
+                数据结构
             </a>
         
     </header>
@@ -332,7 +299,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/">RL,RC电路的响应</a>
+            <a href="/p/%E6%A0%91tree/">树(Tree)</a>
         </h2>
     
         
@@ -354,7 +321,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 03, 2022</time>
+                <time class="article-time--published">Dec 05, 2022</time>
             </div>
         
 
@@ -369,7 +336,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -384,194 +351,148 @@
     <section class="article-content">
     
     
-    <h1 id="rl电路的固有响应">RL电路的固有响应</h1>
-<h2 id="电路图">电路图</h2>
-<p><img src="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/1.png"
-	width="843"
-	height="311"
-	srcset="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/1_hu09fa51d089e744502d2397ff7383b438_53994_480x0_resize_box_3.png 480w, /p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/1_hu09fa51d089e744502d2397ff7383b438_53994_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="271"
-		data-flex-basis="650px"
-	
-></p>
-<h2 id="电流与时间">电流与时间</h2>
-<p>$$
-对于最右边的网孔列KVL方程 \\\
-\\ L\frac{di}{dt}+iR = 0 \\\
-\\ \pmb{i(t)=I_0e^{(-R/L)t}，t\gt 0}\\\
-\\ 零时刻，电压产生结语变化 \\\
-\\ v(0^-) = 0，v(0^+) = I_0R ，v(0)位置
-$$</p>
-<h2 id="功率-能量">功率 能量</h2>
-<p>$$
-p =i^2R = I_0^2Re^{(-2R/L)t} \\\
-\\ W = \int_0^t p d\tau = \frac{1}{2}LI_0^2(1-e^{-2(R/L)t}), t\ge 0
-$$</p>
-<h2 id="时间常数">时间常数</h2>
+    <h1 id="基本概念">基本概念</h1>
 <ol>
 <li>定义</li>
 </ol>
-<ul>
-<li>$\tau =L/R$</li>
-</ul>
-<ol start="2">
-<li>替换后</li>
-</ol>
-<p>$$
-i(t) = I_0e^{-(t/\tau)} \\\
-\\ v(t)= I_0Re^{-(t/\tau)} \\\
-\\ p =I_0^2 R e^{-2t/\tau} \\\
-\\ W =\frac{1}{2}LI_0^2(1-e^{-2t/\tau})
-$$</p>
-<h2 id="总结">总结</h2>
-<ol>
-<li>
-<p>先求$I_0$</p>
-</li>
-<li>
-<p>再求$\tau = L/R$</p>
-</li>
-<li>
-<p>最后求$i(t)$</p>
-</li>
-</ol>
-<h1 id="rc电路的固有响应">RC电路的固有响应</h1>
-<h2 id="电路图-1">电路图</h2>
-<p><img src="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/2.png"
-	width="759"
-	height="373"
-	srcset="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/2_hu0898478abc4465c95fb0006e9ec67aad_57288_480x0_resize_box_3.png 480w, /p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/2_hu0898478abc4465c95fb0006e9ec67aad_57288_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="203"
-		data-flex-basis="488px"
-	
-></p>
-<h2 id="电压与时间-功率-能量">电压与时间 功率 能量</h2>
-<p>$$
-引入时间常数\tau = RC \\\
-\\ 推导方式同RL电路 \\\
-\\ v(t)=V_0e^{-t/\tau} \\\
-\\ i(t) = \frac{V_0}{R} e^{-t\tau} \\\
-\\ p = \frac{V_0^2}{R} e^{-2(t/\tau)}\\\
-\\ w = \frac{1}{2}CV^2(1-e^{-2(t/\tau)})
-$$</p>
-<h1 id="rl-rc电路的阶跃响应">RL RC电路的阶跃响应</h1>
-<h2 id="rl-电路的阶跃响应">RL 电路的阶跃响应</h2>
-<h3 id="图示">图示</h3>
-<p><img src="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/3.png"
-	width="670"
-	height="331"
-	srcset="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/3_hu8c62211a3515b641d1b47a8aa8254beb_41737_480x0_resize_box_3.png 480w, /p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/3_hu8c62211a3515b641d1b47a8aa8254beb_41737_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="202"
-		data-flex-basis="485px"
-	
-></p>
-<h3 id="电流与时间-1">电流与时间</h3>
-<p>$$
-V_s = Ri + L\frac{di}{dt} \\\
-\\ i(t) = \frac{V_s}{R} + (I_0-\frac{V_s}{R})e^{-t/\tau} \\\
-\\ \Rightarrow \pmb {i(t) = \frac{V_s}{R}(1-e^{-t/\tau})} \\\
-\\ i(t) \rightarrow \frac{V_s}{R}
-$$</p>
-<h3 id="电流与时间的变化率">电流与时间的变化率</h3>
-<p>$$
-\frac{di}{dt} = \frac{V_s}{L}e^{-t/\tau}\\\
-\\ \frac{di}{dt}(0) = \frac{V_S}{L} \\\
-$$</p>
-<h3 id="其他变量">其他变量</h3>
-<p>$$
-v = L\frac{di}{dt} = (V_s-I_0R)e^{-t/\tau} \\\
-\\
-$$</p>
-<h2 id="rc电路的阶跃响应">RC电路的阶跃响应</h2>
-<h3 id="电路图-2">电路图</h3>
-<p><img src="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/4.png"
-	width="628"
-	height="333"
-	srcset="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/4_hude9c0f4d615930e9df83980ce9e91834_42092_480x0_resize_box_3.png 480w, /p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/4_hude9c0f4d615930e9df83980ce9e91834_42092_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="188"
-		data-flex-basis="452px"
-	
-></p>
-<h3 id="公式">公式</h3>
-<p>$$
-i =(I_S-\frac{V_0}{R})e^{-t/\tau},t\ge 0
-$$</p>
-<h1 id="阶跃响应与固有响应的一般解法">阶跃响应与固有响应的一般解法</h1>
-<h2 id="公式表达">公式表达</h2>
-<p>$$
-对于方程\frac{dx}{dt}+\frac{x}{\tau} = K \\\
-\\ 终值x_f = K\tau \\\
-\\ \pmb{x(t) =x_f+[x(t_0)-x_f]e^{-(t-t_0)/\tau}}
-$$</p>
-<h2 id="步骤">步骤</h2>
-<ol>
-<li>确定电路的有关变量</li>
-</ol>
-<ul>
-<li>对于RC电路，选择电容电压</li>
-<li>对于RL电路，选择电感电流</li>
-</ul>
-<ol start="2">
-<li>决定初始量</li>
-</ol>
-<ul>
-<li>对于电容电压或电感电流, 因为不能突变,,$x(t_0^-)=x(t_0)=x(t_0^+)$</li>
-<li>对于其他量，应当注意其<strong>突变</strong></li>
-</ul>
-<ol start="3">
-<li>
-<p>计算$x_f$</p>
-</li>
-<li>
-<p>计算$\tau$</p>
-</li>
-</ol>
-<h1 id="按序换路">按序换路</h1>
-<ul>
-<li>做题就行</li>
-</ul>
-<h1 id="无限响应">无限响应</h1>
 <blockquote>
-<p>电路响应按照指数规律增长而不是衰减</p>
+<p>树是n个节点的有限集，有且仅有一个特定的称为根的节点</p>
 </blockquote>
-<h1 id="积分放大器">积分放大器</h1>
-<h2 id="图示-1">图示</h2>
-<p><img src="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/5.png"
-	width="836"
-	height="446"
-	srcset="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/5_hu213dd8efd34e516696a075e4d678cd35_71794_480x0_resize_box_3.png 480w, /p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/5_hu213dd8efd34e516696a075e4d678cd35_71794_1024x0_resize_box_3.png 1024w"
+<ol start="2">
+<li>
+<p>图示
+<img src="/p/%E6%A0%91tree/1.png"
+	width="588"
+	height="477"
+	srcset="/p/%E6%A0%91tree/1_hub4a69e49414d35e1a86c94db43fc4cdf_97309_480x0_resize_box_3.png 480w, /p/%E6%A0%91tree/1_hub4a69e49414d35e1a86c94db43fc4cdf_97309_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="187"
-		data-flex-basis="449px"
+		data-flex-grow="123"
+		data-flex-basis="295px"
 	
 ></p>
-<h2 id="推导">推导</h2>
-<p>$$
-v_n = v_p =0 \\\
-\\ i_n =i_f + i_ s = 0\Rightarrow i_f = -i_s \\\
-\\ i_f=C_f\frac{dv_0}{dt} \\\
-\\ \frac{dv_0}{dt}=\frac{1}{C_f}(-i_s)= -\frac{1}{R_sC_f}v_S \\\
-\\ v_0(t) = -\frac{1}{R_sC_f} \int_{t_0}^t v_s d\tau + v_0(t_0)
-$$</p>
+</li>
+<li>
+<p>特点</p>
+</li>
+</ol>
+<ul>
+<li>根节点是唯一的</li>
+<li>子树的个数没有限制，但他们一定是互不相交的</li>
+</ul>
+<ol start="4">
+<li>树中的概念</li>
+</ol>
+<ul>
+<li>结点的度(Degree)
+<ul>
+<li>结点拥有的子树数</li>
+</ul>
+</li>
+<li>叶结点
+<ul>
+<li>度为0的结点</li>
+</ul>
+</li>
+<li>分支结点
+<ul>
+<li>度不为0的节点</li>
+</ul>
+</li>
+<li>内部结点
+<ul>
+<li>除了根节点以外的分支节点</li>
+</ul>
+</li>
+<li>树的度
+<ul>
+<li>树内各结点的度的最大值</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>结点的关系</li>
+</ol>
+<ul>
+<li>Child
+<ul>
+<li>结点的子树</li>
+</ul>
+</li>
+<li>Parent
+<ul>
+<li>该结点</li>
+</ul>
+</li>
+<li>Sibing
+<ul>
+<li>同一个Parent的Child</li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li>其他概念</li>
+</ol>
+<ul>
+<li>
+<p>树的深度(Depth)</p>
+<ul>
+<li>结点的最大层次</li>
+</ul>
+</li>
+<li>
+<p>有序树</p>
+<ul>
+<li>树中结点的各子树从左至右是有序的，则称其为有序树</li>
+</ul>
+</li>
+<li>
+<p>森林</p>
+<ul>
+<li>m棵互不相交的树的集合</li>
+</ul>
+</li>
+</ul>
+<h1 id="树的adt">树的ADT</h1>
+<h1 id="树的存储结构">树的存储结构</h1>
+<h2 id="parent表示法">Parent表示法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define MAXSIZE 100 </span><span class="c1">//具体数字依实际情况而定
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">TElemType</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">PTNode</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">TElemType</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">parent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">PTNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">PTNode</span> <span class="n">Nodes</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">r</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">PTree</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="child表示法">Child表示法</h2>
 
 </section>
 
@@ -635,12 +556,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/rlc%E7%94%B5%E8%B7%AF/">
+    <a href="/p/%E4%B8%B2/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">RLC电路</h2>
+            <h2 class="article-title">串</h2>
         </div>
     </a>
 </article>
@@ -648,12 +569,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/">
+    <a href="/p/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">正弦稳态分析</h2>
+            <h2 class="article-title">栈和队列</h2>
         </div>
     </a>
 </article>
@@ -661,38 +582,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/">
+    <a href="/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">电感、电容与互感</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">运算放大器</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E7%94%B5%E8%B7%AF%E8%8B%B1%E8%AF%AD%E4%B8%93%E4%B8%9A%E8%AF%8D%E8%AF%AD/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">电路英语专业词语</h2>
+            <h2 class="article-title">线性表</h2>
         </div>
     </a>
 </article>
