@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='正则表达式与文件格式化处理 1. 基础正则表达式 语系对正则表达式的影响
+一些特殊符号
+[:alnum:] 0-9,A-Z,a-z [:alpha:] A-Z,a-z [:blank:] space与[Tab] [:cntrl:] 控制按键:CR,Tab,Del,LF(换行) [:digit:] 0-9 [:graph:] 空白字符外的所有按键 [:lower:] a-z [:print:] 可打印字符 [:punct:] 标点符号,比如:&amp;quot;&amp;rsquo;?!;:#? [:upper:] A-Z [:space:] 空白字符(空白键,[Tab],CR) [:xdigit:] 16进位的数字类型 grep的一些进阶选项
+grep [-A][-B] [--color=auto] &#39;搜寻字串&#39; &amp;lt;file&amp;gt;
+-A after，列出该行和后续的n行 -B before，列出该行和前面的n行 -a 不忽略二进制数据 -c(count) 计算符合样式的列数 -e 指定字符串作为查找文件内容的样式 -l 列出文件内容符合指定样式的文件名称 举例
+搜寻特定字串
+grep -n &#39;str&#39; file
+反向选择 grep -vn &#39;str&#39; file
+显示没有该搜索结果的行内容 基础正则表达式字符汇整
+^word 待搜寻的字符串在行首 word$ 待搜寻的字符串在行尾 . 一定有一个任意字符 * 重复0-$\infin$个前一个RE字符 [list] 待搜寻字符，例: t[ea]st代表待搜寻字符为test,tast [n1-n2] 例:[A-Z]带代表所有大写字母 [^list] 列出不需要爱的字串或范围 {n,m}1 n到m个前一个RE字符 sed [] [动作]'>
+<title>正则表与文件格式化处理</title>
+
+<link rel='canonical' href='https://example.com/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E4%B8%8E%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%A4%84%E7%90%86/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='正则表与文件格式化处理'>
+<meta property='og:description' content='正则表达式与文件格式化处理 1. 基础正则表达式 语系对正则表达式的影响
+一些特殊符号
+[:alnum:] 0-9,A-Z,a-z [:alpha:] A-Z,a-z [:blank:] space与[Tab] [:cntrl:] 控制按键:CR,Tab,Del,LF(换行) [:digit:] 0-9 [:graph:] 空白字符外的所有按键 [:lower:] a-z [:print:] 可打印字符 [:punct:] 标点符号,比如:&amp;quot;&amp;rsquo;?!;:#? [:upper:] A-Z [:space:] 空白字符(空白键,[Tab],CR) [:xdigit:] 16进位的数字类型 grep的一些进阶选项
+grep [-A][-B] [--color=auto] &#39;搜寻字串&#39; &amp;lt;file&amp;gt;
+-A after，列出该行和后续的n行 -B before，列出该行和前面的n行 -a 不忽略二进制数据 -c(count) 计算符合样式的列数 -e 指定字符串作为查找文件内容的样式 -l 列出文件内容符合指定样式的文件名称 举例
+搜寻特定字串
+grep -n &#39;str&#39; file
+反向选择 grep -vn &#39;str&#39; file
+显示没有该搜索结果的行内容 基础正则表达式字符汇整
+^word 待搜寻的字符串在行首 word$ 待搜寻的字符串在行尾 . 一定有一个任意字符 * 重复0-$\infin$个前一个RE字符 [list] 待搜寻字符，例: t[ea]st代表待搜寻字符为test,tast [n1-n2] 例:[A-Z]带代表所有大写字母 [^list] 列出不需要爱的字串或范围 {n,m}1 n到m个前一个RE字符 sed [] [动作]'>
+<meta property='og:url' content='https://example.com/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E4%B8%8E%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%A4%84%E7%90%86/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-08T03:49:06&#43;08:00'/><meta property='article:modified_time' content='2022-12-08T03:49:06&#43;08:00'/>
+<meta name="twitter:title" content="正则表与文件格式化处理">
+<meta name="twitter:description" content="正则表达式与文件格式化处理 1. 基础正则表达式 语系对正则表达式的影响
+一些特殊符号
+[:alnum:] 0-9,A-Z,a-z [:alpha:] A-Z,a-z [:blank:] space与[Tab] [:cntrl:] 控制按键:CR,Tab,Del,LF(换行) [:digit:] 0-9 [:graph:] 空白字符外的所有按键 [:lower:] a-z [:print:] 可打印字符 [:punct:] 标点符号,比如:&amp;quot;&amp;rsquo;?!;:#? [:upper:] A-Z [:space:] 空白字符(空白键,[Tab],CR) [:xdigit:] 16进位的数字类型 grep的一些进阶选项
+grep [-A][-B] [--color=auto] &#39;搜寻字串&#39; &amp;lt;file&amp;gt;
+-A after，列出该行和后续的n行 -B before，列出该行和前面的n行 -a 不忽略二进制数据 -c(count) 计算符合样式的列数 -e 指定字符串作为查找文件内容的样式 -l 列出文件内容符合指定样式的文件名称 举例
+搜寻特定字串
+grep -n &#39;str&#39; file
+反向选择 grep -vn &#39;str&#39; file
+显示没有该搜索结果的行内容 基础正则表达式字符汇整
+^word 待搜寻的字符串在行首 word$ 待搜寻的字符串在行尾 . 一定有一个任意字符 * 重复0-$\infin$个前一个RE字符 [list] 待搜寻字符，例: t[ea]st代表待搜寻字符为test,tast [n1-n2] 例:[A-Z]带代表所有大写字母 [^list] 列出不需要爱的字串或范围 {n,m}1 n到m个前一个RE字符 sed [] [动作]">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://example.com/" selected>English</option>
+                        
+                            <option value="https://example.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://example.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#正则表达式与文件格式化处理">正则表达式与文件格式化处理</a>
+      <ol>
+        <li><a href="#1-基础正则表达式">1. 基础正则表达式</a></li>
+        <li><a href="#2-延伸正则表达式">2. 延伸正则表达式</a></li>
+        <li><a href="#2-文件格式化的相关处理">2. 文件格式化的相关处理</a></li>
+      </ol>
+    </li>
+    <li><a href="#shell-scripts">Shell Scripts</a>
+      <ol>
+        <li><a href="#1-shell-scripts简介">1. Shell Scripts简介</a></li>
+        <li><a href="#2-简单的shell-script练习">2. 简单的Shell Script练习</a></li>
+        <li><a href="#3-善用判断式">3. 善用判断式</a></li>
+        <li><a href="#4-函数与循环">4. 函数与循环</a></li>
+        <li><a href="#5-shell-script的追踪与debug">5. Shell Script的追踪与debug</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #2a9d8f; color: #fff;">
+                Linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E4%B8%8E%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%A4%84%E7%90%86/">正则表与文件格式化处理</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 08, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="正则表达式与文件格式化处理">正则表达式与文件格式化处理</h1>
+<h2 id="1-基础正则表达式">1. 基础正则表达式</h2>
+<blockquote>
+<p>语系对正则表达式的影响</p>
+<blockquote>
+<p>一些特殊符号</p>
+</blockquote>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">[:alnum:]</th>
+<th style="text-align:center">0-9,A-Z,a-z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">[:alpha:]</td>
+<td style="text-align:center">A-Z,a-z</td>
+</tr>
+<tr>
+<td style="text-align:center">[:blank:]</td>
+<td style="text-align:center">space与[Tab]</td>
+</tr>
+<tr>
+<td style="text-align:center">[:cntrl:]</td>
+<td style="text-align:center">控制按键:CR,Tab,Del,LF(换行)</td>
+</tr>
+<tr>
+<td style="text-align:center">[:digit:]</td>
+<td style="text-align:center">0-9</td>
+</tr>
+<tr>
+<td style="text-align:center">[:graph:]</td>
+<td style="text-align:center">空白字符外的所有按键</td>
+</tr>
+<tr>
+<td style="text-align:center">[:lower:]</td>
+<td style="text-align:center">a-z</td>
+</tr>
+<tr>
+<td style="text-align:center">[:print:]</td>
+<td style="text-align:center">可打印字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[:punct:]</td>
+<td style="text-align:center">标点符号,比如:&quot;&rsquo;?!;:#?</td>
+</tr>
+<tr>
+<td style="text-align:center">[:upper:]</td>
+<td style="text-align:center">A-Z</td>
+</tr>
+<tr>
+<td style="text-align:center">[:space:]</td>
+<td style="text-align:center">空白字符(空白键,[Tab],CR)</td>
+</tr>
+<tr>
+<td style="text-align:center">[:xdigit:]</td>
+<td style="text-align:center">16进位的数字类型</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>grep的一些进阶选项</p>
+</blockquote>
+<p><code>grep [-A][-B] [--color=auto] '搜寻字串' &lt;file&gt;</code></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">-A</th>
+<th style="text-align:center">after，列出该行和后续的n行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-B</td>
+<td style="text-align:center">before，列出该行和前面的n行</td>
+</tr>
+<tr>
+<td style="text-align:center">-a</td>
+<td style="text-align:center">不忽略二进制数据</td>
+</tr>
+<tr>
+<td style="text-align:center">-c(count)</td>
+<td style="text-align:center">计算符合样式的列数</td>
+</tr>
+<tr>
+<td style="text-align:center">-e</td>
+<td style="text-align:center">指定字符串作为查找文件内容的样式</td>
+</tr>
+<tr>
+<td style="text-align:center">-l</td>
+<td style="text-align:center">列出文件内容符合指定样式的文件名称</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<blockquote>
+<p>举例</p>
+<blockquote>
+<p>搜寻特定字串</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><code>grep -n 'str' file</code></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>反向选择
+<code>grep -vn 'str' file</code></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>显示没有该搜索结果的行内容</li>
+</ul>
+<blockquote>
+<p>基础正则表达式字符汇整</p>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">^word</th>
+<th style="text-align:center">待搜寻的字符串在行首</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">word$</td>
+<td style="text-align:center">待搜寻的字符串在行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:center">一定有一个任意字符</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">重复0-$\infin$个前一个RE字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[list]</td>
+<td style="text-align:center">待搜寻字符，例: t[ea]st代表待搜寻字符为test,tast</td>
+</tr>
+<tr>
+<td style="text-align:center">[n1-n2]</td>
+<td style="text-align:center">例:[A-Z]带代表所有大写字母</td>
+</tr>
+<tr>
+<td style="text-align:center">[^list]</td>
+<td style="text-align:center">列出不需要爱的字串或范围</td>
+</tr>
+<tr>
+<td style="text-align:center">{n,m}<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></td>
+<td style="text-align:center">n到m个前一个RE字符</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><code>sed [] [动作]</code></p>
+<blockquote>
+<p>参数</p>
+</blockquote>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">-n</th>
+<th style="text-align:center">只输出由sed特殊处理过的那一行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-e(edit)</td>
+<td style="text-align:center">在命令行上进行动作编辑</td>
+</tr>
+<tr>
+<td style="text-align:center">-f(file)</td>
+<td style="text-align:center">将sed的动作写在文件内</td>
+</tr>
+<tr>
+<td style="text-align:center">-r(regular)</td>
+<td style="text-align:center">支持延伸型正则表达式语法</td>
+</tr>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:center">直接修改读取的文件内容，而不是由屏幕输出</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<blockquote>
+<p>动作说明<code>[n1[,n2]]function</code></p>
+</blockquote>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">a(add)</th>
+<th style="text-align:center">新增</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:center">取代n1与n2之间的行</td>
+</tr>
+<tr>
+<td style="text-align:center">d(delete)</td>
+<td style="text-align:center">删除</td>
+</tr>
+<tr>
+<td style="text-align:center">i(insert)</td>
+<td style="text-align:center">插入，在目前行的上一行出现</td>
+</tr>
+<tr>
+<td style="text-align:center">p(print)</td>
+<td style="text-align:center">打印</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:center">直接取代</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="2-延伸正则表达式">2. 延伸正则表达式</h2>
+<blockquote>
+<p>实现方式</p>
+<blockquote>
+<p>通过群组功能<code>|</code>来实现</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>示例</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><code>grep -v '^$' a.tct|grep -v '^#'</code></li>
+<li><code>egrep -v '^$|^#' a.txt</code>(<code>egrep</code>和<code>grep -E</code>是等价的)</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>RE字符意义</p>
+</blockquote>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">+</th>
+<th style="text-align:center">一个或一个以上i前一个RE字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:center">零个或一个前一个RE字符</td>
+</tr>
+<tr>
+<td style="text-align:center">|</td>
+<td style="text-align:center">用或的方式找出若干个字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">()</td>
+<td style="text-align:center">找出群组字串,例如<code>egrep -n 'g(la|oo)d' file</code>表示搜寻glad或good这两个字串</td>
+</tr>
+<tr>
+<td style="text-align:center">()+</td>
+<td style="text-align:center">多个重复群组的判别，例如:<code>echo 'AxyzxyzxyzC|egrep 'A(xyz)+C'</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="2-文件格式化的相关处理">2. 文件格式化的相关处理</h2>
+<blockquote>
+<p>格式化打印<code>printf '格式' 内容</code></p>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\a(alert)</td>
+<td style="text-align:center">警告声音输出</td>
+</tr>
+<tr>
+<td style="text-align:center">\b(backspace)</td>
+<td style="text-align:center">倒退键</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:center">换行符</td>
+</tr>
+<tr>
+<td style="text-align:center">\r(Enter)</td>
+<td style="text-align:center">Enter键</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:center">同C</td>
+</tr>
+<tr>
+<td style="text-align:center">\v</td>
+<td style="text-align:center">同C</td>
+</tr>
+<tr>
+<td style="text-align:center">\xNN</td>
+<td style="text-align:center">转换数字<code>NN</code>为字符</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>数据处理工具<code>awk '条件类型1{动作1} 条件类型2{动作2} ...' file</code></p>
+<blockquote>
+<p>作用</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>处理每一行字段内的数据</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>例</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><code>awk '{print $1 '\t' $3}'</code>
+<ul>
+<li>打印内容的第一列和第三列，中间隔一个换行符</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>上述处理流程</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>读入第一行，并将第一行的数据填入$1,$2&hellip;等变量</li>
+<li>依据&quot;条件类型&quot;的限制，判断是否需要进行后面的动作</li>
+<li>做完所有的动作与条件类型</li>
+<li>重复以上步骤</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>内置变量</p>
+</blockquote>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">NF</th>
+<th style="text-align:center">每一行的字段总数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">NR</td>
+<td style="text-align:center">目前awk所处理的是第几行数据</td>
+</tr>
+<tr>
+<td style="text-align:center">FS</td>
+<td style="text-align:center">目前的分隔字段，默认是空白键</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>文件对比工具</p>
+<blockquote>
+<p><code>diff [-bBi] from-file to-file</code></p>
+</blockquote>
+</blockquote>
+<ul>
+<li>以行为单位的对比工具</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">-b</th>
+<th style="text-align:center">忽略一行中的空白差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-B</td>
+<td style="text-align:center">忽略空白行差异</td>
+</tr>
+<tr>
+<td style="text-align:center">-i(ignore)</td>
+<td style="text-align:center">忽略大小写</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<blockquote>
+<p><code>cmp [-l] file1 file2</code></p>
+</blockquote>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">-l</th>
+<th style="text-align:center">输出所有不同字节(默认输出第一行)</th>
+</tr>
+</thead>
+</table></div>
+<ul>
+<li>以字节为单位的对比工具</li>
+</ul>
+<blockquote>
+<blockquote>
+<p><code>patch </code></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>寻找函数<code>find path -option [-expression] [ -exec -ok command] {}</code></p>
+<blockquote>
+<p>expression</p>
+</blockquote>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">-print</th>
+<th style="text-align:center">输出(默认)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-mount,-xdev</td>
+<td style="text-align:center">检查和指定目录在同一个文件系统下的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">-amin n</td>
+<td style="text-align:center">在过去n分钟内被读取过</td>
+</tr>
+<tr>
+<td style="text-align:center">-atime<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> n</td>
+<td style="text-align:center">在过去n天内被读取过</td>
+</tr>
+<tr>
+<td style="text-align:center">-type c</td>
+<td style="text-align:center">c为文件类型(dcbpfls)</td>
+</tr>
+<tr>
+<td style="text-align:center">-(i)name name</td>
+<td style="text-align:center">文件名称符合name的文件,iname忽略大小写</td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="shell-scripts">Shell Scripts</h1>
+<h2 id="1-shell-scripts简介">1. Shell Scripts简介</h2>
+<blockquote>
+<p>作用</p>
+</blockquote>
+<ul>
+<li>
+<p>利用脚本自动化管理</p>
+</li>
+<li>
+<p>追踪与管理系统的重要工作</p>
+</li>
+<li>
+<p>简单入侵侦测功能</p>
+</li>
+<li>
+<p>连续指令单一化</p>
+</li>
+<li>
+<p>简易的数据处理</p>
+</li>
+</ul>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li>sh可执行文件必须具备(<code>rx</code>)权限</li>
+</ul>
+<blockquote>
+<p>执行方法</p>
+<blockquote>
+<p>直接指令下达</p>
+<blockquote>
+<p>绝对路径</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li><code>/home/flyfan/shell.sh</code></li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>相对路径</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>假设在家目录，<code>./shell.sh</code></li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>变量<code>PATH</code>功能</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>将shell.sh放在<code>PATH</code>指定的路径内</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>使用<code>sh a.sh</code>执行</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>使用<code>source a.sh</code>执行</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>无需执行(x)权限</li>
+</ul>
+<blockquote>
+<p>sh文件解析例题</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># Program:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   This program shows &#34;Hello World&#34; on your screen</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># History:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 2022/11/07    flyfan    First Release</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PATH</span> <span class="o">=</span> /bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin 
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> PATH
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;Hello World \a \n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="m">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li><code>#!/bin/bash</code>声明该脚本使用bash编译,将加载<code>bashrc</code></li>
+<li>除了<code>#!</code>是用来声明的，其他<code>#</code>后的都是注释</li>
+<li>最后一行终止程序并返回<code>0</code>给系统</li>
+</ol>
+<h2 id="2-简单的shell-script练习">2. 简单的Shell Script练习</h2>
+<blockquote>
+<p>一些指令</p>
+<blockquote>
+<p><code>read [-ers] [-a name] [-d delim] [-i text] [-n nchars] [-N nchars] [-p prompt] [-t timeout] [-u fd] [name ...]</code></p>
+</blockquote>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">-a</th>
+<th style="text-align:center">接变量，给其赋值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-p(prompt)</td>
+<td style="text-align:center">接输入前的提示信息</td>
+</tr>
+<tr>
+<td style="text-align:center">-e(complementation)</td>
+<td style="text-align:center">输入时补全</td>
+</tr>
+<tr>
+<td style="text-align:center">-n(number)</td>
+<td style="text-align:center">接一个数字，定义输入文本的长度</td>
+</tr>
+<tr>
+<td style="text-align:center">-t(time)</td>
+<td style="text-align:center">定义输入字符的等待时间</td>
+</tr>
+<tr>
+<td style="text-align:center">-u</td>
+<td style="text-align:center">接fd(file descriptor)，从文件描述符中读入</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>script的执行方式差异</p>
+</blockquote>
+<h2 id="3-善用判断式">3. 善用判断式</h2>
+<blockquote>
+<p><code>test [] file</code>指令测试</p>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">1. 文件类型判断</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-e(existence)</td>
+<td style="text-align:center">是否存在</td>
+</tr>
+<tr>
+<td style="text-align:center">-f(file)</td>
+<td style="text-align:center">是否存在且为文件</td>
+</tr>
+<tr>
+<td style="text-align:center">-d(directory)</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-b(block device)</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-c(character device)</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-S(Socket)</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-p(pipe)</td>
+<td style="text-align:center">是否存在且为FIFO(pipe)文件</td>
+</tr>
+<tr>
+<td style="text-align:center">-L(link)</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2. 文件权限与属性判断</strong></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-r</td>
+<td style="text-align:center">是否存在且具有可读权限</td>
+</tr>
+<tr>
+<td style="text-align:center">-x</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-w</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-u(SUID)</td>
+<td style="text-align:center">是否存在且具有&quot;SUID&quot;属性</td>
+</tr>
+<tr>
+<td style="text-align:center">-g(SGID)</td>
+<td style="text-align:center">是否存在且具有&quot;SGID&quot;属性</td>
+</tr>
+<tr>
+<td style="text-align:center">-k(Sticky bit)</td>
+<td style="text-align:center">是否存在且具有&quot;Sticky bit&quot;属性</td>
+</tr>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:center">是否存在且为非空白文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3. 文件比较</strong></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-nt(newer than)</td>
+<td style="text-align:center">file1是否比file2新</td>
+</tr>
+<tr>
+<td style="text-align:center">-ot(older than)</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-ef(same file)</td>
+<td style="text-align:center">file1与file2是否为同一个文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>4. 判定字串的依据</strong></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>未完待续</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>利用判断符号<code>[]</code></p>
+<blockquote>
+<p>注意</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>中括号内每个部分都需要空格分开</li>
+<li>中括号内的变量，最好用双引号括起来</li>
+<li>中括号内的常数，最好用引号括起来</li>
+</ol>
+<blockquote>
+<p>Shell Script的默认变量($0,$1&hellip;)</p>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">/path/to/scriptname</th>
+<th style="text-align:center">opt1</th>
+<th style="text-align:center">opt2</th>
+<th style="text-align:center">opt3</th>
+<th style="text-align:center">opt4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$0</td>
+<td style="text-align:center">$1</td>
+<td style="text-align:center">$2</td>
+<td style="text-align:center">$3</td>
+<td style="text-align:center">$4</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<blockquote>
+<p>其他特殊变量</p>
+</blockquote>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$#</td>
+<td style="text-align:center">后接的参数个数</td>
+</tr>
+<tr>
+<td style="text-align:center">$@</td>
+<td style="text-align:center">&ldquo;$1&rdquo; &ldquo;$2&rdquo; &ldquo;$3&rdquo; &ldquo;$4&rdquo;,每个变量是独立的</td>
+</tr>
+<tr>
+<td style="text-align:center">$*</td>
+<td style="text-align:center">&ldquo;$1<!-- raw HTML omitted -->c<!-- raw HTML omitted -->$2<!-- raw HTML omitted -->c<!-- raw HTML omitted -->$3<!-- raw HTML omitted -->c<!-- raw HTML omitted -->$4&rdquo;<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="4-函数与循环">4. 函数与循环</h2>
+<blockquote>
+<p>使用<code>function(){ }</code>功能</p>
+</blockquote>
+<blockquote>
+<p>不定循环 <code>while do done, until do done</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="k">until</span> <span class="o">[</span>condition<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">    code
+</span></span><span class="line"><span class="cl"><span class="k">done</span> <span class="c1">#当条件成立时，即终止循环，与while相反</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>固定循环<code>for...do...done</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 第一种for</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> var in con1 con2 con3...
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">    code
+</span></span><span class="line"><span class="cl"><span class="k">done</span> <span class="c1">#${var}依次为con1,con2..</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 第二种for</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="o">((</span>初始，终止值，步长<span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">    code
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>搭配乱数与阵列</p>
+</blockquote>
+<h2 id="5-shell-script的追踪与debug">5. Shell Script的追踪与debug</h2>
+<blockquote>
+<p><code>sh [-nvx] scripts.sh</code></p>
+</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">-n</th>
+<th style="text-align:center">不执行script,仅查询语法问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-v</td>
+<td style="text-align:center">执行前将代码输出</td>
+</tr>
+<tr>
+<td style="text-align:center">-x</td>
+<td style="text-align:center">将使用到的script内容输出</td>
+</tr>
+</tbody>
+</table></div>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>请注意，{}为特殊字符，需要用跳脱字符\前缀&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>atime表示 access time, ctime 表示 create time, mtime表示 modified time&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>&lt;u&gt;c&lt;/u&gt;代表分隔字符，默认为空白键&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E6%96%87%E4%BB%B6%E4%B8%8E%E7%A3%81%E7%9B%98/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">文件与磁盘</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/archlinux%E5%BC%80%E6%9C%BA%E5%88%86%E5%8C%BA%E5%AE%89%E8%A3%85/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ArchLinux开机分区安装</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/git/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Git</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
