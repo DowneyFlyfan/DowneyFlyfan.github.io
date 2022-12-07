@@ -257,6 +257,15 @@
         <li><a href="#一些可能有用的信息">一些可能有用的信息</a></li>
       </ol>
     </li>
+    <li><a href="#论文1---55583-self-driving-vehicles-prospect-in-traffic-network">论文1 - 55583 Self-driving vehicle&rsquo;s prospect in traffic network</a>
+      <ol>
+        <li><a href="#解决方案">解决方案</a>
+          <ol>
+            <li><a href="#前提和假设">前提和假设</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -415,6 +424,50 @@
 <p>数据只准用本题提供的数据</p>
 </li>
 </ol>
+<h1 id="论文1---55583-self-driving-vehicles-prospect-in-traffic-network">论文1 - 55583 Self-driving vehicle&rsquo;s prospect in traffic network</h1>
+<h2 id="解决方案">解决方案</h2>
+<h3 id="前提和假设">前提和假设</h3>
+<ol>
+<li>
+<p>不考虑换道</p>
+</li>
+<li>
+<p>考虑安全距离$=v_{ins}\times t_{response}$</p>
+</li>
+</ol>
+<ul>
+<li>说实话，这个安全距离的公式有点扯</li>
+</ul>
+<p><img src="/p/2017-mcm/1.png"
+	width="1171"
+	height="429"
+	srcset="/p/2017-mcm/1_hu9b4ab495cdd585aad278dacc021fe1b7_51533_480x0_resize_box_3.png 480w, /p/2017-mcm/1_hu9b4ab495cdd585aad278dacc021fe1b7_51533_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="272"
+		data-flex-basis="655px"
+	
+></p>
+<ol start="3">
+<li>混合动态道路模型</li>
+</ol>
+<ul>
+<li>
+<p>变量</p>
+<ul>
+<li>单位长度$l_u=4m$(人为设置)</li>
+<li>车道数量$n_l=n_{left}+n_{right}$</li>
+<li>邻车距离$d=pos_{former}-pos_{latter}-1$，单位就是单位长度$l_u$</li>
+<li>路的长度$L_R = \frac{L_{real}}{l_u}$,单位还是$l_u$</li>
+<li>最大速度$V_{max} = 60 mile/h = 27m/s = 7 units/s$</li>
+<li>司机反应时间$t_{response} = 1s$ (根据现实因素人为设置)</li>
+<li>瞬时速度$v_{ins}$，单位为$l_u$</li>
+<li>车流量$TC$</li>
+</ul>
+</li>
+</ul>
 
 </section>
 
