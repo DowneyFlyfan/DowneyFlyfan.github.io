@@ -458,10 +458,62 @@ $$&lt;/p&gt;
 \\ \frac{1}{n}\sum_{i=1}^nY_i \overset{P}{\longrightarrow} c，n\longrightarrow +\infin
 $$&lt;/p&gt;
 &lt;h3 id=&#34;切比雪夫大数定律&#34;&gt;切比雪夫大数定律&lt;/h3&gt;
-&lt;p&gt;$$&lt;/p&gt;
-&lt;p&gt;$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+X_1, &amp;hellip; X_n相互独立,且有相同的数学期望\mu和方差\sigma^2 \\\
+\\ 当n\longrightarrow +\infin 时，\frac{1}{n}\sum_{k=1}^nX_k \overset{P}{\longrightarrow} \mu
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;证明&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\because E(\frac{1}{n}\sum_{i=1}^nX_i) = \frac{1}{n}E(\sum_{i=1}^nX_i) = \mu \\\
+\\ Var(\frac{1}{n}\sum_{i=1}^nX_i) = \frac{1}{n^2}Var(\sum_{i=1}^nX_i) = \frac{\sigma^2}{n} \\\
+\\ 利用切比雪夫不等式 \\\
+\\ 0 \le P(\Big| \frac{1}{n}\sum_{i=1}^nX_i - \mu\Big| \ge \varepsilon) \le Var(X)/\varepsilon^2 = \frac{\sigma2}{n\varepsilon^2} \longrightarrow 0
+$$&lt;/p&gt;
 &lt;h3 id=&#34;辛倾大数定律&#34;&gt;辛倾大数定律&lt;/h3&gt;
+&lt;p&gt;$$
+X_1,&amp;hellip;X_n\pmb{独立同分布},E(X_i) = \mu \\\
+\\ 当n \longrightarrow + \infin，\frac{1}{n}\sum_{i-1}^nX_i \overset{P}{\longrightarrow} \mu \\\
+\\ \pmb{推论}\\\
+\\ 若h(x)是连续函数，E(h(X_i)) = a 存在 \\\
+\\ 则当 n \longrightarrow + \infin， \frac{1}{n} \sum_{i=1}^n h(X_i) \overset{P}{\longrightarrow} a
+$$&lt;/p&gt;
 &lt;h3 id=&#34;贝努力大数定律&#34;&gt;贝努力大数定律&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+设n_A 为n重贝努力试验中A事件发生的次数 \\\
+\\ 且A事件在每次试验中发生的概率为P \\\
+\\ 有 \frac{n_A}{n}\longrightarrow P ，n\longrightarrow + \infin
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;证明&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+设 X_i =\begin{cases}1 &amp;amp; 第i次试验中A发生 \\ 0 &amp;amp; 第i次试验中A不发生 \end{cases}  \\\
+\\ 即X_i～B(1,p) ，且X_i相互独立\\\
+\\ 有 n_A = \sum_{i=1}^kX_i \\\
+\\ \frac{n_A}{n} = E(X_i) = p
+$$&lt;/p&gt;
+&lt;h1 id=&#34;中心极限定律&#34;&gt;中心极限定律&lt;/h1&gt;
+&lt;h2 id=&#34;独立同分布的中心极限定律&#34;&gt;独立同分布的中心极限定律&lt;/h2&gt;
+&lt;p&gt;$$
+X_1&amp;hellip;X_n独立同分布 \\\
+\\ E(X_i) = \mu， Var(X_i) = \sigma^2 \\\
+\\ 对于\forall x \in R, \underset{n\longrightarrow + \infin}{lim} P(\frac{\sum_{i=1}^kX_i - n\mu}{\sqrt n \sigma} ) = \int_{-\infin}^x \frac{1}{\sqrt{2\pi}}e^{- \frac{t^2}{2}} dt = \Phi(X) \\\
+\\ \therefore 当 n 充分大时 \\\
+\\ \sum_{i=1}^k X_i \overset{近似}{～} N(n\mu,n\sigma^2) \\\
+\\ \frac{1}{n}\sum_{i=1}^k X_i \overset{近似}{～}N(\mu,\frac{\sigma^2}{n})
+$$&lt;/p&gt;
+&lt;h2 id=&#34;拉普拉斯中心极限定律&#34;&gt;拉普拉斯中心极限定律&lt;/h2&gt;
+&lt;p&gt;$$
+\underset{n\longrightarrow + \infin}{lim} P\Big(\frac{n_A-np}{\sqrt{np(1-p)}}\le x\Big) = \int_{-\infin}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}} dt = \Phi(X)
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
