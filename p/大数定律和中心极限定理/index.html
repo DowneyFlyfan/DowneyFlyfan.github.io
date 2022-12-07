@@ -2,32 +2,42 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='大数定律 总体表述 $$ E(X_i)=\mu \\\ \\ 在一定条件下 \\\ \\ Y=\frac{X_1&#43;X_2&#43;&amp;hellip;&#43;X_n}{n}收敛到\mu $$
-依概率收敛 定义
-性质
-若$X_n \rightarrow a, Y_n\rightarrow b$ , $g$在$(a,b)$上连续，则$g(X_n,Y_n)\rightarrow g(a,b)$
-若$X_n \rightarrow a$,$f(x)$在点$a$连续，则$f(X_n)\rightarrow f(a)$
-马尔可夫不等式与切比雪夫不等式 马尔可夫不等式 设随机变量Y的k阶矩存在'>
+依概率收敛 定义 随机变量序列$Y_1,Y_2,Y_3 &amp;hellip;$,若存在某常数$c$，使得$\forall \varepsilon \gt 0$,都有$\underset{n\rightarrow \infin}{lim} P \lbrace |Y_n-c|\ge \varepsilon\rbrace = 0$,则称$\lbrace Y_n,n\ge 1 \rbrace$依概率收敛于常数$c$
+记为 $Y_n \overset{P}{\longrightarrow} c$
+这是一种概率意义上的收敛，而不是数学意义上的收敛
+性质 若$X_n \overset{P}{\longrightarrow} a, Y_n\overset{P}{\longrightarrow} b$ , $g$在$(a,b)$上连续，则$g(X_n,Y_n)\overset{P}{\longrightarrow} g(a,b)$
+若$X_n \overset{P}{\longrightarrow} a$，$f(x)$在点$a$连续，则$f(X_n)\rightarrow f(a)$
+马尔可夫不等式与切比雪夫不等式 马尔可夫不等式 定义 设随机变量$Y$的$k$阶矩存在$(k\gt 1)$，则对于$\forall \varepsilon \gt 0$，都有 $P\lbrace |Y|\ge \varepsilon \rbrace \le \frac{E(|Y^k|)}{\varepsilon^k}$
+等价形式 $$ P\lbrace Y \ge \varepsilon \rbrace \le\frac{E(Y^k)}{\varepsilon^k} $$
+证明 $$ 对于\forall \varepsilon \gt0 ，令Z =\begin{cases}\varepsilon &amp;amp; |Y|\ge \varepsilon \\ 0 &amp;amp; |Y| \lt \varepsilon \end{cases} \\\ \\ \therefore Z \le |Y| \Rightarrow Z^k \le |Y|^k \Rightarrow E(Z^k) \le E(|Y|^k) \\\ \\ 根据Z的定义 \\\ \\ E(Z^k) = \varepsilon^k P\lbrace |Y|\ge \varepsilon\rbrace \\\ \\ \therefore P\lbrace |Y|\ge \varepsilon\rbrace = \frac{E(Z^k)}{\varepsilon^k} \le \frac{E(|Y|^k)}{\varepsilon^k} $$'>
 <title>大数定律和中心极限定理</title>
 
 <link rel='canonical' href='https://example.com/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='大数定律和中心极限定理'>
 <meta property='og:description' content='大数定律 总体表述 $$ E(X_i)=\mu \\\ \\ 在一定条件下 \\\ \\ Y=\frac{X_1&#43;X_2&#43;&amp;hellip;&#43;X_n}{n}收敛到\mu $$
-依概率收敛 定义
-性质
-若$X_n \rightarrow a, Y_n\rightarrow b$ , $g$在$(a,b)$上连续，则$g(X_n,Y_n)\rightarrow g(a,b)$
-若$X_n \rightarrow a$,$f(x)$在点$a$连续，则$f(X_n)\rightarrow f(a)$
-马尔可夫不等式与切比雪夫不等式 马尔可夫不等式 设随机变量Y的k阶矩存在'>
+依概率收敛 定义 随机变量序列$Y_1,Y_2,Y_3 &amp;hellip;$,若存在某常数$c$，使得$\forall \varepsilon \gt 0$,都有$\underset{n\rightarrow \infin}{lim} P \lbrace |Y_n-c|\ge \varepsilon\rbrace = 0$,则称$\lbrace Y_n,n\ge 1 \rbrace$依概率收敛于常数$c$
+记为 $Y_n \overset{P}{\longrightarrow} c$
+这是一种概率意义上的收敛，而不是数学意义上的收敛
+性质 若$X_n \overset{P}{\longrightarrow} a, Y_n\overset{P}{\longrightarrow} b$ , $g$在$(a,b)$上连续，则$g(X_n,Y_n)\overset{P}{\longrightarrow} g(a,b)$
+若$X_n \overset{P}{\longrightarrow} a$，$f(x)$在点$a$连续，则$f(X_n)\rightarrow f(a)$
+马尔可夫不等式与切比雪夫不等式 马尔可夫不等式 定义 设随机变量$Y$的$k$阶矩存在$(k\gt 1)$，则对于$\forall \varepsilon \gt 0$，都有 $P\lbrace |Y|\ge \varepsilon \rbrace \le \frac{E(|Y^k|)}{\varepsilon^k}$
+等价形式 $$ P\lbrace Y \ge \varepsilon \rbrace \le\frac{E(Y^k)}{\varepsilon^k} $$
+证明 $$ 对于\forall \varepsilon \gt0 ，令Z =\begin{cases}\varepsilon &amp;amp; |Y|\ge \varepsilon \\ 0 &amp;amp; |Y| \lt \varepsilon \end{cases} \\\ \\ \therefore Z \le |Y| \Rightarrow Z^k \le |Y|^k \Rightarrow E(Z^k) \le E(|Y|^k) \\\ \\ 根据Z的定义 \\\ \\ E(Z^k) = \varepsilon^k P\lbrace |Y|\ge \varepsilon\rbrace \\\ \\ \therefore P\lbrace |Y|\ge \varepsilon\rbrace = \frac{E(Z^k)}{\varepsilon^k} \le \frac{E(|Y|^k)}{\varepsilon^k} $$'>
 <meta property='og:url' content='https://example.com/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-01T04:04:03&#43;08:00'/><meta property='article:modified_time' content='2022-12-01T04:04:03&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-01T04:04:03&#43;08:00'/><meta property='article:modified_time' content='2022-12-01T04:04:03&#43;08:00'/><meta property='og:image' content='https://example.com/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/1.jpg' />
 <meta name="twitter:title" content="大数定律和中心极限定理">
 <meta name="twitter:description" content="大数定律 总体表述 $$ E(X_i)=\mu \\\ \\ 在一定条件下 \\\ \\ Y=\frac{X_1&#43;X_2&#43;&amp;hellip;&#43;X_n}{n}收敛到\mu $$
-依概率收敛 定义
-性质
-若$X_n \rightarrow a, Y_n\rightarrow b$ , $g$在$(a,b)$上连续，则$g(X_n,Y_n)\rightarrow g(a,b)$
-若$X_n \rightarrow a$,$f(x)$在点$a$连续，则$f(X_n)\rightarrow f(a)$
-马尔可夫不等式与切比雪夫不等式 马尔可夫不等式 设随机变量Y的k阶矩存在">
+依概率收敛 定义 随机变量序列$Y_1,Y_2,Y_3 &amp;hellip;$,若存在某常数$c$，使得$\forall \varepsilon \gt 0$,都有$\underset{n\rightarrow \infin}{lim} P \lbrace |Y_n-c|\ge \varepsilon\rbrace = 0$,则称$\lbrace Y_n,n\ge 1 \rbrace$依概率收敛于常数$c$
+记为 $Y_n \overset{P}{\longrightarrow} c$
+这是一种概率意义上的收敛，而不是数学意义上的收敛
+性质 若$X_n \overset{P}{\longrightarrow} a, Y_n\overset{P}{\longrightarrow} b$ , $g$在$(a,b)$上连续，则$g(X_n,Y_n)\overset{P}{\longrightarrow} g(a,b)$
+若$X_n \overset{P}{\longrightarrow} a$，$f(x)$在点$a$连续，则$f(X_n)\rightarrow f(a)$
+马尔可夫不等式与切比雪夫不等式 马尔可夫不等式 定义 设随机变量$Y$的$k$阶矩存在$(k\gt 1)$，则对于$\forall \varepsilon \gt 0$，都有 $P\lbrace |Y|\ge \varepsilon \rbrace \le \frac{E(|Y^k|)}{\varepsilon^k}$
+等价形式 $$ P\lbrace Y \ge \varepsilon \rbrace \le\frac{E(Y^k)}{\varepsilon^k} $$
+证明 $$ 对于\forall \varepsilon \gt0 ，令Z =\begin{cases}\varepsilon &amp;amp; |Y|\ge \varepsilon \\ 0 &amp;amp; |Y| \lt \varepsilon \end{cases} \\\ \\ \therefore Z \le |Y| \Rightarrow Z^k \le |Y|^k \Rightarrow E(Z^k) \le E(|Y|^k) \\\ \\ 根据Z的定义 \\\ \\ E(Z^k) = \varepsilon^k P\lbrace |Y|\ge \varepsilon\rbrace \\\ \\ \therefore P\lbrace |Y|\ge \varepsilon\rbrace = \frac{E(Z^k)}{\varepsilon^k} \le \frac{E(|Y|^k)}{\varepsilon^k} $$"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://example.com/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/1.jpg' />
     </head>
     <body class="
     article-page
@@ -271,6 +281,15 @@
         <li><a href="#马尔可夫不等式与切比雪夫不等式">马尔可夫不等式与切比雪夫不等式</a>
           <ol>
             <li><a href="#马尔可夫不等式">马尔可夫不等式</a></li>
+            <li><a href="#切比雪夫不等式--马尔可夫不等式的特殊情况">切比雪夫不等式 —— 马尔可夫不等式的特殊情况</a></li>
+          </ol>
+        </li>
+        <li><a href="#几个大数定律">几个大数定律</a>
+          <ol>
+            <li><a href="#弱大数定律">(弱)大数定律</a></li>
+            <li><a href="#切比雪夫大数定律">切比雪夫大数定律</a></li>
+            <li><a href="#辛倾大数定律">辛倾大数定律</a></li>
+            <li><a href="#贝努力大数定律">贝努力大数定律</a></li>
           </ol>
         </li>
       </ol>
@@ -286,8 +305,20 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/">
+                <img src="/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/1_hu3d03a01dcc18bc5be0e67db3d8d209a6_207802_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/1_hu3d03a01dcc18bc5be0e67db3d8d209a6_207802_800x0_resize_q75_box.jpg 800w, /p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/1_hu3d03a01dcc18bc5be0e67db3d8d209a6_207802_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="343" 
+                        loading="lazy"
+                        alt="Featured image of post 大数定律和中心极限定理" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -339,7 +370,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -363,24 +394,91 @@ E(X_i)=\mu \\\
 $$</p>
 <h2 id="依概率收敛">依概率收敛</h2>
 <ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>随机变量序列$Y_1,Y_2,Y_3 &hellip;$,若存在某常数$c$，使得$\forall \varepsilon \gt 0$,都有$\underset{n\rightarrow \infin}{lim} P \lbrace |Y_n-c|\ge \varepsilon\rbrace = 0$,则称$\lbrace Y_n,n\ge 1 \rbrace$依概率收敛于常数$c$</p>
+</blockquote>
+<ul>
 <li>
-<p>定义</p>
+<p>记为 $Y_n \overset{P}{\longrightarrow} c$</p>
 </li>
 <li>
-<p>性质</p>
+<p>这是一种概率意义上的收敛，而不是数学意义上的收敛</p>
 </li>
+</ul>
+<ol start="2">
+<li>性质</li>
 </ol>
 <ul>
 <li>
-<p>若$X_n \rightarrow a, Y_n\rightarrow b$ , $g$在$(a,b)$上连续，则$g(X_n,Y_n)\rightarrow g(a,b)$</p>
+<p>若$X_n \overset{P}{\longrightarrow} a, Y_n\overset{P}{\longrightarrow} b$ , $g$在$(a,b)$上连续，则$g(X_n,Y_n)\overset{P}{\longrightarrow} g(a,b)$</p>
 </li>
 <li>
-<p>若$X_n \rightarrow a$,$f(x)$在点$a$连续，则$f(X_n)\rightarrow f(a)$</p>
+<p>若$X_n \overset{P}{\longrightarrow} a$，$f(x)$在点$a$连续，则$f(X_n)\rightarrow f(a)$</p>
 </li>
 </ul>
 <h2 id="马尔可夫不等式与切比雪夫不等式">马尔可夫不等式与切比雪夫不等式</h2>
 <h3 id="马尔可夫不等式">马尔可夫不等式</h3>
-<p>设随机变量Y的k阶矩存在</p>
+<ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>设随机变量$Y$的$k$阶矩存在$(k\gt 1)$，则对于$\forall \varepsilon \gt 0$，都有 $P\lbrace |Y|\ge \varepsilon \rbrace \le \frac{E(|Y^k|)}{\varepsilon^k}$</p>
+</blockquote>
+<ul>
+<li>等价形式</li>
+</ul>
+<p>$$
+P\lbrace Y \ge \varepsilon \rbrace \le\frac{E(Y^k)}{\varepsilon^k}
+$$</p>
+<ol start="2">
+<li>证明</li>
+</ol>
+<p>$$
+对于\forall \varepsilon \gt0 ，令Z =\begin{cases}\varepsilon &amp; |Y|\ge \varepsilon \\ 0 &amp; |Y| \lt \varepsilon \end{cases} \\\
+\\ \therefore Z \le |Y| \Rightarrow Z^k \le |Y|^k \Rightarrow E(Z^k) \le E(|Y|^k) \\\
+\\ 根据Z的定义 \\\
+\\ E(Z^k) = \varepsilon^k P\lbrace |Y|\ge \varepsilon\rbrace \\\
+\\ \therefore P\lbrace |Y|\ge \varepsilon\rbrace = \frac{E(Z^k)}{\varepsilon^k} \le \frac{E(|Y|^k)}{\varepsilon^k}
+$$</p>
+<h3 id="切比雪夫不等式--马尔可夫不等式的特殊情况">切比雪夫不等式 —— 马尔可夫不等式的特殊情况</h3>
+<ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>对于$\forall \varepsilon \gt 0$，都有 $P\lbrace |X-E(X)| \ge \varepsilon \rbrace \le \frac{Var(X)}{\varepsilon^2}$</p>
+</blockquote>
+<ul>
+<li>等价形式</li>
+</ul>
+<p>$$
+P\lbrace |X-E(X)| \lt \varepsilon \rbrace = 1 - \frac{Var(X)}{\varepsilon^2}
+$$</p>
+<ol start="2">
+<li>证明</li>
+</ol>
+<p>$$
+在马尔可夫不等式中， 令Y = X -E(X)，k = 2 \\\
+\\ 有P(|X-E(X)|\ge \varepsilon ) = \frac{E[(X-E(X))^2]}{\varepsilon^2} = \frac{Var(X)}{\varepsilon^2}
+$$</p>
+<h2 id="几个大数定律">几个大数定律</h2>
+<h3 id="弱大数定律">(弱)大数定律</h3>
+<p>$$
+设Y_1&hellip;.Y_n为一个随机变量序列 \\\
+\\ 若存在常数序列 \lbrace c_n,n\ge 1 \rbrace，使得 \\\
+\\ n \longrightarrow \infin 时,\frac{1}{n}\sum_{i=1}^nY_i-c_n \overset{P}{\longrightarrow} 0 \\\
+\\ 即,\forall \varepsilon \ge 0, 有\underset{n\longrightarrow \infin}{lim} P\lbrace \Big | \frac{1}{n} \sum_{i=1}^n Y_i -c_n\Big| \ge \varepsilon\rbrace = 0 \\\
+\\ 则称\lbrace Y_i,i\ge 1 \rbrace服从\pmb{(弱)大数定律} \\\
+\\ 特别的，当c_n =c，n=1,2&hellip;时，可以改写为
+\\\
+\\ \frac{1}{n}\sum_{i=1}^nY_i \overset{P}{\longrightarrow} c，n\longrightarrow +\infin
+$$</p>
+<h3 id="切比雪夫大数定律">切比雪夫大数定律</h3>
+<p>$$</p>
+<p>$$</p>
+<h3 id="辛倾大数定律">辛倾大数定律</h3>
+<h3 id="贝努力大数定律">贝努力大数定律</h3>
 
 </section>
 
