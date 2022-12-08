@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='参数的点估计 矩估计法 '>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='参数的点估计 矩估计法 用样本矩估计总体矩 以样本矩估计总体矩
+$$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ 即\hat{\mu}k = A_k = \frac{1}{n}\sum{i=1}^nX_i ^k， \hat{v}k = B_k = \frac{1}{n}\sum{i=1}^n(X_i - \overline X)^k \\\ \\ \hat{g}(\mu_1&amp;hellip;\mu_m) = g(A_1 &amp;hellip; A_m)，其中g是连续函数 $$
+基本步骤 $$ 设总体X有m个未知参数\theta_1 &amp;hellip;\theta_m，\mu_1&amp;hellip;\mu_m 存在 $$
+求前$m$阶矩关于$m$个参数的函数 $$ \mu_k = E(X^k) = g_k(\theta_1,&amp;hellip;\theta_m)，k=1,&amp;hellip;,m $$
+求各参数关于前m阶矩阵的反函数 $$ \theta_k =h_k(\mu_1,&amp;hellip;,\mu_k)，k=1,&amp;hellip;,m $$
+用样本各阶矩$A_1,&amp;hellip;,A_m$代替总体各阶矩阵$\mu_1&amp;hellip;,\mu_m$ $$ \hat{\theta}_k = h_k(A_1,&amp;hellip;,A_k)，k=1,&amp;hellip;,m $$
+极大似然估计法 定义 一般的，设离散型总体$X～p(x;\theta),\theta \in \Theta$，$\theta$未知，从总体中取得样本$X_1,&amp;hellip;,X_n$,其观察值为$x_1,&amp;hellip;,x_n$，则事件$\lbrace X_1=x_1,&amp;hellip;X_n=x_n\rbrace$发生的概率为'>
 <title>参数估计</title>
 
 <link rel='canonical' href='https://example.com/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='参数估计'>
-<meta property='og:description' content='参数的点估计 矩估计法 '>
+<meta property='og:description' content='参数的点估计 矩估计法 用样本矩估计总体矩 以样本矩估计总体矩
+$$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ 即\hat{\mu}k = A_k = \frac{1}{n}\sum{i=1}^nX_i ^k， \hat{v}k = B_k = \frac{1}{n}\sum{i=1}^n(X_i - \overline X)^k \\\ \\ \hat{g}(\mu_1&amp;hellip;\mu_m) = g(A_1 &amp;hellip; A_m)，其中g是连续函数 $$
+基本步骤 $$ 设总体X有m个未知参数\theta_1 &amp;hellip;\theta_m，\mu_1&amp;hellip;\mu_m 存在 $$
+求前$m$阶矩关于$m$个参数的函数 $$ \mu_k = E(X^k) = g_k(\theta_1,&amp;hellip;\theta_m)，k=1,&amp;hellip;,m $$
+求各参数关于前m阶矩阵的反函数 $$ \theta_k =h_k(\mu_1,&amp;hellip;,\mu_k)，k=1,&amp;hellip;,m $$
+用样本各阶矩$A_1,&amp;hellip;,A_m$代替总体各阶矩阵$\mu_1&amp;hellip;,\mu_m$ $$ \hat{\theta}_k = h_k(A_1,&amp;hellip;,A_k)，k=1,&amp;hellip;,m $$
+极大似然估计法 定义 一般的，设离散型总体$X～p(x;\theta),\theta \in \Theta$，$\theta$未知，从总体中取得样本$X_1,&amp;hellip;,X_n$,其观察值为$x_1,&amp;hellip;,x_n$，则事件$\lbrace X_1=x_1,&amp;hellip;X_n=x_n\rbrace$发生的概率为'>
 <meta property='og:url' content='https://example.com/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-08T03:19:37&#43;08:00'/><meta property='article:modified_time' content='2022-12-08T03:19:37&#43;08:00'/>
 <meta name="twitter:title" content="参数估计">
-<meta name="twitter:description" content="参数的点估计 矩估计法 ">
+<meta name="twitter:description" content="参数的点估计 矩估计法 用样本矩估计总体矩 以样本矩估计总体矩
+$$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ 即\hat{\mu}k = A_k = \frac{1}{n}\sum{i=1}^nX_i ^k， \hat{v}k = B_k = \frac{1}{n}\sum{i=1}^n(X_i - \overline X)^k \\\ \\ \hat{g}(\mu_1&amp;hellip;\mu_m) = g(A_1 &amp;hellip; A_m)，其中g是连续函数 $$
+基本步骤 $$ 设总体X有m个未知参数\theta_1 &amp;hellip;\theta_m，\mu_1&amp;hellip;\mu_m 存在 $$
+求前$m$阶矩关于$m$个参数的函数 $$ \mu_k = E(X^k) = g_k(\theta_1,&amp;hellip;\theta_m)，k=1,&amp;hellip;,m $$
+求各参数关于前m阶矩阵的反函数 $$ \theta_k =h_k(\mu_1,&amp;hellip;,\mu_k)，k=1,&amp;hellip;,m $$
+用样本各阶矩$A_1,&amp;hellip;,A_m$代替总体各阶矩阵$\mu_1&amp;hellip;,\mu_m$ $$ \hat{\theta}_k = h_k(A_1,&amp;hellip;,A_k)，k=1,&amp;hellip;,m $$
+极大似然估计法 定义 一般的，设离散型总体$X～p(x;\theta),\theta \in \Theta$，$\theta$未知，从总体中取得样本$X_1,&amp;hellip;,X_n$,其观察值为$x_1,&amp;hellip;,x_n$，则事件$\lbrace X_1=x_1,&amp;hellip;X_n=x_n\rbrace$发生的概率为">
     </head>
     <body class="
     article-page
@@ -251,7 +269,22 @@
   <ol>
     <li><a href="#参数的点估计">参数的点估计</a>
       <ol>
-        <li><a href="#矩估计法">矩估计法</a></li>
+        <li><a href="#矩估计法">矩估计法</a>
+          <ol>
+            <li><a href="#用样本矩估计总体矩">用样本矩估计总体矩</a></li>
+            <li><a href="#基本步骤">基本步骤</a></li>
+          </ol>
+        </li>
+        <li><a href="#极大似然估计法">极大似然估计法</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#估计量的评选准则">估计量的评选准则</a>
+      <ol>
+        <li><a href="#无偏性准则">无偏性准则</a></li>
       </ol>
     </li>
   </ol>
@@ -331,6 +364,57 @@
     
     <h1 id="参数的点估计">参数的点估计</h1>
 <h2 id="矩估计法">矩估计法</h2>
+<h3 id="用样本矩估计总体矩">用样本矩估计总体矩</h3>
+<blockquote>
+<p>以样本矩估计总体矩</p>
+</blockquote>
+<p>$$
+设 \mu_k = E(X^k), k = 1, &hellip; m存在, v_k = E{[X-E(X)]^k} \\\
+\\ 即\hat{\mu}<em>k =  A_k = \frac{1}{n}\sum</em>{i=1}^nX_i ^k， \hat{v}<em>k = B_k = \frac{1}{n}\sum</em>{i=1}^n(X_i - \overline X)^k \\\
+\\ \hat{g}(\mu_1&hellip;\mu_m) = g(A_1 &hellip; A_m)，其中g是连续函数
+$$</p>
+<h3 id="基本步骤">基本步骤</h3>
+<p>$$
+设总体X有m个未知参数\theta_1 &hellip;\theta_m，\mu_1&hellip;\mu_m 存在
+$$</p>
+<ol>
+<li>求前$m$阶矩关于$m$个参数的函数</li>
+</ol>
+<p>$$
+\mu_k = E(X^k) = g_k(\theta_1,&hellip;\theta_m)，k=1,&hellip;,m
+$$</p>
+<ol start="2">
+<li>求各参数关于前m阶矩阵的反函数</li>
+</ol>
+<p>$$
+\theta_k  =h_k(\mu_1,&hellip;,\mu_k)，k=1,&hellip;,m
+$$</p>
+<ol start="3">
+<li>用样本各阶矩$A_1,&hellip;,A_m$代替总体各阶矩阵$\mu_1&hellip;,\mu_m$</li>
+</ol>
+<p>$$
+\hat{\theta}_k = h_k(A_1,&hellip;,A_k)，k=1,&hellip;,m
+$$</p>
+<h2 id="极大似然估计法">极大似然估计法</h2>
+<h3 id="定义">定义</h3>
+<blockquote>
+<p>一般的，设离散型总体$X～p(x;\theta),\theta \in \Theta$，$\theta$未知，从总体中取得样本$X_1,&hellip;,X_n$,其观察值为$x_1,&hellip;,x_n$，则事件$\lbrace X_1=x_1,&hellip;X_n=x_n\rbrace$发生的概率为</p>
+</blockquote>
+<p>$$
+L(\theta) = P\lbrace X_1=x_1,&hellip;,X_n=x_n \rbrace = p(x_1;\theta)&hellip;p(x_n;\theta) = \prod_{i=1} ^n p(x_i;\theta)\\\
+\\ 极大似然原理为\\\
+\\ L(\hat{\theta}(x_1,&hellip;,x_n)) = \underset{\theta \in \Theta}{max} L(\theta) \\\
+\\ \hat{\theta}(x_1,&hellip;,x_n)被称为极大似然估计值 \\\
+\\ 相应统计值\hat{\theta}(X_1,&hellip;,X_n) 被称为\theta 的极大似然估计量(MLE)
+$$</p>
+<h1 id="估计量的评选准则">估计量的评选准则</h1>
+<h2 id="无偏性准则">无偏性准则</h2>
+<p>$$
+若参数\theta的估计量\hat{\theta}  =\hat{\theta}(X_1,X_2,&hellip;,X_n)，满足E(\hat{\theta}) = \theta \\\
+\\ 则称\hat{\theta} 是\theta 的一个\pmb{无偏估计量} \\\
+\\ 若E(\hat{\theta})\ne \theta，那么\pmb{B(\hat{\theta}) = E(\hat{\theta})- \theta}称为\hat{\theta}的偏差 \\\
+\\ 若\underset{n\longrightarrow +\infin}{lim} E(\hat{\theta}) = \theta,则称\hat{\theta}是\theta的\pmb{渐进无偏估计量}
+$$</p>
 
 </section>
 
