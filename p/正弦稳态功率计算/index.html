@@ -1,99 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='behaviour 行为或性能
-transient response 瞬态响应
-steady-state response 稳态响应
-phasor 相量
-impendence 阻抗
-operational amplifier 运算放大器
-passive 无源的
-active 有源的
-dissipative element 耗能元件
-energy storage element 储能元件
-Kirchhoff 基尔霍夫
-Thevenin 戴维南
-Norton 诺顿
-unit step function 单位阶跃函数
-characteristic equation 特征方程
-over-damped 过阻尼
-under-damped 欠阻尼
-critically damped 临界阻尼
-forced response 强制响应
-natural response 自然响应
-Euler 欧拉
-admittance 导纳
-reactance 电抗
-condunctance 电导
-susceptance 电纳
-reciprocal 倒数
-dacibel 分贝
-conjugate 共轭'>
-<title>电路英语专业词语</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='瞬时功率 $$ p = vi \\\ \\ v = V_mcos(\omega t &#43; \theta_{v}) \\\ \\ i = I_mcos(\omega t &#43; \theta_i) \\\ \\ 更换时刻，可以得到 \\\ \\ v = V_m cos(\omega t &#43; \theta_v - \theta_i) \\\ \\ i = I_mcos\omega t \\\ \\ \therefore p = vi =V_mI_m cos(\omega t &#43; \theta_v - \theta_i)cos\omega t \\\ \\ 根据积化和差与和差化积公式 \\\ \\ p =\frac{V_mI_m}{2}cos(\theta_v - \theta_i) &#43; \frac{V_mI_m}{2} cos(\theta_v - \theta_i)cos2\omega t - \frac{V_mI_m}{2}sin(\theta_v - \theta_i)sin2\omega t [1] $$'>
+<title>正弦稳态功率计算</title>
 
-<link rel='canonical' href='https://example.com/p/%E7%94%B5%E8%B7%AF%E8%8B%B1%E8%AF%AD%E4%B8%93%E4%B8%9A%E8%AF%8D%E8%AF%AD/'>
+<link rel='canonical' href='https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='电路英语专业词语'>
-<meta property='og:description' content='behaviour 行为或性能
-transient response 瞬态响应
-steady-state response 稳态响应
-phasor 相量
-impendence 阻抗
-operational amplifier 运算放大器
-passive 无源的
-active 有源的
-dissipative element 耗能元件
-energy storage element 储能元件
-Kirchhoff 基尔霍夫
-Thevenin 戴维南
-Norton 诺顿
-unit step function 单位阶跃函数
-characteristic equation 特征方程
-over-damped 过阻尼
-under-damped 欠阻尼
-critically damped 临界阻尼
-forced response 强制响应
-natural response 自然响应
-Euler 欧拉
-admittance 导纳
-reactance 电抗
-condunctance 电导
-susceptance 电纳
-reciprocal 倒数
-dacibel 分贝
-conjugate 共轭'>
-<meta property='og:url' content='https://example.com/p/%E7%94%B5%E8%B7%AF%E8%8B%B1%E8%AF%AD%E4%B8%93%E4%B8%9A%E8%AF%8D%E8%AF%AD/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='正弦稳态功率计算'>
+<meta property='og:description' content='瞬时功率 $$ p = vi \\\ \\ v = V_mcos(\omega t &#43; \theta_{v}) \\\ \\ i = I_mcos(\omega t &#43; \theta_i) \\\ \\ 更换时刻，可以得到 \\\ \\ v = V_m cos(\omega t &#43; \theta_v - \theta_i) \\\ \\ i = I_mcos\omega t \\\ \\ \therefore p = vi =V_mI_m cos(\omega t &#43; \theta_v - \theta_i)cos\omega t \\\ \\ 根据积化和差与和差化积公式 \\\ \\ p =\frac{V_mI_m}{2}cos(\theta_v - \theta_i) &#43; \frac{V_mI_m}{2} cos(\theta_v - \theta_i)cos2\omega t - \frac{V_mI_m}{2}sin(\theta_v - \theta_i)sin2\omega t [1] $$'>
+<meta property='og:url' content='https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='英语' /><meta property='article:published_time' content='2022-12-03T22:04:58&#43;08:00'/><meta property='article:modified_time' content='2022-12-03T22:04:58&#43;08:00'/>
-<meta name="twitter:title" content="电路英语专业词语">
-<meta name="twitter:description" content="behaviour 行为或性能
-transient response 瞬态响应
-steady-state response 稳态响应
-phasor 相量
-impendence 阻抗
-operational amplifier 运算放大器
-passive 无源的
-active 有源的
-dissipative element 耗能元件
-energy storage element 储能元件
-Kirchhoff 基尔霍夫
-Thevenin 戴维南
-Norton 诺顿
-unit step function 单位阶跃函数
-characteristic equation 特征方程
-over-damped 过阻尼
-under-damped 欠阻尼
-critically damped 临界阻尼
-forced response 强制响应
-natural response 自然响应
-Euler 欧拉
-admittance 导纳
-reactance 电抗
-condunctance 电导
-susceptance 电纳
-reciprocal 倒数
-dacibel 分贝
-conjugate 共轭">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-08T23:54:44&#43;08:00'/><meta property='article:modified_time' content='2022-12-08T23:54:44&#43;08:00'/><meta property='og:image' content='https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.jpg' />
+<meta name="twitter:title" content="正弦稳态功率计算">
+<meta name="twitter:description" content="瞬时功率 $$ p = vi \\\ \\ v = V_mcos(\omega t &#43; \theta_{v}) \\\ \\ i = I_mcos(\omega t &#43; \theta_i) \\\ \\ 更换时刻，可以得到 \\\ \\ v = V_m cos(\omega t &#43; \theta_v - \theta_i) \\\ \\ i = I_mcos\omega t \\\ \\ \therefore p = vi =V_mI_m cos(\omega t &#43; \theta_v - \theta_i)cos\omega t \\\ \\ 根据积化和差与和差化积公式 \\\ \\ p =\frac{V_mI_m}{2}cos(\theta_v - \theta_i) &#43; \frac{V_mI_m}{2} cos(\theta_v - \theta_i)cos2\omega t - \frac{V_mI_m}{2}sin(\theta_v - \theta_i)sin2\omega t [1] $$"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.jpg' />
     </head>
     <body class="
     article-page
@@ -308,11 +228,71 @@ conjugate 共轭">
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#瞬时功率">瞬时功率</a></li>
+    <li><a href="#平均功率与无功功率">平均功率与无功功率</a>
+      <ol>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#纯电阻电路的功率">纯电阻电路的功率</a></li>
+        <li><a href="#纯电感电路的功率">纯电感电路的功率</a></li>
+        <li><a href="#纯电容电路">纯电容电路</a></li>
+        <li><a href="#功率因数">功率因数</a></li>
+      </ol>
+    </li>
+    <li><a href="#均方根和功率计算">均方根和功率计算</a></li>
+    <li><a href="#复功率">复功率</a>
+      <ol>
+        <li><a href="#功率三角形">功率三角形</a></li>
+        <li><a href="#定义-1">定义</a></li>
+      </ol>
+    </li>
+    <li><a href="#功率计算">功率计算</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/">
+                <img src="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1_hu3d03a01dcc18bc5be0e67db3d8d209a6_78765_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1_hu3d03a01dcc18bc5be0e67db3d8d209a6_78765_800x0_resize_q75_box.jpg 800w, /p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1_hu3d03a01dcc18bc5be0e67db3d8d209a6_78765_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="600" 
+                        loading="lazy"
+                        alt="Featured image of post 正弦稳态功率计算" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -327,7 +307,7 @@ conjugate 共轭">
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E7%94%B5%E8%B7%AF%E8%8B%B1%E8%AF%AD%E4%B8%93%E4%B8%9A%E8%AF%8D%E8%AF%AD/">电路英语专业词语</a>
+            <a href="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/">正弦稳态功率计算</a>
         </h2>
     
         
@@ -349,7 +329,7 @@ conjugate 共轭">
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 03, 2022</time>
+                <time class="article-time--published">Dec 08, 2022</time>
             </div>
         
 
@@ -364,7 +344,7 @@ conjugate 共轭">
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -379,92 +359,88 @@ conjugate 共轭">
     <section class="article-content">
     
     
-    <ul>
-<li>
-<p>behaviour 行为或性能</p>
-</li>
-<li>
-<p>transient response 瞬态响应</p>
-</li>
-<li>
-<p>steady-state response 稳态响应</p>
-</li>
-<li>
-<p>phasor 相量</p>
-</li>
-<li>
-<p>impendence 阻抗</p>
-</li>
-<li>
-<p>operational amplifier 运算放大器</p>
-</li>
-<li>
-<p>passive 无源的</p>
-</li>
-<li>
-<p>active 有源的</p>
-</li>
-<li>
-<p>dissipative element 耗能元件</p>
-</li>
-<li>
-<p>energy storage element 储能元件</p>
-</li>
-<li>
-<p>Kirchhoff 基尔霍夫</p>
-</li>
-<li>
-<p>Thevenin 戴维南</p>
-</li>
-<li>
-<p>Norton 诺顿</p>
-</li>
-<li>
-<p>unit step function 单位阶跃函数</p>
-</li>
-<li>
-<p>characteristic equation 特征方程</p>
-</li>
-<li>
-<p>over-damped 过阻尼</p>
-</li>
-<li>
-<p>under-damped 欠阻尼</p>
-</li>
-<li>
-<p>critically damped 临界阻尼</p>
-</li>
-<li>
-<p>forced response 强制响应</p>
-</li>
-<li>
-<p>natural response 自然响应</p>
-</li>
-<li>
-<p>Euler 欧拉</p>
-</li>
-<li>
-<p>admittance 导纳</p>
-</li>
-<li>
-<p>reactance 电抗</p>
-</li>
-<li>
-<p>condunctance 电导</p>
-</li>
-<li>
-<p>susceptance 电纳</p>
-</li>
-<li>
-<p>reciprocal 倒数</p>
-</li>
-<li>
-<p>dacibel 分贝</p>
-</li>
-<li>
-<p>conjugate 共轭</p>
-</li>
-</ul>
+    <h1 id="瞬时功率">瞬时功率</h1>
+<p>$$
+p = vi \\\
+\\ v = V_mcos(\omega t + \theta_{v}) \\\
+\\ i = I_mcos(\omega t + \theta_i) \\\
+\\ 更换时刻，可以得到 \\\
+\\ v = V_m cos(\omega t + \theta_v - \theta_i) \\\
+\\ i = I_mcos\omega t \\\
+\\ \therefore p = vi =V_mI_m cos(\omega t + \theta_v - \theta_i)cos\omega t \\\
+\\ 根据积化和差与和差化积公式 \\\
+\\ p =\frac{V_mI_m}{2}cos(\theta_v - \theta_i) + \frac{V_mI_m}{2} cos(\theta_v - \theta_i)cos2\omega t  - \frac{V_mI_m}{2}sin(\theta_v - \theta_i)sin2\omega t [1]
+$$</p>
+<h1 id="平均功率与无功功率">平均功率与无功功率</h1>
+<h2 id="定义">定义</h2>
+<p>$$
+上述[1]式中 \\\
+\\ 令 P = \frac{V_mI_m}{2}cos(\theta_v -\theta_i )， Q = \frac{V_mI_m}{2} sin(\theta_v-\theta_i) \\\
+\\ 其中,P = \frac{1}{T} \int_{t_0}^{t_0+T} pd\tau 被称为平均功率\\\
+\\ Q被称为无功功率 \\\
+\\ 这样一来，p = P + Pcos2\omega t -Qsin2\omega t
+$$</p>
+<h2 id="纯电阻电路的功率">纯电阻电路的功率</h2>
+<p>$$
+p = P + Pcos2\omega t \\\
+\\ 此时，无功功率为0
+$$</p>
+<h2 id="纯电感电路的功率">纯电感电路的功率</h2>
+<p>$$
+电压和电流的相位差为90^{\circ}，即\theta_v-\theta_i = 90^{\circ}\\\
+\\ p = -Qsin2\omega t \\\
+\\ \pmb{纯电感电路的电路的平均功率为0} \\\
+\\
+$$</p>
+<h2 id="纯电容电路">纯电容电路</h2>
+<p>$$
+电流超前电压90^{\circ} ，即\theta_v- \theta_i = - 90^{\circ}\\\
+\\ p = -Qsin2\omega t \\\
+\\ 同样，平均功率为0
+$$</p>
+<h2 id="功率因数">功率因数</h2>
+<p>$$
+功率因数 pf = cos(\theta_v - \theta_i) \\\
+\\ 无功因数 rf(reactive \ factor) = sin(\theta_v - \theta_i)
+$$</p>
+<h1 id="均方根和功率计算">均方根和功率计算</h1>
+<p>$$
+平均功率 P = \frac{1}{T}\int_{t_0}^{t_0+T}\frac{V_m^2cos^2(\omega t + \phi_v)}{R}dt = \frac{1}{R}\Big[\frac{1}{T}\int_{t_0}^{t_0+T}V_m^2cos^2(\omega t + \phi_v)dt\Big] \\\
+\\ 根据均方根公式 \\\
+\\ 我们知道P = \frac{V_{rms}^2}{R} = I_{rms}^2R\\\
+\\ P = V_{eff}I_{eff}cos(\theta_v - \theta_i) \\\
+\\ Q = V_{eff}I_{eff}sin(\theta_v - \theta_i)
+$$</p>
+<h1 id="复功率">复功率</h1>
+<h2 id="功率三角形">功率三角形</h2>
+<p><img src="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.png"
+	width="691"
+	height="285"
+	srcset="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1_hua8b153a585dc0b46c93702c844aeed6f_37777_480x0_resize_box_3.png 480w, /p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1_hua8b153a585dc0b46c93702c844aeed6f_37777_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="242"
+		data-flex-basis="581px"
+	
+></p>
+<h2 id="定义-1">定义</h2>
+<p>$$
+S = P + jQ \\\
+\\ tan(\theta_v -\theta_i) = \frac{Q}{P} = tan\theta\\\
+\\ |S| = \sqrt{P^2 + Q^2}
+$$</p>
+<h1 id="功率计算">功率计算</h1>
+<p>$$
+S = P + jQ \\\
+\\ 经过推导：\pmb{S = V_{eff}I_{eff}e^{j(\theta_v-\theta_i)}} [1]\\\
+\\ 也可以变为: S = V_{eff}I_{eff} e^{j(\theta_v - \theta_i)}  = V_{eff}e^{j\theta_v} \cdot I_{eff}e^{-j\theta_i} \\\
+\\ \pmb{S = \pmb V_{eff}\cdot \pmb I^{<em>}_{eff}}[2] \\\
+\\ 其中，I^</em><em>{eff}是I</em>{eff}的共轭复数 \\\
+\\ 同时\pmb{S = \frac{1}{2}VI} [3] \\\
+\\
+$$</p>
 
 </section>
 
@@ -472,8 +448,6 @@ conjugate 共轭">
     <footer class="article-footer">
     
     <section class="article-tags">
-        
-            <a href="/tags/%E8%8B%B1%E8%AF%AD/">英语</a>
         
     </section>
 
@@ -527,30 +501,6 @@ conjugate 共轭">
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/">
-        
-        
-            <div class="article-image">
-                <img src="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.d0e63dd397d5766a2a6aa31d08be2223_hu3d03a01dcc18bc5be0e67db3d8d209a6_78765_250x150_fill_q75_box_smart1.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 正弦稳态功率计算"
-                        
-                        data-hash="md5-0OY905fVdmoqaqMdCL4iIw==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">正弦稳态功率计算</h2>
-        </div>
-    </a>
-</article>
-
             
                 
 <article class="has-image">
@@ -610,6 +560,19 @@ conjugate 共轭">
 
         <div class="article-details">
             <h2 class="article-title">RL,RC电路的响应</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">电感、电容与互感</h2>
         </div>
     </a>
 </article>
