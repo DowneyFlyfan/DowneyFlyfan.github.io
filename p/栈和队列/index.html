@@ -458,14 +458,14 @@
 <pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Data</span>
 </span></span><span class="line"><span class="cl">	<span class="err">同线性表</span>
 </span></span><span class="line"><span class="cl"><span class="n">Operation</span>
-</span></span><span class="line"><span class="cl">	<span class="n">IintStack</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="o">:</span><span class="err">初始化建立空栈</span>
-</span></span><span class="line"><span class="cl">	<span class="n">DestroyStack</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="o">:</span> <span class="err">摧毁一个栈</span>
-</span></span><span class="line"><span class="cl">	<span class="n">ClearStack</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="o">:</span><span class="err">清空栈</span>
-</span></span><span class="line"><span class="cl">	<span class="n">StackEmpty</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">:</span><span class="err">栈为空，返回</span><span class="nb">true</span><span class="p">,</span><span class="err">否则返回</span><span class="nb">false</span>
-</span></span><span class="line"><span class="cl">	<span class="n">GetTop</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="o">*</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="err">若栈存在且非空，用</span><span class="n">e返回S的栈顶元素</span>
-</span></span><span class="line"><span class="cl">	<span class="n">Push</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="err">插入</span>
-</span></span><span class="line"><span class="cl">	<span class="n">Pop</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">,</span><span class="o">*</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="err">删除，并用</span><span class="n">e返回被删除的元素</span>
-</span></span><span class="line"><span class="cl">	<span class="nl">StackLength</span><span class="p">:</span><span class="err">返回栈</span><span class="n">S的元素个数</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">IintStack</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="o">:</span><span class="err">初始化建立空栈</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">DestroyStack</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="o">:</span> <span class="err">摧毁一个栈</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">ClearStack</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="o">:</span><span class="err">清空栈</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">StackEmpty</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">:</span><span class="err">栈为空，返回</span><span class="nb">true</span><span class="p">,</span><span class="err">否则返回</span><span class="nb">false</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">GetTop</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="o">*</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="err">若栈存在且非空，用</span><span class="n">e</span><span class="err">返回</span><span class="n">S</span><span class="err">的栈顶元素</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Push</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="err">插入</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Pop</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">,</span><span class="o">*</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="err">删除，并用</span><span class="n">e</span><span class="err">返回被删除的元素</span>
+</span></span><span class="line"><span class="cl">	<span class="nl">StackLength</span><span class="p">:</span><span class="err">返回栈</span><span class="n">S</span><span class="err">的元素个数</span>
 </span></span><span class="line"><span class="cl"><span class="n">endADT</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -693,7 +693,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Status</span> <span class="nf">Push</span><span class="p">(</span><span class="n">LinkStack</span> <span class="o">*</span><span class="n">S</span><span class="p">,</span> <span class="n">SElemType</span> <span class="n">e</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LinkStackPtr</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">LinkStackPtr</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">StackNode</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="n">LinkStackPtr</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">LinkStackPtr</span><span class="p">)</span> <span class="nf">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">StackNode</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">	<span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">=</span><span class="n">e</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">S</span><span class="o">-&gt;</span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
@@ -721,12 +721,12 @@
 <pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">Status</span> <span class="nf">Pop</span><span class="p">(</span><span class="n">LinkStack</span> <span class="o">*</span><span class="n">S</span><span class="p">,</span> <span class="n">SElemType</span> <span class="o">*</span><span class="n">e</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="n">LinkStackPtr</span> <span class="n">p</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">StackEmpty</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">))</span><span class="c1">//空栈
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="nf">StackEmpty</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">))</span><span class="c1">//空栈
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="n">e</span> <span class="o">=</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">p</span> <span class="o">=</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">=</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">S</span><span class="o">-&gt;</span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -774,7 +774,7 @@ $$</p>
 </span></span><span class="line"><span class="cl">	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="k">else</span> 
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">F</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">F</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nf">F</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="nf">F</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
@@ -782,7 +782,7 @@ $$</p>
 </span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">40</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="n">Fib</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="nf">Fib</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -1037,9 +1037,9 @@ $$</p>
 <pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">// 入列
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Status</span> <span class="nf">EnQueue</span> <span class="p">(</span><span class="n">LinkQueue</span> <span class="o">*</span><span class="n">Q</span><span class="p">,</span> <span class="n">QElemType</span> <span class="n">e</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="n">QueuePtr</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">QueuePtr</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="n">QueuePtr</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">QueuePtr</span><span class="p">)</span> <span class="nf">malloc</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">Q</span><span class="o">-&gt;</span><span class="n">rear</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
@@ -1059,7 +1059,7 @@ $$</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">Q</span><span class="o">-&gt;</span><span class="n">rear</span> <span class="o">=</span> <span class="n">p</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">		<span class="n">Q</span><span class="o">-&gt;</span><span class="n">rear</span> <span class="o">=</span> <span class="n">Q</span><span class="o">-&gt;</span><span class="n">free</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>

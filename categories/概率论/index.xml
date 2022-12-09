@@ -6,7 +6,68 @@
         <description>Recent content in 概率论 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 08 Dec 2022 02:49:15 +0800</lastBuildDate><atom:link href="https://example.com/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 08 Dec 2022 03:19:37 +0800</lastBuildDate><atom:link href="https://example.com/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>参数估计</title>
+        <link>https://example.com/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/</link>
+        <pubDate>Thu, 08 Dec 2022 03:19:37 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/</guid>
+        <description>&lt;h1 id=&#34;参数的点估计&#34;&gt;参数的点估计&lt;/h1&gt;
+&lt;h2 id=&#34;矩估计法&#34;&gt;矩估计法&lt;/h2&gt;
+&lt;h3 id=&#34;用样本矩估计总体矩&#34;&gt;用样本矩估计总体矩&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以样本矩估计总体矩&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\
+\\ 即\hat{\mu}&lt;em&gt;k =  A_k = \frac{1}{n}\sum&lt;/em&gt;{i=1}^nX_i ^k， \hat{v}&lt;em&gt;k = B_k = \frac{1}{n}\sum&lt;/em&gt;{i=1}^n(X_i - \overline X)^k \\\
+\\ \hat{g}(\mu_1&amp;hellip;\mu_m) = g(A_1 &amp;hellip; A_m)，其中g是连续函数
+$$&lt;/p&gt;
+&lt;h3 id=&#34;基本步骤&#34;&gt;基本步骤&lt;/h3&gt;
+&lt;p&gt;$$
+设总体X有m个未知参数\theta_1 &amp;hellip;\theta_m，\mu_1&amp;hellip;\mu_m 存在
+$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;求前$m$阶矩关于$m$个参数的函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\mu_k = E(X^k) = g_k(\theta_1,&amp;hellip;\theta_m)，k=1,&amp;hellip;,m
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;求各参数关于前m阶矩阵的反函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\theta_k  =h_k(\mu_1,&amp;hellip;,\mu_k)，k=1,&amp;hellip;,m
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;用样本各阶矩$A_1,&amp;hellip;,A_m$代替总体各阶矩阵$\mu_1&amp;hellip;,\mu_m$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\hat{\theta}_k = h_k(A_1,&amp;hellip;,A_k)，k=1,&amp;hellip;,m
+$$&lt;/p&gt;
+&lt;h2 id=&#34;极大似然估计法&#34;&gt;极大似然估计法&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一般的，设离散型总体$X～p(x;\theta),\theta \in \Theta$，$\theta$未知，从总体中取得样本$X_1,&amp;hellip;,X_n$,其观察值为$x_1,&amp;hellip;,x_n$，则事件$\lbrace X_1=x_1,&amp;hellip;X_n=x_n\rbrace$发生的概率为&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+L(\theta) = P\lbrace X_1=x_1,&amp;hellip;,X_n=x_n \rbrace = p(x_1;\theta)&amp;hellip;p(x_n;\theta) = \prod_{i=1} ^n p(x_i;\theta)\\\
+\\ 极大似然原理为\\\
+\\ L(\hat{\theta}(x_1,&amp;hellip;,x_n)) = \underset{\theta \in \Theta}{max} L(\theta) \\\
+\\ \hat{\theta}(x_1,&amp;hellip;,x_n)被称为极大似然估计值 \\\
+\\ 相应统计值\hat{\theta}(X_1,&amp;hellip;,X_n) 被称为\theta 的极大似然估计量(MLE)
+$$&lt;/p&gt;
+&lt;h1 id=&#34;估计量的评选准则&#34;&gt;估计量的评选准则&lt;/h1&gt;
+&lt;h2 id=&#34;无偏性准则&#34;&gt;无偏性准则&lt;/h2&gt;
+&lt;p&gt;$$
+若参数\theta的估计量\hat{\theta}  =\hat{\theta}(X_1,X_2,&amp;hellip;,X_n)，满足E(\hat{\theta}) = \theta \\\
+\\ 则称\hat{\theta} 是\theta 的一个\pmb{无偏估计量} \\\
+\\ 若E(\hat{\theta})\ne \theta，那么\pmb{B(\hat{\theta}) = E(\hat{\theta})- \theta}称为\hat{\theta}的偏差 \\\
+\\ 若\underset{n\longrightarrow +\infin}{lim} E(\hat{\theta}) = \theta,则称\hat{\theta}是\theta的\pmb{渐进无偏估计量}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>统计量与抽样分布</title>
         <link>https://example.com/p/%E7%BB%9F%E8%AE%A1%E9%87%8F%E4%B8%8E%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/</link>
         <pubDate>Thu, 08 Dec 2022 02:49:15 +0800</pubDate>
