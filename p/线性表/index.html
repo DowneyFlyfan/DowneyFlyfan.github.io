@@ -1,48 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='[toc]
-一、算法 定义
-解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列 特性
-有穷性 确定性 可行性 算法效率的度量
-运行时间
-取决于算法的好坏与问题的输入规模（输入量） 算法时间复杂度
-大O记法
-$T(n)=O(f(n))$ T(n)增长最慢的为最优算法 分类与排序 $O(1) &amp;lt; O(log(n))&amp;lt; O(n) &amp;lt; O(nlog(n)) &amp;lt; O(n^2) &amp;lt; O(n^3) &amp;lt; O(n!) &amp;lt; O(n^n)$ 最坏情况与平均情况 一般运行时间为最坏运行时间 平均运行时间是一个期望值 算法空间复杂度
-$S(n)=O(f(n))$ 二、线性表(List) 1.线性表(List)定义 零个或多个数据元素的有限序列 每个元素都有一个直接前驱和直接后继元素 数据元素是一对一的关系 2. 抽象数据类型 Operation IintList(*L); ListEmpty(L); GetElem(L,i,*e); LocateELem(L,e); ListInsert(*L,i,e); ListDelete(*L,i,*e); ListLength(L); endADT 3. 顺序存储结构 定义
-用一段地址连续的存储单元依次存放线性表的数据元素 结构代码
-1 2 3 4 5 6 7 #define MAXSIZE 20 typedef int ElemType typedef struct { ElemType data[MAXSIZE]; //数组存取数据元素 int length; //线性表当前长度 }SqList; 三个属性'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='[toc] 一、算法 定义 解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列 特性 有穷性 确定性 可行性 算法效率的度量 运行时间 取决于算法的好坏与问题的'>
 <title>线性表</title>
 
-<link rel='canonical' href='https://example.com/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/'>
+<link rel='canonical' href='https://donweyflyfan.github.io/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='线性表'>
-<meta property='og:description' content='[toc]
-一、算法 定义
-解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列 特性
-有穷性 确定性 可行性 算法效率的度量
-运行时间
-取决于算法的好坏与问题的输入规模（输入量） 算法时间复杂度
-大O记法
-$T(n)=O(f(n))$ T(n)增长最慢的为最优算法 分类与排序 $O(1) &amp;lt; O(log(n))&amp;lt; O(n) &amp;lt; O(nlog(n)) &amp;lt; O(n^2) &amp;lt; O(n^3) &amp;lt; O(n!) &amp;lt; O(n^n)$ 最坏情况与平均情况 一般运行时间为最坏运行时间 平均运行时间是一个期望值 算法空间复杂度
-$S(n)=O(f(n))$ 二、线性表(List) 1.线性表(List)定义 零个或多个数据元素的有限序列 每个元素都有一个直接前驱和直接后继元素 数据元素是一对一的关系 2. 抽象数据类型 Operation IintList(*L); ListEmpty(L); GetElem(L,i,*e); LocateELem(L,e); ListInsert(*L,i,e); ListDelete(*L,i,*e); ListLength(L); endADT 3. 顺序存储结构 定义
-用一段地址连续的存储单元依次存放线性表的数据元素 结构代码
-1 2 3 4 5 6 7 #define MAXSIZE 20 typedef int ElemType typedef struct { ElemType data[MAXSIZE]; //数组存取数据元素 int length; //线性表当前长度 }SqList; 三个属性'>
-<meta property='og:url' content='https://example.com/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/'>
+<meta property='og:description' content='[toc] 一、算法 定义 解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列 特性 有穷性 确定性 可行性 算法效率的度量 运行时间 取决于算法的好坏与问题的'>
+<meta property='og:url' content='https://donweyflyfan.github.io/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-11-25T00:38:32&#43;08:00'/><meta property='article:modified_time' content='2022-11-25T00:38:32&#43;08:00'/>
 <meta name="twitter:title" content="线性表">
-<meta name="twitter:description" content="[toc]
-一、算法 定义
-解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列 特性
-有穷性 确定性 可行性 算法效率的度量
-运行时间
-取决于算法的好坏与问题的输入规模（输入量） 算法时间复杂度
-大O记法
-$T(n)=O(f(n))$ T(n)增长最慢的为最优算法 分类与排序 $O(1) &amp;lt; O(log(n))&amp;lt; O(n) &amp;lt; O(nlog(n)) &amp;lt; O(n^2) &amp;lt; O(n^3) &amp;lt; O(n!) &amp;lt; O(n^n)$ 最坏情况与平均情况 一般运行时间为最坏运行时间 平均运行时间是一个期望值 算法空间复杂度
-$S(n)=O(f(n))$ 二、线性表(List) 1.线性表(List)定义 零个或多个数据元素的有限序列 每个元素都有一个直接前驱和直接后继元素 数据元素是一对一的关系 2. 抽象数据类型 Operation IintList(*L); ListEmpty(L); GetElem(L,i,*e); LocateELem(L,e); ListInsert(*L,i,e); ListDelete(*L,i,*e); ListLength(L); endADT 3. 顺序存储结构 定义
-用一段地址连续的存储单元依次存放线性表的数据元素 结构代码
-1 2 3 4 5 6 7 #define MAXSIZE 20 typedef int ElemType typedef struct { ElemType data[MAXSIZE]; //数组存取数据元素 int length; //线性表当前长度 }SqList; 三个属性">
+<meta name="twitter:description" content="[toc] 一、算法 定义 解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列 特性 有穷性 确定性 可行性 算法效率的度量 运行时间 取决于算法的好坏与问题的">
     </head>
     <body class="
     article-page
@@ -70,7 +40,7 @@ $S(n)=O(f(n))$ 二、线性表(List) 1.线性表(List)定义 零个或多个数�
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -222,11 +192,11 @@ $S(n)=O(f(n))$ 二、线性表(List) 1.线性表(List)定义 零个或多个数�
 
                     <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                         
-                            <option value="https://example.com/" selected>English</option>
+                            <option value="https://donweyflyfan.github.io/en/" >English</option>
                         
-                            <option value="https://example.com/zh-cn/" >中文</option>
+                            <option value="https://donweyflyfan.github.io/" selected>中文</option>
                         
-                            <option value="https://example.com/ar/" >عربي</option>
+                            <option value="https://donweyflyfan.github.io/ar/" >عربي</option>
                         
                     </select>
                 </li>
@@ -250,7 +220,7 @@ $S(n)=O(f(n))$ 二、线性表(List) 1.线性表(List)定义 零个或多个数�
 
 
 
-                    <span>Dark Mode</span>
+                    <span>暗色模式</span>
                 </li>
             
         </div>
@@ -274,7 +244,7 @@ $S(n)=O(f(n))$ 二、线性表(List) 1.线性表(List)定义 零个或多个数�
 
 
         </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
+        <h2 class="widget-title section-title">目录</h2>
         
         <div class="widget--toc">
             <nav id="TableOfContents">
@@ -340,7 +310,7 @@ $S(n)=O(f(n))$ 二、线性表(List) 1.线性表(List)定义 零个或多个数�
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Nov 25, 2022</time>
+                <time class="article-time--published">Nov 25, 252525</time>
             </div>
         
 
@@ -355,7 +325,7 @@ $S(n)=O(f(n))$ 二、线性表(List) 1.线性表(List)定义 零个或多个数�
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -1153,7 +1123,7 @@ endADT
     
 
 <aside class="related-content--wrapper">
-    <h2 class="section-title">Related content</h2>
+    <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
             
@@ -1251,14 +1221,12 @@ endADT
     <section class="copyright">
         &copy; 
         
-            2020 - 
-        
         2022 飞璠博客
     </section>
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 

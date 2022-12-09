@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='瞬时功率 $$ p = vi \\\ \\ v = V_mcos(\omega t &#43; \theta_{v}) \\\ \\ i = I_mcos(\omega t &#43; \theta_i) \\\ \\ 更换时刻，可以得到 \\\ \\ v = V_m cos(\omega t &#43; \theta_v - \theta_i) \\\ \\ i = I_mcos\omega t \\\ \\ \therefore p = vi =V_mI_m cos(\omega t &#43; \theta_v - \theta_i)cos\omega t \\\ \\ 根据积化和差与和差化积公式 \\\ \\ p =\frac{V_mI_m}{2}cos(\theta_v - \theta_i) &#43; \frac{V_mI_m}{2} cos(\theta_v - \theta_i)cos2\omega t - \frac{V_mI_m}{2}sin(\theta_v - \theta_i)sin2\omega t [1] $$'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='瞬时功率 $$ p = vi \\\ \\ v = V_mcos(\omega t &#43; \theta_{v}) \\\ \\ i = I_mcos(\omega t &#43; \theta_i) \\\ \\ 更换时刻，可以得到 \\\ \\ v = V_m cos(\omega t &#43; \theta_v - \theta_i) \\\ \\ i = I_mcos\omega t \\\ \\ \therefore p = vi =V_mI_m cos(\omega t &#43; \theta_v - \theta_i)cos\omega t \\\ \\ 根据'>
 <title>正弦稳态功率计算</title>
 
-<link rel='canonical' href='https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/'>
+<link rel='canonical' href='https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='正弦稳态功率计算'>
-<meta property='og:description' content='瞬时功率 $$ p = vi \\\ \\ v = V_mcos(\omega t &#43; \theta_{v}) \\\ \\ i = I_mcos(\omega t &#43; \theta_i) \\\ \\ 更换时刻，可以得到 \\\ \\ v = V_m cos(\omega t &#43; \theta_v - \theta_i) \\\ \\ i = I_mcos\omega t \\\ \\ \therefore p = vi =V_mI_m cos(\omega t &#43; \theta_v - \theta_i)cos\omega t \\\ \\ 根据积化和差与和差化积公式 \\\ \\ p =\frac{V_mI_m}{2}cos(\theta_v - \theta_i) &#43; \frac{V_mI_m}{2} cos(\theta_v - \theta_i)cos2\omega t - \frac{V_mI_m}{2}sin(\theta_v - \theta_i)sin2\omega t [1] $$'>
-<meta property='og:url' content='https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/'>
+<meta property='og:description' content='瞬时功率 $$ p = vi \\\ \\ v = V_mcos(\omega t &#43; \theta_{v}) \\\ \\ i = I_mcos(\omega t &#43; \theta_i) \\\ \\ 更换时刻，可以得到 \\\ \\ v = V_m cos(\omega t &#43; \theta_v - \theta_i) \\\ \\ i = I_mcos\omega t \\\ \\ \therefore p = vi =V_mI_m cos(\omega t &#43; \theta_v - \theta_i)cos\omega t \\\ \\ 根据'>
+<meta property='og:url' content='https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-08T23:54:44&#43;08:00'/><meta property='article:modified_time' content='2022-12-08T23:54:44&#43;08:00'/><meta property='og:image' content='https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-08T23:54:44&#43;08:00'/><meta property='article:modified_time' content='2022-12-08T23:54:44&#43;08:00'/><meta property='og:image' content='https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.jpg' />
 <meta name="twitter:title" content="正弦稳态功率计算">
-<meta name="twitter:description" content="瞬时功率 $$ p = vi \\\ \\ v = V_mcos(\omega t &#43; \theta_{v}) \\\ \\ i = I_mcos(\omega t &#43; \theta_i) \\\ \\ 更换时刻，可以得到 \\\ \\ v = V_m cos(\omega t &#43; \theta_v - \theta_i) \\\ \\ i = I_mcos\omega t \\\ \\ \therefore p = vi =V_mI_m cos(\omega t &#43; \theta_v - \theta_i)cos\omega t \\\ \\ 根据积化和差与和差化积公式 \\\ \\ p =\frac{V_mI_m}{2}cos(\theta_v - \theta_i) &#43; \frac{V_mI_m}{2} cos(\theta_v - \theta_i)cos2\omega t - \frac{V_mI_m}{2}sin(\theta_v - \theta_i)sin2\omega t [1] $$"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://example.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.jpg' />
+<meta name="twitter:description" content="瞬时功率 $$ p = vi \\\ \\ v = V_mcos(\omega t &#43; \theta_{v}) \\\ \\ i = I_mcos(\omega t &#43; \theta_i) \\\ \\ 更换时刻，可以得到 \\\ \\ v = V_m cos(\omega t &#43; \theta_v - \theta_i) \\\ \\ i = I_mcos\omega t \\\ \\ \therefore p = vi =V_mI_m cos(\omega t &#43; \theta_v - \theta_i)cos\omega t \\\ \\ 根据"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.jpg' />
     </head>
     <body class="
     article-page
@@ -41,7 +41,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -193,11 +193,11 @@
 
                     <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                         
-                            <option value="https://example.com/" selected>English</option>
+                            <option value="https://donweyflyfan.github.io/en/" >English</option>
                         
-                            <option value="https://example.com/zh-cn/" >中文</option>
+                            <option value="https://donweyflyfan.github.io/" selected>中文</option>
                         
-                            <option value="https://example.com/ar/" >عربي</option>
+                            <option value="https://donweyflyfan.github.io/ar/" >عربي</option>
                         
                     </select>
                 </li>
@@ -221,7 +221,7 @@
 
 
 
-                    <span>Dark Mode</span>
+                    <span>暗色模式</span>
                 </li>
             
         </div>
@@ -245,7 +245,7 @@
 
 
         </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
+        <h2 class="widget-title section-title">目录</h2>
         
         <div class="widget--toc">
             <nav id="TableOfContents">
@@ -345,7 +345,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 08, 2022</time>
+                <time class="article-time--published">Dec 08, 8088</time>
             </div>
         
 
@@ -360,7 +360,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -564,7 +564,7 @@ $$</p>
     
 
 <aside class="related-content--wrapper">
-    <h2 class="section-title">Related content</h2>
+    <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
             
@@ -710,14 +710,12 @@ $$</p>
     <section class="copyright">
         &copy; 
         
-            2020 - 
-        
         2022 飞璠博客
     </section>
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
