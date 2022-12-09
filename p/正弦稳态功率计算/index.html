@@ -267,7 +267,23 @@
         <li><a href="#定义-1">定义</a></li>
       </ol>
     </li>
-    <li><a href="#功率计算">功率计算</a></li>
+    <li><a href="#功率计算">功率计算</a>
+      <ol>
+        <li><a href="#复功率的变换形式">复功率的变换形式</a>
+          <ol>
+            <li><a href="#图示">图示</a></li>
+            <li><a href="#推导">推导</a></li>
+          </ol>
+        </li>
+        <li><a href="#最大功率传输定律">最大功率传输定律</a>
+          <ol>
+            <li><a href="#图示-1">图示</a></li>
+            <li><a href="#推导-1">推导</a></li>
+            <li><a href="#限制z时的最大功率传输">限制Z时的最大功率传输</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -438,8 +454,58 @@ S = P + jQ \\\
 \\ 也可以变为: S = V_{eff}I_{eff} e^{j(\theta_v - \theta_i)}  = V_{eff}e^{j\theta_v} \cdot I_{eff}e^{-j\theta_i} \\\
 \\ \pmb{S = \pmb V_{eff}\cdot \pmb I^{<em>}_{eff}}[2] \\\
 \\ 其中，I^</em><em>{eff}是I</em>{eff}的共轭复数 \\\
-\\ 同时\pmb{S = \frac{1}{2}VI} [3] \\\
-\\
+\\ 同时\pmb{S = \frac{1}{2}VI} [3]
+$$</p>
+<h2 id="复功率的变换形式">复功率的变换形式</h2>
+<h3 id="图示">图示</h3>
+<p><img src="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/2.png"
+	width="523"
+	height="262"
+	srcset="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/2_hu4d5a81286f02389a45c168804227b0ce_61201_480x0_resize_box_3.png 480w, /p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/2_hu4d5a81286f02389a45c168804227b0ce_61201_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="199"
+		data-flex-basis="479px"
+	
+></p>
+<h3 id="推导">推导</h3>
+<p>$$
+\pmb V_{eff} = \pmb I_{eff}\cdot Z \\\
+\\ =\pmb I_{eff}(R+jX) \\\
+\\ \therefore S = \pmb{V_{eff}I^*<em>{eff}} \\\
+\\ = |\pmb{I</em>{eff}^2}| (R+jX) \\\
+\\ = |\pmb{I_{eff}^2}|R+j|\pmb{I_{eff}^2}|X\\\
+\\ \therefore P = |\pmb{I_{eff}^2}|R = \frac{1}{2}I_m^2R \\\
+\\ Q = |\pmb{I_{eff}^2}|X = \frac{1}{2}I_m^2X
+$$</p>
+<h2 id="最大功率传输定律">最大功率传输定律</h2>
+<h3 id="图示-1">图示</h3>
+<p><img src="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/3.png"
+	width="885"
+	height="187"
+	srcset="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/3_hu3e7996a3da3cd98655f27b6dcec2218a_72930_480x0_resize_box_3.png 480w, /p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/3_hu3e7996a3da3cd98655f27b6dcec2218a_72930_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="473"
+		data-flex-basis="1135px"
+	
+></p>
+<h3 id="推导-1">推导</h3>
+<p>$$
+\\ \pmb I = \frac{V_{Th}}{R_{Th}+R_L+j(X_{Th}+X_L)} \\\
+\\ P_L = \pmb I^2 \cdot R \\\
+\\ \pmb P_L = \frac{V_{Th}^2}{(R_{Th}+R_L)^2+(X_{Th}+X_L)^2} \\\
+\\ 通过求导分析可得 \\\
+\\ \pmb{当Z_L = Z^*<em>{Th}时，负载功率最大} \\\
+\\ 此时\pmb{P</em>{max} = \frac{1}{4}\frac{V_{Th}^2}{R_L} = \frac{1}{8}\frac{V_m^2}{R_L}}
+$$</p>
+<h3 id="限制z时的最大功率传输">限制Z时的最大功率传输</h3>
+<p>$$
+|Z_L| = |Z_{Th}|时,负载平均功率最大
 $$</p>
 
 </section>
