@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='并联RLC固有响应 图示 推导 $$ \frac{v}{R} &#43;\frac{1}{L}\int_0^t vd\tau &#43; I_0 &#43; C\frac{dv}{dt} = 0 \\\ \\ 对t取微分得到:\frac{1}{R}\frac{dv}{dt} &#43; \frac{v}{L} &#43; C\frac{d^2v}{dt^2} = 0 \\\ \\ 整理得: \frac{d^2'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='并联RLC固有响应 图示 推导 $$ \frac{v}{R} &#43;\frac{1}{L}\int_0^t vd\tau &#43; I_0 &#43; C\frac{dv}{dt} = 0 \\\ \\ 对t取微分得到:\frac{1}{R}\frac{dv}{dt} &#43; \frac{v}{L} &#43; C\frac{d^2v}{dt^2} = 0 \\\ \\ 整理得: \frac{d^2 v}{dt^2} &#43; \frac{1}{RC}\frac{dv}{dt} &#43;\frac{v}{LC} = 0 [1] $$
+回顾二次微分方程的解法 $$ 假设 v = A e ^{st} \\\ \\ 代入[1]式可以得到: Ae^{st} (s^2 &#43; \frac{s}{RC} &#43; \frac{1}{LC}) = 0 \\\ \\ 解s^2 &#43; \frac{s}{RC} &#43; \frac{1}{LC} = 0 \\\ \\ 得 s_1 = -\frac{1}{2RC} &#43; \sqrt{(\frac{1}{2RC})^2 - \frac{1}{LC}} \\\ \\ s_2 = -\frac{1}{2RC} - \sqrt{(\frac{1}{2RC})^2 - \frac{1}{LC}} \\\ \\ 最终得到 v = A_1 e^{s_1 t}&#43;A_2 e ^{s_2 t } \\\ \\ 改写s_1,s_2 \\\ \\ s_1 = -\alpha &#43; \sqrt{\alpha^2 - \omega_0^2} \\\ \\ s_2 = -\alpha - \sqrt{\alpha^2 - \omega_0^2} \\\ $$'>
 <title>RLC电路</title>
 
 <link rel='canonical' href='https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='RLC电路'>
-<meta property='og:description' content='并联RLC固有响应 图示 推导 $$ \frac{v}{R} &#43;\frac{1}{L}\int_0^t vd\tau &#43; I_0 &#43; C\frac{dv}{dt} = 0 \\\ \\ 对t取微分得到:\frac{1}{R}\frac{dv}{dt} &#43; \frac{v}{L} &#43; C\frac{d^2v}{dt^2} = 0 \\\ \\ 整理得: \frac{d^2'>
+<meta property='og:description' content='并联RLC固有响应 图示 推导 $$ \frac{v}{R} &#43;\frac{1}{L}\int_0^t vd\tau &#43; I_0 &#43; C\frac{dv}{dt} = 0 \\\ \\ 对t取微分得到:\frac{1}{R}\frac{dv}{dt} &#43; \frac{v}{L} &#43; C\frac{d^2v}{dt^2} = 0 \\\ \\ 整理得: \frac{d^2 v}{dt^2} &#43; \frac{1}{RC}\frac{dv}{dt} &#43;\frac{v}{LC} = 0 [1] $$
+回顾二次微分方程的解法 $$ 假设 v = A e ^{st} \\\ \\ 代入[1]式可以得到: Ae^{st} (s^2 &#43; \frac{s}{RC} &#43; \frac{1}{LC}) = 0 \\\ \\ 解s^2 &#43; \frac{s}{RC} &#43; \frac{1}{LC} = 0 \\\ \\ 得 s_1 = -\frac{1}{2RC} &#43; \sqrt{(\frac{1}{2RC})^2 - \frac{1}{LC}} \\\ \\ s_2 = -\frac{1}{2RC} - \sqrt{(\frac{1}{2RC})^2 - \frac{1}{LC}} \\\ \\ 最终得到 v = A_1 e^{s_1 t}&#43;A_2 e ^{s_2 t } \\\ \\ 改写s_1,s_2 \\\ \\ s_1 = -\alpha &#43; \sqrt{\alpha^2 - \omega_0^2} \\\ \\ s_2 = -\alpha - \sqrt{\alpha^2 - \omega_0^2} \\\ $$'>
 <meta property='og:url' content='https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-05T04:19:53&#43;08:00'/><meta property='article:modified_time' content='2022-12-05T04:19:53&#43;08:00'/>
 <meta name="twitter:title" content="RLC电路">
-<meta name="twitter:description" content="并联RLC固有响应 图示 推导 $$ \frac{v}{R} &#43;\frac{1}{L}\int_0^t vd\tau &#43; I_0 &#43; C\frac{dv}{dt} = 0 \\\ \\ 对t取微分得到:\frac{1}{R}\frac{dv}{dt} &#43; \frac{v}{L} &#43; C\frac{d^2v}{dt^2} = 0 \\\ \\ 整理得: \frac{d^2">
+<meta name="twitter:description" content="并联RLC固有响应 图示 推导 $$ \frac{v}{R} &#43;\frac{1}{L}\int_0^t vd\tau &#43; I_0 &#43; C\frac{dv}{dt} = 0 \\\ \\ 对t取微分得到:\frac{1}{R}\frac{dv}{dt} &#43; \frac{v}{L} &#43; C\frac{d^2v}{dt^2} = 0 \\\ \\ 整理得: \frac{d^2 v}{dt^2} &#43; \frac{1}{RC}\frac{dv}{dt} &#43;\frac{v}{LC} = 0 [1] $$
+回顾二次微分方程的解法 $$ 假设 v = A e ^{st} \\\ \\ 代入[1]式可以得到: Ae^{st} (s^2 &#43; \frac{s}{RC} &#43; \frac{1}{LC}) = 0 \\\ \\ 解s^2 &#43; \frac{s}{RC} &#43; \frac{1}{LC} = 0 \\\ \\ 得 s_1 = -\frac{1}{2RC} &#43; \sqrt{(\frac{1}{2RC})^2 - \frac{1}{LC}} \\\ \\ s_2 = -\frac{1}{2RC} - \sqrt{(\frac{1}{2RC})^2 - \frac{1}{LC}} \\\ \\ 最终得到 v = A_1 e^{s_1 t}&#43;A_2 e ^{s_2 t } \\\ \\ 改写s_1,s_2 \\\ \\ s_1 = -\alpha &#43; \sqrt{\alpha^2 - \omega_0^2} \\\ \\ s_2 = -\alpha - \sqrt{\alpha^2 - \omega_0^2} \\\ $$">
     </head>
     <body class="
     article-page
@@ -40,7 +43,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -133,7 +136,7 @@
 
 
                 
-                <span>主菜单</span>
+                <span>Home</span>
             </a>
         </li>
         
@@ -153,7 +156,7 @@
 
 
                 
-                <span>档案</span>
+                <span>Archives</span>
             </a>
         </li>
         
@@ -172,7 +175,7 @@
 
 
                 
-                <span>搜索</span>
+                <span>search</span>
             </a>
         </li>
         
@@ -192,9 +195,9 @@
 
                     <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                         
-                            <option value="https://donweyflyfan.github.io/en/" >English</option>
+                            <option value="https://donweyflyfan.github.io/" selected>English</option>
                         
-                            <option value="https://donweyflyfan.github.io/" selected>中文</option>
+                            <option value="https://donweyflyfan.github.io/zh-cn/" >中文</option>
                         
                             <option value="https://donweyflyfan.github.io/ar/" >عربي</option>
                         
@@ -220,7 +223,7 @@
 
 
 
-                    <span>暗色模式</span>
+                    <span>Dark Mode</span>
                 </li>
             
         </div>
@@ -244,58 +247,58 @@
 
 
         </div>
-        <h2 class="widget-title section-title">目录</h2>
+        <h2 class="widget-title section-title">Table of contents</h2>
         
         <div class="widget--toc">
             <nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#并联rlc固有响应">并联RLC固有响应</a>
-      <ol>
+      <ul>
         <li><a href="#图示">图示</a></li>
         <li><a href="#推导">推导</a></li>
         <li><a href="#回顾二次微分方程的解法">回顾二次微分方程的解法</a></li>
         <li><a href="#并联rlc电路固有响应的形式">并联RLC电路固有响应的形式</a>
-          <ol>
+          <ul>
             <li><a href="#过阻尼响应">过阻尼响应</a></li>
             <li><a href="#欠阻尼响应">欠阻尼响应</a></li>
             <li><a href="#临界阻尼响应">临界阻尼响应</a></li>
-          </ol>
+          </ul>
         </li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#并联rlc阶跃响应">并联RLC阶跃响应</a>
-      <ol>
+      <ul>
         <li><a href="#图示-1">图示</a></li>
         <li><a href="#电路的二次微分方程">电路的二次微分方程</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#串联rlc的固有响应和阶跃响应">串联RLC的固有响应和阶跃响应</a>
-      <ol>
+      <ul>
         <li><a href="#固有响应">固有响应</a>
-          <ol>
+          <ul>
             <li><a href="#图示-2">图示</a></li>
             <li><a href="#结果">结果</a></li>
-          </ol>
+          </ul>
         </li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#双集成运放电路">双集成运放电路</a>
-      <ol>
+      <ul>
         <li><a href="#两级联运算放大器">两级联运算放大器</a>
-          <ol>
+          <ul>
             <li><a href="#图示-3">图示</a></li>
             <li><a href="#输入输出电压关系">输入输出电压关系</a></li>
-          </ol>
+          </ul>
         </li>
         <li><a href="#具有反馈电阻的两级运算放大电路">具有反馈电阻的两级运算放大电路</a>
-          <ol>
+          <ul>
             <li><a href="#图示-4">图示</a></li>
             <li><a href="#输入输出电压关系-1">输入输出电压关系</a></li>
-          </ol>
+          </ul>
         </li>
-      </ol>
+      </ul>
     </li>
-  </ol>
+  </ul>
 </nav>
         </div>
     </section>
@@ -359,7 +362,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    3 minute read
                 </time>
             </div>
         
@@ -645,7 +648,7 @@ $$</p>
     
 
 <aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
+    <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
             
@@ -807,7 +810,7 @@ $$</p>
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 

@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='参数的点估计 矩估计法 用样本矩估计总体矩 以样本矩估计总体矩 $$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ 即\hat{\mu}k = A_k = \frac{1}{n}\sum{i=1}^nX_i ^k， \hat{v}k = B_k = \frac{1}{n}\sum{i=1}^n(X_i -'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='参数的点估计 矩估计法 用样本矩估计总体矩 以样本矩估计总体矩
+$$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ 即\hat{\mu}k = A_k = \frac{1}{n}\sum{i=1}^nX_i ^k， \hat{v}k = B_k = \frac{1}{n}\sum{i=1}^n(X_i - \overline X)^k \\\ \\ \hat{g}(\mu_1&amp;hellip;\mu_m) = g(A_1 &amp;hellip; A_m)，其中g是连续函数 $$
+基本步骤 $$ 设总体X有m个未知参数\theta_1 &amp;hellip;\theta_m，\mu_1&amp;hellip;\mu_m 存在 $$
+求前$m$阶矩关于$m$个参数的函数 $$ \mu_k = E(X^k) = g_k(\theta_1,&amp;hellip;\theta_m)，k=1,&amp;hellip;,m $$
+求各参数关于前m阶矩阵的反函数 $$ \theta_k =h_k(\mu_1,&amp;hellip;,\mu_k)，k=1,&amp;hellip;,m $$
+用样本各阶矩$A_1,&amp;hellip;,A_m$代替总体各阶矩阵$\mu_1&amp;hellip;,\mu_m$ $$ \hat{\theta}_k = h_k(A_1,&amp;hellip;,A_k)，k=1,&amp;hellip;,m $$
+极大似然估计法 定义 一般的，设离散型总体$X～p(x;\theta),\theta \in \Theta$，$\theta$未知，从总体中取得样本$X_1,&amp;hellip;,X_n$,其观察值为$x_1,&amp;hellip;,x_n$，则事件$\lbrace X_1=x_1,&amp;hellip;X_n=x_n\rbrace$发生的概率为'>
 <title>参数估计</title>
 
 <link rel='canonical' href='https://donweyflyfan.github.io/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='参数估计'>
-<meta property='og:description' content='参数的点估计 矩估计法 用样本矩估计总体矩 以样本矩估计总体矩 $$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ 即\hat{\mu}k = A_k = \frac{1}{n}\sum{i=1}^nX_i ^k， \hat{v}k = B_k = \frac{1}{n}\sum{i=1}^n(X_i -'>
+<meta property='og:description' content='参数的点估计 矩估计法 用样本矩估计总体矩 以样本矩估计总体矩
+$$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ 即\hat{\mu}k = A_k = \frac{1}{n}\sum{i=1}^nX_i ^k， \hat{v}k = B_k = \frac{1}{n}\sum{i=1}^n(X_i - \overline X)^k \\\ \\ \hat{g}(\mu_1&amp;hellip;\mu_m) = g(A_1 &amp;hellip; A_m)，其中g是连续函数 $$
+基本步骤 $$ 设总体X有m个未知参数\theta_1 &amp;hellip;\theta_m，\mu_1&amp;hellip;\mu_m 存在 $$
+求前$m$阶矩关于$m$个参数的函数 $$ \mu_k = E(X^k) = g_k(\theta_1,&amp;hellip;\theta_m)，k=1,&amp;hellip;,m $$
+求各参数关于前m阶矩阵的反函数 $$ \theta_k =h_k(\mu_1,&amp;hellip;,\mu_k)，k=1,&amp;hellip;,m $$
+用样本各阶矩$A_1,&amp;hellip;,A_m$代替总体各阶矩阵$\mu_1&amp;hellip;,\mu_m$ $$ \hat{\theta}_k = h_k(A_1,&amp;hellip;,A_k)，k=1,&amp;hellip;,m $$
+极大似然估计法 定义 一般的，设离散型总体$X～p(x;\theta),\theta \in \Theta$，$\theta$未知，从总体中取得样本$X_1,&amp;hellip;,X_n$,其观察值为$x_1,&amp;hellip;,x_n$，则事件$\lbrace X_1=x_1,&amp;hellip;X_n=x_n\rbrace$发生的概率为'>
 <meta property='og:url' content='https://donweyflyfan.github.io/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-08T03:19:37&#43;08:00'/><meta property='article:modified_time' content='2022-12-08T03:19:37&#43;08:00'/>
 <meta name="twitter:title" content="参数估计">
-<meta name="twitter:description" content="参数的点估计 矩估计法 用样本矩估计总体矩 以样本矩估计总体矩 $$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ 即\hat{\mu}k = A_k = \frac{1}{n}\sum{i=1}^nX_i ^k， \hat{v}k = B_k = \frac{1}{n}\sum{i=1}^n(X_i -">
+<meta name="twitter:description" content="参数的点估计 矩估计法 用样本矩估计总体矩 以样本矩估计总体矩
+$$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ 即\hat{\mu}k = A_k = \frac{1}{n}\sum{i=1}^nX_i ^k， \hat{v}k = B_k = \frac{1}{n}\sum{i=1}^n(X_i - \overline X)^k \\\ \\ \hat{g}(\mu_1&amp;hellip;\mu_m) = g(A_1 &amp;hellip; A_m)，其中g是连续函数 $$
+基本步骤 $$ 设总体X有m个未知参数\theta_1 &amp;hellip;\theta_m，\mu_1&amp;hellip;\mu_m 存在 $$
+求前$m$阶矩关于$m$个参数的函数 $$ \mu_k = E(X^k) = g_k(\theta_1,&amp;hellip;\theta_m)，k=1,&amp;hellip;,m $$
+求各参数关于前m阶矩阵的反函数 $$ \theta_k =h_k(\mu_1,&amp;hellip;,\mu_k)，k=1,&amp;hellip;,m $$
+用样本各阶矩$A_1,&amp;hellip;,A_m$代替总体各阶矩阵$\mu_1&amp;hellip;,\mu_m$ $$ \hat{\theta}_k = h_k(A_1,&amp;hellip;,A_k)，k=1,&amp;hellip;,m $$
+极大似然估计法 定义 一般的，设离散型总体$X～p(x;\theta),\theta \in \Theta$，$\theta$未知，从总体中取得样本$X_1,&amp;hellip;,X_n$,其观察值为$x_1,&amp;hellip;,x_n$，则事件$\lbrace X_1=x_1,&amp;hellip;X_n=x_n\rbrace$发生的概率为">
     </head>
     <body class="
     article-page
@@ -40,7 +58,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -133,7 +151,7 @@
 
 
                 
-                <span>主菜单</span>
+                <span>Home</span>
             </a>
         </li>
         
@@ -153,7 +171,7 @@
 
 
                 
-                <span>档案</span>
+                <span>Archives</span>
             </a>
         </li>
         
@@ -172,7 +190,7 @@
 
 
                 
-                <span>搜索</span>
+                <span>search</span>
             </a>
         </li>
         
@@ -192,9 +210,9 @@
 
                     <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                         
-                            <option value="https://donweyflyfan.github.io/en/" >English</option>
+                            <option value="https://donweyflyfan.github.io/" selected>English</option>
                         
-                            <option value="https://donweyflyfan.github.io/" selected>中文</option>
+                            <option value="https://donweyflyfan.github.io/zh-cn/" >中文</option>
                         
                             <option value="https://donweyflyfan.github.io/ar/" >عربي</option>
                         
@@ -220,7 +238,7 @@
 
 
 
-                    <span>暗色模式</span>
+                    <span>Dark Mode</span>
                 </li>
             
         </div>
@@ -244,32 +262,42 @@
 
 
         </div>
-        <h2 class="widget-title section-title">目录</h2>
+        <h2 class="widget-title section-title">Table of contents</h2>
         
         <div class="widget--toc">
             <nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#参数的点估计">参数的点估计</a>
-      <ol>
+      <ul>
         <li><a href="#矩估计法">矩估计法</a>
-          <ol>
+          <ul>
             <li><a href="#用样本矩估计总体矩">用样本矩估计总体矩</a></li>
             <li><a href="#基本步骤">基本步骤</a></li>
-          </ol>
+          </ul>
         </li>
         <li><a href="#极大似然估计法">极大似然估计法</a>
-          <ol>
+          <ul>
             <li><a href="#定义">定义</a></li>
-          </ol>
+            <li><a href="#极大似然估计的求解">极大似然估计的求解</a></li>
+          </ul>
         </li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#估计量的评选准则">估计量的评选准则</a>
-      <ol>
+      <ul>
         <li><a href="#无偏性准则">无偏性准则</a></li>
-      </ol>
+        <li><a href="#有效性准则">有效性准则</a></li>
+        <li><a href="#均方误差准则">均方误差准则</a></li>
+        <li><a href="#相合性准则">相合性准则</a></li>
+      </ul>
     </li>
-  </ol>
+    <li><a href="#区间估计">区间估计</a>
+      <ul>
+        <li><a href="#定义-1">定义</a></li>
+        <li><a href="#单侧置信限">单侧置信限</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
         </div>
     </section>
@@ -333,7 +361,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    2 minute read
                 </time>
             </div>
         
@@ -386,21 +414,98 @@ $$</p>
 <blockquote>
 <p>一般的，设离散型总体$X～p(x;\theta),\theta \in \Theta$，$\theta$未知，从总体中取得样本$X_1,&hellip;,X_n$,其观察值为$x_1,&hellip;,x_n$，则事件$\lbrace X_1=x_1,&hellip;X_n=x_n\rbrace$发生的概率为</p>
 </blockquote>
-<p>$$
+<ul>
+<li>
+<p>对于离散型变量
+$$
 L(\theta) = P\lbrace X_1=x_1,&hellip;,X_n=x_n \rbrace = p(x_1;\theta)&hellip;p(x_n;\theta) = \prod_{i=1} ^n p(x_i;\theta)\\\
 \\ 极大似然原理为\\\
 \\ L(\hat{\theta}(x_1,&hellip;,x_n)) = \underset{\theta \in \Theta}{max} L(\theta) \\\
 \\ \hat{\theta}(x_1,&hellip;,x_n)被称为极大似然估计值 \\\
 \\ 相应统计值\hat{\theta}(X_1,&hellip;,X_n) 被称为\theta 的极大似然估计量(MLE)
 $$</p>
+</li>
+<li>
+<p>对于连续型随机变量</p>
+</li>
+</ul>
+<p>$$
+f(x,\theta)，\theta \in \Theta \\\
+\\ 对于样本(X_1,X_2,&hellip;,X_n)，其观察值(x_1,&hellip;,x_n)，似然函数为L(\theta) = \prod_{i=1}^n f(x_i,\theta) \\\
+\\ 极大似然原理：L(\hat{\theta}(x_1,&hellip;,x_n)) = \underset{\theta \in \Theta}{max} \ L(\theta) \\\
+\\ 其中，\theta = (\theta_1,&hellip;\theta_k)
+$$</p>
+<h3 id="极大似然估计的求解">极大似然估计的求解</h3>
+<ol>
+<li>记$ln L(\theta)  = l(\theta)$，称为对然似然函数</li>
+</ol>
+<p>$$
+利用\frac{\partial l(\theta)}{\partial \theta}\Big|_{\hat{\theta},1\le i \le k} = 0,i=1,2&hellip;k解得\hat{\theta}，i=1,2&hellip;k
+$$</p>
+<ol start="2">
+<li>
+<p>利用$L(\theta)$关于某个$\theta_i$单调，此时$\hat{\theta_i}$即为$\theta_i$的极大似然估计值o</p>
+</li>
+<li>
+<p>若$\hat{\theta}(X_1,&hellip;,X_n)$ 是$\theta$的极大似然估计量，则$g(\theta)$的极大似然估计量为$g(\hat{\theta}(X_1,&hellip;X_n))$</p>
+</li>
+</ol>
 <h1 id="估计量的评选准则">估计量的评选准则</h1>
 <h2 id="无偏性准则">无偏性准则</h2>
-<p>$$
+<ol>
+<li>
+<p>定义
+$$
 若参数\theta的估计量\hat{\theta}  =\hat{\theta}(X_1,X_2,&hellip;,X_n)，满足E(\hat{\theta}) = \theta \\\
 \\ 则称\hat{\theta} 是\theta 的一个\pmb{无偏估计量} \\\
 \\ 若E(\hat{\theta})\ne \theta，那么\pmb{B(\hat{\theta}) = E(\hat{\theta})- \theta}称为\hat{\theta}的偏差 \\\
 \\ 若\underset{n\longrightarrow +\infin}{lim} E(\hat{\theta}) = \theta,则称\hat{\theta}是\theta的\pmb{渐进无偏估计量}
 $$</p>
+</li>
+<li>
+<p>纠偏方法</p>
+</li>
+</ol>
+<blockquote>
+<p>如果$E(\hat{\theta}) = a\theta +b,\theta \in \Theta,a\ne 0$，则$\frac{1}{a}(\hat{\theta}-b)$是$\theta$的无偏估计</p>
+</blockquote>
+<h2 id="有效性准则">有效性准则</h2>
+<ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>设$\theta_1,\theta_2$是$\theta$的两个无偏估计，若$Var(\hat{\theta}_1)\le Var(\hat{\theta}_2)$对于一切$\theta \in \Theta$ 成立，且不等号至少对某一$\theta\in\Theta$成立,则称$\hat{\theta}_1$比$\hat{\theta}_2$有效</p>
+</blockquote>
+<h2 id="均方误差准则">均方误差准则</h2>
+<p>$$
+设\hat{\theta}是参数\theta的点估计，方差存在\\\
+\\ 则称E(\hat{\theta}-\theta)^2是估计量的均方误差，记为Mse(\hat{\theta}) \\\
+\\ Mse(\hat{\theta}) = E(\hat{\theta} - \theta)^2 = Var(\hat{\theta})+[E(\hat{\theta})-\theta]^2 \\\
+\\ 若\hat{\theta}是\theta的无偏估计 \\\
+\\ 则有Mse(\hat{\theta}) = Var(\hat{\theta}) \\\
+\\ 设\hat{\theta}_1 ,\hat{\theta}_2是\theta的两个估计量 \\\
+\\ 如果Mse(\hat{\theta}_1) \le Mse(\hat{\theta}_2)对一切\theta \in \Theta 成立 \\\
+\\ 且不等号至少对某一\theta \in \Theta成立，则称\hat{\theta}_1优于\hat{\theta}_2
+$$</p>
+<h2 id="相合性准则">相合性准则</h2>
+<p>$$
+设\hat{\theta}_n = \hat{\theta}(X_1,&hellip;,X_n)为参数\theta的估计量 \\\
+\\ 若对于任意\theta \in \Theta，当n \longrightarrow + \infin时，\hat{\theta}_n \overset{P}{\longrightarrow} \theta. \\\
+\\ 即\forall \varepsilon \gt 0,有 \underset{n \longrightarrow + \infin}{lim}P \lbrace |\hat{\theta}_n - \theta| \ge \varepsilon \rbrace = 0成立 \\\
+\\ 则称\hat{\theta_n}为\theta的\pmb{相合估计量}或\pmb{一致估计量}
+$$</p>
+<h1 id="区间估计">区间估计</h1>
+<h2 id="定义-1">定义</h2>
+<blockquote>
+<p>设总体X的分布函数 $F(X;\theta)$ 含有一个位置参数$\theta$，$(X_1,&hellip;,X_n)$是总体的一个样本，对给定的值$\alpha(0\lt \alpha \lt 1)$，若有统计量$\hat{\theta}_L = \hat{\theta}_L(X_1,&hellip;,X_n)$，$\hat{\theta}_U = \hat{\theta}_U(X_1,&hellip;,X_n)$,使得</p>
+</blockquote>
+<p>$$
+P\lbrace \hat{\theta}_L (X_1,&hellip;X_n)\lt \theta \lt \hat{\theta_U}(X_1,&hellip;,X_n)\ge 1- \alpha，\forall \theta \in \Theta \\\
+\\ 则称随机区间(\hat{\theta}_L,\hat{\theta}_U)是\theta 的双侧置信区间 \\\
+\\ 称1 - \alpha 为置信水平或置信度 \\\
+\\ 称 \hat{\theta}_L和\hat{\theta}_U为\pmb{双侧置信下限}和\pmb{双侧置信上限}
+$$</p>
+<h2 id="单侧置信限">单侧置信限</h2>
 
 </section>
 
@@ -458,7 +563,7 @@ $$</p>
     
 
 <aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
+    <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
             
@@ -609,7 +714,7 @@ $$</p>
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 

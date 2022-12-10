@@ -1,18 +1,69 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. 目录与路径 路径(PATH) 查看路径 echo $PATH 添加路径 PATH=&amp;quot;${PATH}:&amp;lt;dir&amp;gt;&amp;quot; 不同用户的PATH不同 2. Linux磁盘与文件系统管理 文件系统(FileSystem)特性 几'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. 目录与路径 路径(PATH)
+查看路径 echo $PATH 添加路径 PATH=&amp;quot;${PATH}:&amp;lt;dir&amp;gt;&amp;quot; 不同用户的PATH不同 2. Linux磁盘与文件系统管理 文件系统(FileSystem)特性
+几个区块
+superblock
+记录indoe/block的信息 inode(一个文件一个)
+记录文件属性和文件所在block号码 128bit内存(对于ext4和xfs是256bit) 用ls -i查看inode号码 block
+记录文件内容 格式化后大小不变 分类
+索引式文件系统（indexed allocation）
+根据inode中存放的block号码依次读取数 FAT格式 没有inode，每个block的号码在上一个block中 EXT2文件系统
+组成
+开机扇区(boot sector)
+多个区块群组(block group)
+data block
+Block大小 1KB 2KB 4KB 最大单一文件限制 16GB 256GB 2TB 最大文件系统总容量 2TB 8TB 16TB inode table
+容量 存取模式 ctime atime mtime flag pointer superblock(1024 bit)
+block与inode总/未使用/已使用量 block与inode的大小 valid bit(挂载为0,未挂载为1) filesystem的挂载时间，atime，CheckDiskTime 文件系统描述说明(FileSystem Description)
+定义
+描述每个block group开始与结束的block号码，并说明每个区段分别介于哪个block号码之间 重要部分'>
 <title>文件与磁盘</title>
 
 <link rel='canonical' href='https://donweyflyfan.github.io/p/%E6%96%87%E4%BB%B6%E4%B8%8E%E7%A3%81%E7%9B%98/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='文件与磁盘'>
-<meta property='og:description' content='1. 目录与路径 路径(PATH) 查看路径 echo $PATH 添加路径 PATH=&amp;quot;${PATH}:&amp;lt;dir&amp;gt;&amp;quot; 不同用户的PATH不同 2. Linux磁盘与文件系统管理 文件系统(FileSystem)特性 几'>
+<meta property='og:description' content='1. 目录与路径 路径(PATH)
+查看路径 echo $PATH 添加路径 PATH=&amp;quot;${PATH}:&amp;lt;dir&amp;gt;&amp;quot; 不同用户的PATH不同 2. Linux磁盘与文件系统管理 文件系统(FileSystem)特性
+几个区块
+superblock
+记录indoe/block的信息 inode(一个文件一个)
+记录文件属性和文件所在block号码 128bit内存(对于ext4和xfs是256bit) 用ls -i查看inode号码 block
+记录文件内容 格式化后大小不变 分类
+索引式文件系统（indexed allocation）
+根据inode中存放的block号码依次读取数 FAT格式 没有inode，每个block的号码在上一个block中 EXT2文件系统
+组成
+开机扇区(boot sector)
+多个区块群组(block group)
+data block
+Block大小 1KB 2KB 4KB 最大单一文件限制 16GB 256GB 2TB 最大文件系统总容量 2TB 8TB 16TB inode table
+容量 存取模式 ctime atime mtime flag pointer superblock(1024 bit)
+block与inode总/未使用/已使用量 block与inode的大小 valid bit(挂载为0,未挂载为1) filesystem的挂载时间，atime，CheckDiskTime 文件系统描述说明(FileSystem Description)
+定义
+描述每个block group开始与结束的block号码，并说明每个区段分别介于哪个block号码之间 重要部分'>
 <meta property='og:url' content='https://donweyflyfan.github.io/p/%E6%96%87%E4%BB%B6%E4%B8%8E%E7%A3%81%E7%9B%98/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-08T03:50:27&#43;08:00'/><meta property='article:modified_time' content='2022-12-08T03:50:27&#43;08:00'/>
 <meta name="twitter:title" content="文件与磁盘">
-<meta name="twitter:description" content="1. 目录与路径 路径(PATH) 查看路径 echo $PATH 添加路径 PATH=&amp;quot;${PATH}:&amp;lt;dir&amp;gt;&amp;quot; 不同用户的PATH不同 2. Linux磁盘与文件系统管理 文件系统(FileSystem)特性 几">
+<meta name="twitter:description" content="1. 目录与路径 路径(PATH)
+查看路径 echo $PATH 添加路径 PATH=&amp;quot;${PATH}:&amp;lt;dir&amp;gt;&amp;quot; 不同用户的PATH不同 2. Linux磁盘与文件系统管理 文件系统(FileSystem)特性
+几个区块
+superblock
+记录indoe/block的信息 inode(一个文件一个)
+记录文件属性和文件所在block号码 128bit内存(对于ext4和xfs是256bit) 用ls -i查看inode号码 block
+记录文件内容 格式化后大小不变 分类
+索引式文件系统（indexed allocation）
+根据inode中存放的block号码依次读取数 FAT格式 没有inode，每个block的号码在上一个block中 EXT2文件系统
+组成
+开机扇区(boot sector)
+多个区块群组(block group)
+data block
+Block大小 1KB 2KB 4KB 最大单一文件限制 16GB 256GB 2TB 最大文件系统总容量 2TB 8TB 16TB inode table
+容量 存取模式 ctime atime mtime flag pointer superblock(1024 bit)
+block与inode总/未使用/已使用量 block与inode的大小 valid bit(挂载为0,未挂载为1) filesystem的挂载时间，atime，CheckDiskTime 文件系统描述说明(FileSystem Description)
+定义
+描述每个block group开始与结束的block号码，并说明每个区段分别介于哪个block号码之间 重要部分">
     </head>
     <body class="
     article-page
@@ -40,7 +91,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -133,7 +184,7 @@
 
 
                 
-                <span>主菜单</span>
+                <span>Home</span>
             </a>
         </li>
         
@@ -153,7 +204,7 @@
 
 
                 
-                <span>档案</span>
+                <span>Archives</span>
             </a>
         </li>
         
@@ -172,7 +223,7 @@
 
 
                 
-                <span>搜索</span>
+                <span>search</span>
             </a>
         </li>
         
@@ -192,9 +243,9 @@
 
                     <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                         
-                            <option value="https://donweyflyfan.github.io/en/" >English</option>
+                            <option value="https://donweyflyfan.github.io/" selected>English</option>
                         
-                            <option value="https://donweyflyfan.github.io/" selected>中文</option>
+                            <option value="https://donweyflyfan.github.io/zh-cn/" >中文</option>
                         
                             <option value="https://donweyflyfan.github.io/ar/" >عربي</option>
                         
@@ -220,7 +271,7 @@
 
 
 
-                    <span>暗色模式</span>
+                    <span>Dark Mode</span>
                 </li>
             
         </div>
@@ -244,18 +295,18 @@
 
 
         </div>
-        <h2 class="widget-title section-title">目录</h2>
+        <h2 class="widget-title section-title">Table of contents</h2>
         
         <div class="widget--toc">
             <nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#1-目录与路径">1. 目录与路径</a></li>
     <li><a href="#2-linux磁盘与文件系统管理">2. Linux磁盘与文件系统管理</a></li>
     <li><a href="#3-文件系统的简单操作">3. 文件系统的简单操作</a></li>
     <li><a href="#4-磁盘的分区格式化检验和挂载">4. 磁盘的分区、格式化、检验和挂载</a></li>
     <li><a href="#5-设置开机挂载">5. 设置开机挂载</a></li>
     <li><a href="#内存交换空间swap的创建">内存交换空间(swap)的创建</a></li>
-  </ol>
+  </ul>
 </nav>
         </div>
     </section>
@@ -319,7 +370,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 5 分钟
+                    2 minute read
                 </time>
             </div>
         
@@ -1122,7 +1173,7 @@
     
 
 <aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
+    <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
             
@@ -1225,7 +1276,7 @@
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 

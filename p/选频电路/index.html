@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='低通滤波器 串联RL电路的定性分析 转移函数 $$ H(s) = \frac{V_{out}(s)}{V_{in}(s)} $$ 截止频率 $$ 截止频率 \omega_c = \frac{1}{\sqrt 2}\omega_{max} \\\ \\ |H(j\omega_c)| = \frac{1}{\sqrt 2} H_{max} \\\ \\\ P_{max} = \frac{1}{2}\frac{V_{Lmax}^2}{R} \\ \\ P(j\omega_c) = \frac{1}{2} \frac{|V_L^2(j\omega_c)|}{R} = \frac{1}{2}\frac{(\frac{1}{\sqrt{2}}V_{Lmax})^2}{R} = \frac{P_{max}}{2} \\\ \\ $$ 定性分析 图示 推'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='低通滤波器 串联RL电路的定性分析 转移函数 $$ H(s) = \frac{V_{out}(s)}{V_{in}(s)} $$
+截止频率 $$ 截止频率 \omega_c = \frac{1}{\sqrt 2}\omega_{max} \\\ \\ |H(j\omega_c)| = \frac{1}{\sqrt 2} H_{max} \\\ \\\ P_{max} = \frac{1}{2}\frac{V_{Lmax}^2}{R} \\ \\ P(j\omega_c) = \frac{1}{2} \frac{|V_L^2(j\omega_c)|}{R} = \frac{1}{2}\frac{(\frac{1}{\sqrt{2}}V_{Lmax})^2}{R} = \frac{P_{max}}{2} \\\ \\ $$
+定性分析 图示 推导 $$ H(j\omega)=\frac{R}{R&#43;j\omega L} = \frac{R/L}{R/L&#43;j\omega} \\\ \\ |H(j\omega)| = \frac{R/L}{\sqrt{\omega^2 &#43; (R/L)^2}} \\\ \\ 对于低通过滤器，H_{max} = |H(j0)| = 1 \\\ \\ |H(j\omega_c)| = \frac{1}{\sqrt 2}H_{max} \Rightarrow \omega_c = \frac{R}{L} $$'>
 <title>选频电路</title>
 
 <link rel='canonical' href='https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='选频电路'>
-<meta property='og:description' content='低通滤波器 串联RL电路的定性分析 转移函数 $$ H(s) = \frac{V_{out}(s)}{V_{in}(s)} $$ 截止频率 $$ 截止频率 \omega_c = \frac{1}{\sqrt 2}\omega_{max} \\\ \\ |H(j\omega_c)| = \frac{1}{\sqrt 2} H_{max} \\\ \\\ P_{max} = \frac{1}{2}\frac{V_{Lmax}^2}{R} \\ \\ P(j\omega_c) = \frac{1}{2} \frac{|V_L^2(j\omega_c)|}{R} = \frac{1}{2}\frac{(\frac{1}{\sqrt{2}}V_{Lmax})^2}{R} = \frac{P_{max}}{2} \\\ \\ $$ 定性分析 图示 推'>
+<meta property='og:description' content='低通滤波器 串联RL电路的定性分析 转移函数 $$ H(s) = \frac{V_{out}(s)}{V_{in}(s)} $$
+截止频率 $$ 截止频率 \omega_c = \frac{1}{\sqrt 2}\omega_{max} \\\ \\ |H(j\omega_c)| = \frac{1}{\sqrt 2} H_{max} \\\ \\\ P_{max} = \frac{1}{2}\frac{V_{Lmax}^2}{R} \\ \\ P(j\omega_c) = \frac{1}{2} \frac{|V_L^2(j\omega_c)|}{R} = \frac{1}{2}\frac{(\frac{1}{\sqrt{2}}V_{Lmax})^2}{R} = \frac{P_{max}}{2} \\\ \\ $$
+定性分析 图示 推导 $$ H(j\omega)=\frac{R}{R&#43;j\omega L} = \frac{R/L}{R/L&#43;j\omega} \\\ \\ |H(j\omega)| = \frac{R/L}{\sqrt{\omega^2 &#43; (R/L)^2}} \\\ \\ 对于低通过滤器，H_{max} = |H(j0)| = 1 \\\ \\ |H(j\omega_c)| = \frac{1}{\sqrt 2}H_{max} \Rightarrow \omega_c = \frac{R}{L} $$'>
 <meta property='og:url' content='https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-07T04:02:20&#43;08:00'/><meta property='article:modified_time' content='2022-12-07T04:02:20&#43;08:00'/><meta property='og:image' content='https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/index.jpg' />
 <meta name="twitter:title" content="选频电路">
-<meta name="twitter:description" content="低通滤波器 串联RL电路的定性分析 转移函数 $$ H(s) = \frac{V_{out}(s)}{V_{in}(s)} $$ 截止频率 $$ 截止频率 \omega_c = \frac{1}{\sqrt 2}\omega_{max} \\\ \\ |H(j\omega_c)| = \frac{1}{\sqrt 2} H_{max} \\\ \\\ P_{max} = \frac{1}{2}\frac{V_{Lmax}^2}{R} \\ \\ P(j\omega_c) = \frac{1}{2} \frac{|V_L^2(j\omega_c)|}{R} = \frac{1}{2}\frac{(\frac{1}{\sqrt{2}}V_{Lmax})^2}{R} = \frac{P_{max}}{2} \\\ \\ $$ 定性分析 图示 推"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="低通滤波器 串联RL电路的定性分析 转移函数 $$ H(s) = \frac{V_{out}(s)}{V_{in}(s)} $$
+截止频率 $$ 截止频率 \omega_c = \frac{1}{\sqrt 2}\omega_{max} \\\ \\ |H(j\omega_c)| = \frac{1}{\sqrt 2} H_{max} \\\ \\\ P_{max} = \frac{1}{2}\frac{V_{Lmax}^2}{R} \\ \\ P(j\omega_c) = \frac{1}{2} \frac{|V_L^2(j\omega_c)|}{R} = \frac{1}{2}\frac{(\frac{1}{\sqrt{2}}V_{Lmax})^2}{R} = \frac{P_{max}}{2} \\\ \\ $$
+定性分析 图示 推导 $$ H(j\omega)=\frac{R}{R&#43;j\omega L} = \frac{R/L}{R/L&#43;j\omega} \\\ \\ |H(j\omega)| = \frac{R/L}{\sqrt{\omega^2 &#43; (R/L)^2}} \\\ \\ 对于低通过滤器，H_{max} = |H(j0)| = 1 \\\ \\ |H(j\omega_c)| = \frac{1}{\sqrt 2}H_{max} \Rightarrow \omega_c = \frac{R}{L} $$"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/index.jpg' />
     </head>
     <body class="
@@ -41,7 +47,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -134,7 +140,7 @@
 
 
                 
-                <span>主菜单</span>
+                <span>Home</span>
             </a>
         </li>
         
@@ -154,7 +160,7 @@
 
 
                 
-                <span>档案</span>
+                <span>Archives</span>
             </a>
         </li>
         
@@ -173,7 +179,7 @@
 
 
                 
-                <span>搜索</span>
+                <span>search</span>
             </a>
         </li>
         
@@ -193,9 +199,9 @@
 
                     <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                         
-                            <option value="https://donweyflyfan.github.io/en/" >English</option>
+                            <option value="https://donweyflyfan.github.io/" selected>English</option>
                         
-                            <option value="https://donweyflyfan.github.io/" selected>中文</option>
+                            <option value="https://donweyflyfan.github.io/zh-cn/" >中文</option>
                         
                             <option value="https://donweyflyfan.github.io/ar/" >عربي</option>
                         
@@ -221,7 +227,7 @@
 
 
 
-                    <span>暗色模式</span>
+                    <span>Dark Mode</span>
                 </li>
             
         </div>
@@ -245,19 +251,19 @@
 
 
         </div>
-        <h2 class="widget-title section-title">目录</h2>
+        <h2 class="widget-title section-title">Table of contents</h2>
         
         <div class="widget--toc">
             <nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#低通滤波器">低通滤波器</a>
-      <ol>
+      <ul>
         <li><a href="#串联rl电路的定性分析">串联RL电路的定性分析</a></li>
         <li><a href="#串联rc电路">串联RC电路</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#高通过滤器">高通过滤器</a></li>
-  </ol>
+  </ul>
 </nav>
         </div>
     </section>
@@ -333,7 +339,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    1 minute read
                 </time>
             </div>
         
@@ -488,7 +494,7 @@ $$</p>
     
 
 <aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
+    <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
             
@@ -639,7 +645,7 @@ $$</p>
     
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
