@@ -155,6 +155,114 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \delta(t) = \frac{du(t)}{dt}
 $$&lt;/p&gt;
+&lt;h1 id=&#34;三函数变换&#34;&gt;三、函数变换&lt;/h1&gt;
+&lt;h2 id=&#34;31-定义&#34;&gt;3.1 定义&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;说明&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;典型时域变换的拉普拉斯变换&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;因为要限制其为单边变换，所以设所有函数在$t\lt 0^-$时为0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;32-常见函数的拉氏变换&#34;&gt;3.2 常见函数的拉氏变换&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;单位阶跃函数的拉氏变换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\mathcal L \lbrace f(t)\rbrace = \int_{0^-}^{+\infin} f(t)e^{-st} dt = \int_{0^+}^\infin 1e^{-st} dt = \frac{1}{s} \\\
+\\
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;衰减指数函数的拉氏变换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\mathcal L \lbrace e^{-at} \rbrace = \int_{0^+}^{+\infin} e^{-at}e^{-st}dt = \frac{1}{s+a}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;正弦函数的拉氏变换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{align}
+\mathcal L \lbrace sin\omega t\rbrace &amp;amp; = \int_{0^-}^{\infin} sin(\omega t)e^{-st}dt \\\
+&amp;amp; = \int_{0^-}^{+\infin} \frac{e^{j\omega t}-e^{-j\omega t}}{2j}e^{-st}dt \\\
+&amp;amp; = \frac{\omega}{\omega^2 + s^2}
+\end{align}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;33-拉氏变换对简表&#34;&gt;3.3 拉氏变换对简表&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;类型&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$f(t)，t\gt 0^-$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$F(s)$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;冲激函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\delta(t)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;阶跃函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$u(t)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$1/s$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;斜坡函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$t$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$1/s^2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;指数函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$e^{-at}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$1/(s+a)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;正弦函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$sin(\omega t)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\frac{\omega}{\omega^2 + s^2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;余弦函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$cos(\omega t)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\frac{s}{s^2+\omega^2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;衰减斜坡函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$te^{-at}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\frac{1}{s^2+a^2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;衰减正弦函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$e^{-at}sin(\omega t)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\frac{\omega}{(s+a)^2+ \omega^2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;衰减余弦函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$e^{-at}cos(\omega t)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\frac{s+a}{(s+a)^2 + \omega^2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;四算子变换&#34;&gt;四、算子变换&lt;/h1&gt;
+&lt;h2 id=&#34;41-常数与加减运算&#34;&gt;4.1 常数与加减运算&lt;/h2&gt;
+&lt;p&gt;$$
+\mathcal L \lbrace Kf(t)\rbrace = KF(s) \\\
+\\ \begin{align}
+\mathcal L \lbrace f_1(t) + f_2(t) - f_e(t) \rbrace = F_1(s) + F_2(s) - F_3(s)
+\end{align}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;42-微分与积分&#34;&gt;4.2 微分与积分&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{align}
+\mathcal L \Big\lbrace \frac{df(t)}{dt} \Big\rbrace &amp;amp; = sF(s) - f(0^-) \\\
+\mathcal L \Big\lbrace \int_{0^-}^t f(x)dx \Big\rbrace &amp;amp; = \int_{0^-}^{+\infin}  \Big[\int_{0^-}^t f(x)dx\Big]e^{-st}dt
+\end{align}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;43-时域平移&#34;&gt;4.3 时域平移&lt;/h2&gt;
 </description>
         </item>
         <item>

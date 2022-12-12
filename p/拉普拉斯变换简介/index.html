@@ -292,6 +292,20 @@ $t$ 代表时域 由于$e$没有量纲，所以$s$代表频率 解释 将时域�
         <li><a href="#特性">特性</a></li>
       </ul>
     </li>
+    <li><a href="#三函数变换">三、函数变换</a>
+      <ul>
+        <li><a href="#31-定义">3.1 定义</a></li>
+        <li><a href="#32-常见函数的拉氏变换">3.2 常见函数的拉氏变换</a></li>
+        <li><a href="#33-拉氏变换对简表">3.3 拉氏变换对简表</a></li>
+      </ul>
+    </li>
+    <li><a href="#四算子变换">四、算子变换</a>
+      <ul>
+        <li><a href="#41-常数与加减运算">4.1 常数与加减运算</a></li>
+        <li><a href="#42-微分与积分">4.2 微分与积分</a></li>
+        <li><a href="#43-时域平移">4.3 时域平移</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
         </div>
@@ -356,7 +370,7 @@ $t$ 代表时域 由于$e$没有量纲，所以$s$代表频率 解释 将时域�
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -514,6 +528,114 @@ $$</p>
 <p>$$
 \delta(t) = \frac{du(t)}{dt}
 $$</p>
+<h1 id="三函数变换">三、函数变换</h1>
+<h2 id="31-定义">3.1 定义</h2>
+<ol>
+<li>说明</li>
+</ol>
+<blockquote>
+<p>典型时域变换的拉普拉斯变换</p>
+</blockquote>
+<ul>
+<li>因为要限制其为单边变换，所以设所有函数在$t\lt 0^-$时为0</li>
+</ul>
+<h2 id="32-常见函数的拉氏变换">3.2 常见函数的拉氏变换</h2>
+<ol>
+<li>单位阶跃函数的拉氏变换</li>
+</ol>
+<p>$$
+\mathcal L \lbrace f(t)\rbrace = \int_{0^-}^{+\infin} f(t)e^{-st} dt = \int_{0^+}^\infin 1e^{-st} dt = \frac{1}{s} \\\
+\\
+$$</p>
+<ol start="2">
+<li>衰减指数函数的拉氏变换</li>
+</ol>
+<p>$$
+\mathcal L \lbrace e^{-at} \rbrace = \int_{0^+}^{+\infin} e^{-at}e^{-st}dt = \frac{1}{s+a}
+$$</p>
+<ol start="3">
+<li>正弦函数的拉氏变换</li>
+</ol>
+<p>$$
+\begin{align}
+\mathcal L \lbrace sin\omega t\rbrace &amp; = \int_{0^-}^{\infin} sin(\omega t)e^{-st}dt \\\
+&amp; = \int_{0^-}^{+\infin} \frac{e^{j\omega t}-e^{-j\omega t}}{2j}e^{-st}dt \\\
+&amp; = \frac{\omega}{\omega^2 + s^2}
+\end{align}
+$$</p>
+<h2 id="33-拉氏变换对简表">3.3 拉氏变换对简表</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">$f(t)，t\gt 0^-$</th>
+<th style="text-align:center">$F(s)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">冲激函数</td>
+<td style="text-align:center">$\delta(t)$</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">阶跃函数</td>
+<td style="text-align:center">$u(t)$</td>
+<td style="text-align:center">$1/s$</td>
+</tr>
+<tr>
+<td style="text-align:center">斜坡函数</td>
+<td style="text-align:center">$t$</td>
+<td style="text-align:center">$1/s^2$</td>
+</tr>
+<tr>
+<td style="text-align:center">指数函数</td>
+<td style="text-align:center">$e^{-at}$</td>
+<td style="text-align:center">$1/(s+a)$</td>
+</tr>
+<tr>
+<td style="text-align:center">正弦函数</td>
+<td style="text-align:center">$sin(\omega t)$</td>
+<td style="text-align:center">$\frac{\omega}{\omega^2 + s^2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">余弦函数</td>
+<td style="text-align:center">$cos(\omega t)$</td>
+<td style="text-align:center">$\frac{s}{s^2+\omega^2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">衰减斜坡函数</td>
+<td style="text-align:center">$te^{-at}$</td>
+<td style="text-align:center">$\frac{1}{s^2+a^2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">衰减正弦函数</td>
+<td style="text-align:center">$e^{-at}sin(\omega t)$</td>
+<td style="text-align:center">$\frac{\omega}{(s+a)^2+ \omega^2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">衰减余弦函数</td>
+<td style="text-align:center">$e^{-at}cos(\omega t)$</td>
+<td style="text-align:center">$\frac{s+a}{(s+a)^2 + \omega^2}$</td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="四算子变换">四、算子变换</h1>
+<h2 id="41-常数与加减运算">4.1 常数与加减运算</h2>
+<p>$$
+\mathcal L \lbrace Kf(t)\rbrace = KF(s) \\\
+\\ \begin{align}
+\mathcal L \lbrace f_1(t) + f_2(t) - f_e(t) \rbrace = F_1(s) + F_2(s) - F_3(s)
+\end{align}
+$$</p>
+<h2 id="42-微分与积分">4.2 微分与积分</h2>
+<p>$$
+\begin{align}
+\mathcal L \Big\lbrace \frac{df(t)}{dt} \Big\rbrace &amp; = sF(s) - f(0^-) \\\
+\mathcal L \Big\lbrace \int_{0^-}^t f(x)dx \Big\rbrace &amp; = \int_{0^-}^{+\infin}  \Big[\int_{0^-}^t f(x)dx\Big]e^{-st}dt
+\end{align}
+$$</p>
+<h2 id="43-时域平移">4.3 时域平移</h2>
 
 </section>
 
