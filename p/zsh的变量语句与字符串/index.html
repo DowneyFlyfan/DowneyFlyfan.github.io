@@ -289,6 +289,11 @@
         <li><a href="#45-字符串替换">4.5 字符串替换</a></li>
         <li><a href="#46-判断字符串变量是否存在">4.6 判断字符串变量是否存在</a></li>
         <li><a href="#47-字符串匹配判断">4.7 字符串匹配判断</a></li>
+        <li><a href="#48-大小写转换">4.8 大小写转换</a></li>
+        <li><a href="#49-文件目录名截取">4.9 文件目录名截取</a></li>
+        <li><a href="#410-字符串分隔">4.10 字符串分隔</a></li>
+        <li><a href="#411-多行字符串">4.11 多行字符串</a></li>
+        <li><a href="#412-读取文件内容到字符串">4.12 读取文件内容到字符串</a></li>
       </ul>
     </li>
   </ul>
@@ -918,7 +923,210 @@ Hardware --> Kernel
 <li>仅仅用<code>[[&quot;str&quot;==&quot;&quot;]]</code>是无法区分其内容为空还是不存在的</li>
 </ul>
 <h2 id="47-字符串匹配判断">4.7 字符串匹配判断</h2>
-<div class="footnotes" role="doc-endnotes">
+<ol>
+<li>判断是否包含字符串</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">str1</span><span class="o">=</span>abc
+</span></span><span class="line"><span class="cl"><span class="nv">str2</span><span class="o">=</span>bc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[[</span> <span class="nv">$str1</span> <span class="o">==</span> *<span class="nv">$str2</span>* <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> good
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="48-大小写转换">4.8 大小写转换</h2>
+<ol>
+<li>转成大写</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">str</span><span class="o">=</span><span class="s2">&#34;ABCDE abcde&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="p">(U)str</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 等价形式</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="nv">str</span><span class="p">:</span><span class="nv">u</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>转成小写</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="p">(L)str</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 等价形式</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="nv">str</span><span class="p">:</span><span class="nv">l</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>转成首字母大写</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="p">(C)str</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="49-文件目录名截取">4.9 文件目录名截取</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">filepath</span><span class="o">=</span>/a/b/c.x
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="nv">filepath</span><span class="p">:[hter]</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>h</code>取目录名</li>
+<li><code>t</code>取文件名</li>
+<li><code>e</code>取文件扩展名,即文件<code>.</code>后的部分</li>
+<li><code>r</code>去掉末尾扩展名的路径</li>
+</ul>
+<h2 id="410-字符串分隔">4.10 字符串分隔</h2>
+<ol>
+<li>使用空格<code> </code>作分隔符，多个空格只算一个分隔符</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">str</span><span class="o">=</span><span class="s1">&#39;aa bb cc dd&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示第n个token</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="nv">str</span><span class="p">[(w)n]</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>指定分隔符</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">str</span><span class="o">=</span><span class="s2">&#34;aa--bb--cc&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设定分隔符为--，并显示第n个token</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="nv">str</span><span class="p">[(ws</span><span class="k">:-</span><span class="p">-:)n]</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="411-多行字符串">4.11 多行字符串</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 以下操作可以用于命令行</span>
+</span></span><span class="line"><span class="cl"><span class="nv">str</span><span class="o">=</span><span class="s2">&#34;line1
+</span></span></span><span class="line"><span class="cl"><span class="s2">&gt; line2&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="412-读取文件内容到字符串">4.12 读取文件内容到字符串</h2>
+<ol>
+<li>读取整个文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">str</span><span class="o">=</span><span class="k">$(</span>&lt;filename<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 注意引号</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="k">$(</span>&lt;filename<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 遍历每行</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i <span class="o">(</span><span class="si">${</span><span class="p">(f)</span><span class="s2">&#34;</span><span class="k">$(</span>&lt;filename<span class="k">)</span><span class="s2">&#34;</span><span class="si">}</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">echo</span> <span class="nv">$i</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>读取文件指定行</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="s2">&#34;</span><span class="k">$(</span>&lt;text.txt<span class="k">)</span><span class="s2">&#34;</span><span class="p">[(f)2]</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 输出包含abc的一行</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="s2">&#34;</span><span class="k">$(</span>&lt;text.txt<span class="k">)</span><span class="s2">&#34;</span><span class="p">[(fr)*abc*]</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 从左端输出包含aa的一行，但从左端截去&#34;line&#34; </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">${</span><span class="s2">&#34;</span><span class="k">$(</span>&lt;text.txt<span class="k">)</span><span class="s2">&#34;</span><span class="p">[(fr)*aa*]#line</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1">
