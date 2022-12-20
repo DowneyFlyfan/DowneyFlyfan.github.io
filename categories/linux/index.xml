@@ -2,62 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Linux on 飞璠博客</title>
-        <link>https://donweyflyfan.github.io/categories/linux/</link>
+        <link>https://donweyflyfan.com/categories/linux/</link>
         <description>Recent content in Linux on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 14 Dec 2022 18:40:11 +0800</lastBuildDate><atom:link href="https://donweyflyfan.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Zsh的数组和哈希表</title>
-        <link>https://donweyflyfan.github.io/p/zsh%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
-        <pubDate>Wed, 14 Dec 2022 18:40:11 +0800</pubDate>
-        
-        <guid>https://donweyflyfan.github.io/p/zsh%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/</guid>
-        <description>&lt;h1 id=&#34;一数组&#34;&gt;一、数组&lt;/h1&gt;
-&lt;h2 id=&#34;11-定义&#34;&gt;1.1 定义&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=(&lt;/span&gt;aa &lt;span class=&#34;s2&#34;&gt;&amp;#34;bb cc&amp;#34;&lt;/span&gt; dddd&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 遍历数组&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$array&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 隔行输出元素&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;print -l &lt;span class=&#34;nv&#34;&gt;$array&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 数组中的元素个数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt;array
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;12-元素读写&#34;&gt;1.2 元素读写&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;-n&lt;/code&gt;表示倒数第&lt;code&gt;n&lt;/code&gt;个元素&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Wed, 14 Dec 2022 00:26:51 +0800</lastBuildDate><atom:link href="https://donweyflyfan.com/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Zsh的变量、语句与字符串</title>
-        <link>https://donweyflyfan.github.io/p/zsh%E7%9A%84%E5%8F%98%E9%87%8F%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+        <link>https://donweyflyfan.com/p/zsh%E7%9A%84%E5%8F%98%E9%87%8F%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
         <pubDate>Wed, 14 Dec 2022 00:26:51 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/zsh%E7%9A%84%E5%8F%98%E9%87%8F%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+        <guid>https://donweyflyfan.com/p/zsh%E7%9A%84%E5%8F%98%E9%87%8F%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
         <description>&lt;h1 id=&#34;一用户与硬件的关系&#34;&gt;一、用户与硬件的关系&lt;/h1&gt;
 &lt;div class=&#34;mermaid&#34;&gt;stateDiagram
 User --&gt; API
@@ -161,6 +115,29 @@ Hardware --&gt; Kernel
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;abc
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 注意，两边的变量必须与[]之间留有一个空格!!!&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$str&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; abc &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; good
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;23-变量进阶&#34;&gt;2.3 变量进阶&lt;/h2&gt;
+&lt;h3 id=&#34;231-typeset&#34;&gt;2.3.1 typeset&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;typeset&lt;/span&gt; -A 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;暂定
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;232-强制大小写&#34;&gt;2.3.2 强制大小写&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# l代表lower u代表upper&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt; -l&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;u&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; str
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;三语句&#34;&gt;三、语句&lt;/h1&gt;
@@ -821,10 +798,10 @@ Hardware --&gt; Kernel
         </item>
         <item>
         <title>Linux有关问题</title>
-        <link>https://donweyflyfan.github.io/p/linux%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98/</link>
+        <link>https://donweyflyfan.com/p/linux%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98/</link>
         <pubDate>Tue, 13 Dec 2022 00:05:44 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/linux%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
+        <guid>https://donweyflyfan.com/p/linux%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
         <description>&lt;h1 id=&#34;一普通问题&#34;&gt;一、普通问题&lt;/h1&gt;
 &lt;h2 id=&#34;11-pkgbuild和它的用法&#34;&gt;1.1 PKGBUILD和它的用法&lt;/h2&gt;
 &lt;ol&gt;
@@ -987,10 +964,10 @@ Hardware --&gt; Kernel
         </item>
         <item>
         <title>ArchLinux开机分区安装</title>
-        <link>https://donweyflyfan.github.io/p/archlinux%E5%BC%80%E6%9C%BA%E5%88%86%E5%8C%BA%E5%AE%89%E8%A3%85/</link>
+        <link>https://donweyflyfan.com/p/archlinux%E5%BC%80%E6%9C%BA%E5%88%86%E5%8C%BA%E5%AE%89%E8%A3%85/</link>
         <pubDate>Sat, 26 Nov 2022 23:40:49 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/archlinux%E5%BC%80%E6%9C%BA%E5%88%86%E5%8C%BA%E5%AE%89%E8%A3%85/</guid>
+        <guid>https://donweyflyfan.com/p/archlinux%E5%BC%80%E6%9C%BA%E5%88%86%E5%8C%BA%E5%AE%89%E8%A3%85/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一新建boot分区&#34;&gt;一、新建boot分区&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1079,10 +1056,10 @@ Hardware --&gt; Kernel
         </item>
         <item>
         <title>Git</title>
-        <link>https://donweyflyfan.github.io/p/git/</link>
+        <link>https://donweyflyfan.com/p/git/</link>
         <pubDate>Fri, 25 Nov 2022 05:07:46 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/git/</guid>
+        <guid>https://donweyflyfan.com/p/git/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一什么是git&#34;&gt;一、什么是git&lt;/h1&gt;
 &lt;blockquote&gt;

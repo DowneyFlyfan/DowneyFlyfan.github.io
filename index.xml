@@ -2,62 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>飞璠博客</title>
-        <link>https://donweyflyfan.github.io/</link>
+        <link>https://donweyflyfan.com/</link>
         <description>Recent content on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 14 Dec 2022 18:40:11 +0800</lastBuildDate><atom:link href="https://donweyflyfan.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Zsh的数组和哈希表</title>
-        <link>https://donweyflyfan.github.io/p/zsh%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
-        <pubDate>Wed, 14 Dec 2022 18:40:11 +0800</pubDate>
-        
-        <guid>https://donweyflyfan.github.io/p/zsh%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/</guid>
-        <description>&lt;h1 id=&#34;一数组&#34;&gt;一、数组&lt;/h1&gt;
-&lt;h2 id=&#34;11-定义&#34;&gt;1.1 定义&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=(&lt;/span&gt;aa &lt;span class=&#34;s2&#34;&gt;&amp;#34;bb cc&amp;#34;&lt;/span&gt; dddd&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 遍历数组&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$array&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 隔行输出元素&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;print -l &lt;span class=&#34;nv&#34;&gt;$array&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 数组中的元素个数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt;array
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;12-元素读写&#34;&gt;1.2 元素读写&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;-n&lt;/code&gt;表示倒数第&lt;code&gt;n&lt;/code&gt;个元素&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Wed, 14 Dec 2022 00:26:51 +0800</lastBuildDate><atom:link href="https://donweyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Zsh的变量、语句与字符串</title>
-        <link>https://donweyflyfan.github.io/p/zsh%E7%9A%84%E5%8F%98%E9%87%8F%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+        <link>https://donweyflyfan.com/p/zsh%E7%9A%84%E5%8F%98%E9%87%8F%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
         <pubDate>Wed, 14 Dec 2022 00:26:51 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/zsh%E7%9A%84%E5%8F%98%E9%87%8F%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+        <guid>https://donweyflyfan.com/p/zsh%E7%9A%84%E5%8F%98%E9%87%8F%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
         <description>&lt;h1 id=&#34;一用户与硬件的关系&#34;&gt;一、用户与硬件的关系&lt;/h1&gt;
 &lt;div class=&#34;mermaid&#34;&gt;stateDiagram
 User --&gt; API
@@ -161,6 +115,29 @@ Hardware --&gt; Kernel
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;abc
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 注意，两边的变量必须与[]之间留有一个空格!!!&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$str&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; abc &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; good
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;23-变量进阶&#34;&gt;2.3 变量进阶&lt;/h2&gt;
+&lt;h3 id=&#34;231-typeset&#34;&gt;2.3.1 typeset&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;typeset&lt;/span&gt; -A 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;暂定
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;232-强制大小写&#34;&gt;2.3.2 强制大小写&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# l代表lower u代表upper&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt; -l&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;u&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; str
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;三语句&#34;&gt;三、语句&lt;/h1&gt;
@@ -821,11 +798,11 @@ Hardware --&gt; Kernel
         </item>
         <item>
         <title>早期量子理论和原子模型</title>
-        <link>https://donweyflyfan.github.io/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/</link>
+        <link>https://donweyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/</link>
         <pubDate>Tue, 13 Dec 2022 23:55:09 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/</guid>
-        <description>&lt;img src="https://donweyflyfan.github.io/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1.jpg" alt="Featured image of post 早期量子理论和原子模型" /&gt;&lt;h1 id=&#34;一普朗克假设&#34;&gt;一、普朗克假设&lt;/h1&gt;
+        <guid>https://donweyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/</guid>
+        <description>&lt;img src="https://donweyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1.jpg" alt="Featured image of post 早期量子理论和原子模型" /&gt;&lt;h1 id=&#34;一普朗克假设&#34;&gt;一、普朗克假设&lt;/h1&gt;
 &lt;h2 id=&#34;11-黑体辐射&#34;&gt;1.1 黑体辐射&lt;/h2&gt;
 &lt;h3 id=&#34;111-黑体&#34;&gt;1.1.1 黑体&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -839,10 +816,10 @@ Hardware --&gt; Kernel
         </item>
         <item>
         <title>Linux有关问题</title>
-        <link>https://donweyflyfan.github.io/p/linux%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98/</link>
+        <link>https://donweyflyfan.com/p/linux%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98/</link>
         <pubDate>Tue, 13 Dec 2022 00:05:44 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/linux%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
+        <guid>https://donweyflyfan.com/p/linux%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98/</guid>
         <description>&lt;h1 id=&#34;一普通问题&#34;&gt;一、普通问题&lt;/h1&gt;
 &lt;h2 id=&#34;11-pkgbuild和它的用法&#34;&gt;1.1 PKGBUILD和它的用法&lt;/h2&gt;
 &lt;ol&gt;
@@ -1005,10 +982,10 @@ Hardware --&gt; Kernel
         </item>
         <item>
         <title>拉普拉斯变换简介</title>
-        <link>https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/</link>
+        <link>https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/</link>
         <pubDate>Mon, 12 Dec 2022 04:35:12 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/</guid>
+        <guid>https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/</guid>
         <description>&lt;h1 id=&#34;一拉普拉斯变换的定义&#34;&gt;一、拉普拉斯变换的定义&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;数学公式&lt;/li&gt;
@@ -1029,10 +1006,10 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;二阶跃函数&#34;&gt;二、阶跃函数&lt;/h1&gt;
 &lt;h2 id=&#34;21-一个阶跃函数的图示&#34;&gt;2.1 一个阶跃函数的图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/1.png&#34;
 	width=&#34;829&#34;
 	height=&#34;312&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/1_hu840480aea45c9912957bcb0a247b6e15_21053_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/1_hu840480aea45c9912957bcb0a247b6e15_21053_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/1_hu840480aea45c9912957bcb0a247b6e15_21053_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/1_hu840480aea45c9912957bcb0a247b6e15_21053_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1057,10 +1034,10 @@ $$&lt;/p&gt;
 &lt;p&gt;定义间断点处的&lt;strong&gt;导数&lt;/strong&gt;及其&lt;strong&gt;拉氏变换&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;22-举例&#34;&gt;2.2 举例&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/2.png&#34;
 	width=&#34;830&#34;
 	height=&#34;213&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/2_hu86a1dd1cbb44cbd27089e30d9c55bf4a_33059_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/2_hu86a1dd1cbb44cbd27089e30d9c55bf4a_33059_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/2_hu86a1dd1cbb44cbd27089e30d9c55bf4a_33059_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/2_hu86a1dd1cbb44cbd27089e30d9c55bf4a_33059_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1116,10 +1093,10 @@ $$&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;&lt;strong&gt;冲激函数微分的拉氏变换&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/3.png&#34;
 	width=&#34;734&#34;
 	height=&#34;221&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/3_hu900c7c3a2cf3f3cf9c598c4e8dc4cc0e_20794_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/3_hu900c7c3a2cf3f3cf9c598c4e8dc4cc0e_20794_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/3_hu900c7c3a2cf3f3cf9c598c4e8dc4cc0e_20794_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%AE%80%E4%BB%8B/3_hu900c7c3a2cf3f3cf9c598c4e8dc4cc0e_20794_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1264,10 +1241,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>假设检验</title>
-        <link>https://donweyflyfan.github.io/p/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</link>
+        <link>https://donweyflyfan.com/p/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</link>
         <pubDate>Sat, 10 Dec 2022 23:58:47 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</guid>
+        <guid>https://donweyflyfan.com/p/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</guid>
         <description>&lt;h1 id=&#34;一基本思想&#34;&gt;一、基本思想&lt;/h1&gt;
 &lt;h2 id=&#34;11分类&#34;&gt;1.1分类&lt;/h2&gt;
 &lt;h3 id=&#34;111参数检验&#34;&gt;1.1.1参数检验&lt;/h3&gt;
@@ -1298,19 +1275,19 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>Archives</title>
-        <link>https://donweyflyfan.github.io/archives/</link>
+        <link>https://donweyflyfan.com/archives/</link>
         <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://donweyflyfan.github.io/archives/</guid>
+        <guid>https://donweyflyfan.com/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>正弦稳态功率计算</title>
-        <link>https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/</link>
+        <link>https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/</link>
         <pubDate>Thu, 08 Dec 2022 23:54:44 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/</guid>
-        <description>&lt;img src="https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.jpg" alt="Featured image of post 正弦稳态功率计算" /&gt;&lt;h1 id=&#34;一瞬时功率&#34;&gt;一、瞬时功率&lt;/h1&gt;
+        <guid>https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/</guid>
+        <description>&lt;img src="https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.jpg" alt="Featured image of post 正弦稳态功率计算" /&gt;&lt;h1 id=&#34;一瞬时功率&#34;&gt;一、瞬时功率&lt;/h1&gt;
 &lt;p&gt;$$
 p = vi \\\
 \\ v = V_mcos(\omega t + \theta_{v}) \\\
@@ -1364,10 +1341,10 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;h1 id=&#34;四复功率&#34;&gt;四、复功率&lt;/h1&gt;
 &lt;h2 id=&#34;41-功率三角形&#34;&gt;4.1 功率三角形&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.png&#34;
 	width=&#34;691&#34;
 	height=&#34;285&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1_hua8b153a585dc0b46c93702c844aeed6f_37777_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1_hua8b153a585dc0b46c93702c844aeed6f_37777_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1_hua8b153a585dc0b46c93702c844aeed6f_37777_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1_hua8b153a585dc0b46c93702c844aeed6f_37777_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1393,10 +1370,10 @@ S = P + jQ \\\
 $$&lt;/p&gt;
 &lt;h2 id=&#34;51-复功率的变换形式&#34;&gt;5.1 复功率的变换形式&lt;/h2&gt;
 &lt;h3 id=&#34;511-图示&#34;&gt;5.1.1 图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/2.png&#34;
 	width=&#34;523&#34;
 	height=&#34;262&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/2_hu4d5a81286f02389a45c168804227b0ce_61201_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/2_hu4d5a81286f02389a45c168804227b0ce_61201_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/2_hu4d5a81286f02389a45c168804227b0ce_61201_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/2_hu4d5a81286f02389a45c168804227b0ce_61201_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1417,10 +1394,10 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;h2 id=&#34;52-最大功率传输定律&#34;&gt;5.2 最大功率传输定律&lt;/h2&gt;
 &lt;h3 id=&#34;521-图示&#34;&gt;5.2.1 图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/3.png&#34;
 	width=&#34;885&#34;
 	height=&#34;187&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/3_hu3e7996a3da3cd98655f27b6dcec2218a_72930_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/3_hu3e7996a3da3cd98655f27b6dcec2218a_72930_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/3_hu3e7996a3da3cd98655f27b6dcec2218a_72930_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/3_hu3e7996a3da3cd98655f27b6dcec2218a_72930_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1446,10 +1423,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>参数估计</title>
-        <link>https://donweyflyfan.github.io/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/</link>
+        <link>https://donweyflyfan.com/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/</link>
         <pubDate>Thu, 08 Dec 2022 03:19:37 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/</guid>
+        <guid>https://donweyflyfan.com/p/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/</guid>
         <description>&lt;h1 id=&#34;参数的点估计&#34;&gt;参数的点估计&lt;/h1&gt;
 &lt;h2 id=&#34;矩估计法&#34;&gt;矩估计法&lt;/h2&gt;
 &lt;h3 id=&#34;用样本矩估计总体矩&#34;&gt;用样本矩估计总体矩&lt;/h3&gt;
@@ -1584,11 +1561,11 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>统计量与抽样分布</title>
-        <link>https://donweyflyfan.github.io/p/%E7%BB%9F%E8%AE%A1%E9%87%8F%E4%B8%8E%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/</link>
+        <link>https://donweyflyfan.com/p/%E7%BB%9F%E8%AE%A1%E9%87%8F%E4%B8%8E%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/</link>
         <pubDate>Thu, 08 Dec 2022 02:49:15 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E7%BB%9F%E8%AE%A1%E9%87%8F%E4%B8%8E%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/</guid>
-        <description>&lt;img src="https://donweyflyfan.github.io/p/%E7%BB%9F%E8%AE%A1%E9%87%8F%E4%B8%8E%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/1.jpg" alt="Featured image of post 统计量与抽样分布" /&gt;&lt;h1 id=&#34;随机样本与统计量&#34;&gt;随机样本与统计量&lt;/h1&gt;
+        <guid>https://donweyflyfan.com/p/%E7%BB%9F%E8%AE%A1%E9%87%8F%E4%B8%8E%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/</guid>
+        <description>&lt;img src="https://donweyflyfan.com/p/%E7%BB%9F%E8%AE%A1%E9%87%8F%E4%B8%8E%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/1.jpg" alt="Featured image of post 统计量与抽样分布" /&gt;&lt;h1 id=&#34;随机样本与统计量&#34;&gt;随机样本与统计量&lt;/h1&gt;
 &lt;h2 id=&#34;总体与个体&#34;&gt;总体与个体&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;总体&lt;/li&gt;
@@ -1718,11 +1695,11 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>狭义相对论</title>
-        <link>https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/</link>
+        <link>https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/</link>
         <pubDate>Wed, 07 Dec 2022 05:29:32 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/</guid>
-        <description>&lt;img src="https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1.jpg" alt="Featured image of post 狭义相对论" /&gt;&lt;h1 id=&#34;伽利略-牛顿相对论&#34;&gt;伽利略-牛顿相对论&lt;/h1&gt;
+        <guid>https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/</guid>
+        <description>&lt;img src="https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1.jpg" alt="Featured image of post 狭义相对论" /&gt;&lt;h1 id=&#34;伽利略-牛顿相对论&#34;&gt;伽利略-牛顿相对论&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;传统思维&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1738,10 +1715,10 @@ $$&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;钟慢效应与尺短效应&#34;&gt;钟慢效应与尺短效应&lt;/h2&gt;
 &lt;h3 id=&#34;钟慢效应图示&#34;&gt;钟慢效应图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/3.png&#34;
 	width=&#34;912&#34;
 	height=&#34;473&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/3_hud0fcb25ebf3631982bec513af4b263ff_356500_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/3_hud0fcb25ebf3631982bec513af4b263ff_356500_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/3_hud0fcb25ebf3631982bec513af4b263ff_356500_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/3_hud0fcb25ebf3631982bec513af4b263ff_356500_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1757,10 +1734,10 @@ $$&lt;/p&gt;
 \\ 根据以上两式可得：\Delta t = \frac{\Delta t&amp;rsquo; }{\sqrt{1-v^2/c^2}}  \\\
 $$&lt;/p&gt;
 &lt;h3 id=&#34;尺短效应图示&#34;&gt;尺短效应图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/4.png&#34;
 	width=&#34;843&#34;
 	height=&#34;456&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/4_hu0d4c2587b312d103ee4f6592f07f22ec_273847_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/4_hu0d4c2587b312d103ee4f6592f07f22ec_273847_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/4_hu0d4c2587b312d103ee4f6592f07f22ec_273847_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/4_hu0d4c2587b312d103ee4f6592f07f22ec_273847_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1787,10 +1764,10 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;h2 id=&#34;相对论系数&#34;&gt;相对论系数&lt;/h2&gt;
 &lt;h3 id=&#34;第一个图示&#34;&gt;第一个图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1.png&#34;
 	width=&#34;724&#34;
 	height=&#34;496&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1_hub1f6a9b86be582257be9855b44b8f91b_87825_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1_hub1f6a9b86be582257be9855b44b8f91b_87825_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1_hub1f6a9b86be582257be9855b44b8f91b_87825_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1_hub1f6a9b86be582257be9855b44b8f91b_87825_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1806,10 +1783,10 @@ $$&lt;/p&gt;
 \\ 此时，人离石头距离x = ct
 $$&lt;/p&gt;
 &lt;h3 id=&#34;第二个图示&#34;&gt;第二个图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/2.png&#34;
 	width=&#34;709&#34;
 	height=&#34;476&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/2_hu5b30dd6174cde4c6dfe254134b856e90_68279_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/2_hu5b30dd6174cde4c6dfe254134b856e90_68279_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/2_hu5b30dd6174cde4c6dfe254134b856e90_68279_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/2_hu5b30dd6174cde4c6dfe254134b856e90_68279_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1858,11 +1835,11 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>选频电路</title>
-        <link>https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/</link>
+        <link>https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/</link>
         <pubDate>Wed, 07 Dec 2022 04:02:20 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/</guid>
-        <description>&lt;img src="https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/index.jpg" alt="Featured image of post 选频电路" /&gt;&lt;h1 id=&#34;一低通滤波器&#34;&gt;一、低通滤波器&lt;/h1&gt;
+        <guid>https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/</guid>
+        <description>&lt;img src="https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/index.jpg" alt="Featured image of post 选频电路" /&gt;&lt;h1 id=&#34;一低通滤波器&#34;&gt;一、低通滤波器&lt;/h1&gt;
 &lt;h2 id=&#34;11-串联rl电路的定性分析&#34;&gt;1.1 串联RL电路的定性分析&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;转移函数&lt;/li&gt;
@@ -1886,10 +1863,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/1.png&#34;
 	width=&#34;442&#34;
 	height=&#34;203&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/1_hu2c967be0cb157c027920a784ba9b9ee5_19182_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/1_hu2c967be0cb157c027920a784ba9b9ee5_19182_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/1_hu2c967be0cb157c027920a784ba9b9ee5_19182_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/1_hu2c967be0cb157c027920a784ba9b9ee5_19182_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1926,10 +1903,10 @@ $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/2.png&#34;
 	width=&#34;361&#34;
 	height=&#34;196&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/2_hucfd2023bc9f2912edff882489ec34d78_17085_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/2_hucfd2023bc9f2912edff882489ec34d78_17085_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/2_hucfd2023bc9f2912edff882489ec34d78_17085_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/2_hucfd2023bc9f2912edff882489ec34d78_17085_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1948,10 +1925,10 @@ $$&lt;/p&gt;
 &lt;h1 id=&#34;二高通过滤器&#34;&gt;二、高通过滤器&lt;/h1&gt;
 &lt;h2 id=&#34;21-串联rc电路--定性分析&#34;&gt;2.1 串联RC电路 —— 定性分析&lt;/h2&gt;
 &lt;h3 id=&#34;211-图示&#34;&gt;2.1.1 图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/3.png&#34;
 	width=&#34;923&#34;
 	height=&#34;224&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/3_huac665eb103bf647ba2d1e687cae7509e_51083_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/3_huac665eb103bf647ba2d1e687cae7509e_51083_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/3_huac665eb103bf647ba2d1e687cae7509e_51083_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/3_huac665eb103bf647ba2d1e687cae7509e_51083_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1968,10 +1945,10 @@ $$&lt;/p&gt;
 \\
 $$&lt;/p&gt;
 &lt;h3 id=&#34;213-a图的频率响应曲线&#34;&gt;2.1.3 (a)图的频率响应曲线&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/4.png&#34;
 	width=&#34;784&#34;
 	height=&#34;676&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/4_huc342da191e82443499294adf9609fea3_68335_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/4_huc342da191e82443499294adf9609fea3_68335_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/4_huc342da191e82443499294adf9609fea3_68335_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/4_huc342da191e82443499294adf9609fea3_68335_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1982,10 +1959,10 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;22-串联rc电路--定量分析&#34;&gt;2.2 串联RC电路 —— 定量分析&lt;/h2&gt;
 &lt;h3 id=&#34;221-上述a图的等效s域电路&#34;&gt;2.2.1 上述(a)图的等效s域电路&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/5.png&#34;
 	width=&#34;774&#34;
 	height=&#34;401&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/5_hua2f42031fec58e4bc147b7561d94cbb9_46355_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/5_hua2f42031fec58e4bc147b7561d94cbb9_46355_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/5_hua2f42031fec58e4bc147b7561d94cbb9_46355_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/5_hua2f42031fec58e4bc147b7561d94cbb9_46355_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2007,17 +1984,17 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>有源滤波器电路</title>
-        <link>https://donweyflyfan.github.io/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/</link>
+        <link>https://donweyflyfan.com/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/</link>
         <pubDate>Wed, 07 Dec 2022 00:20:59 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/</guid>
-        <description>&lt;img src="https://donweyflyfan.github.io/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/%E6%BB%A4%E6%B3%A2%E5%99%A8.jpg" alt="Featured image of post 有源滤波器电路" /&gt;&lt;h1 id=&#34;一阶低通和高通滤波器&#34;&gt;一阶低通和高通滤波器&lt;/h1&gt;
+        <guid>https://donweyflyfan.com/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/</guid>
+        <description>&lt;img src="https://donweyflyfan.com/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/%E6%BB%A4%E6%B3%A2%E5%99%A8.jpg" alt="Featured image of post 有源滤波器电路" /&gt;&lt;h1 id=&#34;一阶低通和高通滤波器&#34;&gt;一阶低通和高通滤波器&lt;/h1&gt;
 &lt;h2 id=&#34;一阶低通滤波器&#34;&gt;一阶低通滤波器&lt;/h2&gt;
 &lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/1.png&#34;
 	width=&#34;870&#34;
 	height=&#34;632&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/1_hu96683e10e8992ef6e6b374dd08b4ec96_74319_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/1_hu96683e10e8992ef6e6b374dd08b4ec96_74319_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/1_hu96683e10e8992ef6e6b374dd08b4ec96_74319_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%9C%89%E6%BA%90%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%94%B5%E8%B7%AF/1_hu96683e10e8992ef6e6b374dd08b4ec96_74319_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2034,11 +2011,11 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>2017 MCM</title>
-        <link>https://donweyflyfan.github.io/p/2017-mcm/</link>
+        <link>https://donweyflyfan.com/p/2017-mcm/</link>
         <pubDate>Mon, 05 Dec 2022 04:52:51 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/2017-mcm/</guid>
-        <description>&lt;img src="https://donweyflyfan.github.io/p/2017-mcm/1.jpg" alt="Featured image of post 2017 MCM" /&gt;&lt;h1 id=&#34;题目&#34;&gt;题目&lt;/h1&gt;
+        <guid>https://donweyflyfan.com/p/2017-mcm/</guid>
+        <description>&lt;img src="https://donweyflyfan.com/p/2017-mcm/1.jpg" alt="Featured image of post 2017 MCM" /&gt;&lt;h1 id=&#34;题目&#34;&gt;题目&lt;/h1&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;当自动驾驶汽车的比例从10%到50%到90%&lt;/li&gt;
@@ -2115,10 +2092,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;说实话，这个安全距离的公式有点扯&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/2017-mcm/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/2017-mcm/1.png&#34;
 	width=&#34;1171&#34;
 	height=&#34;429&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/2017-mcm/1_hu9b4ab495cdd585aad278dacc021fe1b7_51533_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/2017-mcm/1_hu9b4ab495cdd585aad278dacc021fe1b7_51533_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/2017-mcm/1_hu9b4ab495cdd585aad278dacc021fe1b7_51533_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/2017-mcm/1_hu9b4ab495cdd585aad278dacc021fe1b7_51533_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2149,16 +2126,16 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>RLC电路</title>
-        <link>https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/</link>
+        <link>https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/</link>
         <pubDate>Mon, 05 Dec 2022 04:19:53 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/</guid>
+        <guid>https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/</guid>
         <description>&lt;h1 id=&#34;并联rlc固有响应&#34;&gt;并联RLC固有响应&lt;/h1&gt;
 &lt;h2 id=&#34;图示&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94.png&#34;
 	width=&#34;764&#34;
 	height=&#34;266&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94_hud666f2a1d30c4e2d05e153438b2831c2_42337_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94_hud666f2a1d30c4e2d05e153438b2831c2_42337_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94_hud666f2a1d30c4e2d05e153438b2831c2_42337_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94_hud666f2a1d30c4e2d05e153438b2831c2_42337_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2277,10 +2254,10 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;h1 id=&#34;并联rlc阶跃响应&#34;&gt;并联RLC阶跃响应&lt;/h1&gt;
 &lt;h2 id=&#34;图示-1&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94.png&#34;
 	width=&#34;860&#34;
 	height=&#34;249&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94_hu4cda80c9dc75f21bb85267f2e27d4507_47942_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94_hu4cda80c9dc75f21bb85267f2e27d4507_47942_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94_hu4cda80c9dc75f21bb85267f2e27d4507_47942_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/%E5%B9%B6%E8%81%94RLC%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94_hu4cda80c9dc75f21bb85267f2e27d4507_47942_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2299,10 +2276,10 @@ $$&lt;/p&gt;
 &lt;h1 id=&#34;串联rlc的固有响应和阶跃响应&#34;&gt;串联RLC的固有响应和阶跃响应&lt;/h1&gt;
 &lt;h2 id=&#34;固有响应&#34;&gt;固有响应&lt;/h2&gt;
 &lt;h3 id=&#34;图示-2&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/%E4%B8%B2%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/%E4%B8%B2%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94.png&#34;
 	width=&#34;547&#34;
 	height=&#34;272&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/%E4%B8%B2%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94_huf25c3d7a7e69913f067db5f7ebee335f_30960_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/%E4%B8%B2%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94_huf25c3d7a7e69913f067db5f7ebee335f_30960_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/%E4%B8%B2%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94_huf25c3d7a7e69913f067db5f7ebee335f_30960_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/%E4%B8%B2%E8%81%94RLC%E5%9B%BA%E6%9C%89%E5%93%8D%E5%BA%94_huf25c3d7a7e69913f067db5f7ebee335f_30960_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2322,10 +2299,10 @@ $$&lt;/p&gt;
 &lt;h1 id=&#34;双集成运放电路&#34;&gt;双集成运放电路&lt;/h1&gt;
 &lt;h2 id=&#34;两级联运算放大器&#34;&gt;两级联运算放大器&lt;/h2&gt;
 &lt;h3 id=&#34;图示-3&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/1.png&#34;
 	width=&#34;833&#34;
 	height=&#34;379&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/1_hu9354c5f233589804870287f1708b2938_69750_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/1_hu9354c5f233589804870287f1708b2938_69750_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/1_hu9354c5f233589804870287f1708b2938_69750_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/1_hu9354c5f233589804870287f1708b2938_69750_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2343,10 +2320,10 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;h2 id=&#34;具有反馈电阻的两级运算放大电路&#34;&gt;具有反馈电阻的两级运算放大电路&lt;/h2&gt;
 &lt;h3 id=&#34;图示-4&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/2.png&#34;
 	width=&#34;912&#34;
 	height=&#34;495&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/2_hu20b321c325adad1cfc00942eeda5872d_97604_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlc%E7%94%B5%E8%B7%AF/2_hu20b321c325adad1cfc00942eeda5872d_97604_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/2_hu20b321c325adad1cfc00942eeda5872d_97604_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlc%E7%94%B5%E8%B7%AF/2_hu20b321c325adad1cfc00942eeda5872d_97604_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2371,10 +2348,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>树(Tree)</title>
-        <link>https://donweyflyfan.github.io/p/%E6%A0%91tree/</link>
+        <link>https://donweyflyfan.com/p/%E6%A0%91tree/</link>
         <pubDate>Mon, 05 Dec 2022 03:16:42 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%A0%91tree/</guid>
+        <guid>https://donweyflyfan.com/p/%E6%A0%91tree/</guid>
         <description>&lt;h1 id=&#34;基本概念&#34;&gt;基本概念&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
@@ -2385,10 +2362,10 @@ $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;图示
-&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/1.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/1.png&#34;
 	width=&#34;588&#34;
 	height=&#34;477&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/1_hub4a69e49414d35e1a86c94db43fc4cdf_97309_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%A0%91tree/1_hub4a69e49414d35e1a86c94db43fc4cdf_97309_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/1_hub4a69e49414d35e1a86c94db43fc4cdf_97309_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%A0%91tree/1_hub4a69e49414d35e1a86c94db43fc4cdf_97309_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2532,10 +2509,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/2.png&#34;
 	width=&#34;959&#34;
 	height=&#34;791&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/2_hu47522679216dad57c5fe13ae815e11b9_210299_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%A0%91tree/2_hu47522679216dad57c5fe13ae815e11b9_210299_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/2_hu47522679216dad57c5fe13ae815e11b9_210299_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%A0%91tree/2_hu47522679216dad57c5fe13ae815e11b9_210299_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2615,10 +2592,10 @@ $$&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;图示
-&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/3.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/3.png&#34;
 	width=&#34;825&#34;
 	height=&#34;505&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/3_huc346af902d47cffd67a5b1b1308c3e4f_116567_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%A0%91tree/3_huc346af902d47cffd67a5b1b1308c3e4f_116567_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/3_huc346af902d47cffd67a5b1b1308c3e4f_116567_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%A0%91tree/3_huc346af902d47cffd67a5b1b1308c3e4f_116567_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2675,10 +2652,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;分支节点均有两个子树的二叉树&lt;/li&gt;
 &lt;li&gt;图示
-&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/4.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/4.png&#34;
 	width=&#34;749&#34;
 	height=&#34;402&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/4_huc7c34d3c13da487a57dd581f92515004_108659_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%A0%91tree/4_huc7c34d3c13da487a57dd581f92515004_108659_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/4_huc7c34d3c13da487a57dd581f92515004_108659_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%A0%91tree/4_huc7c34d3c13da487a57dd581f92515004_108659_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2708,10 +2685,10 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;图示
-&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/5.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/5.png&#34;
 	width=&#34;825&#34;
 	height=&#34;464&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%A0%91tree/5_hub15f54b4adeea0ed51591cbe39e1b2d1_117009_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%A0%91tree/5_hub15f54b4adeea0ed51591cbe39e1b2d1_117009_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%A0%91tree/5_hub15f54b4adeea0ed51591cbe39e1b2d1_117009_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%A0%91tree/5_hub15f54b4adeea0ed51591cbe39e1b2d1_117009_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -3025,10 +3002,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>串</title>
-        <link>https://donweyflyfan.github.io/p/%E4%B8%B2/</link>
+        <link>https://donweyflyfan.com/p/%E4%B8%B2/</link>
         <pubDate>Sun, 04 Dec 2022 04:45:14 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E4%B8%B2/</guid>
+        <guid>https://donweyflyfan.com/p/%E4%B8%B2/</guid>
         <description>&lt;h1 id=&#34;一些基本概念&#34;&gt;一些基本概念&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
@@ -3382,10 +3359,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>电路英语专业词语</title>
-        <link>https://donweyflyfan.github.io/p/%E7%94%B5%E8%B7%AF%E8%8B%B1%E8%AF%AD%E4%B8%93%E4%B8%9A%E8%AF%8D%E8%AF%AD/</link>
+        <link>https://donweyflyfan.com/p/%E7%94%B5%E8%B7%AF%E8%8B%B1%E8%AF%AD%E4%B8%93%E4%B8%9A%E8%AF%8D%E8%AF%AD/</link>
         <pubDate>Sat, 03 Dec 2022 22:04:58 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E7%94%B5%E8%B7%AF%E8%8B%B1%E8%AF%AD%E4%B8%93%E4%B8%9A%E8%AF%8D%E8%AF%AD/</guid>
+        <guid>https://donweyflyfan.com/p/%E7%94%B5%E8%B7%AF%E8%8B%B1%E8%AF%AD%E4%B8%93%E4%B8%9A%E8%AF%8D%E8%AF%AD/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;behaviour 行为或性能&lt;/p&gt;
@@ -3476,10 +3453,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>概率论英语词汇</title>
-        <link>https://donweyflyfan.github.io/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87/</link>
+        <link>https://donweyflyfan.com/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87/</link>
         <pubDate>Sat, 03 Dec 2022 19:17:23 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87/</guid>
+        <guid>https://donweyflyfan.com/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87/</guid>
         <description>&lt;h1 id=&#34;第一部分&#34;&gt;第一部分&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -3832,10 +3809,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>正弦稳态分析</title>
-        <link>https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/</link>
+        <link>https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/</link>
         <pubDate>Sat, 03 Dec 2022 18:42:48 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/</guid>
+        <guid>https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/</guid>
         <description>&lt;h1 id=&#34;正弦信号源-正弦响应&#34;&gt;正弦信号源 正弦响应&lt;/h1&gt;
 &lt;h2 id=&#34;表达&#34;&gt;表达&lt;/h2&gt;
 &lt;p&gt;$$
@@ -3847,10 +3824,10 @@ v =V_mcos(\omega t+\phi) \ [1] \\\
 $$&lt;/p&gt;
 &lt;h2 id=&#34;正弦响应&#34;&gt;正弦响应&lt;/h2&gt;
 &lt;h3 id=&#34;正弦电源激励下的rl电路&#34;&gt;正弦电源激励下的RL电路&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/1.png&#34;
 	width=&#34;784&#34;
 	height=&#34;356&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/1_hu80f879e97d501282a43809d644ff53d0_46834_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/1_hu80f879e97d501282a43809d644ff53d0_46834_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/1_hu80f879e97d501282a43809d644ff53d0_46834_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/1_hu80f879e97d501282a43809d644ff53d0_46834_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -3996,10 +3973,10 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/2.png&#34;
 	width=&#34;803&#34;
 	height=&#34;704&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/2_hufd8dcc2ae4e60b4a57634a032ba395c1_121649_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/2_hufd8dcc2ae4e60b4a57634a032ba395c1_121649_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/2_hufd8dcc2ae4e60b4a57634a032ba395c1_121649_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/2_hufd8dcc2ae4e60b4a57634a032ba395c1_121649_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -4023,10 +4000,10 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;电路图&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/3.png&#34;
 	width=&#34;798&#34;
 	height=&#34;357&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/3_hu9b1d0f87446f1c9d32ff856e7fcce955_232461_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/3_hu9b1d0f87446f1c9d32ff856e7fcce955_232461_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/3_hu9b1d0f87446f1c9d32ff856e7fcce955_232461_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/3_hu9b1d0f87446f1c9d32ff856e7fcce955_232461_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -4100,10 +4077,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;图示
-&lt;img src=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/4.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/4.png&#34;
 	width=&#34;911&#34;
 	height=&#34;366&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/4_hu2dbdf88e0d33bb5eec1f7ff1a3176e44_75146_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/4_hu2dbdf88e0d33bb5eec1f7ff1a3176e44_75146_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/4_hu2dbdf88e0d33bb5eec1f7ff1a3176e44_75146_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/4_hu2dbdf88e0d33bb5eec1f7ff1a3176e44_75146_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -4128,16 +4105,16 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>RL,RC电路的响应</title>
-        <link>https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/</link>
+        <link>https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/</link>
         <pubDate>Sat, 03 Dec 2022 02:18:32 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/</guid>
+        <guid>https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/</guid>
         <description>&lt;h1 id=&#34;rl电路的固有响应&#34;&gt;RL电路的固有响应&lt;/h1&gt;
 &lt;h2 id=&#34;电路图&#34;&gt;电路图&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/1.png&#34;
 	width=&#34;843&#34;
 	height=&#34;311&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/1_hu09fa51d089e744502d2397ff7383b438_53994_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/1_hu09fa51d089e744502d2397ff7383b438_53994_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/1_hu09fa51d089e744502d2397ff7383b438_53994_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/1_hu09fa51d089e744502d2397ff7383b438_53994_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -4189,10 +4166,10 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;rc电路的固有响应&#34;&gt;RC电路的固有响应&lt;/h1&gt;
 &lt;h2 id=&#34;电路图-1&#34;&gt;电路图&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/2.png&#34;
 	width=&#34;759&#34;
 	height=&#34;373&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/2_hu0898478abc4465c95fb0006e9ec67aad_57288_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/2_hu0898478abc4465c95fb0006e9ec67aad_57288_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/2_hu0898478abc4465c95fb0006e9ec67aad_57288_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/2_hu0898478abc4465c95fb0006e9ec67aad_57288_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -4213,10 +4190,10 @@ $$&lt;/p&gt;
 &lt;h1 id=&#34;rl-rc电路的阶跃响应&#34;&gt;RL RC电路的阶跃响应&lt;/h1&gt;
 &lt;h2 id=&#34;rl-电路的阶跃响应&#34;&gt;RL 电路的阶跃响应&lt;/h2&gt;
 &lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/3.png&#34;
 	width=&#34;670&#34;
 	height=&#34;331&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/3_hu8c62211a3515b641d1b47a8aa8254beb_41737_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/3_hu8c62211a3515b641d1b47a8aa8254beb_41737_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/3_hu8c62211a3515b641d1b47a8aa8254beb_41737_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/3_hu8c62211a3515b641d1b47a8aa8254beb_41737_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -4244,10 +4221,10 @@ v = L\frac{di}{dt} = (V_s-I_0R)e^{-t/\tau} \\\
 $$&lt;/p&gt;
 &lt;h2 id=&#34;rc电路的阶跃响应&#34;&gt;RC电路的阶跃响应&lt;/h2&gt;
 &lt;h3 id=&#34;电路图-2&#34;&gt;电路图&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/4.png&#34;
 	width=&#34;628&#34;
 	height=&#34;333&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/4_hude9c0f4d615930e9df83980ce9e91834_42092_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/4_hude9c0f4d615930e9df83980ce9e91834_42092_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/4_hude9c0f4d615930e9df83980ce9e91834_42092_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/4_hude9c0f4d615930e9df83980ce9e91834_42092_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -4300,10 +4277,10 @@ $$&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;积分放大器&#34;&gt;积分放大器&lt;/h1&gt;
 &lt;h2 id=&#34;图示-1&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/5.png&#34;
 	width=&#34;836&#34;
 	height=&#34;446&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/5_hu213dd8efd34e516696a075e4d678cd35_71794_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/5_hu213dd8efd34e516696a075e4d678cd35_71794_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/5_hu213dd8efd34e516696a075e4d678cd35_71794_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/5_hu213dd8efd34e516696a075e4d678cd35_71794_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -4324,10 +4301,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>电感、电容与互感</title>
-        <link>https://donweyflyfan.github.io/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/</link>
+        <link>https://donweyflyfan.com/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/</link>
         <pubDate>Sat, 03 Dec 2022 01:56:41 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/</guid>
+        <guid>https://donweyflyfan.com/p/%E7%94%B5%E6%84%9F%E7%94%B5%E5%AE%B9%E4%B8%8E%E4%BA%92%E6%84%9F/</guid>
         <description>&lt;h1 id=&#34;电感&#34;&gt;电感&lt;/h1&gt;
 &lt;h2 id=&#34;电感的电压与电流&#34;&gt;电感的电压与电流&lt;/h2&gt;
 &lt;p&gt;$$
@@ -4395,10 +4372,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>栈和队列</title>
-        <link>https://donweyflyfan.github.io/p/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</link>
+        <link>https://donweyflyfan.com/p/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</link>
         <pubDate>Thu, 01 Dec 2022 23:55:15 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</guid>
+        <guid>https://donweyflyfan.com/p/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</guid>
         <description>&lt;h1 id=&#34;栈的定义和操作名称&#34;&gt;栈的定义和操作名称&lt;/h1&gt;
 &lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
 &lt;ol&gt;
@@ -5067,10 +5044,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>运算放大器</title>
-        <link>https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/</link>
+        <link>https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/</link>
         <pubDate>Thu, 01 Dec 2022 20:47:09 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/</guid>
+        <guid>https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/</guid>
         <description>&lt;h1 id=&#34;运算放大器端子&#34;&gt;运算放大器端子&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;重要的端子&lt;/li&gt;
@@ -5098,10 +5075,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;运放电路符号&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7.png&#34;
 	width=&#34;514&#34;
 	height=&#34;244&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7_hub139943fd41fedec1cffa06349594c21_39745_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7_hub139943fd41fedec1cffa06349594c21_39745_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7_hub139943fd41fedec1cffa06349594c21_39745_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7_hub139943fd41fedec1cffa06349594c21_39745_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Image1&#34;
@@ -5115,10 +5092,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;运放简化电路符号&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%AE%80%E5%8C%96%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%AE%80%E5%8C%96%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7.png&#34;
 	width=&#34;370&#34;
 	height=&#34;233&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%AE%80%E5%8C%96%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7_hu894b7a1dad81649d37cdbf38ed7fc924_20291_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%AE%80%E5%8C%96%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7_hu894b7a1dad81649d37cdbf38ed7fc924_20291_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%AE%80%E5%8C%96%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7_hu894b7a1dad81649d37cdbf38ed7fc924_20291_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%AE%80%E5%8C%96%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7_hu894b7a1dad81649d37cdbf38ed7fc924_20291_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Image2&#34;
@@ -5131,10 +5108,10 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;端电压和端电流&#34;&gt;端电压和端电流&lt;/h1&gt;
 &lt;h2 id=&#34;端电压变量&#34;&gt;端电压变量&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E5%8E%8B%E5%8F%98%E9%87%8F.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E5%8E%8B%E5%8F%98%E9%87%8F.png&#34;
 	width=&#34;817&#34;
 	height=&#34;525&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E5%8E%8B%E5%8F%98%E9%87%8F_hu0b7959a8443521cba8085967c540b7bf_75282_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E5%8E%8B%E5%8F%98%E9%87%8F_hu0b7959a8443521cba8085967c540b7bf_75282_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E5%8E%8B%E5%8F%98%E9%87%8F_hu0b7959a8443521cba8085967c540b7bf_75282_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E5%8E%8B%E5%8F%98%E9%87%8F_hu0b7959a8443521cba8085967c540b7bf_75282_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -5148,10 +5125,10 @@ $$&lt;/p&gt;
 \\ v_p = v_n
 $$&lt;/p&gt;
 &lt;h2 id=&#34;端电流变量&#34;&gt;端电流变量&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E6%B5%81%E5%8F%98%E9%87%8F.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E6%B5%81%E5%8F%98%E9%87%8F.png&#34;
 	width=&#34;840&#34;
 	height=&#34;578&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E6%B5%81%E5%8F%98%E9%87%8F_hu5ed4fce50314dd311867209b1d136eec_76099_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E6%B5%81%E5%8F%98%E9%87%8F_hu5ed4fce50314dd311867209b1d136eec_76099_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E6%B5%81%E5%8F%98%E9%87%8F_hu5ed4fce50314dd311867209b1d136eec_76099_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E7%AB%AF%E7%94%B5%E6%B5%81%E5%8F%98%E9%87%8F_hu5ed4fce50314dd311867209b1d136eec_76099_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -5169,10 +5146,10 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%9A%84%E7%94%B5%E5%8E%8B%E4%BC%A0%E8%BE%93%E7%89%B9%E6%80%A7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%9A%84%E7%94%B5%E5%8E%8B%E4%BC%A0%E8%BE%93%E7%89%B9%E6%80%A7.png&#34;
 	width=&#34;961&#34;
 	height=&#34;572&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%9A%84%E7%94%B5%E5%8E%8B%E4%BC%A0%E8%BE%93%E7%89%B9%E6%80%A7_hu495528e8572bc78941d42fd7591c309f_90549_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%9A%84%E7%94%B5%E5%8E%8B%E4%BC%A0%E8%BE%93%E7%89%B9%E6%80%A7_hu495528e8572bc78941d42fd7591c309f_90549_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%9A%84%E7%94%B5%E5%8E%8B%E4%BC%A0%E8%BE%93%E7%89%B9%E6%80%A7_hu495528e8572bc78941d42fd7591c309f_90549_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/%E8%BF%90%E6%94%BE%E7%9A%84%E7%94%B5%E5%8E%8B%E4%BC%A0%E8%BE%93%E7%89%B9%E6%80%A7_hu495528e8572bc78941d42fd7591c309f_90549_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -5194,10 +5171,10 @@ A(v_p-v_n) &amp;amp; -V_{CC}\le A(v_p-v_n) \le +V_{CC} \\ -V_{CC} &amp;amp; A(v_
 $$&lt;/p&gt;
 &lt;h1 id=&#34;反相放大器电路&#34;&gt;反相放大器电路&lt;/h1&gt;
 &lt;h2 id=&#34;图示&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/1.png&#34;
 	width=&#34;655&#34;
 	height=&#34;458&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/1_hua0d969c29aa687c1dcb4a19c345540cd_66788_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/1_hua0d969c29aa687c1dcb4a19c345540cd_66788_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/1_hua0d969c29aa687c1dcb4a19c345540cd_66788_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/1_hua0d969c29aa687c1dcb4a19c345540cd_66788_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -5216,10 +5193,10 @@ i_f+i_s=i_n = 0 \\\
 $$&lt;/p&gt;
 &lt;h1 id=&#34;求和放大器电路&#34;&gt;求和放大器电路&lt;/h1&gt;
 &lt;h2 id=&#34;图示-1&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/2.png&#34;
 	width=&#34;764&#34;
 	height=&#34;393&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/2_hud0394457d426dffc405dcc13d9ef0ada_68531_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/2_hud0394457d426dffc405dcc13d9ef0ada_68531_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/2_hud0394457d426dffc405dcc13d9ef0ada_68531_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/2_hud0394457d426dffc405dcc13d9ef0ada_68531_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -5239,10 +5216,10 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;h1 id=&#34;同相放大器电路&#34;&gt;同相放大器电路&lt;/h1&gt;
 &lt;h2 id=&#34;图示-2&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/3.png&#34;
 	width=&#34;711&#34;
 	height=&#34;453&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/3_hu6c551b2854c55a1a8657a7cade023d21_62468_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/3_hu6c551b2854c55a1a8657a7cade023d21_62468_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/3_hu6c551b2854c55a1a8657a7cade023d21_62468_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/3_hu6c551b2854c55a1a8657a7cade023d21_62468_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -5258,10 +5235,10 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;h1 id=&#34;差分放大器&#34;&gt;差分放大器&lt;/h1&gt;
 &lt;h2 id=&#34;图示-3&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/4.png&#34;
 	width=&#34;752&#34;
 	height=&#34;446&#34;
-	srcset=&#34;https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/4_hu15c65a03ecc90accab71351ee7bb5d0d_78692_480x0_resize_box_3.png 480w, https://donweyflyfan.github.io/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/4_hu15c65a03ecc90accab71351ee7bb5d0d_78692_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/4_hu15c65a03ecc90accab71351ee7bb5d0d_78692_480x0_resize_box_3.png 480w, https://donweyflyfan.com/p/%E8%BF%90%E7%AE%97%E6%94%BE%E5%A4%A7%E5%99%A8/4_hu15c65a03ecc90accab71351ee7bb5d0d_78692_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -5295,11 +5272,11 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>大数定律和中心极限定理</title>
-        <link>https://donweyflyfan.github.io/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</link>
+        <link>https://donweyflyfan.com/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</link>
         <pubDate>Thu, 01 Dec 2022 04:04:03 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</guid>
-        <description>&lt;img src="https://donweyflyfan.github.io/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/1.jpg" alt="Featured image of post 大数定律和中心极限定理" /&gt;&lt;h1 id=&#34;大数定律&#34;&gt;大数定律&lt;/h1&gt;
+        <guid>https://donweyflyfan.com/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</guid>
+        <description>&lt;img src="https://donweyflyfan.com/p/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/1.jpg" alt="Featured image of post 大数定律和中心极限定理" /&gt;&lt;h1 id=&#34;大数定律&#34;&gt;大数定律&lt;/h1&gt;
 &lt;h2 id=&#34;总体表述&#34;&gt;总体表述&lt;/h2&gt;
 &lt;p&gt;$$
 E(X_i)=\mu \\\
@@ -5449,10 +5426,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>随机变量的数字特征</title>
-        <link>https://donweyflyfan.github.io/p/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81/</link>
+        <link>https://donweyflyfan.com/p/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81/</link>
         <pubDate>Wed, 30 Nov 2022 22:10:32 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81/</guid>
+        <guid>https://donweyflyfan.com/p/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81/</guid>
         <description>&lt;h1 id=&#34;数学期望&#34;&gt;数学期望&lt;/h1&gt;
 &lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
 &lt;h3 id=&#34;离散型&#34;&gt;离散型&lt;/h3&gt;
@@ -5700,10 +5677,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>Presentation</title>
-        <link>https://donweyflyfan.github.io/p/presentation/</link>
+        <link>https://donweyflyfan.com/p/presentation/</link>
         <pubDate>Wed, 30 Nov 2022 21:09:50 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/presentation/</guid>
+        <guid>https://donweyflyfan.com/p/presentation/</guid>
         <description>&lt;h1 id=&#34;大二上&#34;&gt;大二上&lt;/h1&gt;
 &lt;h2 id=&#34;主题&#34;&gt;主题&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -5769,10 +5746,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>静电场</title>
-        <link>https://donweyflyfan.github.io/p/%E9%9D%99%E7%94%B5%E5%9C%BA/</link>
+        <link>https://donweyflyfan.com/p/%E9%9D%99%E7%94%B5%E5%9C%BA/</link>
         <pubDate>Wed, 30 Nov 2022 04:50:46 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E9%9D%99%E7%94%B5%E5%9C%BA/</guid>
+        <guid>https://donweyflyfan.com/p/%E9%9D%99%E7%94%B5%E5%9C%BA/</guid>
         <description>&lt;h1 id=&#34;静电的基本现象和规律&#34;&gt;静电的基本现象和规律&lt;/h1&gt;
 &lt;h2 id=&#34;电荷守恒&#34;&gt;电荷守恒&lt;/h2&gt;
 &lt;h2 id=&#34;场强叠加&#34;&gt;场强叠加&lt;/h2&gt;
@@ -5813,10 +5790,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>Group Discussion</title>
-        <link>https://donweyflyfan.github.io/p/group-discussion/</link>
+        <link>https://donweyflyfan.com/p/group-discussion/</link>
         <pubDate>Wed, 30 Nov 2022 03:22:47 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/group-discussion/</guid>
+        <guid>https://donweyflyfan.com/p/group-discussion/</guid>
         <description>&lt;h1 id=&#34;技巧部分&#34;&gt;技巧部分&lt;/h1&gt;
 &lt;h2 id=&#34;提出观点&#34;&gt;提出观点&lt;/h2&gt;
 &lt;h3 id=&#34;随机&#34;&gt;随机&lt;/h3&gt;
@@ -6028,10 +6005,10 @@ Enviroment --&gt; Human_Health: hurt
         </item>
         <item>
         <title>电路分析法</title>
-        <link>https://donweyflyfan.github.io/p/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E6%B3%95/</link>
+        <link>https://donweyflyfan.com/p/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E6%B3%95/</link>
         <pubDate>Tue, 29 Nov 2022 04:29:48 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E6%B3%95/</guid>
+        <guid>https://donweyflyfan.com/p/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E6%B3%95/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;术语&#34;&gt;术语&lt;/h1&gt;
 &lt;table&gt;
@@ -6125,7 +6102,7 @@ Enviroment --&gt; Human_Health: hurt
 &lt;/ol&gt;
 &lt;h1 id=&#34;电源变换&#34;&gt;电源变换&lt;/h1&gt;
 &lt;h2 id=&#34;图示&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e7%94%b5%e6%ba%90%e5%8f%98%e6%8d%a21.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e7%94%b5%e6%ba%90%e5%8f%98%e6%8d%a21.png&#34;
 	
 	
 	
@@ -6144,7 +6121,7 @@ i_s=\frac{v_s}{R}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;戴维南-诺顿等效电路&#34;&gt;戴维南-诺顿等效电路&lt;/h1&gt;
 &lt;h2 id=&#34;图示-1&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e6%88%b4%e7%bb%b4%e5%8d%97%e7%ad%89%e6%95%88%e7%94%b5%e8%b7%af.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e6%88%b4%e7%bb%b4%e5%8d%97%e7%ad%89%e6%95%88%e7%94%b5%e8%b7%af.png&#34;
 	
 	
 	
@@ -6161,7 +6138,7 @@ $$&lt;/p&gt;
 \\ R_{Th}=\frac{V_{Th}}{i_{sc}}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;诺顿等效电路&#34;&gt;诺顿等效电路&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e8%af%ba%e9%a1%bf.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e8%af%ba%e9%a1%bf.png&#34;
 	
 	
 	
@@ -6197,10 +6174,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>麦克斯韦电磁理论与电磁波</title>
-        <link>https://donweyflyfan.github.io/p/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E7%94%B5%E7%A3%81%E7%90%86%E8%AE%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/</link>
+        <link>https://donweyflyfan.com/p/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E7%94%B5%E7%A3%81%E7%90%86%E8%AE%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/</link>
         <pubDate>Tue, 29 Nov 2022 01:00:20 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E7%94%B5%E7%A3%81%E7%90%86%E8%AE%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/</guid>
+        <guid>https://donweyflyfan.com/p/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E7%94%B5%E7%A3%81%E7%90%86%E8%AE%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一麦克斯韦电磁理论&#34;&gt;一、麦克斯韦电磁理论&lt;/h1&gt;
 &lt;h2 id=&#34;11-位移电流&#34;&gt;1.1 位移电流&lt;/h2&gt;
@@ -6332,10 +6309,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>多元随机变量及其分布</title>
-        <link>https://donweyflyfan.github.io/p/%E5%A4%9A%E5%85%83%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83/</link>
+        <link>https://donweyflyfan.com/p/%E5%A4%9A%E5%85%83%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83/</link>
         <pubDate>Tue, 29 Nov 2022 00:55:01 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E5%A4%9A%E5%85%83%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83/</guid>
+        <guid>https://donweyflyfan.com/p/%E5%A4%9A%E5%85%83%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一二元离散型随机变量&#34;&gt;一、二元离散型随机变量&lt;/h1&gt;
 &lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
@@ -6538,10 +6515,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>随机变量及其分布</title>
-        <link>https://donweyflyfan.github.io/p/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83/</link>
+        <link>https://donweyflyfan.com/p/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83/</link>
         <pubDate>Mon, 28 Nov 2022 23:12:50 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83/</guid>
+        <guid>https://donweyflyfan.com/p/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一随机变量&#34;&gt;一、随机变量&lt;/h1&gt;
 &lt;h2 id=&#34;11-定义&#34;&gt;1.1 定义&lt;/h2&gt;
@@ -6903,10 +6880,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>基本概念</title>
-        <link>https://donweyflyfan.github.io/p/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
+        <link>https://donweyflyfan.com/p/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
         <pubDate>Mon, 28 Nov 2022 05:08:00 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
+        <guid>https://donweyflyfan.com/p/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一样本空间-随机事件&#34;&gt;一、样本空间 随机事件&lt;/h1&gt;
 &lt;h2 id=&#34;11-随机试验&#34;&gt;1.1 随机试验&lt;/h2&gt;
@@ -7136,10 +7113,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>电阻元件与简单电阻电路</title>
-        <link>https://donweyflyfan.github.io/p/%E7%94%B5%E9%98%BB%E5%85%83%E4%BB%B6%E4%B8%8E%E7%AE%80%E5%8D%95%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF/</link>
+        <link>https://donweyflyfan.com/p/%E7%94%B5%E9%98%BB%E5%85%83%E4%BB%B6%E4%B8%8E%E7%AE%80%E5%8D%95%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF/</link>
         <pubDate>Sun, 27 Nov 2022 06:07:17 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E7%94%B5%E9%98%BB%E5%85%83%E4%BB%B6%E4%B8%8E%E7%AE%80%E5%8D%95%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF/</guid>
+        <guid>https://donweyflyfan.com/p/%E7%94%B5%E9%98%BB%E5%85%83%E4%BB%B6%E4%B8%8E%E7%AE%80%E5%8D%95%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一基尔霍夫定理&#34;&gt;一、基尔霍夫定理&lt;/h1&gt;
 &lt;h2 id=&#34;11-基尔霍夫电流定律&#34;&gt;1.1 基尔霍夫电流定律&lt;/h2&gt;
@@ -7169,7 +7146,7 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;推导
-&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e6%83%a0%e6%96%af%e9%80%9a%e7%94%b5%e6%a1%a5.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e6%83%a0%e6%96%af%e9%80%9a%e7%94%b5%e6%a1%a5.png&#34;
 	
 	
 	
@@ -7190,7 +7167,7 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;$\Delta$与$\pi$结构的转换&lt;/strong&gt;
-&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e7%bb%93%e6%9e%84%e8%bd%ac%e6%8d%a2.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e7%bb%93%e6%9e%84%e8%bd%ac%e6%8d%a2.png&#34;
 	
 	
 	
@@ -7203,7 +7180,7 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;$Y$和$T$的转换
-&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e7%bb%93%e6%9e%84%e8%bd%ac%e6%8d%a2YT.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e7%bb%93%e6%9e%84%e8%bd%ac%e6%8d%a2YT.png&#34;
 	
 	
 	
@@ -7221,7 +7198,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;图示
-&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e7%bb%93%e6%9e%84%e8%bd%ac%e6%8d%a2YDelta.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e7%bb%93%e6%9e%84%e8%bd%ac%e6%8d%a2YDelta.png&#34;
 	
 	
 	
@@ -7250,10 +7227,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>三种调度</title>
-        <link>https://donweyflyfan.github.io/p/%E4%B8%89%E7%A7%8D%E8%B0%83%E5%BA%A6/</link>
+        <link>https://donweyflyfan.com/p/%E4%B8%89%E7%A7%8D%E8%B0%83%E5%BA%A6/</link>
         <pubDate>Sun, 27 Nov 2022 02:14:03 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E4%B8%89%E7%A7%8D%E8%B0%83%E5%BA%A6/</guid>
+        <guid>https://donweyflyfan.com/p/%E4%B8%89%E7%A7%8D%E8%B0%83%E5%BA%A6/</guid>
         <description>&lt;h2 id=&#34;一rms-python&#34;&gt;一、RMS (Python)&lt;/h2&gt;
 &lt;h3 id=&#34;1-执行步骤&#34;&gt;1. 执行步骤&lt;/h3&gt;
 &lt;ol&gt;
@@ -9660,10 +9637,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>ArchLinux开机分区安装</title>
-        <link>https://donweyflyfan.github.io/p/archlinux%E5%BC%80%E6%9C%BA%E5%88%86%E5%8C%BA%E5%AE%89%E8%A3%85/</link>
+        <link>https://donweyflyfan.com/p/archlinux%E5%BC%80%E6%9C%BA%E5%88%86%E5%8C%BA%E5%AE%89%E8%A3%85/</link>
         <pubDate>Sat, 26 Nov 2022 23:40:49 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/archlinux%E5%BC%80%E6%9C%BA%E5%88%86%E5%8C%BA%E5%AE%89%E8%A3%85/</guid>
+        <guid>https://donweyflyfan.com/p/archlinux%E5%BC%80%E6%9C%BA%E5%88%86%E5%8C%BA%E5%AE%89%E8%A3%85/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一新建boot分区&#34;&gt;一、新建boot分区&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -9752,10 +9729,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>电磁感应</title>
-        <link>https://donweyflyfan.github.io/p/%E7%94%B5%E7%A3%81%E6%84%9F%E5%BA%94/</link>
+        <link>https://donweyflyfan.com/p/%E7%94%B5%E7%A3%81%E6%84%9F%E5%BA%94/</link>
         <pubDate>Sat, 26 Nov 2022 18:45:06 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E7%94%B5%E7%A3%81%E6%84%9F%E5%BA%94/</guid>
+        <guid>https://donweyflyfan.com/p/%E7%94%B5%E7%A3%81%E6%84%9F%E5%BA%94/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一电磁感应定律&#34;&gt;一、电磁感应定律&lt;/h1&gt;
 &lt;h2 id=&#34;11-法拉第电磁感应定律&#34;&gt;1.1 法拉第电磁感应定律&lt;/h2&gt;
@@ -9795,7 +9772,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e5%8a%a8%e7%94%9f%e7%94%b5%e5%8a%a8%e5%8a%bf%e4%b8%8e%e6%b4%9b%e4%bc%a6%e5%85%b9%e5%8a%9b.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e5%8a%a8%e7%94%9f%e7%94%b5%e5%8a%a8%e5%8a%bf%e4%b8%8e%e6%b4%9b%e4%bc%a6%e5%85%b9%e5%8a%9b.png&#34;
 	
 	
 	
@@ -9822,7 +9799,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e4%ba%a4%e6%b5%81%e5%8f%91%e7%94%b5%e6%9c%ba%e5%8e%9f%e7%90%86.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e4%ba%a4%e6%b5%81%e5%8f%91%e7%94%b5%e6%9c%ba%e5%8e%9f%e7%90%86.png&#34;
 	
 	
 	
@@ -9877,7 +9854,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e4%b8%a4%e7%ba%bf%e5%9c%88%e4%b9%8b%e9%97%b4%e7%9a%84%e4%ba%92%e6%84%9f.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e4%b8%a4%e7%ba%bf%e5%9c%88%e4%b9%8b%e9%97%b4%e7%9a%84%e4%ba%92%e6%84%9f.png&#34;
 	
 	
 	
@@ -9973,10 +9950,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>数模要点</title>
-        <link>https://donweyflyfan.github.io/p/%E6%95%B0%E6%A8%A1%E8%A6%81%E7%82%B9/</link>
+        <link>https://donweyflyfan.com/p/%E6%95%B0%E6%A8%A1%E8%A6%81%E7%82%B9/</link>
         <pubDate>Fri, 25 Nov 2022 17:18:37 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%95%B0%E6%A8%A1%E8%A6%81%E7%82%B9/</guid>
+        <guid>https://donweyflyfan.com/p/%E6%95%B0%E6%A8%A1%E8%A6%81%E7%82%B9/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一-论文&#34;&gt;一 论文&lt;/h1&gt;
 &lt;h2 id=&#34;11-论文结构1&#34;&gt;1.1 论文结构[^1]&lt;/h2&gt;
@@ -10069,10 +10046,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>Git</title>
-        <link>https://donweyflyfan.github.io/p/git/</link>
+        <link>https://donweyflyfan.com/p/git/</link>
         <pubDate>Fri, 25 Nov 2022 05:07:46 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/git/</guid>
+        <guid>https://donweyflyfan.com/p/git/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一什么是git&#34;&gt;一、什么是git&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -10509,10 +10486,10 @@ remote_repository --&gt; workspace: pull
         </item>
         <item>
         <title>线性表</title>
-        <link>https://donweyflyfan.github.io/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/</link>
+        <link>https://donweyflyfan.com/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/</link>
         <pubDate>Fri, 25 Nov 2022 00:38:32 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/</guid>
+        <guid>https://donweyflyfan.com/p/%E7%BA%BF%E6%80%A7%E8%A1%A8/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一算法&#34;&gt;一、算法&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -11117,7 +11094,7 @@ endADT
 &lt;ul&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/~/Downloads/Pictures/ScreenShots/Data_Structure1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/~/Downloads/Pictures/ScreenShots/Data_Structure1.jpg&#34;
 	
 	
 	
@@ -11195,7 +11172,7 @@ endADT
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;插入图示
-&lt;img src=&#34;https://donweyflyfan.github.io/~/Downloads/Pictures/ScreenShots/Data_Structure3.jpg&#34;
+&lt;img src=&#34;https://donweyflyfan.com/~/Downloads/Pictures/ScreenShots/Data_Structure3.jpg&#34;
 	
 	
 	
@@ -11206,7 +11183,7 @@ endADT
 	
 &gt;&lt;/li&gt;
 &lt;li&gt;删除图示
-&lt;img src=&#34;https://donweyflyfan.github.io/~/Downloads/Pictures/ScreenShots/Data_Structure4.jpg&#34;
+&lt;img src=&#34;https://donweyflyfan.com/~/Downloads/Pictures/ScreenShots/Data_Structure4.jpg&#34;
 	
 	
 	
@@ -11247,10 +11224,10 @@ endADT
         </item>
         <item>
         <title>恒磁场</title>
-        <link>https://donweyflyfan.github.io/p/%E6%81%92%E7%A3%81%E5%9C%BA/</link>
+        <link>https://donweyflyfan.com/p/%E6%81%92%E7%A3%81%E5%9C%BA/</link>
         <pubDate>Thu, 24 Nov 2022 23:25:35 +0800</pubDate>
         
-        <guid>https://donweyflyfan.github.io/p/%E6%81%92%E7%A3%81%E5%9C%BA/</guid>
+        <guid>https://donweyflyfan.com/p/%E6%81%92%E7%A3%81%E5%9C%BA/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h1 id=&#34;一磁的基本现象和规律&#34;&gt;一、磁的基本现象和规律&lt;/h1&gt;
 &lt;h2 id=&#34;11-磁的库仑定律&#34;&gt;1.1 磁的库仑定律&lt;/h2&gt;
@@ -11316,7 +11293,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/Physics1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/Physics1.png&#34;
 	
 	
 	
@@ -11344,7 +11321,7 @@ $$&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;图示
-&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/Physics&#34;
+&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/Physics&#34;
 	
 	
 	
@@ -11429,7 +11406,7 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;图示&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e7%a3%81%e5%9c%ba%e4%b8%ad%e7%9a%84%e7%9f%a9%e5%bd%a2%e7%ba%bf%e5%9c%88.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e7%a3%81%e5%9c%ba%e4%b8%ad%e7%9a%84%e7%9f%a9%e5%bd%a2%e7%ba%bf%e5%9c%88.png&#34;
 	
 	
 	
@@ -11452,7 +11429,7 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;图示&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e8%bd%bd%e6%b5%81%e7%ba%bf%e5%9c%88%e7%9a%84%e7%a3%81%e7%9f%a9.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e8%bd%bd%e6%b5%81%e7%ba%bf%e5%9c%88%e7%9a%84%e7%a3%81%e7%9f%a9.png&#34;
 	
 	
 	
@@ -11513,7 +11490,7 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e5%b8%a6%e7%94%b5%e7%b2%92%e5%ad%90%e7%9a%84%e8%9e%ba%e6%97%8b%e8%bf%90%e5%8a%a8.png.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e5%b8%a6%e7%94%b5%e7%b2%92%e5%ad%90%e7%9a%84%e8%9e%ba%e6%97%8b%e8%bf%90%e5%8a%a8.png.png&#34;
 	
 	
 	
@@ -11542,7 +11519,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e6%b3%95%e6%b5%8b%e5%ae%9a%e8%8d%b7%e8%b4%a8%e6%af%94.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e6%b3%95%e6%b5%8b%e5%ae%9a%e8%8d%b7%e8%b4%a8%e6%af%94.png&#34;
 	
 	
 	
@@ -11567,7 +11544,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;图示
-&lt;img src=&#34;https://donweyflyfan.github.io/home/flyfan/Downloads/Pictures/ScreenShots/%e7%a3%81%e8%81%9a%e7%84%a6%e6%b3%95%e6%b5%8b%e8%8d%b7%e8%b4%a8%e6%af%94.png&#34;
+&lt;img src=&#34;https://donweyflyfan.com/home/flyfan/Downloads/Pictures/ScreenShots/%e7%a3%81%e8%81%9a%e7%84%a6%e6%b3%95%e6%b5%8b%e8%8d%b7%e8%b4%a8%e6%af%94.png&#34;
 	
 	
 	
@@ -11592,18 +11569,18 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title></title>
-        <link>https://donweyflyfan.github.io/</link>
+        <link>https://donweyflyfan.com/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://donweyflyfan.github.io/</guid>
+        <guid>https://donweyflyfan.com/</guid>
         <description></description>
         </item>
         <item>
         <title>search</title>
-        <link>https://donweyflyfan.github.io/search/</link>
+        <link>https://donweyflyfan.com/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://donweyflyfan.github.io/search/</guid>
+        <guid>https://donweyflyfan.com/search/</guid>
         <description></description>
         </item>
         
