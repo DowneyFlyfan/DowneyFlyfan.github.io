@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='[toc] 一、什么是git 定义 开源的分布式版本控制系统 特点 分布式 按元数据方式存储数据 内容完整性高 二、git的工作流程 stateDiagram 资源库 --&gt; 工作副本:clone 工作副本 --&gt; 修改工作副本: 编辑、添加、删除 资源库 --&gt; 修改工作副本: 更新 修改工作副本 --&gt; 检查修改: 查看status, change 检查修改 --&gt; 提交修改: push 提交修改 --&gt; 修改错误: push,change 修改错误 --&gt; 资源库: push 提交修改 --&gt; 资源库: push 三、git创建仓库 创建 git init &amp;lt;repo&amp;gt;创建仓库repo 生成.git目录 纳入版本控制 git add &amp;lt;file&amp;gt;让git对文件进行跟踪 该操作支持正则表达式 git commit -m &amp;lt;file&amp;gt; 提交文件 复制 git clone &amp;lt;repo&amp;gt; (&amp;lt;dir&amp;gt;)将仓库repo拷贝到dir目录 配置 git config显示当前的git配置信息 git config -e针对当前仓库编辑文件 git config -e --global针对系统中所有的仓库'>
-<title>Git</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='一、Linux账号与群组 1.1 使用者识别码UID与GID ID与账号存储在/etc/passwd当中 1.2 使用者账号 1.2.1 输入账号密码的处理过程 stateDiagram 在/etc/passwd里寻找输入账号与密码 --&gt; 结束: 没有 在/etc/passwd里寻找输入账号与密码 --&gt; 读取UID，GID,主文件夹与Shell设置:有 读取UID，GID,主文件夹与Shell设置 --&gt; 在/etc/shadow中核对密码表 在/etc/shadow中核对密码表 --&gt; Shell管控: 正确 在/etc/shadow中核对密码表 --&gt; 结束:错误 注意，备份时一定要备份/etc/passwd与/etc/shadow文件 1.2.2 /etc/passwd文件结构 每一行代表一个账号 bin、daemon、adm、nobody等是系统账号 每一行的七大字段 账号 密码 UID GID 使用者信息说明栏 主文件夹 Shell 字段说明 ID范围 该ID使用者特性 0 系统管理员 1-999 系统账号 1000-60000 可登录账号 1.2.3 /etc/shadow文件结构 每一行的九大字段 账号 密码 最近密码更变日期 密码不可重置的天数 密码需要重置的天数 密码需要重置前的警告 密码失效日 密码过期后的账号宽限时间 账号失效日期 保留 字段说明 所有日期均以1970.1.1以来的天数表示 1.3 群组 1.3.1 /etc/group文件结构 每一行的四大字段 群组名称 群组密码'>
+<title>Linux账号管理与ACL权限设置</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/git/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86%E4%B8%8Eacl%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Git'>
-<meta property='og:description' content='[toc] 一、什么是git 定义 开源的分布式版本控制系统 特点 分布式 按元数据方式存储数据 内容完整性高 二、git的工作流程 stateDiagram 资源库 --&gt; 工作副本:clone 工作副本 --&gt; 修改工作副本: 编辑、添加、删除 资源库 --&gt; 修改工作副本: 更新 修改工作副本 --&gt; 检查修改: 查看status, change 检查修改 --&gt; 提交修改: push 提交修改 --&gt; 修改错误: push,change 修改错误 --&gt; 资源库: push 提交修改 --&gt; 资源库: push 三、git创建仓库 创建 git init &amp;lt;repo&amp;gt;创建仓库repo 生成.git目录 纳入版本控制 git add &amp;lt;file&amp;gt;让git对文件进行跟踪 该操作支持正则表达式 git commit -m &amp;lt;file&amp;gt; 提交文件 复制 git clone &amp;lt;repo&amp;gt; (&amp;lt;dir&amp;gt;)将仓库repo拷贝到dir目录 配置 git config显示当前的git配置信息 git config -e针对当前仓库编辑文件 git config -e --global针对系统中所有的仓库'>
-<meta property='og:url' content='https://downeyflyfan.com/p/git/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Linux账号管理与ACL权限设置'>
+<meta property='og:description' content='一、Linux账号与群组 1.1 使用者识别码UID与GID ID与账号存储在/etc/passwd当中 1.2 使用者账号 1.2.1 输入账号密码的处理过程 stateDiagram 在/etc/passwd里寻找输入账号与密码 --&gt; 结束: 没有 在/etc/passwd里寻找输入账号与密码 --&gt; 读取UID，GID,主文件夹与Shell设置:有 读取UID，GID,主文件夹与Shell设置 --&gt; 在/etc/shadow中核对密码表 在/etc/shadow中核对密码表 --&gt; Shell管控: 正确 在/etc/shadow中核对密码表 --&gt; 结束:错误 注意，备份时一定要备份/etc/passwd与/etc/shadow文件 1.2.2 /etc/passwd文件结构 每一行代表一个账号 bin、daemon、adm、nobody等是系统账号 每一行的七大字段 账号 密码 UID GID 使用者信息说明栏 主文件夹 Shell 字段说明 ID范围 该ID使用者特性 0 系统管理员 1-999 系统账号 1000-60000 可登录账号 1.2.3 /etc/shadow文件结构 每一行的九大字段 账号 密码 最近密码更变日期 密码不可重置的天数 密码需要重置的天数 密码需要重置前的警告 密码失效日 密码过期后的账号宽限时间 账号失效日期 保留 字段说明 所有日期均以1970.1.1以来的天数表示 1.3 群组 1.3.1 /etc/group文件结构 每一行的四大字段 群组名称 群组密码'>
+<meta property='og:url' content='https://downeyflyfan.com/p/linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86%E4%B8%8Eacl%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-11-25T05:07:46&#43;08:00'/><meta property='article:modified_time' content='2022-11-25T05:07:46&#43;08:00'/>
-<meta name="twitter:title" content="Git">
-<meta name="twitter:description" content="[toc] 一、什么是git 定义 开源的分布式版本控制系统 特点 分布式 按元数据方式存储数据 内容完整性高 二、git的工作流程 stateDiagram 资源库 --&gt; 工作副本:clone 工作副本 --&gt; 修改工作副本: 编辑、添加、删除 资源库 --&gt; 修改工作副本: 更新 修改工作副本 --&gt; 检查修改: 查看status, change 检查修改 --&gt; 提交修改: push 提交修改 --&gt; 修改错误: push,change 修改错误 --&gt; 资源库: push 提交修改 --&gt; 资源库: push 三、git创建仓库 创建 git init &amp;lt;repo&amp;gt;创建仓库repo 生成.git目录 纳入版本控制 git add &amp;lt;file&amp;gt;让git对文件进行跟踪 该操作支持正则表达式 git commit -m &amp;lt;file&amp;gt; 提交文件 复制 git clone &amp;lt;repo&amp;gt; (&amp;lt;dir&amp;gt;)将仓库repo拷贝到dir目录 配置 git config显示当前的git配置信息 git config -e针对当前仓库编辑文件 git config -e --global针对系统中所有的仓库">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-27T17:48:26&#43;08:00'/><meta property='article:modified_time' content='2022-12-27T17:48:26&#43;08:00'/>
+<meta name="twitter:title" content="Linux账号管理与ACL权限设置">
+<meta name="twitter:description" content="一、Linux账号与群组 1.1 使用者识别码UID与GID ID与账号存储在/etc/passwd当中 1.2 使用者账号 1.2.1 输入账号密码的处理过程 stateDiagram 在/etc/passwd里寻找输入账号与密码 --&gt; 结束: 没有 在/etc/passwd里寻找输入账号与密码 --&gt; 读取UID，GID,主文件夹与Shell设置:有 读取UID，GID,主文件夹与Shell设置 --&gt; 在/etc/shadow中核对密码表 在/etc/shadow中核对密码表 --&gt; Shell管控: 正确 在/etc/shadow中核对密码表 --&gt; 结束:错误 注意，备份时一定要备份/etc/passwd与/etc/shadow文件 1.2.2 /etc/passwd文件结构 每一行代表一个账号 bin、daemon、adm、nobody等是系统账号 每一行的七大字段 账号 密码 UID GID 使用者信息说明栏 主文件夹 Shell 字段说明 ID范围 该ID使用者特性 0 系统管理员 1-999 系统账号 1000-60000 可登录账号 1.2.3 /etc/shadow文件结构 每一行的九大字段 账号 密码 最近密码更变日期 密码不可重置的天数 密码需要重置的天数 密码需要重置前的警告 密码失效日 密码过期后的账号宽限时间 账号失效日期 保留 字段说明 所有日期均以1970.1.1以来的天数表示 1.3 群组 1.3.1 /etc/group文件结构 每一行的四大字段 群组名称 群组密码">
     </head>
     <body class="
     article-page
@@ -249,11 +249,30 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#一什么是git">一、什么是git</a></li>
-    <li><a href="#二git的工作流程">二、git的工作流程</a></li>
-    <li><a href="#三git创建仓库">三、git创建仓库</a></li>
-    <li><a href="#四git基本操作">四、git基本操作</a></li>
-    <li><a href="#五git分支管理">五、git分支管理</a></li>
+    <li><a href="#一linux账号与群组">一、Linux账号与群组</a>
+      <ul>
+        <li><a href="#11-使用者识别码uid与gid">1.1 使用者识别码UID与GID</a></li>
+        <li><a href="#12-使用者账号">1.2 使用者账号</a>
+          <ul>
+            <li><a href="#121-输入账号密码的处理过程">1.2.1 输入账号密码的处理过程</a></li>
+            <li><a href="#122-etcpasswd文件结构">1.2.2 <code>/etc/passwd</code>文件结构</a></li>
+            <li><a href="#123-etcshadow文件结构">1.2.3 <code>/etc/shadow</code>文件结构</a></li>
+          </ul>
+        </li>
+        <li><a href="#13-群组">1.3 群组</a>
+          <ul>
+            <li><a href="#131-etcgroup文件结构">1.3.1 /etc/group文件结构</a></li>
+            <li><a href="#132-有效群组与初始群组">1.3.2 有效群组与初始群组</a></li>
+            <li><a href="#133-etcgshadow">1.3.3 /etc/gshadow</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#二账号管理">二、账号管理</a>
+      <ul>
+        <li><a href="#21-添加与移除使用者">2.1 添加与移除使用者</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
         </div>
@@ -281,7 +300,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/git/">Git</a>
+            <a href="/p/linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86%E4%B8%8Eacl%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE/">Linux账号管理与ACL权限设置</a>
         </h2>
     
         
@@ -303,7 +322,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Nov 25, 252525</time>
+                <time class="article-time--published">Dec 27, 272727</time>
             </div>
         
 
@@ -318,7 +337,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -333,122 +352,19 @@
     <section class="article-content">
     
     
-    <p>[toc]</p>
-<h1 id="一什么是git">一、什么是git</h1>
-<blockquote>
-<p>定义</p>
-</blockquote>
+    <h1 id="一linux账号与群组">一、Linux账号与群组</h1>
+<h2 id="11-使用者识别码uid与gid">1.1 使用者识别码UID与GID</h2>
 <ul>
-<li>开源的分布式版本控制系统</li>
+<li>ID与账号存储在<code>/etc/passwd</code>当中</li>
 </ul>
-<blockquote>
-<p>特点</p>
-</blockquote>
-<ol>
-<li>分布式</li>
-<li>按元数据方式存储数据</li>
-<li>内容完整性高</li>
-</ol>
-<h1 id="二git的工作流程">二、git的工作流程</h1>
+<h2 id="12-使用者账号">1.2 使用者账号</h2>
+<h3 id="121-输入账号密码的处理过程">1.2.1 输入账号密码的处理过程</h3>
 <div class="mermaid">stateDiagram
-资源库 --> 工作副本:clone
-工作副本 --> 修改工作副本: 编辑、添加、删除
-资源库 --> 修改工作副本: 更新
-修改工作副本 --> 检查修改: 查看status, change
-检查修改 --> 提交修改: push
-提交修改 --> 修改错误: push,change
-修改错误 --> 资源库: push
-提交修改 --> 资源库: push
-</div>
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-
-<h1 id="三git创建仓库">三、git创建仓库</h1>
-<blockquote>
-<ol>
-<li>创建</li>
-</ol>
-</blockquote>
-<ul>
-<li>
-<p><code>git init &lt;repo&gt;</code>创建仓库<code>repo</code></p>
-</li>
-<li>
-<p>生成.git目录</p>
-</li>
-</ul>
-<blockquote>
-<ol start="2">
-<li>纳入版本控制</li>
-</ol>
-</blockquote>
-<ul>
-<li>
-<p><code>git add &lt;file&gt;</code>让git对文件进行跟踪</p>
-<ul>
-<li>该操作支持正则表达式</li>
-</ul>
-</li>
-<li>
-<p><code>git commit -m &lt;file&gt;</code> 提交文件</p>
-</li>
-</ul>
-<blockquote>
-<ol start="3">
-<li>复制</li>
-</ol>
-</blockquote>
-<ul>
-<li><code>git clone &lt;repo&gt; (&lt;dir&gt;)</code>将仓库repo拷贝到dir目录</li>
-</ul>
-<blockquote>
-<ol start="4">
-<li>配置</li>
-</ol>
-</blockquote>
-<ul>
-<li>
-<p><code>git config</code>显示当前的git配置信息</p>
-</li>
-<li>
-<p><code>git config -e</code>针对当前仓库编辑文件</p>
-</li>
-<li>
-<p><code>git config -e --global</code>针对系统中所有的仓库</p>
-</li>
-<li>
-<p>设置全局用户信息</p>
-</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git config --global user.name &lt;name&gt;
-</span></span><span class="line"><span class="cl">git config --global user.email &lt;email&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="四git基本操作">四、git基本操作</h1>
-<blockquote>
-<ol>
-<li>示意图</li>
-</ol>
-</blockquote>
-<div class="mermaid">stateDiagram
-workspace --> staging_area: add
-staging_area --> lcoal_repository: commit
-lcoal_repository --> remote_repository: push
-remote_repository --> lcoal_repository: fetch/clone
-lcoal_repository --> workspace: checkout
-remote_repository --> workspace: pull
+在/etc/passwd里寻找输入账号与密码 --> 结束: 没有
+在/etc/passwd里寻找输入账号与密码 --> 读取UID，GID,主文件夹与Shell设置:有
+读取UID，GID,主文件夹与Shell设置 --> 在/etc/shadow中核对密码表
+在/etc/shadow中核对密码表 --> Shell管控: 正确
+在/etc/shadow中核对密码表 --> 结束:错误
 </div>
 
 
@@ -460,317 +376,237 @@ remote_repository --> workspace: pull
 
 
 <blockquote>
-<ol start="2">
-<li>简单的操作步骤</li>
-</ol>
+<p>注意，备份时一定要备份<code>/etc/passwd</code>与<code>/etc/shadow</code>文件</p>
 </blockquote>
+<h3 id="122-etcpasswd文件结构">1.2.2 <code>/etc/passwd</code>文件结构</h3>
+<ol>
+<li>每一行代表一个账号</li>
+</ol>
+<ul>
+<li><code>bin、daemon、adm、nobody</code>等是系统账号</li>
+</ul>
+<ol start="2">
+<li>每一行的<strong>七</strong>大字段</li>
+</ol>
+<ul>
+<li>
+<p>账号</p>
+</li>
+<li>
+<p>密码</p>
+</li>
+<li>
+<p>UID</p>
+</li>
+<li>
+<p>GID</p>
+</li>
+<li>
+<p>使用者信息说明栏</p>
+</li>
+<li>
+<p>主文件夹</p>
+</li>
+<li>
+<p>Shell</p>
+</li>
+</ul>
+<ol start="3">
+<li>字段说明</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">ID范围</th>
+<th style="text-align:center">该ID使用者特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">系统管理员</td>
+</tr>
+<tr>
+<td style="text-align:center">1-999</td>
+<td style="text-align:center">系统账号</td>
+</tr>
+<tr>
+<td style="text-align:center">1000-60000</td>
+<td style="text-align:center">可登录账号</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="123-etcshadow文件结构">1.2.3 <code>/etc/shadow</code>文件结构</h3>
+<ol>
+<li>每一行的<strong>九</strong>大字段</li>
+</ol>
+<ul>
+<li>
+<p>账号</p>
+</li>
+<li>
+<p>密码</p>
+</li>
+<li>
+<p>最近密码更变日期</p>
+</li>
+<li>
+<p>密码不可重置的天数</p>
+</li>
+<li>
+<p>密码需要重置的天数</p>
+</li>
+<li>
+<p>密码需要重置前的警告</p>
+</li>
+<li>
+<p>密码失效日</p>
+<ul>
+<li>密码过期后的账号宽限时间</li>
+</ul>
+</li>
+<li>
+<p>账号失效日期</p>
+</li>
+<li>
+<p>保留</p>
+</li>
+</ul>
+<ol start="2">
+<li>字段说明</li>
+</ol>
+<ul>
+<li>所有日期均以<strong>1970.1.1以来的天数表示</strong></li>
+</ul>
+<h2 id="13-群组">1.3 群组</h2>
+<h3 id="131-etcgroup文件结构">1.3.1 /etc/group文件结构</h3>
+<ol>
+<li>每一行的<strong>四大</strong>字段</li>
+</ol>
+<ul>
+<li>
+<p>群组名称</p>
+</li>
+<li>
+<p>群组密码</p>
+</li>
+<li>
+<p>GID</p>
+</li>
+<li>
+<p>此群组支持的账号名称</p>
+</li>
+</ul>
+<ol start="2">
+<li>字段说明</li>
+</ol>
+<ul>
+<li>群组密码通常是给群组管理员使用的，不需要设置</li>
+</ul>
+<h3 id="132-有效群组与初始群组">1.3.2 有效群组与初始群组</h3>
+<ol>
+<li>初始群组</li>
+</ol>
+<ul>
+<li><code>etc/passwd</code>里的GID</li>
+</ul>
+<ol start="2">
+<li>有效群组</li>
+</ol>
+<ul>
+<li>
+<p>输入<code>groups</code>命令得到的<strong>第一个群组</strong>为<strong>有效群组</strong></p>
+</li>
+<li>
+<p><code>newgrp GROUP_NAME</code>切换有效群组</p>
+</li>
+</ul>
+<h3 id="133-etcgshadow">1.3.3 /etc/gshadow</h3>
+<ol>
+<li><strong>四</strong>个字段</li>
+</ol>
+<ul>
+<li>
+<p>群组名称</p>
+</li>
+<li>
+<p>密码栏</p>
+</li>
+<li>
+<p>群组管理员账号</p>
+</li>
+<li>
+<p>与<code>/etc/group</code>的第四栏内容相同</p>
+</li>
+</ul>
+<h1 id="二账号管理">二、账号管理</h1>
+<h2 id="21-添加与移除使用者">2.1 添加与移除使用者</h2>
+<ol>
+<li><code>useradd</code>添加使用者</li>
+</ol>
+<ul>
+<li>默认值(在<code>/etc/default/useradd</code>中查看)</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git init <span class="c1"># 初始化仓库</span>
-</span></span><span class="line"><span class="cl">git add . <span class="c1"># 将文件添加到暂存区</span>
-</span></span><span class="line"><span class="cl">git commit <span class="c1"># 将暂存区内容添加到仓库</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># GID设置为1000</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GROUP</span><span class="o">=</span><span class="m">1000</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 默认的主文件夹所在目录</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOME</span><span class="o">=</span>/home
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 密码失效日,-1表示永久不失效</span>
+</span></span><span class="line"><span class="cl"><span class="nv">INACTIVE</span><span class="o">=</span>-1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 账号失效日</span>
+</span></span><span class="line"><span class="cl"><span class="nv">EXPIRE</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 默认使用的shell</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SHELL</span><span class="o">=</span>/bin/bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用者主文件夹参考基准目录</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SKEL</span><span class="o">=</span>/etc/skel
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建使用者的mailbox</span>
+</span></span><span class="line"><span class="cl"><span class="nv">CREATE_MAIL_SPOOL</span><span class="o">=</span>yes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">LOG_INIT</span><span class="o">=</span>yes
 </span></span></code></pre></td></tr></table>
 </div>
-</div><blockquote>
-<ol start="3">
-<li>提交和修改</li>
-</ol>
-</blockquote>
-<ol>
-<li><code>git add</code></li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">git add [file1] [file2] &hellip;</th>
-<th style="text-align:center">添加多个文件到暂存区</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">git add [dir]</td>
-<td style="text-align:center">添加目录到暂存区</td>
-</tr>
-<tr>
-<td style="text-align:center">git add .</td>
-<td style="text-align:center">添加当前目录下所有文件到暂存区</td>
-</tr>
-</tbody>
-</table></div>
-<ol start="2">
-<li><code>git diff</code></li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">git diff [file]</th>
-<th style="text-align:center">显示暂存区和工作区的差异</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">git diff &ndash;cache(staged 也可) [file]</td>
-<td style="text-align:center">显示暂存区和上一次提交的差异</td>
-</tr>
-<tr>
-<td style="text-align:center">git diff [first-branch]&hellip;[second branch]</td>
-<td style="text-align:center">显示两次提交之间的差异</td>
-</tr>
-</tbody>
-</table></div>
-<ol start="3">
-<li><code>git commit</code></li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">git commit -m [message]</th>
-<th style="text-align:center">提交暂存区到本地仓库</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">git commit [file1] [file2] &hellip; -m [message]</td>
-<td style="text-align:center">提交暂存区的指定文件到本地仓库</td>
-</tr>
-<tr>
-<td style="text-align:center">git commit -a</td>
-<td style="text-align:center">不需要<code>git add</code>直接提交</td>
-</tr>
-</tbody>
-</table></div>
-<ol start="4">
-<li><code>git reset</code></li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">git reset HEAD</th>
-<th style="text-align:center">回退所有内容到上一个版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">git reset HEAD [file]</td>
-<td style="text-align:center">回退文件file到上一个版本</td>
-</tr>
-<tr>
-<td style="text-align:center">git reset &ndash;soft HEAD~n</td>
-<td style="text-align:center">回退到前n个版本</td>
-</tr>
-<tr>
-<td style="text-align:center">git reset &ndash;hard HEAD</td>
-<td style="text-align:center">撤销工作区中所有未提交的修改内容</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li>
-<p><code>HEAD^</code>中<code>^</code>的个数表示前几个版本</p>
-</li>
-<li>
-<p><code>HEAD~n</code>可以取代上面的方式</p>
-</li>
-<li>
-<p><code>message</code>为备注信息</p>
-</li>
-</ul>
-<ol start="5">
-<li>其他指令</li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">git status</th>
-<th style="text-align:center">查看仓库状况，显示有变更的文件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">git rm</td>
-<td style="text-align:center">从暂存区和工作区中删除文件</td>
-</tr>
-<tr>
-<td style="text-align:center">git mv</td>
-<td style="text-align:center">移动或重命名工作区文件</td>
-</tr>
-</tbody>
-</table></div>
-<blockquote>
-<ol start="4">
-<li>提交日志</li>
-</ol>
-</blockquote>
-<ol>
-<li><code>git log</code></li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">git log &ndash;oneline</th>
-<th style="text-align:center">查看历史提交记录的简洁形式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">git log &ndash;graph</td>
-<td style="text-align:center">拓朴图形式查看历史提交记录</td>
-</tr>
-</tbody>
-</table></div>
-<ol start="2">
-<li><code>git blame &lt;file&gt;</code>查看指定文件的修改记录</li>
-</ol>
-<blockquote>
-<ol start="5">
-<li>远程操作</li>
-</ol>
-</blockquote>
-<ol>
-<li>git remote</li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">git remote -v</th>
-<th style="text-align:center">显示所有远程仓库</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">git remote show [remote]</td>
-<td style="text-align:center">显示某个远程仓库信息</td>
-</tr>
-<tr>
-<td style="text-align:center">git remote add [shortname] [url]</td>
-<td style="text-align:center">添加远程版本库</td>
-</tr>
-<tr>
-<td style="text-align:center">git remote rm name</td>
-<td style="text-align:center">删除远程仓库</td>
-</tr>
-<tr>
-<td style="text-align:center">git remote rename [old_name] [new_name]</td>
-<td style="text-align:center">修改仓库名</td>
-</tr>
-</tbody>
-</table></div>
-<ol start="2">
-<li>git fetch</li>
-</ol>
-<ul>
-<li>
-<p><code>git fetch [alias]</code>提取更新数据</p>
-</li>
-<li>
-<p>执行完后需要<code>git merge branch</code>从远程仓库提取数据并尝试合并到当前分支</p>
-</li>
-</ul>
-<ol start="3">
-<li>git pull</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git pull [远程主机名] [远程分支名]:[本地分支名]
-</span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>将远程主机的分支拉过来与本地分支合并
-<ul>
-<li>若远程分支与当前分支合并，则冒号后可以省略</li>
-</ul>
-</li>
-</ul>
-<ol start="4">
-<li>git push</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git push [远程主机名] [本地分支名]:[远程分支名]
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>
-<p>将本地分支推送到远程主机</p>
-</li>
-<li>
-<p>参数</p>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">&ndash;force</th>
-<th style="text-align:center">强制推送</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&ndash;delete</td>
-<td style="text-align:center">删除主机分支</td>
-</tr>
-</tbody>
-</table></div>
-</li>
-</ul>
-<h1 id="五git分支管理">五、git分支管理</h1>
-<blockquote>
-<ol>
-<li>创建分支</li>
-</ol>
-</blockquote>
-<ul>
-<li><code>git branch &lt;name&gt;</code>创建分支</li>
-<li><code>git branch</code><strong>列出分支</strong></li>
-</ul>
-<blockquote>
-<ol start="2">
-<li>切换分支</li>
-</ol>
-</blockquote>
-<ul>
-<li><code>git checkout &lt;name&gt;</code></li>
-</ul>
-<blockquote>
-<ol start="3">
-<li>分支合并</li>
-</ol>
-</blockquote>
-<ol>
-<li><code>git merge &lt;branch&gt;</code></li>
-</ol>
-<ul>
-<li>将分支branch合并到当前所在分支中</li>
-</ul>
-<ol start="2">
-<li>合并冲突</li>
-</ol>
-<ul>
-<li></li>
-</ul>
-<blockquote>
-<ol start="4">
-<li>删除分支</li>
-</ol>
-</blockquote>
-<ul>
-<li><code>git branch -d &lt;name&gt;</code></li>
-</ul>
-
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+    </section>
+
 
     
     <section class="article-copyright">
@@ -824,19 +660,6 @@ remote_repository --> workspace: pull
             
                 
 <article class="">
-    <a href="/p/linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86%E4%B8%8Eacl%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Linux账号管理与ACL权限设置</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/zsh%E7%9A%84%E5%8F%98%E9%87%8F%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/">
         
         
@@ -869,6 +692,19 @@ remote_repository --> workspace: pull
 
         <div class="article-details">
             <h2 class="article-title">ArchLinux开机分区安装</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/git/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Git</h2>
         </div>
     </a>
 </article>
