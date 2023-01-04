@@ -6,7 +6,91 @@
         <description>Recent content on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 27 Dec 2022 17:48:26 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 03 Jan 2023 18:16:30 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>线性规划模型基本原理与案例分享</title>
+        <link>https://downeyflyfan.com/p/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%B8%8E%E6%A1%88%E4%BE%8B%E5%88%86%E4%BA%AB/</link>
+        <pubDate>Tue, 03 Jan 2023 18:16:30 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%B8%8E%E6%A1%88%E4%BE%8B%E5%88%86%E4%BA%AB/</guid>
+        <description>&lt;h1 id=&#34;案例一&#34;&gt;案例一&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%B8%8E%E6%A1%88%E4%BE%8B%E5%88%86%E4%BA%AB/1.png&#34;
+	width=&#34;785&#34;
+	height=&#34;320&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%B8%8E%E6%A1%88%E4%BE%8B%E5%88%86%E4%BA%AB/1_hu8a7732eef04b129b4505c8aa005ce1bf_239581_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%B8%8E%E6%A1%88%E4%BE%8B%E5%88%86%E4%BA%AB/1_hu8a7732eef04b129b4505c8aa005ce1bf_239581_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;245&#34;
+		data-flex-basis=&#34;588px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;11-解题方程&#34;&gt;1.1 解题方程&lt;/h2&gt;
+&lt;p&gt;$$
+Sol: Suppose \ that \ we \ produce \ x_1 \ and \ x_2 \ sets  \ of \ 甲、乙机床 \\\
+\\ \begin{cases} Z = 4x_1+3x_2 \\
+2x_1 + x_2 \le 10 \\
+x_1 + x_2 \le 8 \\
+x_2 \le 7
+\end{cases}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;12-线性规划问题解的概念&#34;&gt;1.2 线性规划问题解的概念&lt;/h2&gt;
+&lt;h3 id=&#34;121-matlab中的标准形式&#34;&gt;1.2.1 Matlab中的标准形式&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;公式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\underset{x}{min} \ c^Tx \\\
+\\ s.t.\begin{cases}
+Ax \le b \\
+Aeq \cdot x = beq \\
+lb \le x \le ub
+\end{cases}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$c$和$x$为$n$维向量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$c$为&lt;strong&gt;价值向量&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;$b$为&lt;strong&gt;资源向量&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$A$和$Aeq$为适当维数的矩阵&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$b$和$beq$为适当维数的列向量&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Matlab&lt;/strong&gt;的求解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;最小值&lt;strong&gt;取负号&lt;/strong&gt;求最大值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;linprog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;linprog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Aeq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;beq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;linprog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Aeq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;beq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ub&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;122-一般线性规划的数学标准型&#34;&gt;1.2.2 一般线性规划的数学标准型&lt;/h3&gt;
+&lt;p&gt;$$
+max \ z  = \sum_{j=1}^nc_jx_j \\\
+\\ s.t.\begin{cases}
+\sum_{j=1}^na_{ij}x_j=b_i &amp;amp; i=1,2,&amp;hellip;,m \\
+x_j \ge 0 &amp;amp; j =1,2,&amp;hellip;,m
+\end{cases}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Linux账号管理与ACL权限设置</title>
         <link>https://downeyflyfan.com/p/linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86%E4%B8%8Eacl%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE/</link>
         <pubDate>Tue, 27 Dec 2022 17:48:26 +0800</pubDate>
@@ -257,7 +341,269 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;LOG_INIT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;yes
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;passwd&lt;/code&gt; 操作密码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;参数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;无参数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;修改密码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-d&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;删除密码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-f&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;强制下次登陆修改口令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-w&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;口令到期前警告的天数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-k&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;更新只能发送在过期之后&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-l&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;停止账号使用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-S&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;显示密码信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-u&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;启用已被停止的账户&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-x&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;指定口令最常存活期&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-g&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;修改群组密码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-i&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;多少天后停用账户&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;change 账户名&lt;/code&gt;显示密码参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;-l&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;列出详细的密码参数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;usermod&lt;/code&gt;调整账号信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;-c&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;修改&lt;/strong&gt;用户账号的备注文字&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-d&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;登入&lt;strong&gt;目录&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-e&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;修改账号的&lt;strong&gt;有效&lt;/strong&gt;期限&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-g&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;修改&lt;strong&gt;群组&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;code&gt;userdel&lt;/code&gt;删除账户&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;无参数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;直接删除&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-r&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;连同使用者的主文件夹一起删除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;22-使用者功能&#34;&gt;2.2 使用者功能&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;id [username]&lt;/code&gt;查询用户的&lt;strong&gt;UID/GID&lt;/strong&gt;等信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;finger&lt;/code&gt;查询用户的相关信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;比较危险，目前的版本里没有&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;chfn [username]&lt;/code&gt;(change finger)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;-f&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;接完整的大名&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-o&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;办公室房间号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-p&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;办公室电话号码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-h&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;家里电话&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;chsh&lt;/code&gt;(change shell)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;-l&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;列出系统中有的shell&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-s&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;设置自己的shell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;23-新增与移除群组&#34;&gt;2.3 新增与移除群组&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;groupadd -g GID -r [group_name]&lt;/code&gt;增添群组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;-g&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;接&lt;strong&gt;GID&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-r&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;创建系统群组&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;groupmod&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;-g&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;修改&lt;strong&gt;GID&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-n&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;修改既有群组&lt;strong&gt;名称&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;groupdel&lt;/code&gt;删除群组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;24-账号管理实例&#34;&gt;2.4 账号管理实例&lt;/h2&gt;
+&lt;h1 id=&#34;三acl&#34;&gt;三、ACL&lt;/h1&gt;
+&lt;h2 id=&#34;31-acl简介&#34;&gt;3.1 ACL简介&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ACL，即 &lt;em&gt;&lt;strong&gt;Access Control list&lt;/strong&gt;&lt;/em&gt;，主要目的是提供传统的&lt;strong&gt;rwx&lt;/strong&gt;以外的权限，包括&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用者(user)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;群组(group)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;默认属性(mask)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;32-acl的设置技巧&#34;&gt;3.2 ACL的设置技巧&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;setfacl [-bkRd] [-m/x ACL参数] file_name&lt;/code&gt;(&lt;strong&gt;set file ACL&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;-m&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;设置ACL参数，不可与-x混用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-x&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;删除后续ACL参数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-b&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;移除所有的ACL参数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-k&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;移除默认的ACL参数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-R&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;递归&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-d&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;针对目录设置&lt;strong&gt;默认ACL参数&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
         </item>
         <item>
         <title>Zsh的变量、语句与字符串</title>
@@ -1129,16 +1475,147 @@ Hardware --&gt; Kernel
         <pubDate>Tue, 13 Dec 2022 23:55:09 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/</guid>
-        <description>&lt;img src="https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1.jpg" alt="Featured image of post 早期量子理论和原子模型" /&gt;&lt;h1 id=&#34;一普朗克假设&#34;&gt;一、普朗克假设&lt;/h1&gt;
-&lt;h2 id=&#34;11-黑体辐射&#34;&gt;1.1 黑体辐射&lt;/h2&gt;
-&lt;h3 id=&#34;111-黑体&#34;&gt;1.1.1 黑体&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;吸收所有落到其上的辐射的物体&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;121-黑体辐射&#34;&gt;1.2.1 黑体辐射&lt;/h3&gt;
+        <description>&lt;img src="https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1.jpg" alt="Featured image of post 早期量子理论和原子模型" /&gt;&lt;h1 id=&#34;一普朗克量子假设与光电效应&#34;&gt;一、普朗克量子假设与光电效应&lt;/h1&gt;
+&lt;h2 id=&#34;11-黑体&#34;&gt;1.1 黑体&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;黑体辐射不一定是黑的&lt;/li&gt;
+&lt;li&gt;定义&lt;/li&gt;
 &lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;黑体&lt;/strong&gt;吸收一切照射其上的辐射&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;黑体辐射&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;黑体&lt;/strong&gt;产生的辐射即为黑体辐射&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Wien&lt;/strong&gt; 定理 &amp;ndash; &amp;ndash; 仅在短波长时有效&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;光谱峰值处的&lt;strong&gt;波长$\lambda_p$&lt;/strong&gt; 与温度&lt;strong&gt;T&lt;/strong&gt;的关系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\lambda_p T = 2.90 \times 10^{-3} m\cdot K
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;不同温度下的黑体光谱&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1.png&#34;
+	width=&#34;874&#34;
+	height=&#34;815&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1_huc6727fc32f81bc81ea2f41dc9207e0b8_203427_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1_huc6727fc32f81bc81ea2f41dc9207e0b8_203427_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;107&#34;
+		data-flex-basis=&#34;257px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;12-普朗克的工作&#34;&gt;1.2 普朗克的工作&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;前提&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Wien&lt;/strong&gt;公式和&lt;strong&gt;Rayleigh&lt;/strong&gt;等人的公式在波长较大时&lt;strong&gt;失效&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;光强&lt;/strong&gt;与&lt;strong&gt;波长和亮度&lt;/strong&gt;公式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+I(\lambda,T) = \frac{2\pi hc^2\lambda^{-5}}{e^{hc/\lambda k T}-1} \\\
+\\ h = 6.626\times 10^{-34} \ J\cdot s
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;普朗克量子假设&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;能量是不连续的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+E = nhf, n=1,2,3,&amp;hellip;
+$$&lt;/p&gt;
+&lt;h2 id=&#34;13-光电效应&#34;&gt;1.3 光电效应&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/2.png&#34;
+	width=&#34;573&#34;
+	height=&#34;787&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/2_hu9e753cffecd7891976a13d5e6f86956a_138791_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/2_hu9e753cffecd7891976a13d5e6f86956a_138791_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;72&#34;
+		data-flex-basis=&#34;174px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;公式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+E_{k_{max}} = hf -W_0 \\\
+\\ E_{k_{max}} = eV_0, f = \frac{c}{\lambda}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;二康普顿效应---光子撞电子&#34;&gt;二、康普顿效应 - 光子撞电子&lt;/h1&gt;
+&lt;h2 id=&#34;21-光子动量&#34;&gt;2.1 光子动量&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;一般物质的动量为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+p = \gamma mv = \frac{mv}{\sqrt{1-v^2/c^2}}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;光子的动量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于光子的速度$v=c$，而其动量不可能为无穷，故其质量$m=0$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+E = mc^2 \longrightarrow E^2  = m^2 c^4 = p^2c^2 \\\
+\\ \therefore \pmb{p =\frac{E}{c}} \\\
+\\ p = \frac{hf}{c} = \frac{h}{\lambda} \\\
+$$&lt;/p&gt;
+&lt;h2 id=&#34;22-康普顿效应&#34;&gt;2.2 康普顿效应&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;实验图&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/3.png&#34;
+	width=&#34;701&#34;
+	height=&#34;657&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/3_hu1c13f261cf3de752ef4b2157d9d2105d_142609_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/3_hu1c13f261cf3de752ef4b2157d9d2105d_142609_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;106&#34;
+		data-flex-basis=&#34;256px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;推导&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+已知: 撞前，电子静止，光子波长为\lambda; \\\
+\\ 撞后，电子速率为v，光子波长为\lambda&amp;rsquo; \\\
+\\ 根据能量守恒有: \\\
+\\ \begin{align}
+\frac{hc}{\lambda} = \frac{hc}{\lambda&amp;rsquo;} + (\frac{1}{\sqrt{1-v^2/c^2}}-1)
+\end{align} \\\
+\\ 根据动量守恒有: \\\
+\\ \begin{align}
+\frac{m_ev}{\sqrt{1-v^2/c^2}}\cdot sin\theta = \frac{hc}{\lambda&amp;rsquo;}\cdot sin\phi \\
+\frac{m_ev}{\sqrt{1-v^2/c^2}}\cdot cos\theta + \frac{hc}{\lambda&amp;rsquo;}\cdot cos\phi = \frac{hc}{\lambda}
+\end{align} \\\
+\\ 根据上述三式: \\\
+\\ \lambda&amp;rsquo;  =\lambda + \frac{h}{m_ec}(1-cos\phi) \\\
+\\ \pmb{Compton \ Shift} \\\
+\\ \Delta\lambda = \lambda&amp;rsquo; - \lambda = \frac{h}{m_ec}(1-cos\phi) \\\
+\\ \pmb{自由电子的康普顿波长} \\\
+\\ \lambda_C = \frac{h}{m_ec} = 2.43\times 10^{-3}nm =  2.43pm
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
