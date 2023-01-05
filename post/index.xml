@@ -6,7 +6,196 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 03 Jan 2023 18:16:30 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 05 Jan 2023 22:49:43 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>数模计算</title>
+        <link>https://downeyflyfan.com/p/%E6%95%B0%E6%A8%A1%E8%AE%A1%E7%AE%97/</link>
+        <pubDate>Thu, 05 Jan 2023 22:49:43 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E6%95%B0%E6%A8%A1%E8%AE%A1%E7%AE%97/</guid>
+        <description>&lt;h1 id=&#34;一误差与数值计算基本原则&#34;&gt;一、误差与数值计算基本原则&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;避免绝对值小的数做除数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;避免两相近数相减&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;避免大数“吃”小数现象&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;尽量减少工作量&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;例1: 秦九沼算法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;例2: 数值不稳定计算&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{align}
+I_{n} = e^{-1}\int_0^1 x_ne^x dx , n =0,1,2,&amp;hellip;20 \\
+\int_0^1 x^n dx \le \int_0^1 x_ne^x dx \le \\&lt;/p&gt;
+&lt;p&gt;\end{align}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;二非线性方程的解&#34;&gt;二、非线性方程的解&lt;/h1&gt;
+&lt;h2 id=&#34;21-数值求解非线性方程的根&#34;&gt;2.1 数值求解非线性方程的根&lt;/h2&gt;
+&lt;h3 id=&#34;211-步骤&#34;&gt;2.1.1 步骤&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;寻找隔根区间()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;只有一个零点的区间&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;不需要单调&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;或在其中找到一个近似解$x_0$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;逐步逼近&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;212-二分法迭代&#34;&gt;2.1.2 二分法迭代&lt;/h3&gt;
+&lt;p&gt;$$
+已知在区间[a,b]上，f(a)\cdot f(b) \lt 0 \\\
+\\ 在[a,b]区间不断二分，逼近根x_0 \\\
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;更优方法: 寻找&lt;strong&gt;黄金分割点&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;213-牛顿迭代法&#34;&gt;2.1.3 牛顿迭代法&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+设x^*是f(x)=0的根，x_0是x^*的近似值 \\\
+\\ 在x_0附近做\pmb{局部线性化} \\\
+\\
+\begin{align}
+f(x) \approx f(x_0) +f&amp;rsquo;(x_0)(x-x_0) \\
+x_{n+1} = x_n  - \frac{f(x_n)}{f&amp;rsquo;(x_n)}，n = 0,1,2,&amp;hellip;
+\end{align}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;求&lt;strong&gt;正数平方根&lt;/strong&gt;算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+x = \sqrt{C} \longrightarrow x^2  -C = 0 \\\
+\\ \therefore x_{n+1}  =x_n -  \frac{x_n^2-C}{2x_n}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;局限性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;被零除错误(导数非常小)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;程序死循环&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;牛顿迭代法的收敛域问题&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;画出$z^3 -1 = 0$的收敛域彩色图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;h1 id=&#34;三矩阵计算&#34;&gt;三、矩阵计算&lt;/h1&gt;
+&lt;h2 id=&#34;31-向量范数&#34;&gt;3.1 向量范数&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+设R^n是n维向量空间，对于\forall x \in R^n，都有 \\\
+\\ ||x|| \ge 0，且||x|| = 0 \Leftrightarrow 0 \\\
+\\ ||\lambda x|| = \lambda ||x|| \\\
+\\
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;常见的范数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{align}
+1- 范数(列和范数):||x||&lt;em&gt;1 = \sum&lt;/em&gt;{i=1}^n |x_i| \\
+2-范数(谱范数):||x||&lt;em&gt;2  = \sqrt{\sum&lt;/em&gt;{i=1}^nx_i^2}  = \sqrt{\lambda_{max}(A^TA)} \\
+无穷大范数(行和范数):||x||_{\infin} = \underset{1\le i \le n}{max} (|x_1|,|x_2|,&amp;hellip;,|x_n|)
+\end{align}&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;范数不变性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+AA^T = I , y = Ax \longrightarrow ||y||_2 = ||x||_2 \\\
+\\ y^Ty = (Ax)^T(Ax) =  x^T(A^TA)x = x^Tx \\\
+\\ ||y||_2 = \sqrt{y^Ty} = \sqrt{x^Tx} = ||x||_2
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;矩阵范数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+对A \in R^{m\times n}，存在实数||A||满足 \\\
+\\
+\begin{align}
+||A|| \ge 0，且||A|| = 0 \Leftrightarrow = ||A|| = 0\\
+||\lambda A|| = |\lambda|\ ||A|| \\
+||A+B|| \le ||A|| + ||B|| \\
+||A \cdot B || \le ||A || \cdot ||B||
+\end{align} \\\
+\\ 则称||A||是矩阵A的一个范数 \\\
+\\ Frobenius范数 \\\
+\\ ||A||&lt;em&gt;F = (\sum&lt;/em&gt;{j=1}^n\sum_{i=1}^n a_{ij}^2)^{1/2}&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;矩阵算子范数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+设||x||是R^n上的向量范数，A \in R^{m\times n} \\\
+\\ 则A的非负函数 ||A||  = \underset{x\ne 0}{max}\frac{||Ax||}{||x||} \\\
+\\ 称为矩阵A的\pmb{算子范数}
+$$&lt;/p&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;em&gt;数学&lt;/em&gt; 上,&lt;strong&gt;范数等价&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;32-矩阵的条件数&#34;&gt;3.2 矩阵的条件数&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+对于Ax = b，b存在一扰动 \ \delta b \ 引起\ x \ 的扰动 \ \delta x \\\
+\\ A\hat x = b + \delta b \\\
+\\ A(x + \delta x) = b + \delta b \\\
+\\ A \cdot \delta x = \delta b \\\
+\\ \delta x = A^{-1} \delta b \\\
+\\ || \delta x || \le ||A^{-1}|| \ || \delta b|| \\\
+\\ 又\because b = Ax \longrightarrow ||b|| \le ||A|| \ ||x|| \\\
+\\ \therefore \frac{1}{||x||} \le \frac{||A||}{||b||} \\\
+\\ \therefore \frac{||\delta x||}{||x||}\le (||A|| \cdot ||A^{-1}||) \frac{||\delta b||}{||b||} \\\
+\\ 其中,||A|| \cdot ||A^{-1}||是\pmb{条件数}
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;今日作业&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;二分法解具体问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;画出$z^3 -1 = 0$的收敛域彩色图&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>线性规划模型基本原理与案例分享</title>
         <link>https://downeyflyfan.com/p/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%B8%8E%E6%A1%88%E4%BE%8B%E5%88%86%E4%BA%AB/</link>
         <pubDate>Tue, 03 Jan 2023 18:16:30 +0800</pubDate>
@@ -10922,6 +11111,10 @@ $$&lt;/p&gt;
 &lt;p&gt;论文结构&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;22-老师经验&#34;&gt;2.2 老师经验&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;算法要通过&lt;strong&gt;伪代码&lt;/strong&gt;或&lt;strong&gt;自然语言&lt;/strong&gt;描述&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
