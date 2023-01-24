@@ -6,7 +6,42 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 08 Jan 2023 01:53:39 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 24 Jan 2023 20:03:44 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>搭建服务器</title>
+        <link>https://downeyflyfan.com/p/%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+        <pubDate>Tue, 24 Jan 2023 20:03:44 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+        <description>&lt;h1 id=&#34;一购买服务器&#34;&gt;一、购买服务器&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;选择操作系统&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;建议选择&lt;em&gt;&lt;strong&gt;Debian&lt;/strong&gt;&lt;/em&gt;系统&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;二连接服务器&#34;&gt;二、连接服务器&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;输入命令&lt;code&gt;ssh root@IP&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;输入服务器密码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;升级&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;apt update&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;apt upgrade&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>2020_MCM_C</title>
         <link>https://downeyflyfan.com/p/2020_mcm_c/</link>
         <pubDate>Sun, 08 Jan 2023 01:53:39 +0800</pubDate>
@@ -461,7 +496,126 @@ $$&lt;/p&gt;
 &lt;p&gt;用给定资金M，有选择地购买若干种资产或存银行生息，使&lt;strong&gt;净收益&lt;/strong&gt;净可能&lt;strong&gt;大&lt;/strong&gt;，&lt;strong&gt;总体风险&lt;/strong&gt;尽可能小&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;23-解答&#34;&gt;2.3 解答&lt;/h2&gt;
-&lt;h3 id=&#34;231-分析问题&#34;&gt;2.3.1 分析问题&lt;/h3&gt;
+&lt;h3 id=&#34;231-符号规定&#34;&gt;2.3.1 符号规定&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$s_i,i=0,1,2&amp;hellip;n$代表第$i$种&lt;strong&gt;投资项目&lt;/strong&gt;，其中$s_0$代表&lt;strong&gt;存入银行&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$r_i,p_i,q_i,i=0,1,&amp;hellip;,n$分别代表$s_i$的&lt;strong&gt;平均收益率&lt;/strong&gt;、&lt;strong&gt;交易费率&lt;/strong&gt;、&lt;strong&gt;风险损失率&lt;/strong&gt;,其中$p_0=0,q_0=0$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$u_i$表示&lt;strong&gt;交易金额&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$x_i$表示&lt;strong&gt;投资$\pmb{s_i}$的资金&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$a$表示&lt;strong&gt;投资风险度&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$M$表示&lt;strong&gt;投资金额&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$Q$表示&lt;strong&gt;总体收益&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;232-基本假设&#34;&gt;2.3.2 基本假设&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;投资金额&lt;strong&gt;M相当大&lt;/strong&gt;,假设$M=1$，（为什么等于1嘞）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;投资越分散，总的风险越小&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;总体风险用投资项目$s_i$中最大的一个风险来度量&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$n+1$种资产$s_i$是&lt;strong&gt;相互独立&lt;/strong&gt;的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在投资期间，$r_i,p_i,q_i$是固定的，不受任何因素影响&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;净收益&lt;/strong&gt;和&lt;strong&gt;总体风险&lt;/strong&gt;只受&lt;strong&gt;r_i,p_i,q_i&lt;/strong&gt;影响&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;233-模型的分析与建立&#34;&gt;2.3.3 模型的分析与建立&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总体思路&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;费率多少，赚多少，风险多少&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;总体风险&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+max {q_ix_i | i = 1,2,L,n} \ \ \ 注意L的使用
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;风险$\Longrightarrow$净收益&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+交易费 =\begin{cases}
+p_ix_i &amp;amp; x_i \gt u_i \\
+p_iu_i &amp;amp; x_i \le u_i
+\end{cases} \\\
+\\ \because u_i \ll M \Longrightarrow p_iu_i \ll M \\\
+\\ \therefore 净收益 = (r_i - p_i)x_i
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;总体风险&lt;/strong&gt;小，&lt;strong&gt;净收益&lt;/strong&gt;大&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+目标函数为 \\\
+\\ \begin{cases}
+min \ \ max{q_ix_i|i=1,2,L,n } \\\
+\\ max \sum_{i=0}^n (r_i-p_i)x_i,i=0,1,L,n
+\end{cases} \\\
+\\ 约束条件为 \\\
+\\ \begin{cases}
+\sum_{i=0}^n (1+p_i)x_i = M \ \ \ 交易额+税= 总金额 \\\
+\\ x_i \ge 0
+\end{cases}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在实际投资中，风险$q_ix_i$往往是变化的，但只要给定一个界限a,使得&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\frac{q_ix_i}{M} \le a \\
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;就可以把&lt;strong&gt;多目标规划&lt;/strong&gt;转化为&lt;strong&gt;线性规划&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;建立模型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;模型一 固定风险，优化收益&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{cases}
+\sum_{i=0}^n (1+p_i)x_i = M \\
+min \ \ max{q_ix_i|i=1,2,L,n } \\
+\frac{q_ix_i}{M} \le a
+\end{cases}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模型二 固定收益，极小化风险&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{cases}
+max \sum_{i=0}^n (r_i-p_i)x_i,i=0,1,L,n \\
+\sum_{i=0}^n (1+p_i)x_i = M \\
+\sum_{i=1}^n(r_i-p_i)x_i \ge k
+\end{cases}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模型三 权衡收益与风险，设置投资偏好&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;设定投资偏好系数$s$，对风险和收益分别赋予权重$s$和$1-s(0 \lt s\le 1)$&lt;/p&gt;
 </description>
         </item>
         <item>

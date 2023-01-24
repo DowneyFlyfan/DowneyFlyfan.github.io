@@ -274,7 +274,9 @@
         <li><a href="#22-问题">2.2 问题</a></li>
         <li><a href="#23-解答">2.3 解答</a>
           <ul>
-            <li><a href="#231-分析问题">2.3.1 分析问题</a></li>
+            <li><a href="#231-符号规定">2.3.1 符号规定</a></li>
+            <li><a href="#232-基本假设">2.3.2 基本假设</a></li>
+            <li><a href="#233-模型的分析与建立">2.3.3 模型的分析与建立</a></li>
           </ul>
         </li>
       </ul>
@@ -343,7 +345,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -490,7 +492,126 @@ $$</p>
 <p>用给定资金M，有选择地购买若干种资产或存银行生息，使<strong>净收益</strong>净可能<strong>大</strong>，<strong>总体风险</strong>尽可能小</p>
 </blockquote>
 <h2 id="23-解答">2.3 解答</h2>
-<h3 id="231-分析问题">2.3.1 分析问题</h3>
+<h3 id="231-符号规定">2.3.1 符号规定</h3>
+<ul>
+<li>
+<p>$s_i,i=0,1,2&hellip;n$代表第$i$种<strong>投资项目</strong>，其中$s_0$代表<strong>存入银行</strong></p>
+</li>
+<li>
+<p>$r_i,p_i,q_i,i=0,1,&hellip;,n$分别代表$s_i$的<strong>平均收益率</strong>、<strong>交易费率</strong>、<strong>风险损失率</strong>,其中$p_0=0,q_0=0$</p>
+</li>
+<li>
+<p>$u_i$表示<strong>交易金额</strong></p>
+</li>
+<li>
+<p>$x_i$表示<strong>投资$\pmb{s_i}$的资金</strong></p>
+</li>
+<li>
+<p>$a$表示<strong>投资风险度</strong></p>
+</li>
+<li>
+<p>$M$表示<strong>投资金额</strong></p>
+</li>
+<li>
+<p>$Q$表示<strong>总体收益</strong></p>
+</li>
+</ul>
+<h3 id="232-基本假设">2.3.2 基本假设</h3>
+<ol>
+<li>
+<p>投资金额<strong>M相当大</strong>,假设$M=1$，（为什么等于1嘞）</p>
+</li>
+<li>
+<p>投资越分散，总的风险越小</p>
+</li>
+<li>
+<p>总体风险用投资项目$s_i$中最大的一个风险来度量</p>
+</li>
+<li>
+<p>$n+1$种资产$s_i$是<strong>相互独立</strong>的</p>
+</li>
+<li>
+<p>在投资期间，$r_i,p_i,q_i$是固定的，不受任何因素影响</p>
+</li>
+<li>
+<p><strong>净收益</strong>和<strong>总体风险</strong>只受<strong>r_i,p_i,q_i</strong>影响</p>
+</li>
+</ol>
+<h3 id="233-模型的分析与建立">2.3.3 模型的分析与建立</h3>
+<blockquote>
+<p>总体思路</p>
+</blockquote>
+<ul>
+<li>费率多少，赚多少，风险多少</li>
+</ul>
+<ol>
+<li>总体风险</li>
+</ol>
+<p>$$
+max {q_ix_i | i = 1,2,L,n} \ \ \ 注意L的使用
+$$</p>
+<ol start="2">
+<li>风险$\Longrightarrow$净收益</li>
+</ol>
+<p>$$
+交易费 =\begin{cases}
+p_ix_i &amp; x_i \gt u_i \\
+p_iu_i &amp; x_i \le u_i
+\end{cases} \\\
+\\ \because u_i \ll M \Longrightarrow p_iu_i \ll M \\\
+\\ \therefore 净收益 = (r_i - p_i)x_i
+$$</p>
+<ol start="3">
+<li><strong>总体风险</strong>小，<strong>净收益</strong>大</li>
+</ol>
+<p>$$
+目标函数为 \\\
+\\ \begin{cases}
+min \ \ max{q_ix_i|i=1,2,L,n } \\\
+\\ max \sum_{i=0}^n (r_i-p_i)x_i,i=0,1,L,n
+\end{cases} \\\
+\\ 约束条件为 \\\
+\\ \begin{cases}
+\sum_{i=0}^n (1+p_i)x_i = M \ \ \ 交易额+税= 总金额 \\\
+\\ x_i \ge 0
+\end{cases}
+$$</p>
+<ul>
+<li>在实际投资中，风险$q_ix_i$往往是变化的，但只要给定一个界限a,使得</li>
+</ul>
+<p>$$
+\frac{q_ix_i}{M} \le a \\
+$$</p>
+<ul>
+<li>就可以把<strong>多目标规划</strong>转化为<strong>线性规划</strong></li>
+</ul>
+<ol start="4">
+<li>建立模型</li>
+</ol>
+<ul>
+<li>模型一 固定风险，优化收益</li>
+</ul>
+<p>$$
+\begin{cases}
+\sum_{i=0}^n (1+p_i)x_i = M \\
+min \ \ max{q_ix_i|i=1,2,L,n } \\
+\frac{q_ix_i}{M} \le a
+\end{cases}
+$$</p>
+<ul>
+<li>模型二 固定收益，极小化风险</li>
+</ul>
+<p>$$
+\begin{cases}
+max \sum_{i=0}^n (r_i-p_i)x_i,i=0,1,L,n \\
+\sum_{i=0}^n (1+p_i)x_i = M \\
+\sum_{i=1}^n(r_i-p_i)x_i \ge k
+\end{cases}
+$$</p>
+<ul>
+<li>模型三 权衡收益与风险，设置投资偏好</li>
+</ul>
+<p>设定投资偏好系数$s$，对风险和收益分别赋予权重$s$和$1-s(0 \lt s\le 1)$</p>
 
 </section>
 
