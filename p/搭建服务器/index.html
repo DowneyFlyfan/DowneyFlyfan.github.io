@@ -5,7 +5,10 @@
 输入服务器密码
 升级
 apt update
-apt upgrade'>
+apt upgrade
+三、下载openssh-server 在bashrc中加入alias ssh=&#39;TERM=xterm-256color ssh&#39;
+进入服务器，并输入
+1 curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x - 四、传输文件 4.1 从本地到远程 1 scp 本地路径 USER_NAME@IP:远程路径 4.2 从远程到本地 1 scp USER_NAME@IP:远程路径 本地路径 五、连接VPN 5.1 下载openvpn 1 sudo apt install openvpn 5.2 下载指定脚本并运行 1 2 3 curl -O https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-install.sh chmod 775 openvpn-install.sh sudo ./openvpn-install.sh 5.3 在本地电脑安装openvpn及其配件 1 sudo pacman -S openvpn networkmanager-openvpn 5.4 将远端配置下载到本地 1 scp USER_NAME@IP:/home/flyfan/flyfan.'>
 <title>搭建服务器</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
@@ -15,7 +18,10 @@ apt upgrade'>
 输入服务器密码
 升级
 apt update
-apt upgrade'>
+apt upgrade
+三、下载openssh-server 在bashrc中加入alias ssh=&#39;TERM=xterm-256color ssh&#39;
+进入服务器，并输入
+1 curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x - 四、传输文件 4.1 从本地到远程 1 scp 本地路径 USER_NAME@IP:远程路径 4.2 从远程到本地 1 scp USER_NAME@IP:远程路径 本地路径 五、连接VPN 5.1 下载openvpn 1 sudo apt install openvpn 5.2 下载指定脚本并运行 1 2 3 curl -O https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-install.sh chmod 775 openvpn-install.sh sudo ./openvpn-install.sh 5.3 在本地电脑安装openvpn及其配件 1 sudo pacman -S openvpn networkmanager-openvpn 5.4 将远端配置下载到本地 1 scp USER_NAME@IP:/home/flyfan/flyfan.'>
 <meta property='og:url' content='https://downeyflyfan.com/p/%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-01-24T20:03:44&#43;08:00'/><meta property='article:modified_time' content='2023-01-24T20:03:44&#43;08:00'/>
@@ -24,7 +30,10 @@ apt upgrade'>
 输入服务器密码
 升级
 apt update
-apt upgrade">
+apt upgrade
+三、下载openssh-server 在bashrc中加入alias ssh=&#39;TERM=xterm-256color ssh&#39;
+进入服务器，并输入
+1 curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x - 四、传输文件 4.1 从本地到远程 1 scp 本地路径 USER_NAME@IP:远程路径 4.2 从远程到本地 1 scp USER_NAME@IP:远程路径 本地路径 五、连接VPN 5.1 下载openvpn 1 sudo apt install openvpn 5.2 下载指定脚本并运行 1 2 3 curl -O https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-install.sh chmod 775 openvpn-install.sh sudo ./openvpn-install.sh 5.3 在本地电脑安装openvpn及其配件 1 sudo pacman -S openvpn networkmanager-openvpn 5.4 将远端配置下载到本地 1 scp USER_NAME@IP:/home/flyfan/flyfan.">
     </head>
     <body class="
     article-page
@@ -263,6 +272,21 @@ apt upgrade">
   <ul>
     <li><a href="#一购买服务器">一、购买服务器</a></li>
     <li><a href="#二连接服务器">二、连接服务器</a></li>
+    <li><a href="#三下载openssh-server">三、下载<code>openssh-server</code></a></li>
+    <li><a href="#四传输文件">四、传输文件</a>
+      <ul>
+        <li><a href="#41-从本地到远程">4.1 从本地到远程</a></li>
+        <li><a href="#42-从远程到本地">4.2 从远程到本地</a></li>
+      </ul>
+    </li>
+    <li><a href="#五连接vpn">五、连接VPN</a>
+      <ul>
+        <li><a href="#51-下载openvpn">5.1 下载<code>openvpn</code></a></li>
+        <li><a href="#52-下载指定脚本并运行">5.2 下载指定脚本并运行</a></li>
+        <li><a href="#53-在本地电脑安装openvpn及其配件">5.3 在本地电脑安装<code>openvpn</code>及其配件</a></li>
+        <li><a href="#54-将远端配置下载到本地">5.4 将远端配置下载到本地</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
         </div>
@@ -368,6 +392,86 @@ apt upgrade">
 <li>
 <p><code>apt upgrade</code></p>
 </li>
+</ul>
+<h1 id="三下载openssh-server">三、下载<code>openssh-server</code></h1>
+<ol>
+<li>
+<p>在<code>bashrc</code>中加入<code>alias ssh='TERM=xterm-256color ssh'</code></p>
+</li>
+<li>
+<p>进入服务器，并输入</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info <span class="p">|</span> tic -x -
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="四传输文件">四、传输文件</h1>
+<h2 id="41-从本地到远程">4.1 从本地到远程</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">scp 本地路径 USER_NAME@IP:远程路径
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="42-从远程到本地">4.2 从远程到本地</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">scp USER_NAME@IP:远程路径 本地路径
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="五连接vpn">五、连接VPN</h1>
+<h2 id="51-下载openvpn">5.1 下载<code>openvpn</code></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo apt install openvpn
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="52-下载指定脚本并运行">5.2 下载指定脚本并运行</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -O https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-install.sh
+</span></span><span class="line"><span class="cl">chmod <span class="m">775</span> openvpn-install.sh
+</span></span><span class="line"><span class="cl">sudo ./openvpn-install.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="53-在本地电脑安装openvpn及其配件">5.3 在本地电脑安装<code>openvpn</code>及其配件</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo pacman -S openvpn networkmanager-openvpn
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="54-将远端配置下载到本地">5.4 将远端配置下载到本地</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">scp USER_NAME@IP:/home/flyfan/flyfan.ovpn Downloads/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>flyfan</code>是用户名</li>
 </ul>
 
 </section>
