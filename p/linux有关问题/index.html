@@ -288,6 +288,11 @@ sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
         <li><a href="#15-清理内存">1.5 清理内存</a></li>
       </ul>
     </li>
+    <li><a href="#二常见指令及其选项组合">二、常见指令及其选项组合</a>
+      <ul>
+        <li><a href="#21-解压类">2.1 解压类</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
         </div>
@@ -532,7 +537,36 @@ sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
 <li>
 <p>使用<code>yay -Sc</code>清楚缓存包</p>
 </li>
+<li>
+<p>使用 <code>sudo pacman -Scc</code>清除安装包</p>
+</li>
+<li>
+<p>使用 <code>sudo pacman -Qdtq</code>找出无用的依赖包并清除</p>
+</li>
+<li>
+<p>清理日志</p>
+</li>
 </ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo journalctl --disk-usage                      <span class="c1">#查看日志内存</span>
+</span></span><span class="line"><span class="cl">sudo journalctl --vacuum-time<span class="o">=</span>5d                  <span class="c1">#超过5天的自动删除</span>
+</span></span><span class="line"><span class="cl">sudo journalctl --vacuum-size<span class="o">=</span>500M                <span class="c1">#超过500M的自动删除</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="二常见指令及其选项组合">二、常见指令及其选项组合</h1>
+<h2 id="21-解压类">2.1 解压类</h2>
+<ol>
+<li>解压<code>.tar.gz</code>文件</li>
+</ol>
+<ul>
+<li><code>tar -zxvf</code></li>
+</ul>
 
 </section>
 
@@ -598,6 +632,19 @@ sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
             
                 
 <article class="">
+    <a href="/p/%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%84%9A%E6%9C%AC/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">自动化交互式脚本</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/">
         
         
@@ -643,19 +690,6 @@ sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
 
         <div class="article-details">
             <h2 class="article-title">ArchLinux开机分区安装</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/git/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Git</h2>
         </div>
     </a>
 </article>
