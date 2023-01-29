@@ -472,9 +472,15 @@ sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
 </ul>
 <h2 id="14-如何创建hugo博客">1.4 如何创建hugo博客</h2>
 <ol>
-<li><code>sudo pacman -S hugo</code>下载hugo</li>
-<li><code>hugo version</code>查看hugo版本有没有<code>extended</code></li>
-<li><code>hugo new site blog</code> 创建hugo的博客文件夹</li>
+<li>
+<p><code>sudo pacman -S hugo</code>下载hugo</p>
+</li>
+<li>
+<p><code>hugo version</code>查看hugo版本有没有<code>extended</code></p>
+</li>
+<li>
+<p><code>hugo new site blog</code> 创建hugo的博客文件夹</p>
+</li>
 </ol>
 <ul>
 <li>进入<code>blog</code>文件夹<code>git init</code>初始化</li>
@@ -495,8 +501,12 @@ sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
 <li><code>hugo server -D</code>启动本地服务器</li>
 </ol>
 <ul>
-<li>使用<code>hugo -D</code>将已写的blog放入public文件夹</li>
-<li>Ctrl+C退出服务器</li>
+<li>
+<p>使用<code>hugo -D</code>将已写的blog放入public文件夹</p>
+</li>
+<li>
+<p>Ctrl+C退出服务器</p>
+</li>
 </ul>
 <ol start="7">
 <li>建立github仓库</li>
@@ -505,9 +515,15 @@ sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
 <li>仓库名<code>&lt;username&gt;.github.io</code></li>
 </ul>
 <ol start="8">
-<li>在<code>config.toml</code>中添加`theme``为自己想要的theme</li>
-<li><code>hugo -D</code>在本地生成public文件准备部署</li>
-<li><strong>进入<code>public</code>文件夹</strong></li>
+<li>
+<p>在<code>config.toml</code>中添加`theme``为自己想要的theme</p>
+</li>
+<li>
+<p><code>hugo -D</code>在本地生成public文件准备部署</p>
+</li>
+<li>
+<p><strong>进入<code>public</code>文件夹</strong></p>
+</li>
 </ol>
 <ul>
 <li>使用我写的脚本<code>.push</code></li>
@@ -520,17 +536,6 @@ sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
 </ul>
 <h2 id="15-清理内存">1.5 清理内存</h2>
 <ol>
-<li>使用<code>pacman</code>彻底清除</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo pacman -Rns <span class="k">$(</span>pacman -Qtdq<span class="k">)</span> 包名称
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
 <li>
 <p>使用<code>paccache -r</code>清除缓存包</p>
 </li>
