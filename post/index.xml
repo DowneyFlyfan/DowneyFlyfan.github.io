@@ -5417,10 +5417,10 @@ $$&lt;/p&gt;
         <pubDate>Sat, 03 Dec 2022 19:17:23 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87/</guid>
-        <description>&lt;h1 id=&#34;第一部分&#34;&gt;第一部分&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;第一章&#34;&gt;第一章&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;intersection交&lt;/p&gt;
+&lt;p&gt;intersection 交&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;union 并&lt;/p&gt;
@@ -5481,6 +5481,18 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;pair wise independence 两两相互独立&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sampling without replacement 不放回抽样&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sampling with replacement 放回抽样&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;permutation 排列数($A_m^n$)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;combination 组合数 ($C_m^n$)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;第二部分&#34;&gt;第二部分&lt;/h1&gt;
@@ -8908,13 +8920,15 @@ $$&lt;/p&gt;
 \\ 和事件:\bigcup^n_{i=1}A_i: A_i中至少有一个发生\\\
 \\ 积事件: \bigcap_{i=1}^nA_i:A_i同时发生\\\
 \\ A\bigcap B可以简写成AB,以此类推\\\
-\\  \pmb{互斥事件/互不相容}\\\
+\\  \pmb{互斥事件/互不相容 \ \ disjoint \ event}\\\
 \\ 当AB=\phi时，A,B互斥\\\
 \\  \pmb{逆事件/对立事件}\overline A\\\
 \\ 记\overline A为A的逆事件,有\begin{cases} A\bigcup \overline A =S \\ A\overline A = \phi \end{cases}\\\
 \\ 上述定理 的逆定理也成立\\\
 \\  \pmb{差事件} \\\
 \\ A\overline B = A - B \Leftrightarrow {x|x\in A ,x\notin B}\\\
+\\ \pmb{补集} \\\
+\\ A^C = {{s \in S|s \notin A}}
 $$&lt;/p&gt;
 &lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;和、积关系式 —— 德摩根定律&lt;/li&gt;
@@ -8965,7 +8979,7 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;若$A_1,A_2&amp;hellip;A_n$两两互斥,则$P(\bigcup_{i=1}^k A_i) = \sum_{i=1}^kP(A_i)$&lt;/li&gt;
+&lt;li&gt;若$A_1,A_2&amp;hellip;A_n$两两互斥(&lt;strong&gt;disjoint events&lt;/strong&gt;),则$P(\bigcup_{i=1}^k A_i) = \sum_{i=1}^kP(A_i)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;222-性质&#34;&gt;2.2.2 性质&lt;/h3&gt;
 &lt;ol&gt;
@@ -9006,10 +9020,32 @@ $$&lt;/p&gt;
 &lt;li&gt;等可能性&lt;/li&gt;
 &lt;li&gt;有限性&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;32-组合数&#34;&gt;3.2 组合数&lt;/h2&gt;
+&lt;p&gt;$$
+A_n^m = \frac{n!}{(n-k)!}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;33-选择数&#34;&gt;3.3 选择数&lt;/h2&gt;
+&lt;p&gt;$$
+C_m^n = \tbinom{m}{n} =\frac{n!}{m!(n-m)!}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;34-多项选择数&#34;&gt;3.4 多项选择数&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;含义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从$n$个数中选$k$组，每一组的个数分别为$n_1,&amp;hellip;,n_k$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;公式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\tbinom{n}{n_1,n_2,&amp;hellip;,n_k} = \frac{n!}{n_1!&amp;hellip;n_k!} \\\
+\\ \sum_{i=0}^k n_i = n \ \ \ 限制条件，很重要!!!
+$$&lt;/p&gt;
 &lt;h1 id=&#34;四条件概率&#34;&gt;四、条件概率&lt;/h1&gt;
 &lt;h2 id=&#34;41-定义&#34;&gt;4.1 定义&lt;/h2&gt;
 &lt;p&gt;$$
-P(B|A)=\frac{P(AB)}{P(A)},P(A)\neq 0
+P(B|A)=\frac{P(AB)}{P(A)} = \frac{N(AB)}{N(A)},P(A)\neq 0
 $$&lt;/p&gt;
 &lt;h2 id=&#34;42-性质&#34;&gt;4.2 性质&lt;/h2&gt;
 &lt;p&gt;$$
