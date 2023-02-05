@@ -191,7 +191,7 @@ $$&lt;/p&gt;
 \\ (\Delta E )(\Delta t) \ge \frac{h}{2\pi} \\\
 \\ 科学家们给这个常用的量换了个名字: \ \hbar = \frac{h}{2\pi}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;二一维薛定谔方程&#34;&gt;二、一维薛定谔方程&lt;/h1&gt;
+&lt;h1 id=&#34;二一维薛定谔方程时间无关形式&#34;&gt;二、一维薛定谔方程时间无关形式&lt;/h1&gt;
 &lt;h2 id=&#34;21-不考虑时间&#34;&gt;2.1 不考虑时间&lt;/h2&gt;
 &lt;p&gt;$$
 假设\varPhi(x) = Asinkx + Bcoskx \\\
@@ -214,20 +214,50 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \int_{三维} |\varPhi|^2dV = \int_{一维} |\varphi|^2dx = 1
 $$&lt;/p&gt;
-&lt;h2 id=&#34;24-一维方程--考虑时间&#34;&gt;2.4 一维方程 —— 考虑时间&lt;/h2&gt;
+&lt;h1 id=&#34;三薛定谔方程的时间有关形式&#34;&gt;三、薛定谔方程的时间有关形式&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;公式&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
--\frac{\hbar^2}{2m}\frac{\partial^2 \varPhi(x,t)}{\partial x^2} + U(x) \cdot \varphi(x,t) = i\hbar \frac{\partial^2 \varphi(x,t)}{\partial t^2} \\\
-\\ 很多时候， \varPhi(x,t) = \varphi(x)\cdot f(t)
+-\frac{\hbar^2}{2m}\frac{\partial^2 \varPhi(x,t)}{\partial x^2} + U(x) \cdot \varPhi(x,t) = i\hbar \frac{\partial \varPhi(x,t)}{\partial t} \\\
+\\ 很多时候， \varPhi(x,t) = \varphi(x)\cdot f(t)\\\
+\\ \therefore -\frac{\hbar}{2m} \frac{d\varphi^2(x)}{dx^2}\cdot f(t) + U(x) \cdot \varphi(x)\cdot f(t) = i\hbar \frac{df(t)}{dt}\varphi(x) \\\
+\\ 两边同时除以f(t)\cdot \varphi(x) \\\
+\\ -\frac{\hbar}{2m}\frac{1}{\varphi(x)} \frac{d\varphi^2(x)}{dx^2} + U(x) = i\hbar \frac{1}{f(t)} \frac{df(t)}{dt} = C \\\
+\\ 对于上式，两边分别只有一个变量 \\\
+\\ 故分别让两边等于同一个常数即可 \\\
+\\ -\frac{\hbar}{2m} \frac{d^2\varphi(x)}{dx^2} +U(x) \varphi(x) = C\varphi(x) \\\
+\\ 注意到，上式与时间无关的以为薛定谔方程相同 \\\
+\\ \therefore C = E \\\
+\\ \therefore i\hbar \frac{1}{f(t)} \frac{df(t)}{dt} = E \\\
+\\ \therefore \frac{df(t)}{dt} = -i\frac{f(t)}{\hbar} E \\\
+\\ 解得：f(t) = e^{-i(\frac{E}{\hbar})t}
 $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;注意&lt;/li&gt;
+&lt;li&gt;波的方程&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;$$
+\varPhi(x,t)  =\varphi(x) e^{-i(\frac{E}{\hbar})t}\\\
+\\ 欧拉公式 \Longrightarrow |f(t)| =1 \Longrightarrow |f(t)|^2 = 1 \\\
+\\ \therefore |\varPhi(x,t)|^2 = |\varphi(x)|^2
+$$&lt;/p&gt;
+&lt;h1 id=&#34;四自由粒子-平面波-波包&#34;&gt;四、自由粒子 平面波 波包&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;自由粒子&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不受任何外力的粒子&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;在量子力学中，常数可能是复数&lt;/li&gt;
+&lt;li&gt;其势能为0&lt;/li&gt;
 &lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;自由粒子的薛定谔方程&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\frac{d^2\varPhi(x)}{dx^2} + \frac{2mE}{\hbar^2}\varPhi(x) = 0 \\\
+\\ 其中, k =\frac{2\pi}{\lambda} = \frac{p}{\hbar} = \sqrt{\frac{2mE}{\hbar^2}}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
