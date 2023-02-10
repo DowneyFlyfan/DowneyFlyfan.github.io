@@ -283,7 +283,6 @@ apt upgrade
         <li><a href="#31-创建新用户并赋予sudo权限">3.1 创建新用户并赋予<code>sudo</code>权限</a></li>
         <li><a href="#32-下载openssh-server">3.2 下载<code>openssh-server</code></a></li>
         <li><a href="#33-关闭防火墙">3.3 关闭防火墙</a></li>
-        <li><a href="#34-添加ssh密钥">3.4 添加SSH密钥</a></li>
         <li><a href="#35-下载openvpn">3.5 下载<code>openvpn</code></a></li>
         <li><a href="#36-下载指定脚本并运行">3.6 下载指定脚本并运行</a></li>
       </ul>
@@ -296,6 +295,7 @@ apt upgrade
     </li>
     <li><a href="#五连接vpn">五、连接VPN</a>
       <ul>
+        <li><a href="#51-设置ssh密钥">5.1 设置SSH密钥</a></li>
         <li><a href="#51-在本地电脑安装openvpn及其配件">5.1 在本地电脑安装<code>openvpn</code>及其配件</a></li>
         <li><a href="#52-安装openssh-client">5.2 安装<code>openssh-client</code></a></li>
         <li><a href="#52-将远端配置下载到本地">5.2 将远端配置下载到本地</a></li>
@@ -372,7 +372,7 @@ apt upgrade
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -523,8 +523,7 @@ apt upgrade
 </span></span><span class="line"><span class="cl">sudo ufw allow <span class="m">1194</span> <span class="c1"># 开放以上两个端口</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="34-添加ssh密钥">3.4 添加SSH密钥</h2>
-<h2 id="35-下载openvpn">3.5 下载<code>openvpn</code></h2>
+</div><h2 id="35-下载openvpn">3.5 下载<code>openvpn</code></h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -577,6 +576,54 @@ apt upgrade
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="五连接vpn">五、连接VPN</h1>
+<h2 id="51-设置ssh密钥">5.1 设置SSH密钥</h2>
+<ol>
+<li>创建密钥</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh-keygen <span class="c1"># 不要Overwrite</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>在**.ssh**中查看密钥
+<ul>
+<li><strong>id_rsa</strong>是私人密钥</li>
+<li><strong>id_rsa.pub</strong>是公共网络密钥</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>将SSH密钥添加到远程</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;USERNAME&gt;@IP
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>注意!!!管理员用户和普通用户都要添加</li>
+</ul>
+<ol start="3">
+<li>让SSH密钥成为唯一的登录密码</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo vi /etc/ssh/sshd_config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>找到<code>PasswordAuthentification</code>并改成<code>yes</code></li>
+</ul>
 <h2 id="51-在本地电脑安装openvpn及其配件">5.1 在本地电脑安装<code>openvpn</code>及其配件</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
