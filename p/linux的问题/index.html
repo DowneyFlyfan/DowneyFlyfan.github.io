@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='一、John Logie Baird 大事记 1.1 生卒年 1888.8.13 - 1946.6.14，享年58岁 1.2 文聘 Larchfield Academy, the Royal Technical College, and the University of Glasgow, 1.3 成就 1924 电视转播对象的轮廓图 Televised Objects in Outline 1925 传输第一个可识别的人脸 transmitted recognizable human faces 1926(1.26) 在伦敦皇家研究院演示了移动物体的电视转播 demonstrating the televising of moving objects in Royal Institution, London 1928 发明了世界上第一台彩色电视 Inventing the first colour television in 1928 1929 在德国邮局帮助下造出第一台电视装置 1936年，BBC开始电视转播，1937年，BBC购买了他的竞争者的电视系统,抛弃了他(悲)
-1946 造出立体电视 Build a stereoscopic television 二、Wikipedia的资料 2.1 出身 生于Helensburgh, Dunbartonshire,排行老四(老小)'>
-<title>准备Pre</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='普通问题 PKGBUILD和它的用法 内容与本质 一个shell脚本 一个 makepkg -s -r -i -c -si 自动安装依赖 卸载不需要的依赖项 自动升级安装 删除临时构建文件 常用 没有声音怎么办 1 2 3 sudo vim /etc/default/grub` GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg 如何创建hexo博客 创建目录mkdir blog
+设置权限
+进入并初始化目录
+1 2 3 hexo init hexo s(start) 进入本地网站localhost:4000 Ctrl &#43; C取消本地网站
+创建新博客hexo n &amp;lt;文章名&amp;gt;
+读写新博客cd source/_posts vim blog.md
+回到blog目录
+清除 hexo clean
+安装deployer
+sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
+部署 hexo d(deploy)
+如何创建hugo博客 sudo pacman -S hugo下载hugo'>
+<title>Linux的问题</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/%E5%87%86%E5%A4%87pre/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/linux%E7%9A%84%E9%97%AE%E9%A2%98/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='准备Pre'>
-<meta property='og:description' content='一、John Logie Baird 大事记 1.1 生卒年 1888.8.13 - 1946.6.14，享年58岁 1.2 文聘 Larchfield Academy, the Royal Technical College, and the University of Glasgow, 1.3 成就 1924 电视转播对象的轮廓图 Televised Objects in Outline 1925 传输第一个可识别的人脸 transmitted recognizable human faces 1926(1.26) 在伦敦皇家研究院演示了移动物体的电视转播 demonstrating the televising of moving objects in Royal Institution, London 1928 发明了世界上第一台彩色电视 Inventing the first colour television in 1928 1929 在德国邮局帮助下造出第一台电视装置 1936年，BBC开始电视转播，1937年，BBC购买了他的竞争者的电视系统,抛弃了他(悲)
-1946 造出立体电视 Build a stereoscopic television 二、Wikipedia的资料 2.1 出身 生于Helensburgh, Dunbartonshire,排行老四(老小)'>
-<meta property='og:url' content='https://downeyflyfan.com/p/%E5%87%86%E5%A4%87pre/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Linux的问题'>
+<meta property='og:description' content='普通问题 PKGBUILD和它的用法 内容与本质 一个shell脚本 一个 makepkg -s -r -i -c -si 自动安装依赖 卸载不需要的依赖项 自动升级安装 删除临时构建文件 常用 没有声音怎么办 1 2 3 sudo vim /etc/default/grub` GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg 如何创建hexo博客 创建目录mkdir blog
+设置权限
+进入并初始化目录
+1 2 3 hexo init hexo s(start) 进入本地网站localhost:4000 Ctrl &#43; C取消本地网站
+创建新博客hexo n &amp;lt;文章名&amp;gt;
+读写新博客cd source/_posts vim blog.md
+回到blog目录
+清除 hexo clean
+安装deployer
+sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
+部署 hexo d(deploy)
+如何创建hugo博客 sudo pacman -S hugo下载hugo'>
+<meta property='og:url' content='https://downeyflyfan.com/p/linux%E7%9A%84%E9%97%AE%E9%A2%98/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-02-11T05:29:37&#43;08:00'/><meta property='article:modified_time' content='2023-02-11T05:29:37&#43;08:00'/>
-<meta name="twitter:title" content="准备Pre">
-<meta name="twitter:description" content="一、John Logie Baird 大事记 1.1 生卒年 1888.8.13 - 1946.6.14，享年58岁 1.2 文聘 Larchfield Academy, the Royal Technical College, and the University of Glasgow, 1.3 成就 1924 电视转播对象的轮廓图 Televised Objects in Outline 1925 传输第一个可识别的人脸 transmitted recognizable human faces 1926(1.26) 在伦敦皇家研究院演示了移动物体的电视转播 demonstrating the televising of moving objects in Royal Institution, London 1928 发明了世界上第一台彩色电视 Inventing the first colour television in 1928 1929 在德国邮局帮助下造出第一台电视装置 1936年，BBC开始电视转播，1937年，BBC购买了他的竞争者的电视系统,抛弃了他(悲)
-1946 造出立体电视 Build a stereoscopic television 二、Wikipedia的资料 2.1 出身 生于Helensburgh, Dunbartonshire,排行老四(老小)">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='问题' /><meta property='article:published_time' content='2022-12-13T00:05:44&#43;08:00'/><meta property='article:modified_time' content='2022-12-13T00:05:44&#43;08:00'/>
+<meta name="twitter:title" content="Linux的问题">
+<meta name="twitter:description" content="普通问题 PKGBUILD和它的用法 内容与本质 一个shell脚本 一个 makepkg -s -r -i -c -si 自动安装依赖 卸载不需要的依赖项 自动升级安装 删除临时构建文件 常用 没有声音怎么办 1 2 3 sudo vim /etc/default/grub` GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg 如何创建hexo博客 创建目录mkdir blog
+设置权限
+进入并初始化目录
+1 2 3 hexo init hexo s(start) 进入本地网站localhost:4000 Ctrl &#43; C取消本地网站
+创建新博客hexo n &amp;lt;文章名&amp;gt;
+读写新博客cd source/_posts vim blog.md
+回到blog目录
+清除 hexo clean
+安装deployer
+sudo npm install --save hexo-deployer-git 生成 hexo g(generate)
+部署 hexo d(deploy)
+如何创建hugo博客 sudo pacman -S hugo下载hugo">
     </head>
     <body class="
     article-page
@@ -252,38 +282,22 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#一john-logie-baird-大事记">一、John Logie Baird 大事记</a>
+    <li><a href="#普通问题">普通问题</a>
       <ol>
-        <li><a href="#11-生卒年">1.1 生卒年</a></li>
-        <li><a href="#12-文聘">1.2 文聘</a></li>
-        <li><a href="#13-成就">1.3 成就</a>
-          <ol>
-            <li><a href="#1924-电视转播对象的轮廓图">1924 电视转播对象的轮廓图</a></li>
-            <li><a href="#1925-传输第一个可识别的人脸">1925 传输第一个可识别的人脸</a></li>
-            <li><a href="#1926126-在伦敦皇家研究院演示了移动物体的电视转播">1926(1.26) 在伦敦皇家研究院演示了移动物体的电视转播</a></li>
-            <li><a href="#1928-发明了世界上第一台彩色电视">1928 发明了世界上第一台彩色电视</a></li>
-            <li><a href="#1929-在德国邮局帮助下造出第一台电视装置">1929 在德国邮局帮助下造出第一台电视装置</a></li>
-            <li><a href="#1946-造出立体电视">1946 造出立体电视</a></li>
-          </ol>
-        </li>
+        <li><a href="#pkgbuild和它的用法">PKGBUILD和它的用法</a></li>
+        <li><a href="#没有声音怎么办">没有声音怎么办</a></li>
+        <li><a href="#如何创建hexo博客">如何创建hexo博客</a></li>
+        <li><a href="#如何创建hugo博客">如何创建hugo博客</a></li>
+        <li><a href="#清理内存">清理内存</a></li>
+        <li><a href="#开机分区的安装">开机分区的安装</a></li>
       </ol>
     </li>
-    <li><a href="#二wikipedia的资料">二、Wikipedia的资料</a>
+    <li><a href="#常见指令及其选项组合">常见指令及其选项组合</a>
       <ol>
-        <li><a href="#21-出身">2.1 出身</a></li>
-        <li><a href="#22-学历">2.2 学历</a></li>
-        <li><a href="#23-经历">2.3 经历</a>
-          <ol>
-            <li><a href="#231-学校生活">2.3.1 学校生活</a></li>
-            <li><a href="#232-电视研究">2.3.2 电视研究</a></li>
-            <li><a href="#233-广播">2.3.3 广播</a></li>
-            <li><a href="#234-晚年">2.3.4 晚年</a></li>
-          </ol>
-        </li>
-        <li><a href="#24-其他发明">2.4 其他发明</a></li>
+        <li><a href="#解压类">解压类</a></li>
       </ol>
     </li>
-    <li><a href="#演讲稿">演讲稿</a></li>
+    <li><a href="#待解决">待解决</a></li>
   </ol>
 </nav>
         </div>
@@ -302,8 +316,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E8%8B%B1%E8%AF%AD/" style="background-color: #2a9d8f; color: #fff;">
-                英语
+            <a href="/categories/linux/" style="background-color: #2a9d8f; color: #fff;">
+                Linux
             </a>
         
     </header>
@@ -311,7 +325,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%87%86%E5%A4%87pre/">准备Pre</a>
+            <a href="/p/linux%E7%9A%84%E9%97%AE%E9%A2%98/">Linux的问题</a>
         </h2>
     
         
@@ -333,7 +347,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Feb 11, 111111</time>
+                <time class="article-time--published">Dec 13, 131313</time>
             </div>
         
 
@@ -348,7 +362,7 @@
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -363,180 +377,315 @@
     <section class="article-content">
     
     
-    <h1 id="一john-logie-baird-大事记">一、John Logie Baird 大事记</h1>
-<h2 id="11-生卒年">1.1 生卒年</h2>
+    <h1 id="普通问题">普通问题</h1>
+<h2 id="pkgbuild和它的用法">PKGBUILD和它的用法</h2>
+<ol>
+<li>内容与本质</li>
+</ol>
 <ul>
-<li>1888.8.13 - 1946.6.14，享年58岁</li>
+<li>一个<u>shell脚本</u></li>
+<li>一个</li>
 </ul>
-<h2 id="12-文聘">1.2 文聘</h2>
+<ol start="2">
+<li><code>makepkg</code></li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">-s</th>
+<th style="text-align:center">-r</th>
+<th style="text-align:center">-i</th>
+<th style="text-align:center">-c</th>
+<th style="text-align:center">-si</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">自动安装依赖</td>
+<td style="text-align:center">卸载不需要的依赖项</td>
+<td style="text-align:center">自动升级安装</td>
+<td style="text-align:center">删除临时构建文件</td>
+<td style="text-align:center">常用</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="没有声音怎么办">没有声音怎么办</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo vim /etc/default/grub`
+</span></span><span class="line"><span class="cl">GRUB_CMDLINE_LINUX_DEFAULT=&#34;loglevel=3 snd_hda_intel.dmic_detect=0&#34;
+</span></span><span class="line"><span class="cl">sudo grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="如何创建hexo博客">如何创建hexo博客</h2>
+<ol>
+<li>
+<p>创建目录<code>mkdir blog</code></p>
+</li>
+<li>
+<p>设置权限</p>
+</li>
+<li>
+<p>进入并初始化目录</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hexo init
+</span></span><span class="line"><span class="cl">hexo s(start)
+</span></span><span class="line"><span class="cl">进入本地网站localhost:4000
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Ctrl + C取消本地网站</p>
+</li>
+<li>
+<p>创建新博客<code>hexo n &lt;文章名&gt;</code></p>
+</li>
+<li>
+<p>读写新博客<code>cd source/_posts vim blog.md</code></p>
+</li>
+<li>
+<p>回到blog目录</p>
+</li>
+<li>
+<p>清除 <code>hexo clean</code></p>
+</li>
+<li>
+<p>安装deployer</p>
 <ul>
-<li>Larchfield Academy, the Royal Technical College, and the University of Glasgow,</li>
+<li><code>sudo npm install --save hexo-deployer-git</code></li>
 </ul>
-<h2 id="13-成就">1.3 成就</h2>
-<h3 id="1924-电视转播对象的轮廓图">1924 电视转播对象的轮廓图</h3>
+</li>
+<li>
+<p>生成 <code>hexo g(generate)</code></p>
+</li>
+<li>
+<p>部署 <code>hexo d(deploy)</code></p>
+</li>
+</ul>
+<h2 id="如何创建hugo博客">如何创建hugo博客</h2>
+<ol>
+<li>
+<p><code>sudo pacman -S hugo</code>下载hugo</p>
+</li>
+<li>
+<p><code>hugo version</code>查看hugo版本有没有<code>extended</code></p>
+</li>
+<li>
+<p><code>hugo new site blog</code> 创建hugo的博客文件夹</p>
+</li>
+</ol>
 <ul>
-<li>Televised Objects in Outline</li>
+<li>进入<code>blog</code>文件夹<code>git init</code>初始化</li>
 </ul>
-<h3 id="1925-传输第一个可识别的人脸">1925 传输第一个可识别的人脸</h3>
+<ol start="4">
+<li><code>git clone ...</code>下载主题</li>
+</ol>
 <ul>
-<li>transmitted recognizable human faces</li>
+<li>主题可以在<code>https://themes.gohugo.io/</code>上查找并下载</li>
 </ul>
-<h3 id="1926126-在伦敦皇家研究院演示了移动物体的电视转播">1926(1.26) 在伦敦皇家研究院演示了移动物体的电视转播</h3>
+<ol start="5">
+<li><code>hugo new post/name.md</code>创建新的博客文章</li>
+</ol>
 <ul>
-<li>demonstrating the televising of moving objects in <em>Royal Institution, London</em></li>
+<li>进入<code>content/post</code>可进行编辑</li>
 </ul>
-<h3 id="1928-发明了世界上第一台彩色电视">1928 发明了世界上第一台彩色电视</h3>
+<ol start="6">
+<li><code>hugo server -D</code>启动本地服务器</li>
+</ol>
 <ul>
-<li>Inventing the first colour television in 1928</li>
+<li>
+<p>使用<code>hugo -D</code>将已写的blog放入public文件夹</p>
+</li>
+<li>
+<p>Ctrl+C退出服务器</p>
+</li>
 </ul>
-<h3 id="1929-在德国邮局帮助下造出第一台电视装置">1929 在德国邮局帮助下造出第一台电视装置</h3>
+<ol start="7">
+<li>建立github仓库</li>
+</ol>
+<ul>
+<li>仓库名<code>&lt;username&gt;.github.io</code></li>
+</ul>
+<ol start="8">
+<li>
+<p>在<code>config.toml</code>中添加`theme``为自己想要的theme</p>
+</li>
+<li>
+<p><code>hugo -D</code>在本地生成public文件准备部署</p>
+</li>
+<li>
+<p><strong>进入<code>public</code>文件夹</strong></p>
+</li>
+</ol>
+<ul>
+<li>使用我写的脚本<code>.push</code></li>
+</ul>
 <blockquote>
-<p>1936年，BBC开始电视转播，1937年，BBC购买了他的竞争者的电视系统,抛弃了他(悲)</p>
+<p>对于public文件夹</p>
 </blockquote>
-<h3 id="1946-造出立体电视">1946 造出立体电视</h3>
 <ul>
-<li>Build a stereoscopic television</li>
+<li><code>hugo -D</code>创建</li>
 </ul>
-<h1 id="二wikipedia的资料">二、Wikipedia的资料</h1>
-<h2 id="21-出身">2.1 出身</h2>
+<h2 id="清理内存">清理内存</h2>
 <ol>
 <li>
-<p>生于Helensburgh, Dunbartonshire,排行老四(老小)</p>
+<p>使用<code>paccache -r</code>清除缓存包</p>
 </li>
 <li>
-<p>父亲是the Church of Scotland&rsquo;s minister for the local St Bride&rsquo;s Church(苏格兰教会当地圣新娘教堂的牧师)</p>
+<p>使用<code>yay -Sc</code>清楚缓存包</p>
 </li>
 <li>
-<p>母亲是the orphaned niece of a wealthy family of shipbuilders from Glasgow(格拉斯哥造船业富裕家庭的孤侄女)</p>
+<p>使用 <code>sudo pacman -Scc</code>清除安装包</p>
+</li>
+<li>
+<p>使用 <code>sudo pacman -Qdtq</code>找出无用的依赖包并清除</p>
+</li>
+<li>
+<p>清理日志</p>
 </li>
 </ol>
-<h2 id="22-学历">2.2 学历</h2>
-<ol>
-<li>
-<p>Larchfield Academy</p>
-</li>
-<li>
-<p>the Glasgow and West of Scotland Technical College</p>
-</li>
-<li>
-<p>the University of Glasgow</p>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo journalctl --disk-usage                      <span class="c1">#查看日志内存</span>
+</span></span><span class="line"><span class="cl">sudo journalctl --vacuum-time<span class="o">=</span>5d                  <span class="c1">#超过5天的自动删除</span>
+</span></span><span class="line"><span class="cl">sudo journalctl --vacuum-size<span class="o">=</span>500M                <span class="c1">#超过500M的自动删除</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="6">
+<li>删除特定名称的文件</li>
 </ol>
-<h2 id="23-经历">2.3 经历</h2>
-<h3 id="231-学校生活">2.3.1 学校生活</h3>
-<ol>
-<li>
-<p>刻苦钻研<strong>工程课程</strong>，把身体累垮了(ill health)</p>
-</li>
-<li>
-<p>成为了<strong>社会主义者</strong>，<strong>不可知论者</strong>(agnostic)</p>
-</li>
-<li>
-<p>学业因第一次世界大战终止,终究没能毕业</p>
-</li>
-<li>
-<p>1915年进入英国军队(British Army)，进行自愿(Volunteer)工作，被判定为不适合现役(unfit for active duty),没去前线。</p>
-</li>
-<li>
-<p>之后去了家电力公司，研究弹药</p>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo find / -name <span class="s2">&#34;openssl&#34;</span> -type f -delete
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="7">
+<li>定期清理浏览器缓存</li>
 </ol>
-<h3 id="232-电视研究">2.3.2 电视研究</h3>
+<h2 id="开机分区的安装">开机分区的安装</h2>
 <ol>
-<li>
-<p>1923年,搬到Linton Crescent, Hastings(英格兰南部海岸),租了个作坊(workshop),造了世界上第一台工作电视机(Working Television Set)</p>
-</li>
-<li>
-<p>1924年2月,他向一家报刊证实了semi-mechanical analogue television system的可行性</p>
-</li>
-<li>
-<p>1924年7月，遭1000V电击幸存，无大碍，被房东赶走</p>
-</li>
-<li>
-<p>不久搬到伦敦,向新闻报刊宣传他的成果，大家都不相信，觉得他是疯子</p>
-</li>
-<li>
-<p>他使用the Nipkow disk进行试验，这一设备同样被很多人用来研究broadcast medium</p>
-</li>
-<li>
-<p>1924年6月购买了一种电池(cell),他通过<strong>优化电池的信号、温度调节</strong>以及自己定制的<strong>视频放大器</strong>产生了<strong>实时、可移动</strong>的<strong>灰度</strong>画面,<em><strong>这是其他发明家所没有完成的</strong></em>[23]</p>
-</li>
-<li>
-<p>1925年3月25日开始通过电视公开展示移动剪影图像[24]</p>
-</li>
-<li>
-<p>1925年10月2日，他成功传输了带有灰度图像(greyscale image)的电视画面和人脸[21][22]</p>
-</li>
-<li>
-<p>1926年1月26日，首次向皇家学会成员和记者展示真实电视图像[5]</p>
-</li>
-<li>
-<p>1928年7月3日，向世界展示了首个彩色电视图像[28][29]</p>
-</li>
+<li>新建boot分区</li>
 </ol>
-<h3 id="233-广播">2.3.3 广播</h3>
-<ol>
-<li>
-<p>1927年5月，在伦敦向<strong>438英里</strong>外的格拉斯哥长距离转播电视画面[31],这是对贝尔实验室<strong>225英里</strong>长距离传输的挑战[32]</p>
-</li>
-<li>
-<p>1928年和1929年11月，分别在英国和法国建立了电视公司(法国的公司是和Bernard Natan合伙开的)[33]</p>
-</li>
-<li>
-<p>1936年，贝尔德的电视设备在南伦敦的水晶宫(Crystal Palace)中引起了大火,审判持续了6个月</p>
-</li>
-<li>
-<p>1937年2月, Baird电视系统被BBC抛弃，原因是</p>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">fidsk -l
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>挂载分区</li>
 </ol>
 <ul>
-<li>
-<p>the lack of mobility of the Baird system&rsquo;s cameras, with their developer tanks, hoses, and cables.[41]</p>
-</li>
-<li>
-<p>取而代之的是EMI Marconi公司的 first fully electronic television system[42]</p>
-</li>
+<li>挂载根目录分区与开机分区</li>
 </ul>
-<h3 id="234-晚年">2.3.4 晚年</h3>
-<ol>
-<li>
-<p>自1944年12月起，一直住在1 Station Road, Bexhill-on-Sea, East Sussex,2007年被拆除[53]</p>
-</li>
-<li>
-<p>1946年2月中风，6月14日去世[53]</p>
-</li>
-<li>
-<p>与父母葬在一起[54]</p>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mount /dev/nvme0n1p6 /mnt
+</span></span><span class="line"><span class="cl">mount /dev/nvme0n1p8 /mnt/boot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>生成文件系统自动挂载分区(可删除先前的)</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>安装内核</li>
 </ol>
-<h2 id="24-其他发明">2.4 其他发明</h2>
-<ol>
-<li>
-<p>二十余岁尝试通过加热石墨制造钻石,失败[15]</p>
-</li>
-<li>
-<p>玻璃剃须刀(glass razor), 但易碎[15]</p>
-</li>
-<li>
-<p>充气鞋(pneumatic shoes),失败。但他的这一想法被Dr.Martens在多年后实现了[15]</p>
-</li>
-<li>
-<p>保暖袜 thermal undersock (the Baird undersock),取得一定成功。他本人有脚冷症(Cold Feet),这对他有一定用处[15]</p>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">arch-chroot /mnt
+</span></span><span class="line"><span class="cl">pacman -S base linux linux-firmware
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>安装引导</li>
 </ol>
-<h1 id="演讲稿">演讲稿</h1>
-<p>Good afternoon, everyone:</p>
-<p>Today, I&rsquo;d like to talk to you about John Logie Baird, Someone calls him the Father of television. I&rsquo;m Downey, and this is my partner Larry.</p>
-<p>As a pioneer in the field of electronics and electrical engineering. Baird is widely recognized for his work in inventing the world&rsquo;s first television system, which revolutionized the entertainment industry and transformed how we communicate.</p>
-<p>It&rsquo;s important to recognize that Baird was not solely responsible for his achievements. He built upon the work of others, such as Paul Nipkow&rsquo;s invention of the Nipkow disk, which allowed for the scanning of images. However, Baird was able to improve upon this technology and create a working television system.</p>
-<p>It&rsquo;s likely that someone else would have eventually made similar developments or discoveries, as advancements in technology were rapidly evolving during this time. However, Baird&rsquo;s ingenuity and persistence in pushing the boundaries of technology were instrumental in making his television system a reality.</p>
-<p>Baird&rsquo;s early family life did not have a significant impact on his achievements. He was born into a modest family and faced financial challenges throughout his life. However, this did not deter him from pursuing his passion for electronics and engineering.</p>
-<p>If sth. has the greatest influence on how Baird achieved his dream. I would say, that&rsquo;s the formal education he received in physics, engineering, and electrical science. He attended the Glasgow and West of Scotland Technical College, where he studied electrical engineering. This foundation allowed him to understand the underlying principles of electronics and develop new technologies.</p>
-<p>Of course, financial support also played a critical role in his success. He received funding from various sources, including the British Broadcasting Corporation (BBC), which allowed him to continue his research and development. Without this financial support, Baird may not have been able to bring his television system to fruition.</p>
-<p>Such is John Logie Baird. A visionary inventor who was also an exceptional individual who made significant contributions to the field of electronics and electrical engineering.</p>
-<p>Though facing difficulties along the way, he has never been beaten. And the great influence they have on other people, the field of communication, and
-other people are yet to be presented.</p>
-<p>Larry.</p>
+<ul>
+<li>安装徽码</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ pacman -S intel-ucode
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>安装引导</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/boot --bootloader-id<span class="o">=</span>Arch --recheck
+</span></span><span class="line"><span class="cl">grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>退出并重启</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">$ umount -R /mnt
+</span></span><span class="line"><span class="cl">$ reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="常见指令及其选项组合">常见指令及其选项组合</h1>
+<h2 id="解压类">解压类</h2>
+<ol>
+<li>解压<code>.tar.gz</code>文件</li>
+</ol>
+<ul>
+<li><code>tar -zxvf</code></li>
+</ul>
+<h1 id="待解决">待解决</h1>
 
 </section>
 
@@ -544,6 +693,8 @@ other people are yet to be presented.</p>
     <footer class="article-footer">
     
     <section class="article-tags">
+        
+            <a href="/tags/%E9%97%AE%E9%A2%98/">问题</a>
         
     </section>
 
@@ -600,12 +751,12 @@ other people are yet to be presented.</p>
             
                 
 <article class="">
-    <a href="/p/presentation/">
+    <a href="/p/%E5%BA%94%E8%AF%95/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Presentation</h2>
+            <h2 class="article-title">应试</h2>
         </div>
     </a>
 </article>
@@ -613,12 +764,51 @@ other people are yet to be presented.</p>
             
                 
 <article class="">
-    <a href="/p/group-discussion/">
+    <a href="/p/yaml%E8%AF%AD%E6%B3%95/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Group Discussion</h2>
+            <h2 class="article-title">YAML语法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">图形界面</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%84%9A%E6%9C%AC/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">自动化交互式脚本</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">搭建服务器</h2>
         </div>
     </a>
 </article>
