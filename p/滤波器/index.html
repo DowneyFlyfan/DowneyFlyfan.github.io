@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='转移函数 定义 将电路方程从时域转为频域，获得一个关于$\omega$的方程
+$$ H(\omega) = \frac{V_{out}}{V_{in}} $$
+相关概念 $$ |H(\omega)|被称为magnitude \ response，20lg(|H(\omega)|)叫做\pmb{Gain} \\\ \\ \angle H(\omega)被称为phase \ response $$
+理想滤波器 定义 通过特定频率的信号，阻碍不需要的频率的信号
+分类 LPF: Lowpass filter 低通滤波器
+HPF: Highpass filter 高通滤波器
+BPF: Bandpass filter 带通滤波器
+BSF: Bandstop filter 带阻滤波器
+Gain 图示
+abcd分别对应1234 应用 RC电路 图示 推导 $$ H(\omega) = \frac{\frac{1}{j\omega C}}{\frac{1}{j\omega C}&#43;R} = \frac{\frac{1}{RC}}{j\omega &#43; \frac{1}{RC}} = \frac{\frac{1}{RC}}{\sqrt{\omega^2 &#43; (\frac{1}{RC}})^2}e^{-jtan^{-1}(\omega RC)} \\\ \\ \therefore |H(\omega)| = \frac{\frac{1}{RC}}{\sqrt{\omega^2 &#43; (\frac{1}{RC}})^2} \\\ \\ \angle H(\omega) = tan^{-1}(\omega RC) \\\ \\ 当\omega = \frac{1}{RC}时，|H(\omega)| = \frac{1}{\sqrt 2} ，Gain = 20lg(|H(\omega)|) = -3.'>
+<title>滤波器</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='滤波器'>
+<meta property='og:description' content='转移函数 定义 将电路方程从时域转为频域，获得一个关于$\omega$的方程
+$$ H(\omega) = \frac{V_{out}}{V_{in}} $$
+相关概念 $$ |H(\omega)|被称为magnitude \ response，20lg(|H(\omega)|)叫做\pmb{Gain} \\\ \\ \angle H(\omega)被称为phase \ response $$
+理想滤波器 定义 通过特定频率的信号，阻碍不需要的频率的信号
+分类 LPF: Lowpass filter 低通滤波器
+HPF: Highpass filter 高通滤波器
+BPF: Bandpass filter 带通滤波器
+BSF: Bandstop filter 带阻滤波器
+Gain 图示
+abcd分别对应1234 应用 RC电路 图示 推导 $$ H(\omega) = \frac{\frac{1}{j\omega C}}{\frac{1}{j\omega C}&#43;R} = \frac{\frac{1}{RC}}{j\omega &#43; \frac{1}{RC}} = \frac{\frac{1}{RC}}{\sqrt{\omega^2 &#43; (\frac{1}{RC}})^2}e^{-jtan^{-1}(\omega RC)} \\\ \\ \therefore |H(\omega)| = \frac{\frac{1}{RC}}{\sqrt{\omega^2 &#43; (\frac{1}{RC}})^2} \\\ \\ \angle H(\omega) = tan^{-1}(\omega RC) \\\ \\ 当\omega = \frac{1}{RC}时，|H(\omega)| = \frac{1}{\sqrt 2} ，Gain = 20lg(|H(\omega)|) = -3.'>
+<meta property='og:url' content='https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-02-21T16:22:32&#43;00:00'/><meta property='article:modified_time' content='2023-02-21T16:22:32&#43;00:00'/>
+<meta name="twitter:title" content="滤波器">
+<meta name="twitter:description" content="转移函数 定义 将电路方程从时域转为频域，获得一个关于$\omega$的方程
+$$ H(\omega) = \frac{V_{out}}{V_{in}} $$
+相关概念 $$ |H(\omega)|被称为magnitude \ response，20lg(|H(\omega)|)叫做\pmb{Gain} \\\ \\ \angle H(\omega)被称为phase \ response $$
+理想滤波器 定义 通过特定频率的信号，阻碍不需要的频率的信号
+分类 LPF: Lowpass filter 低通滤波器
+HPF: Highpass filter 高通滤波器
+BPF: Bandpass filter 带通滤波器
+BSF: Bandstop filter 带阻滤波器
+Gain 图示
+abcd分别对应1234 应用 RC电路 图示 推导 $$ H(\omega) = \frac{\frac{1}{j\omega C}}{\frac{1}{j\omega C}&#43;R} = \frac{\frac{1}{RC}}{j\omega &#43; \frac{1}{RC}} = \frac{\frac{1}{RC}}{\sqrt{\omega^2 &#43; (\frac{1}{RC}})^2}e^{-jtan^{-1}(\omega RC)} \\\ \\ \therefore |H(\omega)| = \frac{\frac{1}{RC}}{\sqrt{\omega^2 &#43; (\frac{1}{RC}})^2} \\\ \\ \angle H(\omega) = tan^{-1}(\omega RC) \\\ \\ 当\omega = \frac{1}{RC}时，|H(\omega)| = \frac{1}{\sqrt 2} ，Gain = 20lg(|H(\omega)|) = -3.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#转移函数">转移函数</a>
+      <ol>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#相关概念">相关概念</a></li>
+      </ol>
+    </li>
+    <li><a href="#理想滤波器">理想滤波器</a>
+      <ol>
+        <li><a href="#定义-1">定义</a></li>
+        <li><a href="#分类">分类</a></li>
+      </ol>
+    </li>
+    <li><a href="#应用">应用</a>
+      <ol>
+        <li><a href="#rc电路">RC电路</a>
+          <ol>
+            <li><a href="#图示">图示</a></li>
+            <li><a href="#推导">推导</a></li>
+            <li><a href="#结论">结论</a></li>
+          </ol>
+        </li>
+        <li><a href="#cr电路">CR电路</a>
+          <ol>
+            <li><a href="#图示-1">图示</a></li>
+            <li><a href="#推导-1">推导</a></li>
+            <li><a href="#结论-1">结论</a></li>
+          </ol>
+        </li>
+        <li><a href="#串联rlc低通滤波器---rlc电路">串联RLC低通滤波器 - RLC电路</a>
+          <ol>
+            <li><a href="#图示-2">图示</a></li>
+            <li><a href="#推导-2">推导</a></li>
+          </ol>
+        </li>
+        <li><a href="#串联rlc带通滤波器---lcr电路">串联RLC带通滤波器 - LCR电路</a>
+          <ol>
+            <li><a href="#图示-3">图示</a></li>
+            <li><a href="#推导-3">推导</a></li>
+          </ol>
+        </li>
+        <li><a href="#串联rlc带阻滤波器---rcl电路">串联RLC带阻滤波器 - RCL电路</a>
+          <ol>
+            <li><a href="#电路-大小-相量-gain">电路 大小 相量 Gain</a></li>
+            <li><a href="#带宽">带宽</a></li>
+          </ol>
+        </li>
+        <li><a href="#并联rlc低通滤波器">并联RLC低通滤波器</a>
+          <ol>
+            <li><a href="#电路-大小-相量-截止频率">电路 大小 相量 截止频率</a></li>
+          </ol>
+        </li>
+        <li><a href="#并联rlc高通滤波器">并联RLC高通滤波器</a>
+          <ol>
+            <li><a href="#电路-大小-相量-截止频率-1">电路 大小 相量 截止频率</a></li>
+          </ol>
+        </li>
+        <li><a href="#并联rlc带通滤波器">并联RLC带通滤波器</a></li>
+        <li><a href="#并联rlc带阻滤波器">并联RLC带阻滤波器</a></li>
+        <li><a href="#其他电路">其他电路</a>
+          <ol>
+            <li><a href="#lr电路是lpf">LR电路是LPF</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#转角频率">转角频率</a></li>
+        <li><a href="#截止频率">截止频率</a></li>
+        <li><a href="#判断滤波器类型">判断滤波器类型</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%94%B5%E8%B7%AF/" style="background-color: #2a9d8f; color: #fff;">
+                电路
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/">滤波器</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 21, 212121</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="转移函数">转移函数</h1>
+<h2 id="定义">定义</h2>
+<blockquote>
+<p>将电路方程从时域转为频域，获得一个关于$\omega$的方程</p>
+</blockquote>
+<p>$$
+H(\omega) = \frac{V_{out}}{V_{in}}
+$$</p>
+<h2 id="相关概念">相关概念</h2>
+<p>$$
+|H(\omega)|被称为magnitude \ response，20lg(|H(\omega)|)叫做\pmb{Gain} \\\
+\\ \angle H(\omega)被称为phase \ response
+$$</p>
+<h1 id="理想滤波器">理想滤波器</h1>
+<h2 id="定义-1">定义</h2>
+<blockquote>
+<p>通过特定频率的信号，阻碍不需要的频率的信号</p>
+</blockquote>
+<h2 id="分类">分类</h2>
+<ol>
+<li>
+<p><em><strong>LPF: Lowpass filter 低通滤波器</strong></em></p>
+</li>
+<li>
+<p><em><strong>HPF: Highpass filter 高通滤波器</strong></em></p>
+</li>
+<li>
+<p><em><strong>BPF: Bandpass filter 带通滤波器</strong></em></p>
+</li>
+<li>
+<p><em><strong>BSF: Bandstop filter 带阻滤波器</strong></em></p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Gain 图示</p>
+<ul>
+<li>abcd分别对应1234</li>
+</ul>
+</li>
+</ul>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/1.png"
+	width="708"
+	height="599"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/1_hudb3ce7b634fe51252fbbe4b079820fe8_58025_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/1_hudb3ce7b634fe51252fbbe4b079820fe8_58025_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="118"
+		data-flex-basis="283px"
+	
+></p>
+<h1 id="应用">应用</h1>
+<h2 id="rc电路">RC电路</h2>
+<h3 id="图示">图示</h3>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/2.png"
+	width="408"
+	height="418"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/2_hubed56d1da9f14bfe76df5fca69b58125_26084_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/2_hubed56d1da9f14bfe76df5fca69b58125_26084_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="97"
+		data-flex-basis="234px"
+	
+></p>
+<h3 id="推导">推导</h3>
+<p>$$
+H(\omega) = \frac{\frac{1}{j\omega C}}{\frac{1}{j\omega C}+R} = \frac{\frac{1}{RC}}{j\omega + \frac{1}{RC}} = \frac{\frac{1}{RC}}{\sqrt{\omega^2 + (\frac{1}{RC}})^2}e^{-jtan^{-1}(\omega RC)} \\\
+\\ \therefore |H(\omega)| = \frac{\frac{1}{RC}}{\sqrt{\omega^2 + (\frac{1}{RC}})^2} \\\
+\\ \angle H(\omega) = tan^{-1}(\omega RC) \\\
+\\ 当\omega = \frac{1}{RC}时，|H(\omega)| = \frac{1}{\sqrt 2} ，Gain = 20lg(|H(\omega)|) = -3.01(dB) \\\
+\\ 其中，\omega_0 = \frac{1}{RC}叫做3dB的截止频率
+$$</p>
+<h3 id="结论">结论</h3>
+<ul>
+<li><em><strong>RC电路是LPF（低通滤波器）</strong></em></li>
+</ul>
+<h2 id="cr电路">CR电路</h2>
+<h3 id="图示-1">图示</h3>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/3.png"
+	width="331"
+	height="365"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/3_huafb27d41edc7ace42f77caaaee97f63f_15297_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/3_huafb27d41edc7ace42f77caaaee97f63f_15297_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="90"
+		data-flex-basis="217px"
+	
+></p>
+<h3 id="推导-1">推导</h3>
+<p>$$
+同理，H(\omega) = \frac{\omega}{\sqrt{\omega^2 + (\frac{1}{RC})^2}} e^{j\Big[\frac{\pi}{2} - tan^{-1}(\omega RC) \Big]} \\\
+\\ |H(\omega)| = \frac{\omega}{\sqrt{\omega^2 + (\frac{1}{RC})^2}}  \\\
+\\ \angle H(\omega) =\frac{\pi}{2} - tan^{-1}(\omega RC) \\\
+\\ 当\omega_0 = \frac{1}{RC}时，可以得出与RC电路相同的计算结果
+$$</p>
+<h3 id="结论-1">结论</h3>
+<ul>
+<li><em><strong>CR电路是HPF(高通滤波器)</strong></em></li>
+</ul>
+<h2 id="串联rlc低通滤波器---rlc电路">串联RLC低通滤波器 - RLC电路</h2>
+<h3 id="图示-2">图示</h3>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/4.png"
+	width="546"
+	height="374"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/4_hua00edcca8f4b32c48c468c1d297dfd04_33686_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/4_hua00edcca8f4b32c48c468c1d297dfd04_33686_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="350px"
+	
+></p>
+<h3 id="推导-2">推导</h3>
+<p>$$
+H(\omega) = \frac{\frac{1}{LC}}{-\omega^2 + \frac{R}{L}j\omega + \frac{1}{LC}} \\\
+\\ |H(\omega)| = \frac{\omega^2}{\sqrt{\Big(\frac{1}{LC} - \omega^2\Big)^2 } + \Big( \frac{R}{L}\omega\Big)^2} \\\
+\\ \angle H(\omega) = \pi - tan^{-1}\Big(\frac{\frac{R}L{\omega}}{\frac{1}{LC}- \omega^2} \Big) \\\
+\\ 转角频率 \omega_0 = \frac{1}{\sqrt{LC}}
+$$</p>
+<h2 id="串联rlc带通滤波器---lcr电路">串联RLC带通滤波器 - LCR电路</h2>
+<h3 id="图示-3">图示</h3>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/5.png"
+	width="555"
+	height="381"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/5_hu8363dc6e0018de236d5ca806f1d32a5d_32480_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/5_hu8363dc6e0018de236d5ca806f1d32a5d_32480_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="349px"
+	
+></p>
+<h3 id="推导-3">推导</h3>
+<p>$$
+H(\omega) = \frac{\frac{R}{L}j\omega}{-\omega^2 + \frac{R}{L}j\omega + \frac{1}{LC}} \\\
+\\ |H(\omega)| = \frac{\frac{R}{L}\omega}{\sqrt{\Big(\frac{1}{LC} - \omega^2\Big)^2 } + \Big( \frac{R}{L}\omega\Big)^2} \\\
+\\ \angle H(\omega) = \frac{\pi}{2} - tan^{-1}\Big(\frac{\frac{R}L{\omega}}{\frac{1}{LC}- \omega^2} \Big) \\\
+\\ 转角频率 \omega_0 = \frac{1}{\sqrt{LC}} \\\
+\\ 下截止频率 \ \omega_1 = -\frac{R}{2L} + \frac{R}{2L} \sqrt{1 + \frac{4L}{R^2C}} \\\
+\\ 上截止频率 \ \omega_2 = \frac{R}{2L} + \frac{R}{2L} \sqrt{1 + \frac{4L}{R^2C}} \\\
+\\ 3dB带宽 \omega_{3dB} =\omega_2 - \omega_1 =\frac{R}{L}
+$$</p>
+<h2 id="串联rlc带阻滤波器---rcl电路">串联RLC带阻滤波器 - RCL电路</h2>
+<h3 id="电路-大小-相量-gain">电路 大小 相量 Gain</h3>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/6.png"
+	width="1218"
+	height="813"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/6_huc54ceba5cc1b5ab6735ed72a194f457f_156453_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/6_huc54ceba5cc1b5ab6735ed72a194f457f_156453_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="149"
+		data-flex-basis="359px"
+	
+></p>
+<h3 id="带宽">带宽</h3>
+<ul>
+<li>与LCR电路相同</li>
+</ul>
+<h2 id="并联rlc低通滤波器">并联RLC低通滤波器</h2>
+<h3 id="电路-大小-相量-截止频率">电路 大小 相量 截止频率</h3>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/7.png"
+	width="1215"
+	height="765"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/7_hu4e935929d7fb52d0a0f2b1b729db1868_145110_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/7_hu4e935929d7fb52d0a0f2b1b729db1868_145110_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="381px"
+	
+></p>
+<h2 id="并联rlc高通滤波器">并联RLC高通滤波器</h2>
+<h3 id="电路-大小-相量-截止频率-1">电路 大小 相量 截止频率</h3>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/8.png"
+	width="1204"
+	height="764"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/8_hu70885ccb21ec06a48c270deb645506dc_145157_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/8_hu70885ccb21ec06a48c270deb645506dc_145157_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="157"
+		data-flex-basis="378px"
+	
+></p>
+<h2 id="并联rlc带通滤波器">并联RLC带通滤波器</h2>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/9.png"
+	width="1189"
+	height="780"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/9_hua4a4e5276918cd01f48b7273bf51dc5b_151571_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/9_hua4a4e5276918cd01f48b7273bf51dc5b_151571_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="152"
+		data-flex-basis="365px"
+	
+></p>
+<h2 id="并联rlc带阻滤波器">并联RLC带阻滤波器</h2>
+<p><img src="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/10.png"
+	width="1191"
+	height="767"
+	srcset="/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/10_huf0e44efa8e3789e5b19d6590958cc874_152042_480x0_resize_box_3.png 480w, /p/%E6%BB%A4%E6%B3%A2%E5%99%A8/10_huf0e44efa8e3789e5b19d6590958cc874_152042_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="372px"
+	
+></p>
+<ul>
+<li>并联RLC的带通和带阻滤波器的带宽都是$\frac{1}{RC}$</li>
+</ul>
+<h2 id="其他电路">其他电路</h2>
+<h3 id="lr电路是lpf">LR电路是LPF</h3>
+<h1 id="附录">附录</h1>
+<h2 id="转角频率">转角频率</h2>
+<blockquote>
+<p>当输入信号频率为转角频率时，输出信号会下降$3dB$</p>
+</blockquote>
+<h2 id="截止频率">截止频率</h2>
+<blockquote>
+<p>HPF和LPF的频率过滤临界点</p>
+</blockquote>
+<ul>
+<li>通过解方程$|H(\omega)| = \frac{1}{\sqrt 2}$得到</li>
+</ul>
+<h2 id="判断滤波器类型">判断滤波器类型</h2>
+<ol>
+<li>
+<p>将$j\omega$替换为$s$</p>
+</li>
+<li>
+<p>解方程$H(\omega) = \frac{1}{\sqrt 2}$</p>
+</li>
+<li>
+<p>画出大致图像(开口方向和零点)</p>
+</li>
+</ol>
+<ul>
+<li>即可得出滤波器类型</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">拉普拉斯变换与其他函数</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%8A%9F%E7%8E%87%E8%AE%A1%E7%AE%97/1.d0e63dd397d5766a2a6aa31d08be2223_hu3d03a01dcc18bc5be0e67db3d8d209a6_78765_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 正弦稳态功率计算"
+                        
+                        data-hash="md5-0OY905fVdmoqaqMdCL4iIw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">正弦稳态功率计算</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/rlc%E7%94%B5%E8%B7%AF/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RLC电路</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E6%AD%A3%E5%BC%A6%E7%A8%B3%E6%80%81%E5%88%86%E6%9E%90/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">正弦稳态分析</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/rlrc%E7%94%B5%E8%B7%AF%E7%9A%84%E5%93%8D%E5%BA%94/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RL,RC电路的响应</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

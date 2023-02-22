@@ -6,7 +6,269 @@
         <description>Recent content on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 20 Feb 2023 09:40:14 +0000</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 21 Feb 2023 16:22:32 +0000</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>滤波器</title>
+        <link>https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/</link>
+        <pubDate>Tue, 21 Feb 2023 16:22:32 +0000</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/</guid>
+        <description>&lt;h1 id=&#34;转移函数&#34;&gt;转移函数&lt;/h1&gt;
+&lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将电路方程从时域转为频域，获得一个关于$\omega$的方程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+H(\omega) = \frac{V_{out}}{V_{in}}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;相关概念&#34;&gt;相关概念&lt;/h2&gt;
+&lt;p&gt;$$
+|H(\omega)|被称为magnitude \ response，20lg(|H(\omega)|)叫做\pmb{Gain} \\\
+\\ \angle H(\omega)被称为phase \ response
+$$&lt;/p&gt;
+&lt;h1 id=&#34;理想滤波器&#34;&gt;理想滤波器&lt;/h1&gt;
+&lt;h2 id=&#34;定义-1&#34;&gt;定义&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过特定频率的信号，阻碍不需要的频率的信号&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;分类&#34;&gt;分类&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;LPF: Lowpass filter 低通滤波器&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;HPF: Highpass filter 高通滤波器&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;BPF: Bandpass filter 带通滤波器&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;BSF: Bandstop filter 带阻滤波器&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Gain 图示&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;abcd分别对应1234&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/1.png&#34;
+	width=&#34;708&#34;
+	height=&#34;599&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/1_hudb3ce7b634fe51252fbbe4b079820fe8_58025_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/1_hudb3ce7b634fe51252fbbe4b079820fe8_58025_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;118&#34;
+		data-flex-basis=&#34;283px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;应用&#34;&gt;应用&lt;/h1&gt;
+&lt;h2 id=&#34;rc电路&#34;&gt;RC电路&lt;/h2&gt;
+&lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/2.png&#34;
+	width=&#34;408&#34;
+	height=&#34;418&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/2_hubed56d1da9f14bfe76df5fca69b58125_26084_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/2_hubed56d1da9f14bfe76df5fca69b58125_26084_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;97&#34;
+		data-flex-basis=&#34;234px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;推导&#34;&gt;推导&lt;/h3&gt;
+&lt;p&gt;$$
+H(\omega) = \frac{\frac{1}{j\omega C}}{\frac{1}{j\omega C}+R} = \frac{\frac{1}{RC}}{j\omega + \frac{1}{RC}} = \frac{\frac{1}{RC}}{\sqrt{\omega^2 + (\frac{1}{RC}})^2}e^{-jtan^{-1}(\omega RC)} \\\
+\\ \therefore |H(\omega)| = \frac{\frac{1}{RC}}{\sqrt{\omega^2 + (\frac{1}{RC}})^2} \\\
+\\ \angle H(\omega) = tan^{-1}(\omega RC) \\\
+\\ 当\omega = \frac{1}{RC}时，|H(\omega)| = \frac{1}{\sqrt 2} ，Gain = 20lg(|H(\omega)|) = -3.01(dB) \\\
+\\ 其中，\omega_0 = \frac{1}{RC}叫做3dB的截止频率
+$$&lt;/p&gt;
+&lt;h3 id=&#34;结论&#34;&gt;结论&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;RC电路是LPF（低通滤波器）&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;cr电路&#34;&gt;CR电路&lt;/h2&gt;
+&lt;h3 id=&#34;图示-1&#34;&gt;图示&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/3.png&#34;
+	width=&#34;331&#34;
+	height=&#34;365&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/3_huafb27d41edc7ace42f77caaaee97f63f_15297_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/3_huafb27d41edc7ace42f77caaaee97f63f_15297_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;90&#34;
+		data-flex-basis=&#34;217px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;推导-1&#34;&gt;推导&lt;/h3&gt;
+&lt;p&gt;$$
+同理，H(\omega) = \frac{\omega}{\sqrt{\omega^2 + (\frac{1}{RC})^2}} e^{j\Big[\frac{\pi}{2} - tan^{-1}(\omega RC) \Big]} \\\
+\\ |H(\omega)| = \frac{\omega}{\sqrt{\omega^2 + (\frac{1}{RC})^2}}  \\\
+\\ \angle H(\omega) =\frac{\pi}{2} - tan^{-1}(\omega RC) \\\
+\\ 当\omega_0 = \frac{1}{RC}时，可以得出与RC电路相同的计算结果
+$$&lt;/p&gt;
+&lt;h3 id=&#34;结论-1&#34;&gt;结论&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;CR电路是HPF(高通滤波器)&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;串联rlc低通滤波器---rlc电路&#34;&gt;串联RLC低通滤波器 - RLC电路&lt;/h2&gt;
+&lt;h3 id=&#34;图示-2&#34;&gt;图示&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/4.png&#34;
+	width=&#34;546&#34;
+	height=&#34;374&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/4_hua00edcca8f4b32c48c468c1d297dfd04_33686_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/4_hua00edcca8f4b32c48c468c1d297dfd04_33686_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;350px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;推导-2&#34;&gt;推导&lt;/h3&gt;
+&lt;p&gt;$$
+H(\omega) = \frac{\frac{1}{LC}}{-\omega^2 + \frac{R}{L}j\omega + \frac{1}{LC}} \\\
+\\ |H(\omega)| = \frac{\omega^2}{\sqrt{\Big(\frac{1}{LC} - \omega^2\Big)^2 } + \Big( \frac{R}{L}\omega\Big)^2} \\\
+\\ \angle H(\omega) = \pi - tan^{-1}\Big(\frac{\frac{R}L{\omega}}{\frac{1}{LC}- \omega^2} \Big) \\\
+\\ 转角频率 \omega_0 = \frac{1}{\sqrt{LC}}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;串联rlc带通滤波器---lcr电路&#34;&gt;串联RLC带通滤波器 - LCR电路&lt;/h2&gt;
+&lt;h3 id=&#34;图示-3&#34;&gt;图示&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/5.png&#34;
+	width=&#34;555&#34;
+	height=&#34;381&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/5_hu8363dc6e0018de236d5ca806f1d32a5d_32480_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/5_hu8363dc6e0018de236d5ca806f1d32a5d_32480_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;349px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;推导-3&#34;&gt;推导&lt;/h3&gt;
+&lt;p&gt;$$
+H(\omega) = \frac{\frac{R}{L}j\omega}{-\omega^2 + \frac{R}{L}j\omega + \frac{1}{LC}} \\\
+\\ |H(\omega)| = \frac{\frac{R}{L}\omega}{\sqrt{\Big(\frac{1}{LC} - \omega^2\Big)^2 } + \Big( \frac{R}{L}\omega\Big)^2} \\\
+\\ \angle H(\omega) = \frac{\pi}{2} - tan^{-1}\Big(\frac{\frac{R}L{\omega}}{\frac{1}{LC}- \omega^2} \Big) \\\
+\\ 转角频率 \omega_0 = \frac{1}{\sqrt{LC}} \\\
+\\ 下截止频率 \ \omega_1 = -\frac{R}{2L} + \frac{R}{2L} \sqrt{1 + \frac{4L}{R^2C}} \\\
+\\ 上截止频率 \ \omega_2 = \frac{R}{2L} + \frac{R}{2L} \sqrt{1 + \frac{4L}{R^2C}} \\\
+\\ 3dB带宽 \omega_{3dB} =\omega_2 - \omega_1 =\frac{R}{L}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;串联rlc带阻滤波器---rcl电路&#34;&gt;串联RLC带阻滤波器 - RCL电路&lt;/h2&gt;
+&lt;h3 id=&#34;电路-大小-相量-gain&#34;&gt;电路 大小 相量 Gain&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/6.png&#34;
+	width=&#34;1218&#34;
+	height=&#34;813&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/6_huc54ceba5cc1b5ab6735ed72a194f457f_156453_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/6_huc54ceba5cc1b5ab6735ed72a194f457f_156453_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;149&#34;
+		data-flex-basis=&#34;359px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;带宽&#34;&gt;带宽&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;与LCR电路相同&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;并联rlc低通滤波器&#34;&gt;并联RLC低通滤波器&lt;/h2&gt;
+&lt;h3 id=&#34;电路-大小-相量-截止频率&#34;&gt;电路 大小 相量 截止频率&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/7.png&#34;
+	width=&#34;1215&#34;
+	height=&#34;765&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/7_hu4e935929d7fb52d0a0f2b1b729db1868_145110_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/7_hu4e935929d7fb52d0a0f2b1b729db1868_145110_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;158&#34;
+		data-flex-basis=&#34;381px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;并联rlc高通滤波器&#34;&gt;并联RLC高通滤波器&lt;/h2&gt;
+&lt;h3 id=&#34;电路-大小-相量-截止频率-1&#34;&gt;电路 大小 相量 截止频率&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/8.png&#34;
+	width=&#34;1204&#34;
+	height=&#34;764&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/8_hu70885ccb21ec06a48c270deb645506dc_145157_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/8_hu70885ccb21ec06a48c270deb645506dc_145157_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;157&#34;
+		data-flex-basis=&#34;378px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;并联rlc带通滤波器&#34;&gt;并联RLC带通滤波器&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/9.png&#34;
+	width=&#34;1189&#34;
+	height=&#34;780&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/9_hua4a4e5276918cd01f48b7273bf51dc5b_151571_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/9_hua4a4e5276918cd01f48b7273bf51dc5b_151571_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;152&#34;
+		data-flex-basis=&#34;365px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;并联rlc带阻滤波器&#34;&gt;并联RLC带阻滤波器&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/10.png&#34;
+	width=&#34;1191&#34;
+	height=&#34;767&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/10_huf0e44efa8e3789e5b19d6590958cc874_152042_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%BB%A4%E6%B3%A2%E5%99%A8/10_huf0e44efa8e3789e5b19d6590958cc874_152042_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;155&#34;
+		data-flex-basis=&#34;372px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;并联RLC的带通和带阻滤波器的带宽都是$\frac{1}{RC}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;其他电路&#34;&gt;其他电路&lt;/h2&gt;
+&lt;h3 id=&#34;lr电路是lpf&#34;&gt;LR电路是LPF&lt;/h3&gt;
+&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
+&lt;h2 id=&#34;转角频率&#34;&gt;转角频率&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当输入信号频率为转角频率时，输出信号会下降$3dB$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;截止频率&#34;&gt;截止频率&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HPF和LPF的频率过滤临界点&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;通过解方程$|H(\omega)| = \frac{1}{\sqrt 2}$得到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;判断滤波器类型&#34;&gt;判断滤波器类型&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;将$j\omega$替换为$s$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解方程$H(\omega) = \frac{1}{\sqrt 2}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;画出大致图像(开口方向和零点)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;即可得出滤波器类型&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>大物实验考试</title>
         <link>https://downeyflyfan.com/p/%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C%E8%80%83%E8%AF%95/</link>
         <pubDate>Mon, 20 Feb 2023 09:40:14 +0000</pubDate>
@@ -126,9 +388,23 @@ $$&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;使用起偏器判断偏振的&lt;strong&gt;类型&lt;/strong&gt;和&lt;strong&gt;状态&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;偏振器可以使自然光变为线偏振光&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检偏器可以鉴别&lt;strong&gt;线偏振光、自然光&lt;/strong&gt;和&lt;strong&gt;部分偏振光&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;了解&lt;strong&gt;half-wave plate&lt;/strong&gt;和&lt;strong&gt;quarter-wave plate&lt;/strong&gt;的功能&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;起偏器和检偏器在本质上是一样的&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;了解波板的功能&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;实验器材&#34;&gt;实验器材&lt;/h2&gt;
 &lt;ol&gt;
@@ -148,6 +424,14 @@ $$&lt;/p&gt;
 &lt;p&gt;Quarter-wave and half-wave plates: 四分之一波板与半波板&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;沿着fast axis的光直接穿过波板，而垂直方向上的光会与它产生$\frac{\lambda}{2}$或$\frac{\lambda}{4}$的相位差&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这就是双折射现象&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;实验图示&#34;&gt;实验图示&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C%E8%80%83%E8%AF%95/3.png&#34;
 	width=&#34;1696&#34;
@@ -170,8 +454,59 @@ I = I_0 cos^2\theta \\\
 $$&lt;/p&gt;
 &lt;h2 id=&#34;实验过程&#34;&gt;实验过程&lt;/h2&gt;
 &lt;h3 id=&#34;实验1-证明malus定律&#34;&gt;实验1: 证明Malus定律&lt;/h3&gt;
-&lt;h3 id=&#34;实验2证明半波板方程&#34;&gt;实验2：证明半波板方程&lt;/h3&gt;
-&lt;h3 id=&#34;实验3证明四分之一波板方程&#34;&gt;实验3：证明四分之一波板方程&lt;/h3&gt;
+&lt;h3 id=&#34;实验2证明半波板的功能&#34;&gt;实验2：证明半波板的功能&lt;/h3&gt;
+&lt;h3 id=&#34;实验3证明四分之一波板的功能&#34;&gt;实验3：证明四分之一波板的功能&lt;/h3&gt;
+&lt;h2 id=&#34;实验结论&#34;&gt;实验结论&lt;/h2&gt;
+&lt;p&gt;1.&lt;img src=&#34;https://downeyflyfan.com/p/%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C%E8%80%83%E8%AF%95/4.png&#34;
+	width=&#34;873&#34;
+	height=&#34;525&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C%E8%80%83%E8%AF%95/4_hua9d0586416a2d3d38f5d9a9acd2ee4e9_94642_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C%E8%80%83%E8%AF%95/4_hua9d0586416a2d3d38f5d9a9acd2ee4e9_94642_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;166&#34;
+		data-flex-basis=&#34;399px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;数据和问题&#34;&gt;数据和问题&lt;/h1&gt;
+&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;偏振现象如何证明光是横波&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If we stack two polarizing filters together and make their polarization directions perpendicular to each other, then unpolarized natural light cannot pass through. Only when the polarization direction of the second polarizing filter is the same as that of the first one, can the polarized light pass through.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;This demonstrates that light must be a transverse wave, because only transverse waves can be filtered to have a single direction of polarized light.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;区分自然光和偏振光&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;区分自然光和线偏振光&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Place a polarizer in front of the light source and gradually rotate the direction of the polarizer. If the intensity of light remains unchanged, the light is linearly polarized because only linearly polarized light has polarization in a specific direction.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If the intensity of light changes as the polarizer rotates, the light is elliptically polarized or circularly polarized because they can be produced by the superposition of two orthogonally polarized linearly polarized lights.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Natural light can be seen as the superposition of linearly polarized light in all possible polarization directions, so the intensity of light passing through the polarizer will change as the polarizer rotates.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;区分自然光和圆偏振光&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Passing natural light and circularly polarized light through a polarizer, such as a polarizing mirror or polarizing filter, reveals that the intensity of natural light is reduced by half after passing through the polarizer, while the intensity of circularly polarized light remains unchanged.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -908,7 +1243,7 @@ U  =- \pmb{\mu \cdot B}
 又L_z = m_l\hbar
 \end{align} \\\
 \\ 可以得到\mu = - \frac{e\hbar}{2m}m_l \\\
-\\ 其中\mu_B = \frac{e\hbar}{2m}，被称作\pmb{玻尔磁子} \\\
+\\ 其中\mu_B = \frac{e\hbar}{2m} = 9.27 \times 10^{-24}(J/T)，被称作\pmb{玻尔磁子} \\\
 \\ 有 \mu = - \mu_B m_l
 $$&lt;/p&gt;
 </description>
@@ -5776,155 +6111,6 @@ m = \frac{1}{\sqrt{1-v^2/c^2}}m_0 \\\
 \\ t = \frac{1}{\sqrt{1-v^2/c^2}}t_0 \\\
 \\ \pmb p = m\pmb v = \frac{m_0\pmb v}{\sqrt{1-v^2/c^2}} = \frac{\sqrt{K^2 + 2Kmc^2}}{c} \\\
 \\ E = \Delta mc^2
-$$&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>选频电路</title>
-        <link>https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/</link>
-        <pubDate>Wed, 07 Dec 2022 04:02:20 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/</guid>
-        <description>&lt;img src="https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/index.jpg" alt="Featured image of post 选频电路" /&gt;&lt;h1 id=&#34;一低通滤波器&#34;&gt;一、低通滤波器&lt;/h1&gt;
-&lt;h2 id=&#34;11-串联rl电路的定性分析&#34;&gt;1.1 串联RL电路的定性分析&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;转移函数&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-H(s) = \frac{V_{out}(s)}{V_{in}(s)}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;截止频率&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-截止频率 \omega_c = \frac{1}{\sqrt 2}\omega_{max} \\\
-\\ |H(j\omega_c)| = \frac{1}{\sqrt 2} H_{max}  \\\
-\\\ P_{max} = \frac{1}{2}\frac{V_{Lmax}^2}{R} \\
-\\ P(j\omega_c) = \frac{1}{2} \frac{|V_L^2(j\omega_c)|}{R} = \frac{1}{2}\frac{(\frac{1}{\sqrt{2}}V_{Lmax})^2}{R} = \frac{P_{max}}{2} \\\
-\\
-$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;定性分析&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;图示&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/1.png&#34;
-	width=&#34;442&#34;
-	height=&#34;203&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/1_hu2c967be0cb157c027920a784ba9b9ee5_19182_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/1_hu2c967be0cb157c027920a784ba9b9ee5_19182_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;217&#34;
-		data-flex-basis=&#34;522px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推导&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-H(j\omega)=\frac{R}{R+j\omega L} = \frac{R/L}{R/L+j\omega} \\\
-s = j\omega \\\
-\\ |H(j\omega)| = \frac{R/L}{\sqrt{\omega^2 + (R/L)^2}} \\\
-\\ 对于低通过滤器，H_{max} = |H(j0)| = 1 \\\
-\\ |H(j\omega_c)| = \frac{1}{\sqrt 2}H_{max} \Rightarrow \omega_c = \frac{R}{L}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;12-串联rc电路&#34;&gt;1.2 串联RC电路&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;特性&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;当$\omega = 0$,阻抗无穷大，$V_{in} = V_{out}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;当$\omega$逐步增大，$V_{out} \lt V_{in}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;当$\omega \rightarrow \infin$，阻抗为0，$V_{out} = 0$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;图示&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/2.png&#34;
-	width=&#34;361&#34;
-	height=&#34;196&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/2_hucfd2023bc9f2912edff882489ec34d78_17085_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/2_hucfd2023bc9f2912edff882489ec34d78_17085_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;184&#34;
-		data-flex-basis=&#34;442px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;推导&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-H(s) = \frac{1/j\omega C}{R+\frac{1}{j\omega C}} = \frac{1}{j\omega RC + 1} \\\
-\\ 并且 \tau = \frac{1}{\omega_c}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;二高通过滤器&#34;&gt;二、高通过滤器&lt;/h1&gt;
-&lt;h2 id=&#34;21-串联rc电路--定性分析&#34;&gt;2.1 串联RC电路 —— 定性分析&lt;/h2&gt;
-&lt;h3 id=&#34;211-图示&#34;&gt;2.1.1 图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/3.png&#34;
-	width=&#34;923&#34;
-	height=&#34;224&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/3_huac665eb103bf647ba2d1e687cae7509e_51083_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/3_huac665eb103bf647ba2d1e687cae7509e_51083_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;412&#34;
-		data-flex-basis=&#34;988px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;212-分析&#34;&gt;2.1.2 分析&lt;/h3&gt;
-&lt;p&gt;$$
-(a) \ 当\omega 渐增时，C的阻抗减小，V_{out} 的幅值增大 \\\
-\\ (b) \ 当\omega = 0时，阻抗无穷大，V_{out} = V_{in}，相位差为90^{\circ} \\\
-\\ (c) \ 当\omega \rightarrow \infin 时,阻抗为0，V_{out} = V_{in},相位差为0 \\\
-\\
-$$&lt;/p&gt;
-&lt;h3 id=&#34;213-a图的频率响应曲线&#34;&gt;2.1.3 (a)图的频率响应曲线&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/4.png&#34;
-	width=&#34;784&#34;
-	height=&#34;676&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/4_huc342da191e82443499294adf9609fea3_68335_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/4_huc342da191e82443499294adf9609fea3_68335_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;115&#34;
-		data-flex-basis=&#34;278px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;22-串联rc电路--定量分析&#34;&gt;2.2 串联RC电路 —— 定量分析&lt;/h2&gt;
-&lt;h3 id=&#34;221-上述a图的等效s域电路&#34;&gt;2.2.1 上述(a)图的等效s域电路&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/5.png&#34;
-	width=&#34;774&#34;
-	height=&#34;401&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/5_hua2f42031fec58e4bc147b7561d94cbb9_46355_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E9%80%89%E9%A2%91%E7%94%B5%E8%B7%AF/5_hua2f42031fec58e4bc147b7561d94cbb9_46355_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;193&#34;
-		data-flex-basis=&#34;463px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;222-推导&#34;&gt;2.2.2 推导&lt;/h3&gt;
-&lt;p&gt;$$
-H(s) = \frac{s}{s + \frac{1}{RC}} \\\
-\\ H(j\omega) = \frac{j\omega}{j\omega + \frac{1}{RC}} \\\
-\\ |H(j\omega)| = \frac{\omega}{\sqrt{\omega^2 + (1/RC)^2}} \\\
-\\ \theta(j\omega) = \frac{\pi}{2}- tan^{-1}\omega RC \\\
-\\ 由此可知：|H_{max}| = |H(j\infin)| = 1 \\\
-\\ H(j\omega_c) = \frac{1}{\sqrt 2}|H_{max}| \Rightarrow \omega_c = \frac{1}{RC} \\:
 $$&lt;/p&gt;
 </description>
         </item>
