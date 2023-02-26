@@ -10539,31 +10539,43 @@ $$&lt;/p&gt;
         <pubDate>Mon, 28 Nov 2022 05:08:00 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
-        <description>&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h1 id=&#34;一样本空间-随机事件&#34;&gt;一、样本空间 随机事件&lt;/h1&gt;
-&lt;h2 id=&#34;11-随机试验&#34;&gt;1.1 随机试验&lt;/h2&gt;
+        <description>&lt;h1 id=&#34;样本空间-随机事件&#34;&gt;样本空间 随机事件&lt;/h1&gt;
+&lt;h2 id=&#34;随机试验&#34;&gt;随机试验&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;可重复&lt;/li&gt;
 &lt;li&gt;结果的可能性已知&lt;/li&gt;
 &lt;li&gt;结果未知&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;12-样本空间&#34;&gt;1.2 样本空间&lt;/h2&gt;
+&lt;h2 id=&#34;样本空间&#34;&gt;样本空间&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;随机试验E的所有结果构成的集合称为E的&lt;strong&gt;样本空间&lt;/strong&gt;，记为$S={e}$&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;特征&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;$e$被称为样本点&lt;/li&gt;
-&lt;li&gt;一个元素的单点集称为&lt;strong&gt;基本事件&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;exhaustive&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;必须包含所有的元素&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;13-随机事件&#34;&gt;1.3 随机事件&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mutually exclusive&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不能有相同的元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;随机事件&#34;&gt;随机事件&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;我们称$S$的子集$A$为$E$的&lt;strong&gt;随机事件$A$&lt;/strong&gt;,简称&lt;strong&gt;事件$A$&lt;/strong&gt;,当且仅当$A$所包含一个样本点发生，称&lt;strong&gt;事件$A$发生&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我们称&lt;strong&gt;样本空间&lt;/strong&gt;$S$的子集$A$为$E$的&lt;strong&gt;随机事件$A$&lt;/strong&gt;,简称&lt;strong&gt;事件$A$&lt;/strong&gt;,当且仅当$A$所包含一个样本点发生，称&lt;strong&gt;事件$A$发生&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;特征&lt;/li&gt;
@@ -10603,7 +10615,7 @@ $$&lt;/p&gt;
 \\ 和事件:\bigcup^n_{i=1}A_i: A_i中至少有一个发生\\\
 \\ 积事件: \bigcap_{i=1}^nA_i:A_i同时发生\\\
 \\ A\bigcap B可以简写成AB,以此类推\\\
-\\  \pmb{互斥事件/互不相容 \ \ disjoint \ event}\\\
+\\  \pmb{互斥事件/互不相容 \ \ disjoint \ event \ or \ mutually \ exclusive}\\\
 \\ 当AB=\phi时，A,B互斥\\\
 \\  \pmb{逆事件/对立事件}\overline A\\\
 \\ 记\overline A为A的逆事件,有\begin{cases} A\bigcup \overline A =S \\ A\overline A = \phi \end{cases}\\\
@@ -10617,7 +10629,10 @@ $$&lt;/p&gt;
 &lt;li&gt;和、积关系式 —— 德摩根定律&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
-\overline{\bigcap_{i=1}^n A_i}=\bigcup_{i=1}^n\overline {A_i}=\overline {A_1}\bigcup \overline {A_2}&amp;hellip;\overline {A_n}\\\
+(A \bigcup B)^c = A^c \bigcap B^c \\\
+\\ (A \bigcap B)^c = A^c \bigcup B^c \\\
+\\ 推广 \\\
+\\ \overline{\bigcap_{i=1}^n A_i}=\bigcup_{i=1}^n\overline {A_i}=\overline {A_1}\bigcup \overline {A_2}&amp;hellip;\overline {A_n}\\\
 \\ \overline{\bigcup_{i=1}^n A_i} = \bigcap_{i=1}^n \overline{A_i}= \overline{A_1} \ \overline{A_2}&amp;hellip;\overline{A_n}\\\
 \\
 $$&lt;/p&gt;
@@ -10628,9 +10643,9 @@ $$&lt;/p&gt;
 P(A\overline B) = P(A)-P(AB) \\\
 \\ A\bigcap \Big(B\bigcup C\Big) = AB\bigcup AC
 $$&lt;/p&gt;
-&lt;h1 id=&#34;二频率与概率&#34;&gt;二、频率与概率&lt;/h1&gt;
-&lt;h2 id=&#34;21-频率&#34;&gt;2.1 频率&lt;/h2&gt;
-&lt;h3 id=&#34;211-定义&#34;&gt;2.1.1 定义&lt;/h3&gt;
+&lt;h1 id=&#34;频率与概率&#34;&gt;频率与概率&lt;/h1&gt;
+&lt;h2 id=&#34;频率&#34;&gt;频率&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;$$
 f_n(A)=\frac{n_A}{n}
@@ -10640,7 +10655,7 @@ $$&lt;/p&gt;
 &lt;li&gt;$n_A$为事件出现的次数&lt;/li&gt;
 &lt;li&gt;n为试验的总次数&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;212-性质&#34;&gt;2.1.2 性质&lt;/h3&gt;
+&lt;h3 id=&#34;性质&#34;&gt;性质&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;$0\leq f_n(A)\leq 1$&lt;/p&gt;
@@ -10655,8 +10670,8 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;$f_n(A)$随n的增大稳定，稳定值记为p&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;22-概率&#34;&gt;2.2 概率&lt;/h2&gt;
-&lt;h3 id=&#34;221-定义&#34;&gt;2.2.1 定义&lt;/h3&gt;
+&lt;h2 id=&#34;概率&#34;&gt;概率&lt;/h2&gt;
+&lt;h3 id=&#34;定义-1&#34;&gt;定义&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;非负, $P(A)\ge 0$&lt;/p&gt;
@@ -10671,7 +10686,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;若$A_1,A_2&amp;hellip;A_n$两两互斥(&lt;strong&gt;disjoint events&lt;/strong&gt;),则$P(\bigcup_{i=1}^k A_i) = \sum_{i=1}^kP(A_i)$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;222-性质&#34;&gt;2.2.2 性质&lt;/h3&gt;
+&lt;h3 id=&#34;性质-1&#34;&gt;性质&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;$P(\phi)=0$&lt;/p&gt;
@@ -10701,8 +10716,8 @@ $$&lt;/p&gt;
 \\ 一般情况\\\
 \\ P(\bigcup_{i=1}^n A_i)=\sum_{i=1}^nP(A_i)-\underset{1\leq i\lt j\leq n}\sum P(A_iA_j)+&amp;hellip;+(-1)^{n-1}P(A_1 A_2&amp;hellip; A_n)
 $$&lt;/p&gt;
-&lt;h1 id=&#34;三等可能概型古典概型&#34;&gt;三、等可能概型(古典概型)&lt;/h1&gt;
-&lt;h2 id=&#34;31-定义&#34;&gt;3.1 定义&lt;/h2&gt;
+&lt;h1 id=&#34;等可能概型古典概型&#34;&gt;等可能概型(古典概型)&lt;/h1&gt;
+&lt;h2 id=&#34;定义-2&#34;&gt;定义&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;满足 S中样本点有限,出现每一样本点的概率相同的试验被称为等可能概型&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -10710,15 +10725,35 @@ $$&lt;/p&gt;
 &lt;li&gt;等可能性&lt;/li&gt;
 &lt;li&gt;有限性&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;32-组合数&#34;&gt;3.2 组合数&lt;/h2&gt;
+&lt;h2 id=&#34;组合数&#34;&gt;组合数&lt;/h2&gt;
 &lt;p&gt;$$
 A_n^m = \frac{n!}{(n-k)!}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;33-选择数&#34;&gt;3.3 选择数&lt;/h2&gt;
+&lt;h2 id=&#34;选择数&#34;&gt;选择数&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 C_m^n = \tbinom{m}{n} =\frac{n!}{m!(n-m)!}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;34-多项选择数&#34;&gt;3.4 多项选择数&lt;/h2&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;二项式系数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+(x + y)^n = \sum_{k=1}^n \tbinom{n}{k} x^ky^{n-k}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;放回抽样总结&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;有序:$n^k$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;无序:$C_{n+k-1}^k$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;多项式系数&#34;&gt;多项式系数&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;含义&lt;/li&gt;
 &lt;/ol&gt;
@@ -10730,14 +10765,14 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \tbinom{n}{n_1,n_2,&amp;hellip;,n_k} = \frac{n!}{n_1!&amp;hellip;n_k!} \\\
-\\ \sum_{i=0}^k n_i = n \ \ \ 限制条件，很重要!!!
+\\ 其中: \sum_{i=0}^k n_i = n
 $$&lt;/p&gt;
-&lt;h1 id=&#34;四条件概率&#34;&gt;四、条件概率&lt;/h1&gt;
-&lt;h2 id=&#34;41-定义&#34;&gt;4.1 定义&lt;/h2&gt;
+&lt;h1 id=&#34;条件概率&#34;&gt;条件概率&lt;/h1&gt;
+&lt;h2 id=&#34;定义-3&#34;&gt;定义&lt;/h2&gt;
 &lt;p&gt;$$
 P(B|A)=\frac{P(AB)}{P(A)} = \frac{N(AB)}{N(A)},P(A)\neq 0
 $$&lt;/p&gt;
-&lt;h2 id=&#34;42-性质&#34;&gt;4.2 性质&lt;/h2&gt;
+&lt;h2 id=&#34;性质-2&#34;&gt;性质&lt;/h2&gt;
 &lt;p&gt;$$
 P(B|A)具有概率所具有的性质\\\
 \\ 乘法公式\\\
@@ -10745,10 +10780,8 @@ P(B|A)具有概率所具有的性质\\\
 \\ P(ABC) = P(A)P(B|A)P(C|AB)\\\
 \\ P(A_1 A_2 &amp;hellip;A_n)=P(A_1)P(A_2|A_1)P(A_3|A_1A_2)&amp;hellip;P(A_n|A_1A_2 &amp;hellip; A_{n-1})
 $$&lt;/p&gt;
-&lt;h2 id=&#34;43-全概率公式与bayes公式&#34;&gt;4.3 全概率公式与Bayes公式&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;划分&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;全概率公式与bayes公式&#34;&gt;全概率公式与Bayes公式&lt;/h2&gt;
+&lt;h3 id=&#34;划分&#34;&gt;划分&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;不漏: $B_1\bigcup B_2&amp;hellip;\bigcup B_n= S$&lt;/li&gt;
 &lt;li&gt;不重: $B_i B_j= \phi,i\neq j$&lt;/li&gt;
@@ -10756,20 +10789,28 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;则称$B_1,B_2&amp;hellip;B_n$为S的一个划分&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;全概率公式&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;全概率公式&#34;&gt;全概率公式&lt;/h3&gt;
 &lt;p&gt;$$
 P(A)=\sum_{i=1}^nP(B_j)\cdot P(A|B_j)
 $$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Bayes公式&lt;/li&gt;
+&lt;h3 id=&#34;bayes公式&#34;&gt;Bayes公式&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;定义式&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
-P(B_i|A)=\frac{P(B_i)P(A|B_i)}{\sum_{i=1}^nP(B_j)\cdot P(A|B_j)}=\frac{P(AB_i)}{P(A)}
+P(B_i|A)=\frac{P(B_i)P(A|B_i)}{\sum_{j=1}^nP(B_j)\cdot P(A|B_j)}=\frac{P(AB_i)}{P(A)}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;五事件独立性与独立试验&#34;&gt;五、事件独立性与独立试验&lt;/h1&gt;
-&lt;h2 id=&#34;51-独立事件&#34;&gt;5.1 独立事件&lt;/h2&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;条件概率形式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+P(B_i|A\bigcap C) = \frac{P(B_i|C)\cdot P(A|B_i\bigcap C)}{\sum_{j=1}^n P(B_j|C)\cdot P(A|B_j\bigcap C)}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Prior Probability 和 Posterior Probability&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;事件独立性与独立试验&#34;&gt;事件独立性与独立试验&lt;/h1&gt;
+&lt;h2 id=&#34;两两独立&#34;&gt;两两独立&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
 &lt;/ol&gt;
@@ -10779,21 +10820,58 @@ $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;性质&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;性质1&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 对于独立事件A,B\\\
 \\ P(A|B)=P(A),P(B|A)=P(B)
 $$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;注意&lt;/li&gt;
-&lt;/ol&gt;
 &lt;ul&gt;
+&lt;li&gt;性质2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果$A$和$B$相互独立，那么 $A$和$B^c$;$A^c$和$B^c$ 也相互独立&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;相互独立&#34;&gt;相互独立&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+若P(A_1A_2&amp;hellip;A_n) = P(A_1)P(A_2)&amp;hellip;P(A_n) \\\
+\\ 那么称A_1,A_2,&amp;hellip;,A_n相互独立
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;数量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+若以上事件两两独立，则有C_n^2+C_n^3 + &amp;hellip;+C_n^n \\\
+\\ = (2^n -n - 1)个算式得到满足
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;不相容 $\neq$ 独立&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;条件独立&#34;&gt;条件独立&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+当P(A_1A_2&amp;hellip;A_n|B) = P(A_1|B)P(A_2|B)&amp;hellip;P(A_n|B)时 \\\
+\\ 事件A_1,A_2,&amp;hellip;,A_n对于B条件独立
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+若P(C|B) \ge 0 \\\
+\\ 则当P(A|C\bigcap B) = P(A|B)时 \\\
+\\ A与C关于B条件独立
+$$&lt;/p&gt;
+&lt;h2 id=&#34;注意&#34;&gt;注意&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;两两独立不等于相互独立&lt;/li&gt;
 &lt;li&gt;实际问题可以根据事情情况检验独立性&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;在大量重复实验中，小概率事件必然发生&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;六总结&#34;&gt;六、总结&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;样本空间$S={e}$是&lt;strong&gt;集合&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         </item>
