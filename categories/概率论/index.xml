@@ -14,6 +14,17 @@
         <guid>https://downeyflyfan.com/p/%E5%BA%94%E8%AF%95/</guid>
         <description>&lt;h1 id=&#34;知识点&#34;&gt;知识点&lt;/h1&gt;
 &lt;h2 id=&#34;复习极坐标&#34;&gt;复习极坐标&lt;/h2&gt;
+&lt;h2 id=&#34;重要公式&#34;&gt;重要公式&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;$Y = g(X)$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;卷积公式推导&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -875,14 +886,49 @@ $$&lt;/p&gt;
 \\ E(Y)=E(g(X)) = \int_{-\infin}^{+\infin}g(x)f(x)dx
 $$&lt;/p&gt;
 &lt;h3 id=&#34;二元随机变量函数&#34;&gt;二元随机变量函数&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;$Z=h(X,Y)$&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$Z=h(X,Y)$&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 对于\pmb{离散型} \\\
 \\ E(Z)=E[h(X,Y)] = \sum_{i=1}^{+\infin}\sum_{j=1}^{+\infin}h(x_i,y_j)p_{ij} \\\
 \\ 对于\pmb{连续型} \\\
 \\ E(Z) = E(h(X,Y)) =  \int_{-\infin}^{+\infin}\int_{-\infin}^{+\infin}h(x,y)f(x,y)dxdy
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;没有期望的p.d.f&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+当\int_{-\infin}^0 xf(x)dx和\int_{0}^{\infin}xf(x)dx\pmb{都}是无穷的 \\\
+\\ 那么E(X)不存在
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;柯西分布&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+f(x) = \frac{1}{\pi(1+x^2)} \\\
+\\ \int_{-\infin}^{\infin}f(x)dx = 1 \\\
+\\ 但是 \int_{-\infin}^0 x f(x) dx = -\infin  \\\
+\\ \int_{0}^{\infin}xf(x)dx = \infin \\\
+\\ \therefore E(X)不存在
+$$&lt;/p&gt;
+&lt;h3 id=&#34;没有期望的分布&#34;&gt;没有期望的分布&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;普通分布&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+f(x) = \begin{cases}
+\frac{1}{2|x|(|x| + 1)} &amp;amp; x = \pm1,\pm2,&amp;hellip; \\
+0 &amp;amp; otherwise
+\end{cases} \\\
+\\ E(X) = \sum_{x=-1}^{-\infin} x \frac{}{}f(x) = -\infin = \sum_{x=1}^{\infin}xf(x)  = + \infin \\\
+\\ \therefore E(X)不存在
 $$&lt;/p&gt;
 &lt;h2 id=&#34;数学期望的特性&#34;&gt;数学期望的特性&lt;/h2&gt;
 &lt;ol&gt;
@@ -897,6 +943,39 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 满足E(\prod_{i=1}^n X)=\prod_{i=1}^nE(X_i)的随机变量\\\
 \\ X_i，i=1,2&amp;hellip; n 相互独立
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;函数的函数期望&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+E(r(X)) = \int_{-\infin}^{\infin}r(x)f(x) = \sum r(x) f(x)
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+Pr(X\ge a) = 1，那么E(X) \ge a \\\
+\\ Pe(X\le b) = 1，那么E(X) \le b
+$$&lt;/p&gt;
+&lt;h2 id=&#34;条件期望&#34;&gt;条件期望&lt;/h2&gt;
+&lt;p&gt;$$
+E(Y|x) = \int_{-\infin}^{\infin} y g_2(y|x)dy \\\
+\\ E(X|y) = \int_{-\infin}^{\infin} x g_2(x|y)dx \\\
+\\ 用h(x)表示
+$$&lt;/p&gt;
+&lt;h1 id=&#34;中位数median&#34;&gt;中位数(Median)&lt;/h1&gt;
+&lt;h2 id=&#34;求法&#34;&gt;求法&lt;/h2&gt;
+&lt;p&gt;$$
+已知 a \le x \le b \\\
+\\ \int_0^mf(x)dx = \int_m^1f(x) dx = \frac{1}{2}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;性质&#34;&gt;性质&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;一对一函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+x的中位数为m，r(x)是一个one-one-function \\\
+\\ 那么r(x)的中位数为r(m)
 $$&lt;/p&gt;
 &lt;h1 id=&#34;方差&#34;&gt;方差&lt;/h1&gt;
 &lt;h2 id=&#34;定义-1&#34;&gt;定义&lt;/h2&gt;
@@ -922,7 +1001,7 @@ Var(X)=E\lbrace X^2-2XE(X)+E^2(X) \rbrace \\\
 $$&lt;/p&gt;
 &lt;h2 id=&#34;方差的性质&#34;&gt;方差的性质&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;线性组合的方差&lt;/li&gt;
+&lt;li&gt;线性组合的方差(独立)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 Var(c_0+\sum_{i=1}^n c_iX_i) = \sum_{i=1}^nc_i^2Var(X_i)
@@ -933,6 +1012,9 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 Var(X)=0\Leftrightarrow P(X=C)=1,C=E(X)
 $$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;$Var(X) \ge 0$&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;几种常见分布的均值和方差&#34;&gt;&lt;em&gt;&lt;strong&gt;几种常见分布的均值和方差&lt;/strong&gt;&lt;/em&gt;&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1256,7 +1338,19 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;二元均匀分布的条件分布仍为均匀分布&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;四随机变量的独立性&#34;&gt;四、随机变量的独立性&lt;/h1&gt;
+&lt;h1 id=&#34;多元随机变量&#34;&gt;多元随机变量&lt;/h1&gt;
+&lt;h2 id=&#34;cdf&#34;&gt;c.d.f&lt;/h2&gt;
+&lt;p&gt;$$
+F(X_1,&amp;hellip;,X_n) = Pr(X_1\le x_1, X_2\le x_2,&amp;hellip;,X_n\le x_n)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;条件分布-1&#34;&gt;条件分布&lt;/h2&gt;
+&lt;p&gt;把$\pmb X = (X_1,&amp;hellip;,X_n)$分成两个子向量$Y,Z$，使得$\pmb X = (Y,Z)$，其中$Y$有$k$个元素,$Z$有$n-k$个元素，那么有&lt;/p&gt;
+&lt;p&gt;$$
+g_1(y|z) = \frac{f(y,z)}{f_2(z)} \ \ \ y \in \pmb R^k \\\
+\\ g_2(z|y) = \frac{f(y,z)}{f_1(y)} \\\
+\\ f_1(y) = \underset{n-k个}{\int_{-\infin}^{\infin} &amp;hellip;\int_{-\infin}^{\infin}} g_2(y|z)f_2(z) dz
+$$&lt;/p&gt;
+&lt;h1 id=&#34;随机变量的独立性&#34;&gt;随机变量的独立性&lt;/h1&gt;
 &lt;h2 id=&#34;定义-2&#34;&gt;定义&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;若对所有实数$x,y$，有$F(x,y)=F_X(x)F_Y(y)$,称随机变量$X,Y$相互独立&lt;/p&gt;
@@ -1274,7 +1368,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 X,Y相互独立\Leftrightarrow f(x,y)=f(x)f(y)
 $$&lt;/p&gt;
-&lt;h1 id=&#34;五二元随机变量的函数的分布&#34;&gt;五、二元随机变量的函数的分布&lt;/h1&gt;
+&lt;h1 id=&#34;二元随机变量的函数的分布&#34;&gt;二元随机变量的函数的分布&lt;/h1&gt;
 &lt;h2 id=&#34;zxy分布函数&#34;&gt;$Z=X+Y$分布函数&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;推导&lt;/li&gt;
@@ -1288,6 +1382,9 @@ F_Z(z)=P(Z\le z)=\underset{x+y\le z}\iint f(x,y)dxdy\\\
 \\ \therefore f_Z(z)=\int_{-\infin}^{+\infin}f(z-y,y)dy \\\
 \\ f_Z(z)=\int_{-\infin}^{+\infin}f(x,z-x)dx
 $$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/em&gt;，此处的积分范围要根据$\pmb z$的定义域范围划分&lt;/li&gt;
+&lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;定义&lt;strong&gt;卷积公式&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -1673,19 +1770,22 @@ For \ t_0 \gt 0,t\gt 0\\\
 \\ P(X\gt t_0+t|X\gt t_0)=\frac{P(X\gt t_0+t)}{P(X\gt t_0)}\\\
 \\ =\frac{1-F(t_0+t)}{1-F(t_0)} = e^{-\lambda t}=P(X\gt t)
 $$&lt;/p&gt;
-&lt;h1 id=&#34;五随机变量函数的分布&#34;&gt;五、随机变量函数的分布&lt;/h1&gt;
-&lt;h2 id=&#34;51-定理1&#34;&gt;5.1 定理1&lt;/h2&gt;
+&lt;h1 id=&#34;随机变量函数的分布&#34;&gt;随机变量函数的分布&lt;/h1&gt;
+&lt;h2 id=&#34;定理1&#34;&gt;定理1&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;设$X～f_X(x)，-\infin \lt x\lt +\infin，g&amp;rsquo;(x)\neq 0. \ Y=g(X)，x=h(y)$,则$Y$的概率密度函数为&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;$$
 f_Y(y)=\begin{cases}f_x(h(y))\cdot|h&amp;rsquo;(y)|  &amp;amp; \alpha \lt x\lt \beta \\ 0 &amp;amp; otherwise\end{cases}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;52-定理2&#34;&gt;5.2 定理2&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;注意，此定理在$h(y)$不确定时不适用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;定理2&#34;&gt;定理2&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;一般的，若$X～N(\mu,\sigma^2)，Y=aX+b\Rightarrow Y～ N(a\mu+b,a^2\sigma^2)$&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&#34;六总结&#34;&gt;六、总结&lt;/h1&gt;
+&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;对于$F(x)$,概率是函数值；对于$f(x)$，概率是面积&lt;/p&gt;
