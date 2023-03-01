@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='[toc] 一、什么是git 定义 开源的分布式版本控制系统 特点 分布式 按元数据方式存储数据 内容完整性高 二、git的工作流程 stateDiagram 资源库 --&gt; 工作副本:clone 工作副本 --&gt; 修改工作副本: 编辑、添加、删除 资源库 --&gt; 修改工作副本: 更新 修改工作副本 --&gt; 检查修改: 查看status, change 检查修改 --&gt; 提交修改: push 提交修改 --&gt; 修改错误: push,change 修改错误 --&gt; 资源库: push 提交修改 --&gt; 资源库: push 三、git创建仓库 创建 git init &amp;lt;repo&amp;gt;创建仓库repo 生成.git目录 纳入版本控制 git add &amp;lt;file&amp;gt;让git对文件进行跟踪 该操作支持正则表达式 git commit -m &amp;lt;file&amp;gt; 提交文件 复制 git clone &amp;lt;repo&amp;gt; (&amp;lt;dir&amp;gt;)将仓库repo拷贝到dir目录 配置 git config显示当前的git配置信息 git config -e针对当前仓库编辑文件 git config -e --global针对系统中所有的仓库'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='什么是git 定义 开源的分布式版本控制系统 特点 分布式 按元数据方式存储数据 内容完整性高 git的工作流程 stateDiagram 资源库 --&gt; 工作副本:clone 工作副本 --&gt; 修改工作副本: 编辑、添加、删除 资源库 --&gt; 修改工作副本: 更新 修改工作副本 --&gt; 检查修改: 查看status, change 检查修改 --&gt; 提交修改: push 提交修改 --&gt; 修改错误: push,change 修改错误 --&gt; 资源库: push 提交修改 --&gt; 资源库: push git创建仓库 创建 git init &amp;lt;repo&amp;gt;创建仓库repo 生成.git目录 纳入版本控制 git add &amp;lt;file&amp;gt;让git对文件进行跟踪 该操作支持正则表达式 git commit -m &amp;lt;file&amp;gt; 提交文件 复制 git clone &amp;lt;repo&amp;gt; (&amp;lt;dir&amp;gt;)将仓库repo拷贝到dir目录 配置 git config显示当前的git配置信息 git config -e针对当前仓库编辑文件 git config -e --global针对系统中所有的仓库'>
 <title>Git</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/git/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Git'>
-<meta property='og:description' content='[toc] 一、什么是git 定义 开源的分布式版本控制系统 特点 分布式 按元数据方式存储数据 内容完整性高 二、git的工作流程 stateDiagram 资源库 --&gt; 工作副本:clone 工作副本 --&gt; 修改工作副本: 编辑、添加、删除 资源库 --&gt; 修改工作副本: 更新 修改工作副本 --&gt; 检查修改: 查看status, change 检查修改 --&gt; 提交修改: push 提交修改 --&gt; 修改错误: push,change 修改错误 --&gt; 资源库: push 提交修改 --&gt; 资源库: push 三、git创建仓库 创建 git init &amp;lt;repo&amp;gt;创建仓库repo 生成.git目录 纳入版本控制 git add &amp;lt;file&amp;gt;让git对文件进行跟踪 该操作支持正则表达式 git commit -m &amp;lt;file&amp;gt; 提交文件 复制 git clone &amp;lt;repo&amp;gt; (&amp;lt;dir&amp;gt;)将仓库repo拷贝到dir目录 配置 git config显示当前的git配置信息 git config -e针对当前仓库编辑文件 git config -e --global针对系统中所有的仓库'>
+<meta property='og:description' content='什么是git 定义 开源的分布式版本控制系统 特点 分布式 按元数据方式存储数据 内容完整性高 git的工作流程 stateDiagram 资源库 --&gt; 工作副本:clone 工作副本 --&gt; 修改工作副本: 编辑、添加、删除 资源库 --&gt; 修改工作副本: 更新 修改工作副本 --&gt; 检查修改: 查看status, change 检查修改 --&gt; 提交修改: push 提交修改 --&gt; 修改错误: push,change 修改错误 --&gt; 资源库: push 提交修改 --&gt; 资源库: push git创建仓库 创建 git init &amp;lt;repo&amp;gt;创建仓库repo 生成.git目录 纳入版本控制 git add &amp;lt;file&amp;gt;让git对文件进行跟踪 该操作支持正则表达式 git commit -m &amp;lt;file&amp;gt; 提交文件 复制 git clone &amp;lt;repo&amp;gt; (&amp;lt;dir&amp;gt;)将仓库repo拷贝到dir目录 配置 git config显示当前的git配置信息 git config -e针对当前仓库编辑文件 git config -e --global针对系统中所有的仓库'>
 <meta property='og:url' content='https://downeyflyfan.com/p/git/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-11-25T05:07:46&#43;08:00'/><meta property='article:modified_time' content='2022-11-25T05:07:46&#43;08:00'/>
 <meta name="twitter:title" content="Git">
-<meta name="twitter:description" content="[toc] 一、什么是git 定义 开源的分布式版本控制系统 特点 分布式 按元数据方式存储数据 内容完整性高 二、git的工作流程 stateDiagram 资源库 --&gt; 工作副本:clone 工作副本 --&gt; 修改工作副本: 编辑、添加、删除 资源库 --&gt; 修改工作副本: 更新 修改工作副本 --&gt; 检查修改: 查看status, change 检查修改 --&gt; 提交修改: push 提交修改 --&gt; 修改错误: push,change 修改错误 --&gt; 资源库: push 提交修改 --&gt; 资源库: push 三、git创建仓库 创建 git init &amp;lt;repo&amp;gt;创建仓库repo 生成.git目录 纳入版本控制 git add &amp;lt;file&amp;gt;让git对文件进行跟踪 该操作支持正则表达式 git commit -m &amp;lt;file&amp;gt; 提交文件 复制 git clone &amp;lt;repo&amp;gt; (&amp;lt;dir&amp;gt;)将仓库repo拷贝到dir目录 配置 git config显示当前的git配置信息 git config -e针对当前仓库编辑文件 git config -e --global针对系统中所有的仓库">
+<meta name="twitter:description" content="什么是git 定义 开源的分布式版本控制系统 特点 分布式 按元数据方式存储数据 内容完整性高 git的工作流程 stateDiagram 资源库 --&gt; 工作副本:clone 工作副本 --&gt; 修改工作副本: 编辑、添加、删除 资源库 --&gt; 修改工作副本: 更新 修改工作副本 --&gt; 检查修改: 查看status, change 检查修改 --&gt; 提交修改: push 提交修改 --&gt; 修改错误: push,change 修改错误 --&gt; 资源库: push 提交修改 --&gt; 资源库: push git创建仓库 创建 git init &amp;lt;repo&amp;gt;创建仓库repo 生成.git目录 纳入版本控制 git add &amp;lt;file&amp;gt;让git对文件进行跟踪 该操作支持正则表达式 git commit -m &amp;lt;file&amp;gt; 提交文件 复制 git clone &amp;lt;repo&amp;gt; (&amp;lt;dir&amp;gt;)将仓库repo拷贝到dir目录 配置 git config显示当前的git配置信息 git config -e针对当前仓库编辑文件 git config -e --global针对系统中所有的仓库">
     </head>
     <body class="
     article-page
@@ -249,11 +249,11 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#一什么是git">一、什么是git</a></li>
-    <li><a href="#二git的工作流程">二、git的工作流程</a></li>
-    <li><a href="#三git创建仓库">三、git创建仓库</a></li>
-    <li><a href="#四git基本操作">四、git基本操作</a></li>
-    <li><a href="#五git分支管理">五、git分支管理</a></li>
+    <li><a href="#什么是git">什么是git</a></li>
+    <li><a href="#git的工作流程">git的工作流程</a></li>
+    <li><a href="#git创建仓库">git创建仓库</a></li>
+    <li><a href="#git基本操作">git基本操作</a></li>
+    <li><a href="#git分支管理">git分支管理</a></li>
   </ol>
 </nav>
         </div>
@@ -333,8 +333,7 @@
     <section class="article-content">
     
     
-    <p>[toc]</p>
-<h1 id="一什么是git">一、什么是git</h1>
+    <h1 id="什么是git">什么是git</h1>
 <blockquote>
 <p>定义</p>
 </blockquote>
@@ -349,7 +348,7 @@
 <li>按元数据方式存储数据</li>
 <li>内容完整性高</li>
 </ol>
-<h1 id="二git的工作流程">二、git的工作流程</h1>
+<h1 id="git的工作流程">git的工作流程</h1>
 <div class="mermaid">stateDiagram
 资源库 --> 工作副本:clone
 工作副本 --> 修改工作副本: 编辑、添加、删除
@@ -369,7 +368,7 @@
   </script>
 
 
-<h1 id="三git创建仓库">三、git创建仓库</h1>
+<h1 id="git创建仓库">git创建仓库</h1>
 <blockquote>
 <ol>
 <li>创建</li>
@@ -436,7 +435,7 @@
 </span></span><span class="line"><span class="cl">git config --global user.email &lt;email&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="四git基本操作">四、git基本操作</h1>
+</div><h1 id="git基本操作">git基本操作</h1>
 <blockquote>
 <ol>
 <li>示意图</li>
@@ -722,7 +721,7 @@ remote_repository --> workspace: pull
 </table></div>
 </li>
 </ul>
-<h1 id="五git分支管理">五、git分支管理</h1>
+<h1 id="git分支管理">git分支管理</h1>
 <blockquote>
 <ol>
 <li>创建分支</li>
