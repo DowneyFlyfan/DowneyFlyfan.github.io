@@ -313,6 +313,7 @@ $$ 对于\pmb{离散型} \\\ \\ E(Y)=E[g(X)] = \sum_{k=1}^{&#43;\infin}g(x_k)p_k
       <ol>
         <li><a href="#k阶原点矩">k阶(原点)矩</a></li>
         <li><a href="#k阶中心矩">k阶中心矩</a></li>
+        <li><a href="#矩生成函数mgf">矩生成函数(m.g.f)</a></li>
         <li><a href="#kl阶混合原点矩">k+l阶混合(原点)矩</a></li>
         <li><a href="#kl阶混合中心矩">k+l阶混合中心矩</a></li>
       </ol>
@@ -387,7 +388,7 @@ $$ 对于\pmb{离散型} \\\ \\ E(Y)=E[g(X)] = \sum_{k=1}^{&#43;\infin}g(x_k)p_k
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -554,8 +555,17 @@ $$</p>
 Var(X)=0\Leftrightarrow P(X=C)=1,C=E(X)
 $$</p>
 <ol start="3">
-<li>$Var(X) \ge 0$</li>
+<li>
+<p>$Var(X) \ge 0$</p>
+</li>
+<li>
+<p>多项方差</p>
+</li>
 </ol>
+<p>$$
+Var(\sum_{i=1}^n X_i) = \sum_{i=1}^n Var(X_i) + 2\underset{i \lt j}{\sum\sum} X_iX_j \\\
+\\ 当X_i之间线性不相关时，Var(\sum_{i=1}^n X_i) = \sum_{i=1}^n Var(X_i)
+$$</p>
 <h2 id="几种常见分布的均值和方差"><em><strong>几种常见分布的均值和方差</strong></em></h2>
 <div class="table-wrapper"><table>
 <thead>
@@ -614,21 +624,16 @@ $$</p>
 <p>定义$E\lbrace[X-E(X)][Y-E(Y)]\rbrace$为协方差，记为$Cov(X,Y)$</p>
 </blockquote>
 <p>$$
-Cov(X,Y) = \lbrace[X-E(X)][Y-E(Y)]\rbrace
+Cov(X,Y) = E\lbrace[X-\mu_X][Y-\mu_Y]\rbrace
 $$</p>
 <ol start="2">
 <li>计算公式</li>
 </ol>
 <p>$$
-Cov(X,Y)=E(XY)-E(X)E(Y)
+当\sigma^2_X \lt \infin，\sigma^2_Y \lt \infin时 \\\
+\\ Cov(X,Y)=E(XY)-E(X)E(Y)
 $$</p>
 <ol start="3">
-<li>方差性质补充</li>
-</ol>
-<p>$$
-Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)
-$$</p>
-<ol start="4">
 <li>性质</li>
 </ol>
 <ul>
@@ -640,6 +645,9 @@ $$</p>
 </li>
 <li>
 <p>当$Var(X)Var(Y)\neq 0$，$(Cov(X,Y))^2\le Var(X)Var(Y)$</p>
+</li>
+<li>
+<p>$Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)$</p>
 </li>
 </ul>
 <h2 id="相关系数">相关系数</h2>
@@ -655,10 +663,17 @@ $$</p>
 </ol>
 <ul>
 <li>
-<p>$\rho_{XY}\le 1$</p>
+<p>$\rho_{XY}^2 \le 1$</p>
 </li>
 <li>
-<p>存在常数$a,b$，使$P(Y=a+bX)=1$,特别地;$\rho_{XY}=1$时，$b\gt 0$ , $\rho_{XY}=-1$时，$b\lt 0 \Rightarrow |\rho_{XY}|=1$</p>
+<p>$Cov^2(X,Y) \le \sigma_X^2\sigma_Y^2$，当且仅当<em><strong>X与Y有线性关系</strong></em>时，等号成立</p>
+</li>
+<li>
+<p>若$Y = aX + b , a\neq 0$,那么</p>
+<ul>
+<li>若$a \gt 0，\rho(X,Y) = 1$</li>
+<li>若$a \lt 0, \rho(X,Y) = -1$</li>
+</ul>
 </li>
 </ul>
 <ol start="3">
@@ -675,17 +690,55 @@ $$</p>
 <p>当$\rho_{XY}\lt 0$,$X与Y$<strong>负相关</strong></p>
 </li>
 <li>
-<p>当$\rho_{XY} = 0$,$X与Y$<strong>不相关</strong></p>
+<p>当$\rho_{XY} = 0$,$X与Y$<strong>线性不相关</strong>(不代表没有<em><strong>非线性关系</strong></em>)</p>
 </li>
 </ul>
+<ol start="4">
+<li>施瓦茨不等式</li>
+</ol>
+<p>$$
+E^2(UV) \le E(U^2)E(V^2) \\\
+\\ 若右式 \lt \infin,那么 \\\
+\\ 当且仅当\pmb{U与V成线性关系时} \\\
+\\ \pmb{等号成立}
+$$</p>
 <h1 id="其他数字特征">其他数字特征</h1>
 <h2 id="k阶原点矩">k阶(原点)矩</h2>
+<ol>
+<li>定义</li>
+</ol>
 <p>$$
 E(X^k)，k=1,2,&hellip;
 $$</p>
+<ol start="2">
+<li>定理</li>
+</ol>
+<ul>
+<li>如果$E(|X|^k) \lt \infin$,那么对于$\forall j \le k$,都有$E(|X|^j) \lt \infin$</li>
+</ul>
 <h2 id="k阶中心矩">k阶中心矩</h2>
+<ol>
+<li>定义</li>
+</ol>
 <p>$$
 E\lbrace[X-E(X)]^k\rbrace，k=1,2&hellip;
+$$</p>
+<ul>
+<li>也叫做$X$关于均值的$k$阶矩</li>
+</ul>
+<h2 id="矩生成函数mgf">矩生成函数(m.g.f)</h2>
+<ol>
+<li>定义</li>
+</ol>
+<p>$$
+\Psi(t) = E(e^{tx})
+$$</p>
+<ol start="2">
+<li>定理</li>
+</ol>
+<p>$$
+若\Psi(t)对于所有的t都是有限的 \\\
+\\ E(X^n) = \Psi^{(n)}(0)
 $$</p>
 <h2 id="kl阶混合原点矩">k+l阶混合(原点)矩</h2>
 <p>$$
