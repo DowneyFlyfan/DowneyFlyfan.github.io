@@ -288,6 +288,7 @@
           <ol>
             <li><a href="#弱大数定律">(弱)大数定律</a></li>
             <li><a href="#切比雪夫大数定律">切比雪夫大数定律</a></li>
+            <li><a href="#独立同分布大数定律">独立同分布大数定律</a></li>
             <li><a href="#辛倾大数定律">辛倾大数定律</a></li>
             <li><a href="#贝努力大数定律">贝努力大数定律</a></li>
           </ol>
@@ -297,7 +298,9 @@
     <li><a href="#中心极限定律">中心极限定律</a>
       <ol>
         <li><a href="#独立同分布的中心极限定律">独立同分布的中心极限定律</a></li>
+        <li><a href="#变量的正态化">变量的正态化</a></li>
         <li><a href="#拉普拉斯中心极限定律">拉普拉斯中心极限定律</a></li>
+        <li><a href="#lindeberg-and-levy-中心定律">Lindeberg and Levy 中心定律</a></li>
       </ol>
     </li>
   </ol>
@@ -376,7 +379,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -485,8 +488,9 @@ $$</p>
 <li>定义</li>
 </ol>
 <p>$$
-X_1, &hellip; X_n相互独立,且有相同的数学期望\mu和方差\sigma^2 \\\
-\\ 当n\longrightarrow +\infin 时，\frac{1}{n}\sum_{k=1}^nX_k \overset{P}{\longrightarrow} \mu
+X_1, &hellip; X_n 构成一个随机样本，且均值和方差都存在\\\
+\\ 并且Var(X_k) \le C(常数) \\\
+\\ 那么随机变量\lbrace X_k \rbrace 服从大数定律
 $$</p>
 <ol start="2">
 <li>证明</li>
@@ -496,6 +500,12 @@ $$</p>
 \\ Var(\frac{1}{n}\sum_{i=1}^nX_i) = \frac{1}{n^2}Var(\sum_{i=1}^nX_i) = \frac{\sigma^2}{n} \\\
 \\ 利用切比雪夫不等式 \\\
 \\ 0 \le P(\Big| \frac{1}{n}\sum_{i=1}^nX_i - \mu\Big| \ge \varepsilon) \le Var(X)/\varepsilon^2 = \frac{\sigma2}{n\varepsilon^2} \longrightarrow 0
+$$</p>
+<h3 id="独立同分布大数定律">独立同分布大数定律</h3>
+<p>$$
+若X_i(i=1&hellip;n)独立同分布 \\\
+\\ 那么X_i服从大数定律 \\\
+\\ 且\underset{n \rightarrow +\infin}{lim}Pr(|\overline{X_n} - \mu| \lt \sigma) = 1
 $$</p>
 <h3 id="辛倾大数定律">辛倾大数定律</h3>
 <p>$$
@@ -533,9 +543,20 @@ X_1&hellip;X_n独立同分布 \\\
 \\ \sum_{i=1}^k X_i \overset{近似}{～} N(n\mu,n\sigma^2) \\\
 \\ \frac{1}{n}\sum_{i=1}^k X_i \overset{近似}{～}N(\mu,\frac{\sigma^2}{n})
 $$</p>
+<h2 id="变量的正态化">变量的正态化</h2>
+<p>$$
+让X^* = \frac{X-E(X)}{\sqrt{Var(X)}} \\\
+\\ 可以证明得到 E(X^<em>) = 0,Var(X^</em>) = 1 \\\
+\\ 其中,\pmb{X^*叫做X的正态化}
+$$</p>
 <h2 id="拉普拉斯中心极限定律">拉普拉斯中心极限定律</h2>
 <p>$$
-\underset{n\longrightarrow + \infin}{lim} P\Big(\frac{n_A-np}{\sqrt{np(1-p)}}\le x\Big) = \int_{-\infin}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}} dt = \Phi(X)
+\underset{n\longrightarrow + \infin}{lim} P\Big(\frac{n_A-np}{\sqrt{np(1-p)}}\le x\Big) = \Phi(x)
+$$</p>
+<h2 id="lindeberg-and-levy-中心定律">Lindeberg and Levy 中心定律</h2>
+<p>$$
+若\overline{X_n}同分布，那么 \\\
+\\ \underset{n \rightarrow \infin}{lim}Pr\Big[ \frac{\overline{X_n} - \mu}{\sigma / \sqrt n} \le x \Big] = \Phi(x)
 $$</p>
 
 </section>
