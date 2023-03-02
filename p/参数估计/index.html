@@ -279,6 +279,7 @@ $$ 设 \mu_k = E(X^k), k = 1, &amp;hellip; m存在, v_k = E{[X-E(X)]^k} \\\ \\ �
           <ol>
             <li><a href="#定义">定义</a></li>
             <li><a href="#极大似然估计的求解">极大似然估计的求解</a></li>
+            <li><a href="#从bernulli分布中取样">从Bernulli分布中取样</a></li>
           </ol>
         </li>
       </ol>
@@ -450,6 +451,13 @@ $$</p>
 <p>若$\hat{\theta}(X_1,&hellip;,X_n)$ 是$\theta$的极大似然估计量，则$g(\theta)$的极大似然估计量为$g(\hat{\theta}(X_1,&hellip;X_n))$</p>
 </li>
 </ol>
+<h3 id="从bernulli分布中取样">从Bernulli分布中取样</h3>
+<p>$$
+对于Bernulli 分布，极大似然函数为 \\\
+\\ f(\pmb x|\theta) = \theta^{x_i}(1-\theta)^{(1-x_i)} \\\
+\\ L(\theta) =log f_n(\pmb x|\theta) = \sum_{i=1}^n x_ilog(\theta) + \sum_{i=1}^n(1-x_i) log(1-\theta)  \\\
+\\ L(\theta) = \Big(\sum_{i=1}^nx_i \Big) \ log(\theta) + \Big( n - \sum_{i-1}^n x_i \Big)log(1 - \theta)
+$$</p>
 <h1 id="估计量的评选准则">估计量的评选准则</h1>
 <h2 id="无偏性准则">无偏性准则</h2>
 <ol>
