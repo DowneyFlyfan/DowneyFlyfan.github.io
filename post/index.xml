@@ -1221,8 +1221,16 @@ $$&lt;/p&gt;
 \\ \sigma^2 = \frac{1}{4}
 $$&lt;/p&gt;
 &lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;各种分布的分布律、期望和方差&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;各种分布的分布律、期望和方差&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分位函数公式&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;$$
+F(Q(p)) = p得出Q(p)公式
+$$&lt;/p&gt;
 &lt;h2 id=&#34;概念&#34;&gt;概念&lt;/h2&gt;
 &lt;h3 id=&#34;iid-independent-and-identical-distribution&#34;&gt;i.i.d (independent and identical distribution)&lt;/h3&gt;
 &lt;ul&gt;
@@ -6376,27 +6384,45 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;估计量的评选准则&#34;&gt;估计量的评选准则&lt;/h1&gt;
 &lt;h2 id=&#34;无偏性准则unbiased&#34;&gt;无偏性准则(unbiased)&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;定义-1&#34;&gt;定义&lt;/h3&gt;
 &lt;p&gt;$$
 \delta是参数为\theta的函数g的估计量 \\\
 \\ 那么若E_\theta(\delta(X)) = g(\theta)对于所有\theta都成立 \\\
 \\ 那么\delta叫做\pmb{无偏估计量}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;偏差 均方误差&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;偏差-均方误差&#34;&gt;偏差 均方误差&lt;/h3&gt;
 &lt;p&gt;$$
 \Big[E_\theta(\delta(X)) - g(\theta)\Big]叫做\pmb{偏差} \\\
 \\ E_\theta\Big[(\delta - g(\theta)) \Big]^2叫做\pmb{均方误差 \ M.S.E.}
 $$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;纠偏方法&lt;/li&gt;
+&lt;h3 id=&#34;实例&#34;&gt;实例&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;均值的无偏估计&lt;/li&gt;
 &lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;如果$E(\hat{\theta}) = a\theta +b,\theta \in \Theta,a\ne 0$，则$\frac{1}{a}(\hat{\theta}-b)$是$\theta$的无偏估计&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;$$
+X = (X_1,&amp;hellip;,X_n)的均值和方差有限 \\\
+\\ g(\theta) = E_\theta(X_i) \\\
+\\ 那么显然,\overline{X_n}就是g(\theta)的无偏估计\\\
+\\ 它的均方误差为\frac{Var_\theta(X_1)}{n}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;方差的无偏估计&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+X = (X_1,&amp;hellip;,X_n)的方差有限 \\\
+\\ 那么X方差的无偏估计为 \\\
+\\ \hat{\sigma}&lt;em&gt;1^2 = \frac{1}{n-1} \sum&lt;/em&gt;{i=1}^n(X_i - \overline{X_n})^2
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;从泊松分布中取样&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+假设一个泊松分布的均值\theta未知 \\\
+\\ 那么\overline{X_n}和\hat{\sigma}_1^2 都是它的无偏估计 \\\
+\\ 因为其均值和方差相等 \\\
+\\ 所以\alpha \overline X_n + (1-\alpha)\hat{\sigma}_1^2也可以是\theta的无偏估计 \\\
+\\ 因为上式的期望为\theta
+$$&lt;/p&gt;
 &lt;h2 id=&#34;有效性准则&#34;&gt;有效性准则&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
@@ -6422,18 +6448,17 @@ $$&lt;/p&gt;
 \\ 即\forall \varepsilon \gt 0,有 \underset{n \longrightarrow + \infin}{lim}P \lbrace |\hat{\theta}_n - \theta| \ge \varepsilon \rbrace = 0成立 \\\
 \\ 则称\hat{\theta_n}为\theta的\pmb{相合估计量}或\pmb{一致估计量}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;区间估计&#34;&gt;区间估计&lt;/h1&gt;
-&lt;h2 id=&#34;定义-1&#34;&gt;定义&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;设总体X的分布函数 $F(X;\theta)$ 含有一个位置参数$\theta$，$(X_1,&amp;hellip;,X_n)$是总体的一个样本，对给定的值$\alpha(0\lt \alpha \lt 1)$，若有统计量$\hat{\theta}_L = \hat{\theta}_L(X_1,&amp;hellip;,X_n)$，$\hat{\theta}_U = \hat{\theta}_U(X_1,&amp;hellip;,X_n)$,使得&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h1 id=&#34;置信区间&#34;&gt;置信区间&lt;/h1&gt;
+&lt;h2 id=&#34;定义-2&#34;&gt;定义&lt;/h2&gt;
 &lt;p&gt;$$
-P\lbrace \hat{\theta}_L (X_1,&amp;hellip;X_n)\lt \theta \lt \hat{\theta_U}(X_1,&amp;hellip;,X_n)\ge 1- \alpha，\forall \theta \in \Theta \\\
-\\ 则称随机区间(\hat{\theta}_L,\hat{\theta}_U)是\theta 的双侧置信区间 \\\
-\\ 称1 - \alpha 为置信水平或置信度 \\\
-\\ 称 \hat{\theta}_L和\hat{\theta}_U为\pmb{双侧置信下限}和\pmb{双侧置信上限}
+X = (X_1,&amp;hellip;,X_n)是一个参数为\theta的分布 \\\
+\\ g(\theta)是一个关于\theta的实值函数 \\\
+\\ Pr(A\lt g(\theta) \lt B) \ge \gamma \\\
+\\ 区间(A,B)叫做系数\gamma对于g(\theta)的\pmb{置信区间}\\\
+\\ 如果上述不等式对于所有\theta都成立 \\\
+\\ 那么我们称这个置信区间是\pmb{准确的} \\\
+\\ 当观察到A =a,B=b时，(a,b)叫做置信区间的\pmb{观察值}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;单侧置信限&#34;&gt;单侧置信限&lt;/h2&gt;
 </description>
         </item>
         <item>
@@ -10152,6 +10177,11 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;称为协方差矩阵&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;以下是一个例子：假设我们有一个随机变量X，其分布为指数分布，其概率密度函数为$f(x)=\lambda e^{-\lambda x}$，其中$\lambda$是正的常数。我们想要计算X的第p个百分位数。&lt;/p&gt;
+&lt;p&gt;为了计算指数分布的分位函数，我们可以使用以下公式：&lt;/p&gt;
+&lt;p&gt;$$Q(p)=-\frac{\ln(1-p)}{\lambda}$$&lt;/p&gt;
+&lt;p&gt;其中$0 \leq p \leq 1$。这个公式的意思是，我们要找到一个x，使得指数分布在0到x的区间内的累积概率为p。我们可以通过求解该方程来获得该值：&lt;/p&gt;
+&lt;p&gt;$$\int_0^{Q(p)} \lambda e^{-\lambda x}dx = p$$&lt;/p&gt;
 </description>
         </item>
         <item>
