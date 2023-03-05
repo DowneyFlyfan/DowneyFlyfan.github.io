@@ -39,7 +39,8 @@ apt upgrade
 注意内外网问题
 三、服务器操作 3.1 创建新用户并赋予sudo权限 创建新用户 1 adduser &amp;lt;username&amp;gt; 在管理员账号下 1 adduser &amp;lt;username&amp;gt; sudo 注意 useradd比adduser功能更强大 3.2 下载openssh-server 下载 1 sudo apt install openssh-server 检查ssh运行状态 1 sudo systemctl status ssh 看到active(running)即为正常运行,否则开启该服务 1 sudo systemctl start ssh 在本地端bashrc中加入alias ssh=&#39;TERM=xterm-256color ssh&#39;
 进入服务器，并输入
-1 2 sudo apt install curl # 安装curl curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x - 3.3 关闭防火墙 1 2 3 4 5 6 sudo apt install lsof # 安装lsof命令 sudo lsof -l -P -n | grep LISTEN # 查看端口状态 sudo apt install ufw # 安装ufw命令 sudo ufw allow 22 sudo ufw allow 1194 # 开放以上两个端口 3.">
+1 2 sudo apt install curl # 安装curl curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x - 3.3 关闭防火墙 1 2 3 4 5 6 sudo apt install lsof # 安装lsof命令 sudo lsof -l -P -n | grep LISTEN # 查看端口状态 sudo apt install ufw # 安装ufw命令 sudo ufw allow 22 sudo ufw allow 1194 # 开放以上两个端口 3."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
     </head>
     <body class="
     article-page
