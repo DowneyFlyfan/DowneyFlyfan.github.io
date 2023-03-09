@@ -348,10 +348,34 @@
             <li><a href="#forward-bias">forward bias</a></li>
             <li><a href="#reverse-bias">reverse bias</a></li>
             <li><a href="#开路">开路</a></li>
+            <li><a href="#总结">总结</a></li>
+          </ol>
+        </li>
+        <li><a href="#pn结的i-v关系">pn结的I-V关系</a>
+          <ol>
+            <li><a href="#公式">公式</a></li>
+            <li><a href="#分析">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#反向击穿">反向击穿</a>
+          <ol>
+            <li><a href="#齐纳击穿">齐纳击穿</a></li>
+            <li><a href="#雪崩击穿">雪崩击穿</a></li>
           </ol>
         </li>
       </ol>
     </li>
+    <li><a href="#pn结的电容效应">pn结的电容效应</a>
+      <ol>
+        <li><a href="#耗尽层电容结电容">耗尽层电容(结电容)</a></li>
+        <li><a href="#扩散电容">扩散电容</a>
+          <ol>
+            <li><a href="#图示-3">图示</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#半导体的简化物理结构图">半导体的简化物理结构图</a></li>
   </ol>
 </nav>
         </div>
@@ -416,7 +440,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -700,6 +724,9 @@ $$</p>
 <h1 id="外加电压的pn结">外加电压的pn结</h1>
 <h2 id="pn结操作的量化描述">pn结操作的量化描述</h2>
 <h3 id="forward-bias">forward bias</h3>
+<ol>
+<li>图示</li>
+</ol>
 <p><img src="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/9.png"
 	width="465"
 	height="412"
@@ -712,10 +739,28 @@ $$</p>
 		data-flex-basis="270px"
 	
 ></p>
+<ol start="2">
+<li>解释</li>
+</ol>
 <p>$$
-I_D \gt I_S
+V_F 与原电压方向相反 \Longrightarrow 有效障碍减少 \\\
+\\ 漂移率增加,\pmb{I_D \uparrow ,I_S不便}\\\
 $$</p>
+<ol start="3">
+<li>结果</li>
+</ol>
+<ul>
+<li>
+<p>$pn$结产生显著的电流$(I_D - I_S)$</p>
+</li>
+<li>
+<p>耗尽区变<strong>窄</strong></p>
+</li>
+</ul>
 <h3 id="reverse-bias">reverse bias</h3>
+<ol>
+<li>图示</li>
+</ol>
 <p><img src="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/10.png"
 	width="464"
 	height="393"
@@ -728,9 +773,24 @@ $$</p>
 		data-flex-basis="283px"
 	
 ></p>
+<ol start="2">
+<li>解释</li>
+</ol>
 <p>$$
-I_S \gt I_D
+当V_R \ge \pmb V时，I_D = 0 \\\
+\\ I_S只受温度影响(\pmb{为什么呢})
 $$</p>
+<ol start="3">
+<li>结果</li>
+</ol>
+<ul>
+<li>
+<p>$pn$结产生少量电流$(I_S)$</p>
+</li>
+<li>
+<p>耗尽区变<strong>宽</strong></p>
+</li>
+</ul>
 <h3 id="开路">开路</h3>
 <p><img src="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/11.png"
 	width="659"
@@ -747,6 +807,85 @@ $$</p>
 <p>$$
 I_D = I_S
 $$</p>
+<h3 id="总结">总结</h3>
+<ol>
+<li>
+<p>施加电压只影响$I_D$,不影响$I_S$</p>
+</li>
+<li>
+<p>耗尽区的宽度会受到影响</p>
+</li>
+</ol>
+<h2 id="pn结的i-v关系">pn结的I-V关系</h2>
+<h3 id="公式">公式</h3>
+<p>$$
+I = I_S (e^{\frac{v}{v_T}}-1) \\\
+\\ I_S: 饱和电流 \\\
+\\ V_T = \frac{kT}{q}: 热电压 \\\
+\\ k: 波兹曼常数 \ 1.38 \times 10^{-23}(J/K)
+$$</p>
+<h3 id="分析">分析</h3>
+<p><img src="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/12.png"
+	width="504"
+	height="514"
+	srcset="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/12_hu1a2f7331d1a5eb97c462737078b25eb7_11656_480x0_resize_box_3.png 480w, /p/%E5%8D%8A%E5%AF%BC%E4%BD%93/12_hu1a2f7331d1a5eb97c462737078b25eb7_11656_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="98"
+		data-flex-basis="235px"
+	
+></p>
+<p>$$
+当|v| \gg V_T, i \approx I_S e^{\frac{v}{v_T}}\\\
+\\ Forward-Bias: i = I_Se^{\frac{v}{v_T}} \\\
+\\ Reverse-Bias: i = - I_S
+$$</p>
+<h2 id="反向击穿">反向击穿</h2>
+<h3 id="齐纳击穿">齐纳击穿</h3>
+<blockquote>
+<p>当电压增加到<strong>化学键破裂</strong>和形成<strong>自由电子-空穴对</strong>的那一点</p>
+</blockquote>
+<h3 id="雪崩击穿">雪崩击穿</h3>
+<blockquote>
+<p>当势垒获得足够的<strong>动能</strong>使得<strong>原子撞击</strong>足以击穿<strong>化学键</strong>时发生</p>
+</blockquote>
+<h1 id="pn结的电容效应">pn结的电容效应</h1>
+<h2 id="耗尽层电容结电容">耗尽层电容(结电容)</h2>
+<p>$$
+C_j = \frac{\Delta Q}{\Delta V}
+$$</p>
+<h2 id="扩散电容">扩散电容</h2>
+<h3 id="图示-3">图示</h3>
+<p><img src="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/13.png"
+	width="887"
+	height="492"
+	srcset="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/13_hub8776915a6f84dd999c741236176d871_57168_480x0_resize_box_3.png 480w, /p/%E5%8D%8A%E5%AF%BC%E4%BD%93/13_hub8776915a6f84dd999c741236176d871_57168_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="432px"
+	
+></p>
+<p>$$
+p区比n区杂质量更高 \Longrightarrow N_A \gg N_D
+$$</p>
+<h1 id="半导体的简化物理结构图">半导体的简化物理结构图</h1>
+<p><img src="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/14.png"
+	width="776"
+	height="324"
+	srcset="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/14_huad4b62f6ab68e7802e4e08a0100a530f_46953_480x0_resize_box_3.png 480w, /p/%E5%8D%8A%E5%AF%BC%E4%BD%93/14_huad4b62f6ab68e7802e4e08a0100a530f_46953_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="239"
+		data-flex-basis="574px"
+	
+></p>
 
 </section>
 

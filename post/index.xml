@@ -53,11 +53,11 @@
 </description>
         </item>
         <item>
-        <title>A_Second Order_Noise Shaping_SAR_ADC_With_Passive_Integrator_and_Tri Level_Voting</title>
-        <link>https://downeyflyfan.com/p/a_second-order_noise-shaping_sar_adc_with_passive_integrator_and_tri-level_voting/</link>
+        <title>A Second Order Noise Shaping SAR ADC_With Passive Integrator and Tri Level Voting</title>
+        <link>https://downeyflyfan.com/p/a-second-order-noise-shaping-sar-adc_with-passive-integrator-and-tri-level-voting/</link>
         <pubDate>Wed, 08 Mar 2023 21:18:44 +0000</pubDate>
         
-        <guid>https://downeyflyfan.com/p/a_second-order_noise-shaping_sar_adc_with_passive_integrator_and_tri-level_voting/</guid>
+        <guid>https://downeyflyfan.com/p/a-second-order-noise-shaping-sar-adc_with-passive-integrator-and-tri-level-voting/</guid>
         <description>&lt;h1 id=&#34;词汇&#34;&gt;词汇&lt;/h1&gt;
 &lt;h2 id=&#34;ns&#34;&gt;NS&lt;/h2&gt;
 &lt;ul&gt;
@@ -414,6 +414,9 @@ $$&lt;/p&gt;
 &lt;h1 id=&#34;外加电压的pn结&#34;&gt;外加电压的pn结&lt;/h1&gt;
 &lt;h2 id=&#34;pn结操作的量化描述&#34;&gt;pn结操作的量化描述&lt;/h2&gt;
 &lt;h3 id=&#34;forward-bias&#34;&gt;forward bias&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/9.png&#34;
 	width=&#34;465&#34;
 	height=&#34;412&#34;
@@ -426,10 +429,28 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;270px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;解释&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
-I_D \gt I_S
+V_F 与原电压方向相反 \Longrightarrow 有效障碍减少 \\\
+\\ 漂移率增加,\pmb{I_D \uparrow ,I_S不便}\\\
 $$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;结果&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$pn$结产生显著的电流$(I_D - I_S)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;耗尽区变&lt;strong&gt;窄&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;reverse-bias&#34;&gt;reverse bias&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/10.png&#34;
 	width=&#34;464&#34;
 	height=&#34;393&#34;
@@ -442,9 +463,24 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;283px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;解释&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
-I_S \gt I_D
+当V_R \ge \pmb V时，I_D = 0 \\\
+\\ I_S只受温度影响(\pmb{为什么呢})
 $$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;结果&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$pn$结产生少量电流$(I_S)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;耗尽区变&lt;strong&gt;宽&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;开路&#34;&gt;开路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/11.png&#34;
 	width=&#34;659&#34;
@@ -461,6 +497,85 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 I_D = I_S
 $$&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;施加电压只影响$I_D$,不影响$I_S$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;耗尽区的宽度会受到影响&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;pn结的i-v关系&#34;&gt;pn结的I-V关系&lt;/h2&gt;
+&lt;h3 id=&#34;公式&#34;&gt;公式&lt;/h3&gt;
+&lt;p&gt;$$
+I = I_S (e^{\frac{v}{v_T}}-1) \\\
+\\ I_S: 饱和电流 \\\
+\\ V_T = \frac{kT}{q}: 热电压 \\\
+\\ k: 波兹曼常数 \ 1.38 \times 10^{-23}(J/K)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/12.png&#34;
+	width=&#34;504&#34;
+	height=&#34;514&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/12_hu1a2f7331d1a5eb97c462737078b25eb7_11656_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/12_hu1a2f7331d1a5eb97c462737078b25eb7_11656_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;235px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+当|v| \gg V_T, i \approx I_S e^{\frac{v}{v_T}}\\\
+\\ Forward-Bias: i = I_Se^{\frac{v}{v_T}} \\\
+\\ Reverse-Bias: i = - I_S
+$$&lt;/p&gt;
+&lt;h2 id=&#34;反向击穿&#34;&gt;反向击穿&lt;/h2&gt;
+&lt;h3 id=&#34;齐纳击穿&#34;&gt;齐纳击穿&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当电压增加到&lt;strong&gt;化学键破裂&lt;/strong&gt;和形成&lt;strong&gt;自由电子-空穴对&lt;/strong&gt;的那一点&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;雪崩击穿&#34;&gt;雪崩击穿&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当势垒获得足够的&lt;strong&gt;动能&lt;/strong&gt;使得&lt;strong&gt;原子撞击&lt;/strong&gt;足以击穿&lt;strong&gt;化学键&lt;/strong&gt;时发生&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;pn结的电容效应&#34;&gt;pn结的电容效应&lt;/h1&gt;
+&lt;h2 id=&#34;耗尽层电容结电容&#34;&gt;耗尽层电容(结电容)&lt;/h2&gt;
+&lt;p&gt;$$
+C_j = \frac{\Delta Q}{\Delta V}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;扩散电容&#34;&gt;扩散电容&lt;/h2&gt;
+&lt;h3 id=&#34;图示-3&#34;&gt;图示&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/13.png&#34;
+	width=&#34;887&#34;
+	height=&#34;492&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/13_hub8776915a6f84dd999c741236176d871_57168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/13_hub8776915a6f84dd999c741236176d871_57168_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;432px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+p区比n区杂质量更高 \Longrightarrow N_A \gg N_D
+$$&lt;/p&gt;
+&lt;h1 id=&#34;半导体的简化物理结构图&#34;&gt;半导体的简化物理结构图&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/14.png&#34;
+	width=&#34;776&#34;
+	height=&#34;324&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/14_huad4b62f6ab68e7802e4e08a0100a530f_46953_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/14_huad4b62f6ab68e7802e4e08a0100a530f_46953_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;239&#34;
+		data-flex-basis=&#34;574px&#34;
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -1846,7 +1961,7 @@ $$&lt;/p&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;转角频率omega_0&#34;&gt;转角频率($\omega_0$)&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;解方程$\omega_0 = 1$得到&lt;/p&gt;
+&lt;p&gt;解方程$|H(\omega_0)|= 1$得到&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;截止频率&#34;&gt;截止频率&lt;/h2&gt;
 &lt;blockquote&gt;
