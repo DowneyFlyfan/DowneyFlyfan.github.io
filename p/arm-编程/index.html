@@ -4,7 +4,15 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ARM 处理器 指令集结构 Low-level Programming 名称 Advanced RISC Machine
 RISC = Reduced Instruction Set Computer
 CISC = Complex Instruction Set Computer
-比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ '>
+比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython 界面技巧 GPIO 定义 General Purpose Input/Output
+实例 对于microcontroller，pin就是GPIO
+pin是双向的
+工作模式 输入 Floating Mode
+Pull-Up
+Pull-Down
+Analog Mode
+输出 General purpose output push-pull
+General purpose output Open-drain'>
 <title>ARM 编程</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/'>
@@ -13,7 +21,15 @@ CISC = Complex Instruction Set Computer
 <meta property='og:description' content='ARM 处理器 指令集结构 Low-level Programming 名称 Advanced RISC Machine
 RISC = Reduced Instruction Set Computer
 CISC = Complex Instruction Set Computer
-比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ '>
+比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython 界面技巧 GPIO 定义 General Purpose Input/Output
+实例 对于microcontroller，pin就是GPIO
+pin是双向的
+工作模式 输入 Floating Mode
+Pull-Up
+Pull-Down
+Analog Mode
+输出 General purpose output push-pull
+General purpose output Open-drain'>
 <meta property='og:url' content='https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-10T14:43:37&#43;00:00'/><meta property='article:modified_time' content='2023-03-10T14:43:37&#43;00:00'/>
@@ -21,7 +37,15 @@ CISC = Complex Instruction Set Computer
 <meta name="twitter:description" content="ARM 处理器 指令集结构 Low-level Programming 名称 Advanced RISC Machine
 RISC = Reduced Instruction Set Computer
 CISC = Complex Instruction Set Computer
-比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython 界面技巧 GPIO 定义 General Purpose Input/Output
+实例 对于microcontroller，pin就是GPIO
+pin是双向的
+工作模式 输入 Floating Mode
+Pull-Up
+Pull-Down
+Analog Mode
+输出 General purpose output push-pull
+General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -270,7 +294,36 @@ CISC = Complex Instruction Set Computer
         <li><a href="#arm-vs-mips">ARM vs. MIPS</a></li>
       </ol>
     </li>
-    <li><a href="#heading"></a></li>
+    <li><a href="#嵌入式编程语言">嵌入式编程语言</a>
+      <ol>
+        <li><a href="#常见语言">常见语言</a></li>
+      </ol>
+    </li>
+    <li><a href="#界面技巧">界面技巧</a>
+      <ol>
+        <li><a href="#gpio">GPIO</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+            <li><a href="#实例">实例</a></li>
+            <li><a href="#工作模式">工作模式</a></li>
+          </ol>
+        </li>
+        <li><a href="#pwm---pulse-width-modulation">PWM - Pulse Width Modulation</a>
+          <ol>
+            <li><a href="#模电和数电">模电和数电</a></li>
+            <li><a href="#原理">原理</a></li>
+            <li><a href="#图像分析">图像分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#串行通信的方式">串行通信的方式</a>
+          <ol>
+            <li><a href="#uart----universal-asynchronous-reception-and-transmission">UART &ndash; Universal Asynchronous Reception and Transmission</a></li>
+            <li><a href="#i2c---inter-integrated-circuit">I2C - Inter-Integrated-Circuit</a></li>
+            <li><a href="#spi---serial-peripheral-interface">SPI - Serial Peripheral Interface</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -335,7 +388,7 @@ CISC = Complex Instruction Set Computer
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -416,7 +469,313 @@ CISC = Complex Instruction Set Computer
 <ul>
 <li>结论：ARM比MIPS更NB！</li>
 </ul>
-<h1 id="heading"></h1>
+<h1 id="嵌入式编程语言">嵌入式编程语言</h1>
+<h2 id="常见语言">常见语言</h2>
+<ul>
+<li>C, C++, Python, Java, MicroPython</li>
+</ul>
+<h1 id="界面技巧">界面技巧</h1>
+<h2 id="gpio">GPIO</h2>
+<h3 id="定义">定义</h3>
+<blockquote>
+<p>General Purpose Input/Output</p>
+</blockquote>
+<h3 id="实例">实例</h3>
+<ol>
+<li>
+<p>对于microcontroller，<strong>pin</strong>就是<strong>GPIO</strong></p>
+</li>
+<li>
+<p><strong>pin</strong>是双向的</p>
+</li>
+</ol>
+<h3 id="工作模式">工作模式</h3>
+<ol>
+<li>输入</li>
+</ol>
+<ul>
+<li>
+<p>Floating Mode</p>
+</li>
+<li>
+<p>Pull-Up</p>
+</li>
+<li>
+<p>Pull-Down</p>
+</li>
+<li>
+<p>Analog Mode</p>
+</li>
+</ul>
+<ol start="2">
+<li>输出</li>
+</ol>
+<ul>
+<li>
+<p>General purpose output push-pull</p>
+</li>
+<li>
+<p>General purpose output Open-drain</p>
+</li>
+<li>
+<p>Alternate function output push-pull</p>
+</li>
+<li>
+<p>Alternate function output Open-drain.</p>
+</li>
+</ul>
+<h2 id="pwm---pulse-width-modulation">PWM - Pulse Width Modulation</h2>
+<h3 id="模电和数电">模电和数电</h3>
+<ol>
+<li>
+<p>模拟信号可以多样</p>
+</li>
+<li>
+<p>数字信号只能是<strong>High</strong>或<strong>Low</strong></p>
+</li>
+</ol>
+<h3 id="原理">原理</h3>
+<ul>
+<li>用<strong>数字源</strong>产生<strong>模拟信号</strong></li>
+</ul>
+<h3 id="图像分析">图像分析</h3>
+<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/1.png"
+	width="850"
+	height="408"
+	srcset="/p/arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="208"
+		data-flex-basis="500px"
+	
+></p>
+<p>$$
+Duty \ Cycle = \frac{Active \ time}{T} \times 100% \\\
+\\ Average \ Time = high \cdot Duty \ Cycle / 100%
+$$</p>
+<h2 id="串行通信的方式">串行通信的方式</h2>
+<h3 id="uart----universal-asynchronous-reception-and-transmission">UART &ndash; Universal Asynchronous Reception and Transmission</h3>
+<ol>
+<li>部件与原理</li>
+</ol>
+<ul>
+<li>
+<p>RX - Receiver</p>
+</li>
+<li>
+<p>TX - Transmitter</p>
+</li>
+<li>
+<p>Protocal - 总线异步通信系统<strong>协议</strong></p>
+</li>
+</ul>
+<ol start="2">
+<li>工作原理</li>
+</ol>
+<ul>
+<li>
+<p>Start Bit $0$ $\longrightarrow$ Stop Bit $1$</p>
+</li>
+<li>
+<p>Data Length</p>
+</li>
+</ul>
+<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/2.png"
+	width="1232"
+	height="302"
+	srcset="/p/arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="407"
+		data-flex-basis="979px"
+	
+></p>
+<ul>
+<li>理想状态下，串行线为$1$</li>
+</ul>
+<h3 id="i2c---inter-integrated-circuit">I2C - Inter-Integrated-Circuit</h3>
+<ol>
+<li>部件与原理</li>
+</ol>
+<ul>
+<li>
+<p>一主机，多从机</p>
+</li>
+<li>
+<p>只有主机可以<strong>初始化</strong>传输数据</p>
+</li>
+<li>
+<p>总线系统同步通信的<strong>协议</strong></p>
+</li>
+<li>
+<p>SDA - Serial Data Line: 传输<strong>数据、地址、控制</strong>信号</p>
+</li>
+<li>
+<p>SCL - Serial Clock Line：用于<strong>同步</strong></p>
+</li>
+</ul>
+<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/3.png"
+	width="1043"
+	height="366"
+	srcset="/p/arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="284"
+		data-flex-basis="683px"
+	
+></p>
+<ol start="2">
+<li>工作原理</li>
+</ol>
+<ul>
+<li>
+<p>Data Length: 8-bit</p>
+</li>
+<li>
+<p>Start (Stop) Condition</p>
+</li>
+</ul>
+<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/5.png"
+	width="826"
+	height="401"
+	srcset="/p/arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="205"
+		data-flex-basis="494px"
+	
+></p>
+<ol start="3">
+<li>地址字节(8位)</li>
+</ol>
+<ul>
+<li>
+<p>前7位构成<strong>从机地址</strong></p>
+</li>
+<li>
+<p>最后1位作为<strong>读/写</strong>指令</p>
+<ul>
+<li>0是写入(从机)</li>
+<li>1是读取</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>确认位和非确认位(ACB/NACB)</li>
+</ol>
+<ul>
+<li>
+<p>每字节数据输入成功，<strong>接受者</strong>返回ACB;失败返回<strong>NACB</strong></p>
+</li>
+<li>
+<p>在SCL为<strong>High</strong>时，保持SCA为<strong>low</strong>,以此产生<strong>ACB</strong></p>
+</li>
+</ul>
+<ol start="5">
+<li>数据位</li>
+</ol>
+<ul>
+<li>
+<p>8位字节格式</p>
+</li>
+<li>
+<p>以地址字节开头，每个地址字节后必须跟着一个ACB/NACB</p>
+</li>
+<li>
+<p>必须在<strong>SCL保持high</strong>时才能发送和接收数据</p>
+</li>
+<li>
+<p><strong>SCL保持低位</strong>时可以操作数据线</p>
+</li>
+</ul>
+<h3 id="spi---serial-peripheral-interface">SPI - Serial Peripheral Interface</h3>
+<ol>
+<li>部件与协议</li>
+</ol>
+<ul>
+<li>
+<p>总线系统的串行通信<strong>协议</strong></p>
+</li>
+<li>
+<p>一主机，(一)多从机</p>
+</li>
+<li>
+<p>全双工</p>
+</li>
+<li>
+<p>主从层次结构</p>
+</li>
+</ul>
+<ol start="2">
+<li>结构</li>
+</ol>
+<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/4.png"
+	width="572"
+	height="580"
+	srcset="/p/arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="98"
+		data-flex-basis="236px"
+	
+></p>
+<ul>
+<li>SS(CS): Slave Select (Chip Select),从机并行连接，处于<strong>low</strong>位时被激活</li>
+</ul>
+<ol start="3">
+<li>原理</li>
+</ol>
+<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/6.png"
+	width="886"
+	height="233"
+	srcset="/p/arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="380"
+		data-flex-basis="912px"
+	
+></p>
+<div class="mermaid">stateDiagram
+主机向从机发送时钟信号 --> 将对应从机的SS/CS调成low
+将对应从机的SS/CS调成low --> MOSI发送数据
+MOSI发送数据 --> MISO接受从机发回的数据: 如果有必要的话
+</div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
+
+<ol start="4">
+<li>时钟参数</li>
+</ol>
+<ul>
+<li>CPOL(Clock Polarity)</li>
+</ul>
+<blockquote>
+<p>当CPOL为0时，时钟信号在空闲状态下为低电平（0），在上升沿（rising edge）采样数据，下降沿（falling edge）传输数据。当CPOL为1时，时钟信号在空闲状态下为高电平（1），在下降沿采样数据，上升沿传输数据。</p>
+</blockquote>
+<ul>
+<li>CPHA(Clock Phase)</li>
+</ul>
+<blockquote>
+<p>当CPHA为0时，在时钟信号的第一个跳变沿（上升沿或下降沿）采样数据；当CPHA为1时，在时钟信号的第二个跳变沿（另一个上升沿或下降沿）采样数据。</p>
+</blockquote>
 
 </section>
 

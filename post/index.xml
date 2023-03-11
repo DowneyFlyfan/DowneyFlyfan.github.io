@@ -6,7 +6,112 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 10 Mar 2023 14:43:37 +0000</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 11 Mar 2023 14:16:50 +0000</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>深度学习基础</title>
+        <link>https://downeyflyfan.com/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/</link>
+        <pubDate>Sat, 11 Mar 2023 14:16:50 +0000</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/</guid>
+        <description>&lt;h1 id=&#34;线性回归&#34;&gt;线性回归&lt;/h1&gt;
+&lt;h2 id=&#34;基本要素&#34;&gt;基本要素&lt;/h2&gt;
+&lt;h3 id=&#34;模型&#34;&gt;模型&lt;/h3&gt;
+&lt;p&gt;$$
+\hat y  =\sum_{j=1}^nx_jw_j + b \\\
+\\ \hat y: 预测 \\\
+\\ w_i: 权重\\\
+\\ b: 偏差
+$$&lt;/p&gt;
+&lt;h3 id=&#34;模型训练&#34;&gt;模型训练&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;训练数据集&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;样本:一组数据,包括&lt;strong&gt;y,x&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标签(label): &lt;strong&gt;真实的y&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;特征(feature): &lt;strong&gt;x&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+对于索引为i的样本 \\\
+\\ \hat y^{(i)} =  \sum_{j=1}^nx_j^{(i)}w_j^{(i)} + b
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;损失(loss)函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+l^{(i)}(w_i,b) = \frac{1}{2}(\hat y^{(i)} - y^{(i)})^2 \\\ \\\
+\\ 若有m个样本，n个特征 \\\
+\\ l(w_i,b) = \frac{1}{n}\sum_{i=1}^m (\sum_{j=1}^nx_j^{(i)}w_j^{(i)} + b - y^{(i)})^2 \\\
+\\ 在模型中，我们希望找出一组模型参数，使得损失最小  \\\
+\\ w_i^&lt;em&gt;,b^&lt;/em&gt; = argmin \ l(w_i,b)
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;优化算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;以上算法可以用于较为简单的数学模型以获得&lt;strong&gt;解析解(analytial solution)&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;但是更为复杂的模型只能通过&lt;strong&gt;优化算法&lt;/strong&gt;获得&lt;strong&gt;数值解(numerical solution)&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;模型预测&#34;&gt;模型预测&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用获得的$w_i,b$对给定的$x_i$估计对应的$y$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;表示方法&#34;&gt;表示方法&lt;/h2&gt;
+&lt;h3 id=&#34;神经网络图&#34;&gt;神经网络图&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/1.png&#34;
+	width=&#34;576&#34;
+	height=&#34;234&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/1_hu6a761b608be7ccb25ffc588956a680d7_15079_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/1_hu6a761b608be7ccb25ffc588956a680d7_15079_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;246&#34;
+		data-flex-basis=&#34;590px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;线性回归是个&lt;strong&gt;单层神经网络&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;神经网络隐去了&lt;strong&gt;偏差&lt;/strong&gt;和&lt;strong&gt;权重&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;输入层个数叫做&lt;strong&gt;特征数&lt;/strong&gt;或&lt;strong&gt;特征向量维度&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;矢量计算比标量相加更&lt;strong&gt;省时&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;向量表示法&#34;&gt;向量表示法&lt;/h3&gt;
+&lt;p&gt;$$
+\pmb {\hat y} = \pmb{Xw} +b  \\\
+\\ 当样本数为\pmb n,特征数为\pmb d时  \\\
+\\ \pmb y \in \mathbb R^{n\times 1}, \pmb X \in \mathbb R^{n\times d},\pmb w \in \mathbb R^{d\times 1}   \\\
+\\ 设模型参数\theta = [\pmb w^T,b]^T  \\\
+\\ 损失函数l (\pmb w) = \frac{1}{2n}(\hat y-y)^T(\hat y-y)
+$$&lt;/p&gt;
+&lt;h1 id=&#34;线性回归的从零开始实现&#34;&gt;线性回归的从零开始实现&lt;/h1&gt;
+&lt;h2 id=&#34;生成数据集&#34;&gt;生成数据集&lt;/h2&gt;
+&lt;p&gt;$$
+\pmb{\hat y} = \pmb{Xw} + b + \epsilon \\\
+\\ 其中,\epsilon为噪声项
+$$&lt;/p&gt;
+&lt;h2 id=&#34;读取数据&#34;&gt;读取数据&lt;/h2&gt;
+&lt;h2 id=&#34;初始化模型参数&#34;&gt;初始化模型参数&lt;/h2&gt;
+</description>
+        </item>
+        <item>
         <title>ARM 编程</title>
         <link>https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/</link>
         <pubDate>Fri, 10 Mar 2023 14:43:37 +0000</pubDate>
@@ -78,7 +183,313 @@
 &lt;ul&gt;
 &lt;li&gt;结论：ARM比MIPS更NB！&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;嵌入式编程语言&#34;&gt;嵌入式编程语言&lt;/h1&gt;
+&lt;h2 id=&#34;常见语言&#34;&gt;常见语言&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;C, C++, Python, Java, MicroPython&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;界面技巧&#34;&gt;界面技巧&lt;/h1&gt;
+&lt;h2 id=&#34;gpio&#34;&gt;GPIO&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;General Purpose Input/Output&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;实例&#34;&gt;实例&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;对于microcontroller，&lt;strong&gt;pin&lt;/strong&gt;就是&lt;strong&gt;GPIO&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;pin&lt;/strong&gt;是双向的&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;工作模式&#34;&gt;工作模式&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;输入&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Floating Mode&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pull-Up&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pull-Down&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Analog Mode&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;输出&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;General purpose output push-pull&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;General purpose output Open-drain&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Alternate function output push-pull&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Alternate function output Open-drain.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pwm---pulse-width-modulation&#34;&gt;PWM - Pulse Width Modulation&lt;/h2&gt;
+&lt;h3 id=&#34;模电和数电&#34;&gt;模电和数电&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;模拟信号可以多样&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数字信号只能是&lt;strong&gt;High&lt;/strong&gt;或&lt;strong&gt;Low&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;原理&#34;&gt;原理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用&lt;strong&gt;数字源&lt;/strong&gt;产生&lt;strong&gt;模拟信号&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;图像分析&#34;&gt;图像分析&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/1.png&#34;
+	width=&#34;850&#34;
+	height=&#34;408&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;208&#34;
+		data-flex-basis=&#34;500px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+Duty \ Cycle = \frac{Active \ time}{T} \times 100% \\\
+\\ Average \ Time = high \cdot Duty \ Cycle / 100%
+$$&lt;/p&gt;
+&lt;h2 id=&#34;串行通信的方式&#34;&gt;串行通信的方式&lt;/h2&gt;
+&lt;h3 id=&#34;uart----universal-asynchronous-reception-and-transmission&#34;&gt;UART &amp;ndash; Universal Asynchronous Reception and Transmission&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;部件与原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;RX - Receiver&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TX - Transmitter&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Protocal - 总线异步通信系统&lt;strong&gt;协议&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;工作原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Start Bit $0$ $\longrightarrow$ Stop Bit $1$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Data Length&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/2.png&#34;
+	width=&#34;1232&#34;
+	height=&#34;302&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;407&#34;
+		data-flex-basis=&#34;979px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;理想状态下，串行线为$1$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;i2c---inter-integrated-circuit&#34;&gt;I2C - Inter-Integrated-Circuit&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;部件与原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;一主机，多从机&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;只有主机可以&lt;strong&gt;初始化&lt;/strong&gt;传输数据&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;总线系统同步通信的&lt;strong&gt;协议&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SDA - Serial Data Line: 传输&lt;strong&gt;数据、地址、控制&lt;/strong&gt;信号&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SCL - Serial Clock Line：用于&lt;strong&gt;同步&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/3.png&#34;
+	width=&#34;1043&#34;
+	height=&#34;366&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;284&#34;
+		data-flex-basis=&#34;683px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;工作原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Data Length: 8-bit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start (Stop) Condition&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/5.png&#34;
+	width=&#34;826&#34;
+	height=&#34;401&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;205&#34;
+		data-flex-basis=&#34;494px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;地址字节(8位)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;前7位构成&lt;strong&gt;从机地址&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后1位作为&lt;strong&gt;读/写&lt;/strong&gt;指令&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0是写入(从机)&lt;/li&gt;
+&lt;li&gt;1是读取&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;确认位和非确认位(ACB/NACB)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;每字节数据输入成功，&lt;strong&gt;接受者&lt;/strong&gt;返回ACB;失败返回&lt;strong&gt;NACB&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在SCL为&lt;strong&gt;High&lt;/strong&gt;时，保持SCA为&lt;strong&gt;low&lt;/strong&gt;,以此产生&lt;strong&gt;ACB&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;数据位&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;8位字节格式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以地址字节开头，每个地址字节后必须跟着一个ACB/NACB&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;必须在&lt;strong&gt;SCL保持high&lt;/strong&gt;时才能发送和接收数据&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;SCL保持低位&lt;/strong&gt;时可以操作数据线&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;spi---serial-peripheral-interface&#34;&gt;SPI - Serial Peripheral Interface&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;部件与协议&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;总线系统的串行通信&lt;strong&gt;协议&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一主机，(一)多从机&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;全双工&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主从层次结构&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;结构&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/4.png&#34;
+	width=&#34;572&#34;
+	height=&#34;580&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;236px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SS(CS): Slave Select (Chip Select),从机并行连接，处于&lt;strong&gt;low&lt;/strong&gt;位时被激活&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/6.png&#34;
+	width=&#34;886&#34;
+	height=&#34;233&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;380&#34;
+		data-flex-basis=&#34;912px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
+主机向从机发送时钟信号 --&gt; 将对应从机的SS/CS调成low
+将对应从机的SS/CS调成low --&gt; MOSI发送数据
+MOSI发送数据 --&gt; MISO接受从机发回的数据: 如果有必要的话
+&lt;/div&gt;
+
+
+
+  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    mermaid.initialize({ startOnLoad: true });
+  &lt;/script&gt;
+
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;时钟参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;CPOL(Clock Polarity)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当CPOL为0时，时钟信号在空闲状态下为低电平（0），在上升沿（rising edge）采样数据，下降沿（falling edge）传输数据。当CPOL为1时，时钟信号在空闲状态下为高电平（1），在下降沿采样数据，上升沿传输数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;CPHA(Clock Phase)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当CPHA为0时，在时钟信号的第一个跳变沿（上升沿或下降沿）采样数据；当CPHA为1时，在时钟信号的第二个跳变沿（另一个上升沿或下降沿）采样数据。&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
         </item>
         <item>
@@ -1249,6 +1660,14 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;p&gt;With renewed hope, the team quickly made the necessary adjustments, and the actuator came to life. The crowd at the unveiling was amazed as the device effortlessly controlled the pore&amp;rsquo;s throughput, opening up a whole new world of possibilities.&lt;/p&gt;
 &lt;p&gt;However, little did they know that the actuator&amp;rsquo;s success would soon be overshadowed by a deadly plague that would sweep across the town. As the situation grew more dire, the researchers worked tirelessly to find a solution, and they soon discovered that the same actuator that had once brought so much hope could be used to combat the disease.&lt;/p&gt;
 &lt;p&gt;Using the bidirectional control, they were able to deliver a powerful medication directly to the affected cells, effectively stopping the plague in its tracks. As the town began to recover, the once-misunderstood actuator became a symbol of hope and resilience, proving that even the smallest advancements can make a huge impact on the world.&lt;/p&gt;
+&lt;h1 id=&#34;2023--311&#34;&gt;2023  3.11&lt;/h1&gt;
+&lt;p&gt;Once upon a time, in a world far different from ours, there existed a society where communication was everything. People communicated with each other using a strange language that was composed of &amp;ldquo;bits&amp;rdquo; and &amp;ldquo;Baud&amp;rdquo; that were rendered into &amp;ldquo;full-duplex&amp;rdquo; mode to ensure that there were no communication gaps. This was essential for the functioning of the society because it had a strict hierarchy that was constituted of different levels of power and influence.&lt;/p&gt;
+&lt;p&gt;At the top of this hierarchy were the &amp;ldquo;Renderers,&amp;rdquo; who were responsible for creating and customizing the communication channels that people used. They had the power to acknowledge or reject the requests of the people below them and could control the granularity of the communication channels.&lt;/p&gt;
+&lt;p&gt;One day, a young boy named Cookie realized that he was stuck in an &amp;ldquo;idle&amp;rdquo; state, where he couldn&amp;rsquo;t communicate with anyone else in the society. He tried to send messages, but they were not acknowledged by the Renderers, and he couldn&amp;rsquo;t figure out why.&lt;/p&gt;
+&lt;p&gt;Determined to find a solution, Cookie went on a quest to learn more about the communication channels and how they worked. He discovered that the Renderers were so focused on their own power and influence that they had forgotten about the needs of the people below them.&lt;/p&gt;
+&lt;p&gt;Cookie decided to take matters into his own hands and learned how to customize his communication channels to suit his needs. He found a way to bypass the hierarchy and communicate with other people directly, using a conjunction of bits and Baud that he had never used before.&lt;/p&gt;
+&lt;p&gt;Slowly but surely, other people in the society started to follow Cookie&amp;rsquo;s lead, and they too began to customize their communication channels. The hierarchy started to crumble, and people began to communicate with each other on an equal footing.&lt;/p&gt;
+&lt;p&gt;In the end, Cookie became a hero and was acknowledged by everyone in the society for his courage and ingenuity. He had shown that even the smallest bits of communication could have a significant impact and that sometimes, it&amp;rsquo;s essential to break free from the confines of the hierarchy to achieve true freedom.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -1741,6 +2160,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 Current \ Gain = 20 lg(|A_i|)dB \\\
 \\ Voltage \ Gain = 20 lg(|A_v|)dB \\\
+\\ A_p = \frac{v_oi_o}{v_ii_i} = A_iA_v \\\
 \\ \pmb{Power \ Gain  = 10 log(|A_p|)dB}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;放大器模型&#34;&gt;放大器模型&lt;/h2&gt;
@@ -3136,9 +3556,10 @@ $$&lt;/p&gt;
         
         <guid>https://downeyflyfan.com/p/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/</guid>
         <description>&lt;h1 id=&#34;二进制的数字表达&#34;&gt;二进制的数字表达&lt;/h1&gt;
-&lt;h2 id=&#34;r进制数的大小&#34;&gt;$r$进制数的大小&lt;/h2&gt;
+&lt;h2 id=&#34;进制&#34;&gt;进制&lt;/h2&gt;
 &lt;p&gt;$$
-r = (a_{n-1}a_{n-2}&amp;hellip;a_0a_1&amp;hellip;a_{-m})&lt;em&gt;r \\\
+r进制数 \\\
+\\ r = (a_{n-1}a_{n-2}&amp;hellip;a_0a_1&amp;hellip;a_{-m})&lt;em&gt;r \\\
 \\ 大小 \ R = a&lt;/em&gt;{n-1}\times r^{n-1} + &amp;hellip; + a_{-m}\times r^{-m} = \sum_{i=-m}^{n-1} a_i\times r^i
 $$&lt;/p&gt;
 &lt;ul&gt;
@@ -3147,9 +3568,6 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;最右边的叫&lt;strong&gt;低阶位(Low-order Bit)&lt;strong&gt;或&lt;/strong&gt;最低有效位(Least Significant Bit)&lt;/strong&gt;，对应的&lt;strong&gt;权最小&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;逢基数进1&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;重要概念&#34;&gt;重要概念&lt;/h2&gt;
@@ -3175,17 +3593,11 @@ $$&lt;/p&gt;
 &lt;li&gt;权(Weight)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;二进制数的转换&#34;&gt;二进制数的转换&lt;/h1&gt;
+&lt;h2 id=&#34;二进制与十进制&#34;&gt;二进制与十进制&lt;/h2&gt;
+&lt;h3 id=&#34;十进制-rightarrow-二进制&#34;&gt;十进制 $\rightarrow$ 二进制&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;二进制与十进制&lt;/li&gt;
+&lt;li&gt;整数:用十进制数&lt;strong&gt;除以&lt;/strong&gt;2，反写得出二进制数&lt;/li&gt;
 &lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;十进制$\rightarrow$ 二进制&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用十进制数&lt;strong&gt;除以&lt;/strong&gt;2，反写得出二进制数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/2.png&#34;
 	width=&#34;676&#34;
 	height=&#34;493&#34;
@@ -3199,8 +3611,18 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;二进制到八进制和十六进制&lt;/li&gt;
+&lt;li&gt;小数&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;将十进制小数部分乘以2，得到乘积&lt;/li&gt;
+&lt;li&gt;取乘积的整数部分作为二进制结果的一位，将乘积的小数部分继续乘以2&lt;/li&gt;
+&lt;li&gt;重复上步，直到乘积的小数部分为0，或者已经得到了所需位数的二进制结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;二进制到十进制&#34;&gt;二进制到十进制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;按权按位展开&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;二进制到八进制和十六进制&#34;&gt;二进制到八进制和十六进制&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;关系图&lt;/li&gt;
 &lt;/ul&gt;
@@ -3295,7 +3717,7 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;注意&#34;&gt;注意&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;最高位(MSB)表示正负&lt;/li&gt;
+&lt;li&gt;最高位(MSB)表示正负(一般要补一位)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -3307,9 +3729,9 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;符号位&#34;&gt;符号位&lt;/h1&gt;
 &lt;h2 id=&#34;符号位表达&#34;&gt;符号位表达&lt;/h2&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;在&lt;strong&gt;MSB&lt;/strong&gt;左边加一个&lt;strong&gt;附加位&lt;/strong&gt;表示&lt;strong&gt;符号&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;不同表达方式的转换&#34;&gt;不同表达方式的转换&lt;/h2&gt;
 &lt;h3 id=&#34;补位&#34;&gt;补位&lt;/h3&gt;
 &lt;ul&gt;
@@ -3342,15 +3764,24 @@ $$&lt;/p&gt;
 &lt;p&gt;余3码对应的十进制数&lt;em&gt;&lt;strong&gt;除以3余3&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;二五混合码&#34;&gt;二五混合码&lt;/h2&gt;
-&lt;h3 id=&#34;前2位&#34;&gt;前2位&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;01&lt;/strong&gt;表示0-4&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;10&lt;/strong&gt;表示5-9&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;前2位&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;后5位&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$01$表示$1-4$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$00001-10000$依次表示$0,1,2,3,4$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$10$表示$5-9$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$00001-10000$依次表示$5,6,7,8,9$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;格雷码&#34;&gt;格雷码&lt;/h2&gt;
 &lt;h3 id=&#34;示意图&#34;&gt;示意图&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/4.png&#34;
@@ -3392,9 +3823,9 @@ $$&lt;/p&gt;
 
 
 &lt;h3 id=&#34;要求&#34;&gt;要求&lt;/h3&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;相邻两个区域只能有$1$个位差&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;ascii码&#34;&gt;ASCII码&lt;/h2&gt;
 </description>
         </item>
@@ -4565,199 +4996,6 @@ $$&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>数值计算</title>
-        <link>https://downeyflyfan.com/p/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97/</link>
-        <pubDate>Thu, 05 Jan 2023 22:49:43 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97/</guid>
-        <description>&lt;h1 id=&#34;一误差与数值计算基本原则&#34;&gt;一、误差与数值计算基本原则&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;避免绝对值小的数做除数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;避免两相近数相减&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;避免大数“吃”小数现象&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;尽量减少工作量&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;例1: 秦九沼算法&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;例2: 数值不稳定计算&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{align}
-I_{n} = e^{-1}\int_0^1 x_ne^x dx , n =0,1,2,&amp;hellip;20 \\
-\int_0^1 x^n dx \le \int_0^1 x_ne^x dx \le \\&lt;/p&gt;
-&lt;p&gt;\end{align}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;二非线性方程的解&#34;&gt;二、非线性方程的解&lt;/h1&gt;
-&lt;h2 id=&#34;21-数值求解非线性方程的根&#34;&gt;2.1 数值求解非线性方程的根&lt;/h2&gt;
-&lt;h3 id=&#34;211-步骤&#34;&gt;2.1.1 步骤&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;寻找隔根区间()&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;只有一个零点的区间&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;不需要单调&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;或在其中找到一个近似解$x_0$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;逐步逼近&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;212-二分法迭代&#34;&gt;2.1.2 二分法迭代&lt;/h3&gt;
-&lt;p&gt;$$
-已知在区间[a,b]上，f(a)\cdot f(b) \lt 0 \\\
-\\ 在[a,b]区间不断二分，逼近根x_0 \\\
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;更优方法: 寻找&lt;strong&gt;黄金分割点&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;213-牛顿迭代法&#34;&gt;2.1.3 牛顿迭代法&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-设x^*是f(x)=0的根，x_0是x^*的近似值 \\\
-\\ 在x_0附近做\pmb{局部线性化} \\\
-\\
-\begin{align}
-f(x) \approx f(x_0) +f&amp;rsquo;(x_0)(x-x_0) \\
-x_{n+1} = x_n  - \frac{f(x_n)}{f&amp;rsquo;(x_n)}，n = 0,1,2,&amp;hellip;
-\end{align}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;求&lt;strong&gt;正数平方根&lt;/strong&gt;算法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-x = \sqrt{C} \longrightarrow x^2  -C = 0 \\\
-\\ \therefore x_{n+1}  =x_n -  \frac{x_n^2-C}{2x_n}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;局限性&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;被零除错误(导数非常小)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;程序死循环&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;牛顿迭代法的收敛域问题&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;画出$z^3 -1 = 0$的收敛域彩色图&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$&lt;/p&gt;
-&lt;p&gt;$$&lt;/p&gt;
-&lt;h1 id=&#34;三矩阵计算&#34;&gt;三、矩阵计算&lt;/h1&gt;
-&lt;h2 id=&#34;31-向量范数&#34;&gt;3.1 向量范数&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-设R^n是n维向量空间，对于\forall x \in R^n，都有 \\\
-\\ ||x|| \ge 0，且||x|| = 0 \Leftrightarrow 0 \\\
-\\ ||\lambda x|| = \lambda ||x|| \\\
-\\
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;常见的范数&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{align}
-1- 范数(列和范数):||x||&lt;em&gt;1 = \sum&lt;/em&gt;{i=1}^n |x_i| \\
-2-范数(谱范数):||x||&lt;em&gt;2  = \sqrt{\sum&lt;/em&gt;{i=1}^nx_i^2}  = \sqrt{\lambda_{max}(A^TA)} \\
-无穷大范数(行和范数):||x||_{\infin} = \underset{1\le i \le n}{max} (|x_1|,|x_2|,&amp;hellip;,|x_n|)
-\end{align}&lt;/p&gt;
-&lt;p&gt;$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;范数不变性&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-AA^T = I , y = Ax \longrightarrow ||y||_2 = ||x||_2 \\\
-\\ y^Ty = (Ax)^T(Ax) =  x^T(A^TA)x = x^Tx \\\
-\\ ||y||_2 = \sqrt{y^Ty} = \sqrt{x^Tx} = ||x||_2
-$$&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;矩阵范数&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-对A \in R^{m\times n}，存在实数||A||满足 \\\
-\\
-\begin{align}
-||A|| \ge 0，且||A|| = 0 \Leftrightarrow = ||A|| = 0\\
-||\lambda A|| = |\lambda|\ ||A|| \\
-||A+B|| \le ||A|| + ||B|| \\
-||A \cdot B || \le ||A || \cdot ||B||
-\end{align} \\\
-\\ 则称||A||是矩阵A的一个范数 \\\
-\\ Frobenius范数 \\\
-\\ ||A||&lt;em&gt;F = (\sum&lt;/em&gt;{j=1}^n\sum_{i=1}^n a_{ij}^2)^{1/2}&lt;/p&gt;
-&lt;p&gt;$$&lt;/p&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;矩阵算子范数&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-设||x||是R^n上的向量范数，A \in R^{m\times n} \\\
-\\ 则A的非负函数 ||A||  = \underset{x\ne 0}{max}\frac{||Ax||}{||x||} \\\
-\\ 称为矩阵A的\pmb{算子范数}
-$$&lt;/p&gt;
-&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;&lt;em&gt;数学&lt;/em&gt; 上,&lt;strong&gt;范数等价&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;32-矩阵的条件数&#34;&gt;3.2 矩阵的条件数&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-对于Ax = b，b存在一扰动 \ \delta b \ 引起\ x \ 的扰动 \ \delta x \\\
-\\ 即 \ A\hat x = b + \delta b \\\
-\\ A(x + \delta x) = b + \delta b \Longrightarrow A \cdot \delta x = \delta b \\\
-\\ \therefore \delta x = A^{-1} \delta b \\\
-\\ || \delta x || \le ||A^{-1}|| \ || \delta b|| \\\
-\\ 又\because b = Ax \Longrightarrow ||b|| \le ||A|| \ ||x|| \\\
-\\ \therefore \frac{1}{||x||} \le \frac{||A||}{||b||} \\\
-\\ \therefore \frac{||\delta x||}{||x||}\le (||A|| \cdot ||A^{-1}||) \frac{||\delta b||}{||b||} \\\
-\\ 其中,||A|| \cdot ||A^{-1}||是\pmb{条件数}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;四数据插值方法&#34;&gt;四、数据插值方法&lt;/h1&gt;
-&lt;h2 id=&#34;41&#34;&gt;4.1&lt;/h2&gt;
-&lt;p&gt;$$
-l_0(x) = \frac{(x-x_1)(x-x_2)}{(x_1-x_0)(x_1-x_2)} =
-$$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;今日作业&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;二分法解具体问题&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;画出$z^3 -1 = 0$的收敛域彩色图&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</description>
         </item>
         <item>
         <title>线性规划模型基本原理与案例</title>

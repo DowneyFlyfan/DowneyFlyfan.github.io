@@ -78,7 +78,313 @@
 &lt;ul&gt;
 &lt;li&gt;结论：ARM比MIPS更NB！&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;嵌入式编程语言&#34;&gt;嵌入式编程语言&lt;/h1&gt;
+&lt;h2 id=&#34;常见语言&#34;&gt;常见语言&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;C, C++, Python, Java, MicroPython&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;界面技巧&#34;&gt;界面技巧&lt;/h1&gt;
+&lt;h2 id=&#34;gpio&#34;&gt;GPIO&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;General Purpose Input/Output&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;实例&#34;&gt;实例&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;对于microcontroller，&lt;strong&gt;pin&lt;/strong&gt;就是&lt;strong&gt;GPIO&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;pin&lt;/strong&gt;是双向的&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;工作模式&#34;&gt;工作模式&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;输入&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Floating Mode&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pull-Up&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pull-Down&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Analog Mode&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;输出&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;General purpose output push-pull&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;General purpose output Open-drain&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Alternate function output push-pull&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Alternate function output Open-drain.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pwm---pulse-width-modulation&#34;&gt;PWM - Pulse Width Modulation&lt;/h2&gt;
+&lt;h3 id=&#34;模电和数电&#34;&gt;模电和数电&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;模拟信号可以多样&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数字信号只能是&lt;strong&gt;High&lt;/strong&gt;或&lt;strong&gt;Low&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;原理&#34;&gt;原理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用&lt;strong&gt;数字源&lt;/strong&gt;产生&lt;strong&gt;模拟信号&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;图像分析&#34;&gt;图像分析&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/1.png&#34;
+	width=&#34;850&#34;
+	height=&#34;408&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;208&#34;
+		data-flex-basis=&#34;500px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+Duty \ Cycle = \frac{Active \ time}{T} \times 100% \\\
+\\ Average \ Time = high \cdot Duty \ Cycle / 100%
+$$&lt;/p&gt;
+&lt;h2 id=&#34;串行通信的方式&#34;&gt;串行通信的方式&lt;/h2&gt;
+&lt;h3 id=&#34;uart----universal-asynchronous-reception-and-transmission&#34;&gt;UART &amp;ndash; Universal Asynchronous Reception and Transmission&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;部件与原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;RX - Receiver&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TX - Transmitter&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Protocal - 总线异步通信系统&lt;strong&gt;协议&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;工作原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Start Bit $0$ $\longrightarrow$ Stop Bit $1$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Data Length&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/2.png&#34;
+	width=&#34;1232&#34;
+	height=&#34;302&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;407&#34;
+		data-flex-basis=&#34;979px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;理想状态下，串行线为$1$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;i2c---inter-integrated-circuit&#34;&gt;I2C - Inter-Integrated-Circuit&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;部件与原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;一主机，多从机&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;只有主机可以&lt;strong&gt;初始化&lt;/strong&gt;传输数据&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;总线系统同步通信的&lt;strong&gt;协议&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SDA - Serial Data Line: 传输&lt;strong&gt;数据、地址、控制&lt;/strong&gt;信号&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SCL - Serial Clock Line：用于&lt;strong&gt;同步&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/3.png&#34;
+	width=&#34;1043&#34;
+	height=&#34;366&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;284&#34;
+		data-flex-basis=&#34;683px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;工作原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Data Length: 8-bit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start (Stop) Condition&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/5.png&#34;
+	width=&#34;826&#34;
+	height=&#34;401&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;205&#34;
+		data-flex-basis=&#34;494px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;地址字节(8位)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;前7位构成&lt;strong&gt;从机地址&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后1位作为&lt;strong&gt;读/写&lt;/strong&gt;指令&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0是写入(从机)&lt;/li&gt;
+&lt;li&gt;1是读取&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;确认位和非确认位(ACB/NACB)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;每字节数据输入成功，&lt;strong&gt;接受者&lt;/strong&gt;返回ACB;失败返回&lt;strong&gt;NACB&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在SCL为&lt;strong&gt;High&lt;/strong&gt;时，保持SCA为&lt;strong&gt;low&lt;/strong&gt;,以此产生&lt;strong&gt;ACB&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;数据位&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;8位字节格式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以地址字节开头，每个地址字节后必须跟着一个ACB/NACB&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;必须在&lt;strong&gt;SCL保持high&lt;/strong&gt;时才能发送和接收数据&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;SCL保持低位&lt;/strong&gt;时可以操作数据线&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;spi---serial-peripheral-interface&#34;&gt;SPI - Serial Peripheral Interface&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;部件与协议&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;总线系统的串行通信&lt;strong&gt;协议&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一主机，(一)多从机&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;全双工&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主从层次结构&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;结构&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/4.png&#34;
+	width=&#34;572&#34;
+	height=&#34;580&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;236px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SS(CS): Slave Select (Chip Select),从机并行连接，处于&lt;strong&gt;low&lt;/strong&gt;位时被激活&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/6.png&#34;
+	width=&#34;886&#34;
+	height=&#34;233&#34;
+	srcset=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;380&#34;
+		data-flex-basis=&#34;912px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
+主机向从机发送时钟信号 --&gt; 将对应从机的SS/CS调成low
+将对应从机的SS/CS调成low --&gt; MOSI发送数据
+MOSI发送数据 --&gt; MISO接受从机发回的数据: 如果有必要的话
+&lt;/div&gt;
+
+
+
+  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    mermaid.initialize({ startOnLoad: true });
+  &lt;/script&gt;
+
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;时钟参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;CPOL(Clock Polarity)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当CPOL为0时，时钟信号在空闲状态下为低电平（0），在上升沿（rising edge）采样数据，下降沿（falling edge）传输数据。当CPOL为1时，时钟信号在空闲状态下为高电平（1），在下降沿采样数据，上升沿传输数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;CPHA(Clock Phase)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当CPHA为0时，在时钟信号的第一个跳变沿（上升沿或下降沿）采样数据；当CPHA为1时，在时钟信号的第二个跳变沿（另一个上升沿或下降沿）采样数据。&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
         </item>
         <item>
