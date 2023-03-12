@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本逻辑系统表达 三种基本运算 与(AND) 符号表示为$\cdot$ 或(OR) 符号表示为$&#43;$ 非(NOR) 对偶定律 定义 等号两边同时对偶，等式依然成立
-对偶的法则 与变或，或变与 真变假，假变真 运算定律 '>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本逻辑系统表达 三种基本运算 与(AND) 符号表示为$\cdot$ 或(OR) 符号表示为$&#43;$ 非(NOR) 符号表示为 &#39; 对偶定律 定义 等号两边同时对偶，等式依然成立
+对偶的法则 与变或，或变与 真变假，假变真 导出的逻辑运算 与非(NAND) $$ F = (A\cdot B)&#39; $$
+或非(NOR) $$ F = (A &#43; B)&#39; $$
+与或非(AND-OR INVERT) $$ F = (A\cdot B &#43; C\cdot D)&#39; $$
+异或(XOR) $$ F = A \textcircled &#43; B = A\cdot B&amp;rsquo; &#43; A&amp;rsquo; \cdot B \\\ \\ 相异为1,相同为0 $$
+同或/异或非(NXOR) $$ F = (A \textcircled &#43; B)&amp;rsquo; = A&amp;rsquo;\cdot B&amp;rsquo; &#43; A\cdot B $$'>
 <title>逻辑代数基础</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='逻辑代数基础'>
-<meta property='og:description' content='基本逻辑系统表达 三种基本运算 与(AND) 符号表示为$\cdot$ 或(OR) 符号表示为$&#43;$ 非(NOR) 对偶定律 定义 等号两边同时对偶，等式依然成立
-对偶的法则 与变或，或变与 真变假，假变真 运算定律 '>
+<meta property='og:description' content='基本逻辑系统表达 三种基本运算 与(AND) 符号表示为$\cdot$ 或(OR) 符号表示为$&#43;$ 非(NOR) 符号表示为 &#39; 对偶定律 定义 等号两边同时对偶，等式依然成立
+对偶的法则 与变或，或变与 真变假，假变真 导出的逻辑运算 与非(NAND) $$ F = (A\cdot B)&#39; $$
+或非(NOR) $$ F = (A &#43; B)&#39; $$
+与或非(AND-OR INVERT) $$ F = (A\cdot B &#43; C\cdot D)&#39; $$
+异或(XOR) $$ F = A \textcircled &#43; B = A\cdot B&amp;rsquo; &#43; A&amp;rsquo; \cdot B \\\ \\ 相异为1,相同为0 $$
+同或/异或非(NXOR) $$ F = (A \textcircled &#43; B)&amp;rsquo; = A&amp;rsquo;\cdot B&amp;rsquo; &#43; A\cdot B $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-09T11:25:47&#43;00:00'/><meta property='article:modified_time' content='2023-03-09T11:25:47&#43;00:00'/>
 <meta name="twitter:title" content="逻辑代数基础">
-<meta name="twitter:description" content="基本逻辑系统表达 三种基本运算 与(AND) 符号表示为$\cdot$ 或(OR) 符号表示为$&#43;$ 非(NOR) 对偶定律 定义 等号两边同时对偶，等式依然成立
-对偶的法则 与变或，或变与 真变假，假变真 运算定律 "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="基本逻辑系统表达 三种基本运算 与(AND) 符号表示为$\cdot$ 或(OR) 符号表示为$&#43;$ 非(NOR) 符号表示为 &#39; 对偶定律 定义 等号两边同时对偶，等式依然成立
+对偶的法则 与变或，或变与 真变假，假变真 导出的逻辑运算 与非(NAND) $$ F = (A\cdot B)&#39; $$
+或非(NOR) $$ F = (A &#43; B)&#39; $$
+与或非(AND-OR INVERT) $$ F = (A\cdot B &#43; C\cdot D)&#39; $$
+异或(XOR) $$ F = A \textcircled &#43; B = A\cdot B&amp;rsquo; &#43; A&amp;rsquo; \cdot B \\\ \\ 相异为1,相同为0 $$
+同或/异或非(NXOR) $$ F = (A \textcircled &#43; B)&amp;rsquo; = A&amp;rsquo;\cdot B&amp;rsquo; &#43; A\cdot B $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -263,7 +275,35 @@
             <li><a href="#对偶定律">对偶定律</a></li>
           </ol>
         </li>
-        <li><a href="#运算定律"><em>运算定律</em></a></li>
+        <li><a href="#导出的逻辑运算">导出的逻辑运算</a>
+          <ol>
+            <li><a href="#与非nand">与非(NAND)</a></li>
+            <li><a href="#或非nor">或非(NOR)</a></li>
+            <li><a href="#与或非and-or-invert">与或非(AND-OR INVERT)</a></li>
+            <li><a href="#异或xor">异或(XOR)</a></li>
+            <li><a href="#同或异或非nxor">同或/异或非(NXOR)</a></li>
+          </ol>
+        </li>
+        <li><a href="#逻辑符号">逻辑符号</a></li>
+      </ol>
+    </li>
+    <li><a href="#逻辑代数的公理和定理"><em>逻辑代数的公理和定理</em></a>
+      <ol>
+        <li><a href="#二变量和三变量定理">二变量和三变量定理</a>
+          <ol>
+            <li><a href="#满足交换律结合律">满足<strong>交换律,结合律</strong></a></li>
+            <li><a href="#分配律-distributivity"><strong>分配律 (Distributivity)</strong></a></li>
+            <li><a href="#合并率combining"><strong>合并率(Combining)</strong></a></li>
+            <li><a href="#吸收率covering"><strong>吸收率(Covering)</strong></a></li>
+            <li><a href="#一致性定律consensus"><strong>一致性定律(Consensus)</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#n变量定理">n变量定理</a>
+          <ol>
+            <li><a href="#广义同一律">广义同一律</a></li>
+            <li><a href="#德摩根定律">德摩根定律</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -330,7 +370,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -356,6 +396,9 @@
 <li>符号表示为$+$</li>
 </ol>
 <h3 id="非nor">非(NOR)</h3>
+<ul>
+<li>符号表示为 '</li>
+</ul>
 <h3 id="对偶定律">对偶定律</h3>
 <ol>
 <li>定义</li>
@@ -370,7 +413,42 @@
 <li>与变或，或变与</li>
 <li>真变假，假变真</li>
 </ul>
-<h2 id="运算定律"><em>运算定律</em></h2>
+<h2 id="导出的逻辑运算">导出的逻辑运算</h2>
+<h3 id="与非nand">与非(NAND)</h3>
+<p>$$
+F = (A\cdot B)'
+$$</p>
+<h3 id="或非nor">或非(NOR)</h3>
+<p>$$
+F = (A + B)'
+$$</p>
+<h3 id="与或非and-or-invert">与或非(AND-OR INVERT)</h3>
+<p>$$
+F = (A\cdot B + C\cdot D)'
+$$</p>
+<h3 id="异或xor">异或(XOR)</h3>
+<p>$$
+F = A \textcircled + B = A\cdot B&rsquo; + A&rsquo; \cdot B \\\
+\\ 相异为1,相同为0
+$$</p>
+<h3 id="同或异或非nxor">同或/异或非(NXOR)</h3>
+<p>$$
+F = (A \textcircled + B)&rsquo; = A&rsquo;\cdot B&rsquo; + A\cdot B
+$$</p>
+<h2 id="逻辑符号">逻辑符号</h2>
+<p><img src="/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/2.png"
+	width="914"
+	height="497"
+	srcset="/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/2_hu670f4f04e638b2a2ce551c6c9b9eead7_42561_480x0_resize_box_3.png 480w, /p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/2_hu670f4f04e638b2a2ce551c6c9b9eead7_42561_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="183"
+		data-flex-basis="441px"
+	
+></p>
+<h1 id="逻辑代数的公理和定理"><em>逻辑代数的公理和定理</em></h1>
 <p><img src="/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/1.png"
 	width="1018"
 	height="783"
@@ -381,6 +459,56 @@
 		class="gallery-image" 
 		data-flex-grow="130"
 		data-flex-basis="312px"
+	
+></p>
+<h2 id="二变量和三变量定理">二变量和三变量定理</h2>
+<h3 id="满足交换律结合律">满足<strong>交换律,结合律</strong></h3>
+<h3 id="分配律-distributivity"><strong>分配律 (Distributivity)</strong></h3>
+<p>$$
+A \cdot (B +C ) = A\cdot B + A \cdot C \\\
+\\ A + B \cdot C = (A+B) \cdot (A +C)
+$$</p>
+<h3 id="合并率combining"><strong>合并率(Combining)</strong></h3>
+<p>$$
+A\cdot B + A\cdot B&rsquo;  =A  \\\
+\\ (A+B)\cdot (A+B&rsquo;) = A
+$$</p>
+<h3 id="吸收率covering"><strong>吸收率(Covering)</strong></h3>
+<p>$$
+A + A\cdot B  = A \\\
+\\ A\cdot(A+B) = A \\\
+\\ A + A&rsquo;\cdot B = A+B \\\
+\\ A \cdot (A&rsquo; + B) =A\cdot B
+$$</p>
+<h3 id="一致性定律consensus"><strong>一致性定律(Consensus)</strong></h3>
+<p>$$
+A\cdot B + A&rsquo; \cdot C + B\cdot C = A\cdot B + A&rsquo; \cdot C
+$$</p>
+<h2 id="n变量定理">n变量定理</h2>
+<h3 id="广义同一律">广义同一律</h3>
+<p>$$
+A + A + .. + A = A \\\
+\\ A\cdot A  \cdot \cdot \cdot A = A
+$$</p>
+<h3 id="德摩根定律">德摩根定律</h3>
+<p>$$
+(A_1\cdot \cdot \cdot A_n)&rsquo; =A_1&rsquo; + &hellip; + A_n&rsquo; \\\
+\\ (A_1 + .. + A_n)&rsquo; = A_1&rsquo;\cdot\cdot\cdot A_n&rsquo; \\\
+\\ 用数学归纳法证明
+$$</p>
+<ul>
+<li>德摩根定律得到的<strong>等效电路符号</strong></li>
+</ul>
+<p><img src="/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/3.png"
+	width="1028"
+	height="509"
+	srcset="/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/3_hudd32168ed503bf80d6702c50a997d7c5_41015_480x0_resize_box_3.png 480w, /p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/3_hudd32168ed503bf80d6702c50a997d7c5_41015_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="201"
+		data-flex-basis="484px"
 	
 ></p>
 

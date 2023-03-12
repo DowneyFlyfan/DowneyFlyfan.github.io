@@ -23,6 +23,9 @@
 &lt;li&gt;符号表示为$+$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;非nor&#34;&gt;非(NOR)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;符号表示为 &#39;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;对偶定律&#34;&gt;对偶定律&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
@@ -37,7 +40,42 @@
 &lt;li&gt;与变或，或变与&lt;/li&gt;
 &lt;li&gt;真变假，假变真&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;运算定律&#34;&gt;&lt;em&gt;运算定律&lt;/em&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;导出的逻辑运算&#34;&gt;导出的逻辑运算&lt;/h2&gt;
+&lt;h3 id=&#34;与非nand&#34;&gt;与非(NAND)&lt;/h3&gt;
+&lt;p&gt;$$
+F = (A\cdot B)&#39;
+$$&lt;/p&gt;
+&lt;h3 id=&#34;或非nor&#34;&gt;或非(NOR)&lt;/h3&gt;
+&lt;p&gt;$$
+F = (A + B)&#39;
+$$&lt;/p&gt;
+&lt;h3 id=&#34;与或非and-or-invert&#34;&gt;与或非(AND-OR INVERT)&lt;/h3&gt;
+&lt;p&gt;$$
+F = (A\cdot B + C\cdot D)&#39;
+$$&lt;/p&gt;
+&lt;h3 id=&#34;异或xor&#34;&gt;异或(XOR)&lt;/h3&gt;
+&lt;p&gt;$$
+F = A \textcircled + B = A\cdot B&amp;rsquo; + A&amp;rsquo; \cdot B \\\
+\\ 相异为1,相同为0
+$$&lt;/p&gt;
+&lt;h3 id=&#34;同或异或非nxor&#34;&gt;同或/异或非(NXOR)&lt;/h3&gt;
+&lt;p&gt;$$
+F = (A \textcircled + B)&amp;rsquo; = A&amp;rsquo;\cdot B&amp;rsquo; + A\cdot B
+$$&lt;/p&gt;
+&lt;h2 id=&#34;逻辑符号&#34;&gt;逻辑符号&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/2.png&#34;
+	width=&#34;914&#34;
+	height=&#34;497&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/2_hu670f4f04e638b2a2ce551c6c9b9eead7_42561_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/2_hu670f4f04e638b2a2ce551c6c9b9eead7_42561_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;441px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;逻辑代数的公理和定理&#34;&gt;&lt;em&gt;逻辑代数的公理和定理&lt;/em&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/1.png&#34;
 	width=&#34;1018&#34;
 	height=&#34;783&#34;
@@ -48,6 +86,56 @@
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;130&#34;
 		data-flex-basis=&#34;312px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;二变量和三变量定理&#34;&gt;二变量和三变量定理&lt;/h2&gt;
+&lt;h3 id=&#34;满足交换律结合律&#34;&gt;满足&lt;strong&gt;交换律,结合律&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;分配律-distributivity&#34;&gt;&lt;strong&gt;分配律 (Distributivity)&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;$$
+A \cdot (B +C ) = A\cdot B + A \cdot C \\\
+\\ A + B \cdot C = (A+B) \cdot (A +C)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;合并率combining&#34;&gt;&lt;strong&gt;合并率(Combining)&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;$$
+A\cdot B + A\cdot B&amp;rsquo;  =A  \\\
+\\ (A+B)\cdot (A+B&amp;rsquo;) = A
+$$&lt;/p&gt;
+&lt;h3 id=&#34;吸收率covering&#34;&gt;&lt;strong&gt;吸收率(Covering)&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;$$
+A + A\cdot B  = A \\\
+\\ A\cdot(A+B) = A \\\
+\\ A + A&amp;rsquo;\cdot B = A+B \\\
+\\ A \cdot (A&amp;rsquo; + B) =A\cdot B
+$$&lt;/p&gt;
+&lt;h3 id=&#34;一致性定律consensus&#34;&gt;&lt;strong&gt;一致性定律(Consensus)&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;$$
+A\cdot B + A&amp;rsquo; \cdot C + B\cdot C = A\cdot B + A&amp;rsquo; \cdot C
+$$&lt;/p&gt;
+&lt;h2 id=&#34;n变量定理&#34;&gt;n变量定理&lt;/h2&gt;
+&lt;h3 id=&#34;广义同一律&#34;&gt;广义同一律&lt;/h3&gt;
+&lt;p&gt;$$
+A + A + .. + A = A \\\
+\\ A\cdot A  \cdot \cdot \cdot A = A
+$$&lt;/p&gt;
+&lt;h3 id=&#34;德摩根定律&#34;&gt;德摩根定律&lt;/h3&gt;
+&lt;p&gt;$$
+(A_1\cdot \cdot \cdot A_n)&amp;rsquo; =A_1&amp;rsquo; + &amp;hellip; + A_n&amp;rsquo; \\\
+\\ (A_1 + .. + A_n)&amp;rsquo; = A_1&amp;rsquo;\cdot\cdot\cdot A_n&amp;rsquo; \\\
+\\ 用数学归纳法证明
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;德摩根定律得到的&lt;strong&gt;等效电路符号&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/3.png&#34;
+	width=&#34;1028&#34;
+	height=&#34;509&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/3_hudd32168ed503bf80d6702c50a997d7c5_41015_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/3_hudd32168ed503bf80d6702c50a997d7c5_41015_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;201&#34;
+		data-flex-basis=&#34;484px&#34;
 	
 &gt;&lt;/p&gt;
 </description>
