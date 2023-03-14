@@ -303,25 +303,39 @@ and or not表示与或非
         <li><a href="#激活函数">激活函数</a>
           <ol>
             <li><a href="#sigmoid函数">sigmoid函数</a></li>
-            <li><a href="#sigmoid函数与阶跃函数的python实现">sigmoid函数与阶跃函数的python实现</a></li>
             <li><a href="#比较">比较</a></li>
             <li><a href="#relu---rectified-linear-unit">ReLU - Rectified Linear Unit</a></li>
           </ol>
         </li>
-      </ol>
-    </li>
-    <li><a href="#多维数组运算">多维数组运算</a>
-      <ol>
-        <li><a href="#矩阵乘法">矩阵乘法</a></li>
         <li><a href="#神经网络的内积">神经网络的内积</a></li>
       </ol>
     </li>
     <li><a href="#三层神经网络的实现">三层神经网络的实现</a>
       <ol>
-        <li>
+        <li><a href="#权重的符号">权重的符号</a></li>
+        <li><a href="#实现">实现</a></li>
+      </ol>
+    </li>
+    <li><a href="#输出层的设计">输出层的设计</a>
+      <ol>
+        <li><a href="#回归问题--恒等函数">回归问题 —— 恒等函数</a></li>
+        <li><a href="#分类问题--softmax函数">分类问题 —— softmax函数</a>
           <ol>
-            <li><a href="#权重的符号">权重的符号</a></li>
-            <li><a href="#实现">实现</a></li>
+            <li><a href="#定义-2">定义</a></li>
+            <li><a href="#修正">修正</a></li>
+            <li><a href="#特征">特征</a></li>
+            <li><a href="#上述代码总和">上述代码总和</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#神经网络的学习">神经网络的学习</a>
+      <ol>
+        <li><a href="#损失函数">损失函数</a>
+          <ol>
+            <li><a href="#均方误差">均方误差</a></li>
+            <li><a href="#交叉熵误差">交叉熵误差</a></li>
+            <li><a href="#mini-batch学习">mini-batch学习</a></li>
           </ol>
         </li>
       </ol>
@@ -390,7 +404,7 @@ and or not表示与或非
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -658,62 +672,7 @@ $$</p>
 <p>$$
 h(x) = \frac{1}{1+e^{-x}}
 $$</p>
-<h3 id="sigmoid函数与阶跃函数的python实现">sigmoid函数与阶跃函数的python实现</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">step_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sigmoid_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 绘制阶跃函数</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">step_function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span> <span class="c1"># 指定 y 轴的范围</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 绘制sigmoid函数</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">sigmoid_function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span> <span class="c1"># 指定 y 轴的范围</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="比较">比较</h3>
+<h3 id="比较">比较</h3>
 <p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/5.png"
 	width="1008"
 	height="778"
@@ -753,17 +712,7 @@ x  &amp; x \gt 0 \\
 0  &amp; x \le 0
 \end{cases}
 $$</p>
-<h1 id="多维数组运算">多维数组运算</h1>
-<h2 id="矩阵乘法">矩阵乘法</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span> <span class="c1"># 进行A和B的矩阵乘法</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="神经网络的内积">神经网络的内积</h2>
+<h2 id="神经网络的内积">神经网络的内积</h2>
 <p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/6.png"
 	width="953"
 	height="445"
@@ -777,7 +726,7 @@ $$</p>
 	
 ></p>
 <h1 id="三层神经网络的实现">三层神经网络的实现</h1>
-<h3 id="权重的符号">权重的符号</h3>
+<h2 id="权重的符号">权重的符号</h2>
 <p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/7.png"
 	width="813"
 	height="411"
@@ -790,11 +739,292 @@ $$</p>
 		data-flex-basis="474px"
 	
 ></p>
-<h3 id="实现">实现</h3>
+<h2 id="实现">实现</h2>
 <p>$$
 a_1^{(1)} = x_2w_{12}^{(1)} + x_1w_{11}^{(1)}+b_1^{(1)} \\\
-\\ A = XW^{(1)} + B^{(1)} \\\
-\\
+\\ A^{(1)} = XW^{(1)} + B^{(1)} \\\
+\\ 其中，A^{(1)} = \begin{pmatrix}
+a_1^{(1)} &amp; a_2^{(1)} &amp; a_3^{(1)}
+\end{pmatrix}  \\\
+\\ X = \begin{pmatrix}
+x_1 &amp; x_2
+\end{pmatrix} \\\
+\\ W^{(1)} = \begin{pmatrix}
+w_{11}^{(1)} &amp; w_{21}^{(1)} &amp; w_{31}^{(1)}\\
+w_{21}^{(1)}  &amp; w_{22}^{(1)} &amp; w_{23}^{(1)}
+\end{pmatrix} \\\
+\\ B^{(1)} = \begin{pmatrix}
+b_1^{(1)} &amp; b_2^{(1)} &amp; b_3^{(1)}
+\end{pmatrix}
+$$</p>
+<h1 id="输出层的设计">输出层的设计</h1>
+<h2 id="回归问题--恒等函数">回归问题 —— 恒等函数</h2>
+<p>$$
+h(x) = x \ \ x \in R
+$$</p>
+<h2 id="分类问题--softmax函数">分类问题 —— softmax函数</h2>
+<h3 id="定义-2">定义</h3>
+<p>$$
+y_k = \frac{e^{a_k}}{\sum_{i=1}^n e^{a_i}} \\\
+\\ 假设输出层有n个神经元，则第k个神经元如上所示
+$$</p>
+<h3 id="修正">修正</h3>
+<ol>
+<li>原因</li>
+</ol>
+<ul>
+<li>指数很大，容易溢出</li>
+</ul>
+<ol start="2">
+<li>修正</li>
+</ol>
+<p>$$
+y_k = \frac{Ce^{a_k}}{C\sum_{i=1}^ne^{a_i}} = \frac{e^{a_k+lnC}}{\sum_{i=1}^ne^{a_i + lnC}} \\\
+\\ = \frac{e^{a_k-C&rsquo;}}{\sum_{i=1}^{n}e^{a_i-C&rsquo;}}  \\\
+\\ 为了防止溢出,我们选择C&rsquo;为\pmb{输入信号的a最大值}
+$$</p>
+<h3 id="特征">特征</h3>
+<ol>
+<li>输出总和为<strong>1</strong>,因此把分类解释为<strong>概率</strong></li>
+</ol>
+<h3 id="上述代码总和">上述代码总和</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义激活函数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">step_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">ReLU</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 注意这个参数的使用</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">softmax</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">exp_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="c1"># 溢出对策</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sum_exp_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">exp_a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">exp_a</span> <span class="o">/</span> <span class="n">sum_exp_a</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39; 函数绘制
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1"># 绘制阶跃函数
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">x = np.arange(-5.0, 5.0, 0.1)
+</span></span></span><span class="line"><span class="cl"><span class="s1">y = step_function(x)
+</span></span></span><span class="line"><span class="cl"><span class="s1">plt.plot(x, y)
+</span></span></span><span class="line"><span class="cl"><span class="s1">plt.ylim(-0.1, 1.1) # 指定 y 轴的范围
+</span></span></span><span class="line"><span class="cl"><span class="s1">plt.show()
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1"># 绘制sigmoid函数
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">z = sigmoid(x)
+</span></span></span><span class="line"><span class="cl"><span class="s1">plt.plot(x, z)
+</span></span></span><span class="line"><span class="cl"><span class="s1">plt.ylim(-0.1, 1.1) # 指定 y 轴的范围
+</span></span></span><span class="line"><span class="cl"><span class="s1">plt.show()
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1"># 绘制ReLU
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">w = ReLU(x)
+</span></span></span><span class="line"><span class="cl"><span class="s1">plt.plot(x, w)
+</span></span></span><span class="line"><span class="cl"><span class="s1">plt.ylim(-0.1, 6) # 指定 y 轴的范围
+</span></span></span><span class="line"><span class="cl"><span class="s1">plt.show()
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 0-1层的信号传递</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">W1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">B1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span> <span class="c1"># 随机取特征、权重、偏差</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W1</span><span class="p">)</span> <span class="o">+</span> <span class="n">B1</span> <span class="c1"># 计算第一层A1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Z1</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">A1</span><span class="p">)</span> <span class="c1"># 计算A1的sigmoid函数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 1-2层的信号传递</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">W2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">B2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span> <span class="c1"># 随机取权重和偏差</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">A2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z1</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span> <span class="o">+</span> <span class="n">B2</span>
+</span></span><span class="line"><span class="cl"><span class="n">Z2</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">A2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2-输出层的信号传递</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">W3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">B3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">A3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z2</span><span class="p">,</span> <span class="n">W3</span><span class="p">)</span> <span class="o">+</span> <span class="n">B3</span>
+</span></span><span class="line"><span class="cl"><span class="n">Y</span> <span class="o">=</span> <span class="n">identity_function</span><span class="p">(</span><span class="n">A3</span><span class="p">)</span> <span class="c1"># 或者 Y = A3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 整理</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">init_network</span><span class="p">():</span> <span class="c1"># 权重和偏置的初始化</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network</span><span class="p">[</span><span class="s1">&#39;W1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network</span><span class="p">[</span><span class="s1">&#39;b1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network</span><span class="p">[</span><span class="s1">&#39;W2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network</span><span class="p">[</span><span class="s1">&#39;b2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network</span><span class="p">[</span><span class="s1">&#39;W3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network</span><span class="p">[</span><span class="s1">&#39;b3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">network</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="c1"># 输入到输出方向的传递处理</span>
+</span></span><span class="line"><span class="cl">    <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">W3</span> <span class="o">=</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;W1&#39;</span><span class="p">],</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;W2&#39;</span><span class="p">],</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;W3&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">b3</span> <span class="o">=</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;b1&#39;</span><span class="p">],</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;b2&#39;</span><span class="p">],</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;b3&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W1</span><span class="p">)</span> <span class="o">+</span> <span class="n">b1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z1</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z2</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span> <span class="n">W3</span><span class="p">)</span> <span class="o">+</span> <span class="n">b3</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">identity</span><span class="p">(</span><span class="n">a3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">network</span> <span class="o">=</span> <span class="n">init_network</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">forward</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># [ 0.31682708 0.69627909]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="神经网络的学习">神经网络的学习</h1>
+<h2 id="损失函数">损失函数</h2>
+<h3 id="均方误差">均方误差</h3>
+<p>$$
+E = \sum_k\frac{1}{2}(y_k - t_k)^2 \\\
+\\ t_k:训练数据 \ \ y_k:输出 \ \ k:维数
+$$</p>
+<h3 id="交叉熵误差">交叉熵误差</h3>
+<p>$$
+E =  - \sum_k t_k \cdot ln(y_k)
+$$</p>
+<h3 id="mini-batch学习">mini-batch学习</h3>
+<ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>从<strong>大量</strong>数据中<strong>随机</strong>选取<strong>小批量</strong>数据进行学习</p>
+</blockquote>
+<ol start="2">
+<li>损失函数总和 (以交叉熵误差为例)</li>
+</ol>
+<p>$$
+E = -\frac{1}{N}\sum_k \sum_k t_{nk}ln(y_{nk})
 $$</p>
 
 </section>
@@ -856,19 +1086,6 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
-            
-                
-<article class="">
-    <a href="/p/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%B8%8E%E6%A1%88%E4%BE%8B/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">线性规划模型基本原理与案例</h2>
-        </div>
-    </a>
-</article>
-
             
                 
 <article class="">
