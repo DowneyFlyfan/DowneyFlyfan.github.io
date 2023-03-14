@@ -37,9 +37,22 @@
 &lt;li&gt;&lt;strong&gt;对偶的法则&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;与变或，或变与&lt;/li&gt;
-&lt;li&gt;真变假，假变真&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;与变或，或变与&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;真变假，假变真&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;遵循原函数的运算先后顺序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不属于&lt;strong&gt;单个变量&lt;/strong&gt;上的&lt;strong&gt;取“非”符号应保留不变&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;正逻辑与负逻辑&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;导出的逻辑运算&#34;&gt;导出的逻辑运算&lt;/h2&gt;
 &lt;h3 id=&#34;与非nand&#34;&gt;与非(NAND)&lt;/h3&gt;
 &lt;p&gt;$$
@@ -90,24 +103,24 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;二变量和三变量定理&#34;&gt;二变量和三变量定理&lt;/h2&gt;
 &lt;h3 id=&#34;满足交换律结合律&#34;&gt;满足&lt;strong&gt;交换律,结合律&lt;/strong&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;分配律-distributivity&#34;&gt;&lt;strong&gt;分配律 (Distributivity)&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;分配律-distributivity&#34;&gt;分配律 (Distributivity)&lt;/h3&gt;
 &lt;p&gt;$$
 A \cdot (B +C ) = A\cdot B + A \cdot C \\\
 \\ A + B \cdot C = (A+B) \cdot (A +C)
 $$&lt;/p&gt;
-&lt;h3 id=&#34;合并率combining&#34;&gt;&lt;strong&gt;合并率(Combining)&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;合并率combining&#34;&gt;合并率(Combining)&lt;/h3&gt;
 &lt;p&gt;$$
 A\cdot B + A\cdot B&amp;rsquo;  =A  \\\
 \\ (A+B)\cdot (A+B&amp;rsquo;) = A
 $$&lt;/p&gt;
-&lt;h3 id=&#34;吸收率covering&#34;&gt;&lt;strong&gt;吸收率(Covering)&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;吸收率covering&#34;&gt;吸收率(Covering)&lt;/h3&gt;
 &lt;p&gt;$$
 A + A\cdot B  = A \\\
 \\ A\cdot(A+B) = A \\\
 \\ A + A&amp;rsquo;\cdot B = A+B \\\
 \\ A \cdot (A&amp;rsquo; + B) =A\cdot B
 $$&lt;/p&gt;
-&lt;h3 id=&#34;一致性定律consensus&#34;&gt;&lt;strong&gt;一致性定律(Consensus)&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;一致性定律-consensus&#34;&gt;&lt;em&gt;一致性定律 (Consensus)&lt;/em&gt;&lt;/h3&gt;
 &lt;p&gt;$$
 A\cdot B + A&amp;rsquo; \cdot C + B\cdot C = A\cdot B + A&amp;rsquo; \cdot C
 $$&lt;/p&gt;
@@ -138,6 +151,23 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;484px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h1 id=&#34;香农展开定律与标准逻辑流运算&#34;&gt;香农展开定律与标准逻辑流运算&lt;/h1&gt;
+&lt;h2 id=&#34;香农展开定律&#34;&gt;香农展开定律&lt;/h2&gt;
+&lt;p&gt;$$
+F = F(A_1,A_2&amp;hellip;A_n) \\\
+\\ F = A_1\cdot F(1,A_2&amp;hellip;A_n) + A_1&amp;rsquo;\cdot F(0,A_2&amp;hellip;A_n) \\\
+\\ F = [A_1 + F(0,A_1&amp;hellip;A_n)]\cdot [A_1&amp;rsquo; + F(1,A_2&amp;hellip;A_n)] \\\
+\\ 证明以上等式，只需令A_1=0和A_1=1分别证明
+$$&lt;/p&gt;
+&lt;h2 id=&#34;最小项minterm与最大项maxterm&#34;&gt;最小项(Minterm)与最大项(Maxterm)&lt;/h2&gt;
+&lt;h3 id=&#34;最小项&#34;&gt;最小项&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于$n$个因子,最小项有$2^n$个,该乘积项包含 n 个变量中的每一个变量,若每一个变量都以原变量或反变量的形式出现,且只出现一次,则该乘积项称为最小项。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2&lt;/p&gt;
 </description>
         </item>
         <item>
