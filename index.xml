@@ -115,13 +115,17 @@
 		data-flex-basis=&#34;248px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;正向&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;正向同电流&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;反向产生&lt;strong&gt;电压&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;加限流电阻，防止二极管被烧坏&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;反向&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;不能超过&lt;strong&gt;击穿电压&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;整流器&#34;&gt;整流器&lt;/h3&gt;
 &lt;ol&gt;
@@ -146,6 +150,26 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;分段线性法&#34;&gt;分段线性法&lt;/h2&gt;
+&lt;h1 id=&#34;二极管的终端特性&#34;&gt;二极管的终端特性&lt;/h1&gt;
+&lt;p&gt;$$
+i = I_S (e^{V/V_T}-1) \\\
+\\ I_S: 给定温度，给定二极管的一个常数 \\\
+\\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV
+$$&lt;/p&gt;
+&lt;h2 id=&#34;正向偏置&#34;&gt;正向偏置&lt;/h2&gt;
+&lt;p&gt;$$
+V \gg V_T \\\
+\\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{i_S}\Big)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;反向偏置&#34;&gt;反向偏置&lt;/h2&gt;
+&lt;p&gt;$$
+v \lt 0 \Longrightarrow i\approx -I_S
+$$&lt;/p&gt;
+&lt;h2 id=&#34;击穿区域&#34;&gt;击穿区域&lt;/h2&gt;
+&lt;p&gt;$$
+v \lt V_{ZK} \\\
+\\ I_{max} \lt P_{max} / V_Z
+$$&lt;/p&gt;
 </description>
         </item>
         <item>

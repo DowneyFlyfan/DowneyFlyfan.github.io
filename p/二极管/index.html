@@ -3,10 +3,10 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='理想二极管的伏安特性 理想二极管 最基本的非线性电路元件
 两终端装置
-两种工作模式 on reverser bias = open ckt. off forward bias = short ckt. 实际应用 普通电路 正向同电流
-反向产生电压
-整流器 定义 AC$\longrightarrow$DC,理想状况下没有损失
-图示 分段线性法 '>
+两种工作模式 on reverser bias = open ckt. off forward bias = short ckt. 实际应用 普通电路 正向 加限流电阻，防止二极管被烧坏 反向 不能超过击穿电压 整流器 定义 AC$\longrightarrow$DC,理想状况下没有损失
+图示 分段线性法 二极管的终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
+正向偏置 $$ V \gg V_T \\\ \\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{i_S}\Big) $$
+反向偏置 $$ v \lt 0 \Longrightarrow i\approx -I_S $$'>
 <title>二极管</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/'>
@@ -14,20 +14,20 @@
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='二极管'>
 <meta property='og:description' content='理想二极管的伏安特性 理想二极管 最基本的非线性电路元件
 两终端装置
-两种工作模式 on reverser bias = open ckt. off forward bias = short ckt. 实际应用 普通电路 正向同电流
-反向产生电压
-整流器 定义 AC$\longrightarrow$DC,理想状况下没有损失
-图示 分段线性法 '>
+两种工作模式 on reverser bias = open ckt. off forward bias = short ckt. 实际应用 普通电路 正向 加限流电阻，防止二极管被烧坏 反向 不能超过击穿电压 整流器 定义 AC$\longrightarrow$DC,理想状况下没有损失
+图示 分段线性法 二极管的终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
+正向偏置 $$ V \gg V_T \\\ \\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{i_S}\Big) $$
+反向偏置 $$ v \lt 0 \Longrightarrow i\approx -I_S $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-13T10:07:39&#43;00:00'/><meta property='article:modified_time' content='2023-03-13T10:07:39&#43;00:00'/>
 <meta name="twitter:title" content="二极管">
 <meta name="twitter:description" content="理想二极管的伏安特性 理想二极管 最基本的非线性电路元件
 两终端装置
-两种工作模式 on reverser bias = open ckt. off forward bias = short ckt. 实际应用 普通电路 正向同电流
-反向产生电压
-整流器 定义 AC$\longrightarrow$DC,理想状况下没有损失
-图示 分段线性法 "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+两种工作模式 on reverser bias = open ckt. off forward bias = short ckt. 实际应用 普通电路 正向 加限流电阻，防止二极管被烧坏 反向 不能超过击穿电压 整流器 定义 AC$\longrightarrow$DC,理想状况下没有损失
+图示 分段线性法 二极管的终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
+正向偏置 $$ V \gg V_T \\\ \\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{i_S}\Big) $$
+反向偏置 $$ v \lt 0 \Longrightarrow i\approx -I_S $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -283,6 +283,13 @@
         <li><a href="#分段线性法">分段线性法</a></li>
       </ol>
     </li>
+    <li><a href="#二极管的终端特性">二极管的终端特性</a>
+      <ol>
+        <li><a href="#正向偏置">正向偏置</a></li>
+        <li><a href="#反向偏置">反向偏置</a></li>
+        <li><a href="#击穿区域">击穿区域</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -419,13 +426,17 @@
 		data-flex-basis="248px"
 	
 ></p>
+<ol>
+<li>正向</li>
+</ol>
 <ul>
-<li>
-<p>正向同电流</p>
-</li>
-<li>
-<p>反向产生<strong>电压</strong></p>
-</li>
+<li>加限流电阻，防止二极管被烧坏</li>
+</ul>
+<ol start="2">
+<li>反向</li>
+</ol>
+<ul>
+<li>不能超过<strong>击穿电压</strong></li>
 </ul>
 <h3 id="整流器">整流器</h3>
 <ol>
@@ -450,6 +461,26 @@
 	
 ></p>
 <h2 id="分段线性法">分段线性法</h2>
+<h1 id="二极管的终端特性">二极管的终端特性</h1>
+<p>$$
+i = I_S (e^{V/V_T}-1) \\\
+\\ I_S: 给定温度，给定二极管的一个常数 \\\
+\\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV
+$$</p>
+<h2 id="正向偏置">正向偏置</h2>
+<p>$$
+V \gg V_T \\\
+\\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{i_S}\Big)
+$$</p>
+<h2 id="反向偏置">反向偏置</h2>
+<p>$$
+v \lt 0 \Longrightarrow i\approx -I_S
+$$</p>
+<h2 id="击穿区域">击穿区域</h2>
+<p>$$
+v \lt V_{ZK} \\\
+\\ I_{max} \lt P_{max} / V_Z
+$$</p>
 
 </section>
 
