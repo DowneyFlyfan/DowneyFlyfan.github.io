@@ -288,6 +288,35 @@
         <li><a href="#正向偏置">正向偏置</a></li>
         <li><a href="#反向偏置">反向偏置</a></li>
         <li><a href="#击穿区域">击穿区域</a></li>
+        <li><a href="#图示">图示</a></li>
+      </ol>
+    </li>
+    <li><a href="#二极管正向属性模型化">二极管正向属性模型化</a>
+      <ol>
+        <li><a href="#指数二极管模型">指数二极管模型</a>
+          <ol>
+            <li><a href="#代数分析">代数分析</a></li>
+            <li><a href="#图像分析法">图像分析法</a></li>
+          </ol>
+        </li>
+        <li><a href="#恒压降模型cvdm">恒压降模型(CVDM)</a>
+          <ol>
+            <li><a href="#原理">原理</a></li>
+          </ol>
+        </li>
+        <li><a href="#理想二极管模型">理想二极管模型</a>
+          <ol>
+            <li><a href="#原理-1">原理</a></li>
+          </ol>
+        </li>
+        <li><a href="#小信号模型信号增加模型">小信号模型(信号增加模型)</a>
+          <ol>
+            <li><a href="#原因">原因</a></li>
+            <li><a href="#图像">图像</a></li>
+            <li><a href="#代数分析-1">代数分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#模型的选择">模型的选择</a></li>
       </ol>
     </li>
   </ol>
@@ -478,9 +507,146 @@ v \lt 0 \Longrightarrow i\approx -I_S
 $$</p>
 <h2 id="击穿区域">击穿区域</h2>
 <p>$$
-v \lt V_{ZK} \\\
+V \lt V_{ZK} \\\
 \\ I_{max} \lt P_{max} / V_Z
 $$</p>
+<h2 id="图示">图示</h2>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/5.png"
+	width="919"
+	height="591"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/5_hu62171d0168de2dbefb33c9f8d2360768_87215_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/5_hu62171d0168de2dbefb33c9f8d2360768_87215_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="373px"
+	
+></p>
+<h1 id="二极管正向属性模型化">二极管正向属性模型化</h1>
+<h2 id="指数二极管模型">指数二极管模型</h2>
+<h3 id="代数分析">代数分析</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/6.png"
+	width="375"
+	height="208"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/6_hu926c6c1d67da850b398fbd47b61cbbb8_19261_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/6_hu926c6c1d67da850b398fbd47b61cbbb8_19261_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="432px"
+	
+></p>
+<p>$$
+V_{DD} = V_D + V_R \\\
+\\ \begin{align}
+I_D= I_S e^{V_D/V_T} \\
+I_D = \frac{V_{DD}-V_D}{R}
+\end{align} \\\
+\\ From (1)(2)
+$$</p>
+<h3 id="图像分析法">图像分析法</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/7.png"
+	width="741"
+	height="439"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/7_hu34714c725c98219f96ec3069a88f32b0_82711_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/7_hu34714c725c98219f96ec3069a88f32b0_82711_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="405px"
+	
+></p>
+<ul>
+<li><strong>直观</strong>，但<strong>不准确</strong>，<strong>不适用于复杂问题</strong></li>
+</ul>
+<h2 id="恒压降模型cvdm">恒压降模型(CVDM)</h2>
+<h3 id="原理">原理</h3>
+<ul>
+<li>将$I_S-V_D$关系在$V_D=0.7V$时近似为<strong>垂直</strong></li>
+</ul>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/8.png"
+	width="728"
+	height="353"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/8_hu5b697712bec5759e62ce6ef05efff46a_18192_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/8_hu5b697712bec5759e62ce6ef05efff46a_18192_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="206"
+		data-flex-basis="494px"
+	
+></p>
+<h2 id="理想二极管模型">理想二极管模型</h2>
+<h3 id="原理-1">原理</h3>
+<ul>
+<li>将$I_S-V_D$关系在$V_D=0$时近似为<strong>垂直</strong></li>
+</ul>
+<h2 id="小信号模型信号增加模型">小信号模型(信号增加模型)</h2>
+<h3 id="原因">原因</h3>
+<ul>
+<li>
+<p>使用<strong>非线性元件</strong>传输信号</p>
+</li>
+<li>
+<p>保证<strong>不失真</strong></p>
+</li>
+</ul>
+<h3 id="图像">图像</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/9.png"
+	width="487"
+	height="464"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="104"
+		data-flex-basis="251px"
+	
+></p>
+<h3 id="代数分析-1">代数分析</h3>
+<p>$$
+i_D(t) = I_D + i_d(t) \\\
+\\ 总电流 = DC直流 + 小信号
+$$</p>
+<h2 id="模型的选择">模型的选择</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">指数模型</th>
+<th style="text-align:center">恒压降模型</th>
+<th style="text-align:center">理想二极管模型</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">适用情况</td>
+<td style="text-align:center">低电压</td>
+<td style="text-align:center">中等电压</td>
+<td style="text-align:center">高电压</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">特点</td>
+<td style="text-align:center">准</td>
+<td style="text-align:center">实用</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">适用模型</td>
+<td style="text-align:center">简单</td>
+<td style="text-align:center">最复杂</td>
+<td style="text-align:center">较为复杂</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
 
 </section>
 

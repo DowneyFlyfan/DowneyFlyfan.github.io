@@ -340,6 +340,19 @@ and or not表示与或非
         </li>
       </ol>
     </li>
+    <li><a href="#数值微分">数值微分</a></li>
+    <li><a href="#梯度">梯度</a>
+      <ol>
+        <li><a href="#定义-3">定义</a></li>
+        <li><a href="#梯度法">梯度法</a>
+          <ol>
+            <li><a href="#定义-4">定义</a></li>
+            <li><a href="#数学表示">数学表示</a></li>
+            <li><a href="#神经网络的梯度">神经网络的梯度</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -404,7 +417,7 @@ and or not表示与或非
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -1024,8 +1037,46 @@ $$</p>
 <li>损失函数总和 (以交叉熵误差为例)</li>
 </ol>
 <p>$$
-E = -\frac{1}{N}\sum_k \sum_k t_{nk}ln(y_{nk})
+E = -\frac{1}{N}\sum_k \sum_k t_{nk} \ ln(y_{nk})
 $$</p>
+<h1 id="数值微分">数值微分</h1>
+<p>$$
+\frac{df(x)}{dx} = \frac{f(x+h)-f(x-h)}{2h} \\\
+\\ 通过\pmb{中心差分}实现更高的\pmb{精度}
+$$</p>
+<h1 id="梯度">梯度</h1>
+<h2 id="定义-3">定义</h2>
+<blockquote>
+<p>像$(\frac{\partial f}{\partial x_0},\frac{\partial f}{\partial x_1})$ 这样由<strong>全部变量的偏倒数</strong>汇总而成的<strong>向量</strong>被称为<strong>梯度</strong></p>
+</blockquote>
+<h2 id="梯度法">梯度法</h2>
+<h3 id="定义-4">定义</h3>
+<blockquote>
+<p>不断地<strong>沿梯度方向</strong>前进,逐渐<strong>减小函数值</strong>的过程</p>
+</blockquote>
+<h3 id="数学表示">数学表示</h3>
+<p>$$
+x_n = x_n - \eta \frac{\partial f}{\partial x_n} \\\
+\\ \eta: 学习率
+$$</p>
+<ul>
+<li>
+<p><strong>学习率</strong>过大，结果会<strong>超大</strong></p>
+</li>
+<li>
+<p><strong>学习率</strong>过小，结果<strong>几乎没有改变</strong></p>
+</li>
+</ul>
+<h3 id="神经网络的梯度">神经网络的梯度</h3>
+<ol>
+<li>定义</li>
+</ol>
+<ul>
+<li><strong>损失函数</strong>关于<strong>权重</strong>的梯度$\frac{\partial L}{\partial \pmb W}$</li>
+</ul>
+<ol start="2">
+<li></li>
+</ol>
 
 </section>
 
@@ -1086,6 +1137,19 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E7%AE%97%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">算法</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">
