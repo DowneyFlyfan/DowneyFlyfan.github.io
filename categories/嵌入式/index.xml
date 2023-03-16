@@ -6,7 +6,112 @@
         <description>Recent content in 嵌入式 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 10 Mar 2023 14:43:37 +0000</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 16 Mar 2023 09:24:02 +0000</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>中止</title>
+        <link>https://downeyflyfan.com/p/%E4%B8%AD%E6%AD%A2/</link>
+        <pubDate>Thu, 16 Mar 2023 09:24:02 +0000</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E4%B8%AD%E6%AD%A2/</guid>
+        <description>&lt;h1 id=&#34;几个概念&#34;&gt;几个概念&lt;/h1&gt;
+&lt;h2 id=&#34;polling-轮询&#34;&gt;Polling (轮询)&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;轮询设备的状态，确保它们正常工作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可以实现&lt;strong&gt;简单、可靠&lt;/strong&gt;的设备管理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;消耗&lt;strong&gt;大量的处理器时间&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;中断&#34;&gt;中断&lt;/h2&gt;
+&lt;h3 id=&#34;定义-1&#34;&gt;定义&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;外部设备&lt;/strong&gt;通过向处理器发送信号&lt;strong&gt;打断正在运行的程序&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;特点-1&#34;&gt;特点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;异步&lt;/strong&gt;的，由&lt;strong&gt;外部事件&lt;/strong&gt;触发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;实例&#34;&gt;实例&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;移动鼠标&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用键盘&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打印&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;结果&#34;&gt;结果&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;当前指令&lt;/strong&gt;被打断&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;保护当前指令&lt;/strong&gt;的状态,八个寄存器被放入&lt;strong&gt;栈&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;寄存器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;LR(Link)被设为&lt;strong&gt;0xFFFFFFF9&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IPSR (Interrupt Program Status Register) 被设为&lt;strong&gt;Interrupt Number&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PC(Program Counter)加载&lt;strong&gt;Interrupt vector&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;比较&#34;&gt;比较&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;中断是一种事件驱动的控制方式，当一个事件发生时（例如外部设备发出的信号），处理器会暂停当前执行的程序，转而执行与该事件相关的中断服务程序（ISR）。ISR执行完毕后，处理器会恢复之前的执行状态，继续执行被中断的程序。中断具有实时响应、低处理器占用率等优点，适用于需要快速响应外部事件的应用场景。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;轮询是一种基于循环的控制方式，程序会周期性地检查某个条件是否满足，然后决定下一步操作。轮询通常在一个无限循环中执行，会占用处理器的大量时间。轮询适用于处理器资源较为充足，但需要周期性检查某个条件的应用场景。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;分类&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;中止&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;轮询&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;背景&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在需要时调用处理器&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;定期&lt;/strong&gt;查询&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;机制&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;机制&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;协议&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Servicing&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Interrupt Handler&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CPU&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;中断处理程序设计&#34;&gt;中断处理程序设计&lt;/h1&gt;
+&lt;h2 id=&#34;c语言&#34;&gt;C语言&lt;/h2&gt;
+&lt;h2 id=&#34;汇编语言&#34;&gt;汇编语言&lt;/h2&gt;
+</description>
+        </item>
+        <item>
         <title>ARM 编程</title>
         <link>https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/</link>
         <pubDate>Fri, 10 Mar 2023 14:43:37 +0000</pubDate>

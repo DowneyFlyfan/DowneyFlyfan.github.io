@@ -1,51 +1,24 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ARM 处理器 指令集结构 Low-level Programming 名称 Advanced RISC Machine
-RISC = Reduced Instruction Set Computer
-CISC = Complex Instruction Set Computer
-比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython 界面技巧 GPIO 定义 General Purpose Input/Output
-实例 对于microcontroller，pin就是GPIO
-pin是双向的
-工作模式 输入 Floating Mode
-Pull-Up
-Pull-Down
-Analog Mode
-输出 General purpose output push-pull
-General purpose output Open-drain'>
-<title>ARM 编程</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='HDL(硬件描述语言) 结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 模块声明 1 2 3 4 5 module module_name(input port1, input port2, output port3); // internal logic here endmodule // 模块名称，端口列表，内部逻辑 数据类型 wire 连续的、不存储状态的信号,比如输入、输出信号 1 2 wire input_signal; wire output_signal; reg 存储状态的信号，比如寄存器、计数器 1 2 3 reg [7:0] counter; // 定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 reg 类型，从左到右编号分别为 7、6、5、4、3、2、1、0 reg [31:0] data; 其他 real:浮点数
+integar:整数
+运算符 常用运算符 1 2 3 4 a &#43; b // 算术加法运算 a &amp;amp;&amp;amp; b // 逻辑与运算 a == b // 比较相等运算 a &amp;amp; b // 位与运算 [] 符号 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。'>
+<title>Verilog</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/verilog/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='ARM 编程'>
-<meta property='og:description' content='ARM 处理器 指令集结构 Low-level Programming 名称 Advanced RISC Machine
-RISC = Reduced Instruction Set Computer
-CISC = Complex Instruction Set Computer
-比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython 界面技巧 GPIO 定义 General Purpose Input/Output
-实例 对于microcontroller，pin就是GPIO
-pin是双向的
-工作模式 输入 Floating Mode
-Pull-Up
-Pull-Down
-Analog Mode
-输出 General purpose output push-pull
-General purpose output Open-drain'>
-<meta property='og:url' content='https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Verilog'>
+<meta property='og:description' content='HDL(硬件描述语言) 结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 模块声明 1 2 3 4 5 module module_name(input port1, input port2, output port3); // internal logic here endmodule // 模块名称，端口列表，内部逻辑 数据类型 wire 连续的、不存储状态的信号,比如输入、输出信号 1 2 wire input_signal; wire output_signal; reg 存储状态的信号，比如寄存器、计数器 1 2 3 reg [7:0] counter; // 定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 reg 类型，从左到右编号分别为 7、6、5、4、3、2、1、0 reg [31:0] data; 其他 real:浮点数
+integar:整数
+运算符 常用运算符 1 2 3 4 a &#43; b // 算术加法运算 a &amp;amp;&amp;amp; b // 逻辑与运算 a == b // 比较相等运算 a &amp;amp; b // 位与运算 [] 符号 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。'>
+<meta property='og:url' content='https://downeyflyfan.com/p/verilog/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-10T14:43:37&#43;00:00'/><meta property='article:modified_time' content='2023-03-10T14:43:37&#43;00:00'/>
-<meta name="twitter:title" content="ARM 编程">
-<meta name="twitter:description" content="ARM 处理器 指令集结构 Low-level Programming 名称 Advanced RISC Machine
-RISC = Reduced Instruction Set Computer
-CISC = Complex Instruction Set Computer
-比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython 界面技巧 GPIO 定义 General Purpose Input/Output
-实例 对于microcontroller，pin就是GPIO
-pin是双向的
-工作模式 输入 Floating Mode
-Pull-Up
-Pull-Down
-Analog Mode
-输出 General purpose output push-pull
-General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-16T10:46:19&#43;00:00'/><meta property='article:modified_time' content='2023-03-16T10:46:19&#43;00:00'/>
+<meta name="twitter:title" content="Verilog">
+<meta name="twitter:description" content="HDL(硬件描述语言) 结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 模块声明 1 2 3 4 5 module module_name(input port1, input port2, output port3); // internal logic here endmodule // 模块名称，端口列表，内部逻辑 数据类型 wire 连续的、不存储状态的信号,比如输入、输出信号 1 2 wire input_signal; wire output_signal; reg 存储状态的信号，比如寄存器、计数器 1 2 3 reg [7:0] counter; // 定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 reg 类型，从左到右编号分别为 7、6、5、4、3、2、1、0 reg [31:0] data; 其他 real:浮点数
+integar:整数
+运算符 常用运算符 1 2 3 4 a &#43; b // 算术加法运算 a &amp;amp;&amp;amp; b // 逻辑与运算 a == b // 比较相等运算 a &amp;amp; b // 位与运算 [] 符号 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -283,45 +256,31 @@ General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico"
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#arm-处理器">ARM 处理器</a>
+    <li><a href="#hdl硬件描述语言">HDL(硬件描述语言)</a></li>
+    <li><a href="#结构">结构</a>
       <ol>
-        <li><a href="#指令集结构">指令集结构</a></li>
-        <li><a href="#名称">名称</a>
+        <li><a href="#结构描述">结构描述</a></li>
+        <li><a href="#行为描述">行为描述</a>
           <ol>
-            <li><a href="#比较">比较</a></li>
+            <li><a href="#时序逻辑">时序逻辑</a></li>
+            <li><a href="#组合逻辑">组合逻辑</a></li>
           </ol>
         </li>
-        <li><a href="#arm-vs-mips">ARM vs. MIPS</a></li>
       </ol>
     </li>
-    <li><a href="#嵌入式编程语言">嵌入式编程语言</a>
+    <li><a href="#语法">语法</a>
       <ol>
-        <li><a href="#常见语言">常见语言</a></li>
-      </ol>
-    </li>
-    <li><a href="#界面技巧">界面技巧</a>
-      <ol>
-        <li><a href="#gpio">GPIO</a>
+        <li><a href="#模块声明">模块声明</a></li>
+        <li><a href="#数据类型">数据类型</a>
           <ol>
-            <li><a href="#定义">定义</a></li>
-            <li><a href="#实例">实例</a></li>
-            <li><a href="#工作模式">工作模式</a></li>
+            <li><a href="#wire">wire</a></li>
+            <li><a href="#reg">reg</a></li>
+            <li><a href="#其他">其他</a></li>
           </ol>
         </li>
-        <li><a href="#pwm---pulse-width-modulation">PWM - Pulse Width Modulation</a>
-          <ol>
-            <li><a href="#模电和数电">模电和数电</a></li>
-            <li><a href="#原理">原理</a></li>
-            <li><a href="#图像分析">图像分析</a></li>
-          </ol>
-        </li>
-        <li><a href="#串行通信的方式">串行通信的方式</a>
-          <ol>
-            <li><a href="#uart----universal-asynchronous-reception-and-transmission">UART &ndash; Universal Asynchronous Reception and Transmission</a></li>
-            <li><a href="#i2c---inter-integrated-circuit">I2C - Inter-Integrated-Circuit</a></li>
-            <li><a href="#spi---serial-peripheral-interface">SPI - Serial Peripheral Interface</a></li>
-          </ol>
-        </li>
+        <li><a href="#运算符">运算符</a></li>
+        <li><a href="#控制结构">控制结构</a></li>
+        <li><a href="#时序控制">时序控制</a></li>
       </ol>
     </li>
   </ol>
@@ -342,8 +301,8 @@ General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico"
     
     <header class="article-category">
         
-            <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="background-color: #C0C0C0; color: #fff;">
-                嵌入式
+            <a href="/categories/%E6%95%B0%E7%94%B5/" style="background-color: #2F4F4F; color: #fff;">
+                数电
             </a>
         
     </header>
@@ -351,7 +310,7 @@ General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico"
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/arm-%E7%BC%96%E7%A8%8B/">ARM 编程</a>
+            <a href="/p/verilog/">Verilog</a>
         </h2>
     
         
@@ -373,7 +332,7 @@ General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico"
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 10, 101010</time>
+                <time class="article-time--published">Mar 16, 161616</time>
             </div>
         
 
@@ -388,7 +347,7 @@ General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico"
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -403,380 +362,178 @@ General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico"
     <section class="article-content">
     
     
-    <h1 id="arm-处理器">ARM 处理器</h1>
-<h2 id="指令集结构">指令集结构</h2>
+    <h1 id="hdl硬件描述语言">HDL(硬件描述语言)</h1>
+<h1 id="结构">结构</h1>
+<h2 id="结构描述">结构描述</h2>
 <ul>
-<li>Low-level Programming</li>
+<li>数字电路的结构</li>
 </ul>
-<h2 id="名称">名称</h2>
+<h2 id="行为描述">行为描述</h2>
 <ul>
-<li>
-<p><strong>Advanced RISC Machine</strong></p>
-</li>
-<li>
-<p><strong>RISC</strong> = <strong>Reduced Instruction Set Computer</strong></p>
-</li>
-<li>
-<p><strong>CISC</strong> = <strong>Complex Instruction Set Computer</strong></p>
-</li>
+<li>数字电路的行为</li>
 </ul>
-<h3 id="比较">比较</h3>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">RISC</th>
-<th style="text-align:center">CISC</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">指令多</td>
-<td style="text-align:center">指令少</td>
-</tr>
-<tr>
-<td style="text-align:center">更多<strong>编译器</strong></td>
-<td style="text-align:center">更多<strong>微指令</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">更多<strong>寄存器</strong></td>
-<td style="text-align:center">更少<strong>寄存器</strong></td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="arm-vs-mips">ARM vs. MIPS</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">ARM</th>
-<th style="text-align:center">MIPS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">16个寄存器</td>
-<td style="text-align:center">32个寄存器</td>
-</tr>
-<tr>
-<td style="text-align:center">更高效，支持64位数据线</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">ARM的指令集不一样</td>
-<td></td>
-</tr>
-</tbody>
-</table></div>
+<h3 id="时序逻辑">时序逻辑</h3>
 <ul>
-<li>结论：ARM比MIPS更NB！</li>
+<li><em>时钟信号的逻辑</em>,例如<strong>触发器</strong>和<strong>计数器</strong></li>
 </ul>
-<h1 id="嵌入式编程语言">嵌入式编程语言</h1>
-<h2 id="常见语言">常见语言</h2>
+<h3 id="组合逻辑">组合逻辑</h3>
 <ul>
-<li>C, C++, Python, Java, MicroPython</li>
+<li><strong>没有时钟信号的逻辑</strong>,比如<strong>加法器</strong>和<strong>比较器</strong></li>
 </ul>
-<h1 id="界面技巧">界面技巧</h1>
-<h2 id="gpio">GPIO</h2>
-<h3 id="定义">定义</h3>
-<blockquote>
-<p>General Purpose Input/Output</p>
-</blockquote>
-<h3 id="实例">实例</h3>
-<ol>
-<li>
-<p>对于microcontroller，<strong>pin</strong>就是<strong>GPIO</strong></p>
-</li>
-<li>
-<p><strong>pin</strong>是双向的</p>
-</li>
-</ol>
-<h3 id="工作模式">工作模式</h3>
-<ol>
-<li>输入</li>
-</ol>
-<ul>
-<li>
-<p>Floating Mode</p>
-</li>
-<li>
-<p>Pull-Up</p>
-</li>
-<li>
-<p>Pull-Down</p>
-</li>
-<li>
-<p>Analog Mode</p>
-</li>
-</ul>
-<ol start="2">
-<li>输出</li>
-</ol>
-<ul>
-<li>
-<p>General purpose output push-pull</p>
-</li>
-<li>
-<p>General purpose output Open-drain</p>
-</li>
-<li>
-<p>Alternate function output push-pull</p>
-</li>
-<li>
-<p>Alternate function output Open-drain.</p>
-</li>
-</ul>
-<h2 id="pwm---pulse-width-modulation">PWM - Pulse Width Modulation</h2>
-<h3 id="模电和数电">模电和数电</h3>
-<ol>
-<li>
-<p>模拟信号可以多样</p>
-</li>
-<li>
-<p>数字信号只能是<strong>High</strong>或<strong>Low</strong></p>
-</li>
-</ol>
-<h3 id="原理">原理</h3>
-<ul>
-<li>用<strong>数字源</strong>产生<strong>模拟信号</strong></li>
-</ul>
-<h3 id="图像分析">图像分析</h3>
-<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/1.png"
-	width="850"
-	height="408"
-	srcset="/p/arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="208"
-		data-flex-basis="500px"
-	
-></p>
-<p>$$
-Duty \ Cycle = \frac{Active \ time}{T} \times 100% \\\
-\\ Average \ Time = high \cdot Duty \ Cycle / 100%
-$$</p>
-<h2 id="串行通信的方式">串行通信的方式</h2>
-<h3 id="uart----universal-asynchronous-reception-and-transmission">UART &ndash; Universal Asynchronous Reception and Transmission</h3>
-<ol>
-<li>部件与原理</li>
-</ol>
-<ul>
-<li>
-<p>RX - Receiver</p>
-</li>
-<li>
-<p>TX - Transmitter</p>
-</li>
-<li>
-<p>Protocal - 总线异步通信系统<strong>协议</strong></p>
-</li>
-</ul>
-<ol start="2">
-<li>工作原理</li>
-</ol>
-<ul>
-<li>
-<p>Start Bit $0$ $\longrightarrow$ Stop Bit $1$</p>
-</li>
-<li>
-<p>Data Length</p>
-</li>
-</ul>
-<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/2.png"
-	width="1232"
-	height="302"
-	srcset="/p/arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="407"
-		data-flex-basis="979px"
-	
-></p>
-<ul>
-<li>理想状态下，串行线为$1$</li>
-</ul>
-<h3 id="i2c---inter-integrated-circuit">I2C - Inter-Integrated-Circuit</h3>
-<ol>
-<li>部件与原理</li>
-</ol>
-<ul>
-<li>
-<p>一主机，多从机</p>
-</li>
-<li>
-<p>只有主机可以<strong>初始化</strong>传输数据</p>
-</li>
-<li>
-<p>总线系统同步通信的<strong>协议</strong></p>
-</li>
-<li>
-<p>SDA - Serial Data Line: 传输<strong>数据、地址、控制</strong>信号</p>
-</li>
-<li>
-<p>SCL - Serial Clock Line：用于<strong>同步</strong></p>
-</li>
-</ul>
-<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/3.png"
-	width="1043"
-	height="366"
-	srcset="/p/arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="284"
-		data-flex-basis="683px"
-	
-></p>
-<ol start="2">
-<li>工作原理</li>
-</ol>
-<ul>
-<li>
-<p>Data Length: 8-bit</p>
-</li>
-<li>
-<p>Start (Stop) Condition</p>
-</li>
-</ul>
-<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/5.png"
-	width="826"
-	height="401"
-	srcset="/p/arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="205"
-		data-flex-basis="494px"
-	
-></p>
-<ol start="3">
-<li>地址字节(8位)</li>
-</ol>
-<ul>
-<li>
-<p>前7位构成<strong>从机地址</strong></p>
-</li>
-<li>
-<p>最后1位作为<strong>读/写</strong>指令</p>
-<ul>
-<li>0是写入(从机)</li>
-<li>1是读取</li>
-</ul>
-</li>
-</ul>
-<ol start="4">
-<li>确认位和非确认位(ACB/NACB)</li>
-</ol>
-<ul>
-<li>
-<p>每字节数据输入成功，<strong>接受者</strong>返回ACB;失败返回<strong>NACB</strong></p>
-</li>
-<li>
-<p>在SCL为<strong>High</strong>时，保持SDA为<strong>low</strong>,以此产生<strong>ACB</strong></p>
-</li>
-</ul>
-<ol start="5">
-<li>数据位</li>
-</ol>
-<ul>
-<li>
-<p>8位字节格式</p>
-</li>
-<li>
-<p>以地址字节开头，每个地址字节后必须跟着一个ACB/NACB</p>
-</li>
-<li>
-<p>必须在<strong>SCL保持high</strong>时才能发送和接收数据</p>
-</li>
-<li>
-<p><strong>SCL保持低位</strong>时可以操作数据线</p>
-</li>
-</ul>
-<h3 id="spi---serial-peripheral-interface">SPI - Serial Peripheral Interface</h3>
-<ol>
-<li>部件与协议</li>
-</ol>
-<ul>
-<li>
-<p>总线系统的串行通信<strong>协议</strong></p>
-</li>
-<li>
-<p>一主机，(一)多从机</p>
-</li>
-<li>
-<p>全双工</p>
-</li>
-<li>
-<p>主从层次结构</p>
-</li>
-</ul>
-<ol start="2">
-<li>结构</li>
-</ol>
-<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/4.png"
-	width="572"
-	height="580"
-	srcset="/p/arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="98"
-		data-flex-basis="236px"
-	
-></p>
-<ul>
-<li>SS(CS): Slave Select (Chip Select),从机并行连接，处于<strong>low</strong>位时被激活</li>
-</ul>
-<ol start="3">
-<li>原理</li>
-</ol>
-<p><img src="/p/arm-%E7%BC%96%E7%A8%8B/6.png"
-	width="886"
-	height="233"
-	srcset="/p/arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_480x0_resize_box_3.png 480w, /p/arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="380"
-		data-flex-basis="912px"
-	
-></p>
-<div class="mermaid">stateDiagram
-主机向从机发送时钟信号 --> 将对应从机的SS/CS调成low
-将对应从机的SS/CS调成low --> MOSI发送数据
-MOSI发送数据 --> MISO接受从机发回的数据: 如果有必要的话
+<h1 id="语法">语法</h1>
+<h2 id="模块声明">模块声明</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">module_name</span><span class="p">(</span><span class="nv">input</span> <span class="nv">port1</span><span class="p">,</span> <span class="nv">input</span> <span class="nv">port2</span><span class="p">,</span> <span class="nv">output</span> <span class="nv">port3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// internal logic here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 模块名称，端口列表，内部逻辑
+</span></span></span></code></pre></td></tr></table>
 </div>
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-
-<ol start="4">
-<li><strong>时钟参数</strong></li>
+</div><h2 id="数据类型">数据类型</h2>
+<h3 id="wire">wire</h3>
+<ul>
+<li>连续的、不存储状态的信号,比如<strong>输入、输出</strong>信号</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wire input_signal;
+</span></span><span class="line"><span class="cl">wire output_signal;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="reg">reg</h3>
+<ul>
+<li>存储状态的信号，比如<strong>寄存器、计数器</strong></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">reg [7:0] counter; // 定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 reg 类型，从左到右编号分别为 7、6、5、4、3、2、1、0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">reg [31:0] data;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="其他">其他</h3>
+<ul>
+<li>
+<p>real:浮点数</p>
+</li>
+<li>
+<p>integar:整数</p>
+</li>
+</ul>
+<h2 id="运算符">运算符</h2>
+<ol>
+<li>常用运算符</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a + b // 算术加法运算
+</span></span><span class="line"><span class="cl">a &amp;&amp; b // 逻辑与运算
+</span></span><span class="line"><span class="cl">a == b // 比较相等运算
+</span></span><span class="line"><span class="cl">a &amp; b // 位与运算
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>[] 符号</li>
 </ol>
 <ul>
-<li>CPOL(Clock Polarity)</li>
+<li>
+<p><input disabled="" type="checkbox"> 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。</p>
+</li>
+<li>
+<p>例如，wire [7:0] a 定义了一个 8 位向量信号 a。其中，[7:0] 表示从左到右，第 7 位到第 0 位，即最高位是第 7 位，最低位是第 0 位。这个定义可以解释为：定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 wire 类型，从左到右编号分别为 7、6、5、4、3、2、1、0。</p>
+</li>
+<li>
+<p>在实际应用中，<input disabled="" type="checkbox"> 符号还可以用于对信号进行部分选择。例如，wire [15:0] b 定义了一个 16 位向量信号 b。如果要选择其中的一个部分，可以使用如下方式：</p>
+</li>
+<li>
+<p>b[15:8]：选择第 15 位到第 8 位的部分，共 8 位；</p>
+</li>
+<li>
+<p>b[7:0]：选择第 7 位到第 0 位的部分，共 8 位；</p>
+</li>
+<li>
+<p>b[11:4]：选择第 11 位到第 4 位的部分，共 8 位。</p>
+</li>
 </ul>
-<blockquote>
-<p>当CPOL为0时，时钟信号在空闲状态下为低电平（0），在上升沿（rising edge）采样数据，下降沿（falling edge）传输数据。当CPOL为1时，时钟信号在空闲状态下为高电平（1），在下降沿采样数据，上升沿传输数据。</p>
-</blockquote>
-<ul>
-<li>CPHA(Clock Phase)</li>
-</ul>
-<blockquote>
-<p>当CPHA为0时，在时钟信号的第一个跳变沿（上升沿或下降沿）采样数据；当CPHA为1时，在时钟信号的第二个跳变沿（另一个上升沿或下降沿）采样数据。</p>
-</blockquote>
-
+<h2 id="控制结构">控制结构</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">if (condition) begin
+</span></span><span class="line"><span class="cl">  // do something
+</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">for (i = 0; i &lt; 10; i = i + 1) begin
+</span></span><span class="line"><span class="cl">  // do something
+</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">while (condition) begin
+</span></span><span class="line"><span class="cl">  // do something
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="时序控制">时序控制</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">always @(posedge clock) begin
+</span></span><span class="line"><span class="cl">  // do something
+</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">always @(negedge reset) begin
+</span></span><span class="line"><span class="cl">  // do something
+</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#10 // 延迟10个时间单位
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -839,12 +596,12 @@ MOSI发送数据 --> MISO接受从机发回的数据: 如果有必要的话
             
                 
 <article class="">
-    <a href="/p/%E4%B8%AD%E6%AD%A2/">
+    <a href="/p/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">中止</h2>
+            <h2 class="article-title">逻辑代数基础</h2>
         </div>
     </a>
 </article>
@@ -852,12 +609,25 @@ MOSI发送数据 --> MISO接受从机发回的数据: 如果有必要的话
             
                 
 <article class="">
-    <a href="/p/%E5%9B%9E%E9%A1%BE/">
+    <a href="/p/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">回顾</h2>
+            <h2 class="article-title">二进制信息</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%BC%95%E8%AE%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">引论</h2>
         </div>
     </a>
 </article>
