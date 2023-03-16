@@ -280,7 +280,11 @@ integar:整数
         </li>
         <li><a href="#运算符">运算符</a></li>
         <li><a href="#控制结构">控制结构</a></li>
-        <li><a href="#时序控制">时序控制</a></li>
+        <li><a href="#时序控制">时序控制</a>
+          <ol>
+            <li><a href="#always">always</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -347,7 +351,7 @@ integar:整数
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -509,6 +513,10 @@ integar:整数
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="时序控制">时序控制</h2>
+<h3 id="always">always</h3>
+<ol>
+<li>语法</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -517,23 +525,51 @@ integar:整数
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">always @(posedge clock) begin
-</span></span><span class="line"><span class="cl">  // do something
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">always @ ( sensitivity_list ) 
+</span></span><span class="line"><span class="cl">begin 
+</span></span><span class="line"><span class="cl">  // sequential or combinational logic statements 
 </span></span><span class="line"><span class="cl">end
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">always @(negedge reset) begin
-</span></span><span class="line"><span class="cl">  // do something
-</span></span><span class="line"><span class="cl">end
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">#10 // 延迟10个时间单位
+</span></span><span class="line"><span class="cl">#10 延迟10毫秒
 </span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><ol start="2">
+<li>解释</li>
+</ol>
+<ul>
+<li><code>sensitivity_list</code>定义了always块所依赖的信号列表</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">@*</th>
+<th style="text-align:center">对所有信号变化敏感，这种情况下也称为敏感性列表的缺省形式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">@(expression)</td>
+<td style="text-align:center">对一个或多个信号变化敏感，expression是一个可以求值为布尔值的表达式，其中包含一个或多个信号名称，也可以包括常量、运算符和函数调用。</td>
+</tr>
+<tr>
+<td style="text-align:center">@(posedge signal)</td>
+<td style="text-align:center">在时钟信号的上升沿时敏感</td>
+</tr>
+<tr>
+<td style="text-align:center">@(negedge signal)</td>
+<td style="text-align:center">在时钟信号的下降沿时敏感</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="3">
+<li>作用</li>
+</ol>
+<ul>
+<li>创建基于事件的行为，以响应组合逻辑电路中的信号变化</li>
+</ul>
+
 </section>
 
 
