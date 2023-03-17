@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='HDL(硬件描述语言) 结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 模块声明 1 2 3 4 5 module module_name(input port1, input port2, output port3); // internal logic here endmodule // 模块名称，端口列表，内部逻辑 数据类型 wire 连续的、不存储状态的信号,比如输入、输出信号 1 2 wire input_signal; wire output_signal; reg 存储状态的信号，比如寄存器、计数器 1 2 3 reg [7:0] counter; // 定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 reg 类型，从左到右编号分别为 7、6、5、4、3、2、1、0 reg [31:0] data; 其他 real:浮点数
 integar:整数
-运算符 常用运算符 1 2 3 4 a &#43; b // 算术加法运算 a &amp;amp;&amp;amp; b // 逻辑与运算 a == b // 比较相等运算 a &amp;amp; b // 位与运算 [] 符号 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。'>
+运算符 逻辑运算符 &amp;amp;&amp;amp; 逻辑与 || 逻辑或 ! 逻辑非 [] 符号 [] 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。'>
 <title>Verilog</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/verilog/'>
@@ -11,14 +11,14 @@ integar:整数
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Verilog'>
 <meta property='og:description' content='HDL(硬件描述语言) 结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 模块声明 1 2 3 4 5 module module_name(input port1, input port2, output port3); // internal logic here endmodule // 模块名称，端口列表，内部逻辑 数据类型 wire 连续的、不存储状态的信号,比如输入、输出信号 1 2 wire input_signal; wire output_signal; reg 存储状态的信号，比如寄存器、计数器 1 2 3 reg [7:0] counter; // 定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 reg 类型，从左到右编号分别为 7、6、5、4、3、2、1、0 reg [31:0] data; 其他 real:浮点数
 integar:整数
-运算符 常用运算符 1 2 3 4 a &#43; b // 算术加法运算 a &amp;amp;&amp;amp; b // 逻辑与运算 a == b // 比较相等运算 a &amp;amp; b // 位与运算 [] 符号 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。'>
+运算符 逻辑运算符 &amp;amp;&amp;amp; 逻辑与 || 逻辑或 ! 逻辑非 [] 符号 [] 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。'>
 <meta property='og:url' content='https://downeyflyfan.com/p/verilog/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-16T10:46:19&#43;00:00'/><meta property='article:modified_time' content='2023-03-16T10:46:19&#43;00:00'/>
 <meta name="twitter:title" content="Verilog">
 <meta name="twitter:description" content="HDL(硬件描述语言) 结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 模块声明 1 2 3 4 5 module module_name(input port1, input port2, output port3); // internal logic here endmodule // 模块名称，端口列表，内部逻辑 数据类型 wire 连续的、不存储状态的信号,比如输入、输出信号 1 2 wire input_signal; wire output_signal; reg 存储状态的信号，比如寄存器、计数器 1 2 3 reg [7:0] counter; // 定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 reg 类型，从左到右编号分别为 7、6、5、4、3、2、1、0 reg [31:0] data; 其他 real:浮点数
 integar:整数
-运算符 常用运算符 1 2 3 4 a &#43; b // 算术加法运算 a &amp;amp;&amp;amp; b // 逻辑与运算 a == b // 比较相等运算 a &amp;amp; b // 位与运算 [] 符号 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+运算符 逻辑运算符 &amp;amp;&amp;amp; 逻辑与 || 逻辑或 ! 逻辑非 [] 符号 [] 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -351,7 +351,7 @@ integar:整数
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -444,43 +444,41 @@ integar:整数
 </ul>
 <h2 id="运算符">运算符</h2>
 <ol>
-<li>常用运算符</li>
+<li>逻辑运算符</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a + b // 算术加法运算
-</span></span><span class="line"><span class="cl">a &amp;&amp; b // 逻辑与运算
-</span></span><span class="line"><span class="cl">a == b // 比较相等运算
-</span></span><span class="line"><span class="cl">a &amp; b // 位与运算
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">&amp;&amp;</th>
+<th style="text-align:center">逻辑与</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">||</td>
+<td style="text-align:center">逻辑或</td>
+</tr>
+<tr>
+<td style="text-align:center">!</td>
+<td style="text-align:center">逻辑非</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="2">
 <li>[] 符号</li>
 </ol>
 <ul>
 <li>
-<p><input disabled="" type="checkbox"> 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。</p>
+<p>[] 符号表示位选择符（bit-select）或部分选择符（part-select）。这些选择符用于从一个向量中选择特定的位或部分。</p>
 </li>
 <li>
 <p>例如，wire [7:0] a 定义了一个 8 位向量信号 a。其中，[7:0] 表示从左到右，第 7 位到第 0 位，即最高位是第 7 位，最低位是第 0 位。这个定义可以解释为：定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 wire 类型，从左到右编号分别为 7、6、5、4、3、2、1、0。</p>
 </li>
 <li>
-<p>在实际应用中，<input disabled="" type="checkbox"> 符号还可以用于对信号进行部分选择。例如，wire [15:0] b 定义了一个 16 位向量信号 b。如果要选择其中的一个部分，可以使用如下方式：</p>
+<p>在实际应用中，[] 符号还可以用于对信号进行部分选择。例如，wire [15:0] b 定义了一个 16 位向量信号 b。如果要选择其中的一个部分，可以使用如下方式：</p>
 </li>
 <li>
-<p>b[15:8]：选择第 15 位到第 8 位的部分，共 8 位；</p>
-</li>
-<li>
-<p>b[7:0]：选择第 7 位到第 0 位的部分，共 8 位；</p>
-</li>
-<li>
-<p>b[11:4]：选择第 11 位到第 4 位的部分，共 8 位。</p>
+<p>b[15:8]：选择第 15 位到第 8 位的部分，共 8 位</p>
 </li>
 </ul>
 <h2 id="控制结构">控制结构</h2>

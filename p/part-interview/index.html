@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='嵌入式简介 定义 执行特定功能的电脑
-组成 传感器
-激励器
-电脑硬件
-软件
-MPU MCU 功能 MPU多用于电脑
-MCU多用于嵌入式(执行特定功能)
-结构相同 RAM: 内存
-ROM: 存储
-成本 速度 存储 $$ MPU \gg MCU $$
-复习 电脑的基本部件 CPU APU,执行简单数字运算和逻辑运算
-Register，高速存储,没有地址单元
-I/O Memory 其他 Port 分为输入端口和输出端口 Device Driver 就是BIOS Interface 构成电脑的部分硬件和软件 总线结构 定义 包含数据、地址、控制信号(时钟信号、指令、数据类型等)的所有的线
-分类 地址总线
-数据总线(双向)
-控制总线
-通信方式 串行通信 单通道依次传输 并行通信 多通道同时传输数据 比较 项目 串行 并行 速度 慢 快 干扰 无 存在 成本 低 高 因此对于嵌入式系统，串行通信最为合适 细说串行通信 同步通信 Sender和Receiver使用同一个时钟频率'>
-<title>回顾</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='自我介绍 原则 专业化
+突出学历和工作经验
+突出成就
+注重逻辑
+优缺点 (Dos and Don&amp;rsquo;ts) Dos 您的技能和经验与职位相关的方面
+您对公司和职位的了解，包括其文化和价值观。
+您的热情和动机，以及您为什么对这个职位感兴趣。
+与过去的职位和项目相关的成功故事和经验。
+关于您的教育和培训的信息。
+Don&amp;rsquo;ts 不要提及个人信息，除非它们与职位相关
+避免涉及敏感话题
+不要谈论您过去的雇主或同事的负面评论
+避免过多地提及您的薪资期望。
+不要出现过于自大或傲慢，也不要表现出过于谦虚
+STAR 技巧 Situation
+Task
+Action
+Results'>
+<title>Part Interview</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/%E5%9B%9E%E9%A1%BE/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/part-interview/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='回顾'>
-<meta property='og:description' content='嵌入式简介 定义 执行特定功能的电脑
-组成 传感器
-激励器
-电脑硬件
-软件
-MPU MCU 功能 MPU多用于电脑
-MCU多用于嵌入式(执行特定功能)
-结构相同 RAM: 内存
-ROM: 存储
-成本 速度 存储 $$ MPU \gg MCU $$
-复习 电脑的基本部件 CPU APU,执行简单数字运算和逻辑运算
-Register，高速存储,没有地址单元
-I/O Memory 其他 Port 分为输入端口和输出端口 Device Driver 就是BIOS Interface 构成电脑的部分硬件和软件 总线结构 定义 包含数据、地址、控制信号(时钟信号、指令、数据类型等)的所有的线
-分类 地址总线
-数据总线(双向)
-控制总线
-通信方式 串行通信 单通道依次传输 并行通信 多通道同时传输数据 比较 项目 串行 并行 速度 慢 快 干扰 无 存在 成本 低 高 因此对于嵌入式系统，串行通信最为合适 细说串行通信 同步通信 Sender和Receiver使用同一个时钟频率'>
-<meta property='og:url' content='https://downeyflyfan.com/p/%E5%9B%9E%E9%A1%BE/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Part Interview'>
+<meta property='og:description' content='自我介绍 原则 专业化
+突出学历和工作经验
+突出成就
+注重逻辑
+优缺点 (Dos and Don&amp;rsquo;ts) Dos 您的技能和经验与职位相关的方面
+您对公司和职位的了解，包括其文化和价值观。
+您的热情和动机，以及您为什么对这个职位感兴趣。
+与过去的职位和项目相关的成功故事和经验。
+关于您的教育和培训的信息。
+Don&amp;rsquo;ts 不要提及个人信息，除非它们与职位相关
+避免涉及敏感话题
+不要谈论您过去的雇主或同事的负面评论
+避免过多地提及您的薪资期望。
+不要出现过于自大或傲慢，也不要表现出过于谦虚
+STAR 技巧 Situation
+Task
+Action
+Results'>
+<meta property='og:url' content='https://downeyflyfan.com/p/part-interview/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-10T14:10:21&#43;00:00'/><meta property='article:modified_time' content='2023-03-10T14:10:21&#43;00:00'/>
-<meta name="twitter:title" content="回顾">
-<meta name="twitter:description" content="嵌入式简介 定义 执行特定功能的电脑
-组成 传感器
-激励器
-电脑硬件
-软件
-MPU MCU 功能 MPU多用于电脑
-MCU多用于嵌入式(执行特定功能)
-结构相同 RAM: 内存
-ROM: 存储
-成本 速度 存储 $$ MPU \gg MCU $$
-复习 电脑的基本部件 CPU APU,执行简单数字运算和逻辑运算
-Register，高速存储,没有地址单元
-I/O Memory 其他 Port 分为输入端口和输出端口 Device Driver 就是BIOS Interface 构成电脑的部分硬件和软件 总线结构 定义 包含数据、地址、控制信号(时钟信号、指令、数据类型等)的所有的线
-分类 地址总线
-数据总线(双向)
-控制总线
-通信方式 串行通信 单通道依次传输 并行通信 多通道同时传输数据 比较 项目 串行 并行 速度 慢 快 干扰 无 存在 成本 低 高 因此对于嵌入式系统，串行通信最为合适 细说串行通信 同步通信 Sender和Receiver使用同一个时钟频率"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-15T14:50:12&#43;00:00'/><meta property='article:modified_time' content='2023-03-15T14:50:12&#43;00:00'/>
+<meta name="twitter:title" content="Part Interview">
+<meta name="twitter:description" content="自我介绍 原则 专业化
+突出学历和工作经验
+突出成就
+注重逻辑
+优缺点 (Dos and Don&amp;rsquo;ts) Dos 您的技能和经验与职位相关的方面
+您对公司和职位的了解，包括其文化和价值观。
+您的热情和动机，以及您为什么对这个职位感兴趣。
+与过去的职位和项目相关的成功故事和经验。
+关于您的教育和培训的信息。
+Don&amp;rsquo;ts 不要提及个人信息，除非它们与职位相关
+避免涉及敏感话题
+不要谈论您过去的雇主或同事的负面评论
+避免过多地提及您的薪资期望。
+不要出现过于自大或傲慢，也不要表现出过于谦虚
+STAR 技巧 Situation
+Task
+Action
+Results"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -298,40 +301,18 @@ I/O Memory 其他 Port 分为输入端口和输出端口 Device Driver 就是BIO
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#嵌入式简介">嵌入式简介</a>
+    <li><a href="#自我介绍">自我介绍</a>
       <ol>
-        <li><a href="#定义">定义</a></li>
-        <li><a href="#组成">组成</a></li>
-        <li><a href="#mpu-mcu">MPU MCU</a>
-          <ol>
-            <li><a href="#功能">功能</a></li>
-            <li><a href="#结构相同">结构相同</a></li>
-            <li><a href="#成本-速度-存储">成本 速度 存储</a></li>
-          </ol>
-        </li>
+        <li><a href="#原则">原则</a></li>
       </ol>
     </li>
-    <li><a href="#复习">复习</a>
+    <li><a href="#优缺点-dos-and-donts">优缺点 (Dos and Don&rsquo;ts)</a>
       <ol>
-        <li><a href="#电脑的基本部件">电脑的基本部件</a>
-          <ol>
-            <li><a href="#cpu">CPU</a></li>
-            <li><a href="#io">I/O</a></li>
-            <li><a href="#memory">Memory</a></li>
-            <li><a href="#其他">其他</a></li>
-          </ol>
-        </li>
-        <li><a href="#总线结构">总线结构</a>
-          <ol>
-            <li><a href="#定义-1">定义</a></li>
-            <li><a href="#分类">分类</a></li>
-            <li><a href="#通信方式">通信方式</a></li>
-            <li><a href="#细说串行通信">细说串行通信</a></li>
-          </ol>
-        </li>
-        <li><a href="#按位运算">按位运算</a></li>
+        <li><a href="#dos">Dos</a></li>
+        <li><a href="#donts">Don&rsquo;ts</a></li>
       </ol>
     </li>
+    <li><a href="#star-技巧">STAR 技巧</a></li>
   </ol>
 </nav>
         </div>
@@ -350,8 +331,8 @@ I/O Memory 其他 Port 分为输入端口和输出端口 Device Driver 就是BIO
     
     <header class="article-category">
         
-            <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="background-color: #C0C0C0; color: #fff;">
-                嵌入式
+            <a href="/categories/%E8%8B%B1%E8%AF%AD/" style="background-color: #DB7093; color: #fff;">
+                英语
             </a>
         
     </header>
@@ -359,7 +340,7 @@ I/O Memory 其他 Port 分为输入端口和输出端口 Device Driver 就是BIO
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%9B%9E%E9%A1%BE/">回顾</a>
+            <a href="/p/part-interview/">Part Interview</a>
         </h2>
     
         
@@ -381,7 +362,7 @@ I/O Memory 其他 Port 分为输入端口和输出端口 Device Driver 就是BIO
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 10, 101010</time>
+                <time class="article-time--published">Mar 15, 151515</time>
             </div>
         
 
@@ -411,208 +392,74 @@ I/O Memory 其他 Port 分为输入端口和输出端口 Device Driver 就是BIO
     <section class="article-content">
     
     
-    <h1 id="嵌入式简介">嵌入式简介</h1>
-<h2 id="定义">定义</h2>
-<blockquote>
-<p>执行特定功能的电脑</p>
-</blockquote>
-<h2 id="组成">组成</h2>
-<ul>
-<li>
-<p>传感器</p>
-</li>
-<li>
-<p>激励器</p>
-</li>
-<li>
-<p>电脑硬件</p>
-</li>
-<li>
-<p>软件</p>
-</li>
-</ul>
-<h2 id="mpu-mcu">MPU MCU</h2>
-<h3 id="功能">功能</h3>
+    <h1 id="自我介绍">自我介绍</h1>
+<h2 id="原则">原则</h2>
 <ol>
 <li>
-<p>MPU多用于电脑</p>
+<p>专业化</p>
 </li>
 <li>
-<p>MCU多用于嵌入式(执行<strong>特定功能</strong>)</p>
+<p>突出<strong>学历和工作经验</strong></p>
+</li>
+<li>
+<p>突出<strong>成就</strong></p>
+</li>
+<li>
+<p>注重<strong>逻辑</strong></p>
 </li>
 </ol>
-<h3 id="结构相同">结构相同</h3>
-<p><img src="/p/%E5%9B%9E%E9%A1%BE/1.png"
-	width="533"
-	height="265"
-	srcset="/p/%E5%9B%9E%E9%A1%BE/1_hu6441284d53f9f9fdd466ba93e5d2a8d5_71859_480x0_resize_box_3.png 480w, /p/%E5%9B%9E%E9%A1%BE/1_hu6441284d53f9f9fdd466ba93e5d2a8d5_71859_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="201"
-		data-flex-basis="482px"
-	
-></p>
+<h1 id="优缺点-dos-and-donts">优缺点 (Dos and Don&rsquo;ts)</h1>
+<h2 id="dos">Dos</h2>
 <ul>
 <li>
-<p>RAM: 内存</p>
+<p><strong>您的技能和经验与职位相关的方面</strong></p>
 </li>
 <li>
-<p>ROM: 存储</p>
-</li>
-</ul>
-<h3 id="成本-速度-存储">成本 速度 存储</h3>
-<p>$$
-MPU \gg MCU
-$$</p>
-<h1 id="复习">复习</h1>
-<h2 id="电脑的基本部件">电脑的基本部件</h2>
-<h3 id="cpu">CPU</h3>
-<ol>
-<li>
-<p>APU,执行<strong>简单数字运算</strong>和<strong>逻辑运算</strong></p>
+<p>您对公司和职位的了解，包括其文化和价值观。</p>
 </li>
 <li>
-<p>Register，<strong>高速存储,没有地址单元</strong></p>
-</li>
-</ol>
-<h3 id="io">I/O</h3>
-<h3 id="memory">Memory</h3>
-<h3 id="其他">其他</h3>
-<ol>
-<li>Port</li>
-</ol>
-<ul>
-<li>分为<strong>输入端口</strong>和<strong>输出端口</strong></li>
-</ul>
-<ol start="2">
-<li>Device Driver</li>
-</ol>
-<ul>
-<li>就是BIOS</li>
-</ul>
-<ol start="3">
-<li>Interface</li>
-</ol>
-<ul>
-<li>构成电脑的<strong>部分</strong>硬件和软件</li>
-</ul>
-<h2 id="总线结构">总线结构</h2>
-<h3 id="定义-1">定义</h3>
-<blockquote>
-<p>包含数据、地址、控制信号(时钟信号、指令、数据类型等)的<strong>所有的线</strong></p>
-</blockquote>
-<h3 id="分类">分类</h3>
-<ol>
-<li>
-<p>地址总线</p>
+<p>您的热情和动机，以及您为什么对这个职位感兴趣。</p>
 </li>
 <li>
-<p>数据总线(双向)</p>
+<p>与过去的职位和项目相关的成功故事和经验。</p>
 </li>
 <li>
-<p>控制总线</p>
+<p>关于您的教育和培训的信息。</p>
 </li>
-</ol>
-<h3 id="通信方式">通信方式</h3>
-<ol>
-<li>串行通信</li>
-</ol>
-<ul>
-<li>单通道<strong>依次</strong>传输</li>
 </ul>
-<ol start="2">
-<li>并行通信</li>
-</ol>
-<ul>
-<li><strong>多通道</strong>同时传输数据</li>
-</ul>
-<ol start="3">
-<li>比较</li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">项目</th>
-<th style="text-align:center">串行</th>
-<th style="text-align:center">并行</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">速度</td>
-<td style="text-align:center">慢</td>
-<td style="text-align:center">快</td>
-</tr>
-<tr>
-<td style="text-align:center">干扰</td>
-<td style="text-align:center">无</td>
-<td style="text-align:center">存在</td>
-</tr>
-<tr>
-<td style="text-align:center">成本</td>
-<td style="text-align:center">低</td>
-<td style="text-align:center">高</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li>因此对于<strong>嵌入式</strong>系统，<strong>串行通信</strong>最为合适</li>
-</ul>
-<h3 id="细说串行通信">细说串行通信</h3>
-<ol>
-<li>同步通信</li>
-</ol>
+<h2 id="donts">Don&rsquo;ts</h2>
 <ul>
 <li>
-<p><strong>Sender</strong>和<strong>Receiver</strong>使用同一个<strong>时钟频率</strong></p>
+<p>不要提及个人信息，除非它们与职位相关</p>
 </li>
 <li>
-<p>根据<strong>主机时钟</strong>按时传递数据</p>
+<p>避免涉及敏感话题</p>
+</li>
+<li>
+<p>不要谈论您过去的雇主或同事的负面评论</p>
+</li>
+<li>
+<p>避免过多地提及您的薪资期望。</p>
+</li>
+<li>
+<p>不要出现过于自大或傲慢，也不要表现出过于谦虚</p>
 </li>
 </ul>
-<ol start="2">
-<li>异步通信</li>
-</ol>
+<h1 id="star-技巧">STAR 技巧</h1>
 <ul>
 <li>
-<p>可以在<strong>任意时间</strong>传播信号</p>
+<p>Situation</p>
 </li>
 <li>
-<p>需要<strong>Start Bits</strong>和<strong>Stop Bits</strong></p>
+<p>Task</p>
+</li>
+<li>
+<p>Action</p>
+</li>
+<li>
+<p>Results</p>
 </li>
 </ul>
-<ol start="3">
-<li>比较</li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">项目</th>
-<th style="text-align:center">同步</th>
-<th style="text-align:center">异步</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">速度</td>
-<td style="text-align:center">快</td>
-<td style="text-align:center">慢</td>
-</tr>
-<tr>
-<td style="text-align:center">成本</td>
-<td style="text-align:center">高</td>
-<td style="text-align:center">低</td>
-</tr>
-<tr>
-<td style="text-align:center">传输单位</td>
-<td style="text-align:center"><strong>frame/block</strong></td>
-<td style="text-align:center"><strong>bytes</strong></td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="按位运算">按位运算</h2>
 
 </section>
 
@@ -676,12 +523,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E6%B1%87%E7%BC%96/">
+    <a href="/p/%E5%8D%95%E8%AF%8D2023-3.13-3.19/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">汇编</h2>
+            <h2 class="article-title">单词(2023 3.13-3.19)</h2>
         </div>
     </a>
 </article>
@@ -689,12 +536,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E4%B8%AD%E6%AD%A2/">
+    <a href="/p/cs4-cl-portfolio-profile/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">中止</h2>
+            <h2 class="article-title">CS4 CL Portfolio Profile</h2>
         </div>
     </a>
 </article>
@@ -702,12 +549,38 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/arm-%E7%BC%96%E7%A8%8B/">
+    <a href="/p/%E5%8D%95%E8%AF%8D2023-3.5-3.12/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">ARM 编程</h2>
+            <h2 class="article-title">单词(2023 3.5-3.12)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cs2-3-%E6%AF%95%E4%B8%9A%E7%94%9F-%E7%AE%80%E5%8E%86-%E5%AE%9E%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CS2-3 毕业生 简历 实习</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%86%99%E4%BD%9C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">写作</h2>
         </div>
     </a>
 </article>
