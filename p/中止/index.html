@@ -389,7 +389,7 @@ PC(Program Counter)加载Interrupt vector
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -715,31 +715,89 @@ input 10 random numbers with range [0, 100], and the interrupt is to input
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:code
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">code</span> <span class="no">segment</span>             <span class="c1">; 开始定义代码段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">start:</span>                   <span class="c1">; 定义程序入口标签
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">as</span><span class="p">,</span> <span class="no">cs</span>           <span class="c1">; 将代码段的段地址 CS 赋值给 AS 寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ds</span><span class="p">,</span> <span class="no">as</span>           <span class="c1">; 将 DS 寄存器的值设置为 AS 寄存器的值，用于访问数据段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">si</span><span class="p">,</span> <span class="no">offset</span> <span class="no">do0</span>   <span class="c1">; 将标签 do0 的偏移地址赋值给 SI 寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将 ES 寄存器的值设置为 0，用于访问内存地址 0 - FFFFH
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">es</span><span class="p">,</span> <span class="no">ax</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">code segment
-</span></span><span class="line"><span class="cl">start:
-</span></span><span class="line"><span class="cl">	mov as, cs
-</span></span><span class="line"><span class="cl">	mov ds, as
-</span></span><span class="line"><span class="cl">	mov si, offset do0
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将 DI 寄存器的值设置为内存地址 200H，用于存储数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">di</span><span class="p">,</span> <span class="mi">200</span><span class="no">h</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	mov ax, 0
-</span></span><span class="line"><span class="cl">	mov es, ax
-</span></span><span class="line"><span class="cl">	mov di, 200h
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将 CX 寄存器的值设置为标签 do0end 和 do0 之间的字节数，
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">; 用于循环复制数据到 DI 所指向的内存地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">cx</span><span class="p">,</span> <span class="no">offset</span> <span class="no">do0end</span> <span class="p">-</span> <span class="no">offset</span> <span class="no">do0</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	mov cx, offset do0end-offset do0
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将处理器的方向标志位 DF 清零，设置为正向操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">cld</span> 
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	cld // 将处理器的方向标志位DF清零
+</span></span><span class="line"><span class="cl">    <span class="c1">; 重复执行将源地址（SI）所指向的数据复制到目标地址（DI）所指向的内存地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">; 的操作，重复次数为 CX 寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="na">rep</span> <span class="nf">movsb</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	rep movsb // 重复复制字节
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将 ES 寄存器的值设置为 0，用于访问内存地址 0 - FFFFH
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">es</span><span class="p">,</span> <span class="no">ax</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	mov ax, 0
-</span></span><span class="line"><span class="cl">	mov es, ax
-</span></span><span class="line"><span class="cl">	mov word ptr es:[0*4], 200h 
-</span></span><span class="line"><span class="cl">	mov word ptr es:[0*4+2], 0
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将内存地址 0 处的值设置为 200H，用于存储数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">word</span> <span class="no">ptr</span> <span class="no">es</span><span class="p">:[</span><span class="mi">0</span><span class="p">*</span><span class="mi">4</span><span class="p">],</span> <span class="mi">200</span><span class="no">h</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将内存地址 2 处的值设置为 0，用于存储数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">word</span> <span class="no">ptr</span> <span class="no">es</span><span class="p">:[</span><span class="mi">0</span><span class="p">*</span><span class="mi">4</span><span class="err">+</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 调用 DOS 中断 21H，功能码为 4C00H，用于结束程序并返回操作系统
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="mi">4</span><span class="no">c00h</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">int</span> <span class="mi">21</span><span class="no">h</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">; 定义标签 do0，用于显示字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">do0:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">jmp</span> <span class="no">short</span> <span class="no">do0start</span>    <span class="c1">; 无条件跳转到标签 do0start
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">db</span> <span class="err">&#34;</span><span class="no">overflow</span><span class="p">!</span><span class="err">&#34;</span>        <span class="c1">; 字符串 &#34;overflow!&#34;，以字节方式存储
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">; 定义标签 do0start，用于显示字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">do0start:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="no">cs</span>            <span class="c1">; 将代码段的段地址 CS 赋值给 AX 寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ds</span><span class="p">,</span> <span class="no">ax</span>            <span class="c1">; 将 DS 寄存器的值设置为 AX 寄存器的值，用于访问数据段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">si</span><span class="p">,</span> <span class="mi">202</span><span class="no">h</span>          <span class="c1">; 将偏移地址 202H 赋值给 SI 寄存器，用于读取数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="mi">0</span><span class="no">b800h</span>        <span class="c1">; 将文本缓冲区地址 0B800H 赋值给 AX 寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">es</span><span class="p">,</span> <span class="no">ax</span>            <span class="c1">; 将 ES 寄存器的值设置为 AX 寄存器的值，用于访
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </section>
@@ -804,12 +862,12 @@ input 10 random numbers with range [0, 100], and the interrupt is to input
             
                 
 <article class="">
-    <a href="/p/%E6%B1%87%E7%BC%96/">
+    <a href="/p/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">汇编</h2>
+            <h2 class="article-title">汇编基础</h2>
         </div>
     </a>
 </article>
