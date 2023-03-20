@@ -287,6 +287,12 @@
             <li><a href="#实例-1">实例</a></li>
           </ol>
         </li>
+        <li><a href="#遗传算法ga">遗传算法(GA)</a>
+          <ol>
+            <li><a href="#步骤">步骤</a></li>
+            <li><a href="#实例-2">实例</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#排序算法">排序算法</a>
@@ -378,7 +384,7 @@
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -546,7 +552,7 @@ $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
-<li>背包问题</li>
+<li>0-1背包问题</li>
 </ol>
 <ul>
 <li>题目</li>
@@ -575,24 +581,192 @@ $$</p>
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">ef</span> <span class="n">knapsack</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">wt</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">knapsack</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">wt</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> <span class="c1"># 背包容量，物品重量列表，物品价值列表，物品数量</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># 创建二维数组用于存储子问题的解</span>
 </span></span><span class="line"><span class="cl">    <span class="n">K</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">W</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># 构建K数组，计算每个子问题的最优解</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">W</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 处理边界情况，即没有物品或背包容量为0的情况下，最大价值都为0</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">w</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">                <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如果当前物品的重量小于等于背包容量，那么有两种情况：</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 1. 把当前物品装入背包，所得的总价值为当前物品价值加上前i-1个物品在剩余空间w-wt[i-1]下的最大价值K[i-1][w-wt[i-1]]</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 2. 不把当前物品装入背包，所得的总价值为前i-1个物品在背包容量w下的最大价值K[i-1][w]</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 取这两种情况的最大值，即为当前子问题的最优解</span>
 </span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">wt</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">w</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">w</span><span class="o">-</span><span class="n">wt</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span>  <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">w</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">w</span><span class="o">-</span><span class="n">wt</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">w</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如果当前物品的重量大于背包容量，则只能不装入背包，所得的总价值为前i-1个物品在背包容量w下的最大价值K[i-1][w]</span>
 </span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">                <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">w</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1"># 返回问题的最优解</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 返回问题的最优解，即在背包容量为W的情况下，前n个物品能够获得的最大价值</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">K</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">W</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="遗传算法ga">遗传算法(GA)</h2>
+<h3 id="步骤">步骤</h3>
+<ol>
+<li>
+<p>初始化种群：随机生成一组初始解作为种群，其中每个解表示问题的一个可行解。</p>
+</li>
+<li>
+<p>适应度函数：定义一个适应度函数来评价每个解的优劣，根据适应度函数计算每个解的适应度值。</p>
+</li>
+<li>
+<p>选择：根据适应度值选择一些优秀的解，将它们保留下来作为下一代种群的父代。</p>
+</li>
+<li>
+<p>交叉：随机选择一些父代解，进行交叉操作，产生新的解作为下一代种群的子代。</p>
+</li>
+<li>
+<p>变异：对一些子代解进行变异操作，产生一些新的解，加入到下一代种群中。</p>
+</li>
+<li>
+<p>判断终止条件：检查是否满足终止条件，如果满足，则输出最优解，否则回到步骤3。</p>
+</li>
+</ol>
+<h3 id="实例-2">实例</h3>
+<ol>
+<li>0-1背包问题</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">knapsack_ga</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">wt</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">pop_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">elite_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mutation_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">generations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">W: 背包最大承重
+</span></span></span><span class="line"><span class="cl"><span class="s1">wt: 每个物品的重量，表示为一个长度为n的列表
+</span></span></span><span class="line"><span class="cl"><span class="s1">val: 每个物品的价值，表示为一个长度为n的列表
+</span></span></span><span class="line"><span class="cl"><span class="s1">n: 物品的数量
+</span></span></span><span class="line"><span class="cl"><span class="s1">pop_size: 种群大小，默认为50
+</span></span></span><span class="line"><span class="cl"><span class="s1">elite_size: 精英数量，默认为10
+</span></span></span><span class="line"><span class="cl"><span class="s1">mutation_rate: 变异概率，默认为0.01
+</span></span></span><span class="line"><span class="cl"><span class="s1">generations: 进化代数，默认为100
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 初始化种群</span>
+</span></span><span class="line"><span class="cl">    <span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pop_size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">individual</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">individual</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 适应度函数</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">fitness</span><span class="p">(</span><span class="n">individual</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">individual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 选择</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">selection</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">elite_size</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">fitness</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pop_size</span><span class="o">-</span><span class="n">elite_size</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 交叉</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">crossover</span><span class="p">(</span><span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">k</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ind1</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">ind2</span><span class="p">[</span><span class="n">k</span><span class="p">:],</span> <span class="n">ind2</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">ind1</span><span class="p">[</span><span class="n">k</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 变异</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mutation</span><span class="p">(</span><span class="n">individual</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">mutation_rate</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">individual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">individual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 进化</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">generation</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">generations</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 选择</span>
+</span></span><span class="line"><span class="cl">        <span class="n">selected_population</span> <span class="o">=</span> <span class="n">selection</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 交叉</span>
+</span></span><span class="line"><span class="cl">        <span class="n">offspring_population</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pop_size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">selected_population</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">offspring1</span><span class="p">,</span> <span class="n">offspring2</span> <span class="o">=</span> <span class="n">crossover</span><span class="p">(</span><span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">offspring_population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">offspring1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">offspring_population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">offspring2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 变异</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">individual</span> <span class="ow">in</span> <span class="n">offspring_population</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mutation</span><span class="p">(</span><span class="n">individual</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 更新种群</span>
+</span></span><span class="line"><span class="cl">        <span class="n">population</span> <span class="o">=</span> <span class="n">offspring_population</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 返回最优解</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">fitness</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="排序算法">排序算法</h1>
