@@ -316,7 +316,7 @@ PC(Program Counter)加载Interrupt vector
     </li>
     <li><a href="#中断处理程序设计">中断处理程序设计</a>
       <ol>
-        <li><a href="#c语言程序不确定能不能跑">C语言程序(不确定能不能跑)</a></li>
+        <li><a href="#c程序不确定能不能跑">C++程序(不确定能不能跑)</a></li>
         <li><a href="#汇编程序">汇编程序</a>
           <ol>
             <li><a href="#中止的情况">中止的情况</a></li>
@@ -504,7 +504,7 @@ PC(Program Counter)加载Interrupt vector
 input 10 random numbers with range [0, 100], and the interrupt is to input
 {$11^2 , 12^2 , 13^2 , &hellip; , 20^2$} once the input number in the main process is out of range.</li>
 </ul>
-<h2 id="c语言程序不确定能不能跑">C语言程序(不确定能不能跑)</h2>
+<h2 id="c程序不确定能不能跑">C++程序(不确定能不能跑)</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -638,7 +638,7 @@ input 10 random numbers with range [0, 100], and the interrupt is to input
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">Flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//中止标志位，1表示中止，0表示不中止
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">Flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//中止标志位
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">char</span> <span class="n">Choice</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;N&#34;</span><span class="p">;</span> <span class="c1">// 决定打开还是关闭“中止”进程
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Please indicate whether or not to switch on Interrupt (Y; on , N:off): </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
@@ -649,7 +649,7 @@ input 10 random numbers with range [0, 100], and the interrupt is to input
 </span></span><span class="line"><span class="cl">		<span class="n">Flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++&gt;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Please insert number&#34;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">tem</span><span class="p">;</span>
