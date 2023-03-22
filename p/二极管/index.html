@@ -307,8 +307,27 @@
       <ol>
         <li><a href="#原因">原因</a></li>
         <li><a href="#图像">图像</a></li>
-        <li><a href="#代数分析">代数分析</a></li>
+        <li><a href="#代数分析">代数分析</a>
+          <ol>
+            <li><a href="#电流方程">电流方程</a></li>
+            <li><a href="#小信号电阻">小信号电阻</a></li>
+          </ol>
+        </li>
         <li><a href="#总结">总结</a></li>
+        <li><a href="#例题">例题</a></li>
+      </ol>
+    </li>
+    <li><a href="#电压管理">电压管理</a>
+      <ol>
+        <li><a href="#图像-1">图像</a></li>
+        <li><a href="#推理">推理</a></li>
+      </ol>
+    </li>
+    <li><a href="#齐纳二极管">齐纳二极管</a>
+      <ol>
+        <li><a href="#符号">符号</a></li>
+        <li><a href="#特性分析">特性分析</a></li>
+        <li><a href="#过程">过程</a></li>
       </ol>
     </li>
   </ol>
@@ -375,7 +394,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -669,6 +688,7 @@ $$</p>
 		data-flex-basis="220px"
 	
 ></p>
+<h3 id="电流方程">电流方程</h3>
 <p>$$
 把电源分成直流和交流两种叠加 \\\
 \\ i_D(t) = I_D + i_d(t) \\\
@@ -678,13 +698,17 @@ i_D(t) &amp;= I_S e^{(V_D+V_d)/V_T}
 \\ &amp;= I_S \ e^{V_D/V_T} e^{V_d/V_T}
 \\ &amp;= I_D e^{V_d/V_T} (泰勒展开，取前两项)
 \\ &amp;= I_D (1 + \frac{V_d}{V_T})
-\\ &amp;= I_D + \underset{i_d}{\frac{I_D}{V_T}}V_d
-\end{aligned} \\\
-\\ 小信号电阻 \\\
-\\ \begin{aligned}
-r_d &amp;= \frac{V_T}{I_D} \\
-&amp;= \frac{dV_D}{di_D}\Big|_Q
+\\ &amp;= I_D + \underset{i_d}{\frac{I_D}{V_T}V_d}
 \end{aligned}
+$$</p>
+<h3 id="小信号电阻">小信号电阻</h3>
+<p>$$
+\begin{aligned}
+i_d &amp;= \frac{I_D}{V_T}V_d \\
+\therefore r_d &amp;= \frac{V_T}{I_D} \\
+&amp;= \frac{dV_D}{di_D}\Big|_Q
+\end{aligned} \\\
+\\ 注意，这个\pmb{近似}只有在v_d \lt 5mV时才\pmb{有效}
 $$</p>
 <ul>
 <li>直流分量$I_D$只取决于$\pmb{V_D}$和<strong>温度</strong></li>
@@ -701,6 +725,132 @@ $$</p>
 <p>变化时，二极管当作<strong>电阻器</strong></p>
 </li>
 </ol>
+<h2 id="例题">例题</h2>
+<blockquote>
+<p>The power supply $V_{+}$ has a DC value of 10V over which is superimposed a 60Hz sinusoid of 1V peak amplitude (known as the ripple)</p>
+</blockquote>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/12.png"
+	width="342"
+	height="593"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="138px"
+	
+></p>
+<p>$$
+\pmb{假设I=1mA时, V_D = 0.7V}\\\
+\\ \begin{aligned}
+I_D &amp;= \frac{10-0.7}{R} = 0.93(mA) \\
+r_d &amp;= \frac{V_T}{I_D} = 26.9(\Omega)  \\
+V_d(peak) &amp;= \frac{r_d}{r_d + R}V_s = 2.68(mV)
+\end{aligned}
+$$</p>
+<h1 id="电压管理">电压管理</h1>
+<h2 id="图像-1">图像</h2>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/13.png"
+	width="503"
+	height="528"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/13_hu41040a826f03a1abdfcc2df29f50eec8_45358_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/13_hu41040a826f03a1abdfcc2df29f50eec8_45358_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="95"
+		data-flex-basis="228px"
+	
+></p>
+<h2 id="推理">推理</h2>
+<p>$$
+\begin{aligned}
+I_R = \frac{10-3\times 0.7}{R} &amp;= 7.9(mA) \\
+V_0 = 3\times 0.7 &amp;= 2.1(V) \\
+r_d = \frac{V_T}{I_R} &amp;= 4.2(\Omega) \\
+r = 4r_d &amp;= 9.6 (\Omega) \\
+\end{aligned}
+\\ (1) \ \ 当电压源变化为10%时 \\\
+\\ \Delta V_0 = 2\frac{r}{r+R} = 19(mV) \\\
+\\ (2) \ \ 当R_L连接到电路中时 \\\
+\\ \begin{aligned}
+I_{R_L} &amp;= \frac{2.1V}{1k\Omega} = 2.1(mA) \\
+\therefore \Delta V_0 &amp;= -I_{R_L} r = -20(mV)
+\end{aligned}
+$$</p>
+<h1 id="齐纳二极管">齐纳二极管</h1>
+<h2 id="符号">符号</h2>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/14.png"
+	width="336"
+	height="507"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/14_hudba87250877176a671dbf5cfa0819b3d_9015_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/14_hudba87250877176a671dbf5cfa0819b3d_9015_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="66"
+		data-flex-basis="159px"
+	
+></p>
+<h2 id="特性分析">特性分析</h2>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/15.png"
+	width="773"
+	height="834"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/15_hu7c3818bd63fb35e361853b08f1216618_37308_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/15_hu7c3818bd63fb35e361853b08f1216618_37308_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="92"
+		data-flex-basis="222px"
+	
+></p>
+<ol>
+<li>
+<p>$V_Z$: 稳压二极管通过额定电流时两端产生的稳定电压值</p>
+</li>
+<li>
+<p>$V_{Z0}$: 在一定温度下，稳压二极管两端电压随温度变化率为零的点</p>
+</li>
+<li>
+<p>$V_{ZK}$: 稳压二极管进入稳压状态的最小反向电压</p>
+</li>
+<li>
+<p>$V_{Z0} = V_Z - r_Z I_{ZT}$，$I_{ZT}$:典型工作电流</p>
+</li>
+</ol>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/16.png"
+	width="562"
+	height="683"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/16_hu3ca9b0b7fddbd856a03ed6e08bf7d89c_66491_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/16_hu3ca9b0b7fddbd856a03ed6e08bf7d89c_66491_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="82"
+		data-flex-basis="197px"
+	
+></p>
+<blockquote>
+<p>The $6.8V$ zener diode in the circuit is specified to have $V_Z =6.8V$ at $I_Z =5mA$, $r_z=20Ω$, and $I_{ZK} =0.2mA$. The supply voltage $V^+$ is nominally $10V$ but can vary by$±1V$.</p>
+</blockquote>
+<h2 id="过程">过程</h2>
+<p>$$
+(1)找出不加R_L时的V_0 \\\
+\\ \begin{aligned}
+V_{Z0} &amp;= V_Z - r_Z I_{ZT} = 6.7(V) \\
+I_Z &amp;= \frac{V^+- V_{Z0}}{R+r_z} = 6.35(mA) \\
+V_O &amp;= V_{Z0} + I_Z r_Z = 6.83(V)
+\end{aligned} \\\
+\\ (2)找到电压变化10%时的V_O \\\
+\\ \Delta V_O = \Delta V^+\frac{r_z}{r_z+R} = \pm 38.5(mV) \\\
+\\ (3)求加上R_L后的V_0(I_L = 1mA) \\\
+\\ \begin{aligned}
+\Delta V_O &amp;= r_z \Delta I_Z = -20(mV) \\
+Load \ Regulation &amp;= \frac{\Delta V_O}{\Delta I_L} = -20 (mV/mA)
+\end{aligned}
+$$</p>
 
 </section>
 
