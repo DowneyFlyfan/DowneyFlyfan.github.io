@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=''>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='GPIO结构图 工作模式 输入模式 Floating Input Pull-Up Pull-Down Analog Mode 输出模式 General purpose output Open-drain Alternate function output Open-drain General purpose output push-pull Alternate function output push-pull 上拉电阻与下拉电阻 上拉电阻使得MCU处于低位，按下按钮后，由低变高
+下拉电阻使得MCU处于高位，按下按钮后，由高变低
+Quiz 为什么过大的数会导致程序无法运行 超出类型范围
+超出内存大小'>
 <title>GPIO</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/gpio/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='GPIO'>
-<meta property='og:description' content=''>
+<meta property='og:description' content='GPIO结构图 工作模式 输入模式 Floating Input Pull-Up Pull-Down Analog Mode 输出模式 General purpose output Open-drain Alternate function output Open-drain General purpose output push-pull Alternate function output push-pull 上拉电阻与下拉电阻 上拉电阻使得MCU处于低位，按下按钮后，由低变高
+下拉电阻使得MCU处于高位，按下按钮后，由高变低
+Quiz 为什么过大的数会导致程序无法运行 超出类型范围
+超出内存大小'>
 <meta property='og:url' content='https://downeyflyfan.com/p/gpio/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-24T18:06:41&#43;08:00'/><meta property='article:modified_time' content='2023-03-24T18:06:41&#43;08:00'/>
 <meta name="twitter:title" content="GPIO">
-<meta name="twitter:description" content=""><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="GPIO结构图 工作模式 输入模式 Floating Input Pull-Up Pull-Down Analog Mode 输出模式 General purpose output Open-drain Alternate function output Open-drain General purpose output push-pull Alternate function output push-pull 上拉电阻与下拉电阻 上拉电阻使得MCU处于低位，按下按钮后，由低变高
+下拉电阻使得MCU处于高位，按下按钮后，由高变低
+Quiz 为什么过大的数会导致程序无法运行 超出类型范围
+超出内存大小"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -228,7 +237,65 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#gpio结构图">GPIO结构图</a></li>
+    <li><a href="#工作模式">工作模式</a>
+      <ol>
+        <li><a href="#输入模式">输入模式</a>
+          <ol>
+            <li><a href="#floating-input">Floating Input</a></li>
+            <li><a href="#pull-up">Pull-Up</a></li>
+            <li><a href="#pull-down">Pull-Down</a></li>
+            <li><a href="#analog-mode">Analog Mode</a></li>
+          </ol>
+        </li>
+        <li><a href="#输出模式">输出模式</a>
+          <ol>
+            <li><a href="#general-purpose-output-open-drain">General purpose output Open-drain</a></li>
+            <li><a href="#alternate-function-output-open-drain">Alternate function output Open-drain</a></li>
+            <li><a href="#general-purpose-output-push-pull">General purpose output push-pull</a></li>
+            <li><a href="#alternate-function-output-push-pull">Alternate function output push-pull</a></li>
+          </ol>
+        </li>
+        <li><a href="#上拉电阻与下拉电阻">上拉电阻与下拉电阻</a></li>
+      </ol>
+    </li>
+    <li><a href="#quiz">Quiz</a>
+      <ol>
+        <li><a href="#为什么过大的数会导致程序无法运行">为什么过大的数会导致程序无法运行</a></li>
+        <li><a href="#heading"></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -284,7 +351,7 @@
 
 
                 <time class="article-time--reading">
-                    0 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -299,7 +366,147 @@
     <section class="article-content">
     
     
-    
+    <h1 id="gpio结构图">GPIO结构图</h1>
+<p><img src="/p/gpio/1.png"
+	width="1295"
+	height="573"
+	srcset="/p/gpio/1_hud6fc8d1694692fdb766600d81e0e1df1_221437_480x0_resize_box_3.png 480w, /p/gpio/1_hud6fc8d1694692fdb766600d81e0e1df1_221437_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="226"
+		data-flex-basis="542px"
+	
+></p>
+<h1 id="工作模式">工作模式</h1>
+<h2 id="输入模式">输入模式</h2>
+<h3 id="floating-input">Floating Input</h3>
+<p><img src="/p/gpio/2.png"
+	width="887"
+	height="495"
+	srcset="/p/gpio/2_hu7b28e640209138565ab84f57859df50f_193531_480x0_resize_box_3.png 480w, /p/gpio/2_hu7b28e640209138565ab84f57859df50f_193531_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="179"
+		data-flex-basis="430px"
+	
+></p>
+<h3 id="pull-up">Pull-Up</h3>
+<p><img src="/p/gpio/3.png"
+	width="891"
+	height="506"
+	srcset="/p/gpio/3_hu95caf0c6493692282868c0e62c10054d_193611_480x0_resize_box_3.png 480w, /p/gpio/3_hu95caf0c6493692282868c0e62c10054d_193611_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="176"
+		data-flex-basis="422px"
+	
+></p>
+<h3 id="pull-down">Pull-Down</h3>
+<p><img src="/p/gpio/4.png"
+	width="888"
+	height="505"
+	srcset="/p/gpio/4_hubae385d3d14bf8fcf77d666fd29b6c7a_192955_480x0_resize_box_3.png 480w, /p/gpio/4_hubae385d3d14bf8fcf77d666fd29b6c7a_192955_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="175"
+		data-flex-basis="422px"
+	
+></p>
+<h3 id="analog-mode">Analog Mode</h3>
+<p><img src="/p/gpio/5.png"
+	width="886"
+	height="507"
+	srcset="/p/gpio/5_hu21395c4c470901378e37fe2a66870626_203852_480x0_resize_box_3.png 480w, /p/gpio/5_hu21395c4c470901378e37fe2a66870626_203852_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="419px"
+	
+></p>
+<h2 id="输出模式">输出模式</h2>
+<h3 id="general-purpose-output-open-drain">General purpose output Open-drain</h3>
+<p><img src="/p/gpio/6.png"
+	width="1083"
+	height="520"
+	srcset="/p/gpio/6_hu0fc5abb93863200d48b4ab0227b5f593_209746_480x0_resize_box_3.png 480w, /p/gpio/6_hu0fc5abb93863200d48b4ab0227b5f593_209746_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="208"
+		data-flex-basis="499px"
+	
+></p>
+<h3 id="alternate-function-output-open-drain">Alternate function output Open-drain</h3>
+<p><img src="/p/gpio/7.png"
+	width="919"
+	height="544"
+	srcset="/p/gpio/7_hu26c9afe38169f9ea3805b2f0b4a96a6b_201275_480x0_resize_box_3.png 480w, /p/gpio/7_hu26c9afe38169f9ea3805b2f0b4a96a6b_201275_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="405px"
+	
+></p>
+<h3 id="general-purpose-output-push-pull">General purpose output push-pull</h3>
+<p><img src="/p/gpio/8.png"
+	width="1091"
+	height="535"
+	srcset="/p/gpio/8_hubfbd1651104df50fc79b6b591cc41db6_209260_480x0_resize_box_3.png 480w, /p/gpio/8_hubfbd1651104df50fc79b6b591cc41db6_209260_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="489px"
+	
+></p>
+<h3 id="alternate-function-output-push-pull">Alternate function output push-pull</h3>
+<p><img src="/p/gpio/9.png"
+	width="896"
+	height="546"
+	srcset="/p/gpio/9_hu7e9cbc340a35367440951ed98408bf9e_199905_480x0_resize_box_3.png 480w, /p/gpio/9_hu7e9cbc340a35367440951ed98408bf9e_199905_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="164"
+		data-flex-basis="393px"
+	
+></p>
+<h2 id="上拉电阻与下拉电阻">上拉电阻与下拉电阻</h2>
+<ol>
+<li>
+<p><strong>上拉</strong>电阻使得MCU处于<strong>低位</strong>，按下<strong>按钮</strong>后，<strong>由低变高</strong></p>
+</li>
+<li>
+<p><strong>下拉</strong>电阻使得MCU处于<strong>高位</strong>，按下<strong>按钮</strong>后，<strong>由高变低</strong></p>
+</li>
+</ol>
+<h1 id="quiz">Quiz</h1>
+<h2 id="为什么过大的数会导致程序无法运行">为什么过大的数会导致程序无法运行</h2>
+<ol>
+<li>
+<p>超出<strong>类型范围</strong></p>
+</li>
+<li>
+<p>超出<strong>内存大小</strong></p>
+</li>
+</ol>
+<h2 id="heading"></h2>
+
 </section>
 
 
