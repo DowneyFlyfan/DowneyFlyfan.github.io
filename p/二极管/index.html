@@ -330,6 +330,61 @@
         <li><a href="#过程">过程</a></li>
       </ol>
     </li>
+    <li><a href="#整流器电路">整流器电路</a>
+      <ol>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#工作原理">工作原理</a></li>
+        <li><a href="#半波整流器cvdm">半波整流器(CVDM)</a>
+          <ol>
+            <li><a href="#电路">电路</a></li>
+          </ol>
+        </li>
+        <li><a href="#全波整流器">全波整流器</a>
+          <ol>
+            <li><a href="#电路和原理">电路和原理</a></li>
+          </ol>
+        </li>
+        <li><a href="#桥式整流器">桥式整流器</a>
+          <ol>
+            <li><a href="#电路-1">电路</a></li>
+          </ol>
+        </li>
+        <li><a href="#峰值整流器">峰值整流器</a>
+          <ol>
+            <li><a href="#电路-2">电路</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#限幅电路和钳位电路">限幅电路和钳位电路</a>
+      <ol>
+        <li><a href="#限幅电路">限幅电路</a>
+          <ol>
+            <li><a href="#电路-3">电路</a></li>
+            <li><a href="#推理-1">推理</a></li>
+            <li><a href="#图像-2">图像</a></li>
+          </ol>
+        </li>
+        <li><a href="#钳位电路">钳位电路</a>
+          <ol>
+            <li><a href="#电路-4">电路</a></li>
+            <li><a href="#图像-3">图像</a></li>
+          </ol>
+        </li>
+        <li><a href="#电压增倍器">电压增倍器</a>
+          <ol>
+            <li><a href="#电路-5">电路</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#二极管的额定电压">二极管的额定电压</a></li>
+        <li><a href="#直流脉冲电压">直流脉冲电压</a></li>
+        <li><a href="#piv-peak-inverse-voltage">PIV (Peak Inverse Voltage)</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -394,7 +449,7 @@
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -852,6 +907,214 @@ V_O &amp;= V_{Z0} + I_Z r_Z = 6.83(V)
 Load \ Regulation &amp;= \frac{\Delta V_O}{\Delta I_L} = -20 (mV/mA)
 \end{aligned}
 $$</p>
+<h1 id="整流器电路">整流器电路</h1>
+<h2 id="定义">定义</h2>
+<blockquote>
+<p>将<strong>AC</strong>转换为<strong>DC</strong></p>
+</blockquote>
+<h2 id="工作原理">工作原理</h2>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/17.png"
+	width="919"
+	height="272"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/17_hub943858100c930ef05a1173a32334479_99361_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/17_hub943858100c930ef05a1173a32334479_99361_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="337"
+		data-flex-basis="810px"
+	
+></p>
+<ol>
+<li>
+<p>通过<strong>能量转换器</strong>将<strong>振幅放大或缩小</strong></p>
+</li>
+<li>
+<p>通过<strong>二极管整流器</strong>将<strong>全波AC</strong>转为<strong>半波直流</strong></p>
+</li>
+<li>
+<p>通过<strong>LPF</strong>减小<strong>振幅</strong></p>
+</li>
+<li>
+<p>通过<strong>电压稳压器</strong>消除<strong>锯齿</strong></p>
+</li>
+<li>
+<p>提供<strong>直流电</strong></p>
+</li>
+</ol>
+<h2 id="半波整流器cvdm">半波整流器(CVDM)</h2>
+<h3 id="电路">电路</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/18.png"
+	width="414"
+	height="243"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/18_hu9b64d3110952d3bb042c1f53d63a7a79_23083_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/18_hu9b64d3110952d3bb042c1f53d63a7a79_23083_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="170"
+		data-flex-basis="408px"
+	
+></p>
+<p>$$
+\begin{aligned}
+(1) \ 若 \  V_i &amp;\gt V_D \\
+V_o &amp;= V_i - V_D  \\\
+\\ (2) \ 若 \ V_i &amp;\le V_D \\
+V_0 &amp;= 0 \\\
+\\ PIV = V_S
+\end{aligned}
+$$</p>
+<h2 id="全波整流器">全波整流器</h2>
+<h3 id="电路和原理">电路和原理</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/19.png"
+	width="907"
+	height="788"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/19_hu510b4fb4862c42ec463dcb92dd99bb3f_159680_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/19_hu510b4fb4862c42ec463dcb92dd99bb3f_159680_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="115"
+		data-flex-basis="276px"
+	
+></p>
+<p>$$
+\begin{aligned}
+&amp;(1) \ 若 \ V_S \gt V_D \\
+&amp;V_o = V_S - V_D \\
+&amp;(2) \ 若 \ V_S \lt -V_D \\
+&amp;V_o = -V_S - V_D \\
+&amp;(3) \ 若 \ -V_D \le V_S \le V_D \\
+&amp;V_o = 0 \\
+&amp; PIV = 2V_S - V_D
+\end{aligned}
+$$</p>
+<h2 id="桥式整流器">桥式整流器</h2>
+<h3 id="电路-1">电路</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/20.png"
+	width="761"
+	height="347"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/20_hu332a0e51455b6b2ebe60e806ffbd8045_76430_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/20_hu332a0e51455b6b2ebe60e806ffbd8045_76430_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="219"
+		data-flex-basis="526px"
+	
+></p>
+<p>$$
+\begin{aligned}
+(1) \ &amp;若 \ V_S \gt 0 \\
+&amp; D_1、D_2连通 \\
+(2) \ &amp;若 \ V_S \lt 0 \\
+&amp; D_3 、D_4连通 \\\
+\\ &amp;PIV = V_S - V_D
+\end{aligned}
+$$</p>
+<h2 id="峰值整流器">峰值整流器</h2>
+<h3 id="电路-2">电路</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/21.png"
+	width="577"
+	height="348"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/21_hu1abd23f095e570d5bcada3aa094dc925_28996_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/21_hu1abd23f095e570d5bcada3aa094dc925_28996_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="397px"
+	
+></p>
+<h1 id="限幅电路和钳位电路">限幅电路和钳位电路</h1>
+<h2 id="限幅电路">限幅电路</h2>
+<h3 id="电路-3">电路</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/22.png"
+	width="372"
+	height="361"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/22_hu4ba6044b4d6fdc4397f8179c77d6ea68_26778_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/22_hu4ba6044b4d6fdc4397f8179c77d6ea68_26778_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="103"
+		data-flex-basis="247px"
+	
+></p>
+<h3 id="推理-1">推理</h3>
+<p>$$
+\begin{aligned}
+(1) 当 \ V_i &amp;\lt V_1 + V_D: \\
+V_o &amp;= V_i \\
+(2) 当 \ V_i &amp;\gt V_1 + V_D: \\
+V_o &amp;= V_i + V_D
+\end{aligned}
+$$</p>
+<h3 id="图像-2">图像</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/23.png"
+	width="412"
+	height="398"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/23_hud79d495d0e09b3438509a52a03d8dbf1_43565_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/23_hud79d495d0e09b3438509a52a03d8dbf1_43565_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="103"
+		data-flex-basis="248px"
+	
+></p>
+<h2 id="钳位电路">钳位电路</h2>
+<h3 id="电路-4">电路</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/24.png"
+	width="376"
+	height="330"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/24_hua6a1bf04328b09c05cd40d4c041594d6_23047_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/24_hua6a1bf04328b09c05cd40d4c041594d6_23047_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="273px"
+	
+></p>
+<h3 id="图像-3">图像</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/25.png"
+	width="500"
+	height="284"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/25_hub404c977f0d93931b6681ed625ca6bcb_20227_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/25_hub404c977f0d93931b6681ed625ca6bcb_20227_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="176"
+		data-flex-basis="422px"
+	
+></p>
+<h2 id="电压增倍器">电压增倍器</h2>
+<h3 id="电路-5">电路</h3>
+<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/26.png"
+	width="711"
+	height="325"
+	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/26_hu64f8ac85ee14d4c2a23549f4571aadc5_8301_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/26_hu64f8ac85ee14d4c2a23549f4571aadc5_8301_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="218"
+		data-flex-basis="525px"
+	
+></p>
+<h1 id="附录">附录</h1>
+<h2 id="二极管的额定电压">二极管的额定电压</h2>
+<blockquote>
+<p>二极管在正向导通时的最大允许电压，以及在反向偏置时的最大允许电压</p>
+</blockquote>
+<h2 id="直流脉冲电压">直流脉冲电压</h2>
+<blockquote>
+<p>直流脉冲电压是一种电信号，它由直流（DC）和脉冲（AC）组成。它通常是由一个直流电源和一个脉冲发生器组合而成</p>
+</blockquote>
+<h2 id="piv-peak-inverse-voltage">PIV (Peak Inverse Voltage)</h2>
 
 </section>
 
