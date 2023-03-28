@@ -279,7 +279,9 @@
         <li><a href="#启发式算法">启发式算法</a>
           <ol>
             <li><a href="#贪心算法">贪心算法</a></li>
-            <li><a href="#遗传算法ga">遗传算法(GA)</a></li>
+            <li><a href="#爬山算法">爬山算法</a></li>
+            <li><a href="#粒子群算法">粒子群算法</a></li>
+            <li><a href="#比较">比较</a></li>
           </ol>
         </li>
         <li><a href="#精确算法">精确算法</a>
@@ -379,7 +381,7 @@
 
 
                 <time class="article-time--reading">
-                    8 minute read
+                    9 minute read
                 </time>
             </div>
         
@@ -490,36 +492,125 @@
 </span></span><span class="line"><span class="cl"><span class="n">max_profit</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="遗传算法ga">遗传算法(GA)</h3>
+</div><h3 id="爬山算法">爬山算法</h3>
 <ol>
 <li>步骤</li>
 </ol>
 <ul>
 <li>
-<p>初始化种群：随机生成一组初始解作为种群，其中每个解表示问题的一个可行解。</p>
+<p>随机生成一个初始解。</p>
 </li>
 <li>
-<p>适应度函数：定义一个适应度函数来评价每个解的优劣，根据适应度函数计算每个解的适应度值。</p>
+<p>计算当前解的目标函数值。</p>
 </li>
 <li>
-<p>选择：根据适应度值选择一些优秀的解，将它们保留下来作为下一代种群的父代。</p>
+<p>针对当前解，计算它的所有邻居解的目标函数值。</p>
 </li>
 <li>
-<p>交叉：随机选择一些父代解，进行交叉操作，产生新的解作为下一代种群的子代。</p>
+<p>选择目标函数值最大（或最小）的邻居解作为当前解，并将其作为下一次迭代的起点。</p>
 </li>
 <li>
-<p>变异：对一些子代解进行变异操作，产生一些新的解，加入到下一代种群中。</p>
-</li>
-<li>
-<p>判断终止条件：检查是否满足终止条件，如果满足，则输出最优解，否则回到步骤3。</p>
+<p>如果当前解是局部最优解，则算法结束，否则返回步骤3。</p>
 </li>
 </ul>
 <ol start="2">
 <li>实例</li>
 </ol>
 <ul>
-<li>0-1背包问题</li>
+<li>问题</li>
 </ul>
+<p>$$
+找到f(x,y) = (a-x)^2 + b(y-x^2)^2 的局部最优解
+$$</p>
+<ul>
+<li>代码</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 目标函数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">rosenbrock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 爬山算法</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">hill_climbing</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 随机生成初始解</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 迭代指定次数或者达到局部最优解</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iter</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 计算当前解的函数值</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f_xy</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 针对当前解，计算它的所有邻居解的函数值</span>
+</span></span><span class="line"><span class="cl">        <span class="n">neighbors</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">step</span><span class="p">),</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">step</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ny</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">nx</span> <span class="o">&gt;=</span> <span class="n">x_min</span> <span class="ow">and</span> <span class="n">nx</span> <span class="o">&lt;=</span> <span class="n">x_max</span> <span class="ow">and</span> <span class="n">ny</span> <span class="o">&gt;=</span> <span class="n">y_min</span> <span class="ow">and</span> <span class="n">ny</span> <span class="o">&lt;=</span> <span class="n">y_max</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">neighbors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 选择目标函数值最小的邻居解作为当前解</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">neighbors</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nf</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">nf</span> <span class="o">&lt;</span> <span class="n">f_xy</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 测试</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">hill_climbing</span><span class="p">(</span><span class="n">rosenbrock</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;局部最优解：&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="粒子群算法">粒子群算法</h3>
+<ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>问题转化为优化问题，通过模拟粒子在搜索空间中移动的过程，不断更新每个粒子的速度和位置，直到找到最优解。</p>
+</blockquote>
+<ol start="2">
+<li>解决旅行商问题</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -584,73 +675,110 @@
 </span><span class="lnt">60
 </span><span class="lnt">61
 </span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">knapsack_ga</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">wt</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">pop_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">elite_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mutation_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">generations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 随机生成城市坐标</span>
+</span></span><span class="line"><span class="cl"><span class="n">city_count</span> <span class="o">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">cities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">city_count</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># 横纵坐标都是[0,100)之间的整数</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;城市坐标为:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">cities</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s1">W: 背包最大承重
-</span></span></span><span class="line"><span class="cl"><span class="s1">wt: 每个物品的重量，表示为一个长度为n的列表
-</span></span></span><span class="line"><span class="cl"><span class="s1">val: 每个物品的价值，表示为一个长度为n的列表
-</span></span></span><span class="line"><span class="cl"><span class="s1">n: 物品的数量
-</span></span></span><span class="line"><span class="cl"><span class="s1">pop_size: 种群大小，默认为50
-</span></span></span><span class="line"><span class="cl"><span class="s1">elite_size: 精英数量，默认为10
-</span></span></span><span class="line"><span class="cl"><span class="s1">mutation_rate: 变异概率，默认为0.01
-</span></span></span><span class="line"><span class="cl"><span class="s1">generations: 进化代数，默认为100
-</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 粒子数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">particle_count</span> <span class="o">=</span> <span class="mi">50</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># 初始化种群</span>
-</span></span><span class="line"><span class="cl">    <span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pop_size</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">individual</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-</span></span><span class="line"><span class="cl">        <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">individual</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 最大迭代次数</span>
+</span></span><span class="line"><span class="cl"><span class="n">max_iteration</span> <span class="o">=</span> <span class="mi">100</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># 适应度函数</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">fitness</span><span class="p">(</span><span class="n">individual</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">individual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算两个城市之间的距离</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">city1</span><span class="p">,</span> <span class="n">city2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">city1</span> <span class="o">-</span> <span class="n">city2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># 选择</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">selection</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">elite_size</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">fitness</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pop_size</span><span class="o">-</span><span class="n">elite_size</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算路径长度</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">path_length</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">length</span> <span class="o">+=</span> <span class="n">distance</span><span class="p">(</span><span class="n">cities</span><span class="p">[</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">cities</span><span class="p">[</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">length</span> <span class="o">+=</span> <span class="n">distance</span><span class="p">(</span><span class="n">cities</span><span class="p">[</span><span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">cities</span><span class="p">[</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">length</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># 交叉</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">crossover</span><span class="p">(</span><span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">k</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ind1</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">ind2</span><span class="p">[</span><span class="n">k</span><span class="p">:],</span> <span class="n">ind2</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">ind1</span><span class="p">[</span><span class="n">k</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 初始化粒子位置和速度</span>
+</span></span><span class="line"><span class="cl"><span class="n">particles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">particle_count</span><span class="p">,</span> <span class="n">city_count</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># 初始值为0</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">particle_count</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">city_count</span><span class="p">)</span> <span class="c1"># 随机生成一个[0,city_count -1]的随机序列</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># 变异</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mutation</span><span class="p">(</span><span class="n">individual</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">mutation_rate</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">individual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">individual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">velocities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">particle_count</span><span class="p">,</span> <span class="n">city_count</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">particle_count</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">city_count</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># 进化</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">generation</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">generations</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 选择</span>
-</span></span><span class="line"><span class="cl">        <span class="n">selected_population</span> <span class="o">=</span> <span class="n">selection</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算每个粒子的最优解和全局最优解</span>
+</span></span><span class="line"><span class="cl"><span class="n">particle_best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">particle_count</span><span class="p">,</span> <span class="n">city_count</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">particle_count</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">particle_best</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">global_best</span> <span class="o">=</span> <span class="n">particle_best</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">particle_count</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">path_length</span><span class="p">(</span><span class="n">particle_best</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">path_length</span><span class="p">(</span><span class="n">global_best</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">global_best</span> <span class="o">=</span> <span class="n">particle_best</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1"># 交叉</span>
-</span></span><span class="line"><span class="cl">        <span class="n">offspring_population</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pop_size</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">selected_population</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">offspring1</span><span class="p">,</span> <span class="n">offspring2</span> <span class="o">=</span> <span class="n">crossover</span><span class="p">(</span><span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">offspring_population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">offspring1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">offspring_population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">offspring2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 开始迭代</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iteration</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 更新粒子速度和位置</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">particle_count</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">city_count</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">r1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">r2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">r1</span> <span class="o">*</span> <span class="p">(</span><span class="n">particle_best</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">+</span> <span class="n">r2</span> <span class="o">*</span> <span class="p">(</span><span class="n">global_best</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">city_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">city_count</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1"># 变异</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">individual</span> <span class="ow">in</span> <span class="n">offspring_population</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">mutation</span><span class="p">(</span><span class="n">individual</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 更新每个粒子的最优解和全局最优解</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">particle_count</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">path_length</span><span class="p">(</span><span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">path_length</span><span class="p">(</span><span class="n">particle_best</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">particle_best</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">path_length</span><span class="p">(</span><span class="n">particle_best</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">path_length</span><span class="p">(</span><span class="n">global_best</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">global_best</span> <span class="o">=</span> <span class="n">particle_best</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1"># 更新种群</span>
-</span></span><span class="line"><span class="cl">        <span class="n">population</span> <span class="o">=</span> <span class="n">offspring_population</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输出当前迭代次数和路径长度</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Iteration </span><span class="si">%d</span><span class="s2">, path length = </span><span class="si">%f</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">iteration</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">path_length</span><span class="p">(</span><span class="n">global_best</span><span class="p">)))</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># 返回最优解</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">fitness</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 输出最优路径</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;最佳路径为:&#34;</span><span class="p">,</span> <span class="n">global_best</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="精确算法">精确算法</h2>
+</div><h3 id="比较">比较</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">平均时间复杂度</th>
+<th style="text-align:center">最差时间复杂度</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="精确算法">精确算法</h2>
 <blockquote>
 <p>在可接受的时间内得到最优解</p>
 </blockquote>

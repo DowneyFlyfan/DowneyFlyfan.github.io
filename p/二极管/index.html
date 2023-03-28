@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='理想二极管的伏安特性 理想二极管 最基本的非线性电路元件
-两终端装置
-两种工作模式 on reverser bias = open ckt. off forward bias = short ckt. 实际应用 普通电路 正向 加限流电阻，防止二极管被烧坏 反向 不能超过击穿电压 整流器 定义 AC$\longrightarrow$DC,理想状况下没有损失
-图示 二极管的特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
-其他特性 $$ I_1 = I_S e^{V_1/V_T} \\\ \\ I_2 = I_S e^{V_2/V_T} \\\ \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\ \\ \therefore V_2 = V_1 &#43; V_T ln(\frac{I_2}{I_1}) = V_1 &#43; 2.'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='二极管正向特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
+其他特性 $$ I_1 = I_S e^{V_1/V_T} \\\ \\ I_2 = I_S e^{V_2/V_T} \\\ \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\ \\ \because lnx = 2.3 \ lgx \\\ \\ \therefore V_2 = V_1 &#43; V_T ln(\frac{I_2}{I_1}) = V_1 &#43; 2.3V_T lg(\frac{I_2}{I_1}) \\\ \\ 其中2.3 V_T \approx 60(mV) $$
+正向偏置 $$ V \gg V_T \Longrightarrow i \approx I_Se^{V/V_T} \\\ \\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{I_S}\Big) $$'>
 <title>二极管</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='二极管'>
-<meta property='og:description' content='理想二极管的伏安特性 理想二极管 最基本的非线性电路元件
-两终端装置
-两种工作模式 on reverser bias = open ckt. off forward bias = short ckt. 实际应用 普通电路 正向 加限流电阻，防止二极管被烧坏 反向 不能超过击穿电压 整流器 定义 AC$\longrightarrow$DC,理想状况下没有损失
-图示 二极管的特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
-其他特性 $$ I_1 = I_S e^{V_1/V_T} \\\ \\ I_2 = I_S e^{V_2/V_T} \\\ \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\ \\ \therefore V_2 = V_1 &#43; V_T ln(\frac{I_2}{I_1}) = V_1 &#43; 2.'>
+<meta property='og:description' content='二极管正向特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
+其他特性 $$ I_1 = I_S e^{V_1/V_T} \\\ \\ I_2 = I_S e^{V_2/V_T} \\\ \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\ \\ \because lnx = 2.3 \ lgx \\\ \\ \therefore V_2 = V_1 &#43; V_T ln(\frac{I_2}{I_1}) = V_1 &#43; 2.3V_T lg(\frac{I_2}{I_1}) \\\ \\ 其中2.3 V_T \approx 60(mV) $$
+正向偏置 $$ V \gg V_T \Longrightarrow i \approx I_Se^{V/V_T} \\\ \\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{I_S}\Big) $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-13T10:07:39&#43;00:00'/><meta property='article:modified_time' content='2023-03-13T10:07:39&#43;00:00'/>
 <meta name="twitter:title" content="二极管">
-<meta name="twitter:description" content="理想二极管的伏安特性 理想二极管 最基本的非线性电路元件
-两终端装置
-两种工作模式 on reverser bias = open ckt. off forward bias = short ckt. 实际应用 普通电路 正向 加限流电阻，防止二极管被烧坏 反向 不能超过击穿电压 整流器 定义 AC$\longrightarrow$DC,理想状况下没有损失
-图示 二极管的特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
-其他特性 $$ I_1 = I_S e^{V_1/V_T} \\\ \\ I_2 = I_S e^{V_2/V_T} \\\ \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\ \\ \therefore V_2 = V_1 &#43; V_T ln(\frac{I_2}{I_1}) = V_1 &#43; 2."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="二极管正向特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
+其他特性 $$ I_1 = I_S e^{V_1/V_T} \\\ \\ I_2 = I_S e^{V_2/V_T} \\\ \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\ \\ \because lnx = 2.3 \ lgx \\\ \\ \therefore V_2 = V_1 &#43; V_T ln(\frac{I_2}{I_1}) = V_1 &#43; 2.3V_T lg(\frac{I_2}{I_1}) \\\ \\ 其中2.3 V_T \approx 60(mV) $$
+正向偏置 $$ V \gg V_T \Longrightarrow i \approx I_Se^{V/V_T} \\\ \\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{I_S}\Big) $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -262,24 +256,7 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#理想二极管的伏安特性">理想二极管的伏安特性</a>
-      <ol>
-        <li><a href="#理想二极管">理想二极管</a></li>
-        <li><a href="#两种工作模式">两种工作模式</a>
-          <ol>
-            <li><a href="#on">on</a></li>
-            <li><a href="#off">off</a></li>
-          </ol>
-        </li>
-        <li><a href="#实际应用">实际应用</a>
-          <ol>
-            <li><a href="#普通电路">普通电路</a></li>
-            <li><a href="#整流器">整流器</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#二极管的特性">二极管的特性</a>
+    <li><a href="#二极管正向特性">二极管正向特性</a>
       <ol>
         <li><a href="#终端特性">终端特性</a></li>
         <li><a href="#其他特性">其他特性</a></li>
@@ -309,6 +286,7 @@
         <li><a href="#图像">图像</a></li>
         <li><a href="#代数分析">代数分析</a>
           <ol>
+            <li><a href="#电路">电路</a></li>
             <li><a href="#电流方程">电流方程</a></li>
             <li><a href="#小信号电阻">小信号电阻</a></li>
           </ol>
@@ -336,7 +314,8 @@
         <li><a href="#工作原理">工作原理</a></li>
         <li><a href="#半波整流器cvdm">半波整流器(CVDM)</a>
           <ol>
-            <li><a href="#电路">电路</a></li>
+            <li><a href="#电路-1">电路</a></li>
+            <li><a href="#公式">公式</a></li>
           </ol>
         </li>
         <li><a href="#全波整流器">全波整流器</a>
@@ -346,12 +325,12 @@
         </li>
         <li><a href="#桥式整流器">桥式整流器</a>
           <ol>
-            <li><a href="#电路-1">电路</a></li>
+            <li><a href="#电路-2">电路</a></li>
           </ol>
         </li>
         <li><a href="#峰值整流器">峰值整流器</a>
           <ol>
-            <li><a href="#电路-2">电路</a></li>
+            <li><a href="#电路-3">电路</a></li>
           </ol>
         </li>
       </ol>
@@ -360,20 +339,20 @@
       <ol>
         <li><a href="#限幅电路">限幅电路</a>
           <ol>
-            <li><a href="#电路-3">电路</a></li>
+            <li><a href="#电路-4">电路</a></li>
             <li><a href="#推理-1">推理</a></li>
             <li><a href="#图像-2">图像</a></li>
           </ol>
         </li>
         <li><a href="#钳位电路">钳位电路</a>
           <ol>
-            <li><a href="#电路-4">电路</a></li>
+            <li><a href="#电路-5">电路</a></li>
             <li><a href="#图像-3">图像</a></li>
           </ol>
         </li>
         <li><a href="#电压增倍器">电压增倍器</a>
           <ol>
-            <li><a href="#电路-5">电路</a></li>
+            <li><a href="#电路-6">电路</a></li>
           </ol>
         </li>
       </ol>
@@ -464,98 +443,7 @@
     <section class="article-content">
     
     
-    <h1 id="理想二极管的伏安特性">理想二极管的伏安特性</h1>
-<h2 id="理想二极管">理想二极管</h2>
-<ol>
-<li>
-<p>最基本的非线性电路元件</p>
-</li>
-<li>
-<p>两终端装置</p>
-</li>
-</ol>
-<h2 id="两种工作模式">两种工作模式</h2>
-<h3 id="on">on</h3>
-<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/1.png"
-	width="372"
-	height="174"
-	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/1_hu3fc5e112ac7127283b6b77114b289ddc_12303_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/1_hu3fc5e112ac7127283b6b77114b289ddc_12303_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="213"
-		data-flex-basis="513px"
-	
-></p>
-<ul>
-<li>reverser bias = open ckt.</li>
-</ul>
-<h3 id="off">off</h3>
-<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/2.png"
-	width="355"
-	height="192"
-	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/2_hu796b9231ac26cd634a661a3150d50723_16612_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/2_hu796b9231ac26cd634a661a3150d50723_16612_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="184"
-		data-flex-basis="443px"
-	
-></p>
-<ul>
-<li>forward bias = short ckt.</li>
-</ul>
-<h2 id="实际应用">实际应用</h2>
-<h3 id="普通电路">普通电路</h3>
-<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/3.png"
-	width="651"
-	height="628"
-	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/3_hu58888682caf793bc6cce35eb5aa73fbf_83736_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/3_hu58888682caf793bc6cce35eb5aa73fbf_83736_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="103"
-		data-flex-basis="248px"
-	
-></p>
-<ol>
-<li>正向</li>
-</ol>
-<ul>
-<li>加限流电阻，防止二极管被烧坏</li>
-</ul>
-<ol start="2">
-<li>反向</li>
-</ol>
-<ul>
-<li>不能超过<strong>击穿电压</strong></li>
-</ul>
-<h3 id="整流器">整流器</h3>
-<ol>
-<li>定义</li>
-</ol>
-<blockquote>
-<p>AC$\longrightarrow$DC,理想状况下没有损失</p>
-</blockquote>
-<ol start="2">
-<li>图示</li>
-</ol>
-<p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/4.png"
-	width="694"
-	height="364"
-	srcset="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/4_huc8c98a50e4786ea55266f190d33aa06f_63785_480x0_resize_box_3.png 480w, /p/%E4%BA%8C%E6%9E%81%E7%AE%A1/4_huc8c98a50e4786ea55266f190d33aa06f_63785_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="190"
-		data-flex-basis="457px"
-	
-></p>
-<h1 id="二极管的特性">二极管的特性</h1>
+    <h1 id="二极管正向特性">二极管正向特性</h1>
 <h2 id="终端特性">终端特性</h2>
 <p>$$
 i = I_S (e^{V/V_T}-1) \\\
@@ -567,6 +455,7 @@ $$</p>
 I_1 = I_S e^{V_1/V_T} \\\
 \\ I_2 = I_S e^{V_2/V_T} \\\
 \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\
+\\ \because lnx = 2.3 \ lgx \\\
 \\ \therefore V_2 = V_1 + V_T ln(\frac{I_2}{I_1}) = V_1 + 2.3V_T lg(\frac{I_2}{I_1}) \\\
 \\ 其中2.3 V_T \approx 60(mV)
 $$</p>
@@ -731,6 +620,7 @@ $$</p>
 	
 ></p>
 <h2 id="代数分析">代数分析</h2>
+<h3 id="电路">电路</h3>
 <p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/11.png"
 	width="338"
 	height="368"
@@ -943,7 +833,7 @@ $$</p>
 </li>
 </ol>
 <h2 id="半波整流器cvdm">半波整流器(CVDM)</h2>
-<h3 id="电路">电路</h3>
+<h3 id="电路-1">电路</h3>
 <p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/18.png"
 	width="414"
 	height="243"
@@ -956,13 +846,14 @@ $$</p>
 		data-flex-basis="408px"
 	
 ></p>
+<h3 id="公式">公式</h3>
 <p>$$
 \begin{aligned}
 (1) \ 若 \  V_i &amp;\gt V_D \\
 V_o &amp;= V_i - V_D  \\\
 \\ (2) \ 若 \ V_i &amp;\le V_D \\
 V_0 &amp;= 0 \\\
-\\ PIV = V_S
+\\ PIV &amp;= V_S
 \end{aligned}
 $$</p>
 <h2 id="全波整流器">全波整流器</h2>
@@ -982,16 +873,16 @@ $$</p>
 <p>$$
 \begin{aligned}
 &amp;(1) \ 若 \ V_S \gt V_D \\
-&amp;V_o = V_S - V_D \\
-&amp;(2) \ 若 \ V_S \lt -V_D \\
-&amp;V_o = -V_S - V_D \\
-&amp;(3) \ 若 \ -V_D \le V_S \le V_D \\
-&amp;V_o = 0 \\
-&amp; PIV = 2V_S - V_D
+&amp;V_o = V_S - V_D \\\
+\\ &amp;(2) \ 若 \ V_S \lt -V_D \\
+&amp;V_o = -V_S - V_D  \\\
+\\ &amp;(3) \ 若 \ -V_D \le V_S \le V_D \\
+&amp;V_o = 0  \\\
+\\ &amp; PIV = 2V_S - V_D
 \end{aligned}
 $$</p>
 <h2 id="桥式整流器">桥式整流器</h2>
-<h3 id="电路-1">电路</h3>
+<h3 id="电路-2">电路</h3>
 <p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/20.png"
 	width="761"
 	height="347"
@@ -1014,7 +905,7 @@ $$</p>
 \end{aligned}
 $$</p>
 <h2 id="峰值整流器">峰值整流器</h2>
-<h3 id="电路-2">电路</h3>
+<h3 id="电路-3">电路</h3>
 <p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/21.png"
 	width="577"
 	height="348"
@@ -1029,7 +920,7 @@ $$</p>
 ></p>
 <h1 id="限幅电路和钳位电路">限幅电路和钳位电路</h1>
 <h2 id="限幅电路">限幅电路</h2>
-<h3 id="电路-3">电路</h3>
+<h3 id="电路-4">电路</h3>
 <p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/22.png"
 	width="372"
 	height="361"
@@ -1065,7 +956,7 @@ $$</p>
 	
 ></p>
 <h2 id="钳位电路">钳位电路</h2>
-<h3 id="电路-4">电路</h3>
+<h3 id="电路-5">电路</h3>
 <p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/24.png"
 	width="376"
 	height="330"
@@ -1092,7 +983,7 @@ $$</p>
 	
 ></p>
 <h2 id="电压增倍器">电压增倍器</h2>
-<h3 id="电路-5">电路</h3>
+<h3 id="电路-6">电路</h3>
 <p><img src="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/26.png"
 	width="711"
 	height="325"

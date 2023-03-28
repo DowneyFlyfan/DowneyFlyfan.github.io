@@ -314,6 +314,28 @@ OTA (Operational Transconductance Amplifier) 跨导运算放大器 总结 The pa
         </li>
       </ol>
     </li>
+    <li><a href="#whole-chip-esd-protection-design-verification-by-cad">Whole-Chip ESD Protection Design Verification by CAD</a>
+      <ol>
+        <li><a href="#链接-1">链接</a></li>
+        <li><a href="#i-introdution">I. Introdution</a></li>
+        <li><a href="#ii-whole-chip-esd-protection">II. Whole-Chip ESD Protection</a>
+          <ol>
+            <li><a href="#集中式保护">集中式保护</a></li>
+            <li><a href="#分布式保护">分布式保护</a></li>
+            <li><a href="#混合保护">混合保护</a></li>
+            <li><a href="#局限性">局限性</a></li>
+          </ol>
+        </li>
+        <li><a href="#iii-whole-chip-esd-cad">III. Whole-Chip ESD CAD</a>
+          <ol>
+            <li><a href="#esd-保护电路设计">ESD 保护电路设计</a></li>
+            <li><a href="#esd-仿真工具">ESD 仿真工具</a></li>
+          </ol>
+        </li>
+        <li><a href="#iv-application-example">IV. Application Example</a></li>
+        <li><a href="#错误">错误</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -378,7 +400,7 @@ OTA (Operational Transconductance Amplifier) 跨导运算放大器 总结 The pa
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -422,10 +444,20 @@ OTA (Operational Transconductance Amplifier) 跨导运算放大器 总结 The pa
 <li>跨导运算放大器</li>
 </ul>
 <h2 id="总结">总结</h2>
+<ul>
+<li>
 <p>The paper describes a design of a second-order noise-shaping successive approximation register (SAR) analog-to-digital converter (ADC). The proposed ADC is designed to reduce the impact of noise and increase the dynamic range of the ADC. The design uses a passive integrator and tri-level voting techniques to achieve the desired performance.</p>
+</li>
+<li>
 <p>The proposed ADC architecture consists of two main stages: a voltage-to-time converter and a SAR ADC. The voltage-to-time converter is used to convert the input voltage into a time interval. The time interval is then converted to a digital code using the SAR ADC. The proposed design uses a passive integrator to shape the quantization noise and reduce its impact on the signal. The tri-level voting technique is used to further reduce the impact of the quantization noise and improve the ADC&rsquo;s linearity.</p>
+</li>
+<li>
 <p>The paper presents detailed design and analysis of the proposed ADC, including the analysis of the noise and linearity performance of the ADC. The design is implemented in a 65nm CMOS process, and the experimental results show that the proposed ADC achieves a signal-to-noise and distortion ratio (SNDR) of 70dB and a spurious-free dynamic range (SFDR) of 85dB. The power consumption of the ADC is 1.56mW at a sampling rate of 10MS/s.</p>
+</li>
+<li>
 <p>Overall, the paper presents a novel approach to design a second-order noise-shaping SAR ADC with improved noise and linearity performance. The proposed design can be used in a wide range of applications that require high-precision analog-to-digital conversion, such as wireless communication, sensor networks, and instrumentation.</p>
+</li>
+</ul>
 <h1 id="a-systematic-study-of-esd-protection-co-design-with-high-speed-and-high-frequency-ics-in-28-nm-cmos">A Systematic Study of ESD Protection Co-Design With High-Speed and High-Frequency ICs in 28 nm CMOS</h1>
 <h2 id="链接">链接</h2>
 <ul>
@@ -558,6 +590,59 @@ OTA (Operational Transconductance Amplifier) 跨导运算放大器 总结 The pa
 <p>如何使用发射显微镜技术进行实时ESD故障分析，以识别ESD损伤的位置和原因</p>
 </li>
 </ol>
+<h1 id="whole-chip-esd-protection-design-verification-by-cad">Whole-Chip ESD Protection Design Verification by CAD</h1>
+<h2 id="链接-1">链接</h2>
+<ul>
+<li><a class="link" href="https://ieeexplore.ieee.org/abstract/document/5340146"  target="_blank" rel="noopener"
+    >https://ieeexplore.ieee.org/abstract/document/5340146</a></li>
+</ul>
+<h2 id="i-introdution">I. Introdution</h2>
+<blockquote>
+<p>静电放电（ESD）的危害和对芯片设计的影响，以及传统的ESD保护设计的局限性。</p>
+</blockquote>
+<h2 id="ii-whole-chip-esd-protection">II. Whole-Chip ESD Protection</h2>
+<blockquote>
+<p>传统的ESD保护设计方法</p>
+</blockquote>
+<h3 id="集中式保护">集中式保护</h3>
+<ul>
+<li>输入和输出端口附近安装保护电路来保护整个芯片</li>
+</ul>
+<h3 id="分布式保护">分布式保护</h3>
+<ul>
+<li>在芯片内部的各个电路单元附近安装保护电路来保护芯片</li>
+</ul>
+<h3 id="混合保护">混合保护</h3>
+<ul>
+<li>将集中式保护和分布式保护结合起来，以获得更好的保护效果</li>
+</ul>
+<h3 id="局限性">局限性</h3>
+<ul>
+<li>设计复杂度、性能损失和芯片面积</li>
+</ul>
+<h2 id="iii-whole-chip-esd-cad">III. Whole-Chip ESD CAD</h2>
+<h3 id="esd-保护电路设计">ESD 保护电路设计</h3>
+<ul>
+<li>需要考虑的因素有芯片应用环境、芯片结构和 ESD 保护要求</li>
+</ul>
+<h3 id="esd-仿真工具">ESD 仿真工具</h3>
+<h2 id="iv-application-example">IV. Application Example</h2>
+<blockquote>
+<p>以一个实际的芯片设计为例，介绍了如何应用上述的 ESD 保护 CAD 设计流程进行 ESD 保护电路设计和验证</p>
+</blockquote>
+<ol>
+<li>
+<p>该芯片的应用环境和 ESD 保护要求，并提出了设计的目标和要求。然后，设计人员根据芯片结构和 ESD 保护要求，选择了合适的 ESD 保护电路结构，并进行了电路设计和优化。</p>
+</li>
+<li>
+<p>文章介绍了针对该芯片的 ESD 仿真分析过程，使用了 Cadence Virtuoso 工具进行了 HBM、CDM 和 MM 测试，评估了 ESD 保护电路的保护性能和可靠性。最后，文章总结了该设计的优点和局限性，并提出了进一步的改进和优化方向。</p>
+</li>
+<li>
+<p>展示了 ESD 保护 CAD 设计流程的应用和效果，说明了这种方法可以提高 ESD 保护电路的设计质量和可靠性，降低芯片开发成本和风险。</p>
+</li>
+</ol>
+<h2 id="错误">错误</h2>
+<p>-. <strong>Application Example</strong>和<strong>Whole-Chip ESD CAD</strong></p>
 
 </section>
 
