@@ -301,8 +301,10 @@
     <li><a href="#archlinux安装问题">Archlinux安装问题</a>
       <ol>
         <li><a href="#安装器白屏怎么办">安装器白屏怎么办?</a></li>
+        <li><a href="#一定安装最新版">一定安装最新版!!</a></li>
       </ol>
     </li>
+    <li><a href="#fpga-design-flow">FPGA Design Flow</a></li>
   </ol>
 </nav>
         </div>
@@ -709,7 +711,27 @@ $$</p>
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">_JAVA_AWT_WM_NONREPARENTING</span><span class="o">=</span><span class="m">1</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="一定安装最新版">一定安装最新版!!</h2>
+<h1 id="fpga-design-flow">FPGA Design Flow</h1>
+<div class="mermaid">stateDiagram
+Project --> Coding
+Coding --> Synthesis
+Synthesis --> Simulation
+Synthesis --> Coding:Error
+Simulation --> Coding: Error
+Simulation --> Hardware_Verify
+Hardware_Verify --> Coding: Error
 </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
+
+
 </section>
 
 

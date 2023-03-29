@@ -292,7 +292,42 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
         <li><a href="#verilog实现代码">Verilog实现代码</a></li>
       </ol>
     </li>
-    <li><a href="#alu">ALU</a></li>
+    <li><a href="#alu">ALU</a>
+      <ol>
+        <li><a href="#4位alu电路和逻辑符号">4位ALU电路和逻辑符号</a></li>
+        <li><a href="#组成单元">组成单元</a>
+          <ol>
+            <li><a href="#le">LE</a></li>
+            <li><a href="#ae">AE</a></li>
+            <li><a href="#ce">CE</a></li>
+          </ol>
+        </li>
+        <li><a href="#verilog代码">Verilog代码</a>
+          <ol>
+            <li><a href="#行为代码">行为代码</a></li>
+            <li><a href="#数据流和结构代码">数据流和结构代码</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#decoder">Decoder</a>
+      <ol>
+        <li><a href="#电路和逻辑符号">电路和逻辑符号</a></li>
+        <li><a href="#verilog-代码">Verilog 代码</a></li>
+      </ol>
+    </li>
+    <li><a href="#tri-state-buffer">Tri-State Buffer</a>
+      <ol>
+        <li><a href="#性质">性质</a></li>
+        <li><a href="#电路和逻辑符号-1">电路和逻辑符号</a></li>
+        <li><a href="#verilog-代码-1">Verilog 代码</a></li>
+      </ol>
+    </li>
+    <li><a href="#比较器">比较器</a>
+      <ol>
+        <li><a href="#heading"></a></li>
+      </ol>
+    </li>
     <li><a href="#门电路">门电路</a>
       <ol>
         <li><a href="#反相器">反相器</a>
@@ -369,7 +404,7 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -629,6 +664,373 @@ $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="alu">ALU</h1>
+<h2 id="4位alu电路和逻辑符号">4位ALU电路和逻辑符号</h2>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/14.png"
+	width="990"
+	height="778"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/14_hu901c71934d853f5ce4e91d0e38d33dc7_58240_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/14_hu901c71934d853f5ce4e91d0e38d33dc7_58240_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<h2 id="组成单元">组成单元</h2>
+<h3 id="le">LE</h3>
+<ol>
+<li>电路图</li>
+</ol>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/15.png"
+	width="297"
+	height="397"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/15_huce20067ffbbfd7802520b95726dd1511_15074_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/15_huce20067ffbbfd7802520b95726dd1511_15074_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="74"
+		data-flex-basis="179px"
+	
+></p>
+<ol start="2">
+<li>布尔方程</li>
+</ol>
+<h3 id="ae">AE</h3>
+<ol>
+<li>电路图</li>
+</ol>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/16.png"
+	width="258"
+	height="400"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/16_hu2c743b21be2e67e68c57115ae69f1c2d_12025_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/16_hu2c743b21be2e67e68c57115ae69f1c2d_12025_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="64"
+		data-flex-basis="154px"
+	
+></p>
+<ol start="2">
+<li></li>
+</ol>
+<h3 id="ce">CE</h3>
+<ol>
+<li>电路图</li>
+</ol>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/17.png"
+	width="179"
+	height="187"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/17_hud9e0ed8d54a4b10ac1b8ca0089962053_6240_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/17_hud9e0ed8d54a4b10ac1b8ca0089962053_6240_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="95"
+		data-flex-basis="229px"
+	
+></p>
+<h2 id="verilog代码">Verilog代码</h2>
+<h3 id="行为代码">行为代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nv">alu</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">S</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">F</span>
+</span></span><span class="line"><span class="cl">	<span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nv">always</span> <span class="o">@</span> <span class="p">(</span><span class="nc">S</span> <span class="k">or</span> <span class="nc">A</span> <span class="k">or</span> <span class="nc">B</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">		<span class="nv">case</span> <span class="p">(</span><span class="nc">S</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">0</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">1</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">&amp;</span> <span class="nc">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">2</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">|</span> <span class="nc">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">3</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="o">~</span><span class="nc">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">			<span class="c1">// bitwise NOT
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="mi">4</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">+</span> <span class="nc">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">5</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">-</span> <span class="nc">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">6</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">7</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="nv">endcase</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="数据流和结构代码">数据流和结构代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">LE</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">s</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">ai</span><span class="p">,</span> <span class="nv">bi</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">xi</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// using the equation derived for the LE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nv">xi</span> <span class="o">=</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">ai</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">ai</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">ai</span> <span class="o">&amp;</span> <span class="nv">bi</span><span class="p">)</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nv">ai</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nv">bi</span> <span class="o">|</span> <span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">AE</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">s</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">bi</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">yi</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// using the equation derived for the AE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nv">yi</span> <span class="o">=</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">|</span> <span class="o">~</span><span class="nv">bi</span><span class="p">))</span> <span class="o">|</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="o">&amp;</span> <span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">bi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">CE</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">s</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">c0</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// using the equation derived for the CE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nv">c0</span> <span class="o">=</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">^</span> <span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">FA</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">ci</span><span class="p">,</span> <span class="nv">xi</span><span class="p">,</span> <span class="nv">yi</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">ci1</span><span class="p">,</span> <span class="nv">fi</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// using the equations derived for the FA
+</span></span></span><span class="line"><span class="cl"><span class="c1">// bitwise &amp;=AND; |=OR; ^=XOR
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nv">ci1</span> <span class="o">=</span> <span class="p">(</span><span class="nv">xi</span> <span class="o">&amp;</span> <span class="nv">yi</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="nv">ci</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nv">xi</span> <span class="o">^</span> <span class="nv">yi</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nv">fi</span> <span class="o">=</span> <span class="nv">xi</span> <span class="o">^</span> <span class="nv">yi</span> <span class="o">^</span> <span class="nv">ci</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nv">bitslice</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">s</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">ai</span><span class="p">,</span> <span class="nv">bi</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">ci</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">ci1</span><span class="p">,</span> <span class="nv">fi</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nv">wire</span> <span class="nv">xi</span><span class="p">,</span> <span class="nv">yi</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// each bit slice consists of the LE, AE and FA
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nc">LE</span> <span class="nc">U2</span><span class="p">(</span><span class="nv">s</span><span class="p">,</span> <span class="nv">ai</span><span class="p">,</span> <span class="nv">bi</span><span class="p">,</span> <span class="nv">xi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">AE</span> <span class="nc">U1</span><span class="p">(</span><span class="nv">s</span><span class="p">,</span> <span class="nv">bi</span><span class="p">,</span> <span class="nv">yi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">FA</span> <span class="nc">U0</span><span class="p">(</span><span class="nv">ci</span><span class="p">,</span> <span class="nv">xi</span><span class="p">,</span> <span class="nv">yi</span><span class="p">,</span> <span class="nv">ci1</span><span class="p">,</span> <span class="nv">fi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nv">alu</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">S</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">F</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nc">Unsigned_Overflow</span><span class="p">,</span> <span class="nc">Signed_Overflow</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">wire</span> <span class="p">[</span><span class="na">n</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// only correct for this one
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nc">Unsigned_Overflow</span> <span class="o">=</span> <span class="nc">C</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">^</span> <span class="nc">S</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">Signed_Overflow</span> <span class="o">=</span> <span class="nc">C</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">^</span> <span class="nc">C</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// top level: connect the four bit slices and the CE together
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">bitslice</span> <span class="nc">U3</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">A</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nc">B</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="nc">F</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">bitslice</span> <span class="nc">U2</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">A</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nc">B</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nc">F</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">bitslice</span> <span class="nc">U1</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">A</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nc">B</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nc">F</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">bitslice</span> <span class="nc">U0</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nc">B</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nc">F</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">CE</span> <span class="nc">U4</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="decoder">Decoder</h1>
+<h2 id="电路和逻辑符号">电路和逻辑符号</h2>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/18.png"
+	width="872"
+	height="365"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/18_huf82b183d5baf06f214db2e96305cc4a2_29063_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/18_huf82b183d5baf06f214db2e96305cc4a2_29063_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="238"
+		data-flex-basis="573px"
+	
+></p>
+<h2 id="verilog-代码">Verilog 代码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">decoder</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">A</span><span class="p">,</span><span class="nc">B</span><span class="p">,</span><span class="nc">C</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Y</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">always</span><span class="o">@</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="tri-state-buffer">Tri-State Buffer</h1>
+<h2 id="性质">性质</h2>
+<blockquote>
+<p>三种状态: 高电平、低电平、高阻态(等价于<strong>断路</strong>)</p>
+</blockquote>
+<h2 id="电路和逻辑符号-1">电路和逻辑符号</h2>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/19.png"
+	width="675"
+	height="308"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/19_hu0fafefce96254ca8b59b6db2bf8183e0_16178_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/19_hu0fafefce96254ca8b59b6db2bf8183e0_16178_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="219"
+		data-flex-basis="525px"
+	
+></p>
+<h2 id="verilog-代码-1">Verilog 代码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">TriState_Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 	<span class="c1">// allow n to be changed externally
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">E</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">D</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Y</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">Y</span> <span class="o">=</span> <span class="p">(</span><span class="nc">E</span><span class="p">)</span> <span class="kd">?</span> <span class="nc">D</span> <span class="p">:</span> <span class="p">{</span><span class="nv">n</span><span class="p">{</span><span class="mi">1</span><span class="s1">&#39;bz}};
+</span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="比较器">比较器</h1>
+<h2 id="heading"></h2>
 <h1 id="门电路">门电路</h1>
 <h2 id="反相器">反相器</h2>
 <h3 id="电路-2">电路</h3>
