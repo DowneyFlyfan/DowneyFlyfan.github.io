@@ -6,7 +6,88 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 31 Mar 2023 09:36:02 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 01 Apr 2023 14:31:12 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>分析</title>
+        <link>https://downeyflyfan.com/p/%E5%88%86%E6%9E%90/</link>
+        <pubDate>Sat, 01 Apr 2023 14:31:12 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E5%88%86%E6%9E%90/</guid>
+        <description>&lt;h1 id=&#34;主成分分析pca&#34;&gt;主成分分析(PCA)&lt;/h1&gt;
+&lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过正交变换，将多个相关的变量转换为少数几个不相关的变量，称为主成分&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;思想&#34;&gt;思想&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;找到一个新的坐标系，使得原始数据在这个坐标系下的方差最大化。也就是说，找到一个方向，使得数据在这个方向上的投影尽可能分散。这个方向就是第一主成分。然后，在与第一主成分正交的平面上，找到一个方向，使得数据在这个方向上的投影尽可能分散。这个方向就是第二主成分。依次类推，可以找到和原始变量一样多的主成分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+&lt;h3 id=&#34;坐标系旋转&#34;&gt;坐标系旋转&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%88%86%E6%9E%90/1.png&#34;
+	width=&#34;278&#34;
+	height=&#34;208&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%88%86%E6%9E%90/1_hu96ffa52c3a15144802f24f6b0c52e17f_49558_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%88%86%E6%9E%90/1_hu96ffa52c3a15144802f24f6b0c52e17f_49558_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$y_1$是&lt;strong&gt;长轴&lt;/strong&gt;,$y_2$是&lt;strong&gt;短轴&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y_1 &amp;amp;= x_1 cos\theta + x_2 sin\theta \\
+y_2 &amp;amp;=  -x_1 sin\theta + x_2 cos\theta
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
+&lt;h3 id=&#34;计算协方差阵或相关系数矩阵矩阵为非负定对称阵&#34;&gt;计算协方差阵或相关系数矩阵(矩阵为非负定对称阵)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%88%86%E6%9E%90/2.png&#34;
+	width=&#34;992&#34;
+	height=&#34;470&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%88%86%E6%9E%90/2_hu7a5726258d347498ae51f27f1e4756cc_107408_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%88%86%E6%9E%90/2_hu7a5726258d347498ae51f27f1e4756cc_107408_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;211&#34;
+		data-flex-basis=&#34;506px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;通过矩阵特征值分解得到特征值与特征向量&#34;&gt;通过&lt;em&gt;矩阵特征值&lt;/em&gt;分解得到特征值与特征向量&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;选择主成分根据排序后的特征值-确定累计贡献率根据累计贡献率-确定主成分个数&#34;&gt;选择主成分,根据排序后的&lt;em&gt;特征值&lt;/em&gt; 确定&lt;em&gt;累计贡献率&lt;/em&gt;,根据&lt;em&gt;累计贡献率&lt;/em&gt; 确定&lt;em&gt;主成分个数&lt;/em&gt;;&lt;/h3&gt;
+&lt;p&gt;$$
+累计贡献率 = \frac {\sum _ {i=1}^ {k} \lambda_i} {\sum _ {i=1}^ {p} \lambda_i}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$\lambda_i$ 是第$i$个主成分的特征值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$p$是原始变量的个数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$k$是选取的主成分的个数&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;计算&lt;strong&gt;主成分得分&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标准化处理&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>Python</title>
         <link>https://downeyflyfan.com/p/python/</link>
         <pubDate>Fri, 31 Mar 2023 09:36:02 +0800</pubDate>
@@ -357,6 +438,21 @@ $$&lt;/p&gt;
 &lt;p&gt;As he progressed deeper into the labyrinth, he encountered numerous obstacles that tested his mettle. He had to decipher intricate codes, solve perplexing riddles, and unravel complicated ciphers.&lt;/p&gt;
 &lt;p&gt;Despite the challenges, Dr. Archimedes remained tenacious and persevered through the labyrinth. After many days of arduous toil, he finally uncovered the enigma. It was a simple message that read, &amp;ldquo;The journey is the destination.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Dr. Archimedes realized that the true purpose of his journey was not to solve the enigma, but to experience the thrill of the adventure. He emerged from the labyrinth with a newfound appreciation for the journey of life and the myriad challenges that it presents.&lt;/p&gt;
+&lt;h1 id=&#34;2023--331&#34;&gt;2023  3.31&lt;/h1&gt;
+&lt;p&gt;Once upon a time, in a far-off land, there lived a sagacious wizard named Alastair. He was known for his astuteness and perspicacity. One day, a lugubrious young man named Ethan came to him seeking advice. Ethan was in a state of despondency as he had lost his job and was in a state of penury.&lt;/p&gt;
+&lt;p&gt;Alastair, being a compassionate person, listened to Ethan&amp;rsquo;s woes and then gave him a sagacious counsel. He told Ethan that he should not be dispirited and instead should be resilient and tenacious. Alastair also advised him to be prudent with his finances and not to be profligate.&lt;/p&gt;
+&lt;p&gt;Ethan was impressed with Alastair&amp;rsquo;s erudition and thanked him profusely. He then left Alastair&amp;rsquo;s abode feeling invigorated and determined to turn his life around.&lt;/p&gt;
+&lt;p&gt;Days turned into weeks and weeks into months. Ethan followed Alastair&amp;rsquo;s advice and started his own business. He was assiduous and diligent in his work, and soon his business flourished. He was no longer in a state of penury and had become quite affluent.&lt;/p&gt;
+&lt;p&gt;One day, Ethan went to Alastair&amp;rsquo;s abode to thank him for his counsel. Alastair was pleased to see Ethan&amp;rsquo;s success and congratulated him. Ethan was grateful to Alastair for his sagacious counsel and told him that he was indebted to him for life.&lt;/p&gt;
+&lt;p&gt;Alastair smiled and said, &amp;ldquo;Remember, Ethan, it was not my counsel that made you successful, but your own fortitude and perseverance.&amp;rdquo; Ethan nodded in agreement and left Alastair&amp;rsquo;s abode, feeling grateful and enlightened.&lt;/p&gt;
+&lt;h1 id=&#34;2023--41&#34;&gt;2023  4.1&lt;/h1&gt;
+&lt;p&gt;Once upon a time, in a far-off land, there lived a sagacious and illustrious king. He was an erudite man, who spoke with eloquence and had a prodigious memory. The king had a penchant for collecting exotic and rare artifacts from all over the world. He had a vast collection of antiquities, which included a rare amulet that was believed to have magical powers.&lt;/p&gt;
+&lt;p&gt;One day, a nefarious thief broke into the king&amp;rsquo;s palace and stole the amulet. The king was livid and summoned his most astute and perspicacious advisors to help him retrieve the stolen artifact. They devised a plan to catch the thief, which involved using a decoy amulet and setting a trap.&lt;/p&gt;
+&lt;p&gt;The thief was a canny and wily man, who was adept at evading capture. However, he was no match for the king&amp;rsquo;s shrewdness and cunning. He fell into the trap, and the king&amp;rsquo;s guards apprehended him.&lt;/p&gt;
+&lt;p&gt;The thief was brought before the king, who was incensed at his audacity. The thief tried to mollify the king by offering to return the stolen amulet and asked for clemency. However, the king was adamant and ordered that the thief be incarcerated in the dungeon.&lt;/p&gt;
+&lt;p&gt;The thief languished in the dungeon for many years, until one day, he was visited by a wise and sagacious sage. The sage was a man of great erudition, who had traveled the world and had learned many secrets. He spoke with the thief and told him that he had the power to change his fate.&lt;/p&gt;
+&lt;p&gt;The thief listened to the sage&amp;rsquo;s words and realized that he could use his cunning and guile to escape from the dungeon. He devised a plan and executed it with precision. He managed to escape from the dungeon and fled to a far-off land.&lt;/p&gt;
+&lt;p&gt;The thief lived the rest of his life in obscurity, but he was content knowing that he had outwitted the king and had escaped from his fate. He knew that he had the power to change his destiny, and he lived by the sage&amp;rsquo;s words, &amp;ldquo;The only limit to our realization of tomorrow will be our doubts of today.&amp;rdquo;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -4701,7 +4797,49 @@ $$&lt;/p&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/abstract/document/9409067&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://ieeexplore.ieee.org/abstract/document/9409067&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;术语-2&#34;&gt;术语&lt;/h2&gt;
+&lt;h3 id=&#34;osr-oversampling-ratio&#34;&gt;OSR (OverSampling Ratio)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;过采样比，在模拟信号采样时，采样率高于信号带宽的比率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ti-time-interleaved&#34;&gt;TI (Time Interleaved)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;时间交错,通过将采样时序错开来提高采样速率和分辨率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ntf-noise-transfer-function&#34;&gt;NTF (Noise Transfer Function)&lt;/h3&gt;
+&lt;h3 id=&#34;ef-extended-filter&#34;&gt;EF (Extended Filter)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用于实现噪声整形滤波器的结构&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;内容-1&#34;&gt;内容&lt;/h2&gt;
+&lt;h3 id=&#34;i-introdution-2&#34;&gt;I. Introdution&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ADC&lt;/strong&gt;的重要性&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ADC&lt;/strong&gt;的设计问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;噪声、功耗、带宽限制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ii-time-interleaving-of-ns-sar&#34;&gt;II. Time Interleaving of NS SAR&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;NS SAR ADC的结构和工作原理，并详细讨论了时间交错和噪声整形对ADC性能的影响。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;动态调整时间交错比例的方法，以适应不同的输入信号频率范围&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后，文章通过仿真和实验结果验证了NS SAR ADC的性能和优势&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;iii-prosposed-ti-ns-sar&#34;&gt;III. Prosposed TI NS SAR&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
