@@ -319,9 +319,28 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
         </li>
         <li><a href="#tri-state-buffer">Tri-State Buffer</a>
           <ol>
-            <li><a href="#性质">性质</a></li>
+            <li><a href="#性质与作用">性质与作用</a></li>
             <li><a href="#电路和逻辑符号-1">电路和逻辑符号</a></li>
             <li><a href="#verilog-代码-1">Verilog 代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#comparator">Comparator</a>
+          <ol>
+            <li><a href="#常见的四位比较器">常见的四位比较器</a></li>
+            <li><a href="#x--y迭代比较器">X &gt; Y迭代比较器</a></li>
+          </ol>
+        </li>
+        <li><a href="#shifter">Shifter</a>
+          <ol>
+            <li><a href="#类型">类型</a></li>
+            <li><a href="#四位shifter">四位Shifter</a></li>
+            <li><a href="#verilog-代码-2">Verilog 代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#multiplier">Multiplier</a>
+          <ol>
+            <li><a href="#乘法器原理">乘法器原理</a></li>
+            <li><a href="#verilog-代码-3">Verilog 代码</a></li>
           </ol>
         </li>
       </ol>
@@ -416,7 +435,7 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -997,10 +1016,18 @@ $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="tri-state-buffer">Tri-State Buffer</h2>
-<h3 id="性质">性质</h3>
-<blockquote>
+<h3 id="性质与作用">性质与作用</h3>
+<ol>
+<li>
 <p>三种状态: 高电平、低电平、高阻态(等价于<strong>断路</strong>)</p>
-</blockquote>
+</li>
+<li>
+<p><strong>放大</strong>输入信号后输出</p>
+</li>
+<li>
+<p>高阻态下<strong>不干扰</strong>其他电器工作</p>
+</li>
+</ol>
 <h3 id="电路和逻辑符号-1">电路和逻辑符号</h3>
 <p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/19.png"
 	width="675"
@@ -1040,6 +1067,163 @@ $$</p>
 </span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">Y</span> <span class="o">=</span> <span class="p">(</span><span class="nc">E</span><span class="p">)</span> <span class="kd">?</span> <span class="nc">D</span> <span class="p">:</span> <span class="p">{</span><span class="nv">n</span><span class="p">{</span><span class="mi">1</span><span class="s1">&#39;bz}};
 </span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
 </span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="comparator">Comparator</h2>
+<h3 id="常见的四位比较器">常见的四位比较器</h3>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/23.png"
+	width="1028"
+	height="903"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/23_huc694a4330574c04449e01e51b61c7f3a_86684_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/23_huc694a4330574c04449e01e51b61c7f3a_86684_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="273px"
+	
+></p>
+<h3 id="x--y迭代比较器">X &gt; Y迭代比较器</h3>
+<ol>
+<li>电路</li>
+</ol>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/24.png"
+	width="593"
+	height="418"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/24_hu052483f7511ec59170a9cdbf9f47737f_21316_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/24_hu052483f7511ec59170a9cdbf9f47737f_21316_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="340px"
+	
+></p>
+<ol start="2">
+<li>布尔函数</li>
+</ol>
+<p>$$
+\begin{aligned}
+g_{out} &amp;= g_{in} + e_{in}x_iy_i&rsquo; \\
+e_{out} &amp;= g_{in}e_{in} + e_{in}x_i&rsquo;y_i&rsquo; + e_{in}x_iy_i
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>Verilog 代码</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">Greater</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">3</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">X</span><span class="p">,</span><span class="nc">Y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nc">G</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">G</span> <span class="o">=</span> <span class="p">(</span><span class="nc">X</span> <span class="p">&gt;</span> <span class="nc">Y</span><span class="p">)</span> <span class="kd">?</span> <span class="mi">1</span><span class="s1">&#39;b1 : 1&#39;</span><span class="nv">b0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="shifter">Shifter</h2>
+<h3 id="类型">类型</h3>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/25.png"
+	width="1011"
+	height="623"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/25_huaa8cb16a0112b828316c3a30a79a592a_139355_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/25_huaa8cb16a0112b828316c3a30a79a592a_139355_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="162"
+		data-flex-basis="389px"
+	
+></p>
+<h3 id="四位shifter">四位Shifter</h3>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/26.png"
+	width="760"
+	height="298"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/26_hu70111d33a2c76b93ba3b90edda9e3954_36804_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/26_hu70111d33a2c76b93ba3b90edda9e3954_36804_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="255"
+		data-flex-basis="612px"
+	
+></p>
+<h3 id="verilog-代码-2">Verilog 代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">shifter</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span><span class="nc">S</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span><span class="nv">data_in</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span><span class="nv">date_out</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">always</span> <span class="o">@</span><span class="p">(</span><span class="nc">S</span> <span class="k">or</span> <span class="nv">date_in</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">case</span><span class="p">(</span><span class="nc">S</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="mi">0</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="nv">date_in</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="mi">1</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="nv">date_in</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="mi">2</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="nv">date_in</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="mi">3</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="p">{</span><span class="nv">date_in</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="nv">data_out</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">1</span><span class="p">]}</span>
+</span></span><span class="line"><span class="cl">		<span class="nv">endcase</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="multiplier">Multiplier</h2>
+<h3 id="乘法器原理">乘法器原理</h3>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/27.png"
+	width="706"
+	height="777"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/27_hud1ba1740f006e9a3c24f07d5a02ce3df_55121_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/27_hud1ba1740f006e9a3c24f07d5a02ce3df_55121_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="90"
+		data-flex-basis="218px"
+	
+></p>
+<h3 id="verilog-代码-3">Verilog 代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">Multiplier</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">3</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">M</span><span class="p">,</span><span class="nc">Q</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">P</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">P</span> <span class="o">=</span> <span class="nc">M</span><span class="o">*</span><span class="nc">Q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="门电路">门电路</h1>
 <h2 id="fan-in">Fan-in</h2>

@@ -13,7 +13,7 @@
         
         <guid>https://downeyflyfan.com/p/5.mosfet/</guid>
         <description>&lt;h1 id=&#34;设备结构和操作&#34;&gt;设备结构和操作&lt;/h1&gt;
-&lt;h2 id=&#34;金属-氧化物-半导体场效应晶体管&#34;&gt;金属-氧化物-半导体场效应晶体管&lt;/h2&gt;
+&lt;h2 id=&#34;n型金属-氧化物-半导体-场效应晶体管&#34;&gt;N型金属-氧化物-半导体 场效应晶体管&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/1.png&#34;
 	width=&#34;1014&#34;
 	height=&#34;494&#34;
@@ -111,7 +111,7 @@
 &lt;p&gt;&lt;strong&gt;G&lt;/strong&gt;的电源正极从$N^+$中吸取电子推向&lt;strong&gt;P&lt;/strong&gt;区&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Inversion Layer N channel&lt;/strong&gt;形成了&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Inversion Layer N channel&lt;/strong&gt;(反型层N沟道)形成了&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/4.png&#34;
@@ -246,6 +246,141 @@ S &amp;amp;\propto \frac{1}{2}[V_{OV}+(V_{OV}-V_{DS})] \\
 \therefore i_D &amp;amp;= \Big[ (\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS}) \Big]V_{DS}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;h4 id=&#34;情况分析&#34;&gt;情况分析&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{aligned}
+(1)当 V_{DS} &amp;amp;= V_{OV}时 \\
+V_{GD} &amp;amp;= V_t \\
+i_D &amp;amp;= \frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 \\\
+&amp;amp;\pmb{漏极的深度为0}
+\end{aligned} \\\
+\\ \begin{aligned}
+(2) 当V_{DS} &amp;amp;\ge V_{OV}时 \\
+i_D &amp;amp;不变 \\
+i_D &amp;amp;= \frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;结论&#34;&gt;结论&lt;/h4&gt;
+&lt;p&gt;$$
+i_D = \begin{cases}
+(\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS})V_{DS} &amp;amp; V_{DS} \lt V_{OV} \\
+\frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 &amp;amp; V_{DS} \ge V_{OV}
+\end{cases}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;p沟道-mosfet&#34;&gt;P沟道 MOSFET&lt;/h2&gt;
+&lt;h3 id=&#34;与n沟道-mosfet-的不同之处&#34;&gt;与N沟道 MOSFET 的不同之处&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/10.png&#34;
+	width=&#34;694&#34;
+	height=&#34;525&#34;
+	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Gate&lt;/strong&gt;接电源&lt;strong&gt;负极&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Threshold Voltage&lt;/strong&gt; $V_t$表示为$V_{tp}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;跨导系数&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+k_p&amp;rsquo; &amp;amp;= \mu_nC_{OX} \\
+k_p &amp;amp;= \mu_n C_{OX}\frac{W}{L}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;伏安特性&#34;&gt;伏安特性&lt;/h1&gt;
+&lt;h2 id=&#34;电路符号&#34;&gt;电路符号&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/11.png&#34;
+	width=&#34;916&#34;
+	height=&#34;392&#34;
+	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;233&#34;
+		data-flex-basis=&#34;560px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;概念电路&#34;&gt;概念电路&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/12.png&#34;
+	width=&#34;403&#34;
+	height=&#34;311&#34;
+	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;310px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;伏安曲线&#34;&gt;伏安曲线&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/9.png&#34;
+	width=&#34;1230&#34;
+	height=&#34;919&#34;
+	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/9_hu86865afffda9df1f7fd4920b205f5524_406450_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/9_hu86865afffda9df1f7fd4920b205f5524_406450_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;321px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;设计放大器&#34;&gt;设计放大器&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在&lt;strong&gt;Saturation Area&lt;/strong&gt;，&lt;strong&gt;电流&lt;/strong&gt;只与$V_{DS}$有关&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;三极管&lt;/strong&gt; 等效于 &lt;strong&gt;VCCS&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;这叫做&lt;strong&gt;大信号等效电阻&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/13.png&#34;
+	width=&#34;606&#34;
+	height=&#34;280&#34;
+	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/13_hua708755f5bfbcb61c6313bf54c25f3c0_50806_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/13_hua708755f5bfbcb61c6313bf54c25f3c0_50806_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;519px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;饱和时有效的输出电阻&#34;&gt;饱和时有效的输出电阻&lt;/h2&gt;
+&lt;p&gt;$$
+r_0 = \frac{V_A}{i_D} = \frac{1}{\lambda i_D} \\
+\lambda: 电流调制系数 \\
+V_A: 击穿电压
+$$&lt;/p&gt;
+&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
+&lt;h2 id=&#34;channel-pinch-off&#34;&gt;Channel Pinch-off&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Channel pinch-off是指在MOSFET（金属-氧化物-半导体场效应晶体管）中，当门极电压增加到一定程度时，沟道区域的电子密度会逐渐减小，直到最终被完全截断，形成一个电子截止区域。这个电子截止区域被称为channel pinch-off，也称为channel cut-off。在这种情况下，MOSFET的输出电流会受到限制，因为电子无法通过被截断的沟道区域流动。Channel pinch-off是MOSFET工作的重要特性之一，也是设计和优化MOSFET性能的关键因素之一。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;large-signal-equvilent-circuit&#34;&gt;Large-Signal Equvilent Circuit&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大信号等效电路是指将电路中的非线性元件（如二极管、晶体管等）用一个等效的线性电路来代替，以便于分析和计算电路的性能。大信号等效电路一般是由电路中的直流分量和交流分量组成的，可以用于分析电路的直流偏置、放大倍数、输出功率等性能。大信号等效电路是电子电路设计中的重要工具，能够帮助工程师更好地理解和优化电路性能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;channel-length-modulation&#34;&gt;Channel Length Modulation&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当MOSFET的沟道长度缩短时，沟道电阻减小，导致漏电流增加，从而影响MOSFET的输出特性。这种现象在MOSFET的低电压操作中尤为突出，需要进行特殊的设计和优化。&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
         </item>
         <item>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='设备结构和操作 金属-氧化物-半导体场效应晶体管 图标解释 $N^&#43;$: High Concentration
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration
 S: Source Terminal
 G: Gate Terminal
 $I_G$始终为0,因为$SiO_2$是绝缘的 D: Drain Terminal
@@ -12,7 +12,7 @@ G接电源正极
 P区的holes被电场推走
 原来被holes平衡的电子不再平衡了
 G的电源正极从$N^&#43;$中吸取电子推向P区
-Inversion Layer N channel形成了
+Inversion Layer N channel(反型层N沟道)形成了
 电流导通了 说明 使得通道形成的最小电压$V_t$,一般在0.3-1.0V
 Override Voltage $V_{OV} = V_{GS} - V_t$
 由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET)
@@ -22,7 +22,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 <link rel='canonical' href='https://downeyflyfan.com/p/5.mosfet/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5.MOSFET'>
-<meta property='og:description' content='设备结构和操作 金属-氧化物-半导体场效应晶体管 图标解释 $N^&#43;$: High Concentration
+<meta property='og:description' content='设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration
 S: Source Terminal
 G: Gate Terminal
 $I_G$始终为0,因为$SiO_2$是绝缘的 D: Drain Terminal
@@ -33,7 +33,7 @@ G接电源正极
 P区的holes被电场推走
 原来被holes平衡的电子不再平衡了
 G的电源正极从$N^&#43;$中吸取电子推向P区
-Inversion Layer N channel形成了
+Inversion Layer N channel(反型层N沟道)形成了
 电流导通了 说明 使得通道形成的最小电压$V_t$,一般在0.3-1.0V
 Override Voltage $V_{OV} = V_{GS} - V_t$
 由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET)
@@ -42,7 +42,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-29T10:17:02&#43;08:00'/><meta property='article:modified_time' content='2023-03-29T10:17:02&#43;08:00'/>
 <meta name="twitter:title" content="5.MOSFET">
-<meta name="twitter:description" content="设备结构和操作 金属-氧化物-半导体场效应晶体管 图标解释 $N^&#43;$: High Concentration
+<meta name="twitter:description" content="设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration
 S: Source Terminal
 G: Gate Terminal
 $I_G$始终为0,因为$SiO_2$是绝缘的 D: Drain Terminal
@@ -53,7 +53,7 @@ G接电源正极
 P区的holes被电场推走
 原来被holes平衡的电子不再平衡了
 G的电源正极从$N^&#43;$中吸取电子推向P区
-Inversion Layer N channel形成了
+Inversion Layer N channel(反型层N沟道)形成了
 电流导通了 说明 使得通道形成的最小电压$V_t$,一般在0.3-1.0V
 Override Voltage $V_{OV} = V_{GS} - V_t$
 由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET)
@@ -297,7 +297,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
   <ol>
     <li><a href="#设备结构和操作">设备结构和操作</a>
       <ol>
-        <li><a href="#金属-氧化物-半导体场效应晶体管">金属-氧化物-半导体场效应晶体管</a>
+        <li><a href="#n型金属-氧化物-半导体-场效应晶体管">N型金属-氧化物-半导体 场效应晶体管</a>
           <ol>
             <li><a href="#图标解释">图标解释</a></li>
             <li><a href="#其他解释">其他解释</a></li>
@@ -319,10 +319,36 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
               <ol>
                 <li><a href="#电路-1">电路</a></li>
                 <li><a href="#过程">过程</a></li>
+                <li><a href="#情况分析">情况分析</a></li>
+                <li><a href="#结论">结论</a></li>
               </ol>
             </li>
           </ol>
         </li>
+        <li><a href="#p沟道-mosfet">P沟道 MOSFET</a>
+          <ol>
+            <li><a href="#与n沟道-mosfet-的不同之处">与N沟道 MOSFET 的不同之处</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#伏安特性">伏安特性</a>
+      <ol>
+        <li><a href="#电路符号">电路符号</a></li>
+        <li><a href="#概念电路">概念电路</a></li>
+        <li><a href="#伏安曲线">伏安曲线</a>
+          <ol>
+            <li><a href="#设计放大器">设计放大器</a></li>
+          </ol>
+        </li>
+        <li><a href="#饱和时有效的输出电阻">饱和时有效的输出电阻</a></li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#channel-pinch-off">Channel Pinch-off</a></li>
+        <li><a href="#large-signal-equvilent-circuit">Large-Signal Equvilent Circuit</a></li>
+        <li><a href="#channel-length-modulation">Channel Length Modulation</a></li>
       </ol>
     </li>
   </ol>
@@ -389,7 +415,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -405,7 +431,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
     
     
     <h1 id="设备结构和操作">设备结构和操作</h1>
-<h2 id="金属-氧化物-半导体场效应晶体管">金属-氧化物-半导体场效应晶体管</h2>
+<h2 id="n型金属-氧化物-半导体-场效应晶体管">N型金属-氧化物-半导体 场效应晶体管</h2>
 <p><img src="/p/5.mosfet/1.png"
 	width="1014"
 	height="494"
@@ -503,7 +529,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 <p><strong>G</strong>的电源正极从$N^+$中吸取电子推向<strong>P</strong>区</p>
 </li>
 <li>
-<p><strong>Inversion Layer N channel</strong>形成了</p>
+<p><strong>Inversion Layer N channel</strong>(反型层N沟道)形成了</p>
 </li>
 </ul>
 <p><img src="/p/5.mosfet/4.png"
@@ -638,6 +664,141 @@ S &amp;\propto \frac{1}{2}[V_{OV}+(V_{OV}-V_{DS})] \\
 \therefore i_D &amp;= \Big[ (\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS}) \Big]V_{DS}
 \end{aligned}
 $$</p>
+<h4 id="情况分析">情况分析</h4>
+<p>$$
+\begin{aligned}
+(1)当 V_{DS} &amp;= V_{OV}时 \\
+V_{GD} &amp;= V_t \\
+i_D &amp;= \frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 \\\
+&amp;\pmb{漏极的深度为0}
+\end{aligned} \\\
+\\ \begin{aligned}
+(2) 当V_{DS} &amp;\ge V_{OV}时 \\
+i_D &amp;不变 \\
+i_D &amp;= \frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2
+\end{aligned}
+$$</p>
+<h4 id="结论">结论</h4>
+<p>$$
+i_D = \begin{cases}
+(\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS})V_{DS} &amp; V_{DS} \lt V_{OV} \\
+\frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 &amp; V_{DS} \ge V_{OV}
+\end{cases}
+$$</p>
+<h2 id="p沟道-mosfet">P沟道 MOSFET</h2>
+<h3 id="与n沟道-mosfet-的不同之处">与N沟道 MOSFET 的不同之处</h3>
+<p><img src="/p/5.mosfet/10.png"
+	width="694"
+	height="525"
+	srcset="/p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_480x0_resize_box_3.png 480w, /p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="317px"
+	
+></p>
+<ol>
+<li>
+<p><strong>Gate</strong>接电源<strong>负极</strong></p>
+</li>
+<li>
+<p><strong>Threshold Voltage</strong> $V_t$表示为$V_{tp}$</p>
+</li>
+<li>
+<p>跨导系数</p>
+</li>
+</ol>
+<p>$$
+\begin{aligned}
+k_p&rsquo; &amp;= \mu_nC_{OX} \\
+k_p &amp;= \mu_n C_{OX}\frac{W}{L}
+\end{aligned}
+$$</p>
+<h1 id="伏安特性">伏安特性</h1>
+<h2 id="电路符号">电路符号</h2>
+<p><img src="/p/5.mosfet/11.png"
+	width="916"
+	height="392"
+	srcset="/p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_480x0_resize_box_3.png 480w, /p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="233"
+		data-flex-basis="560px"
+	
+></p>
+<h2 id="概念电路">概念电路</h2>
+<p><img src="/p/5.mosfet/12.png"
+	width="403"
+	height="311"
+	srcset="/p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_480x0_resize_box_3.png 480w, /p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="129"
+		data-flex-basis="310px"
+	
+></p>
+<h2 id="伏安曲线">伏安曲线</h2>
+<p><img src="/p/5.mosfet/9.png"
+	width="1230"
+	height="919"
+	srcset="/p/5.mosfet/9_hu86865afffda9df1f7fd4920b205f5524_406450_480x0_resize_box_3.png 480w, /p/5.mosfet/9_hu86865afffda9df1f7fd4920b205f5524_406450_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="133"
+		data-flex-basis="321px"
+	
+></p>
+<h3 id="设计放大器">设计放大器</h3>
+<ol>
+<li>
+<p>在<strong>Saturation Area</strong>，<strong>电流</strong>只与$V_{DS}$有关</p>
+</li>
+<li>
+<p><strong>三极管</strong> 等效于 <strong>VCCS</strong></p>
+</li>
+</ol>
+<ul>
+<li>这叫做<strong>大信号等效电阻</strong></li>
+</ul>
+<p><img src="/p/5.mosfet/13.png"
+	width="606"
+	height="280"
+	srcset="/p/5.mosfet/13_hua708755f5bfbcb61c6313bf54c25f3c0_50806_480x0_resize_box_3.png 480w, /p/5.mosfet/13_hua708755f5bfbcb61c6313bf54c25f3c0_50806_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="216"
+		data-flex-basis="519px"
+	
+></p>
+<h2 id="饱和时有效的输出电阻">饱和时有效的输出电阻</h2>
+<p>$$
+r_0 = \frac{V_A}{i_D} = \frac{1}{\lambda i_D} \\
+\lambda: 电流调制系数 \\
+V_A: 击穿电压
+$$</p>
+<h1 id="附录">附录</h1>
+<h2 id="channel-pinch-off">Channel Pinch-off</h2>
+<blockquote>
+<p>Channel pinch-off是指在MOSFET（金属-氧化物-半导体场效应晶体管）中，当门极电压增加到一定程度时，沟道区域的电子密度会逐渐减小，直到最终被完全截断，形成一个电子截止区域。这个电子截止区域被称为channel pinch-off，也称为channel cut-off。在这种情况下，MOSFET的输出电流会受到限制，因为电子无法通过被截断的沟道区域流动。Channel pinch-off是MOSFET工作的重要特性之一，也是设计和优化MOSFET性能的关键因素之一。</p>
+</blockquote>
+<h2 id="large-signal-equvilent-circuit">Large-Signal Equvilent Circuit</h2>
+<blockquote>
+<p>大信号等效电路是指将电路中的非线性元件（如二极管、晶体管等）用一个等效的线性电路来代替，以便于分析和计算电路的性能。大信号等效电路一般是由电路中的直流分量和交流分量组成的，可以用于分析电路的直流偏置、放大倍数、输出功率等性能。大信号等效电路是电子电路设计中的重要工具，能够帮助工程师更好地理解和优化电路性能。</p>
+</blockquote>
+<h2 id="channel-length-modulation">Channel Length Modulation</h2>
+<blockquote>
+<p>当MOSFET的沟道长度缩短时，沟道电阻减小，导致漏电流增加，从而影响MOSFET的输出特性。这种现象在MOSFET的低电压操作中尤为突出，需要进行特殊的设计和优化。</p>
+</blockquote>
 
 </section>
 
