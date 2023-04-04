@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='GPIO结构图 工作模式 输入模式 Floating Input Pull-Up Pull-Down Analog Mode 输出模式 General purpose output Open-drain Alternate function output Open-drain General purpose output push-pull Alternate function output push-pull 上拉电阻与下拉电阻 上拉电阻使得MCU处于低位，按下按钮后，由低变高
-下拉电阻使得MCU处于高位，按下按钮后，由高变低
-PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入duty cycle(0.0-1.0) period,period_ms,period_us 设置周期 pulsewidth,pulsewidth_ms,pulsewidth_us 设置脉冲宽度 operator = 设置duty cycle 其他函数与对象 tone 定义 一个驱动扬声器发生的函数 语法 1 2 tone(pin,frequency,duration) // 其中，duration是可选项 pc C&#43;&#43;中的Serial类对象 UART 工作原理 Baud Rate: 每秒钟传输的二进制位数 发送和接受的Baud Rate必须相同 发送Start Bit 逻辑为0的一位信号 发送Data Frame 5-8位不等,通常是8位 一个可选的Parity bit 根数据帧中的1的个数，奇数为0,偶数为1 发送Stop Bit 逻辑为1而1、1.'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='GPIO结构图 工作模式 输入模式 Floating Input 将GPIO引脚不连接到任何信号上，需要外部信号输入才能确定GPIO引脚的电平。 Pull-Up 将GPIO引脚连接到一个高电平信号上，通过内部上拉电阻将GPIO引脚拉高，当外部信号低于GPIO引脚电平时，GPIO引脚为低电平。 Pull-Down 将GPIO引脚连接到一个低电平信号上，通过内部下拉电阻将GPIO引脚拉低，当外部信号高于GPIO引脚电平时，GPIO引脚为高电平。 Analog Mode 双向输入模式，将GPIO引脚连接到双向信号上，可以通过软件控制来选择GPIO引脚是输入还是输出 输出模式 General purpose output Open-drain 只能输出低电平 Alternate function output Open-drain 复用输出,被用于其他模式 General purpose output push-pull 输出稳定，可高可低 Alternate function output push-pull 上拉电阻与下拉电阻 上拉电阻 将一个输入端连接到高电平，以确保输入端在没有外部信号的情况下保持高电平。当外部信号拉低输入端时，输入端的电平会变为低电平. 下拉电阻 将一个输入端连接到低电平，以确保输入端在没有外部信号的情况下保持低电平。当外部信号拉高输入端时，输入端的电平会变为高电平. PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入duty cycle(0.0-1.0) period,period_ms,period_us 设置周期 pulsewidth,pulsewidth_ms,pulsewidth_us 设置脉冲宽度 operator = 设置duty cycle 其他函数与对象 tone 定义 一个驱动扬声器发生的函数 语法 1 2 tone(pin,frequency,duration) // 其中，duration是可选项 pc C&#43;&#43;中的Serial类对象 UART 工作原理 Baud Rate: 每秒钟传输的二进制位数 发送和接受的Baud Rate必须相同 发送Start Bit 逻辑为0的一位信号 发送Data Frame 5-8位不等,通常是8位 一个可选的Parity bit 根数据帧中的1的个数，奇数为0,偶数为1 发送Stop Bit 逻辑为1而1、1.'>
 <title>GPIO PWM UART</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/gpio-pwm-uart/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='GPIO PWM UART'>
-<meta property='og:description' content='GPIO结构图 工作模式 输入模式 Floating Input Pull-Up Pull-Down Analog Mode 输出模式 General purpose output Open-drain Alternate function output Open-drain General purpose output push-pull Alternate function output push-pull 上拉电阻与下拉电阻 上拉电阻使得MCU处于低位，按下按钮后，由低变高
-下拉电阻使得MCU处于高位，按下按钮后，由高变低
-PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入duty cycle(0.0-1.0) period,period_ms,period_us 设置周期 pulsewidth,pulsewidth_ms,pulsewidth_us 设置脉冲宽度 operator = 设置duty cycle 其他函数与对象 tone 定义 一个驱动扬声器发生的函数 语法 1 2 tone(pin,frequency,duration) // 其中，duration是可选项 pc C&#43;&#43;中的Serial类对象 UART 工作原理 Baud Rate: 每秒钟传输的二进制位数 发送和接受的Baud Rate必须相同 发送Start Bit 逻辑为0的一位信号 发送Data Frame 5-8位不等,通常是8位 一个可选的Parity bit 根数据帧中的1的个数，奇数为0,偶数为1 发送Stop Bit 逻辑为1而1、1.'>
+<meta property='og:description' content='GPIO结构图 工作模式 输入模式 Floating Input 将GPIO引脚不连接到任何信号上，需要外部信号输入才能确定GPIO引脚的电平。 Pull-Up 将GPIO引脚连接到一个高电平信号上，通过内部上拉电阻将GPIO引脚拉高，当外部信号低于GPIO引脚电平时，GPIO引脚为低电平。 Pull-Down 将GPIO引脚连接到一个低电平信号上，通过内部下拉电阻将GPIO引脚拉低，当外部信号高于GPIO引脚电平时，GPIO引脚为高电平。 Analog Mode 双向输入模式，将GPIO引脚连接到双向信号上，可以通过软件控制来选择GPIO引脚是输入还是输出 输出模式 General purpose output Open-drain 只能输出低电平 Alternate function output Open-drain 复用输出,被用于其他模式 General purpose output push-pull 输出稳定，可高可低 Alternate function output push-pull 上拉电阻与下拉电阻 上拉电阻 将一个输入端连接到高电平，以确保输入端在没有外部信号的情况下保持高电平。当外部信号拉低输入端时，输入端的电平会变为低电平. 下拉电阻 将一个输入端连接到低电平，以确保输入端在没有外部信号的情况下保持低电平。当外部信号拉高输入端时，输入端的电平会变为高电平. PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入duty cycle(0.0-1.0) period,period_ms,period_us 设置周期 pulsewidth,pulsewidth_ms,pulsewidth_us 设置脉冲宽度 operator = 设置duty cycle 其他函数与对象 tone 定义 一个驱动扬声器发生的函数 语法 1 2 tone(pin,frequency,duration) // 其中，duration是可选项 pc C&#43;&#43;中的Serial类对象 UART 工作原理 Baud Rate: 每秒钟传输的二进制位数 发送和接受的Baud Rate必须相同 发送Start Bit 逻辑为0的一位信号 发送Data Frame 5-8位不等,通常是8位 一个可选的Parity bit 根数据帧中的1的个数，奇数为0,偶数为1 发送Stop Bit 逻辑为1而1、1.'>
 <meta property='og:url' content='https://downeyflyfan.com/p/gpio-pwm-uart/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-24T18:06:41&#43;08:00'/><meta property='article:modified_time' content='2023-03-24T18:06:41&#43;08:00'/>
 <meta name="twitter:title" content="GPIO PWM UART">
-<meta name="twitter:description" content="GPIO结构图 工作模式 输入模式 Floating Input Pull-Up Pull-Down Analog Mode 输出模式 General purpose output Open-drain Alternate function output Open-drain General purpose output push-pull Alternate function output push-pull 上拉电阻与下拉电阻 上拉电阻使得MCU处于低位，按下按钮后，由低变高
-下拉电阻使得MCU处于高位，按下按钮后，由高变低
-PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入duty cycle(0.0-1.0) period,period_ms,period_us 设置周期 pulsewidth,pulsewidth_ms,pulsewidth_us 设置脉冲宽度 operator = 设置duty cycle 其他函数与对象 tone 定义 一个驱动扬声器发生的函数 语法 1 2 tone(pin,frequency,duration) // 其中，duration是可选项 pc C&#43;&#43;中的Serial类对象 UART 工作原理 Baud Rate: 每秒钟传输的二进制位数 发送和接受的Baud Rate必须相同 发送Start Bit 逻辑为0的一位信号 发送Data Frame 5-8位不等,通常是8位 一个可选的Parity bit 根数据帧中的1的个数，奇数为0,偶数为1 发送Stop Bit 逻辑为1而1、1."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="GPIO结构图 工作模式 输入模式 Floating Input 将GPIO引脚不连接到任何信号上，需要外部信号输入才能确定GPIO引脚的电平。 Pull-Up 将GPIO引脚连接到一个高电平信号上，通过内部上拉电阻将GPIO引脚拉高，当外部信号低于GPIO引脚电平时，GPIO引脚为低电平。 Pull-Down 将GPIO引脚连接到一个低电平信号上，通过内部下拉电阻将GPIO引脚拉低，当外部信号高于GPIO引脚电平时，GPIO引脚为高电平。 Analog Mode 双向输入模式，将GPIO引脚连接到双向信号上，可以通过软件控制来选择GPIO引脚是输入还是输出 输出模式 General purpose output Open-drain 只能输出低电平 Alternate function output Open-drain 复用输出,被用于其他模式 General purpose output push-pull 输出稳定，可高可低 Alternate function output push-pull 上拉电阻与下拉电阻 上拉电阻 将一个输入端连接到高电平，以确保输入端在没有外部信号的情况下保持高电平。当外部信号拉低输入端时，输入端的电平会变为低电平. 下拉电阻 将一个输入端连接到低电平，以确保输入端在没有外部信号的情况下保持低电平。当外部信号拉高输入端时，输入端的电平会变为高电平. PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入duty cycle(0.0-1.0) period,period_ms,period_us 设置周期 pulsewidth,pulsewidth_ms,pulsewidth_us 设置脉冲宽度 operator = 设置duty cycle 其他函数与对象 tone 定义 一个驱动扬声器发生的函数 语法 1 2 tone(pin,frequency,duration) // 其中，duration是可选项 pc C&#43;&#43;中的Serial类对象 UART 工作原理 Baud Rate: 每秒钟传输的二进制位数 发送和接受的Baud Rate必须相同 发送Start Bit 逻辑为0的一位信号 发送Data Frame 5-8位不等,通常是8位 一个可选的Parity bit 根数据帧中的1的个数，奇数为0,偶数为1 发送Stop Bit 逻辑为1而1、1."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -275,7 +269,12 @@ PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入
             <li><a href="#alternate-function-output-push-pull">Alternate function output push-pull</a></li>
           </ol>
         </li>
-        <li><a href="#上拉电阻与下拉电阻">上拉电阻与下拉电阻</a></li>
+        <li><a href="#上拉电阻与下拉电阻">上拉电阻与下拉电阻</a>
+          <ol>
+            <li><a href="#上拉电阻">上拉电阻</a></li>
+            <li><a href="#下拉电阻">下拉电阻</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#pwm">PWM</a>
@@ -395,6 +394,9 @@ PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入
 <h1 id="工作模式">工作模式</h1>
 <h2 id="输入模式">输入模式</h2>
 <h3 id="floating-input">Floating Input</h3>
+<ul>
+<li>将GPIO引脚不连接到任何信号上，需要外部信号输入才能确定GPIO引脚的电平。</li>
+</ul>
 <p><img src="/p/gpio-pwm-uart/2.png"
 	width="887"
 	height="495"
@@ -408,6 +410,9 @@ PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入
 	
 ></p>
 <h3 id="pull-up">Pull-Up</h3>
+<ul>
+<li>将GPIO引脚连接到一个高电平信号上，通过内部上拉电阻将GPIO引脚拉高，当外部信号低于GPIO引脚电平时，GPIO引脚为低电平。</li>
+</ul>
 <p><img src="/p/gpio-pwm-uart/3.png"
 	width="891"
 	height="506"
@@ -421,6 +426,9 @@ PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入
 	
 ></p>
 <h3 id="pull-down">Pull-Down</h3>
+<ul>
+<li>将GPIO引脚连接到一个低电平信号上，通过内部下拉电阻将GPIO引脚拉低，当外部信号高于GPIO引脚电平时，GPIO引脚为高电平。</li>
+</ul>
 <p><img src="/p/gpio-pwm-uart/4.png"
 	width="888"
 	height="505"
@@ -434,6 +442,9 @@ PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入
 	
 ></p>
 <h3 id="analog-mode">Analog Mode</h3>
+<ul>
+<li>双向输入模式，将GPIO引脚连接到双向信号上，可以通过软件控制来选择GPIO引脚是输入还是输出</li>
+</ul>
 <p><img src="/p/gpio-pwm-uart/5.png"
 	width="886"
 	height="507"
@@ -448,6 +459,9 @@ PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入
 ></p>
 <h2 id="输出模式">输出模式</h2>
 <h3 id="general-purpose-output-open-drain">General purpose output Open-drain</h3>
+<ul>
+<li>只能输出<strong>低电平</strong></li>
+</ul>
 <p><img src="/p/gpio-pwm-uart/6.png"
 	width="1083"
 	height="520"
@@ -461,6 +475,9 @@ PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入
 	
 ></p>
 <h3 id="alternate-function-output-open-drain">Alternate function output Open-drain</h3>
+<ul>
+<li>复用输出,被用于其他模式</li>
+</ul>
 <p><img src="/p/gpio-pwm-uart/7.png"
 	width="919"
 	height="544"
@@ -474,6 +491,9 @@ PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入
 	
 ></p>
 <h3 id="general-purpose-output-push-pull">General purpose output push-pull</h3>
+<ul>
+<li>输出稳定，可高可低</li>
+</ul>
 <p><img src="/p/gpio-pwm-uart/8.png"
 	width="1091"
 	height="535"
@@ -500,14 +520,14 @@ PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.0-1.0) read 写入
 	
 ></p>
 <h2 id="上拉电阻与下拉电阻">上拉电阻与下拉电阻</h2>
-<ol>
-<li>
-<p><strong>上拉</strong>电阻使得MCU处于<strong>低位</strong>，按下<strong>按钮</strong>后，<strong>由低变高</strong></p>
-</li>
-<li>
-<p><strong>下拉</strong>电阻使得MCU处于<strong>高位</strong>，按下<strong>按钮</strong>后，<strong>由高变低</strong></p>
-</li>
-</ol>
+<h3 id="上拉电阻">上拉电阻</h3>
+<ul>
+<li>将一个输入端连接到高电平，以<strong>确保输入端在没有外部信号的情况下保持高电平</strong>。当外部信号拉低输入端时，输入端的电平会变为低电平.</li>
+</ul>
+<h3 id="下拉电阻">下拉电阻</h3>
+<ul>
+<li>将一个输入端连接到低电平，以确保输入端在没有外部信号的情况下保持低电平。当外部信号拉高输入端时，输入端的电平会变为高电平.</li>
+</ul>
 <h1 id="pwm">PWM</h1>
 <h2 id="函数">函数</h2>
 <div class="table-wrapper"><table>

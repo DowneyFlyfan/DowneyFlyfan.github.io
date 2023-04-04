@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='组合电路 加法器 Full Adder 三输入，两输出，真值表类似下图
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='组合电路 Multiplexer 数学表达式 $$ Z = \Sigma_{i=1}^n m_i D_i $$
+端口 Enable,
+输入选择 Select[]
+A,B,C 从高位到低位 Data[]
+输出Y[]
+加法器 Full Adder 三输入，两输出，真值表类似下图
 Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp;= SOP \\ c_{i&#43;1} &amp;amp;= POC \\ s_i &amp;amp;= x_i \oplus y_i \oplus z_i \\ c_{i&#43;1} &amp;amp;= x_iy_i &#43; c_i(x_i \oplus y_i) \end{aligned} $$
 电路 逻辑符号 四位加法器结构 Carry-Lookahead Adder 要求 $$ \begin{aligned} c_{i&#43;1} &amp;amp;= x_iy_i &#43; (x_i &#43; y_i)c_i \\\ \\ Let \ g_i &amp;amp;= x_iy_i \\ \ p_i &amp;amp;= x_i &#43; y_i \\\ \\ c_1 &amp;amp;= g_0 &#43; p_0c_0 \\ c_2 &amp;amp;= g_1 &#43; p_1c_1 \\ &amp;amp;= g_1 &#43; p_1(g_0 &#43; p_0c_0) \\ &amp;amp;= g_1 &#43; p_1g_0 &#43; p_ip_0c_0 \\ c_3 &amp;amp;= g_2 &#43; p_2g_1 &#43; p_2p_1g_0 &#43; p_2p_1p_0c_0 \\ c_4 &amp;amp;= g_3 &#43; p_3g_2 &#43; p_3p_2g_1 &#43; p_3p_2p_1g_0 &#43; p_3p_2p_1p_0c_0 \end{aligned} $$'>
 <title>4.电路器件</title>
@@ -9,14 +14,24 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
 <link rel='canonical' href='https://downeyflyfan.com/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4.电路器件'>
-<meta property='og:description' content='组合电路 加法器 Full Adder 三输入，两输出，真值表类似下图
+<meta property='og:description' content='组合电路 Multiplexer 数学表达式 $$ Z = \Sigma_{i=1}^n m_i D_i $$
+端口 Enable,
+输入选择 Select[]
+A,B,C 从高位到低位 Data[]
+输出Y[]
+加法器 Full Adder 三输入，两输出，真值表类似下图
 Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp;= SOP \\ c_{i&#43;1} &amp;amp;= POC \\ s_i &amp;amp;= x_i \oplus y_i \oplus z_i \\ c_{i&#43;1} &amp;amp;= x_iy_i &#43; c_i(x_i \oplus y_i) \end{aligned} $$
 电路 逻辑符号 四位加法器结构 Carry-Lookahead Adder 要求 $$ \begin{aligned} c_{i&#43;1} &amp;amp;= x_iy_i &#43; (x_i &#43; y_i)c_i \\\ \\ Let \ g_i &amp;amp;= x_iy_i \\ \ p_i &amp;amp;= x_i &#43; y_i \\\ \\ c_1 &amp;amp;= g_0 &#43; p_0c_0 \\ c_2 &amp;amp;= g_1 &#43; p_1c_1 \\ &amp;amp;= g_1 &#43; p_1(g_0 &#43; p_0c_0) \\ &amp;amp;= g_1 &#43; p_1g_0 &#43; p_ip_0c_0 \\ c_3 &amp;amp;= g_2 &#43; p_2g_1 &#43; p_2p_1g_0 &#43; p_2p_1p_0c_0 \\ c_4 &amp;amp;= g_3 &#43; p_3g_2 &#43; p_3p_2g_1 &#43; p_3p_2p_1g_0 &#43; p_3p_2p_1p_0c_0 \end{aligned} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-21T10:23:50&#43;08:00'/><meta property='article:modified_time' content='2023-03-21T10:23:50&#43;08:00'/>
 <meta name="twitter:title" content="4.电路器件">
-<meta name="twitter:description" content="组合电路 加法器 Full Adder 三输入，两输出，真值表类似下图
+<meta name="twitter:description" content="组合电路 Multiplexer 数学表达式 $$ Z = \Sigma_{i=1}^n m_i D_i $$
+端口 Enable,
+输入选择 Select[]
+A,B,C 从高位到低位 Data[]
+输出Y[]
+加法器 Full Adder 三输入，两输出，真值表类似下图
 Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp;= SOP \\ c_{i&#43;1} &amp;amp;= POC \\ s_i &amp;amp;= x_i \oplus y_i \oplus z_i \\ c_{i&#43;1} &amp;amp;= x_iy_i &#43; c_i(x_i \oplus y_i) \end{aligned} $$
 电路 逻辑符号 四位加法器结构 Carry-Lookahead Adder 要求 $$ \begin{aligned} c_{i&#43;1} &amp;amp;= x_iy_i &#43; (x_i &#43; y_i)c_i \\\ \\ Let \ g_i &amp;amp;= x_iy_i \\ \ p_i &amp;amp;= x_i &#43; y_i \\\ \\ c_1 &amp;amp;= g_0 &#43; p_0c_0 \\ c_2 &amp;amp;= g_1 &#43; p_1c_1 \\ &amp;amp;= g_1 &#43; p_1(g_0 &#43; p_0c_0) \\ &amp;amp;= g_1 &#43; p_1g_0 &#43; p_ip_0c_0 \\ c_3 &amp;amp;= g_2 &#43; p_2g_1 &#43; p_2p_1g_0 &#43; p_2p_1p_0c_0 \\ c_4 &amp;amp;= g_3 &#43; p_3g_2 &#43; p_3p_2g_1 &#43; p_3p_2p_1g_0 &#43; p_3p_2p_1p_0c_0 \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
@@ -258,6 +273,12 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
   <ol>
     <li><a href="#组合电路">组合电路</a>
       <ol>
+        <li><a href="#multiplexer">Multiplexer</a>
+          <ol>
+            <li><a href="#数学表达式">数学表达式</a></li>
+            <li><a href="#端口">端口</a></li>
+          </ol>
+        </li>
         <li><a href="#加法器">加法器</a>
           <ol>
             <li><a href="#full-adder">Full Adder</a></li>
@@ -311,10 +332,16 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
             </li>
           </ol>
         </li>
-        <li><a href="#decoder和encoder">Decoder和Encoder</a>
+        <li><a href="#decoder">Decoder</a>
           <ol>
             <li><a href="#电路和逻辑符号">电路和逻辑符号</a></li>
             <li><a href="#verilog-代码">Verilog 代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#encoder">Encoder</a>
+          <ol>
+            <li><a href="#148-encoder">148 Encoder</a></li>
+            <li><a href="#代码">代码</a></li>
           </ol>
         </li>
         <li><a href="#tri-state-buffer">Tri-State Buffer</a>
@@ -451,6 +478,31 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
     
     
     <h1 id="组合电路">组合电路</h1>
+<h2 id="multiplexer">Multiplexer</h2>
+<h3 id="数学表达式">数学表达式</h3>
+<p>$$
+Z = \Sigma_{i=1}^n m_i D_i
+$$</p>
+<h3 id="端口">端口</h3>
+<ol>
+<li>
+<p>Enable,</p>
+</li>
+<li>
+<p>输入选择 Select[]</p>
+</li>
+</ol>
+<ul>
+<li>A,B,C 从高位到低位</li>
+</ul>
+<ol start="3">
+<li>
+<p>Data[]</p>
+</li>
+<li>
+<p>输出Y[]</p>
+</li>
+</ol>
 <h2 id="加法器">加法器</h2>
 <h3 id="full-adder">Full Adder</h3>
 <blockquote>
@@ -962,7 +1014,7 @@ $$</p>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="decoder和encoder">Decoder和Encoder</h2>
+</div><h2 id="decoder">Decoder</h2>
 <h3 id="电路和逻辑符号">电路和逻辑符号</h3>
 <p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/18.png"
 	width="872"
@@ -1014,6 +1066,69 @@ $$</p>
 </span></span><span class="line"><span class="cl">	<span class="nv">end</span>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="encoder">Encoder</h2>
+<h3 id="148-encoder">148 Encoder</h3>
+<p><img src="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/28.png"
+	width="373"
+	height="498"
+	srcset="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/28_hu558919c5f1de284b51a7095f304fa5b5_46572_480x0_resize_box_3.png 480w, /p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/28_hu558919c5f1de284b51a7095f304fa5b5_46572_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="74"
+		data-flex-basis="179px"
+	
+></p>
+<h3 id="代码">代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">decoder</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="k">in</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">out</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nv">always</span> <span class="o">@</span> <span class="p">(</span><span class="k">in</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">	<span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">    	<span class="nv">case</span> <span class="p">(</span><span class="k">in</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00000001: out = 3&#39;</span><span class="nv">b000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00000010: out = 3&#39;</span><span class="nv">b001</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00000100: out = 3&#39;</span><span class="nv">b010</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00001000: out = 3&#39;</span><span class="nv">b011</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00010000: out = 3&#39;</span><span class="nv">b100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00100000: out = 3&#39;</span><span class="nv">b101</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b01000000: out = 3&#39;</span><span class="nv">b110</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b10000000: out = 3&#39;</span><span class="nv">b111</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="nv">default</span><span class="p">:</span> <span class="nv">out</span> <span class="o">=</span> <span class="mi">3</span><span class="s1">&#39;b000;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    	endcase
+</span></span></span><span class="line"><span class="cl"><span class="s1">	end
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="tri-state-buffer">Tri-State Buffer</h2>
 <h3 id="性质与作用">性质与作用</h3>
@@ -1395,6 +1510,19 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5.时序电路</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">

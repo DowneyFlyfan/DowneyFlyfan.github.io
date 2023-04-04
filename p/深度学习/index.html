@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Python复习 算术 **表示乘方 列表 1 2 3 a = [1,2,3,4,5] # 生成列表 a[0] # 访问列表的第一个元素 a[0:n] # 获取索引从0到n-1的元素 字典-键值对 1 2 3 me = [&amp;#39;height&amp;#39;:185] # 生成字典 me[&amp;#39;height&amp;#39;] # 访问元素 me[&amp;#39;weight&amp;#39;]=80 # 添加新元素 布尔型 True和False表示真假
-and or not表示与或非
-循环 判断语句 if 1 2 3 4 5 6 if condition1: # do something elif condition2: # do something else else: # do ... for 1 2 for ... in ...: # do sth.'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='感知机 定义 接受多个输入信号(不同的权重）,获得一个输出的机器
+多层感知机 多层输入获得一个输出
+神经网络 图示 解释 中间层又被称为隐藏层
+用第0,1,2层表示输入、中间、输出层
+示例 图示——含有偏置的简单神经网络 $$ y = \begin{cases} 0 &amp;amp; w_1x_1 &#43; w_2x_2 &#43; b \le 0 \\ 1 &amp;amp; w_1x_1 &#43;w_2x_2 &#43; b \gt 0 \end{cases} \\\ \\ 引入\pmb{激活函数h(x)}=\begin{cases} 1 &amp;amp; x\gt 0 \\ 0 &amp;amp; x\le 0 \end{cases} \\\ \\ 那么y = h(w_1x_1 &#43; w_2x_2 &#43; b) \\\ \\ 此处的激活函数是一种\pmb{阶跃函数} $$
+进一步推导 图示 $$ a = w_1x_1 &#43; w_2x_2 &#43; b \\\ \\ y = h(a) $$'>
 <title>深度学习</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='深度学习'>
-<meta property='og:description' content='Python复习 算术 **表示乘方 列表 1 2 3 a = [1,2,3,4,5] # 生成列表 a[0] # 访问列表的第一个元素 a[0:n] # 获取索引从0到n-1的元素 字典-键值对 1 2 3 me = [&amp;#39;height&amp;#39;:185] # 生成字典 me[&amp;#39;height&amp;#39;] # 访问元素 me[&amp;#39;weight&amp;#39;]=80 # 添加新元素 布尔型 True和False表示真假
-and or not表示与或非
-循环 判断语句 if 1 2 3 4 5 6 if condition1: # do something elif condition2: # do something else else: # do ... for 1 2 for ... in ...: # do sth.'>
+<meta property='og:description' content='感知机 定义 接受多个输入信号(不同的权重）,获得一个输出的机器
+多层感知机 多层输入获得一个输出
+神经网络 图示 解释 中间层又被称为隐藏层
+用第0,1,2层表示输入、中间、输出层
+示例 图示——含有偏置的简单神经网络 $$ y = \begin{cases} 0 &amp;amp; w_1x_1 &#43; w_2x_2 &#43; b \le 0 \\ 1 &amp;amp; w_1x_1 &#43;w_2x_2 &#43; b \gt 0 \end{cases} \\\ \\ 引入\pmb{激活函数h(x)}=\begin{cases} 1 &amp;amp; x\gt 0 \\ 0 &amp;amp; x\le 0 \end{cases} \\\ \\ 那么y = h(w_1x_1 &#43; w_2x_2 &#43; b) \\\ \\ 此处的激活函数是一种\pmb{阶跃函数} $$
+进一步推导 图示 $$ a = w_1x_1 &#43; w_2x_2 &#43; b \\\ \\ y = h(a) $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-11T14:16:50&#43;00:00'/><meta property='article:modified_time' content='2023-03-11T14:16:50&#43;00:00'/>
 <meta name="twitter:title" content="深度学习">
-<meta name="twitter:description" content="Python复习 算术 **表示乘方 列表 1 2 3 a = [1,2,3,4,5] # 生成列表 a[0] # 访问列表的第一个元素 a[0:n] # 获取索引从0到n-1的元素 字典-键值对 1 2 3 me = [&amp;#39;height&amp;#39;:185] # 生成字典 me[&amp;#39;height&amp;#39;] # 访问元素 me[&amp;#39;weight&amp;#39;]=80 # 添加新元素 布尔型 True和False表示真假
-and or not表示与或非
-循环 判断语句 if 1 2 3 4 5 6 if condition1: # do something elif condition2: # do something else else: # do ... for 1 2 for ... in ...: # do sth."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="感知机 定义 接受多个输入信号(不同的权重）,获得一个输出的机器
+多层感知机 多层输入获得一个输出
+神经网络 图示 解释 中间层又被称为隐藏层
+用第0,1,2层表示输入、中间、输出层
+示例 图示——含有偏置的简单神经网络 $$ y = \begin{cases} 0 &amp;amp; w_1x_1 &#43; w_2x_2 &#43; b \le 0 \\ 1 &amp;amp; w_1x_1 &#43;w_2x_2 &#43; b \gt 0 \end{cases} \\\ \\ 引入\pmb{激活函数h(x)}=\begin{cases} 1 &amp;amp; x\gt 0 \\ 0 &amp;amp; x\le 0 \end{cases} \\\ \\ 那么y = h(w_1x_1 &#43; w_2x_2 &#43; b) \\\ \\ 此处的激活函数是一种\pmb{阶跃函数} $$
+进一步推导 图示 $$ a = w_1x_1 &#43; w_2x_2 &#43; b \\\ \\ y = h(a) $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -256,37 +265,9 @@ and or not表示与或非
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#python复习">Python复习</a>
-      <ol>
-        <li><a href="#算术">算术</a></li>
-        <li><a href="#列表">列表</a></li>
-        <li><a href="#字典-键值对">字典-键值对</a></li>
-        <li><a href="#布尔型">布尔型</a></li>
-        <li><a href="#循环-判断语句">循环 判断语句</a>
-          <ol>
-            <li><a href="#if">if</a></li>
-            <li><a href="#for">for</a></li>
-          </ol>
-        </li>
-        <li><a href="#函数">函数</a></li>
-        <li><a href="#类">类</a>
-          <ol>
-            <li><a href="#定义">定义</a></li>
-            <li><a href="#实例">实例</a></li>
-          </ol>
-        </li>
-        <li><a href="#numpy数组">Numpy数组</a>
-          <ol>
-            <li><a href="#与python列表的区别">与python列表的区别</a></li>
-            <li><a href="#n维数组矩阵">N维数组(矩阵)</a></li>
-            <li><a href="#访问元素">访问元素</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
     <li><a href="#感知机">感知机</a>
       <ol>
-        <li><a href="#定义-1">定义</a></li>
+        <li><a href="#定义">定义</a></li>
         <li><a href="#多层感知机">多层感知机</a></li>
       </ol>
     </li>
@@ -321,7 +302,7 @@ and or not表示与或非
         <li><a href="#回归问题--恒等函数">回归问题 —— 恒等函数</a></li>
         <li><a href="#分类问题--softmax函数">分类问题 —— softmax函数</a>
           <ol>
-            <li><a href="#定义-2">定义</a></li>
+            <li><a href="#定义-1">定义</a></li>
             <li><a href="#修正">修正</a></li>
             <li><a href="#特征">特征</a></li>
             <li><a href="#上述代码总和">上述代码总和</a></li>
@@ -343,10 +324,10 @@ and or not表示与或非
     <li><a href="#数值微分">数值微分</a></li>
     <li><a href="#梯度">梯度</a>
       <ol>
-        <li><a href="#定义-3">定义</a></li>
+        <li><a href="#定义-2">定义</a></li>
         <li><a href="#梯度法">梯度法</a>
           <ol>
-            <li><a href="#定义-4">定义</a></li>
+            <li><a href="#定义-3">定义</a></li>
             <li><a href="#数学表示">数学表示</a></li>
             <li><a href="#神经网络的梯度">神经网络的梯度</a></li>
           </ol>
@@ -417,7 +398,7 @@ and or not表示与或非
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -432,178 +413,8 @@ and or not表示与或非
     <section class="article-content">
     
     
-    <h1 id="python复习">Python复习</h1>
-<h2 id="算术">算术</h2>
-<ul>
-<li>**表示乘方</li>
-</ul>
-<h2 id="列表">列表</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># 生成列表</span>
-</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 访问列表的第一个元素</span>
-</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span> <span class="c1"># 获取索引从0到n-1的元素</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="字典-键值对">字典-键值对</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">me</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="mi">185</span><span class="p">]</span> <span class="c1"># 生成字典</span>
-</span></span><span class="line"><span class="cl"><span class="n">me</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="c1"># 访问元素</span>
-</span></span><span class="line"><span class="cl"><span class="n">me</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">80</span> <span class="c1"># 添加新元素</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="布尔型">布尔型</h2>
-<ul>
-<li>
-<p><code>True</code>和<code>False</code>表示真假</p>
-</li>
-<li>
-<p><code>and or not</code>表示<strong>与或非</strong></p>
-</li>
-</ul>
-<h2 id="循环-判断语句">循环 判断语句</h2>
-<h3 id="if">if</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># do something</span>
-</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># do something else</span>
-</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="c1"># do ...</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="for">for</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">for</span> <span class="o">...</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="c1"># do sth.</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="函数">函数</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func</span><span class="p">():</span> <span class="c1">#参数可有可无</span>
-</span></span><span class="line"><span class="cl">	<span class="o">...</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="类">类</h2>
-<h3 id="定义">定义</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">类名</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">参数</span> <span class="p">,</span> <span class="o">...</span><span class="p">):</span> <span class="c1"># 构造函数</span>
-</span></span><span class="line"><span class="cl"><span class="o">...</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">方法名</span> <span class="mi">1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">参数</span> <span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl"> <span class="c1"># 方法 1</span>
-</span></span><span class="line"><span class="cl"><span class="o">...</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">方法名</span> <span class="mi">2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">参数</span> <span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl"> <span class="c1"># 方法 2</span>
-</span></span><span class="line"><span class="cl"><span class="o">...</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="实例">实例</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The car is starting.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The car is stopping.&#34;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="numpy数组">Numpy数组</h2>
-<h3 id="与python列表的区别">与python列表的区别</h3>
-<ul>
-<li>
-<p>数据类型：NumPy数组是一个固定类型的多维数组，数组中的元素必须具有相同的数据类型。而Python列表可以包含任何类型的对象。</p>
-</li>
-<li>
-<p>内存分配：NumPy数组在内存中连续地存储，这使得它们的访问速度更快。Python列表则是由指向内存中不同位置的指针组成的数组，它们的元素可以存储在内存中的任何地方。</p>
-</li>
-<li>
-<p>数组操作：NumPy数组支持许多数学和科学操作，例如线性代数、傅里叶变换和统计分析。这些操作对于数组的每个元素进行运算，速度更快。而对于Python列表，需要使用循环来对每个元素进行操作，速度较慢。</p>
-</li>
-<li>
-<p>大小可变性：NumPy数组的大小是固定的，一旦创建后就无法改变。Python列表的大小是可变的，可以随时添加或删除元素。</p>
-</li>
-</ul>
-<h3 id="n维数组矩阵">N维数组(矩阵)</h3>
-<ul>
-<li>对于不同<strong>形状</strong>的数组之间的运算，NumPy会自动扩展</li>
-</ul>
-<p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/1.png"
-	width="822"
-	height="156"
-	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/1_hu955f25caac471622a624eb0970a89751_13332_480x0_resize_box_3.png 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/1_hu955f25caac471622a624eb0970a89751_13332_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="526"
-		data-flex-basis="1264px"
-	
-></p>
-<h3 id="访问元素">访问元素</h3>
-<h1 id="感知机">感知机</h1>
-<h2 id="定义-1">定义</h2>
+    <h1 id="感知机">感知机</h1>
+<h2 id="定义">定义</h2>
 <blockquote>
 <p>接受多个输入信号(不同的权重）,获得一个输出的机器</p>
 </blockquote>
@@ -776,7 +587,7 @@ $$</p>
 h(x) = x \ \ x \in R
 $$</p>
 <h2 id="分类问题--softmax函数">分类问题 —— softmax函数</h2>
-<h3 id="定义-2">定义</h3>
+<h3 id="定义-1">定义</h3>
 <p>$$
 y_k = \frac{e^{a_k}}{\sum_{i=1}^n e^{a_i}} \\\
 \\ 假设输出层有n个神经元，则第k个神经元如上所示
@@ -1045,12 +856,12 @@ $$</p>
 \\ 通过\pmb{中心差分}实现更高的\pmb{精度}
 $$</p>
 <h1 id="梯度">梯度</h1>
-<h2 id="定义-3">定义</h2>
+<h2 id="定义-2">定义</h2>
 <blockquote>
 <p>像$(\frac{\partial f}{\partial x_0},\frac{\partial f}{\partial x_1})$ 这样由<strong>全部变量的偏倒数</strong>汇总而成的<strong>向量</strong>被称为<strong>梯度</strong></p>
 </blockquote>
 <h2 id="梯度法">梯度法</h2>
-<h3 id="定义-4">定义</h3>
+<h3 id="定义-3">定义</h3>
 <blockquote>
 <p>不断地<strong>沿梯度方向</strong>前进,逐渐<strong>减小函数值</strong>的过程</p>
 </blockquote>
