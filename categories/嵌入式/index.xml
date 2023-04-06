@@ -640,6 +640,20 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2 id=&#34;操作码&#34;&gt;操作码&lt;/h2&gt;
+&lt;p&gt;0：无操作&lt;/p&gt;
+&lt;p&gt;1：存储器读取&lt;/p&gt;
+&lt;p&gt;2：存储器写入&lt;/p&gt;
+&lt;p&gt;3：寄存器-寄存器算术操作&lt;/p&gt;
+&lt;p&gt;4：常量扩展和寄存器-立即数算术操作&lt;/p&gt;
+&lt;p&gt;5：逻辑操作&lt;/p&gt;
+&lt;p&gt;6：条件分支&lt;/p&gt;
+&lt;p&gt;7：无条件跳转&lt;/p&gt;
+&lt;p&gt;8：函数调用&lt;/p&gt;
+&lt;p&gt;9：函数返回&lt;/p&gt;
+&lt;p&gt;10：中断处理&lt;/p&gt;
+&lt;p&gt;11：输入输出&lt;/p&gt;
+&lt;p&gt;12-15：保留&lt;/p&gt;
 &lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
 &lt;h2 id=&#34;label&#34;&gt;Label&lt;/h2&gt;
 &lt;h2 id=&#34;constant&#34;&gt;Constant&lt;/h2&gt;
@@ -707,8 +721,7 @@
 &lt;li&gt;以分号(;)开头&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;处理器&#34;&gt;处理器&lt;/h1&gt;
-&lt;h2 id=&#34;处理器状态&#34;&gt;处理器状态&lt;/h2&gt;
-&lt;h3 id=&#34;标志位flags--特殊的处理器状态&#34;&gt;标志位(flags) —— 特殊的处理器状态&lt;/h3&gt;
+&lt;h2 id=&#34;处理器状态----标志位flags--特殊的处理器状态&#34;&gt;处理器状态 &amp;ndash; 标志位(flags) —— 特殊的处理器状态&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;零标志位（ZF）：最近执行的操作结果是否为0&lt;/p&gt;
@@ -726,6 +739,12 @@
 &lt;p&gt;奇偶标志位（PF）：判断最近执行的操作结果的二进制表示中1的个数是否为偶数。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;cpu的指令执行&#34;&gt;CPU的指令执行&lt;/h2&gt;
+&lt;h3 id=&#34;取指fetch&#34;&gt;取指(Fetch)&lt;/h3&gt;
+&lt;h3 id=&#34;译码decode&#34;&gt;译码(Decode)&lt;/h3&gt;
+&lt;h3 id=&#34;执行execute&#34;&gt;执行(Execute)&lt;/h3&gt;
+&lt;h3 id=&#34;访存memory-access&#34;&gt;访存(Memory Access)&lt;/h3&gt;
+&lt;h3 id=&#34;写回wirte-back&#34;&gt;写回(Wirte Back)&lt;/h3&gt;
 </description>
         </item>
         <item>

@@ -421,12 +421,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">always @ ( sensitivity_list ) 
-</span></span><span class="line"><span class="cl">begin 
-</span></span><span class="line"><span class="cl">  // sequential or combinational logic statements 
-</span></span><span class="line"><span class="cl">end
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">always</span> <span class="o">@</span> <span class="p">(</span> <span class="nv">sensitivity_list</span> <span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nv">begin</span> 
+</span></span><span class="line"><span class="cl">  <span class="c1">// sequential or combinational logic statements 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">end</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">#10 延迟10毫秒
+</span></span><span class="line"><span class="cl"><span class="cp">#10 延迟10毫秒</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
@@ -494,8 +494,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wire input_signal;
-</span></span><span class="line"><span class="cl">wire output_signal;
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">wire</span> <span class="nv">input_signal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">wire</span> <span class="nv">output_signal</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="reg">reg</h3>
@@ -509,9 +509,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">reg [7:0] counter; // 定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 reg 类型，从左到右编号分别为 7、6、5、4、3、2、1、0
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">reg [31:0] data;
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">counter</span><span class="p">;</span> <span class="c1">// 定义了一个由 8 个位组成的向量信号，每个位都是一个单独的 reg 类型，从左到右编号分别为 7、6、5、4、3、2、1、0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">reg</span> <span class="p">[</span><span class="err">31</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">data</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="其他">其他</h3>
@@ -582,17 +582,17 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">if (condition) begin
-</span></span><span class="line"><span class="cl">  // do something
-</span></span><span class="line"><span class="cl">end
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nv">condition</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// do something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">end</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">for (i = 0; i &lt; 10; i = i + 1) begin
-</span></span><span class="line"><span class="cl">  // do something
-</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">i</span> <span class="o">=</span> <span class="nv">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// do something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">end</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">while (condition) begin
-</span></span><span class="line"><span class="cl">  // do something
-</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl"><span class="nv">while</span> <span class="p">(</span><span class="nv">condition</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// do something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">end</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="时序控制">时序控制</h2>
@@ -807,12 +807,12 @@ Hardware_Verify --> Coding: Error
             
                 
 <article class="">
-    <a href="/p/4.%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6/">
+    <a href="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">4.电路器件</h2>
+            <h2 class="article-title">4.组合电路</h2>
         </div>
     </a>
 </article>

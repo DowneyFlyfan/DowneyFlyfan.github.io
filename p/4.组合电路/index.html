@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='组合电路 Multiplexer 数学表达式 $$ Z = \Sigma_{i=0}^{n-1} \ m_i D_i $$
+电路 加法器 Full Adder 三输入，两输出，真值表类似下图
+Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp;= SOP \\ c_{i&#43;1} &amp;amp;= POC \\ s_i &amp;amp;= x_i \oplus y_i \oplus z_i \\ c_{i&#43;1} &amp;amp;= x_iy_i &#43; c_i(x_i \oplus y_i) \end{aligned} $$
+电路 逻辑符号 四位加法器结构 Carry-Lookahead Adder 要求 $$ \begin{aligned} c_{i&#43;1} &amp;amp;= x_iy_i &#43; (x_i &#43; y_i)c_i \\\ \\ Let \ g_i &amp;amp;= x_iy_i \\ \ p_i &amp;amp;= x_i &#43; y_i \\\ \\ c_1 &amp;amp;= g_0 &#43; p_0c_0 \\ c_2 &amp;amp;= g_1 &#43; p_1c_1 \\ &amp;amp;= g_1 &#43; p_1(g_0 &#43; p_0c_0) \\ &amp;amp;= g_1 &#43; p_1g_0 &#43; p_ip_0c_0 \\ c_3 &amp;amp;= g_2 &#43; p_2g_1 &#43; p_2p_1g_0 &#43; p_2p_1p_0c_0 \\ c_4 &amp;amp;= g_3 &#43; p_3g_2 &#43; p_3p_2g_1 &#43; p_3p_2p_1g_0 &#43; p_3p_2p_1p_0c_0 \end{aligned} $$'>
+<title>4.组合电路</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4.组合电路'>
+<meta property='og:description' content='组合电路 Multiplexer 数学表达式 $$ Z = \Sigma_{i=0}^{n-1} \ m_i D_i $$
+电路 加法器 Full Adder 三输入，两输出，真值表类似下图
+Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp;= SOP \\ c_{i&#43;1} &amp;amp;= POC \\ s_i &amp;amp;= x_i \oplus y_i \oplus z_i \\ c_{i&#43;1} &amp;amp;= x_iy_i &#43; c_i(x_i \oplus y_i) \end{aligned} $$
+电路 逻辑符号 四位加法器结构 Carry-Lookahead Adder 要求 $$ \begin{aligned} c_{i&#43;1} &amp;amp;= x_iy_i &#43; (x_i &#43; y_i)c_i \\\ \\ Let \ g_i &amp;amp;= x_iy_i \\ \ p_i &amp;amp;= x_i &#43; y_i \\\ \\ c_1 &amp;amp;= g_0 &#43; p_0c_0 \\ c_2 &amp;amp;= g_1 &#43; p_1c_1 \\ &amp;amp;= g_1 &#43; p_1(g_0 &#43; p_0c_0) \\ &amp;amp;= g_1 &#43; p_1g_0 &#43; p_ip_0c_0 \\ c_3 &amp;amp;= g_2 &#43; p_2g_1 &#43; p_2p_1g_0 &#43; p_2p_1p_0c_0 \\ c_4 &amp;amp;= g_3 &#43; p_3g_2 &#43; p_3p_2g_1 &#43; p_3p_2p_1g_0 &#43; p_3p_2p_1p_0c_0 \end{aligned} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-21T10:23:50&#43;08:00'/><meta property='article:modified_time' content='2023-03-21T10:23:50&#43;08:00'/>
+<meta name="twitter:title" content="4.组合电路">
+<meta name="twitter:description" content="组合电路 Multiplexer 数学表达式 $$ Z = \Sigma_{i=0}^{n-1} \ m_i D_i $$
+电路 加法器 Full Adder 三输入，两输出，真值表类似下图
+Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp;= SOP \\ c_{i&#43;1} &amp;amp;= POC \\ s_i &amp;amp;= x_i \oplus y_i \oplus z_i \\ c_{i&#43;1} &amp;amp;= x_iy_i &#43; c_i(x_i \oplus y_i) \end{aligned} $$
+电路 逻辑符号 四位加法器结构 Carry-Lookahead Adder 要求 $$ \begin{aligned} c_{i&#43;1} &amp;amp;= x_iy_i &#43; (x_i &#43; y_i)c_i \\\ \\ Let \ g_i &amp;amp;= x_iy_i \\ \ p_i &amp;amp;= x_i &#43; y_i \\\ \\ c_1 &amp;amp;= g_0 &#43; p_0c_0 \\ c_2 &amp;amp;= g_1 &#43; p_1c_1 \\ &amp;amp;= g_1 &#43; p_1(g_0 &#43; p_0c_0) \\ &amp;amp;= g_1 &#43; p_1g_0 &#43; p_ip_0c_0 \\ c_3 &amp;amp;= g_2 &#43; p_2g_1 &#43; p_2p_1g_0 &#43; p_2p_1p_0c_0 \\ c_4 &amp;amp;= g_3 &#43; p_3g_2 &#43; p_3p_2g_1 &#43; p_3p_2p_1g_0 &#43; p_3p_2p_1p_0c_0 \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#组合电路">组合电路</a>
+      <ol>
+        <li><a href="#multiplexer">Multiplexer</a>
+          <ol>
+            <li><a href="#数学表达式">数学表达式</a></li>
+            <li><a href="#电路">电路</a></li>
+          </ol>
+        </li>
+        <li><a href="#加法器">加法器</a>
+          <ol>
+            <li><a href="#full-adder">Full Adder</a></li>
+            <li><a href="#ripple-carry-adder">Ripple-Carry Adder</a>
+              <ol>
+                <li><a href="#输出">输出</a></li>
+                <li><a href="#真值表">真值表</a></li>
+                <li><a href="#逻辑表达">逻辑表达</a></li>
+                <li><a href="#电路-1">电路</a></li>
+                <li><a href="#逻辑符号">逻辑符号</a></li>
+                <li><a href="#四位加法器结构">四位加法器结构</a></li>
+              </ol>
+            </li>
+            <li><a href="#carry-lookahead-adder">Carry-Lookahead Adder</a>
+              <ol>
+                <li><a href="#要求">要求</a></li>
+                <li><a href="#电路-2">电路</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li><a href="#减法器">减法器</a>
+          <ol>
+            <li><a href="#输出-1">输出</a></li>
+            <li><a href="#实现方式">实现方式</a></li>
+            <li><a href="#逻辑函数">逻辑函数</a></li>
+          </ol>
+        </li>
+        <li><a href="#加法和减法器的结合">加法和减法器的结合</a>
+          <ol>
+            <li><a href="#电路与逻辑符号">电路与逻辑符号</a></li>
+            <li><a href="#溢出的处理与公式">溢出的处理与公式</a></li>
+            <li><a href="#verilog实现代码">Verilog实现代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#alu">ALU</a>
+          <ol>
+            <li><a href="#4位alu电路和逻辑符号">4位ALU电路和逻辑符号</a></li>
+            <li><a href="#组成单元">组成单元</a>
+              <ol>
+                <li><a href="#le">LE</a></li>
+                <li><a href="#ae">AE</a></li>
+                <li><a href="#ce">CE</a></li>
+              </ol>
+            </li>
+            <li><a href="#verilog代码">Verilog代码</a>
+              <ol>
+                <li><a href="#行为代码">行为代码</a></li>
+                <li><a href="#数据流和结构代码">数据流和结构代码</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li><a href="#decoder">Decoder</a>
+          <ol>
+            <li><a href="#电路和逻辑符号">电路和逻辑符号</a></li>
+            <li><a href="#verilog-代码">Verilog 代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#encoder">Encoder</a>
+          <ol>
+            <li><a href="#148-encoder">148 Encoder</a></li>
+            <li><a href="#代码">代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#tri-state-buffer">Tri-State Buffer</a>
+          <ol>
+            <li><a href="#性质与作用">性质与作用</a></li>
+            <li><a href="#电路和逻辑符号-1">电路和逻辑符号</a></li>
+            <li><a href="#verilog-代码-1">Verilog 代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#comparator">Comparator</a>
+          <ol>
+            <li><a href="#常见的四位比较器">常见的四位比较器</a></li>
+            <li><a href="#x--y迭代比较器">X &gt; Y迭代比较器</a></li>
+          </ol>
+        </li>
+        <li><a href="#shifter">Shifter</a>
+          <ol>
+            <li><a href="#类型">类型</a></li>
+            <li><a href="#四位shifter">四位Shifter</a></li>
+            <li><a href="#verilog-代码-2">Verilog 代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#multiplier">Multiplier</a>
+          <ol>
+            <li><a href="#乘法器原理">乘法器原理</a></li>
+            <li><a href="#verilog-代码-3">Verilog 代码</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#门电路">门电路</a>
+      <ol>
+        <li><a href="#fan-in">Fan-in</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+          </ol>
+        </li>
+        <li><a href="#cmos反相器">CMOS反相器</a>
+          <ol>
+            <li><a href="#电路-3">电路</a></li>
+            <li><a href="#图像">图像</a></li>
+            <li><a href="#cmos-逻辑系列电平规格">CMOS 逻辑系列电平规格</a></li>
+          </ol>
+        </li>
+        <li><a href="#与非门">与非门</a></li>
+        <li><a href="#或非门">或非门</a></li>
+        <li><a href="#非反相门">非反相门</a></li>
+        <li><a href="#与或非门">与或非门</a></li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#有源电路">有源电路</a></li>
+        <li><a href="#与非门最快最便宜">与非门最快,最便宜</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%95%B0%E7%94%B5/" style="background-color: #2F4F4F; color: #fff;">
+                数电
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/">4.组合电路</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 21, 212121</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="组合电路">组合电路</h1>
+<h2 id="multiplexer">Multiplexer</h2>
+<h3 id="数学表达式">数学表达式</h3>
+<p>$$
+Z = \Sigma_{i=0}^{n-1} \ m_i D_i
+$$</p>
+<h3 id="电路">电路</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/29.png"
+	width="334"
+	height="611"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/29_hufb9ed98aeec2a785a22a5621317e63bb_30743_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/29_hufb9ed98aeec2a785a22a5621317e63bb_30743_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="54"
+		data-flex-basis="131px"
+	
+></p>
+<h2 id="加法器">加法器</h2>
+<h3 id="full-adder">Full Adder</h3>
+<blockquote>
+<p><strong>三</strong>输入，<strong>两</strong>输出，真值表类似下图</p>
+</blockquote>
+<h3 id="ripple-carry-adder">Ripple-Carry Adder</h3>
+<h4 id="输出">输出</h4>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/10.png"
+	width="339"
+	height="297"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/10_hu0c3ec10af15baf53a072712a32596f53_14042_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/10_hu0c3ec10af15baf53a072712a32596f53_14042_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="273px"
+	
+></p>
+<h4 id="真值表">真值表</h4>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/1.png"
+	width="503"
+	height="441"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/1_hu76116b85468f6e58dfac9f51e0be0418_16240_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/1_hu76116b85468f6e58dfac9f51e0be0418_16240_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="273px"
+	
+></p>
+<h4 id="逻辑表达">逻辑表达</h4>
+<p>$$
+\begin{aligned}
+s_i &amp;= SOP \\
+c_{i+1} &amp;= POC \\
+s_i &amp;= x_i \oplus y_i \oplus z_i \\
+c_{i+1} &amp;= x_iy_i + c_i(x_i \oplus y_i)
+\end{aligned}
+$$</p>
+<h4 id="电路-1">电路</h4>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/2.png"
+	width="300"
+	height="269"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/2_hu4f70097b140e5240c2804965d56fd0f4_8613_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/2_hu4f70097b140e5240c2804965d56fd0f4_8613_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="111"
+		data-flex-basis="267px"
+	
+></p>
+<h4 id="逻辑符号">逻辑符号</h4>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/3.png"
+	width="355"
+	height="328"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/3_hu3acea7166527904ccf02bb8d2013f720_8106_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/3_hu3acea7166527904ccf02bb8d2013f720_8106_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="108"
+		data-flex-basis="259px"
+	
+></p>
+<h4 id="四位加法器结构">四位加法器结构</h4>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/4.png"
+	width="542"
+	height="232"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/4_huaffd9bda79ea3b2d65ea3f434c21b67e_14555_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/4_huaffd9bda79ea3b2d65ea3f434c21b67e_14555_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="233"
+		data-flex-basis="560px"
+	
+></p>
+<h3 id="carry-lookahead-adder">Carry-Lookahead Adder</h3>
+<h4 id="要求">要求</h4>
+<p>$$
+\begin{aligned}
+c_{i+1} &amp;= x_iy_i + (x_i + y_i)c_i \\\
+\\ Let \ g_i &amp;= x_iy_i \\
+\ p_i &amp;= x_i + y_i \\\
+\\ c_1 &amp;= g_0 + p_0c_0 \\
+c_2 &amp;= g_1 + p_1c_1 \\
+&amp;= g_1 + p_1(g_0 + p_0c_0) \\
+&amp;= g_1 + p_1g_0 + p_ip_0c_0 \\
+c_3 &amp;= g_2 + p_2g_1 + p_2p_1g_0 + p_2p_1p_0c_0 \\
+c_4 &amp;= g_3 + p_3g_2 + p_3p_2g_1 + p_3p_2p_1g_0 + p_3p_2p_1p_0c_0
+\end{aligned}
+$$</p>
+<h4 id="电路-2">电路</h4>
+<ul>
+<li>根据以上<strong>逻辑函数</strong>得出<strong>电路</strong>如下</li>
+</ul>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/9.png"
+	width="898"
+	height="543"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/9_hu5e636e527162791ee5084d81eb68bbbf_55984_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/9_hu5e636e527162791ee5084d81eb68bbbf_55984_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="396px"
+	
+></p>
+<h2 id="减法器">减法器</h2>
+<h3 id="输出-1">输出</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/11.png"
+	width="418"
+	height="364"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/11_hu1f9e7e78e30c4a7590ac03bfebc96423_14084_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/11_hu1f9e7e78e30c4a7590ac03bfebc96423_14084_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="275px"
+	
+></p>
+<h3 id="实现方式">实现方式</h3>
+<p>$$
+\begin{aligned}
+被减数为B,减数为A \\
+A-B &amp;= A+(-B) \\
+通过补码,-B &amp;= B&rsquo; + 1 \\
+因此, F &amp;= A - B = A+ B&rsquo; +1
+\end{aligned}
+$$</p>
+<h3 id="逻辑函数">逻辑函数</h3>
+<p>$$
+\begin{aligned}
+d_i &amp;= x_i \oplus y_i \oplus z_i \\
+b_{i+1} &amp;= x_i&rsquo;b_i + x_i&rsquo;y_i + y_ib_i
+\end{aligned}
+$$</p>
+<h2 id="加法和减法器的结合">加法和减法器的结合</h2>
+<h3 id="电路与逻辑符号">电路与逻辑符号</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/12.png"
+	width="970"
+	height="333"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/12_hub514d5003555647bc954f3379623b7a5_52563_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/12_hub514d5003555647bc954f3379623b7a5_52563_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="291"
+		data-flex-basis="699px"
+	
+></p>
+<h3 id="溢出的处理与公式">溢出的处理与公式</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/13.png"
+	width="410"
+	height="350"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/13_hu4c28ad8f8232560eb8eb5ee25d2ecb21_18914_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/13_hu4c28ad8f8232560eb8eb5ee25d2ecb21_18914_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="281px"
+	
+></p>
+<p>$$
+\begin{aligned}
+减法: Signed \ Overflow &amp;= (A_n\cdot B_n&rsquo; \cdot F_n&rsquo;) + (A_n&rsquo;\cdot B_n\cdot F_n) \\
+加法: Signed \ Overflow &amp;= (A_n&rsquo; \cdot B_n&rsquo; \cdot F_n) + (A_n\cdot B_n\cdot F_n&rsquo;)
+\end{aligned}
+$$</p>
+<h3 id="verilog实现代码">Verilog实现代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">AddSub</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">S</span><span class="p">,</span> <span class="c1">// select 0=add, 1=subtract
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">input</span> <span class="p">[</span><span class="err">3</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">3</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">F</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="nc">Unsigned_Overflow</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="nc">Signed_Overflow</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">reg</span> <span class="p">[</span><span class="err">4</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">TempF</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">always</span> <span class="o">@</span> <span class="p">(</span><span class="nc">S</span> <span class="k">or</span> <span class="nc">A</span> <span class="k">or</span> <span class="nc">B</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="nc">S</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="nv">begin</span> <span class="c1">// addition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// zero extend A and B before add
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nc">TempF</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="s1">&#39;b0,A} + {1&#39;</span><span class="nv">b0</span><span class="p">,</span><span class="nc">B</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">F</span> <span class="o">=</span> <span class="nc">TempF</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Unsigned_Overflow</span> <span class="o">=</span> <span class="nc">TempF</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// Signed overflow = MSB of A&#39;B&#39;F + ABF&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nc">Signed_Overflow</span> <span class="o">=</span> <span class="p">((</span><span class="o">!</span><span class="nc">A</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">!</span><span class="nc">B</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">TempF</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">		<span class="p">((</span><span class="nc">A</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">!</span><span class="nc">TempF</span><span class="p">[</span><span class="mi">3</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">end</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span> <span class="nv">begin</span> <span class="c1">// subtract
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// zero extend A and B before subtract
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nc">TempF</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="s1">&#39;b0,A} - {1&#39;</span><span class="nv">b0</span><span class="p">,</span><span class="nc">B</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">F</span> <span class="o">=</span> <span class="nc">TempF</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Unsigned_Overflow</span> <span class="o">=</span> <span class="nc">TempF</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// Signed overflow = MSB of AB&#39;F&#39; + A&#39;BF
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nc">Signed_Overflow</span> <span class="o">=</span> <span class="p">((</span><span class="nc">A</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">!</span><span class="nc">B</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">!</span><span class="nc">TempF</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">		<span class="p">((</span><span class="o">!</span><span class="nc">A</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">TempF</span><span class="p">[</span><span class="mi">3</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="alu">ALU</h2>
+<h3 id="4位alu电路和逻辑符号">4位ALU电路和逻辑符号</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/14.png"
+	width="990"
+	height="778"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/14_hu901c71934d853f5ce4e91d0e38d33dc7_58240_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/14_hu901c71934d853f5ce4e91d0e38d33dc7_58240_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<h3 id="组成单元">组成单元</h3>
+<h4 id="le">LE</h4>
+<ol>
+<li>电路图</li>
+</ol>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/15.png"
+	width="297"
+	height="397"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/15_huce20067ffbbfd7802520b95726dd1511_15074_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/15_huce20067ffbbfd7802520b95726dd1511_15074_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="74"
+		data-flex-basis="179px"
+	
+></p>
+<ol start="2">
+<li>布尔方程</li>
+</ol>
+<h4 id="ae">AE</h4>
+<ol>
+<li>电路图</li>
+</ol>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/16.png"
+	width="258"
+	height="400"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/16_hu2c743b21be2e67e68c57115ae69f1c2d_12025_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/16_hu2c743b21be2e67e68c57115ae69f1c2d_12025_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="64"
+		data-flex-basis="154px"
+	
+></p>
+<ol start="2">
+<li></li>
+</ol>
+<h4 id="ce">CE</h4>
+<ol>
+<li>电路图</li>
+</ol>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/17.png"
+	width="179"
+	height="187"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/17_hud9e0ed8d54a4b10ac1b8ca0089962053_6240_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/17_hud9e0ed8d54a4b10ac1b8ca0089962053_6240_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="95"
+		data-flex-basis="229px"
+	
+></p>
+<h3 id="verilog代码">Verilog代码</h3>
+<h4 id="行为代码">行为代码</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nv">alu</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">S</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">F</span>
+</span></span><span class="line"><span class="cl">	<span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nv">always</span> <span class="o">@</span> <span class="p">(</span><span class="nc">S</span> <span class="k">or</span> <span class="nc">A</span> <span class="k">or</span> <span class="nc">B</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">		<span class="nv">case</span> <span class="p">(</span><span class="nc">S</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">0</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">1</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">&amp;</span> <span class="nc">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">2</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">|</span> <span class="nc">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">3</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="o">~</span><span class="nc">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">			<span class="c1">// bitwise NOT
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="mi">4</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">+</span> <span class="nc">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">5</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">-</span> <span class="nc">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">6</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="mi">7</span><span class="p">:</span> <span class="nc">F</span> <span class="o">=</span> <span class="nc">A</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="nv">endcase</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="数据流和结构代码">数据流和结构代码</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">LE</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">s</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">ai</span><span class="p">,</span> <span class="nv">bi</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">xi</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// using the equation derived for the LE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nv">xi</span> <span class="o">=</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">ai</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">ai</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">ai</span> <span class="o">&amp;</span> <span class="nv">bi</span><span class="p">)</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nv">ai</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nv">bi</span> <span class="o">|</span> <span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">AE</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">s</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">bi</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">yi</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// using the equation derived for the AE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nv">yi</span> <span class="o">=</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">|</span> <span class="o">~</span><span class="nv">bi</span><span class="p">))</span> <span class="o">|</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="o">&amp;</span> <span class="o">~</span><span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="nv">bi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">CE</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">s</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">c0</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// using the equation derived for the CE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nv">c0</span> <span class="o">=</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">^</span> <span class="nv">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">FA</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">ci</span><span class="p">,</span> <span class="nv">xi</span><span class="p">,</span> <span class="nv">yi</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">ci1</span><span class="p">,</span> <span class="nv">fi</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// using the equations derived for the FA
+</span></span></span><span class="line"><span class="cl"><span class="c1">// bitwise &amp;=AND; |=OR; ^=XOR
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nv">ci1</span> <span class="o">=</span> <span class="p">(</span><span class="nv">xi</span> <span class="o">&amp;</span> <span class="nv">yi</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="nv">ci</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nv">xi</span> <span class="o">^</span> <span class="nv">yi</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nv">fi</span> <span class="o">=</span> <span class="nv">xi</span> <span class="o">^</span> <span class="nv">yi</span> <span class="o">^</span> <span class="nv">ci</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nv">bitslice</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">s</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">ai</span><span class="p">,</span> <span class="nv">bi</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">ci</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">ci1</span><span class="p">,</span> <span class="nv">fi</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nv">wire</span> <span class="nv">xi</span><span class="p">,</span> <span class="nv">yi</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// each bit slice consists of the LE, AE and FA
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nc">LE</span> <span class="nc">U2</span><span class="p">(</span><span class="nv">s</span><span class="p">,</span> <span class="nv">ai</span><span class="p">,</span> <span class="nv">bi</span><span class="p">,</span> <span class="nv">xi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">AE</span> <span class="nc">U1</span><span class="p">(</span><span class="nv">s</span><span class="p">,</span> <span class="nv">bi</span><span class="p">,</span> <span class="nv">yi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">FA</span> <span class="nc">U0</span><span class="p">(</span><span class="nv">ci</span><span class="p">,</span> <span class="nv">xi</span><span class="p">,</span> <span class="nv">yi</span><span class="p">,</span> <span class="nv">ci1</span><span class="p">,</span> <span class="nv">fi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nv">alu</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">S</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">A</span><span class="p">,</span> <span class="nc">B</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">F</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nc">Unsigned_Overflow</span><span class="p">,</span> <span class="nc">Signed_Overflow</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">wire</span> <span class="p">[</span><span class="na">n</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">C</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// only correct for this one
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">assign</span> <span class="nc">Unsigned_Overflow</span> <span class="o">=</span> <span class="nc">C</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">^</span> <span class="nc">S</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">Signed_Overflow</span> <span class="o">=</span> <span class="nc">C</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">^</span> <span class="nc">C</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// top level: connect the four bit slices and the CE together
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">bitslice</span> <span class="nc">U3</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">A</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nc">B</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="nc">F</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">bitslice</span> <span class="nc">U2</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">A</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nc">B</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nc">F</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">bitslice</span> <span class="nc">U1</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">A</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nc">B</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nc">F</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">bitslice</span> <span class="nc">U0</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nc">B</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nc">C</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nc">F</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">CE</span> <span class="nc">U4</span><span class="p">(</span><span class="nc">S</span><span class="p">,</span> <span class="nc">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="decoder">Decoder</h2>
+<h3 id="电路和逻辑符号">电路和逻辑符号</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/18.png"
+	width="872"
+	height="365"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/18_huf82b183d5baf06f214db2e96305cc4a2_29063_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/18_huf82b183d5baf06f214db2e96305cc4a2_29063_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="238"
+		data-flex-basis="573px"
+	
+></p>
+<h3 id="verilog-代码">Verilog 代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">decoder</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">A</span><span class="p">,</span><span class="nc">B</span><span class="p">,</span><span class="nc">C</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Y</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">always</span><span class="o">@</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Y</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nc">A</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">B</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nc">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="encoder">Encoder</h2>
+<h3 id="148-encoder">148 Encoder</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/28.png"
+	width="373"
+	height="498"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/28_hu558919c5f1de284b51a7095f304fa5b5_46572_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/28_hu558919c5f1de284b51a7095f304fa5b5_46572_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="74"
+		data-flex-basis="179px"
+	
+></p>
+<h3 id="代码">代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">decoder</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="k">in</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">2</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">out</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nv">always</span> <span class="o">@</span> <span class="p">(</span><span class="k">in</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">	<span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">    	<span class="nv">case</span> <span class="p">(</span><span class="k">in</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00000001: out = 3&#39;</span><span class="nv">b000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00000010: out = 3&#39;</span><span class="nv">b001</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00000100: out = 3&#39;</span><span class="nv">b010</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00001000: out = 3&#39;</span><span class="nv">b011</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00010000: out = 3&#39;</span><span class="nv">b100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b00100000: out = 3&#39;</span><span class="nv">b101</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b01000000: out = 3&#39;</span><span class="nv">b110</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="mi">8</span><span class="s1">&#39;b10000000: out = 3&#39;</span><span class="nv">b111</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        	<span class="nv">default</span><span class="p">:</span> <span class="nv">out</span> <span class="o">=</span> <span class="mi">3</span><span class="s1">&#39;b000;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    	endcase
+</span></span></span><span class="line"><span class="cl"><span class="s1">	end
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="tri-state-buffer">Tri-State Buffer</h2>
+<h3 id="性质与作用">性质与作用</h3>
+<ol>
+<li>
+<p>三种状态: 高电平、低电平、高阻态(等价于<strong>断路</strong>)</p>
+</li>
+<li>
+<p><strong>放大</strong>输入信号后输出</p>
+</li>
+<li>
+<p>高阻态下<strong>不干扰</strong>其他电器工作</p>
+</li>
+</ol>
+<h3 id="电路和逻辑符号-1">电路和逻辑符号</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/19.png"
+	width="675"
+	height="308"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/19_hu0fafefce96254ca8b59b6db2bf8183e0_16178_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/19_hu0fafefce96254ca8b59b6db2bf8183e0_16178_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="219"
+		data-flex-basis="525px"
+	
+></p>
+<h3 id="verilog-代码-1">Verilog 代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">TriState_Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 	<span class="c1">// allow n to be changed externally
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">E</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">D</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Y</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">Y</span> <span class="o">=</span> <span class="p">(</span><span class="nc">E</span><span class="p">)</span> <span class="kd">?</span> <span class="nc">D</span> <span class="p">:</span> <span class="p">{</span><span class="nv">n</span><span class="p">{</span><span class="mi">1</span><span class="s1">&#39;bz}};
+</span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="comparator">Comparator</h2>
+<h3 id="常见的四位比较器">常见的四位比较器</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/23.png"
+	width="1028"
+	height="903"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/23_huc694a4330574c04449e01e51b61c7f3a_86684_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/23_huc694a4330574c04449e01e51b61c7f3a_86684_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="273px"
+	
+></p>
+<h3 id="x--y迭代比较器">X &gt; Y迭代比较器</h3>
+<ol>
+<li>电路</li>
+</ol>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/24.png"
+	width="593"
+	height="418"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/24_hu052483f7511ec59170a9cdbf9f47737f_21316_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/24_hu052483f7511ec59170a9cdbf9f47737f_21316_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="340px"
+	
+></p>
+<ol start="2">
+<li>布尔函数</li>
+</ol>
+<p>$$
+\begin{aligned}
+g_{out} &amp;= g_{in} + e_{in}x_iy_i&rsquo; \\
+e_{out} &amp;= g_{in}e_{in} + e_{in}x_i&rsquo;y_i&rsquo; + e_{in}x_iy_i
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>Verilog 代码</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">Greater</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">3</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">X</span><span class="p">,</span><span class="nc">Y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nc">G</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">G</span> <span class="o">=</span> <span class="p">(</span><span class="nc">X</span> <span class="p">&gt;</span> <span class="nc">Y</span><span class="p">)</span> <span class="kd">?</span> <span class="mi">1</span><span class="s1">&#39;b1 : 1&#39;</span><span class="nv">b0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="shifter">Shifter</h2>
+<h3 id="类型">类型</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/25.png"
+	width="1011"
+	height="623"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/25_huaa8cb16a0112b828316c3a30a79a592a_139355_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/25_huaa8cb16a0112b828316c3a30a79a592a_139355_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="162"
+		data-flex-basis="389px"
+	
+></p>
+<h3 id="四位shifter">四位Shifter</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/26.png"
+	width="760"
+	height="298"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/26_hu70111d33a2c76b93ba3b90edda9e3954_36804_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/26_hu70111d33a2c76b93ba3b90edda9e3954_36804_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="255"
+		data-flex-basis="612px"
+	
+></p>
+<h3 id="verilog-代码-2">Verilog 代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">shifter</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span><span class="nc">S</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span><span class="nv">data_in</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span><span class="nv">date_out</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">always</span> <span class="o">@</span><span class="p">(</span><span class="nc">S</span> <span class="k">or</span> <span class="nv">date_in</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">case</span><span class="p">(</span><span class="nc">S</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="mi">0</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="nv">date_in</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="mi">1</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="nv">date_in</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="mi">2</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="nv">date_in</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="mi">3</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="p">{</span><span class="nv">date_in</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="nv">data_out</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">1</span><span class="p">]}</span>
+</span></span><span class="line"><span class="cl">		<span class="nv">endcase</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="multiplier">Multiplier</h2>
+<h3 id="乘法器原理">乘法器原理</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/27.png"
+	width="706"
+	height="777"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/27_hud1ba1740f006e9a3c24f07d5a02ce3df_55121_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/27_hud1ba1740f006e9a3c24f07d5a02ce3df_55121_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="90"
+		data-flex-basis="218px"
+	
+></p>
+<h3 id="verilog-代码-3">Verilog 代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">Multiplier</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">3</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">M</span><span class="p">,</span><span class="nc">Q</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">P</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">P</span> <span class="o">=</span> <span class="nc">M</span><span class="o">*</span><span class="nc">Q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="门电路">门电路</h1>
+<h2 id="fan-in">Fan-in</h2>
+<h3 id="定义">定义</h3>
+<blockquote>
+<p><strong>The number of inputs</strong> that a gate can have in a particular logic family is called <strong>the logic family’s fan-in</strong></p>
+</blockquote>
+<h2 id="cmos反相器">CMOS反相器</h2>
+<h3 id="电路-3">电路</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/5.png"
+	width="367"
+	height="411"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/5_hua4ae501aa62a6b8eadeef8aa62154153_38301_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/5_hua4ae501aa62a6b8eadeef8aa62154153_38301_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="89"
+		data-flex-basis="214px"
+	
+></p>
+<h3 id="图像">图像</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/21.png"
+	width="310"
+	height="280"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/21_huf3ecd58903902d80b8e4d6c584378a18_9482_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/21_huf3ecd58903902d80b8e4d6c584378a18_9482_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="110"
+		data-flex-basis="265px"
+	
+></p>
+<h3 id="cmos-逻辑系列电平规格">CMOS 逻辑系列电平规格</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/22.png"
+	width="569"
+	height="309"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/22_hu499f60a3c9fbc53c9419abe7e21541c7_21504_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/22_hu499f60a3c9fbc53c9419abe7e21541c7_21504_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="184"
+		data-flex-basis="441px"
+	
+></p>
+<h2 id="与非门">与非门</h2>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/6.png"
+	width="456"
+	height="535"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/6_hubdf6bfa3c2456dcb3397fd82fe8a8fd7_14630_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/6_hubdf6bfa3c2456dcb3397fd82fe8a8fd7_14630_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="85"
+		data-flex-basis="204px"
+	
+></p>
+<ul>
+<li>最多6输入</li>
+</ul>
+<h2 id="或非门">或非门</h2>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/7.png"
+	width="503"
+	height="505"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/7_hu6a4cdb9ba38ea525d545484f33d2c60b_10819_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/7_hu6a4cdb9ba38ea525d545484f33d2c60b_10819_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="99"
+		data-flex-basis="239px"
+	
+></p>
+<ul>
+<li>最多4输入</li>
+</ul>
+<h2 id="非反相门">非反相门</h2>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/8.png"
+	width="530"
+	height="520"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/8_hua0c698163c0d082399cad3e1eb992157_19325_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/8_hua0c698163c0d082399cad3e1eb992157_19325_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="101"
+		data-flex-basis="244px"
+	
+></p>
+<h2 id="与或非门">与或非门</h2>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/20.png"
+	width="411"
+	height="611"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/20_hu0bc559bf99b2b6590fd5a128a4078146_32319_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/20_hu0bc559bf99b2b6590fd5a128a4078146_32319_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="67"
+		data-flex-basis="161px"
+	
+></p>
+<h1 id="附录">附录</h1>
+<h2 id="有源电路">有源电路</h2>
+<ul>
+<li>有源电路是指包含电源或其他能够提供电能的元件的电路，例如电子管、晶体管、集成电路等</li>
+</ul>
+<h2 id="与非门最快最便宜">与非门最快,最便宜</h2>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5.时序电路</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/verilog%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Verilog基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3.逻辑代数基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2.二进制信息</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/1.%E5%BC%95%E8%AE%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1.引论</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

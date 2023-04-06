@@ -284,6 +284,7 @@
             <li><a href="#指针寄存器">指针寄存器</a></li>
           </ol>
         </li>
+        <li><a href="#操作码">操作码</a></li>
         <li><a href="#memory">Memory</a></li>
         <li><a href="#label">Label</a></li>
         <li><a href="#constant">Constant</a>
@@ -303,9 +304,14 @@
     </li>
     <li><a href="#处理器">处理器</a>
       <ol>
-        <li><a href="#处理器状态">处理器状态</a>
+        <li><a href="#处理器状态----标志位flags--特殊的处理器状态">处理器状态 &ndash; 标志位(flags) —— 特殊的处理器状态</a></li>
+        <li><a href="#cpu的指令执行">CPU的指令执行</a>
           <ol>
-            <li><a href="#标志位flags--特殊的处理器状态">标志位(flags) —— 特殊的处理器状态</a></li>
+            <li><a href="#取指fetch">取指(Fetch)</a></li>
+            <li><a href="#译码decode">译码(Decode)</a></li>
+            <li><a href="#执行execute">执行(Execute)</a></li>
+            <li><a href="#访存memory-access">访存(Memory Access)</a></li>
+            <li><a href="#写回wirte-back">写回(Wirte Back)</a></li>
           </ol>
         </li>
       </ol>
@@ -731,6 +737,20 @@
 </tr>
 </tbody>
 </table></div>
+<h2 id="操作码">操作码</h2>
+<p>0：无操作</p>
+<p>1：存储器读取</p>
+<p>2：存储器写入</p>
+<p>3：寄存器-寄存器算术操作</p>
+<p>4：常量扩展和寄存器-立即数算术操作</p>
+<p>5：逻辑操作</p>
+<p>6：条件分支</p>
+<p>7：无条件跳转</p>
+<p>8：函数调用</p>
+<p>9：函数返回</p>
+<p>10：中断处理</p>
+<p>11：输入输出</p>
+<p>12-15：保留</p>
 <h2 id="memory">Memory</h2>
 <h2 id="label">Label</h2>
 <h2 id="constant">Constant</h2>
@@ -798,8 +818,7 @@
 <li>以分号(;)开头</li>
 </ul>
 <h1 id="处理器">处理器</h1>
-<h2 id="处理器状态">处理器状态</h2>
-<h3 id="标志位flags--特殊的处理器状态">标志位(flags) —— 特殊的处理器状态</h3>
+<h2 id="处理器状态----标志位flags--特殊的处理器状态">处理器状态 &ndash; 标志位(flags) —— 特殊的处理器状态</h2>
 <ol>
 <li>
 <p>零标志位（ZF）：最近执行的操作结果是否为0</p>
@@ -817,6 +836,12 @@
 <p>奇偶标志位（PF）：判断最近执行的操作结果的二进制表示中1的个数是否为偶数。</p>
 </li>
 </ol>
+<h2 id="cpu的指令执行">CPU的指令执行</h2>
+<h3 id="取指fetch">取指(Fetch)</h3>
+<h3 id="译码decode">译码(Decode)</h3>
+<h3 id="执行execute">执行(Execute)</h3>
+<h3 id="访存memory-access">访存(Memory Access)</h3>
+<h3 id="写回wirte-back">写回(Wirte Back)</h3>
 
 </section>
 
