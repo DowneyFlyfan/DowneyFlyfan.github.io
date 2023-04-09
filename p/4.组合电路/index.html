@@ -328,7 +328,7 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
         </li>
         <li><a href="#encoder">Encoder</a>
           <ol>
-            <li><a href="#148-encoder">148 Encoder</a></li>
+            <li><a href="#74x148-encoder">74x148 Encoder</a></li>
             <li><a href="#代码">代码</a></li>
           </ol>
         </li>
@@ -342,7 +342,7 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
         <li><a href="#comparator">Comparator</a>
           <ol>
             <li><a href="#常见的四位比较器">常见的四位比较器</a></li>
-            <li><a href="#x--y迭代比较器">X &gt; Y迭代比较器</a></li>
+            <li><a href="#x--y-迭代比较器">X &gt; Y 迭代比较器</a></li>
           </ol>
         </li>
         <li><a href="#shifter">Shifter</a>
@@ -356,6 +356,11 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
           <ol>
             <li><a href="#乘法器原理">乘法器原理</a></li>
             <li><a href="#verilog-代码-3">Verilog 代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#parity-generatorchecker">Parity Generator/Checker</a>
+          <ol>
+            <li><a href="#verilog">Verilog</a></li>
           </ol>
         </li>
       </ol>
@@ -1049,7 +1054,10 @@ $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="encoder">Encoder</h2>
-<h3 id="148-encoder">148 Encoder</h3>
+<h3 id="74x148-encoder">74x148 Encoder</h3>
+<ol>
+<li>电路图</li>
+</ol>
 <p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/28.png"
 	width="373"
 	height="498"
@@ -1060,6 +1068,21 @@ $$</p>
 		class="gallery-image" 
 		data-flex-grow="74"
 		data-flex-basis="179px"
+	
+></p>
+<ol start="2">
+<li>工作原理</li>
+</ol>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/30.png"
+	width="698"
+	height="348"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/30_hu8f06f2202d62f145660b2e0651a6d447_25988_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/30_hu8f06f2202d62f145660b2e0651a6d447_25988_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="481px"
 	
 ></p>
 <h3 id="代码">代码</h3>
@@ -1085,7 +1108,6 @@ $$</p>
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
-</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">decoder</span><span class="p">(</span>
@@ -1107,7 +1129,6 @@ $$</p>
 </span></span><span class="line"><span class="cl">        	<span class="nv">default</span><span class="p">:</span> <span class="nv">out</span> <span class="o">=</span> <span class="mi">3</span><span class="s1">&#39;b000;
 </span></span></span><span class="line"><span class="cl"><span class="s1">    	endcase
 </span></span></span><span class="line"><span class="cl"><span class="s1">	end
-</span></span></span><span class="line"><span class="cl"><span class="s1">
 </span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
 </span></span></span></code></pre></td></tr></table>
 </div>
@@ -1178,7 +1199,7 @@ $$</p>
 		data-flex-basis="273px"
 	
 ></p>
-<h3 id="x--y迭代比较器">X &gt; Y迭代比较器</h3>
+<h3 id="x--y-迭代比较器">X &gt; Y 迭代比较器</h3>
 <ol>
 <li>电路</li>
 </ol>
@@ -1318,6 +1339,28 @@ $$</p>
 </span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">P</span>
 </span></span><span class="line"><span class="cl"><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="nc">P</span> <span class="o">=</span> <span class="nc">M</span><span class="o">*</span><span class="nc">Q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="parity-generatorchecker">Parity Generator/Checker</h2>
+<h3 id="verilog">Verilog</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">parity_checker</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">DB</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nc">EVEN</span><span class="p">,</span> <span class="nc">ODD</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">ODD</span> <span class="o">=</span> <span class="nc">DB</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="o">^</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span> <span class="c1">//异或，1的个数为奇数就是1,为偶数就是0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nc">EVEN</span> <span class="o">=</span> <span class="o">~</span><span class="nc">ODD</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>

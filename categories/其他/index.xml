@@ -6,7 +6,364 @@
         <description>Recent content in 其他 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 31 Mar 2023 09:36:02 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 08 Apr 2023 11:06:17 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Statistics &amp; Information Theory</title>
+        <link>https://downeyflyfan.com/p/statistics-information-theory/</link>
+        <pubDate>Sat, 08 Apr 2023 11:06:17 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/statistics-information-theory/</guid>
+        <description>&lt;h1 id=&#34;information-theory&#34;&gt;Information Theory&lt;/h1&gt;
+&lt;h2 id=&#34;self-information&#34;&gt;Self-Information&lt;/h2&gt;
+&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;$$
+For \ an \ event \ x = x \\\
+\\ I(x) = - logP(x)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;unit&#34;&gt;Unit&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;log&lt;/em&gt;以&lt;strong&gt;e&lt;/strong&gt;为底时，单位为&lt;strong&gt;nats&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;log&lt;/em&gt;以&lt;strong&gt;2&lt;/strong&gt;为底时，单位为&lt;strong&gt;bits&lt;/strong&gt;或&lt;strong&gt;Shannon&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;information-probability-uncertainty&#34;&gt;Information Probability Uncertainty&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;以上三者&lt;strong&gt;正相关&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;shannon-entropy&#34;&gt;Shannon Entropy&lt;/h2&gt;
+&lt;h3 id=&#34;definition-1&#34;&gt;Definition&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;表示&lt;strong&gt;不确定性&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+H(x) = H(p) = \mathbb E_{x - P}[I(x)] = -\mathbb E_{x-p}[logP(x)]
+$$&lt;/p&gt;
+&lt;h3 id=&#34;property&#34;&gt;Property&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;当$x$连续时，&lt;strong&gt;Shannon Entropy&lt;/strong&gt;也叫&lt;strong&gt;Differential Entropy&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;越&lt;strong&gt;确定&lt;/strong&gt;的分布,&lt;strong&gt;Entropy&lt;/strong&gt;越小;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;kl-divergence--cross-entropy&#34;&gt;KL Divergence &amp;amp; Cross-Entropy&lt;/h2&gt;
+&lt;h3 id=&#34;kl-divergence&#34;&gt;KL Divergence&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;区分两个分布的&lt;strong&gt;相似度&lt;/strong&gt;的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+D_{KL}(P||Q) = \mathbb E_{x-P}(log\frac{P(x)}{Q(x)})=\mathbb E_{x-P}(log P(x)- log Q(x)) \\\
+\\ 对于有些P和Q,D_{KL}(P||Q) \ne D_{KL}(Q||P)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;cross-entropy&#34;&gt;Cross-Entropy&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+H(P,Q) &amp;amp;= H(P) + D_{KL}(P||Q) \\
+&amp;amp;= -\mathbb E_{x-P}[logQ(x)]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;特殊情况&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;有时我们会碰到$0log0$,我们一般改写为$\underset{x\rightarrow 0}{lim} \ xlogx = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;structured-probability-models&#34;&gt;Structured Probability Models&lt;/h1&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+</description>
+        </item>
+        <item>
+        <title>Linear Algebra</title>
+        <link>https://downeyflyfan.com/p/linear-algebra/</link>
+        <pubDate>Fri, 07 Apr 2023 10:27:02 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/linear-algebra/</guid>
+        <description>&lt;h1 id=&#34;matrix&#34;&gt;Matrix&lt;/h1&gt;
+&lt;h2 id=&#34;indentity-and-inverse-matrix&#34;&gt;Indentity And Inverse Matrix&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Ax &amp;amp;= b \\
+AA^{-1} &amp;amp;= I_n \\
+\therefore A^{-1} A x &amp;amp;= A^{-1}b \\
+x &amp;amp; = A^{-1}b
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;linear-dependence--span&#34;&gt;Linear Dependence &amp;amp; Span&lt;/h2&gt;
+&lt;h3 id=&#34;linear-combination&#34;&gt;Linear Combination&lt;/h3&gt;
+&lt;p&gt;$$
+Ax =b \Longrightarrow  \sum_{i=1}^n{x_i} A = b \\
+x,y是Ax=b的解 \Longrightarrow z = \alpha x + (1-\alpha) y 是Ax =b 的解 \\
+于是，形如\sum_{i=1}^n c_i x的组合叫做Linear \ Combination
+$$&lt;/p&gt;
+&lt;h3 id=&#34;linear-indenpendence&#34;&gt;Linear Indenpendence&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不能通过&lt;strong&gt;Linear Combination&lt;/strong&gt;得到彼此的一组向量&lt;strong&gt;Linear Indenpendent&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;singular-matrix&#34;&gt;Singular Matrix&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Square Matrix&lt;/strong&gt; with &lt;strong&gt;Linear denpendent Columns&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;特征&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Determinant = 0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Inverse Matrix Not Unique&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;norms&#34;&gt;Norms&lt;/h2&gt;
+&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;$$
+L^p \ norm: ||x||&lt;em&gt;p = \Big( \sum&lt;/em&gt;{i=1}^n x_i^p \Big)^{\frac{1}{p}} \\
+说白了就是长度
+$$&lt;/p&gt;
+&lt;h3 id=&#34;property&#34;&gt;Property&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$f(\pmb x) = 0 \Longrightarrow \pmb x =0$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$f(\pmb{x+y} ) \le f(\pmb x) + f(\pmb y)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\forall \alpha \in R, |\alpha| f(\pmb x) = f(\alpha \pmb x)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;special-matrix-and-vectors&#34;&gt;Special Matrix and Vectors&lt;/h2&gt;
+&lt;h3 id=&#34;diagonal-matrix&#34;&gt;Diagonal Matrix&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;Square Matrix&lt;/strong&gt; where all non-zero entries are on the diagonal&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Property&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$Determinant = \prod(Entries \ on \ the \ diagonal )$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;symetrical-matrix&#34;&gt;Symetrical Matrix&lt;/h3&gt;
+&lt;p&gt;$$
+A = A^T
+$$&lt;/p&gt;
+&lt;h3 id=&#34;unit-vector-and-orthogonal-matrix&#34;&gt;Unit Vector and Orthogonal Matrix&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Vector&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+||\pmb x||_2 = 1 \Longrightarrow \pmb x \ is \ a \ Unit \ Vector  \\\
+\\ \pmb{x^T y} = 0 \Longrightarrow x \ and \ y \ are \ \pmb{orthogonal}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Matrix&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+AA^T = A^T A =I \Longrightarrow A \ is \ a \ \pmb{Orthogonal \ Matrix}  \\\
+\\ \therefore A^T = A^{-1}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;decomposition&#34;&gt;Decomposition&lt;/h1&gt;
+&lt;h2 id=&#34;eigendecomposition&#34;&gt;EigenDecomposition&lt;/h2&gt;
+&lt;h3 id=&#34;eigen-vector--eigen-value&#34;&gt;Eigen Vector &amp;amp; Eigen Value&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\pmb {Av} = \lambda \pmb v  \\\
+\\ \pmb v: eigenvector \ \lambda: eigen \ Value \\\
+\\ \pmb{v^T A} = \lambda v^T \\\
+\\ \pmb{v}: Left \ eigenvector
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Property&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Scale&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\pmb {Av} = \lambda \pmb v   \\\
+\\ c\pmb {Av} = c\lambda \pmb v \\\
+\\ \therefore \pmb v \ can \ be \ scaled
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/linear-algebra/1.png&#34;
+	width=&#34;816&#34;
+	height=&#34;432&#34;
+	srcset=&#34;https://downeyflyfan.com/p/linear-algebra/1_hucaa7d01e242e57c3b8dc30eb7a33dbda_43422_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/linear-algebra/1_hucaa7d01e242e57c3b8dc30eb7a33dbda_43422_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;453px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;EigenVaules&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;All Positive&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Positive definite&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;All Negative&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Negative definite&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;All Non-zero&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Positive semidefinite&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;All Negative&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Negative semidefinite&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+Positive \ semidefinite \\
+\forall \pmb x, \pmb {x^T A x} \ge 0 \\\
+\\ Positive \ definite \\
+\forall \pmb x \ \ \pmb{x^T A x} =0 \Longrightarrow \pmb x = 0
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Solution&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\pmb{Av} &amp;amp;= \lambda \pmb v \\
+\pmb{Avv^T} &amp;amp;= \lambda \pmb{vv^T} \\
+\pmb{A} &amp;amp;= \lambda \pmb I \\
+|\pmb A - \lambda \pmb I| &amp;amp;= 0
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;eigendecomposition-1&#34;&gt;EigenDecomposition&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;前提&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;所有独立的$\pmb  v$形成一个特征矩阵$\pmb V = (v^{1} , &amp;hellip; v^{n})$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;所有&lt;strong&gt;对应的&lt;/strong&gt;特征值形成一个对角矩阵$diag(\pmb \lambda)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;分解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\pmb{AV} &amp;amp;= \pmb{V diag(\lambda)} \\
+EigenDecomposition: \pmb{A} &amp;amp;= \pmb{Vdiag(\lambda) V^{-1}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Symetrical Matrix&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\pmb {A = Q\Lambda Q^T}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;singular-value-decomposition&#34;&gt;Singular Value Decomposition&lt;/h3&gt;
+&lt;p&gt;$$
+\pmb{A = UDV^T} \\\
+\\ U 和V都是orthogonal \ matrix \\\
+\\ D是 diagonal \ matrix
+$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Columns of U: &lt;strong&gt;Left-Singular Vectors&lt;/strong&gt;(eigenvector of $AA^T$)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Columns of V: &lt;strong&gt;Right-Singular Vectors&lt;/strong&gt;(eigenvectors of $A^TA$)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;D的主对角线的元素是&lt;strong&gt;A&lt;/strong&gt;的&lt;strong&gt;Singular Value&lt;/strong&gt;($A^T A或AA^T$的EigenVaules)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;pseudoinverse--trace-operator&#34;&gt;Pseudoinverse &amp;amp; Trace Operator&lt;/h1&gt;
+&lt;h2 id=&#34;pseudoinverse&#34;&gt;Pseudoinverse&lt;/h2&gt;
+&lt;h3 id=&#34;definition-1&#34;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;$$
+A^+ = \underset{\alpha \searrow 0}{lim} \ (A^T A + \alpha I)^{-1}A^T
+$$&lt;/p&gt;
+&lt;h3 id=&#34;computing-algorithms&#34;&gt;Computing Algorithms&lt;/h3&gt;
+&lt;p&gt;$$
+A^+ = VD^+U^T \\\
+\\ D^+: 对D元素取倒数
+$$&lt;/p&gt;
+&lt;h2 id=&#34;trace-operator&#34;&gt;Trace Operator&lt;/h2&gt;
+&lt;h2 id=&#34;definition-2&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;$$
+Tr(\pmb A) = \sum_{i}A_{i,i}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;property-1&#34;&gt;Property&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Norm Computing&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+||\pmb A||_F = \sqrt{Tr(\pmb{AA^T})}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Equality&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+Tr(\pmb A) = Tr(\pmb A^T)
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Scalar&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+Tr(a) = a
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Matrix&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+Tr(\pmb{ABC}) = Tr(\pmb{CAB}) = Tr(\pmb{BAC})
+$$&lt;/p&gt;
+&lt;h1 id=&#34;principal-components-analysis&#34;&gt;Principal Components Analysis&lt;/h1&gt;
+&lt;p&gt;$$
+Collection:\lbrace \pmb{x^{(1)}&amp;hellip;x^{(m)}} \rbrace \\\
+\\ Encoder: \ f(\pmb x) = \pmb c \\\
+\\ Decoder: \pmb x \approx g(\pmb c) =  \pmb{Dc} \\\
+\\ D的Column彼此正交,且均为Unit \ Vector\\\
+\\ L^ 2\ norm: \pmb c^* = \underset{c}{arg \ min} ||\pmb x-g(\pmb c)||_2 \\\
+\\ L^2 \ norm \ge 0 \underset{为了方便计算}{\Longrightarrow} \pmb c^* = \underset{c}{arg \ min} ||\pmb x-g(\pmb c)||_2^2 \\\
+\\ \begin{aligned}
+\pmb c^* &amp;amp;= |\pmb x-g(\pmb x)|^T|\pmb x-g(\pmb x)| \\
+&amp;amp;= x^Tx - x^Tg(c)   - g^T(c)x + g^T(x)g(c) \\
+&amp;amp;= 无关项 -2x^Tg(c) + g^T(c)g(c) \\
+&amp;amp;= 无关项 -2x^T Dc + c^TD^TDc \\
+&amp;amp;= 无关项 -2x^TDc + c^Tc
+\end{aligned}  \\\
+\\ \begin{aligned}
+\nabla_c(-2x^TDc + c^Tc) &amp;amp;= 0 \\
+-2D^Tx +2c &amp;amp;=0 (疑问!!!) \\
+c &amp;amp;= D^T x
+\end{aligned} \\\
+\\ 于是f(x) = D^Tx
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Python</title>
         <link>https://downeyflyfan.com/p/python/</link>
         <pubDate>Fri, 31 Mar 2023 09:36:02 +0800</pubDate>
@@ -635,6 +992,263 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>YAML</title>
+        <link>https://downeyflyfan.com/p/yaml/</link>
+        <pubDate>Sun, 12 Feb 2023 05:51:51 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/yaml/</guid>
+        <description>&lt;h1 id=&#34;对象&#34;&gt;对象&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;使用&lt;strong&gt;对象键值对&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;key:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	child-key1: value1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	child-key2: value2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;当对象较&lt;strong&gt;复杂&lt;/strong&gt;，比如为&lt;strong&gt;数组&lt;/strong&gt;时&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;问号&lt;strong&gt;加一个空格&lt;/strong&gt;代表一个复杂的 key&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;一个冒号加一个空格&lt;/strong&gt;代表一个 value&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;? 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- complexkey1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- complexkey2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- complexvalue1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- complexvalue2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;数组&#34;&gt;数组&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;以&lt;code&gt;-&lt;/code&gt;开头的行表示一个数组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- B
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;支持多维数组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 行内表示
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;key: [value1,value2]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 多行表示
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - C
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;很多元素$\rightarrow$数组元素$\rightarrow$数组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;例子&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;companies:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        id: 1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        name: company1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        price: 200W
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        id: 2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        name: company2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        price: 500W
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 或者
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;companies: [{id: 1,name: company1,price: 200W},{id: 2,name: company2,price: 500W}]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;复合结构&#34;&gt;复合结构&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;languages:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - Ruby
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - Perl
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - Python 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;websites:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  YAML: yaml.org 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Ruby: ruby-lang.org 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Python: python.org 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Perl: use.perl.org
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;纯量&#34;&gt;纯量&lt;/h1&gt;
+&lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最基本、不可再分的值&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;分类&#34;&gt;分类&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;字符串&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;string:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- 哈哈
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- &amp;#39;Egnlish word&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- newline
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	  newline2 #字符串可以被拆成多行，每行会被转换成一个空格
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;布尔值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;boolean:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- True # 或者true
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- False # 或者false
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;整数和浮点数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;float:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- 3.14
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- 8.85E-12 # 可以使用科学记数法
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;int:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- 123
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- 0b1010_0111_0100_1010_1110 # 二进制表示
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Null&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;null:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	nodeName: &amp;#39;node&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	parent: ~ # ~表示null
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;日期&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;date:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- 2023-2-11 # 必须是这种格式
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;时间&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2023-2-11T22:07:02+8:00 # 用+代表时区
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;引用暂定&#34;&gt;引用(暂定)&lt;/h1&gt;
 </description>
         </item>
         
