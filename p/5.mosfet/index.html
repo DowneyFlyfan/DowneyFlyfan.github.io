@@ -6,7 +6,7 @@ S: Source Terminal
 G: Gate Terminal
 $I_G$始终为0,因为$SiO_2$是绝缘的 D: Drain Terminal
 B: Body Terminal
-其他解释 载流子从Source region流向Drain Region 操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S,阻值可达$10^{12}\Omega$ 开创电流通道 操作 S与D接地
+其他解释 载流子从Source region流向Drain Region 操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S,阻值可达$10^{12}\Omega$ 开启电流通道 操作 S与D接地
 G接电源正极
 结果 $SiO_2$中会产生电场
 P区的holes被电场推走
@@ -27,7 +27,7 @@ S: Source Terminal
 G: Gate Terminal
 $I_G$始终为0,因为$SiO_2$是绝缘的 D: Drain Terminal
 B: Body Terminal
-其他解释 载流子从Source region流向Drain Region 操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S,阻值可达$10^{12}\Omega$ 开创电流通道 操作 S与D接地
+其他解释 载流子从Source region流向Drain Region 操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S,阻值可达$10^{12}\Omega$ 开启电流通道 操作 S与D接地
 G接电源正极
 结果 $SiO_2$中会产生电场
 P区的holes被电场推走
@@ -47,7 +47,7 @@ S: Source Terminal
 G: Gate Terminal
 $I_G$始终为0,因为$SiO_2$是绝缘的 D: Drain Terminal
 B: Body Terminal
-其他解释 载流子从Source region流向Drain Region 操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S,阻值可达$10^{12}\Omega$ 开创电流通道 操作 S与D接地
+其他解释 载流子从Source region流向Drain Region 操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S,阻值可达$10^{12}\Omega$ 开启电流通道 操作 S与D接地
 G接电源正极
 结果 $SiO_2$中会产生电场
 P区的holes被电场推走
@@ -306,7 +306,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
         <li><a href="#操作">操作</a>
           <ol>
             <li><a href="#阻流">阻流</a></li>
-            <li><a href="#开创电流通道">开创电流通道</a></li>
+            <li><a href="#开启电流通道">开启电流通道</a></li>
             <li><a href="#施加小电压">施加小电压</a>
               <ol>
                 <li><a href="#电路">电路</a></li>
@@ -342,6 +342,11 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
           </ol>
         </li>
         <li><a href="#饱和时有效的输出电阻">饱和时有效的输出电阻</a></li>
+      </ol>
+    </li>
+    <li><a href="#mosfet-at-dc-circuit">MOSFET at DC Circuit</a>
+      <ol>
+        <li><a href="#heading"></a></li>
       </ol>
     </li>
     <li><a href="#附录">附录</a>
@@ -488,7 +493,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 <ul>
 <li>当$V_{DS}$存在时，这两个 <strong>back-back diodes</strong> 会阻止电流从<strong>D</strong>流到<strong>S</strong>,阻值可达$10^{12}\Omega$</li>
 </ul>
-<h3 id="开创电流通道">开创电流通道</h3>
+<h3 id="开启电流通道">开启电流通道</h3>
 <p><img src="/p/5.mosfet/3.png"
 	width="537"
 	height="392"
@@ -596,8 +601,10 @@ Electron \ drift \ velocity &amp;= \mu_n |E| = \mu_n\frac{V_{DS}}{L} \\
 \mu_n: 电子在通&amp;道表面的迁移率
 \end{aligned} \\\
 \\ \begin{aligned}
-i_D &amp;= (C_{ox}WV_{OV}) \mu_n \frac{V_{DS}}{L} \\
-&amp; = \Big[ (\mu_n C_{ox} \frac{W}{L} V_{OV}) \Big] V_{DS} (对于较小的V_{DS}) \\
+i_D &amp;= \frac{dQ}{dt} = \frac{dQ}{dL}\frac{dL}{dt} \\
+&amp;= (C_{ox}WV_{OV}) (\mu_n\frac{V_{DS}}{L}) \\
+&amp; = \Big[ (\mu_n C_{ox} \frac{W}{L} V_{OV}) \Big] V_{DS} (对于较小的V_{DS}) \\\
+\\
 g_{DS} &amp;= \frac{i_{DS}}{V_{DS}}  \\
 &amp;= (\mu_n C_{ox}) \Big(\frac{W}{L}\Big) V_{OV} \\
 k_n&rsquo; &amp;= \mu_n C_{ox} \\
@@ -782,22 +789,24 @@ $$</p>
 ></p>
 <h2 id="饱和时有效的输出电阻">饱和时有效的输出电阻</h2>
 <p>$$
-r_0 = \frac{V_A}{i_D} = \frac{1}{\lambda i_D} \\
-\lambda: 电流调制系数 \\
-V_A: 击穿电压
+r_0 = \frac{V_A}{i_D} = \frac{1}{\lambda i_D} \\\
+\\ \lambda: 电流调制系数 \\\
+\\ V_A: 击穿电压
 $$</p>
+<h1 id="mosfet-at-dc-circuit">MOSFET at DC Circuit</h1>
+<h2 id="heading"></h2>
 <h1 id="附录">附录</h1>
 <h2 id="channel-pinch-off">Channel Pinch-off</h2>
 <blockquote>
-<p>Channel pinch-off是指在MOSFET（金属-氧化物-半导体场效应晶体管）中，当门极电压增加到一定程度时，沟道区域的电子密度会逐渐减小，直到最终被完全截断，形成一个电子截止区域。这个电子截止区域被称为channel pinch-off，也称为channel cut-off。在这种情况下，MOSFET的输出电流会受到限制，因为电子无法通过被截断的沟道区域流动。Channel pinch-off是MOSFET工作的重要特性之一，也是设计和优化MOSFET性能的关键因素之一。</p>
+<p>Channel pinch-off是指在MOSFET中，当门极电压增加到一定程度时，沟道区域的电子密度会逐渐减小，直到最终被完全截断，形成一个电子截止区域。这个电子截止区域被称为channel pinch-off，也称为channel cut-off。在这种情况下，MOSFET的输出电流会受到限制，因为电子无法通过被截断的沟道区域流动。</p>
 </blockquote>
 <h2 id="large-signal-equvilent-circuit">Large-Signal Equvilent Circuit</h2>
 <blockquote>
-<p>大信号等效电路是指将电路中的非线性元件（如二极管、晶体管等）用一个等效的线性电路来代替，以便于分析和计算电路的性能。大信号等效电路一般是由电路中的直流分量和交流分量组成的，可以用于分析电路的直流偏置、放大倍数、输出功率等性能。大信号等效电路是电子电路设计中的重要工具，能够帮助工程师更好地理解和优化电路性能。</p>
+<p>大信号等效电路是指将电路中的非线性元件（如二极管、晶体管等）用一个等效的线性电路来代替，以便于分析和计算电路的性能。大信号等效电路一般是由电路中的直流分量和交流分量组成的，可以用于分析电路的直流偏置、放大倍数、输出功率等性能。</p>
 </blockquote>
 <h2 id="channel-length-modulation">Channel Length Modulation</h2>
 <blockquote>
-<p>当MOSFET的沟道长度缩短时，沟道电阻减小，导致漏电流增加，从而影响MOSFET的输出特性。这种现象在MOSFET的低电压操作中尤为突出，需要进行特殊的设计和优化。</p>
+<p>当MOSFET的沟道长度缩短时，沟道电阻减小，导致漏电流增加，从而影响MOSFET的输出特性。这种现象在MOSFET的低电压操作中尤为突出</p>
 </blockquote>
 
 </section>
@@ -859,6 +868,19 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">晶体管放大器</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">
