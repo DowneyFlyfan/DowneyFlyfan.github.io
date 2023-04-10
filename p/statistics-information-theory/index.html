@@ -291,9 +291,35 @@ KL Divergence &amp;amp; Cross-Entropy KL Divergence 区分两个分布的相似�
         </li>
       </ol>
     </li>
-    <li><a href="#structured-probability-models">Structured Probability Models</a>
+    <li><a href="#structured-probabilistic-models">Structured Probabilistic Models</a>
       <ol>
-        <li><a href="#heading"></a></li>
+        <li><a href="#definition-2">Definition</a></li>
+        <li><a href="#normalization">Normalization</a>
+          <ol>
+            <li><a href="#clique">Clique</a></li>
+            <li><a href="#normalization-1">Normalization</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#statistics">Statistics</a>
+      <ol>
+        <li><a href="#estimation">Estimation</a>
+          <ol>
+            <li><a href="#statistical-inference">Statistical Inference</a></li>
+            <li><a href="#prior-and-posterior-distribution">Prior and Posterior Distribution</a></li>
+            <li><a href="#bayes-estimator">Bayes Estimator</a></li>
+          </ol>
+        </li>
+        <li><a href="#maximum-likelihood-functionmle">Maximum Likelihood Function(M.L.E.)</a>
+          <ol>
+            <li><a href="#definition-3">Definition</a></li>
+            <li><a href="#maximum-likelihood-estimator">Maximum Likelihood Estimator</a></li>
+            <li><a href="#example">Example</a></li>
+            <li><a href="#property-1">Property</a></li>
+            <li><a href="#moments-estimator">Moments Estimator</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -360,7 +386,7 @@ KL Divergence &amp;amp; Cross-Entropy KL Divergence 区分两个分布的相似�
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -437,8 +463,154 @@ $$</p>
 <ul>
 <li>有时我们会碰到$0log0$,我们一般改写为$\underset{x\rightarrow 0}{lim} \ xlogx = 0$</li>
 </ul>
-<h1 id="structured-probability-models">Structured Probability Models</h1>
-<h2 id="heading"></h2>
+<h1 id="structured-probabilistic-models">Structured Probabilistic Models</h1>
+<h2 id="definition-2">Definition</h2>
+<p>$$
+p(\pmb x) = \prod_{i}p(x_i| \ Pa \mathbb G(x_i)) \\
+Pa: Parents \ of \ x_i \ \ G: Graphical \ Model
+$$</p>
+<h2 id="normalization">Normalization</h2>
+<h3 id="clique">Clique</h3>
+<blockquote>
+<p><strong>Graph</strong>中互相连接的一组<strong>Nodes</strong></p>
+</blockquote>
+<p>$$
+对于无方向图，每个clique都有一个Factor \\\
+\\ Factor:\phi^{(1)}\big(C^{(1)}\big)
+$$</p>
+<h3 id="normalization-1">Normalization</h3>
+<p>$$
+p(\pmb x) = \prod_i \phi^{(i)}(C^{(i)})
+$$</p>
+<h1 id="statistics">Statistics</h1>
+<h2 id="estimation">Estimation</h2>
+<h3 id="statistical-inference">Statistical Inference</h3>
+<ol>
+<li><strong>Example 1</strong></li>
+</ol>
+<blockquote>
+<p>Produce a variable Y such that $Pr(Y \ge \theta| \theta) = 0.9$</p>
+</blockquote>
+<ol start="2">
+<li><strong>Example 2</strong></li>
+</ol>
+<blockquote>
+<p>How confident we are that $\theta \gt 0.4$ <strong>after</strong> observing $X_1,X_2,&hellip;,X_n$</p>
+</blockquote>
+<ol start="3">
+<li>Classes of Inference Problems</li>
+</ol>
+<ul>
+<li>
+<p>Prediction</p>
+</li>
+<li>
+<p>Statistical Decision Problems</p>
+</li>
+<li>
+<p>Experimental Design</p>
+</li>
+</ul>
+<ol start="4">
+<li>Parameter Space</li>
+</ol>
+<blockquote>
+<p>所有可能的参数取值组成的空间</p>
+</blockquote>
+<h3 id="prior-and-posterior-distribution">Prior and Posterior Distribution</h3>
+<ol>
+<li>Definition</li>
+</ol>
+<ul>
+<li>
+<p><strong>Prior Distribution</strong>是对<strong>未知数据</strong>的<strong>猜测</strong></p>
+</li>
+<li>
+<p><strong>Posterior Distribution</strong>是在考虑<strong>观测数据后</strong>对未知参数的<strong>估计</strong></p>
+</li>
+</ul>
+<ol start="2">
+<li>Conjugate Prior Distributions</li>
+</ol>
+<h3 id="bayes-estimator">Bayes Estimator</h3>
+<ol>
+<li>Definition</li>
+</ol>
+<p>$$
+\xi(\theta|\pmb x)是对\theta在\Omega上的后验估计 \\\
+\\ 那么对于每一个Estimate \ a \\\
+\\ E[L(\theta,a)|\pmb x] = \int_{\Omega}L(\theta,a) \xi(\theta | \pmb x) \ d\theta \\\
+\\ 其中a = \xi^*(\pmb x)
+$$</p>
+<ol start="2">
+<li>Loss Function</li>
+</ol>
+<ul>
+<li>Square Loss Function</li>
+</ul>
+<p>$$
+L(\theta | a) = (\theta - a)^2
+$$</p>
+<ul>
+<li>Absolute Loss Function</li>
+</ul>
+<p>$$
+L(\theta | a) = |\theta -a|
+$$</p>
+<h2 id="maximum-likelihood-functionmle">Maximum Likelihood Function(M.L.E.)</h2>
+<h3 id="definition-3">Definition</h3>
+<blockquote>
+<p>当$f_n(\pmb x|\theta)$对于给定的$\pmb x$是一个<strong>关于</strong>$\theta$的函数时,它叫做<strong>极大似然函数</strong></p>
+</blockquote>
+<h3 id="maximum-likelihood-estimator">Maximum Likelihood Estimator</h3>
+<ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>使得$f_n(\pmb x|\theta)$最大的$\hat \theta = \delta(\pmb x)(\theta\in \Omega)$叫做$\theta$极大似然估计量</p>
+</blockquote>
+<ol start="2">
+<li>解法</li>
+</ol>
+<p>对$f_n(\theta|\pmb x)$取对数，得到$L(\theta)=logf_n(\theta|\pmb x)$,然后根据单调性求$\theta$</p>
+<h3 id="example">Example</h3>
+<ol>
+<li><strong>Sampling From Bernulli Distribution</strong></li>
+</ol>
+<p>$$
+For \ Bernulli \ Distribution \\\
+\\ \begin{aligned}
+f_n(\pmb x|\theta)&amp;= \theta^{x_i}(1-\theta)^{x_i} \\
+L(\theta)&amp;= \sum_{i}x_ilog(\theta) + \sum_i (1-x_i)log(1-\theta) \\
+&amp;= \sum_ix_i log(\theta) + (n-\sum_i x_i)log(1-\theta)
+\end{aligned}
+$$</p>
+<h3 id="property-1">Property</h3>
+<ol>
+<li>Invariance</li>
+</ol>
+<ul>
+<li>如果$\hat \theta$是$\theta$的<strong>MLE</strong>，$g(\theta)$和$\theta$是<strong>one-to-one function</strong>,那么$g(\hat \theta)$也是$g(\theta)$的<strong>MLE</strong></li>
+</ul>
+<ol start="2">
+<li>一致性</li>
+</ol>
+<ul>
+<li>当样本容量趋近于无穷大时，极大似然估计量收敛于真实参数值</li>
+</ul>
+<ol start="3">
+<li>有效性</li>
+</ol>
+<ul>
+<li>在所有无偏估计量中，极大似然估计量具有最小方差</li>
+</ul>
+<ol start="4">
+<li>Unbiased</li>
+</ol>
+<h3 id="moments-estimator">Moments Estimator</h3>
+<ul>
+<li>对于一组变量$\pmb X$，$\mu(\theta) = (\mu_1(\theta),&hellip;,\mu_k(\theta))$，那么它的反函数$\hat \theta = M(\mu_1(\theta),&hellip;,\mu_k(\theta))$就是$\theta$的矩估计量</li>
+</ul>
 
 </section>
 
@@ -499,6 +671,19 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/computer-condition/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Computer Condition</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">

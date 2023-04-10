@@ -6,7 +6,15 @@
         <description>Recent content in 其他 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 08 Apr 2023 11:06:17 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 09 Apr 2023 15:36:44 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Computer Condition</title>
+        <link>https://downeyflyfan.com/p/computer-condition/</link>
+        <pubDate>Sun, 09 Apr 2023 15:36:44 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/computer-condition/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Statistics &amp; Information Theory</title>
         <link>https://downeyflyfan.com/p/statistics-information-theory/</link>
         <pubDate>Sat, 08 Apr 2023 11:06:17 +0800</pubDate>
@@ -74,8 +82,154 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;有时我们会碰到$0log0$,我们一般改写为$\underset{x\rightarrow 0}{lim} \ xlogx = 0$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;structured-probability-models&#34;&gt;Structured Probability Models&lt;/h1&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;structured-probabilistic-models&#34;&gt;Structured Probabilistic Models&lt;/h1&gt;
+&lt;h2 id=&#34;definition-2&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;$$
+p(\pmb x) = \prod_{i}p(x_i| \ Pa \mathbb G(x_i)) \\
+Pa: Parents \ of \ x_i \ \ G: Graphical \ Model
+$$&lt;/p&gt;
+&lt;h2 id=&#34;normalization&#34;&gt;Normalization&lt;/h2&gt;
+&lt;h3 id=&#34;clique&#34;&gt;Clique&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Graph&lt;/strong&gt;中互相连接的一组&lt;strong&gt;Nodes&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+对于无方向图，每个clique都有一个Factor \\\
+\\ Factor:\phi^{(1)}\big(C^{(1)}\big)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;normalization-1&#34;&gt;Normalization&lt;/h3&gt;
+&lt;p&gt;$$
+p(\pmb x) = \prod_i \phi^{(i)}(C^{(i)})
+$$&lt;/p&gt;
+&lt;h1 id=&#34;statistics&#34;&gt;Statistics&lt;/h1&gt;
+&lt;h2 id=&#34;estimation&#34;&gt;Estimation&lt;/h2&gt;
+&lt;h3 id=&#34;statistical-inference&#34;&gt;Statistical Inference&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Example 1&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Produce a variable Y such that $Pr(Y \ge \theta| \theta) = 0.9$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Example 2&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How confident we are that $\theta \gt 0.4$ &lt;strong&gt;after&lt;/strong&gt; observing $X_1,X_2,&amp;hellip;,X_n$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Classes of Inference Problems&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Prediction&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Statistical Decision Problems&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Experimental Design&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Parameter Space&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;所有可能的参数取值组成的空间&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;prior-and-posterior-distribution&#34;&gt;Prior and Posterior Distribution&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Prior Distribution&lt;/strong&gt;是对&lt;strong&gt;未知数据&lt;/strong&gt;的&lt;strong&gt;猜测&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Posterior Distribution&lt;/strong&gt;是在考虑&lt;strong&gt;观测数据后&lt;/strong&gt;对未知参数的&lt;strong&gt;估计&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Conjugate Prior Distributions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;bayes-estimator&#34;&gt;Bayes Estimator&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\xi(\theta|\pmb x)是对\theta在\Omega上的后验估计 \\\
+\\ 那么对于每一个Estimate \ a \\\
+\\ E[L(\theta,a)|\pmb x] = \int_{\Omega}L(\theta,a) \xi(\theta | \pmb x) \ d\theta \\\
+\\ 其中a = \xi^*(\pmb x)
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Loss Function&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Square Loss Function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+L(\theta | a) = (\theta - a)^2
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Absolute Loss Function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+L(\theta | a) = |\theta -a|
+$$&lt;/p&gt;
+&lt;h2 id=&#34;maximum-likelihood-functionmle&#34;&gt;Maximum Likelihood Function(M.L.E.)&lt;/h2&gt;
+&lt;h3 id=&#34;definition-3&#34;&gt;Definition&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当$f_n(\pmb x|\theta)$对于给定的$\pmb x$是一个&lt;strong&gt;关于&lt;/strong&gt;$\theta$的函数时,它叫做&lt;strong&gt;极大似然函数&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;maximum-likelihood-estimator&#34;&gt;Maximum Likelihood Estimator&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使得$f_n(\pmb x|\theta)$最大的$\hat \theta = \delta(\pmb x)(\theta\in \Omega)$叫做$\theta$极大似然估计量&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;解法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对$f_n(\theta|\pmb x)$取对数，得到$L(\theta)=logf_n(\theta|\pmb x)$,然后根据单调性求$\theta$&lt;/p&gt;
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Sampling From Bernulli Distribution&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+For \ Bernulli \ Distribution \\\
+\\ \begin{aligned}
+f_n(\pmb x|\theta)&amp;amp;= \theta^{x_i}(1-\theta)^{x_i} \\
+L(\theta)&amp;amp;= \sum_{i}x_ilog(\theta) + \sum_i (1-x_i)log(1-\theta) \\
+&amp;amp;= \sum_ix_i log(\theta) + (n-\sum_i x_i)log(1-\theta)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;property-1&#34;&gt;Property&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Invariance&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;如果$\hat \theta$是$\theta$的&lt;strong&gt;MLE&lt;/strong&gt;，$g(\theta)$和$\theta$是&lt;strong&gt;one-to-one function&lt;/strong&gt;,那么$g(\hat \theta)$也是$g(\theta)$的&lt;strong&gt;MLE&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;一致性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;当样本容量趋近于无穷大时，极大似然估计量收敛于真实参数值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;有效性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;在所有无偏估计量中，极大似然估计量具有最小方差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Unbiased&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;moments-estimator&#34;&gt;Moments Estimator&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对于一组变量$\pmb X$，$\mu(\theta) = (\mu_1(\theta),&amp;hellip;,\mu_k(\theta))$，那么它的反函数$\hat \theta = M(\mu_1(\theta),&amp;hellip;,\mu_k(\theta))$就是$\theta$的矩估计量&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>

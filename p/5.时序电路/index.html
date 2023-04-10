@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Bistable Element 电路图 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) 常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E == 1&amp;#39;b1) Q &amp;lt;= D; end endmodule Clock Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) input clock_in, output reg clock ); reg [24:0] coount; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; else count &amp;lt;= count &#43; 2; end end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Bistable Element 电路图 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) 常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E == 1&amp;#39;b1) Q &amp;lt;= D; end endmodule Clock Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变'>
 <title>5.时序电路</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5.时序电路'>
-<meta property='og:description' content='Bistable Element 电路图 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) 常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E == 1&amp;#39;b1) Q &amp;lt;= D; end endmodule Clock Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) input clock_in, output reg clock ); reg [24:0] coount; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; else count &amp;lt;= count &#43; 2; end end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变'>
+<meta property='og:description' content='Bistable Element 电路图 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) 常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E == 1&amp;#39;b1) Q &amp;lt;= D; end endmodule Clock Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变'>
 <meta property='og:url' content='https://downeyflyfan.com/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-04T10:06:42&#43;08:00'/><meta property='article:modified_time' content='2023-04-04T10:06:42&#43;08:00'/>
 <meta name="twitter:title" content="5.时序电路">
-<meta name="twitter:description" content="Bistable Element 电路图 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) 常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E == 1&amp;#39;b1) Q &amp;lt;= D; end endmodule Clock Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) input clock_in, output reg clock ); reg [24:0] coount; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; else count &amp;lt;= count &#43; 2; end end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Bistable Element 电路图 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) 常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E == 1&amp;#39;b1) Q &amp;lt;= D; end endmodule Clock Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -294,6 +294,7 @@
     </li>
     <li><a href="#register-file">Register File</a>
       <ol>
+        <li><a href="#定义-1">定义</a></li>
         <li><a href="#register-verilog">Register Verilog</a></li>
         <li><a href="#电路-1">电路</a></li>
         <li><a href="#register-file-verilog">Register File Verilog</a></li>
@@ -388,7 +389,7 @@
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -456,6 +457,14 @@
 <ol start="3">
 <li>真值表</li>
 </ol>
+<p><img src="/.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <h3 id="串联或非门">串联或非门</h3>
 <p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/4.png"
 	width="298"
@@ -603,16 +612,16 @@
 </span></span></span><span class="line"><span class="cl"><span class="s1">	input clock_in,
 </span></span></span><span class="line"><span class="cl"><span class="s1">	output reg clock
 </span></span></span><span class="line"><span class="cl"><span class="s1">);
-</span></span></span><span class="line"><span class="cl"><span class="s1">	reg [24:0] coount;
+</span></span></span><span class="line"><span class="cl"><span class="s1">	reg [24:0] count;
 </span></span></span><span class="line"><span class="cl"><span class="s1">	always@(posedge clock_in)
 </span></span></span><span class="line"><span class="cl"><span class="s1">	begin
-</span></span></span><span class="line"><span class="cl"><span class="s1">		if (count == half)
-</span></span></span><span class="line"><span class="cl"><span class="s1">		begin
+</span></span></span><span class="line"><span class="cl"><span class="s1">        if (count == half)
+</span></span></span><span class="line"><span class="cl"><span class="s1">        begin
 </span></span></span><span class="line"><span class="cl"><span class="s1">			count &lt;= 1&#39;</span><span class="nv">d0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">			<span class="nv">clock</span> <span class="o">=</span> <span class="o">~</span><span class="nv">clock</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">end</span>
 </span></span><span class="line"><span class="cl">		<span class="k">else</span>
 </span></span><span class="line"><span class="cl">			<span class="nv">count</span> <span class="o">&lt;=</span> <span class="nv">count</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">		<span class="nv">end</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">end</span>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
@@ -736,6 +745,10 @@ $$</p>
 	
 ></p>
 <h1 id="register-file">Register File</h1>
+<h2 id="定义-1">定义</h2>
+<blockquote>
+<p>存储CPU中的通用寄存器</p>
+</blockquote>
 <h2 id="register-verilog">Register Verilog</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -794,9 +807,119 @@ $$</p>
 <h2 id="register-file-verilog">Register File Verilog</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code></code></pre></td>
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">register_file</span><span class="p">(</span> <span class="c1">// 针对四个Register的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">input</span> <span class="nc">Clock</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nc">WE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="p">[</span><span class="err">1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">WA</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">D</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nc">RAE</span><span class="p">,</span><span class="nc">RBE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nc">RAA</span><span class="p">,</span><span class="nc">RBA</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">PortA</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">PortB</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">reg0</span><span class="p">,</span><span class="nv">reg1</span><span class="p">,</span><span class="nv">reg2</span><span class="p">,</span><span class="nv">reg3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nv">always</span><span class="o">@</span><span class="p">(</span><span class="nv">posedge</span> <span class="nc">Clock</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nc">WE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">case</span><span class="p">(</span><span class="nc">WA</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="mi">0</span><span class="p">:</span> <span class="nv">reg0</span> <span class="o">&lt;=</span> <span class="nc">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="mi">1</span><span class="p">:</span> <span class="nv">reg1</span> <span class="o">&lt;=</span> <span class="nc">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="mi">2</span><span class="p">:</span> <span class="nv">reg2</span> <span class="o">&lt;=</span> <span class="nc">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="mi">3</span><span class="p">:</span> <span class="nv">reg3</span> <span class="o">&lt;=</span> <span class="nc">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">endcase</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nv">always</span> <span class="o">@</span><span class="p">(</span><span class="nc">RAA</span><span class="p">,</span><span class="nc">RAE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nc">RAE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">case</span> <span class="p">(</span><span class="nc">RAA</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">0</span><span class="p">:</span> <span class="nc">PortA</span> <span class="o">&lt;=</span> <span class="nv">reg0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">0</span><span class="p">:</span> <span class="nc">PortA</span> <span class="o">&lt;=</span> <span class="nv">reg2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">0</span><span class="p">:</span> <span class="nc">PortA</span> <span class="o">&lt;=</span> <span class="nv">reg2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">0</span><span class="p">:</span> <span class="nc">PortA</span> <span class="o">&lt;=</span> <span class="nv">reg3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">dafault</span><span class="p">:</span> <span class="nc">PortA</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="s1">&#39;h00;
+</span></span></span><span class="line"><span class="cl"><span class="s1">            endcase
+</span></span></span><span class="line"><span class="cl"><span class="s1">            end
+</span></span></span><span class="line"><span class="cl"><span class="s1">        else
+</span></span></span><span class="line"><span class="cl"><span class="s1">            PortA &lt;= 8&#39;</span><span class="nv">h00</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">always</span> <span class="o">@</span><span class="p">(</span><span class="nc">RAA</span><span class="p">,</span><span class="nc">RBE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nc">RBE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">case</span> <span class="p">(</span><span class="nc">RBA</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">0</span><span class="p">:</span> <span class="nc">PortB</span> <span class="o">&lt;=</span> <span class="nv">reg0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">0</span><span class="p">:</span> <span class="nc">PortB</span> <span class="o">&lt;=</span> <span class="nv">reg2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">0</span><span class="p">:</span> <span class="nc">PortB</span> <span class="o">&lt;=</span> <span class="nv">reg2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">0</span><span class="p">:</span> <span class="nc">PortB</span> <span class="o">&lt;=</span> <span class="nv">reg3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">dafault</span><span class="p">:</span> <span class="nc">PortB</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="s1">&#39;h00;
+</span></span></span><span class="line"><span class="cl"><span class="s1">            endcase
+</span></span></span><span class="line"><span class="cl"><span class="s1">            end
+</span></span></span><span class="line"><span class="cl"><span class="s1">        else
+</span></span></span><span class="line"><span class="cl"><span class="s1">            PortB &lt;= 8&#39;</span><span class="nv">h00</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="内存">内存</h1>
 <h2 id="rom">ROM</h2>
@@ -826,7 +949,7 @@ $$</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">ROM</span>
-</span></span><span class="line"><span class="cl"><span class="o">#</span> <span class="p">(</span><span class="nv">parameter</span> <span class="nv">size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="nv">size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">(</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">size</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Address</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">EO</span><span class="p">,</span>
@@ -869,6 +992,11 @@ $$</p>
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">RAM</span>
@@ -882,12 +1010,17 @@ $$</p>
 </span></span><span class="line"><span class="cl">	<span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">data_out</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">Data</span> <span class="o">=</span> <span class="p">(</span><span class="nc">CE</span> <span class="o">&amp;</span> <span class="nc">OE</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nc">WR</span><span class="p">)</span> <span class="kd">?</span> <span class="nv">data_out</span><span class="p">:</span> <span class="mi">8</span><span class="s1">&#39;bz;
-</span></span></span><span class="line"><span class="cl"><span class="s1">	always#(CE or WR or Data or Address)
+</span></span></span><span class="line"><span class="cl"><span class="s1">	always@(*)
 </span></span></span><span class="line"><span class="cl"><span class="s1">	begin
-</span></span></span><span class="line"><span class="cl"><span class="s1">		mem[Address] = Data;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        if(CE &amp;&amp; WR)
+</span></span></span><span class="line"><span class="cl"><span class="s1">		    mem[Address] = Data;
 </span></span></span><span class="line"><span class="cl"><span class="s1">	end
 </span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">	always
+</span></span></span><span class="line"><span class="cl"><span class="s1">	always@(*)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    begin
+</span></span></span><span class="line"><span class="cl"><span class="s1">        if (CE &amp; OE &amp; ~WR)
+</span></span></span><span class="line"><span class="cl"><span class="s1">            data_out = mem[Address];
+</span></span></span><span class="line"><span class="cl"><span class="s1">    end
 </span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
 </span></span></span></code></pre></td></tr></table>
 </div>
@@ -969,7 +1102,7 @@ $$</p>
 </span></span><span class="line"><span class="cl">	<span class="nv">begin</span>
 </span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="nc">Clear</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">			<span class="nc">Value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">		<span class="nv">elif</span> <span class="p">(</span><span class="nc">Up</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">elif</span> <span class="p">(</span><span class="nc">Up</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">			<span class="nc">Value</span> <span class="o">&lt;=</span> <span class="nc">Value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">		<span class="k">else</span>
 </span></span><span class="line"><span class="cl">			<span class="nc">Value</span> <span class="o">&lt;=</span> <span class="nc">Value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
