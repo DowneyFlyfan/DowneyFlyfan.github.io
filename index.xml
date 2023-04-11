@@ -551,10 +551,109 @@ $$&lt;/p&gt;
 &lt;li&gt;对于一组变量$\pmb X$，$\mu(\theta) = (\mu_1(\theta),&amp;hellip;,\mu_k(\theta))$，那么它的反函数$\hat \theta = M(\mu_1(\theta),&amp;hellip;,\mu_k(\theta))$就是$\theta$的矩估计量&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;sampling-distribution-of-estimators&#34;&gt;Sampling Distribution of Estimators&lt;/h2&gt;
-&lt;h3 id=&#34;definition-4&#34;&gt;Definition&lt;/h3&gt;
+&lt;h3 id=&#34;sampling-distribution-of-statistics&#34;&gt;Sampling Distribution of Statistics&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;$\pmb X$是带有未知参数$\theta$的一组样本,$T=r(X_1,X_2,&amp;hellip;,\theta)$,那么$T$的&lt;strong&gt;Distribution&lt;/strong&gt;叫做&lt;strong&gt;Sampling Distribution of T&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h3 id=&#34;the-chi-square-distribution&#34;&gt;The Chi-Square Distribution&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于任意&lt;strong&gt;正整数m&lt;/strong&gt;,$\alpha = \frac{1}{2},\beta = \frac{1}{2}$的&lt;strong&gt;Gamma Distribution&lt;/strong&gt;叫做自由度为&lt;strong&gt;m&lt;/strong&gt;的&lt;strong&gt;卡方分布&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+Gamma \ Distribution \ p.d.f. \\\
+\\ f(x|\alpha,\beta) = \begin{cases}
+\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha -1}e^{-\beta x} &amp;amp; x \gt 0 \\
+0 &amp;amp; x\le 0
+\end{cases}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Property&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Mean and Variance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+E(X) = m \\\
+\\ Var(X) = 2m \\\
+\\ m.g.f. \ \psi (t) = (\frac{1}{1-2t})^{m/2}, t\lt \frac{1}{2}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;如果$X_i$服从自由度为$m_i(i=1,&amp;hellip;k)$的卡方分布,那么$X_1 +&amp;hellip;+ X_k$服从自由度为$m_1 +&amp;hellip;+ m_i$的卡方分布&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$X$服从标准正态分布,那么$Y=X^2$服从&lt;strong&gt;自由度为1&lt;/strong&gt;的卡方分布&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;the-t-distributions&#34;&gt;The t Distributions&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$Y$服从**自由度为m的卡方分布，$Z$服从标准正态分布&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+X = \frac{Z}{(\frac{Y}{m})^{1/2}}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;那么$X$服从&lt;strong&gt;自由度为m&lt;/strong&gt;的&lt;strong&gt;t分布&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Property&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;moments&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+Var(X) = \frac{m}{m-2}, m\ge 2 \\\
+\\ E(|X|^k) \begin{cases}
+= \infin &amp;amp; k\ge m \\
+\le \infin &amp;amp; k \lt m
+\end{cases}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;confidence-interval&#34;&gt;Confidence Interval&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于$\pmb X = X_1,&amp;hellip;,X_n$,存在$A\lt B$,使得$Pr(g(A \le \theta \le B)) \ge \gamma$,那么$(A,B)$叫做系数为$\gamma$的置信区间，或者$100\gamma %$置信区间&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;特点&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;观察$X_n$后计算得到$A=a,B=b$,$(a,b)$即位观察到的置信区间&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当&lt;strong&gt;上式&lt;/strong&gt;取等时，$(a,b)$叫做观察到的&lt;strong&gt;置信区间&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;正态分布均值的&lt;strong&gt;置信区间&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+A = \overline X_n - T_{n-1}^{-1}(\frac{1+\gamma}{2})\frac{\sigma&amp;rsquo;}{n^{1/2}} \\\
+\\ B = \overline X_n + T_{n-1}^{-1}(\frac{1+\gamma}{2})\frac{\sigma&amp;rsquo;}{n^{1/2}}
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;One-Sided Confidence Intervals/Limits&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+Pr(A \le g(\theta)) \ge \gamma \\\
+\\ Pr(g(\theta) \le B) \ge \gamma \\\
+\\ A = \overline X_n - T_{n-1}^{-1}(\gamma)\frac{\sigma&amp;rsquo;}{n^{1/2}} \\\
+\\ B = \overline X_n + T_{n-1}^{-1}(\gamma)\frac{\sigma&amp;rsquo;}{n^{1/2}}
+$$&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;缺点&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
@@ -865,22 +964,17 @@ $$&lt;/p&gt;
 &lt;li&gt;例如&lt;strong&gt;比特、芯片、数码、ChatGPT&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;比特的概念&#34;&gt;比特的概念&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;信息量单位&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据量单位&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信息量计算公式&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;信息量,数据量&lt;/strong&gt;单位&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;计算公式&#34;&gt;计算公式&lt;/h3&gt;
 &lt;p&gt;$$
 X = {p_1,&amp;hellip;p_n}的信息量H(X)比特是指 \\\
 \\ H(X) = -\sum_{i=1}^n p_i log_2p_i
 $$&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
+&lt;h3 id=&#34;理解与应用&#34;&gt;理解与应用&lt;/h3&gt;
+&lt;ol&gt;
 &lt;li&gt;数据角度&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
@@ -891,14 +985,132 @@ $$&lt;/p&gt;
 &lt;p&gt;将复杂问题转化为&lt;strong&gt;是与否&lt;/strong&gt;的&lt;strong&gt;二元问题&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;5&#34;&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;零支持证明&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;比特的发展&#34;&gt;比特的发展&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
+state 比特的发展{
+连续度量 --&gt; 数字化度量:奈奎斯特,傅里叶
+数字化度量 --&gt; 数字化
+}
+state 傅里叶变换{
+频谱 --&gt; 时间变化率
+时间变化率 --&gt; 频谱
+}
+&lt;/div&gt;
+
+
+
+  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    mermaid.initialize({ startOnLoad: true });
+  &lt;/script&gt;
+
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;奈奎斯特(Nyquist)采样定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;带宽为$B$的连续信号可以由$f_s \ge 2B$频率的采样无失真表示(采样频率必须大于信号频率的两倍)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;应用
+&lt;ul&gt;
+&lt;li&gt;ADC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;芯片&#34;&gt;芯片&lt;/h2&gt;
+&lt;h3 id=&#34;摩尔定律&#34;&gt;摩尔定律&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;成本不变时，芯片上的&lt;strong&gt;晶体管数量&lt;/strong&gt;每18个月&lt;strong&gt;翻一番&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;概念&#34;&gt;概念&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;实现&lt;strong&gt;数据计算&lt;/strong&gt;和&lt;strong&gt;存储&lt;/strong&gt;的&lt;strong&gt;微小的单一单位&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一项&lt;strong&gt;综合性技术&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;分类有很多不同的分类方法&#34;&gt;分类(有很多不同的分类方法)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;类型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;比特币是一种什么样的货币?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;电子芯片&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;零支持证明&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;生物芯片&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;量子芯片&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;计算&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;存储&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;专用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;定制&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Soc (System on Chip)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FPGA (Field Programmable Gate Array)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;题外话&#34;&gt;题外话&lt;/h1&gt;
+&lt;h2 id=&#34;战争领域&#34;&gt;战争领域&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;陆海空天&lt;strong&gt;数&amp;quot;谱&amp;quot;&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;赛博&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;数据网络空间&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;电磁频谱空间&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;边疆&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;高&lt;/strong&gt;边疆: 太空&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;谱&lt;/strong&gt;边疆&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;adc的位宽&#34;&gt;ADC的位宽&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;指ADC转换输出数据的二进制位数,例如&lt;strong&gt;12位&lt;/strong&gt;的ADC转换$2^{12}$个数字信号&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -939,6 +1151,13 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;黑色&lt;/strong&gt;端为&lt;strong&gt;负极&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;发光二极管&#34;&gt;发光二极管&lt;/h3&gt;
+&lt;h3 id=&#34;三极管c1008&#34;&gt;三极管(C1008)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;C1008(EBC)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;电阻&#34;&gt;电阻&lt;/h3&gt;
+&lt;h3 id=&#34;蜂鸣器&#34;&gt;蜂鸣器&lt;/h3&gt;
 &lt;h2 id=&#34;电源&#34;&gt;电源&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -948,8 +1167,20 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;CH1负极&lt;/strong&gt;接&lt;strong&gt;差分放大器&lt;/strong&gt;的&lt;strong&gt;地&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/6.png&#34;
+	width=&#34;1245&#34;
+	height=&#34;856&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/6_hu14e849c76431442497d37428148bee30_65284_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/6_hu14e849c76431442497d37428148bee30_65284_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;349px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;实验电路&#34;&gt;实验电路&lt;/h2&gt;
-&lt;h3 id=&#34;第一部分&#34;&gt;第一部分&lt;/h3&gt;
+&lt;h3 id=&#34;第一部分----温度传感器--差分放大器&#34;&gt;第一部分 &amp;ndash; 温度传感器 + 差分放大器&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/3.png&#34;
 	width=&#34;1192&#34;
 	height=&#34;517&#34;
@@ -962,7 +1193,33 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;553px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;第二部分&#34;&gt;第二部分&lt;/h3&gt;
+&lt;h3 id=&#34;第二部分----电压比较器&#34;&gt;第二部分 &amp;ndash; 电压比较器&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/4.png&#34;
+	width=&#34;894&#34;
+	height=&#34;333&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/4_hu2d508207e9b0d53792c5c1ee0a8fd7fd_55873_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/4_hu2d508207e9b0d53792c5c1ee0a8fd7fd_55873_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;268&#34;
+		data-flex-basis=&#34;644px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第三部分----报警驱动电路&#34;&gt;第三部分 &amp;ndash; 报警驱动电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/5.png&#34;
+	width=&#34;871&#34;
+	height=&#34;399&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/5_hucb08987c33d511f79b70c8cb7273ac3d_100542_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/5_hucb08987c33d511f79b70c8cb7273ac3d_100542_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;218&#34;
+		data-flex-basis=&#34;523px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;实验知识&#34;&gt;实验知识&lt;/h1&gt;
 &lt;h2 id=&#34;电阻色环&#34;&gt;电阻色环&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;

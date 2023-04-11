@@ -322,7 +322,10 @@ KL Divergence &amp;amp; Cross-Entropy KL Divergence 区分两个分布的相似�
         </li>
         <li><a href="#sampling-distribution-of-estimators">Sampling Distribution of Estimators</a>
           <ol>
-            <li><a href="#definition-4">Definition</a></li>
+            <li><a href="#sampling-distribution-of-statistics">Sampling Distribution of Statistics</a></li>
+            <li><a href="#the-chi-square-distribution">The Chi-Square Distribution</a></li>
+            <li><a href="#the-t-distributions">The t Distributions</a></li>
+            <li><a href="#confidence-interval">Confidence Interval</a></li>
           </ol>
         </li>
       </ol>
@@ -391,7 +394,7 @@ KL Divergence &amp;amp; Cross-Entropy KL Divergence 区分两个分布的相似�
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -617,10 +620,109 @@ $$</p>
 <li>对于一组变量$\pmb X$，$\mu(\theta) = (\mu_1(\theta),&hellip;,\mu_k(\theta))$，那么它的反函数$\hat \theta = M(\mu_1(\theta),&hellip;,\mu_k(\theta))$就是$\theta$的矩估计量</li>
 </ul>
 <h2 id="sampling-distribution-of-estimators">Sampling Distribution of Estimators</h2>
-<h3 id="definition-4">Definition</h3>
+<h3 id="sampling-distribution-of-statistics">Sampling Distribution of Statistics</h3>
 <blockquote>
 <p>$\pmb X$是带有未知参数$\theta$的一组样本,$T=r(X_1,X_2,&hellip;,\theta)$,那么$T$的<strong>Distribution</strong>叫做<strong>Sampling Distribution of T</strong></p>
 </blockquote>
+<h3 id="the-chi-square-distribution">The Chi-Square Distribution</h3>
+<ol>
+<li>Definition</li>
+</ol>
+<blockquote>
+<p>对于任意<strong>正整数m</strong>,$\alpha = \frac{1}{2},\beta = \frac{1}{2}$的<strong>Gamma Distribution</strong>叫做自由度为<strong>m</strong>的<strong>卡方分布</strong></p>
+</blockquote>
+<p>$$
+Gamma \ Distribution \ p.d.f. \\\
+\\ f(x|\alpha,\beta) = \begin{cases}
+\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha -1}e^{-\beta x} &amp; x \gt 0 \\
+0 &amp; x\le 0
+\end{cases}
+$$</p>
+<ol start="2">
+<li>Property</li>
+</ol>
+<ul>
+<li>Mean and Variance</li>
+</ul>
+<p>$$
+E(X) = m \\\
+\\ Var(X) = 2m \\\
+\\ m.g.f. \ \psi (t) = (\frac{1}{1-2t})^{m/2}, t\lt \frac{1}{2}
+$$</p>
+<ul>
+<li>
+<p>如果$X_i$服从自由度为$m_i(i=1,&hellip;k)$的卡方分布,那么$X_1 +&hellip;+ X_k$服从自由度为$m_1 +&hellip;+ m_i$的卡方分布</p>
+</li>
+<li>
+<p>$X$服从标准正态分布,那么$Y=X^2$服从<strong>自由度为1</strong>的卡方分布</p>
+</li>
+</ul>
+<h3 id="the-t-distributions">The t Distributions</h3>
+<ol>
+<li>Definition</li>
+</ol>
+<ul>
+<li>$Y$服从**自由度为m的卡方分布，$Z$服从标准正态分布</li>
+</ul>
+<p>$$
+X = \frac{Z}{(\frac{Y}{m})^{1/2}}
+$$</p>
+<ul>
+<li>那么$X$服从<strong>自由度为m</strong>的<strong>t分布</strong></li>
+</ul>
+<ol start="2">
+<li>Property</li>
+</ol>
+<ul>
+<li>moments</li>
+</ul>
+<p>$$
+Var(X) = \frac{m}{m-2}, m\ge 2 \\\
+\\ E(|X|^k) \begin{cases}
+= \infin &amp; k\ge m \\
+\le \infin &amp; k \lt m
+\end{cases}
+$$</p>
+<h3 id="confidence-interval">Confidence Interval</h3>
+<ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>对于$\pmb X = X_1,&hellip;,X_n$,存在$A\lt B$,使得$Pr(g(A \le \theta \le B)) \ge \gamma$,那么$(A,B)$叫做系数为$\gamma$的置信区间，或者$100\gamma %$置信区间</p>
+</blockquote>
+<ol start="2">
+<li>特点</li>
+</ol>
+<ul>
+<li>
+<p>观察$X_n$后计算得到$A=a,B=b$,$(a,b)$即位观察到的置信区间</p>
+</li>
+<li>
+<p>当<strong>上式</strong>取等时，$(a,b)$叫做观察到的<strong>置信区间</strong></p>
+</li>
+</ul>
+<ol start="3">
+<li>定理</li>
+</ol>
+<ul>
+<li>正态分布均值的<strong>置信区间</strong></li>
+</ul>
+<p>$$
+A = \overline X_n - T_{n-1}^{-1}(\frac{1+\gamma}{2})\frac{\sigma&rsquo;}{n^{1/2}} \\\
+\\ B = \overline X_n + T_{n-1}^{-1}(\frac{1+\gamma}{2})\frac{\sigma&rsquo;}{n^{1/2}}
+$$</p>
+<ol start="4">
+<li>One-Sided Confidence Intervals/Limits</li>
+</ol>
+<p>$$
+Pr(A \le g(\theta)) \ge \gamma \\\
+\\ Pr(g(\theta) \le B) \ge \gamma \\\
+\\ A = \overline X_n - T_{n-1}^{-1}(\gamma)\frac{\sigma&rsquo;}{n^{1/2}} \\\
+\\ B = \overline X_n + T_{n-1}^{-1}(\gamma)\frac{\sigma&rsquo;}{n^{1/2}}
+$$</p>
+<ol start="5">
+<li>缺点</li>
+</ol>
 
 </section>
 
