@@ -220,7 +220,112 @@
         <pubDate>Mon, 10 Apr 2023 11:45:36 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/</guid>
-        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;有mosfet的放大器&#34;&gt;有MOSFET的放大器&lt;/h1&gt;
+&lt;h2 id=&#34;图示&#34;&gt;图示&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/1.png&#34;
+	width=&#34;356&#34;
+	height=&#34;319&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/1_hu4b106f65e27412ad3a9058b73a22b643_30185_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/1_hu4b106f65e27412ad3a9058b73a22b643_30185_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;111&#34;
+		data-flex-basis=&#34;267px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+V_{DS} = V_{DD} - i_DR_D
+$$&lt;/p&gt;
+&lt;h2 id=&#34;电压转换特性&#34;&gt;电压转换特性&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/2.png&#34;
+	width=&#34;639&#34;
+	height=&#34;564&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/2_huc628eecac238f807656d141bfa47d925_49116_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/2_huc628eecac238f807656d141bfa47d925_49116_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;113&#34;
+		data-flex-basis=&#34;271px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_{DS} &amp;amp;= V_{DD} - i_DR_D \\
+&amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1)
+\end{aligned} \\\
+\\ V_t \lt V_{GS} \lt V_{DS} + V_t \\
+V_{OV} \lt V_{DS} \\\
+\\ \begin{aligned}
+At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\
+解(1)得到: V_{GS}|&lt;em&gt;B &amp;amp;= V_t + \frac{\sqrt{2k_n R_D V&lt;/em&gt;{DD}+1}-1}{k_nR_D}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;偏压获得线性放大&#34;&gt;偏压获得线性放大&lt;/h2&gt;
+&lt;h3 id=&#34;图示-1&#34;&gt;图示&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/3.png&#34;
+	width=&#34;487&#34;
+	height=&#34;618&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/3_hue3a72b3e597d2b3fc196ac9f4981c940_114948_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/3_hue3a72b3e597d2b3fc196ac9f4981c940_114948_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;78&#34;
+		data-flex-basis=&#34;189px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Q点: &lt;strong&gt;bias point/dc operating point/ quiescent point&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;小信号电压增益&#34;&gt;小信号电压增益&lt;/h2&gt;
+&lt;h3 id=&#34;电流&#34;&gt;电流&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+i_D &amp;amp;= I_D + i_d \\
+&amp;amp;= \frac{K(V_{GS}+v_{GS}-V_T)^2}{2} \\
+&amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} + K(V_{GS}-V_T)v_{gs} + \frac{K}{2}v_{gs}^2
+\end{aligned} \\\
+\\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\
+\\ \begin{aligned}
+i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} + &amp;amp;K(V_{GS}-V_T)v_{gs} \\
+i_D &amp;amp;= &amp;amp;I_D + &amp;amp;i_d
+\end{aligned} \\\
+\\ \begin{aligned}
+i_d &amp;amp;= KV_{OV}v_{gs} \\
+g_m &amp;amp;= KV_{OV}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;增益&#34;&gt;增益&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;推导&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_{DS} &amp;amp;= V_{DD} - i_DR_D \\
+&amp;amp;= V_{DD} - (I_D + i_d)R_D \\
+&amp;amp;= V_{DD} - I_DR_D -i_dR_D
+\end{aligned} \\\
+\\ v_o = -i_dR_D = -g_mV_{OV}R_D \\\
+\\ A_v = \frac{v_o}{v_i} = \frac{v_{ds}}{v_{gs}} = -g_mR_D  = -KV_{OV}R_D \\\
+\\ I_D = \frac{1}{2}KV_{OV}^2 \Longrightarrow K = \frac{2I_D}{V_{OV}^2} \\\
+\\ \therefore A_v = -\frac{I_D R_D}{V_{OV}/2}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;通过图像分析确定vtc&#34;&gt;通过图像分析确定VTC&lt;/h2&gt;
+&lt;h3 id=&#34;图像&#34;&gt;图像&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/4.png&#34;
+	width=&#34;624&#34;
+	height=&#34;562&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/4_hu427f570c03593071af58bc14676ae97a_63396_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/4_hu427f570c03593071af58bc14676ae97a_63396_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;111&#34;
+		data-flex-basis=&#34;266px&#34;
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -593,7 +698,7 @@ $$&lt;/p&gt;
 &lt;li&gt;Definition&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;$Y$服从**自由度为m的卡方分布，$Z$服从标准正态分布&lt;/li&gt;
+&lt;li&gt;$Y$服从&lt;strong&gt;自由度为m&lt;/strong&gt;的卡方分布，$Z$服从标准正态分布&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 X = \frac{Z}{(\frac{Y}{m})^{1/2}}
@@ -613,6 +718,12 @@ Var(X) = \frac{m}{m-2}, m\ge 2 \\\
 = \infin &amp;amp; k\ge m \\
 \le \infin &amp;amp; k \lt m
 \end{cases}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Formula&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+t = \frac{\overline X_n - \mu}{\sqrt{\sigma/n}}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;confidence-interval&#34;&gt;Confidence Interval&lt;/h3&gt;
 &lt;ol&gt;
@@ -651,8 +762,124 @@ Pr(A \le g(\theta)) \ge \gamma \\\
 \\ A = \overline X_n - T_{n-1}^{-1}(\gamma)\frac{\sigma&amp;rsquo;}{n^{1/2}} \\\
 \\ B = \overline X_n + T_{n-1}^{-1}(\gamma)\frac{\sigma&amp;rsquo;}{n^{1/2}}
 $$&lt;/p&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;缺点&lt;/li&gt;
+&lt;h3 id=&#34;unbiased-estimator&#34;&gt;Unbiased Estimator&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果$E_\theta[\delta(\theta)]=g(\theta)$对每个$\theta$都成立，那么$\delta(\theta)$叫做$g(\theta)$的&lt;strong&gt;Unbiased Estimator&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Property&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$Bias = E_\theta[\delta(\theta)] - g(\theta)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\pmb X$的方差有限,$g(\theta)=Var_\theta(X_1)$,那么$\hat{\sigma}_1 = \frac{1}{n-1}\sum_i^n(X_i-\overline {X_n})^2$是$g(\theta)$的方差的无偏估计量&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;testing-hypothesis&#34;&gt;Testing Hypothesis&lt;/h2&gt;
+&lt;h3 id=&#34;分类&#34;&gt;分类&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Null / Alternative Hypothesis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$H_0$ is Null Hypothesis, $H_1$ is Alternative Hypothesis. 当$\theta \in \Omega_0$, we &lt;strong&gt;not reject&lt;/strong&gt; $H_0$; 当$\theta \in \Omega_1$,we &lt;strong&gt;reject&lt;/strong&gt; $H_0$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Simple / Composite Hypothesis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$\Omega_i$只有一个值，$H_i$叫做Simple Hypothesis; 否则叫&lt;strong&gt;Composite Hypothesis&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;One-Sided / Two-Sided Hypothesis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$H_0 \le \theta, H_1\gt \theta;H_0\gt \theta,H_1\le\theta$叫做&lt;strong&gt;Two-Sided Hypothesis&lt;/strong&gt;; $H_0= \theta,H_1 \ne \theta$叫做&lt;strong&gt;One-Sided Hypothesis&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;critical-region-and-test-statistics&#34;&gt;Critical Region and Test Statistics&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Critical Region&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+对于一个均值未知，方差已知的正态分布 \\\
+\\ H_0 : \mu = \mu_0 ; H_1 : \mu  \neq \mu_0 \\\
+\\ c是一个很小的常数 \\\
+\\ 当\overline {X_n}和\mu的差值超过c,我们就拒绝H_0\\\
+\\ 即 S_0 = \lbrace x: |\overline{X_n} - \mu_0| \lt c\rbrace . \ S_1 = S_0^c \\\
+\\ S_1 就叫做\pmb{批判性区域}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Test Statistics &amp;amp; Rejection Domain&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+对于一个分布X, T = r(X)是统计量，R是实数的子集\\\
+\\ 假设一个检验过程有以下假设 \\\
+\\ H_0: \theta \in \Omega_0 , H_1: \theta \in \Omega_1 \\\
+\\ 若在T \in R时，我们\pmb{拒绝 H_0} \\\
+\\ 那么T叫做\pmb{检验统计},R叫做\pmb{拒绝域}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;power-function-and-error-type&#34;&gt;Power Function and Error Type&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Power Function&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\pi (\theta | \delta) 叫做测试\delta  的幂函数 \\\
+\\ 并且 \pi (\theta | \delta) = Pr(X \in S_1 | \theta) , \theta \in \Omega \\\
+\\ 或者 \pi (\theta | \delta) = Pr(T \in R| \theta)  , \theta \in \Omega
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Error Type&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Type I 弃真&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$H_0: \theta \in \Omega_0$是真的，但是我们&lt;em&gt;&lt;strong&gt;reject&lt;/strong&gt;&lt;/em&gt; $H_0$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Type II 纳伪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$H_0: \theta \in \Omega_0$是假的，但是我们&lt;em&gt;&lt;strong&gt;not to reject&lt;/strong&gt;&lt;/em&gt; $H_0$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Significance Level&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;显著水平，也称为α水平或显著性水平，是用于衡量在假设检验中拒绝原假设的临界值。通常情况下，显著水平的取值为0.10,0.05或0.01，代表了在一次实验中，我们允许犯错误的概率大小。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;选择显著性水平&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;选择较低的显著性水平（如0.01）可以降低&lt;strong&gt;弃真&lt;/strong&gt;的风险，使得结论更加保守和可靠。但这也可能导致较高的&lt;strong&gt;纳伪&lt;/strong&gt;的风险。选择较高的显著性水平（如0.10）则会相对容易发现效应，但也可能增加犯第一类错误的风险。因此，0.05的显著性水平被认为是比较常用的选择&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;steps-of-test-hypothesis&#34;&gt;Steps of Test Hypothesis&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;确定原假设和备择假设：原假设（null hypothesis）是我们想要检验的陈述，通常是指样本数据与总体相同。备择假设（alternative hypothesis）则是与原假设相反的假设，通常是指样本数据与总体不同。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;确定显著水平：显著水平（significance level）是判断是否拒绝原假设的临界值，通常设定为0.05或0.01。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择合适的假设检验方法：根据样本数据类型和实验设计等因素，选择合适的假设检验方法，如t检验、F检验、卡方检验等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算统计量：根据假设检验方法的要求，计算相应的统计量，如t值、F值、卡方值等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;确定拒绝域：拒绝域是指统计量达到或超过一定临界值时，我们会拒绝原假设的范围。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算p值：p值是指在原假设成立的情况下，出现观察值或更极端观察值的概率。通过计算p值，我们可以判断观察值是否落在了拒绝域内。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;做出结论：根据p值或统计量是否达到拒绝域，来判断是否拒绝原假设。如果拒绝原假设，则说明样本数据与总体存在显著差异；反之，则说明样本数据与总体相同。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         </item>
@@ -16203,9 +16430,9 @@ $$&lt;/p&gt;
 单样本t检验 \\\
 \\ t = \frac{X-\mu}{\sigma / \sqrt{n}} \\\
 \\ 双样本t检验 \\\
-\\ [1] 独立样本t检验 \\\
+\\ 独立样本t检验 \\\
 \\ t = \frac{X_1 -X_2}{\sqrt{\sigma^2_1/n_1 + \sigma_2^2/n_2}} \\\
-\\ [2] 配对样本t检验 \\\
+\\ 配对样本t检验 \\\
 \\ t = \frac{D}{\sigma_D/\sqrt n} \\\
 \\ 其中,D为配对样本的差值,\sigma_D为D的标准差
 $$&lt;/p&gt;
