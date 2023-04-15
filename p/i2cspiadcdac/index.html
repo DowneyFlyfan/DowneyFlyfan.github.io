@@ -276,6 +276,7 @@
             </li>
             <li><a href="#组成-1">组成</a></li>
             <li><a href="#function-1">Function</a></li>
+            <li><a href="#example-1">Example</a></li>
           </ol>
         </li>
         <li><a href="#spi与i2c对比">SPI与I2C对比</a></li>
@@ -346,7 +347,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -567,18 +568,167 @@
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th style="text-align:center"></th>
-<th></th>
+<th style="text-align:center">I2C</th>
+<th style="text-align:center"><code>I2C i2c_port(D0, D1); //Configure a serial port, SDA,SCL</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"></td>
+<td style="text-align:center">I2CSlave</td>
+<td style="text-align:center"><code>I2CSlave slave(D0, D1); // SDA, SCL</code></td>
+</tr>
+<tr>
+<td style="text-align:center">frequency</td>
 <td></td>
+</tr>
+<tr>
+<td style="text-align:center">read</td>
+<td style="text-align:center">read from <strong>Slave</strong> or <strong>Master</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">write</td>
+<td style="text-align:center">write to <strong>Slave</strong> or <strong>Master</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">start</td>
+<td style="text-align:center"><code>i2c_port.start(); // start condition</code></td>
+</tr>
+<tr>
+<td style="text-align:center">stop</td>
+<td style="text-align:center"><strong>Stop</strong> or <strong>Reset the I2C Slave</strong> back into the known ready receiving state.</td>
+</tr>
+<tr>
+<td style="text-align:center">receive</td>
+<td style="text-align:center">Checks to see if this I2 C Slave has been addressed. (<strong>0</strong>: the Slave has not been addressed; <strong>1</strong>: it has been addressed to read;<strong>3</strong>: addressed to write)</td>
+</tr>
+<tr>
+<td style="text-align:center">address</td>
+<td style="text-align:center">slave.address(0x52); //set the slave address</td>
 </tr>
 </tbody>
 </table></div>
-<h2 id="spi与i2c对比">SPI与I2C对比</h2>
+<h3 id="example-1">Example</h3>
+<ol>
+<li>Master</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;mbed.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">I2C</span> <span class="nf">i2c_port</span><span class="p">(</span><span class="n">D0</span><span class="p">,</span> <span class="n">D1</span><span class="p">);</span> <span class="c1">//Configure a serial port, SDA,SCL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">DigitalOut</span> <span class="nf">red_led</span><span class="p">(</span><span class="n">p25</span><span class="p">);</span> <span class="c1">//red led
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">master_word</span><span class="p">;</span> <span class="c1">//word we will send
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">recd_val</span><span class="p">;</span> <span class="c1">//value return from slave
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">int</span> <span class="n">device_addr</span> <span class="o">=</span> <span class="mh">0x52</span><span class="p">;</span> <span class="c1">//I2C slave address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">master</span> <span class="n">_word</span><span class="o">=</span><span class="mh">0xA0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//send a single byte of data, in a correct I2C package
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">i2c_port</span><span class="p">.</span><span class="n">start</span><span class="p">();</span> <span class="c1">// start condition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">i2c_port</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">device_addr</span><span class="p">);</span> <span class="c1">//send the device address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">i2c_port</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">master_word</span><span class="p">);</span> <span class="c1">//send 1-byte of data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">i2c_port</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span> <span class="c1">//stop condition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="n">wait</span><span class="p">(</span><span class="mf">0.002</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//receive a single byte of data, in correct I2C package
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">i2c_port</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i2c_port</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">addr</span><span class="o">|</span><span class="mh">0x01</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">recd_val</span><span class="o">=</span><span class="n">i2c_port</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i2c_port</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">recd_val</span><span class="o">==</span><span class="mh">0xA0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">red_led</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Slave</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;mbed.h”</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">I2CSlave</span> <span class="nf">slave</span><span class="p">(</span><span class="n">D0</span><span class="p">,</span> <span class="n">D1</span><span class="p">);</span> <span class="c1">// SDA, SCL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">DigitalOut</span> <span class="nf">red_led</span><span class="p">(</span><span class="n">D11</span><span class="p">);</span> <span class="c1">//red led
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">slave_word</span><span class="p">;</span> <span class="c1">//word the slave will send
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">recd_val</span><span class="p">;</span> <span class="c1">//value received from the master
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">slave</span><span class="p">.</span><span class="n">address</span><span class="p">(</span><span class="mh">0x52</span><span class="p">);</span> <span class="c1">//set the slave address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">slave</span> <span class="n">_word</span><span class="o">=</span><span class="mh">0xA0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">slave</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">slave_word</span><span class="p">);</span><span class="c1">//load the word that will be sent
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//check to see if slave was addressed
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">slave</span><span class="p">.</span><span class="n">receive</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">recd_val</span> <span class="o">=</span> <span class="n">slave</span><span class="p">.</span><span class="n">read</span><span class="p">();</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">recd_val</span><span class="o">==</span><span class="mh">0xA0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">red_led</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="spi与i2c对比">SPI与I2C对比</h2>
 <ol>
 <li>
 <p>SPI <strong>更快，更节能，双工(更高效),不受限于8位字</strong></p>
