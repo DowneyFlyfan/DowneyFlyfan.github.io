@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Deep FeedForward Networks Deep Learning 感知机 - Perceptrons 定义 接受多个不同权重的输入信号,获得一个输出的机器
-多层感知机 多层输入获得一个输出
-神经网络 图示 解释 中间层又被称为隐藏层
-用第0,1,2层表示输入、中间、输出层
-示例 图示——含有偏置的简单神经网络 $$ y = \begin{cases} 0 &amp;amp; w_1x_1 &#43; w_2x_2 &#43; b \le 0 \\ 1 &amp;amp; w_1x_1 &#43;w_2x_2 &#43; b \gt 0 \end{cases} \\\ \\ 引入\pmb{激活函数h(x)}=\begin{cases} 1 &amp;amp; x\gt 0 \\ 0 &amp;amp; x\le 0 \end{cases} \\\ \\ 那么y = h(w_1x_1 &#43; w_2x_2 &#43; b) \\\ \\ 此处的激活函数是一种\pmb{阶跃函数} \\\ \\ \pmb{阶跃函数} 是感知机的激活函数 $$'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Machine Learning Basics Definition 一个计算机程序以Performace P从有关Task T的Experience E中学习
+Description Example Feature(被量化的特征)的集合
+$x\in\R^n$,每一个$x_i$都是一个feature
+通过计算机处理Example的方式来定义Machine Learning Common Tasks that can be done by Machine Learning Classification(With Missing Inputs) Regression(回归) 预测 Transcription 把无序的数据变成固定的、有序的形式 Translation Performace Measure P Accuracy 正确输出的比例 Error Rate 错误输出的比例 Experience E Unsupervised Learning Algorithms 学习$\pmb x$并得到它的$p(\pmb x)$ Supervised Learning Algorithms 学习$\pmb{x和y}$,并最终通过$\pmb x$预测$\pmb y$ 以上两个术语并不是严格定义的 Linear Regression $$ \hat y =\pmb{w^Tx} &#43; b\\\ \\ MSE_{test} = \frac{1}{m}\sum_i(\pmb {\hat y}{test} - \pmb y{test})^2_i = \frac{1}{m}||\pmb {\hat y}{test} - \pmb y{test}||2^2 \\\ \\ To \ minimize, \ \nabla\omega \frac{1}{m} ||\hat {\pmb y}^{(train)} - \pmb y^{(train)} ||2^2 = 0 \\\ \\ \nabla\omega \frac{1}{m} || \pmb X^{(train)}\pmb w - \pmb y^{(train)} ||_2^2 = 0 \\\ \\ \nabla_w (\pmb X^{(train)}\pmb w - \pmb y^{(train)})^T (\pmb X^{(train)}\pmb w - \pmb y^{(train)}) = 0 \\\ \\ \pmb w = (\pmb X^{(train)T}\pmb X^{(train)})^{-1} \pmb X^{(train)T}y^{(train)} $$'>
 <title>Deep Learning</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/deep-learning/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Deep Learning'>
-<meta property='og:description' content='Deep FeedForward Networks Deep Learning 感知机 - Perceptrons 定义 接受多个不同权重的输入信号,获得一个输出的机器
-多层感知机 多层输入获得一个输出
-神经网络 图示 解释 中间层又被称为隐藏层
-用第0,1,2层表示输入、中间、输出层
-示例 图示——含有偏置的简单神经网络 $$ y = \begin{cases} 0 &amp;amp; w_1x_1 &#43; w_2x_2 &#43; b \le 0 \\ 1 &amp;amp; w_1x_1 &#43;w_2x_2 &#43; b \gt 0 \end{cases} \\\ \\ 引入\pmb{激活函数h(x)}=\begin{cases} 1 &amp;amp; x\gt 0 \\ 0 &amp;amp; x\le 0 \end{cases} \\\ \\ 那么y = h(w_1x_1 &#43; w_2x_2 &#43; b) \\\ \\ 此处的激活函数是一种\pmb{阶跃函数} \\\ \\ \pmb{阶跃函数} 是感知机的激活函数 $$'>
+<meta property='og:description' content='Machine Learning Basics Definition 一个计算机程序以Performace P从有关Task T的Experience E中学习
+Description Example Feature(被量化的特征)的集合
+$x\in\R^n$,每一个$x_i$都是一个feature
+通过计算机处理Example的方式来定义Machine Learning Common Tasks that can be done by Machine Learning Classification(With Missing Inputs) Regression(回归) 预测 Transcription 把无序的数据变成固定的、有序的形式 Translation Performace Measure P Accuracy 正确输出的比例 Error Rate 错误输出的比例 Experience E Unsupervised Learning Algorithms 学习$\pmb x$并得到它的$p(\pmb x)$ Supervised Learning Algorithms 学习$\pmb{x和y}$,并最终通过$\pmb x$预测$\pmb y$ 以上两个术语并不是严格定义的 Linear Regression $$ \hat y =\pmb{w^Tx} &#43; b\\\ \\ MSE_{test} = \frac{1}{m}\sum_i(\pmb {\hat y}{test} - \pmb y{test})^2_i = \frac{1}{m}||\pmb {\hat y}{test} - \pmb y{test}||2^2 \\\ \\ To \ minimize, \ \nabla\omega \frac{1}{m} ||\hat {\pmb y}^{(train)} - \pmb y^{(train)} ||2^2 = 0 \\\ \\ \nabla\omega \frac{1}{m} || \pmb X^{(train)}\pmb w - \pmb y^{(train)} ||_2^2 = 0 \\\ \\ \nabla_w (\pmb X^{(train)}\pmb w - \pmb y^{(train)})^T (\pmb X^{(train)}\pmb w - \pmb y^{(train)}) = 0 \\\ \\ \pmb w = (\pmb X^{(train)T}\pmb X^{(train)})^{-1} \pmb X^{(train)T}y^{(train)} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/deep-learning/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-11T14:16:50&#43;00:00'/><meta property='article:modified_time' content='2023-03-11T14:16:50&#43;00:00'/>
 <meta name="twitter:title" content="Deep Learning">
-<meta name="twitter:description" content="Deep FeedForward Networks Deep Learning 感知机 - Perceptrons 定义 接受多个不同权重的输入信号,获得一个输出的机器
-多层感知机 多层输入获得一个输出
-神经网络 图示 解释 中间层又被称为隐藏层
-用第0,1,2层表示输入、中间、输出层
-示例 图示——含有偏置的简单神经网络 $$ y = \begin{cases} 0 &amp;amp; w_1x_1 &#43; w_2x_2 &#43; b \le 0 \\ 1 &amp;amp; w_1x_1 &#43;w_2x_2 &#43; b \gt 0 \end{cases} \\\ \\ 引入\pmb{激活函数h(x)}=\begin{cases} 1 &amp;amp; x\gt 0 \\ 0 &amp;amp; x\le 0 \end{cases} \\\ \\ 那么y = h(w_1x_1 &#43; w_2x_2 &#43; b) \\\ \\ 此处的激活函数是一种\pmb{阶跃函数} \\\ \\ \pmb{阶跃函数} 是感知机的激活函数 $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Machine Learning Basics Definition 一个计算机程序以Performace P从有关Task T的Experience E中学习
+Description Example Feature(被量化的特征)的集合
+$x\in\R^n$,每一个$x_i$都是一个feature
+通过计算机处理Example的方式来定义Machine Learning Common Tasks that can be done by Machine Learning Classification(With Missing Inputs) Regression(回归) 预测 Transcription 把无序的数据变成固定的、有序的形式 Translation Performace Measure P Accuracy 正确输出的比例 Error Rate 错误输出的比例 Experience E Unsupervised Learning Algorithms 学习$\pmb x$并得到它的$p(\pmb x)$ Supervised Learning Algorithms 学习$\pmb{x和y}$,并最终通过$\pmb x$预测$\pmb y$ 以上两个术语并不是严格定义的 Linear Regression $$ \hat y =\pmb{w^Tx} &#43; b\\\ \\ MSE_{test} = \frac{1}{m}\sum_i(\pmb {\hat y}{test} - \pmb y{test})^2_i = \frac{1}{m}||\pmb {\hat y}{test} - \pmb y{test}||2^2 \\\ \\ To \ minimize, \ \nabla\omega \frac{1}{m} ||\hat {\pmb y}^{(train)} - \pmb y^{(train)} ||2^2 = 0 \\\ \\ \nabla\omega \frac{1}{m} || \pmb X^{(train)}\pmb w - \pmb y^{(train)} ||_2^2 = 0 \\\ \\ \nabla_w (\pmb X^{(train)}\pmb w - \pmb y^{(train)})^T (\pmb X^{(train)}\pmb w - \pmb y^{(train)}) = 0 \\\ \\ \pmb w = (\pmb X^{(train)T}\pmb X^{(train)})^{-1} \pmb X^{(train)T}y^{(train)} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -262,9 +259,21 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#deep-feedforward-networks">Deep FeedForward Networks</a>
+    <li><a href="#machine-learning-basics">Machine Learning Basics</a>
       <ol>
-        <li><a href="#heading"></a></li>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#common-tasks-that-can-be-done-by-machine-learning">Common Tasks that can be done by Machine Learning</a>
+          <ol>
+            <li><a href="#classificationwith-missing-inputs">Classification(With Missing Inputs)</a></li>
+            <li><a href="#regression回归">Regression(回归)</a></li>
+            <li><a href="#transcription">Transcription</a></li>
+            <li><a href="#translation">Translation</a></li>
+          </ol>
+        </li>
+        <li><a href="#performace-measure-p">Performace Measure P</a></li>
+        <li><a href="#experience-e">Experience E</a></li>
+        <li><a href="#linear-regression">Linear Regression</a></li>
       </ol>
     </li>
     <li><a href="#deep-learning">Deep Learning</a>
@@ -403,7 +412,7 @@
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -418,8 +427,78 @@
     <section class="article-content">
     
     
-    <h1 id="deep-feedforward-networks">Deep FeedForward Networks</h1>
-<h2 id="heading"></h2>
+    <h1 id="machine-learning-basics">Machine Learning Basics</h1>
+<h2 id="definition">Definition</h2>
+<blockquote>
+<p>一个计算机程序以<strong>Performace P</strong>从有关<strong>Task T</strong>的<strong>Experience E</strong>中学习</p>
+</blockquote>
+<h2 id="description">Description</h2>
+<ol>
+<li>Example</li>
+</ol>
+<ul>
+<li>
+<p><strong>Feature</strong>(被量化的特征)的集合</p>
+</li>
+<li>
+<p>$x\in\R^n$,每一个$x_i$都是一个<strong>feature</strong></p>
+</li>
+</ul>
+<ol start="2">
+<li>通过<strong>计算机处理Example的方式</strong>来定义Machine Learning</li>
+</ol>
+<h2 id="common-tasks-that-can-be-done-by-machine-learning">Common Tasks that can be done by Machine Learning</h2>
+<h3 id="classificationwith-missing-inputs">Classification(With Missing Inputs)</h3>
+<h3 id="regression回归">Regression(回归)</h3>
+<ul>
+<li>预测</li>
+</ul>
+<h3 id="transcription">Transcription</h3>
+<ul>
+<li>把<strong>无序的</strong>数据变成固定的、<strong>有序的</strong>形式</li>
+</ul>
+<h3 id="translation">Translation</h3>
+<h2 id="performace-measure-p">Performace Measure P</h2>
+<ol>
+<li>Accuracy</li>
+</ol>
+<ul>
+<li>正确输出的比例</li>
+</ul>
+<ol start="2">
+<li>Error Rate</li>
+</ol>
+<ul>
+<li>错误输出的比例</li>
+</ul>
+<h2 id="experience-e">Experience E</h2>
+<ol>
+<li>Unsupervised Learning Algorithms</li>
+</ol>
+<ul>
+<li>学习$\pmb x$并得到它的$p(\pmb x)$</li>
+</ul>
+<ol start="2">
+<li>Supervised Learning Algorithms</li>
+</ol>
+<ul>
+<li>学习$\pmb{x和y}$,并最终通过$\pmb x$预测$\pmb y$</li>
+</ul>
+<ol start="3">
+<li>以上两个<strong>术语</strong>并<strong>不是严格定义</strong>的</li>
+</ol>
+<h2 id="linear-regression">Linear Regression</h2>
+<p>$$
+\hat y =\pmb{w^Tx} + b\\\
+\\ MSE_{test} = \frac{1}{m}\sum_i(\pmb {\hat y}<em>{test} - \pmb y</em>{test})^2_i = \frac{1}{m}||\pmb {\hat y}<em>{test} - \pmb y</em>{test}||<em>2^2 \\\
+\\ To \ minimize, \ \nabla</em>\omega \frac{1}{m} ||\hat {\pmb y}^{(train)} - \pmb y^{(train)} ||<em>2^2 = 0 \\\
+\\ \nabla</em>\omega \frac{1}{m} || \pmb X^{(train)}\pmb w - \pmb y^{(train)} ||_2^2 = 0 \\\
+\\ \nabla_w (\pmb X^{(train)}\pmb w - \pmb y^{(train)})^T (\pmb X^{(train)}\pmb w - \pmb y^{(train)}) = 0 \\\
+\\ \pmb w = (\pmb X^{(train)T}\pmb X^{(train)})^{-1} \pmb X^{(train)T}y^{(train)}
+$$</p>
+<ul>
+<li>满足上述条件的叫做<strong>Normal Equation</strong></li>
+</ul>
 <h1 id="deep-learning">Deep Learning</h1>
 <h2 id="感知机---perceptrons">感知机 - Perceptrons</h2>
 <h3 id="定义">定义</h3>

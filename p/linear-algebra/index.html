@@ -273,6 +273,7 @@ Singular Matrix Definition Square Matrix with Linear denpendent Columns 特征 D
           <ol>
             <li><a href="#definition">Definition</a></li>
             <li><a href="#property">Property</a></li>
+            <li><a href="#category">Category</a></li>
           </ol>
         </li>
         <li><a href="#special-matrix-and-vectors">Special Matrix and Vectors</a>
@@ -432,9 +433,11 @@ $$</p>
 </ul>
 <h2 id="norms">Norms</h2>
 <h3 id="definition">Definition</h3>
+<ul>
+<li>用于衡量矩阵的大小</li>
+</ul>
 <p>$$
-L^p \ norm: ||x||<em>p = \Big( \sum</em>{i=1}^n x_i^p \Big)^{\frac{1}{p}} \\
-说白了就是长度
+L^p \ norm: ||x||<em>p = \Big( \sum</em>{i=1}^n x_i^p \Big)^{\frac{1}{p}}
 $$</p>
 <h3 id="property">Property</h3>
 <ul>
@@ -448,6 +451,31 @@ $$</p>
 <p>$\forall \alpha \in R, |\alpha| f(\pmb x) = f(\alpha \pmb x)$</p>
 </li>
 </ul>
+<h3 id="category">Category</h3>
+<ol>
+<li>1-Norm</li>
+</ol>
+<p>$$
+||A||<em>1 = max</em>{1\lt j \lt n}\sum_1^{m}|a_{ij}|
+$$</p>
+<ol start="2">
+<li>2-Norm</li>
+</ol>
+<p>$$
+||A||<em>2 = \sigma</em>{max}(A) (最大奇异值)
+$$</p>
+<ol start="3">
+<li>$\infin$-Norm</li>
+</ol>
+<p>$$
+||A||<em>\infin = max</em>{1\lt j \lt m}\sum_1^{n}|a_{ij}|
+$$</p>
+<ol start="4">
+<li>Frobenius-Norm</li>
+</ol>
+<p>$$
+\sqrt{\sum_1^m\sum_1^n |a_{ij}|^2}
+$$</p>
 <h2 id="special-matrix-and-vectors">Special Matrix and Vectors</h2>
 <h3 id="diagonal-matrix">Diagonal Matrix</h3>
 <ol>
@@ -599,7 +627,7 @@ $$</p>
 <p>Columns of V: <strong>Right-Singular Vectors</strong>(eigenvectors of $A^TA$)</p>
 </li>
 <li>
-<p>D的主对角线的元素是<strong>A</strong>的<strong>Singular Value</strong>($A^T A或AA^T$的EigenVaules)</p>
+<p>D的主对角线的元素是<strong>A</strong>的<strong>Singular Value</strong>($A^T A或AA^T$的EigenVaules的<strong>平方根</strong>)</p>
 </li>
 </ol>
 <h1 id="pseudoinverse--trace-operator">Pseudoinverse &amp; Trace Operator</h1>

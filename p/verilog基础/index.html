@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 关键字 assign 赋值 always 语法 1 2 3 4 5 6 always @ ( sensitivity_list ) begin // sequential or combinational logic statements end #10 延迟10毫秒 解释 sensitivity_list定义了always块所依赖的信号列表 @* 对所有信号变化敏感，这种情况下也称为敏感性列表的缺省形式 @(expression) 对一个或多个信号变化敏感，expression是一个可以求值为布尔值的表达式，其中包含一个或多个信号名称，也可以包括常量、运算符和函数调用。 @(posedge signal) 在时钟信号的上升沿时敏感 @(negedge signal) 在时钟信号的下降沿时敏感 作用 创建基于事件的行为，以响应组合逻辑电路中的信号变化 if/else for/while case input/output/inout 操作符 &amp;lt;= 与 = &amp;lt;= = 非阻塞赋值 阻塞复制(在其他赋值语句后赋值) '>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 关键字 assign 赋值 always 语法 1 2 3 4 5 6 always @ ( sensitivity_list ) begin // sequential or combinational logic statements end #10 延迟10毫秒 解释 sensitivity_list定义了always块所依赖的信号列表 @* 对所有信号变化敏感，这种情况下也称为敏感性列表的缺省形式 @(expression) 对一个或多个信号变化敏感，expression是一个可以求值为布尔值的表达式，其中包含一个或多个信号名称，也可以包括常量、运算符和函数调用。 @(posedge signal) 在时钟信号的上升沿时敏感 @(negedge signal) 在时钟信号的下降沿时敏感 作用 创建基于事件的行为，以响应组合逻辑电路中的信号变化 if/else for/while case input/output/inout forever 表示无限循环 操作符 &amp;lt;= 与 = &amp;lt;= = 非阻塞赋值 阻塞复制(在其他赋值语句后赋值) . 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 data_path data_path1 ( .'>
 <title>Verilog基础</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/verilog%E5%9F%BA%E7%A1%80/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Verilog基础'>
-<meta property='og:description' content='结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 关键字 assign 赋值 always 语法 1 2 3 4 5 6 always @ ( sensitivity_list ) begin // sequential or combinational logic statements end #10 延迟10毫秒 解释 sensitivity_list定义了always块所依赖的信号列表 @* 对所有信号变化敏感，这种情况下也称为敏感性列表的缺省形式 @(expression) 对一个或多个信号变化敏感，expression是一个可以求值为布尔值的表达式，其中包含一个或多个信号名称，也可以包括常量、运算符和函数调用。 @(posedge signal) 在时钟信号的上升沿时敏感 @(negedge signal) 在时钟信号的下降沿时敏感 作用 创建基于事件的行为，以响应组合逻辑电路中的信号变化 if/else for/while case input/output/inout 操作符 &amp;lt;= 与 = &amp;lt;= = 非阻塞赋值 阻塞复制(在其他赋值语句后赋值) '>
+<meta property='og:description' content='结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 关键字 assign 赋值 always 语法 1 2 3 4 5 6 always @ ( sensitivity_list ) begin // sequential or combinational logic statements end #10 延迟10毫秒 解释 sensitivity_list定义了always块所依赖的信号列表 @* 对所有信号变化敏感，这种情况下也称为敏感性列表的缺省形式 @(expression) 对一个或多个信号变化敏感，expression是一个可以求值为布尔值的表达式，其中包含一个或多个信号名称，也可以包括常量、运算符和函数调用。 @(posedge signal) 在时钟信号的上升沿时敏感 @(negedge signal) 在时钟信号的下降沿时敏感 作用 创建基于事件的行为，以响应组合逻辑电路中的信号变化 if/else for/while case input/output/inout forever 表示无限循环 操作符 &amp;lt;= 与 = &amp;lt;= = 非阻塞赋值 阻塞复制(在其他赋值语句后赋值) . 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 data_path data_path1 ( .'>
 <meta property='og:url' content='https://downeyflyfan.com/p/verilog%E5%9F%BA%E7%A1%80/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-16T10:46:19&#43;00:00'/><meta property='article:modified_time' content='2023-03-16T10:46:19&#43;00:00'/>
 <meta name="twitter:title" content="Verilog基础">
-<meta name="twitter:description" content="结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 关键字 assign 赋值 always 语法 1 2 3 4 5 6 always @ ( sensitivity_list ) begin // sequential or combinational logic statements end #10 延迟10毫秒 解释 sensitivity_list定义了always块所依赖的信号列表 @* 对所有信号变化敏感，这种情况下也称为敏感性列表的缺省形式 @(expression) 对一个或多个信号变化敏感，expression是一个可以求值为布尔值的表达式，其中包含一个或多个信号名称，也可以包括常量、运算符和函数调用。 @(posedge signal) 在时钟信号的上升沿时敏感 @(negedge signal) 在时钟信号的下降沿时敏感 作用 创建基于事件的行为，以响应组合逻辑电路中的信号变化 if/else for/while case input/output/inout 操作符 &amp;lt;= 与 = &amp;lt;= = 非阻塞赋值 阻塞复制(在其他赋值语句后赋值) "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="结构 结构描述 数字电路的结构 行为描述 数字电路的行为 时序逻辑 时钟信号的逻辑,例如触发器和计数器 组合逻辑 没有时钟信号的逻辑,比如加法器和比较器 语法 关键字 assign 赋值 always 语法 1 2 3 4 5 6 always @ ( sensitivity_list ) begin // sequential or combinational logic statements end #10 延迟10毫秒 解释 sensitivity_list定义了always块所依赖的信号列表 @* 对所有信号变化敏感，这种情况下也称为敏感性列表的缺省形式 @(expression) 对一个或多个信号变化敏感，expression是一个可以求值为布尔值的表达式，其中包含一个或多个信号名称，也可以包括常量、运算符和函数调用。 @(posedge signal) 在时钟信号的上升沿时敏感 @(negedge signal) 在时钟信号的下降沿时敏感 作用 创建基于事件的行为，以响应组合逻辑电路中的信号变化 if/else for/while case input/output/inout forever 表示无限循环 操作符 &amp;lt;= 与 = &amp;lt;= = 非阻塞赋值 阻塞复制(在其他赋值语句后赋值) . 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 data_path data_path1 ( ."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -271,6 +271,7 @@
             <li><a href="#forwhile">for/while</a></li>
             <li><a href="#case">case</a></li>
             <li><a href="#inputoutputinout">input/output/inout</a></li>
+            <li><a href="#forever">forever</a></li>
           </ol>
         </li>
         <li><a href="#操作符">操作符</a>
@@ -278,6 +279,7 @@
             <li><a href="#-与-">&lt;= 与 =</a></li>
           </ol>
         </li>
+        <li><a href="#heading">.</a></li>
       </ol>
     </li>
   </ol>
@@ -442,6 +444,10 @@
 <h3 id="forwhile">for/while</h3>
 <h3 id="case">case</h3>
 <h3 id="inputoutputinout">input/output/inout</h3>
+<h3 id="forever">forever</h3>
+<ul>
+<li>表示<strong>无限循环</strong></li>
+</ul>
 <h2 id="操作符">操作符</h2>
 <h3 id="-与-">&lt;= 与 =</h3>
 <div class="table-wrapper"><table>
@@ -458,7 +464,46 @@
 </tr>
 </tbody>
 </table></div>
-
+<h2 id="heading">.</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">data_path</span> <span class="nv">data_path1</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">					<span class="p">.</span><span class="nf">clk</span><span class="p">(</span><span class="nv">clk</span><span class="p">),</span> <span class="c1">// 第一个是原模块中定义的，括号里的是自己定义的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="p">.</span><span class="nf">rst</span><span class="p">(</span><span class="nv">rst</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">					<span class="p">.</span><span class="nf">offset</span><span class="p">(</span><span class="nv">ins</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">0</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">					<span class="p">.</span><span class="nf">offset_addr</span><span class="p">(</span><span class="nv">offset_addr</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">					<span class="p">.</span><span class="nf">en_pc_pulse</span><span class="p">(</span>  <span class="nv">en_pc_pulse</span>  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">					<span class="p">.</span><span class="nf">pc_ctrl</span><span class="p">(</span><span class="nv">pc_ctrl</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">					<span class="p">.</span><span class="nf">en_in</span><span class="p">(</span> <span class="nv">en_group_pulse</span> <span class="p">)</span> <span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="p">.</span><span class="nf">reg_en</span><span class="p">(</span><span class="nv">reg_en</span><span class="p">)</span> <span class="p">,</span>
+</span></span><span class="line"><span class="cl">				    <span class="p">.</span><span class="nf">rd</span><span class="p">(</span><span class="nv">ins</span><span class="p">[</span><span class="mi">11</span><span class="p">:</span><span class="mi">10</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">					<span class="p">.</span><span class="nf">rs</span><span class="p">(</span><span class="nv">ins</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">8</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">				    <span class="p">.</span><span class="nf">alu_in_sel</span><span class="p">(</span><span class="nv">alu_in_sel</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">				    <span class="p">.</span><span class="nf">alu_func</span><span class="p">(</span> <span class="nv">alu_func</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">				    <span class="p">.</span><span class="nf">en_out</span><span class="p">(</span> <span class="nv">en_alu</span>  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">				    <span class="p">.</span><span class="nf">pc_out</span><span class="p">(</span> <span class="nv">addr</span><span class="p">[</span><span class="mi">15</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -521,12 +566,12 @@
             
                 
 <article class="">
-    <a href="/p/%E6%9C%89%E9%99%90%E6%9C%BA%E5%99%A8/">
+    <a href="/p/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">有限机器</h2>
+            <h2 class="article-title">有限状态机</h2>
         </div>
     </a>
 </article>

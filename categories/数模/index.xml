@@ -1407,8 +1407,78 @@ $$&lt;/p&gt;
         <pubDate>Sat, 11 Mar 2023 14:16:50 +0000</pubDate>
         
         <guid>https://downeyflyfan.com/p/deep-learning/</guid>
-        <description>&lt;h1 id=&#34;deep-feedforward-networks&#34;&gt;Deep FeedForward Networks&lt;/h1&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+        <description>&lt;h1 id=&#34;machine-learning-basics&#34;&gt;Machine Learning Basics&lt;/h1&gt;
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个计算机程序以&lt;strong&gt;Performace P&lt;/strong&gt;从有关&lt;strong&gt;Task T&lt;/strong&gt;的&lt;strong&gt;Experience E&lt;/strong&gt;中学习&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Example&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Feature&lt;/strong&gt;(被量化的特征)的集合&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$x\in\R^n$,每一个$x_i$都是一个&lt;strong&gt;feature&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;通过&lt;strong&gt;计算机处理Example的方式&lt;/strong&gt;来定义Machine Learning&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;common-tasks-that-can-be-done-by-machine-learning&#34;&gt;Common Tasks that can be done by Machine Learning&lt;/h2&gt;
+&lt;h3 id=&#34;classificationwith-missing-inputs&#34;&gt;Classification(With Missing Inputs)&lt;/h3&gt;
+&lt;h3 id=&#34;regression回归&#34;&gt;Regression(回归)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;预测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;transcription&#34;&gt;Transcription&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;把&lt;strong&gt;无序的&lt;/strong&gt;数据变成固定的、&lt;strong&gt;有序的&lt;/strong&gt;形式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;translation&#34;&gt;Translation&lt;/h3&gt;
+&lt;h2 id=&#34;performace-measure-p&#34;&gt;Performace Measure P&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Accuracy&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;正确输出的比例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Error Rate&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;错误输出的比例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;experience-e&#34;&gt;Experience E&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Unsupervised Learning Algorithms&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;学习$\pmb x$并得到它的$p(\pmb x)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Supervised Learning Algorithms&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;学习$\pmb{x和y}$,并最终通过$\pmb x$预测$\pmb y$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;以上两个&lt;strong&gt;术语&lt;/strong&gt;并&lt;strong&gt;不是严格定义&lt;/strong&gt;的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;linear-regression&#34;&gt;Linear Regression&lt;/h2&gt;
+&lt;p&gt;$$
+\hat y =\pmb{w^Tx} + b\\\
+\\ MSE_{test} = \frac{1}{m}\sum_i(\pmb {\hat y}&lt;em&gt;{test} - \pmb y&lt;/em&gt;{test})^2_i = \frac{1}{m}||\pmb {\hat y}&lt;em&gt;{test} - \pmb y&lt;/em&gt;{test}||&lt;em&gt;2^2 \\\
+\\ To \ minimize, \ \nabla&lt;/em&gt;\omega \frac{1}{m} ||\hat {\pmb y}^{(train)} - \pmb y^{(train)} ||&lt;em&gt;2^2 = 0 \\\
+\\ \nabla&lt;/em&gt;\omega \frac{1}{m} || \pmb X^{(train)}\pmb w - \pmb y^{(train)} ||_2^2 = 0 \\\
+\\ \nabla_w (\pmb X^{(train)}\pmb w - \pmb y^{(train)})^T (\pmb X^{(train)}\pmb w - \pmb y^{(train)}) = 0 \\\
+\\ \pmb w = (\pmb X^{(train)T}\pmb X^{(train)})^{-1} \pmb X^{(train)T}y^{(train)}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;满足上述条件的叫做&lt;strong&gt;Normal Equation&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;deep-learning&#34;&gt;Deep Learning&lt;/h1&gt;
 &lt;h2 id=&#34;感知机---perceptrons&#34;&gt;感知机 - Perceptrons&lt;/h2&gt;
 &lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
