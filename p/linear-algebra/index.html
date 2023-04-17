@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Matrix Indentity And Inverse Matrix $$ \begin{aligned} Ax &amp;amp;= b \\ AA^{-1} &amp;amp;= I_n \\ \therefore A^{-1} A x &amp;amp;= A^{-1}b \\ x &amp;amp; = A^{-1}b \end{aligned} $$
-Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \sum_{i=1}^n{x_i} A = b \\ x,y是Ax=b的解 \Longrightarrow z = \alpha x &#43; (1-\alpha) y 是Ax =b 的解 \\ 于是，形如\sum_{i=1}^n c_i x的组合叫做Linear \ Combination $$
-Linear Indenpendence Definition 不能通过Linear Combination得到彼此的一组向量Linear Indenpendent
-Singular Matrix Definition Square Matrix with Linear denpendent Columns 特征 Determinant = 0'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Matrix Category Indentity &amp;amp; Inverse Matrix $$ \begin{aligned} Ax &amp;amp;= b \\ AA^{-1} &amp;amp;= I_n \\ \therefore A^{-1} A x &amp;amp;= A^{-1}b \\ x &amp;amp; = A^{-1}b \end{aligned} $$
+Orthogonal Matrix 定义 每一列彼此正交，均为单位向量 性质 $|Q| = \pm 1$
+$||Q\textbf{x}||=||\textbf{x}||$
+$\textbf{x}^T\textbf{y}=(Q\textbf{x})^T(Q\textbf{y})$
+$Q = Q^T$
+$QQ^T$也是正交矩阵
+$AA^T$ 对称矩阵
+如果$A$是Square，那么$AA^T$是semidefinite
+Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \sum_{i=1}^n{x_i} A = b \\ x,y是Ax=b的解 \Longrightarrow z = \alpha x &#43; (1-\alpha) y 是Ax =b 的解 \\'>
 <title>Linear Algebra</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/linear-algebra/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Linear Algebra'>
-<meta property='og:description' content='Matrix Indentity And Inverse Matrix $$ \begin{aligned} Ax &amp;amp;= b \\ AA^{-1} &amp;amp;= I_n \\ \therefore A^{-1} A x &amp;amp;= A^{-1}b \\ x &amp;amp; = A^{-1}b \end{aligned} $$
-Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \sum_{i=1}^n{x_i} A = b \\ x,y是Ax=b的解 \Longrightarrow z = \alpha x &#43; (1-\alpha) y 是Ax =b 的解 \\ 于是，形如\sum_{i=1}^n c_i x的组合叫做Linear \ Combination $$
-Linear Indenpendence Definition 不能通过Linear Combination得到彼此的一组向量Linear Indenpendent
-Singular Matrix Definition Square Matrix with Linear denpendent Columns 特征 Determinant = 0'>
+<meta property='og:description' content='Matrix Category Indentity &amp;amp; Inverse Matrix $$ \begin{aligned} Ax &amp;amp;= b \\ AA^{-1} &amp;amp;= I_n \\ \therefore A^{-1} A x &amp;amp;= A^{-1}b \\ x &amp;amp; = A^{-1}b \end{aligned} $$
+Orthogonal Matrix 定义 每一列彼此正交，均为单位向量 性质 $|Q| = \pm 1$
+$||Q\textbf{x}||=||\textbf{x}||$
+$\textbf{x}^T\textbf{y}=(Q\textbf{x})^T(Q\textbf{y})$
+$Q = Q^T$
+$QQ^T$也是正交矩阵
+$AA^T$ 对称矩阵
+如果$A$是Square，那么$AA^T$是semidefinite
+Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \sum_{i=1}^n{x_i} A = b \\ x,y是Ax=b的解 \Longrightarrow z = \alpha x &#43; (1-\alpha) y 是Ax =b 的解 \\'>
 <meta property='og:url' content='https://downeyflyfan.com/p/linear-algebra/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-07T10:27:02&#43;08:00'/><meta property='article:modified_time' content='2023-04-07T10:27:02&#43;08:00'/>
 <meta name="twitter:title" content="Linear Algebra">
-<meta name="twitter:description" content="Matrix Indentity And Inverse Matrix $$ \begin{aligned} Ax &amp;amp;= b \\ AA^{-1} &amp;amp;= I_n \\ \therefore A^{-1} A x &amp;amp;= A^{-1}b \\ x &amp;amp; = A^{-1}b \end{aligned} $$
-Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \sum_{i=1}^n{x_i} A = b \\ x,y是Ax=b的解 \Longrightarrow z = \alpha x &#43; (1-\alpha) y 是Ax =b 的解 \\ 于是，形如\sum_{i=1}^n c_i x的组合叫做Linear \ Combination $$
-Linear Indenpendence Definition 不能通过Linear Combination得到彼此的一组向量Linear Indenpendent
-Singular Matrix Definition Square Matrix with Linear denpendent Columns 特征 Determinant = 0"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Matrix Category Indentity &amp;amp; Inverse Matrix $$ \begin{aligned} Ax &amp;amp;= b \\ AA^{-1} &amp;amp;= I_n \\ \therefore A^{-1} A x &amp;amp;= A^{-1}b \\ x &amp;amp; = A^{-1}b \end{aligned} $$
+Orthogonal Matrix 定义 每一列彼此正交，均为单位向量 性质 $|Q| = \pm 1$
+$||Q\textbf{x}||=||\textbf{x}||$
+$\textbf{x}^T\textbf{y}=(Q\textbf{x})^T(Q\textbf{y})$
+$Q = Q^T$
+$QQ^T$也是正交矩阵
+$AA^T$ 对称矩阵
+如果$A$是Square，那么$AA^T$是semidefinite
+Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \sum_{i=1}^n{x_i} A = b \\ x,y是Ax=b的解 \Longrightarrow z = \alpha x &#43; (1-\alpha) y 是Ax =b 的解 \\"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -261,7 +276,13 @@ Singular Matrix Definition Square Matrix with Linear denpendent Columns 特征 D
   <ol>
     <li><a href="#matrix">Matrix</a>
       <ol>
-        <li><a href="#indentity-and-inverse-matrix">Indentity And Inverse Matrix</a></li>
+        <li><a href="#category">Category</a>
+          <ol>
+            <li><a href="#indentity--inverse-matrix">Indentity &amp; Inverse Matrix</a></li>
+            <li><a href="#orthogonal-matrix">Orthogonal Matrix</a></li>
+            <li><a href="#aat">$AA^T$</a></li>
+          </ol>
+        </li>
         <li><a href="#linear-dependence--span">Linear Dependence &amp; Span</a>
           <ol>
             <li><a href="#linear-combination">Linear Combination</a></li>
@@ -272,8 +293,8 @@ Singular Matrix Definition Square Matrix with Linear denpendent Columns 特征 D
         <li><a href="#norms">Norms</a>
           <ol>
             <li><a href="#definition">Definition</a></li>
+            <li><a href="#category-1">Category</a></li>
             <li><a href="#property">Property</a></li>
-            <li><a href="#category">Category</a></li>
           </ol>
         </li>
         <li><a href="#special-matrix-and-vectors">Special Matrix and Vectors</a>
@@ -291,9 +312,9 @@ Singular Matrix Definition Square Matrix with Linear denpendent Columns 特征 D
           <ol>
             <li><a href="#eigen-vector--eigen-value">Eigen Vector &amp; Eigen Value</a></li>
             <li><a href="#eigendecomposition-1">EigenDecomposition</a></li>
-            <li><a href="#singular-value-decomposition">Singular Value Decomposition</a></li>
           </ol>
         </li>
+        <li><a href="#singular-value-decomposition">Singular Value Decomposition</a></li>
       </ol>
     </li>
     <li><a href="#pseudoinverse--trace-operator">Pseudoinverse &amp; Trace Operator</a>
@@ -304,9 +325,12 @@ Singular Matrix Definition Square Matrix with Linear denpendent Columns 特征 D
             <li><a href="#computing-algorithms">Computing Algorithms</a></li>
           </ol>
         </li>
-        <li><a href="#trace-operator">Trace Operator</a></li>
-        <li><a href="#definition-2">Definition</a></li>
-        <li><a href="#property-1">Property</a></li>
+        <li><a href="#trace-operator">Trace Operator</a>
+          <ol>
+            <li><a href="#definition-2">Definition</a></li>
+            <li><a href="#property-1">Property</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#principal-components-analysis">Principal Components Analysis</a></li>
@@ -390,7 +414,8 @@ Singular Matrix Definition Square Matrix with Linear denpendent Columns 特征 D
     
     
     <h1 id="matrix">Matrix</h1>
-<h2 id="indentity-and-inverse-matrix">Indentity And Inverse Matrix</h2>
+<h2 id="category">Category</h2>
+<h3 id="indentity--inverse-matrix">Indentity &amp; Inverse Matrix</h3>
 <p>$$
 \begin{aligned}
 Ax &amp;= b \\
@@ -399,13 +424,51 @@ AA^{-1} &amp;= I_n \\
 x &amp; = A^{-1}b
 \end{aligned}
 $$</p>
+<h3 id="orthogonal-matrix">Orthogonal Matrix</h3>
+<ol>
+<li>定义</li>
+</ol>
+<ul>
+<li>每一列<strong>彼此正交</strong>，均为<strong>单位向量</strong></li>
+</ul>
+<ol start="2">
+<li>性质</li>
+</ol>
+<ul>
+<li>
+<p>$|Q| = \pm 1$</p>
+</li>
+<li>
+<p>$||Q\textbf{x}||=||\textbf{x}||$</p>
+</li>
+<li>
+<p>$\textbf{x}^T\textbf{y}=(Q\textbf{x})^T(Q\textbf{y})$</p>
+</li>
+<li>
+<p>$Q = Q^T$</p>
+</li>
+<li>
+<p>$QQ^T$也是<strong>正交矩阵</strong></p>
+</li>
+</ul>
+<h3 id="aat">$AA^T$</h3>
+<ul>
+<li>
+<p>对称矩阵</p>
+</li>
+<li>
+<p>如果$A$是<strong>Square</strong>，那么$AA^T$是<strong>semidefinite</strong></p>
+</li>
+</ul>
 <h2 id="linear-dependence--span">Linear Dependence &amp; Span</h2>
 <h3 id="linear-combination">Linear Combination</h3>
 <p>$$
 Ax =b \Longrightarrow  \sum_{i=1}^n{x_i} A = b \\
-x,y是Ax=b的解 \Longrightarrow z = \alpha x + (1-\alpha) y 是Ax =b 的解 \\
-于是，形如\sum_{i=1}^n c_i x的组合叫做Linear \ Combination
-$$</p>
+x,y是Ax=b的解 \Longrightarrow z = \alpha x + (1-\alpha) y 是Ax =b 的解 \\</p>
+<p>$$</p>
+<ul>
+<li>形如$\sum_{i=1}^n c_i x$的组合叫做 <strong>Linear Combination</strong></li>
+</ul>
 <h3 id="linear-indenpendence">Linear Indenpendence</h3>
 <ol>
 <li>Definition</li>
@@ -428,7 +491,7 @@ $$</p>
 <p>Determinant = 0</p>
 </li>
 <li>
-<p><strong>Inverse Matrix Not Unique</strong></p>
+<p>没有<strong>Inverse Matrix</strong></p>
 </li>
 </ul>
 <h2 id="norms">Norms</h2>
@@ -439,8 +502,33 @@ $$</p>
 <p>$$
 L^p \ norm: ||x||<em>p = \Big( \sum</em>{i=1}^n x_i^p \Big)^{\frac{1}{p}}
 $$</p>
+<h3 id="category-1">Category</h3>
+<ol>
+<li>1-Norm - <strong>最大列</strong></li>
+</ol>
+<p>$$
+||A||<em>1 = max</em>{1\lt j \lt n}\sum_1^{m}|a_{ij}|
+$$</p>
+<ol start="2">
+<li>Frobenius-Norm (2-Norm)</li>
+</ol>
+<p>$$
+\begin{aligned}
+||A||<em>2 &amp;= \sigma</em>{max}(A) \\
+&amp;= \sqrt{\sum_1^m\sum_1^n |a_{ij}|^2}
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>$\infin$-Norm - <strong>最大行</strong></li>
+</ol>
+<p>$$
+||A||<em>\infin = max</em>{1\lt j \lt m}\sum_1^{n}|a_{ij}|
+$$</p>
 <h3 id="property">Property</h3>
 <ul>
+<li>
+<p>$||x|| \gt 0$</p>
+</li>
 <li>
 <p>$f(\pmb x) = 0 \Longrightarrow \pmb x =0$</p>
 </li>
@@ -451,31 +539,6 @@ $$</p>
 <p>$\forall \alpha \in R, |\alpha| f(\pmb x) = f(\alpha \pmb x)$</p>
 </li>
 </ul>
-<h3 id="category">Category</h3>
-<ol>
-<li>1-Norm</li>
-</ol>
-<p>$$
-||A||<em>1 = max</em>{1\lt j \lt n}\sum_1^{m}|a_{ij}|
-$$</p>
-<ol start="2">
-<li>2-Norm</li>
-</ol>
-<p>$$
-||A||<em>2 = \sigma</em>{max}(A) (最大奇异值)
-$$</p>
-<ol start="3">
-<li>$\infin$-Norm</li>
-</ol>
-<p>$$
-||A||<em>\infin = max</em>{1\lt j \lt m}\sum_1^{n}|a_{ij}|
-$$</p>
-<ol start="4">
-<li>Frobenius-Norm</li>
-</ol>
-<p>$$
-\sqrt{\sum_1^m\sum_1^n |a_{ij}|^2}
-$$</p>
 <h2 id="special-matrix-and-vectors">Special Matrix and Vectors</h2>
 <h3 id="diagonal-matrix">Diagonal Matrix</h3>
 <ol>
@@ -516,11 +579,15 @@ $$</p>
 <li>Definition</li>
 </ol>
 <p>$$
-\pmb {Av} = \lambda \pmb v  \\\
-\\ \pmb v: eigenvector \ \lambda: eigen \ Value \\\
-\\ \pmb{v^T A} = \lambda v^T \\\
+\pmb {Av} = \lambda \pmb v
+\\ \pmb v: eigenvector
+\\ \lambda: eigen \ value \\\
+\\ \pmb{v^T A} = \lambda v^T
 \\ \pmb{v}: Left \ eigenvector
 $$</p>
+<ul>
+<li><strong>Eigenvectors</strong>和<strong>EigenValues</strong>一一对应</li>
+</ul>
 <ol start="2">
 <li>Property</li>
 </ol>
@@ -610,10 +677,21 @@ $$</p>
 <ol start="3">
 <li>Symetrical Matrix</li>
 </ol>
-<p>$$
-\pmb {A = Q\Lambda Q^T}
-$$</p>
-<h3 id="singular-value-decomposition">Singular Value Decomposition</h3>
+<ul>
+<li>
+<p><strong>主对角线</strong>两侧的元素<strong>关于主对角线对称</strong></p>
+</li>
+<li>
+<p>$A = A^T$</p>
+</li>
+<li>
+<p>$A$的特征矩阵$Q$是一个<strong>正交矩阵</strong></p>
+</li>
+<li>
+<p>EigenDecomposition: $\pmb {A = Q\Lambda Q^T}(A和Q是Similar \ Matrix)$</p>
+</li>
+</ul>
+<h2 id="singular-value-decomposition">Singular Value Decomposition</h2>
 <p>$$
 \pmb{A = UDV^T} \\\
 \\ U 和V都是orthogonal \ matrix \\\
@@ -634,19 +712,23 @@ $$</p>
 <h2 id="pseudoinverse">Pseudoinverse</h2>
 <h3 id="definition-1">Definition</h3>
 <p>$$
-A^+ = \underset{\alpha \searrow 0}{lim} \ (A^T A + \alpha I)^{-1}A^T
+A^+ = \underset{\alpha \searrow 0}{lim} \ (A^T A + \alpha I)^{-1}A^T \\\
+\\ 非奇异矩阵: A^+ = A^{-1} \\\
+\\ 奇异矩阵: A^+= (A^TA)^{-1}A^T \\\
+\\ m \gt n: A^+= (A^TA)^{-1}A^T \\\
+\\ n \gt m: A^+ = A^T(A^TA)^{-1}
 $$</p>
 <h3 id="computing-algorithms">Computing Algorithms</h3>
 <p>$$
-A^+ = VD^+U^T \\\
+A^+ = VD^+U^T (Singular \ Decomposition)\\\
 \\ D^+: 对D元素取倒数
 $$</p>
 <h2 id="trace-operator">Trace Operator</h2>
-<h2 id="definition-2">Definition</h2>
+<h3 id="definition-2">Definition</h3>
 <p>$$
 Tr(\pmb A) = \sum_{i}A_{i,i}
 $$</p>
-<h2 id="property-1">Property</h2>
+<h3 id="property-1">Property</h3>
 <ol>
 <li>Norm Computing</li>
 </ol>
@@ -676,9 +758,9 @@ $$</p>
 Collection:\lbrace \pmb{x^{(1)}&hellip;x^{(m)}} \rbrace \\\
 \\ Encoder: \ f(\pmb x) = \pmb c \\\
 \\ Decoder: \pmb x \approx g(\pmb c) =  \pmb{Dc} \\\
-\\ D的Column彼此正交,且均为Unit \ Vector\\\
+\\ \pmb D是正交矩阵\\\
 \\ L^ 2\ norm: \pmb c^* = \underset{c}{arg \ min} ||\pmb x-g(\pmb c)||_2 \\\
-\\ L^2 \ norm \ge 0 \underset{为了方便计算}{\Longrightarrow} \pmb c^* = \underset{c}{arg \ min} ||\pmb x-g(\pmb c)||_2^2 \\\
+\\ L^2 \ norm \ge 0 \underset{为了方便计算}{\Longrightarrow} \pmb c^* = \underset{c}{arg \ min} ||\pmb x-g(\pmb c)||<em>2^2 \\\
 \\ \begin{aligned}
 \pmb c^* &amp;= |\pmb x-g(\pmb x)|^T|\pmb x-g(\pmb x)| \\
 &amp;= x^Tx - x^Tg(c)   - g^T(c)x + g^T(x)g(c) \\
@@ -687,7 +769,7 @@ Collection:\lbrace \pmb{x^{(1)}&hellip;x^{(m)}} \rbrace \\\
 &amp;= 无关项 -2x^TDc + c^Tc
 \end{aligned}  \\\
 \\ \begin{aligned}
-\nabla_c(-2x^TDc + c^Tc) &amp;= 0 \\
+\nabla</em>{\pmb c}(-2x^TDc + c^Tc) &amp;= 0 \\
 -2D^Tx +2c &amp;=0 (疑问!!!) \\
 c &amp;= D^T x
 \end{aligned} \\\
@@ -756,6 +838,19 @@ $$</p>
             
                 
 <article class="">
+    <a href="/p/numerical-computation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Numerical Computation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/computer-condition/">
         
         
@@ -801,19 +896,6 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">Essay Notes</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/yaml/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">YAML</h2>
         </div>
     </a>
 </article>

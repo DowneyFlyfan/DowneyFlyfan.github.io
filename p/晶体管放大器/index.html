@@ -274,6 +274,7 @@
         <li><a href="#通过图像分析确定vtc">通过图像分析确定VTC</a>
           <ol>
             <li><a href="#图像">图像</a></li>
+            <li><a href="#how-is-q-for-ivc-defined-assuming-vgs-is-fixed">How is Q for IVC defined (assuming VGS is fixed)?</a></li>
           </ol>
         </li>
       </ol>
@@ -342,7 +343,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -435,9 +436,6 @@ g_m &amp;= KV_{OV}
 \end{aligned}
 $$</p>
 <h3 id="增益">增益</h3>
-<ol>
-<li>推导</li>
-</ol>
 <p>$$
 \begin{aligned}
 V_{DS} &amp;= V_{DD} - i_DR_D \\
@@ -447,7 +445,7 @@ V_{DS} &amp;= V_{DD} - i_DR_D \\
 \\ v_o = -i_dR_D = -g_mV_{OV}R_D \\\
 \\ A_v = \frac{v_o}{v_i} = \frac{v_{ds}}{v_{gs}} = -g_mR_D  = -KV_{OV}R_D \\\
 \\ I_D = \frac{1}{2}KV_{OV}^2 \Longrightarrow K = \frac{2I_D}{V_{OV}^2} \\\
-\\ \therefore A_v = -\frac{I_D R_D}{V_{OV}/2}
+\\ \therefore \pmb{A_v = -\frac{I_D R_D}{V_{OV}/2} = -k_nV_{OV}R_D = -g_m R_D}
 $$</p>
 <h2 id="通过图像分析确定vtc">通过图像分析确定VTC</h2>
 <h3 id="图像">图像</h3>
@@ -463,6 +461,27 @@ $$</p>
 		data-flex-basis="266px"
 	
 ></p>
+<h3 id="how-is-q-for-ivc-defined-assuming-vgs-is-fixed">How is Q for IVC defined (assuming VGS is fixed)?</h3>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/5.png"
+	width="567"
+	height="606"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/5_hu801dea193b79025f54624d31cc9b8d44_35934_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/5_hu801dea193b79025f54624d31cc9b8d44_35934_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="93"
+		data-flex-basis="224px"
+	
+></p>
+<ul>
+<li>
+<p>Point $Q_1$ is too close to $V_{DD}$, resulting in the positive peaks of the signal being clipped off which is called <strong>the circuit does not have sufficient &ldquo;headroom&rdquo;</strong></p>
+</li>
+<li>
+<p>Point $Q_2$ is too close to the boundary of the triode region, thus severely limiting the allowable negative signal swing of vds, resulting in a distorted output signal. In this situation <strong>the circuit does not have sufficient &ldquo;legroom.&rdquo;</strong></p>
+</li>
+</ul>
 
 </section>
 
