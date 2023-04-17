@@ -77,17 +77,27 @@ $$&lt;/p&gt;
 \begin{aligned}
 i_D &amp;amp;= I_D + i_d \\
 &amp;amp;= \frac{K(V_{GS}+v_{GS}-V_T)^2}{2} \\
-&amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} + K(V_{GS}-V_T)v_{gs} + \frac{K}{2}v_{gs}^2
-\end{aligned} \\\
+&amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} + K(V_{GS}-V_T)v_{gs} + \frac{K}{2}v_{gs}^2 \\
+&amp;amp;= dc +  linear \ Gain +  nonlinear \ distortion \\
+\frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\
+v_{gs} &amp;amp;\ll 2v_{ov}
+\end{aligned}  \\\
 \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\
 \\ \begin{aligned}
 i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} + &amp;amp;K(V_{GS}-V_T)v_{gs} \\
 i_D &amp;amp;= &amp;amp;I_D + &amp;amp;i_d
 \end{aligned} \\\
-\\ \begin{aligned}
-i_d &amp;amp;= KV_{OV}v_{gs} \\
-g_m &amp;amp;= KV_{OV}
-\end{aligned}
+\\ i_d = KV_{OV}v_{gs}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;电导&#34;&gt;电导&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+g_m &amp;amp;= \frac{\partial i_d}{\partial v_{GS}}\Big|&lt;em&gt;{v&lt;/em&gt;{gs} = V_{GS}} \\
+&amp;amp;= \frac{d[\frac{1}{2}k_n(V_{GS}-V_t)^2]}{dv_{GS}}\Big|&lt;em&gt;{v&lt;/em&gt;{gs} = V_{GS}} \\
+&amp;amp;= \pmb{k_nV_{OV}}
+\end{aligned} \\\
+\\ \because I_D = \frac{1}{2}k_nV_{OV}^2 \Longrightarrow V_{OV} = \frac{\sqrt{2I_D}}{\sqrt{k_n}} \\\
+\\ \therefore g_n = \pmb{\sqrt{2k_nI_D}}  = \pmb{\frac{2I_D}{V_{OV}}}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;增益&#34;&gt;增益&lt;/h3&gt;
 &lt;p&gt;$$

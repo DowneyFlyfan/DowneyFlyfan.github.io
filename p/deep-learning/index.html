@@ -296,16 +296,15 @@ Performace Measure P Accuracy 正确输出的比例 Error Rate 错误输出的�
         </li>
         <li><a href="#bias-and-variance">Bias and Variance</a>
           <ol>
-            <li><a href="#bias">Bias</a></li>
-            <li><a href="#再探mse">再探MSE</a></li>
+            <li><a href="#bias--mse">Bias &amp; MSE</a></li>
           </ol>
         </li>
-        <li><a href="#supervised-learning-algorithms">Supervised Learning Algorithms</a></li>
-        <li><a href="#unsupervised-learning-algorithm">Unsupervised Learning Algorithm</a>
+        <li><a href="#supervised-learning-algorithm">Supervised Learning Algorithm</a>
           <ol>
-            <li><a href="#principle-component-analysis---数据降维">Principle Component Analysis - 数据降维</a></li>
+            <li><a href="#category">Category</a></li>
           </ol>
         </li>
+        <li><a href="#unsupervised-learning-algorithm">Unsupervised Learning Algorithm</a></li>
       </ol>
     </li>
     <li><a href="#deep-learning">Deep Learning</a>
@@ -730,20 +729,31 @@ $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="bias-and-variance">Bias and Variance</h2>
-<h3 id="bias">Bias</h3>
+<h3 id="bias--mse">Bias &amp; MSE</h3>
 <p>$$
-bias(\hat{\pmb \theta}_m) = \mathbb E(\hat{\pmb \theta}_m) - \pmb \theta
-$$</p>
-<h3 id="再探mse">再探MSE</h3>
-<h2 id="supervised-learning-algorithms">Supervised Learning Algorithms</h2>
-<p>$$
-\begin{aligned}
+bias(\hat{\pmb \theta}_m) = \mathbb E(\hat{\pmb \theta}_m) - \pmb \theta \\\
+\\ \begin{aligned}
 MSE &amp;= \mathbb E[(\hat{\pmb \theta}_m - \pmb \theta)^2]  \\
 &amp; = Bias^2(\hat{\pmb \theta}) + Var(\hat{\pmb \theta})
 \end{aligned}
 $$</p>
+<h2 id="supervised-learning-algorithm">Supervised Learning Algorithm</h2>
+<h3 id="category">Category</h3>
+<ol>
+<li>SVM (Support Vector Machine) - Binary Problem</li>
+</ol>
+<ul>
+<li>$y$与<strong>kernel</strong></li>
+</ul>
+<p>$$
+\begin{aligned}
+f(\pmb x) &amp;= \pmb{w^Tx} + b = b + \sum_{i=1}^n \alpha_i \pmb{x^Tx^{(i)}} \\
+&amp;= b + \sum_i k(\pmb{x,x^{i}})
+\end{aligned} \\\
+\\ Gaussian \ Kernal: k(\pmb{u,v}) = \mathcal N (u-v;0.\sigma^2\pmb I) \ \ \  \\\
+\\ Also \ known \ as \ \pmb{RBF(radical \ basis function)}
+$$</p>
 <h2 id="unsupervised-learning-algorithm">Unsupervised Learning Algorithm</h2>
-<h3 id="principle-component-analysis---数据降维">Principle Component Analysis - 数据降维</h3>
 <h1 id="deep-learning">Deep Learning</h1>
 <h2 id="感知机---perceptrons">感知机 - Perceptrons</h2>
 <h3 id="定义">定义</h3>

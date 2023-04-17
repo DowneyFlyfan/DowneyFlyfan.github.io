@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Matrix Category Indentity &amp;amp; Inverse Matrix $$ \begin{aligned} Ax &amp;amp;= b \\ AA^{-1} &amp;amp;= I_n \\ \therefore A^{-1} A x &amp;amp;= A^{-1}b \\ x &amp;amp; = A^{-1}b \end{aligned} $$
-Orthogonal Matrix 定义 每一列彼此正交，均为单位向量 性质 $|Q| = \pm 1$
-$||Q\textbf{x}||=||\textbf{x}||$
-$\textbf{x}^T\textbf{y}=(Q\textbf{x})^T(Q\textbf{y})$
-$Q = Q^T$
-$QQ^T$也是正交矩阵
-$AA^T$ 对称矩阵
-如果$A$是Square，那么$AA^T$是semidefinite
-Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \sum_{i=1}^n{x_i} A = b \\ x,y是Ax=b的解 \Longrightarrow z = \alpha x &#43; (1-\alpha) y 是Ax =b 的解 \\'>
-<title>Linear Algebra</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='TaskSheet Report 要求 总体要求 provide a detailed explanation of the issue(s)
+provide a detailed explanation of two or more approaches to resolving the issue(s)
+use the two source articles provided
+use at least two other source articles located via the UoG Library online system and/or the IEEE Xplore database
+provide a full and accurate reference list in IEEE style
+Abstract
+include a glossary of any specialist or technical terms (最多十个)'>
+<title>CS10,11,12 Written Assignment</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/linear-algebra/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/cs101112-written-assignment/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Linear Algebra'>
-<meta property='og:description' content='Matrix Category Indentity &amp;amp; Inverse Matrix $$ \begin{aligned} Ax &amp;amp;= b \\ AA^{-1} &amp;amp;= I_n \\ \therefore A^{-1} A x &amp;amp;= A^{-1}b \\ x &amp;amp; = A^{-1}b \end{aligned} $$
-Orthogonal Matrix 定义 每一列彼此正交，均为单位向量 性质 $|Q| = \pm 1$
-$||Q\textbf{x}||=||\textbf{x}||$
-$\textbf{x}^T\textbf{y}=(Q\textbf{x})^T(Q\textbf{y})$
-$Q = Q^T$
-$QQ^T$也是正交矩阵
-$AA^T$ 对称矩阵
-如果$A$是Square，那么$AA^T$是semidefinite
-Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \sum_{i=1}^n{x_i} A = b \\ x,y是Ax=b的解 \Longrightarrow z = \alpha x &#43; (1-\alpha) y 是Ax =b 的解 \\'>
-<meta property='og:url' content='https://downeyflyfan.com/p/linear-algebra/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='CS10,11,12 Written Assignment'>
+<meta property='og:description' content='TaskSheet Report 要求 总体要求 provide a detailed explanation of the issue(s)
+provide a detailed explanation of two or more approaches to resolving the issue(s)
+use the two source articles provided
+use at least two other source articles located via the UoG Library online system and/or the IEEE Xplore database
+provide a full and accurate reference list in IEEE style
+Abstract
+include a glossary of any specialist or technical terms (最多十个)'>
+<meta property='og:url' content='https://downeyflyfan.com/p/cs101112-written-assignment/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-07T10:27:02&#43;08:00'/><meta property='article:modified_time' content='2023-04-07T10:27:02&#43;08:00'/>
-<meta name="twitter:title" content="Linear Algebra">
-<meta name="twitter:description" content="Matrix Category Indentity &amp;amp; Inverse Matrix $$ \begin{aligned} Ax &amp;amp;= b \\ AA^{-1} &amp;amp;= I_n \\ \therefore A^{-1} A x &amp;amp;= A^{-1}b \\ x &amp;amp; = A^{-1}b \end{aligned} $$
-Orthogonal Matrix 定义 每一列彼此正交，均为单位向量 性质 $|Q| = \pm 1$
-$||Q\textbf{x}||=||\textbf{x}||$
-$\textbf{x}^T\textbf{y}=(Q\textbf{x})^T(Q\textbf{y})$
-$Q = Q^T$
-$QQ^T$也是正交矩阵
-$AA^T$ 对称矩阵
-如果$A$是Square，那么$AA^T$是semidefinite
-Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \sum_{i=1}^n{x_i} A = b \\ x,y是Ax=b的解 \Longrightarrow z = \alpha x &#43; (1-\alpha) y 是Ax =b 的解 \\"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-17T14:28:13&#43;08:00'/><meta property='article:modified_time' content='2023-04-17T14:28:13&#43;08:00'/>
+<meta name="twitter:title" content="CS10,11,12 Written Assignment">
+<meta name="twitter:description" content="TaskSheet Report 要求 总体要求 provide a detailed explanation of the issue(s)
+provide a detailed explanation of two or more approaches to resolving the issue(s)
+use the two source articles provided
+use at least two other source articles located via the UoG Library online system and/or the IEEE Xplore database
+provide a full and accurate reference list in IEEE style
+Abstract
+include a glossary of any specialist or technical terms (最多十个)"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -274,69 +268,22 @@ Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \su
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#matrix">Matrix</a>
+    <li><a href="#tasksheet">TaskSheet</a>
       <ol>
-        <li><a href="#category">Category</a>
+        <li><a href="#report-要求">Report 要求</a>
           <ol>
-            <li><a href="#indentity--inverse-matrix">Indentity &amp; Inverse Matrix</a></li>
-            <li><a href="#orthogonal-matrix">Orthogonal Matrix</a></li>
-            <li><a href="#aat">$AA^T$</a></li>
+            <li><a href="#总体要求">总体要求</a></li>
+            <li><a href="#字数要求">字数要求</a></li>
+            <li><a href="#格式要求">格式要求</a></li>
           </ol>
         </li>
-        <li><a href="#linear-dependence--span">Linear Dependence &amp; Span</a>
+        <li><a href="#report-组成">Report 组成</a></li>
+        <li><a href="#submission">Submission</a>
           <ol>
-            <li><a href="#linear-combination">Linear Combination</a></li>
-            <li><a href="#linear-indenpendence">Linear Indenpendence</a></li>
-            <li><a href="#singular-matrix">Singular Matrix</a></li>
+            <li><a href="#deadline">Deadline</a></li>
+            <li><a href="#name-format">Name Format</a></li>
           </ol>
         </li>
-        <li><a href="#norms">Norms</a>
-          <ol>
-            <li><a href="#definition">Definition</a></li>
-            <li><a href="#category-1">Category</a></li>
-            <li><a href="#property">Property</a></li>
-          </ol>
-        </li>
-        <li><a href="#special-matrix-and-vectors">Special Matrix and Vectors</a>
-          <ol>
-            <li><a href="#diagonal-matrix">Diagonal Matrix</a></li>
-            <li><a href="#symetrical-matrix">Symetrical Matrix</a></li>
-            <li><a href="#unit-vector-and-orthogonal-matrix">Unit Vector and Orthogonal Matrix</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#decomposition">Decomposition</a>
-      <ol>
-        <li><a href="#eigendecomposition">EigenDecomposition</a>
-          <ol>
-            <li><a href="#eigen-vector--eigen-value">Eigen Vector &amp; Eigen Value</a></li>
-            <li><a href="#eigendecomposition-1">EigenDecomposition</a></li>
-          </ol>
-        </li>
-        <li><a href="#singular-value-decomposition">Singular Value Decomposition</a></li>
-      </ol>
-    </li>
-    <li><a href="#pseudoinverse--trace-operator">Pseudoinverse &amp; Trace Operator</a>
-      <ol>
-        <li><a href="#pseudoinverse">Pseudoinverse</a>
-          <ol>
-            <li><a href="#definition-1">Definition</a></li>
-            <li><a href="#computing-algorithms">Computing Algorithms</a></li>
-          </ol>
-        </li>
-        <li><a href="#trace-operator">Trace Operator</a>
-          <ol>
-            <li><a href="#definition-2">Definition</a></li>
-            <li><a href="#property-1">Property</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#principal-components-analysis">Principal Components Analysis</a>
-      <ol>
-        <li><a href="#实现">实现</a></li>
-        <li><a href="#方差">方差</a></li>
       </ol>
     </li>
   </ol>
@@ -357,8 +304,8 @@ Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \su
     
     <header class="article-category">
         
-            <a href="/categories/%E5%85%B6%E4%BB%96/" style="background-color: #FF4500; color: #fff;">
-                其他
+            <a href="/categories/%E8%8B%B1%E8%AF%AD/" style="background-color: #DB7093; color: #fff;">
+                英语
             </a>
         
     </header>
@@ -366,7 +313,7 @@ Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \su
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/linear-algebra/">Linear Algebra</a>
+            <a href="/p/cs101112-written-assignment/">CS10,11,12 Written Assignment</a>
         </h2>
     
         
@@ -388,7 +335,7 @@ Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \su
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 07, 7077</time>
+                <time class="article-time--published">Apr 17, 171717</time>
             </div>
         
 
@@ -403,7 +350,7 @@ Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \su
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -418,377 +365,75 @@ Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \su
     <section class="article-content">
     
     
-    <h1 id="matrix">Matrix</h1>
-<h2 id="category">Category</h2>
-<h3 id="indentity--inverse-matrix">Indentity &amp; Inverse Matrix</h3>
-<p>$$
-\begin{aligned}
-Ax &amp;= b \\
-AA^{-1} &amp;= I_n \\
-\therefore A^{-1} A x &amp;= A^{-1}b \\
-x &amp; = A^{-1}b
-\end{aligned}
-$$</p>
-<h3 id="orthogonal-matrix">Orthogonal Matrix</h3>
-<ol>
-<li>定义</li>
-</ol>
-<ul>
-<li>每一列<strong>彼此正交</strong>，均为<strong>单位向量</strong></li>
-</ul>
-<ol start="2">
-<li>性质</li>
-</ol>
+    <h1 id="tasksheet">TaskSheet</h1>
+<h2 id="report-要求">Report 要求</h2>
+<h3 id="总体要求">总体要求</h3>
 <ul>
 <li>
-<p>$|Q| = \pm 1$</p>
+<p>provide a detailed <strong>explanation of the issue(s)</strong></p>
 </li>
 <li>
-<p>$||Q\textbf{x}||=||\textbf{x}||$</p>
+<p>provide a detailed explanation of <strong>two or more approaches</strong> to resolving the issue(s)</p>
 </li>
 <li>
-<p>$\textbf{x}^T\textbf{y}=(Q\textbf{x})^T(Q\textbf{y})$</p>
+<p>use the <strong>two source articles provided</strong></p>
 </li>
 <li>
-<p>$Q = Q^T$</p>
+<p>use <strong>at least two other source articles</strong> located via the <strong>UoG Library</strong> online system and/or the <strong>IEEE Xplore database</strong></p>
 </li>
 <li>
-<p>$QQ^T$也是<strong>正交矩阵</strong></p>
+<p>provide a <strong>full and accurate reference</strong> list in IEEE style</p>
+</li>
+<li>
+<p><strong>Abstract</strong></p>
+</li>
+<li>
+<p>include a <strong>glossary</strong> of any specialist or technical terms (最多<strong>十个</strong>)</p>
 </li>
 </ul>
-<h3 id="aat">$AA^T$</h3>
+<h3 id="字数要求">字数要求</h3>
 <ul>
-<li>
-<p>对称矩阵</p>
-</li>
-<li>
-<p>如果$A$是<strong>Square</strong>，那么$AA^T$是<strong>semidefinite</strong></p>
-</li>
+<li>共$1000\pm 10%$字，Abstract $100-150$字</li>
 </ul>
-<h2 id="linear-dependence--span">Linear Dependence &amp; Span</h2>
-<h3 id="linear-combination">Linear Combination</h3>
-<p>$$
-Ax =b \Longrightarrow  \sum_{i=1}^n{x_i} A = b \\
-x,y是Ax=b的解 \Longrightarrow z = \alpha x + (1-\alpha) y 是Ax =b 的解 \\</p>
-<p>$$</p>
-<ul>
-<li>形如$\sum_{i=1}^n c_i x$的组合叫做 <strong>Linear Combination</strong></li>
-</ul>
-<h3 id="linear-indenpendence">Linear Indenpendence</h3>
-<ol>
-<li>Definition</li>
-</ol>
-<blockquote>
-<p>不能通过<strong>Linear Combination</strong>得到彼此的一组向量<strong>Linear Indenpendent</strong></p>
-</blockquote>
-<h3 id="singular-matrix">Singular Matrix</h3>
-<ol>
-<li>Definition</li>
-</ol>
-<ul>
-<li><strong>Square Matrix</strong> with <strong>Linear denpendent Columns</strong></li>
-</ul>
-<ol start="2">
-<li>特征</li>
-</ol>
-<ul>
-<li>
-<p>Determinant = 0</p>
-</li>
-<li>
-<p>没有<strong>Inverse Matrix</strong></p>
-</li>
-</ul>
-<h2 id="norms">Norms</h2>
-<h3 id="definition">Definition</h3>
-<ul>
-<li>用于衡量矩阵的大小</li>
-</ul>
-<p>$$
-L^p \ norm: ||x||<em>p = \Big( \sum</em>{i=1}^n x_i^p \Big)^{\frac{1}{p}}
-$$</p>
-<h3 id="category-1">Category</h3>
-<ol>
-<li>1-Norm - <strong>最大列</strong></li>
-</ol>
-<p>$$
-||A||<em>1 = max</em>{1\lt j \lt n}\sum_1^{m}|a_{ij}|
-$$</p>
-<ol start="2">
-<li>Frobenius-Norm (2-Norm)</li>
-</ol>
-<p>$$
-\begin{aligned}
-||A||<em>2 &amp;= \sigma</em>{max}(A) \\
-&amp;= \sqrt{\sum_1^m\sum_1^n |a_{ij}|^2}
-\end{aligned}
-$$</p>
-<ol start="3">
-<li>$\infin$-Norm - <strong>最大行</strong></li>
-</ol>
-<p>$$
-||A||<em>\infin = max</em>{1\lt j \lt m}\sum_1^{n}|a_{ij}|
-$$</p>
-<h3 id="property">Property</h3>
-<ul>
-<li>
-<p>$||x|| \gt 0$</p>
-</li>
-<li>
-<p>$f(\pmb x) = 0 \Longrightarrow \pmb x =0$</p>
-</li>
-<li>
-<p>$f(\pmb{x+y} ) \le f(\pmb x) + f(\pmb y)$</p>
-</li>
-<li>
-<p>$\forall \alpha \in R, |\alpha| f(\pmb x) = f(\alpha \pmb x)$</p>
-</li>
-</ul>
-<h2 id="special-matrix-and-vectors">Special Matrix and Vectors</h2>
-<h3 id="diagonal-matrix">Diagonal Matrix</h3>
-<ol>
-<li>Definition</li>
-</ol>
-<ul>
-<li>A <strong>Square Matrix</strong> where all non-zero entries are on the diagonal</li>
-</ul>
-<ol start="2">
-<li>Property</li>
-</ol>
-<ul>
-<li>$Determinant = \prod(Entries \ on \ the \ diagonal )$</li>
-</ul>
-<h3 id="symetrical-matrix">Symetrical Matrix</h3>
-<p>$$
-A = A^T
-$$</p>
-<h3 id="unit-vector-and-orthogonal-matrix">Unit Vector and Orthogonal Matrix</h3>
-<ol>
-<li>Vector</li>
-</ol>
-<p>$$
-||\pmb x||_2 = 1 \Longrightarrow \pmb x \ is \ a \ Unit \ Vector  \\\
-\\ \pmb{x^T y} = 0 \Longrightarrow x \ and \ y \ are \ \pmb{orthogonal}
-$$</p>
-<ol start="2">
-<li>Matrix</li>
-</ol>
-<p>$$
-AA^T = A^T A =I \Longrightarrow A \ is \ a \ \pmb{Orthogonal \ Matrix}  \\\
-\\ \therefore A^T = A^{-1}
-$$</p>
-<h1 id="decomposition">Decomposition</h1>
-<h2 id="eigendecomposition">EigenDecomposition</h2>
-<h3 id="eigen-vector--eigen-value">Eigen Vector &amp; Eigen Value</h3>
-<ol>
-<li>Definition</li>
-</ol>
-<p>$$
-\pmb {Av} = \lambda \pmb v
-\\ \pmb v: eigenvector
-\\ \lambda: eigen \ value \\\
-\\ \pmb{v^T A} = \lambda v^T
-\\ \pmb{v}: Left \ eigenvector
-$$</p>
-<ul>
-<li><strong>Eigenvectors</strong>和<strong>EigenValues</strong>一一对应</li>
-</ul>
-<ol start="2">
-<li>Property</li>
-</ol>
-<ul>
-<li>Scale</li>
-</ul>
-<p>$$
-\pmb {Av} = \lambda \pmb v   \\\
-\\ c\pmb {Av} = c\lambda \pmb v \\\
-\\ \therefore \pmb v \ can \ be \ scaled
-$$</p>
-<p><img src="/p/linear-algebra/1.png"
-	width="816"
-	height="432"
-	srcset="/p/linear-algebra/1_hucaa7d01e242e57c3b8dc30eb7a33dbda_43422_480x0_resize_box_3.png 480w, /p/linear-algebra/1_hucaa7d01e242e57c3b8dc30eb7a33dbda_43422_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="188"
-		data-flex-basis="453px"
-	
-></p>
-<ul>
-<li>EigenVaules</li>
-</ul>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">All Positive</th>
-<th style="text-align:center">Positive definite</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">All Negative</td>
-<td style="text-align:center">Negative definite</td>
-</tr>
-<tr>
-<td style="text-align:center">All Non-zero</td>
-<td style="text-align:center">Positive semidefinite</td>
-</tr>
-<tr>
-<td style="text-align:center">All Negative</td>
-<td style="text-align:center">Negative semidefinite</td>
-</tr>
-</tbody>
-</table></div>
-<p>$$
-Positive \ semidefinite \\
-\forall \pmb x, \pmb {x^T A x} \ge 0 \\\
-\\ Positive \ definite \\
-\forall \pmb x \ \ \pmb{x^T A x} =0 \Longrightarrow \pmb x = 0
-$$</p>
-<ol start="3">
-<li>Solution</li>
-</ol>
-<p>$$
-\begin{aligned}
-\pmb{Av} &amp;= \lambda \pmb v \\
-\pmb{Avv^T} &amp;= \lambda \pmb{vv^T} \\
-\pmb{A} &amp;= \lambda \pmb I \\
-|\pmb A - \lambda \pmb I| &amp;= 0
-\end{aligned}
-$$</p>
-<h3 id="eigendecomposition-1">EigenDecomposition</h3>
-<ol>
-<li>前提</li>
-</ol>
-<ul>
-<li>
-<p>所有独立的$\pmb  v$形成一个特征矩阵$\pmb V = (v^{1} , &hellip; v^{n})$</p>
-</li>
-<li>
-<p>所有<strong>对应的</strong>特征值形成一个对角矩阵$diag(\pmb \lambda)$</p>
-</li>
-</ul>
-<ol start="2">
-<li>分解</li>
-</ol>
-<p>$$
-\begin{aligned}
-\pmb{AV} &amp;= \pmb{V diag(\lambda)} \\
-EigenDecomposition: \pmb{A} &amp;= \pmb{Vdiag(\lambda) V^{-1}}
-\end{aligned}
-$$</p>
-<ol start="3">
-<li>Symetrical Matrix</li>
-</ol>
-<ul>
-<li>
-<p><strong>主对角线</strong>两侧的元素<strong>关于主对角线对称</strong></p>
-</li>
-<li>
-<p>$A = A^T$</p>
-</li>
-<li>
-<p>$A$的特征矩阵$Q$是一个<strong>正交矩阵</strong></p>
-</li>
-<li>
-<p>EigenDecomposition: $\pmb {A = Q\Lambda Q^T}(A和Q是Similar \ Matrix)$</p>
-</li>
-</ul>
-<h2 id="singular-value-decomposition">Singular Value Decomposition</h2>
-<p>$$
-\pmb{A = UDV^T} \\\
-\\ U 和V都是orthogonal \ matrix \\\
-\\ D是 diagonal \ matrix
-$$</p>
+<h3 id="格式要求">格式要求</h3>
 <ol>
 <li>
-<p>Columns of U: <strong>Left-Singular Vectors</strong>(eigenvector of $AA^T$)</p>
+<p>Font: Arial <strong>bold</strong> 12pt for headings + subheadings; Arial 11pt for TextBody</p>
 </li>
 <li>
-<p>Columns of V: <strong>Right-Singular Vectors</strong>(eigenvectors of $A^TA$)</p>
+<p>Spacing: <strong>1.5 spacing</strong></p>
 </li>
 <li>
-<p>D的主对角线的元素是<strong>A</strong>的<strong>Singular Value</strong>($A^T A或AA^T$的EigenVaules的<strong>平方根</strong>)</p>
+<p>Visuals: Only include visual information if necessary. If doing so, make sure you reference this appropriately using IEEE style.</p>
+</li>
+<li>
+<p>Cover page: Include a <strong>cover page</strong> with name (in Pinyin), UESTC ID, Assignment Title and word count. All writing on this page must be in Arial 14pt.</p>
 </li>
 </ol>
-<h1 id="pseudoinverse--trace-operator">Pseudoinverse &amp; Trace Operator</h1>
-<h2 id="pseudoinverse">Pseudoinverse</h2>
-<h3 id="definition-1">Definition</h3>
-<p>$$
-A^+ = \underset{\alpha \searrow 0}{lim} \ (A^T A + \alpha I)^{-1}A^T \\\
-\\ 非奇异矩阵: A^+ = A^{-1} \\\
-\\ 奇异矩阵: A^+= (A^TA)^{-1}A^T \\\
-\\ m \gt n: A^+= (A^TA)^{-1}A^T \\\
-\\ n \gt m: A^+ = A^T(A^TA)^{-1}
-$$</p>
-<h3 id="computing-algorithms">Computing Algorithms</h3>
-<p>$$
-A^+ = VD^+U^T (Singular \ Decomposition)\\\
-\\ D^+: 对D元素取倒数
-$$</p>
-<h2 id="trace-operator">Trace Operator</h2>
-<h3 id="definition-2">Definition</h3>
-<p>$$
-Tr(\pmb A) = \sum_{i}A_{i,i}
-$$</p>
-<h3 id="property-1">Property</h3>
-<ol>
-<li>Norm Computing</li>
-</ol>
-<p>$$
-||\pmb A||_F = \sqrt{Tr(\pmb{AA^T})}
-$$</p>
-<ol start="2">
-<li>Equality</li>
-</ol>
-<p>$$
-Tr(\pmb A) = Tr(\pmb A^T)
-$$</p>
-<ol start="3">
-<li>Scalar</li>
-</ol>
-<p>$$
-Tr(a) = a
-$$</p>
-<ol start="4">
-<li>Matrix</li>
-</ol>
-<p>$$
-Tr(\pmb{ABC}) = Tr(\pmb{CAB}) = Tr(\pmb{BAC})
-$$</p>
-<h1 id="principal-components-analysis">Principal Components Analysis</h1>
-<h2 id="实现">实现</h2>
-<p>$$
-Collection:\lbrace \pmb{x^{(1)}&hellip;x^{(m)}} \rbrace \\\
-\\ Encoder: \ f(\pmb x) = \pmb c \\\
-\\ Decoder: \pmb x \approx g(\pmb c) =  \pmb{Dc} \\\
-\\ \pmb D是正交矩阵\\\
-\\ L^ 2\ norm: \pmb c^* = \underset{c}{arg \ min} ||\pmb x-g(\pmb c)||_2 \\\
-\\ L^2 \ norm \ge 0 \underset{为了方便计算}{\Longrightarrow} \pmb c^* = \underset{c}{arg \ min} ||\pmb x-g(\pmb c)||<em>2^2 \\\
-\\ \begin{aligned}
-\pmb c^* &amp;= |\pmb x-g(\pmb x)|^T|\pmb x-g(\pmb x)| \\
-&amp;= x^Tx - x^Tg(c)   - g^T(c)x + g^T(x)g(c) \\
-&amp;= 无关项 -2x^Tg(c) + g^T(c)g(c) \\
-&amp;= 无关项 -2x^T Dc + c^TD^TDc \\
-&amp;= 无关项 -2x^TDc + c^Tc
-\end{aligned}  \\\
-\\ \begin{aligned}
-\nabla</em>{\pmb c}(-2x^TDc + c^Tc) &amp;= 0 \\
--2D^Tx +2c &amp;=0 (疑问!!!) \\
-c &amp;= D^T x
-\end{aligned} \\\
-\\ 于是f(x) = D^Tx
-$$</p>
-<h2 id="方差">方差</h2>
-<p>$$
-Var(x) = \frac{1}{m-1}\pmb{X^TX} \\\
-\\ \begin{aligned}
-\pmb{X^TX} = \pmb{W\Lambda W^T} \\\
-\\
-\end{aligned}
-$$</p>
+<h2 id="report-组成">Report 组成</h2>
+<ul>
+<li>
+<p>Abstract</p>
+</li>
+<li>
+<p>main body of the text</p>
+</li>
+<li>
+<p>glossary</p>
+</li>
+<li>
+<p>reference list</p>
+</li>
+</ul>
+<h2 id="submission">Submission</h2>
+<h3 id="deadline">Deadline</h3>
+<ul>
+<li><strong>5.14</strong></li>
+</ul>
+<h3 id="name-format">Name Format</h3>
+<ul>
+<li><strong>WA_group_SurnameFirstname eg WA_CE4A_WangJiangqin</strong></li>
+</ul>
 
 </section>
 
@@ -852,12 +497,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/numerical-computation/">
+    <a href="/p/%E5%8D%95%E8%AF%8D2023-3.27-4.3/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Numerical Computation</h2>
+            <h2 class="article-title">单词(2023 3.27-4.3)</h2>
         </div>
     </a>
 </article>
@@ -865,12 +510,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/computer-condition/">
+    <a href="/p/%E5%8D%95%E8%AF%8D2023-3.20-3.26/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Computer Condition</h2>
+            <h2 class="article-title">单词(2023 3.20-3.26)</h2>
         </div>
     </a>
 </article>
@@ -878,12 +523,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/statistics-information-theory/">
+    <a href="/p/cs7910-abstract/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Statistics &amp; Information Theory</h2>
+            <h2 class="article-title">CS7,9,10 Abstract</h2>
         </div>
     </a>
 </article>
@@ -891,12 +536,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/python/">
+    <a href="/p/%E5%8D%95%E8%AF%8D2023-3.13-3.19/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Python</h2>
+            <h2 class="article-title">单词(2023 3.13-3.19)</h2>
         </div>
     </a>
 </article>
@@ -904,12 +549,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/essay-notes/">
+    <a href="/p/cs4-68-portfolio-interview/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Essay Notes</h2>
+            <h2 class="article-title">CS4-6,8 Portfolio Interview</h2>
         </div>
     </a>
 </article>

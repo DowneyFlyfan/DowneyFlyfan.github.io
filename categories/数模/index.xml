@@ -1616,20 +1616,31 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;bias-and-variance&#34;&gt;Bias and Variance&lt;/h2&gt;
-&lt;h3 id=&#34;bias&#34;&gt;Bias&lt;/h3&gt;
+&lt;h3 id=&#34;bias--mse&#34;&gt;Bias &amp;amp; MSE&lt;/h3&gt;
 &lt;p&gt;$$
-bias(\hat{\pmb \theta}_m) = \mathbb E(\hat{\pmb \theta}_m) - \pmb \theta
-$$&lt;/p&gt;
-&lt;h3 id=&#34;再探mse&#34;&gt;再探MSE&lt;/h3&gt;
-&lt;h2 id=&#34;supervised-learning-algorithms&#34;&gt;Supervised Learning Algorithms&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}
+bias(\hat{\pmb \theta}_m) = \mathbb E(\hat{\pmb \theta}_m) - \pmb \theta \\\
+\\ \begin{aligned}
 MSE &amp;amp;= \mathbb E[(\hat{\pmb \theta}_m - \pmb \theta)^2]  \\
 &amp;amp; = Bias^2(\hat{\pmb \theta}) + Var(\hat{\pmb \theta})
 \end{aligned}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;supervised-learning-algorithm&#34;&gt;Supervised Learning Algorithm&lt;/h2&gt;
+&lt;h3 id=&#34;category&#34;&gt;Category&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;SVM (Support Vector Machine) - Binary Problem&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$y$与&lt;strong&gt;kernel&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+f(\pmb x) &amp;amp;= \pmb{w^Tx} + b = b + \sum_{i=1}^n \alpha_i \pmb{x^Tx^{(i)}} \\
+&amp;amp;= b + \sum_i k(\pmb{x,x^{i}})
+\end{aligned} \\\
+\\ Gaussian \ Kernal: k(\pmb{u,v}) = \mathcal N (u-v;0.\sigma^2\pmb I) \ \ \  \\\
+\\ Also \ known \ as \ \pmb{RBF(radical \ basis function)}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;unsupervised-learning-algorithm&#34;&gt;Unsupervised Learning Algorithm&lt;/h2&gt;
-&lt;h3 id=&#34;principle-component-analysis---数据降维&#34;&gt;Principle Component Analysis - 数据降维&lt;/h3&gt;
 &lt;h1 id=&#34;deep-learning&#34;&gt;Deep Learning&lt;/h1&gt;
 &lt;h2 id=&#34;感知机---perceptrons&#34;&gt;感知机 - Perceptrons&lt;/h2&gt;
 &lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;

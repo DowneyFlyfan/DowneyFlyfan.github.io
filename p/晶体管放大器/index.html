@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='有MOSFET的放大器 图示 $$ V_{DS} = V_{DD} - i_DR_D $$
 电压转换特性 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \end{aligned} \\\ \\ V_t \lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} \lt V_{DS} \\\ \\ \begin{aligned} At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ 解(1)得到: V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
-偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ \begin{aligned} i_d &amp;amp;= KV_{OV}v_{gs} \\ g_m &amp;amp;= KV_{OV} \end{aligned} $$'>
+偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
 <title>晶体管放大器</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/'>
@@ -11,14 +11,14 @@
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='晶体管放大器'>
 <meta property='og:description' content='有MOSFET的放大器 图示 $$ V_{DS} = V_{DD} - i_DR_D $$
 电压转换特性 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \end{aligned} \\\ \\ V_t \lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} \lt V_{DS} \\\ \\ \begin{aligned} At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ 解(1)得到: V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
-偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ \begin{aligned} i_d &amp;amp;= KV_{OV}v_{gs} \\ g_m &amp;amp;= KV_{OV} \end{aligned} $$'>
+偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-10T11:45:36&#43;08:00'/><meta property='article:modified_time' content='2023-04-10T11:45:36&#43;08:00'/>
 <meta name="twitter:title" content="晶体管放大器">
 <meta name="twitter:description" content="有MOSFET的放大器 图示 $$ V_{DS} = V_{DD} - i_DR_D $$
 电压转换特性 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \end{aligned} \\\ \\ V_t \lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} \lt V_{DS} \\\ \\ \begin{aligned} At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ 解(1)得到: V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
-偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ \begin{aligned} i_d &amp;amp;= KV_{OV}v_{gs} \\ g_m &amp;amp;= KV_{OV} \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -268,6 +268,7 @@
         <li><a href="#小信号电压增益">小信号电压增益</a>
           <ol>
             <li><a href="#电流">电流</a></li>
+            <li><a href="#电导">电导</a></li>
             <li><a href="#增益">增益</a></li>
           </ol>
         </li>
@@ -423,17 +424,27 @@ $$</p>
 \begin{aligned}
 i_D &amp;= I_D + i_d \\
 &amp;= \frac{K(V_{GS}+v_{GS}-V_T)^2}{2} \\
-&amp;= \frac{K(V_{GS}-V_T)^2}{2} + K(V_{GS}-V_T)v_{gs} + \frac{K}{2}v_{gs}^2
-\end{aligned} \\\
+&amp;= \frac{K(V_{GS}-V_T)^2}{2} + K(V_{GS}-V_T)v_{gs} + \frac{K}{2}v_{gs}^2 \\
+&amp;= dc +  linear \ Gain +  nonlinear \ distortion \\
+\frac{1}{2}kv_{gs}^2 &amp;\ll kv_{ov}v_{gs} \\
+v_{gs} &amp;\ll 2v_{ov}
+\end{aligned}  \\\
 \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\
 \\ \begin{aligned}
 i_D &amp;= &amp;\frac{K(V_{GS}-V_T)^2}{2} + &amp;K(V_{GS}-V_T)v_{gs} \\
 i_D &amp;= &amp;I_D + &amp;i_d
 \end{aligned} \\\
-\\ \begin{aligned}
-i_d &amp;= KV_{OV}v_{gs} \\
-g_m &amp;= KV_{OV}
-\end{aligned}
+\\ i_d = KV_{OV}v_{gs}
+$$</p>
+<h3 id="电导">电导</h3>
+<p>$$
+\begin{aligned}
+g_m &amp;= \frac{\partial i_d}{\partial v_{GS}}\Big|<em>{v</em>{gs} = V_{GS}} \\
+&amp;= \frac{d[\frac{1}{2}k_n(V_{GS}-V_t)^2]}{dv_{GS}}\Big|<em>{v</em>{gs} = V_{GS}} \\
+&amp;= \pmb{k_nV_{OV}}
+\end{aligned} \\\
+\\ \because I_D = \frac{1}{2}k_nV_{OV}^2 \Longrightarrow V_{OV} = \frac{\sqrt{2I_D}}{\sqrt{k_n}} \\\
+\\ \therefore g_n = \pmb{\sqrt{2k_nI_D}}  = \pmb{\frac{2I_D}{V_{OV}}}
 $$</p>
 <h3 id="增益">增益</h3>
 <p>$$
