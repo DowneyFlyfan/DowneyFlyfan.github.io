@@ -6,7 +6,74 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 17 Apr 2023 14:28:13 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 18 Apr 2023 13:09:34 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Deep_Networks</title>
+        <link>https://downeyflyfan.com/p/deep_networks/</link>
+        <pubDate>Tue, 18 Apr 2023 13:09:34 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/deep_networks/</guid>
+        <description>&lt;h1 id=&#34;deep-feedforward-networks-multilayer-perceptrons&#34;&gt;Deep FeedForward Networks (Multilayer Perceptrons)&lt;/h1&gt;
+&lt;h2 id=&#34;gradient-based-learning&#34;&gt;Gradient-Based Learning&lt;/h2&gt;
+&lt;h3 id=&#34;learning-conditional-distribution-with-mle&#34;&gt;Learning Conditional Distribution With MLE&lt;/h3&gt;
+&lt;p&gt;$$
+J(\pmb \theta)= -\mathbb E_{\mathcal{X,Y}\sim p_{data}} log \ p_{model} (\pmb{y | x}) \\\
+\\ When \ p_{model}(\pmb{y | x}) = \mathcal N(\pmb{y;f(x,\theta),I}) \\\
+\\ J(\pmb \theta) = \frac{1}{2} \mathbb  E_{x,y \sim p_{data}} ||\pmb y - f(\pmb{x;\theta})||^2 + C
+$$&lt;/p&gt;
+&lt;h3 id=&#34;output-unit&#34;&gt;Output Unit&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Linear Units&lt;/strong&gt; for Gaussian Output Distributions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+p(\pmb{y | x})= \mathcal N(\pmb{y;\hat y,I})
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Sigmoid Units&lt;/strong&gt; for Bernoulli Distribution(二分类问题)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\sigma = \frac{1}{1+e^{-x}} \\\
+\\ \hat y = \sigma(\pmb{w^Th} +b), y \in \lbrace0,1\rbrace\\\
+\\ z = \pmb{w^Th} +b ,称为logit\\\
+\\ \begin{aligned}
+log \overset{\sim}P(y) &amp;amp;= yz \\
+\overset{\sim} P(y) &amp;amp;= e^{yz} \\
+P(y) &amp;amp;= \frac{e^{yz}}{\sum_{y&amp;rsquo;=0}^n e^{y&amp;rsquo;z}} \\
+&amp;amp;= \sigma((2y-1)z)
+\end{aligned} \\\
+\\ \begin{aligned}
+\therefore J(\theta) &amp;amp;= -logP(\pmb{y|x})  \\
+&amp;amp;= -log\ \sigma((2y-1)z) \\
+&amp;amp;= \xi((1-2y)z)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Softmax Units&lt;/strong&gt; For Multinoulli Distribution&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Softmax&lt;/strong&gt; 定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+Softmax(z_i) = \frac{e^{z_i}}{\sum_j e^{z_j}} \\\
+\\ log \ Softmax(z_i) = z_i - log\sum_j z_j
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Softmax&lt;/strong&gt; 性质&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+Softmax(\pmb z) = Softmax(\pmb z +c) \\\
+\\ Softmax(\pmb z) = Softmax(\pmb z - max z_i)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;hidden-units&#34;&gt;Hidden Units&lt;/h2&gt;
+&lt;h3 id=&#34;rectified-linear-units&#34;&gt;Rectified Linear Units&lt;/h3&gt;
+&lt;p&gt;$$
+h(x) = \begin{cases}
+x , x\ge 0 \\
+0, x\lt 0
+\end{cases}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>CS10,11,12 Written Assignment</title>
         <link>https://downeyflyfan.com/p/cs101112-written-assignment/</link>
         <pubDate>Mon, 17 Apr 2023 14:28:13 +0800</pubDate>
@@ -525,11 +592,11 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>有限状态机</title>
-        <link>https://downeyflyfan.com/p/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</link>
+        <title>6.有限状态机</title>
+        <link>https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</link>
         <pubDate>Tue, 11 Apr 2023 10:29:23 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</guid>
+        <guid>https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</guid>
         <description>&lt;h1 id=&#34;finite-state-machine-models&#34;&gt;Finite-State Machine Models&lt;/h1&gt;
 &lt;h2 id=&#34;作用&#34;&gt;作用&lt;/h2&gt;
 &lt;ul&gt;
@@ -541,10 +608,10 @@ $$&lt;/p&gt;
 &lt;li&gt;输出仅取决于&lt;strong&gt;当前状态&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;常见fsm&#34;&gt;常见FSM&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/1.png&#34;
 	width=&#34;855&#34;
 	height=&#34;785&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/1_hu82af42aa9206ad987207d395cee54df6_101329_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/1_hu82af42aa9206ad987207d395cee54df6_101329_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/1_hu82af42aa9206ad987207d395cee54df6_101329_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/1_hu82af42aa9206ad987207d395cee54df6_101329_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -555,10 +622,10 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;analysis&#34;&gt;Analysis&lt;/h1&gt;
 &lt;h2 id=&#34;next-state-table&#34;&gt;Next-State Table&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/2.png&#34;
 	width=&#34;835&#34;
 	height=&#34;498&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/2_hu6cba783fca3bf3979dc5e94400ee3a95_48998_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/2_hu6cba783fca3bf3979dc5e94400ee3a95_48998_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/2_hu6cba783fca3bf3979dc5e94400ee3a95_48998_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/2_hu6cba783fca3bf3979dc5e94400ee3a95_48998_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -925,7 +992,7 @@ $$&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S fcitx5 picom openvpn xflux neovim kicad slock mono geogebra wget curl powertop zip unzip libreoffice yarn speedtest-cli okularalacritty acpi brightnessctl fzf grub hugo netease-cloud-music neverball pdftk ranger pulsemixer light upower openssl ueberzug
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S fcitx5 picom openvpn xflux neovim kicad slock mono geogebra wget curl powertop zip unzip libreoffice yarn speedtest-cli okularalacritty acpi brightnessctl fzf grub hugo netease-cloud-music neverball pdftk ranger pulsemixer light upower openssl ueberzug arm-none-eabi-gcc python steam
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ol&gt;
@@ -970,7 +1037,7 @@ $$&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S electron-qq pdflatex feishu-bin microsoft-edge-stable-bin netease-cloud-music
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S electron-qq pdflatex feishu-bin microsoft-edge-stable-bin netease-cloud-music python-mbed-cli
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;python&#34;&gt;Python&lt;/h1&gt;
@@ -1804,10 +1871,15 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;方差&#34;&gt;方差&lt;/h2&gt;
 &lt;p&gt;$$
 Var(x) = \frac{1}{m-1}\pmb{X^TX} \\\
+\\ \pmb{X^TX} = \pmb{W\Lambda W^T} \\\
+\\ \pmb X = \pmb{U\Sigma W} \\\
 \\ \begin{aligned}
-\pmb{X^TX} = \pmb{W\Lambda W^T} \\\
-\\
-\end{aligned}
+\therefore \pmb{X^TX} &amp;amp;= \pmb{(U\Sigma W)^T(U\Sigma W)} \\
+&amp;amp;= \pmb{W\Sigma^2W^T}
+\end{aligned} \\\
+\\ Var(\pmb x) = \frac{1}{m-1}\pmb {X^TX} \\\
+\\ if \ \pmb{z = x^TW} \\\
+\\ Var[\pmb z] = \frac{1}{m-1} \Sigma^2
 $$&lt;/p&gt;
 </description>
         </item>
@@ -2231,7 +2303,7 @@ state 傅里叶变换{
 &lt;h2 id=&#34;特点&#34;&gt;特点&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;当S=0，R=0时，SR Latch处于保持状态，Q和Q&amp;rsquo;的状态不变。&lt;/p&gt;
+&lt;p&gt;当S=1，R=1时，SR Latch处于保持状态，Q和Q&amp;rsquo;的状态不变。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;当S=1，R=0时，SR Latch进入置位状态，Q=1，Q&amp;rsquo;=0。&lt;/p&gt;
@@ -2240,7 +2312,7 @@ state 傅里叶变换{
 &lt;p&gt;当S=0，R=1时，SR Latch进入复位状态，Q=0，Q&amp;rsquo;=1。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;当S=1，R=1时，SR Latch处于禁止状态，输出不确定。&lt;/p&gt;
+&lt;p&gt;当S=0，R=0时，SR Latch处于禁止状态，输出不确定。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;常见sr-latch&#34;&gt;常见SR Latch&lt;/h2&gt;
@@ -8766,11 +8838,11 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>Deep Learning</title>
-        <link>https://downeyflyfan.com/p/deep-learning/</link>
+        <title>Deep Learning Basics</title>
+        <link>https://downeyflyfan.com/p/deep-learning-basics/</link>
         <pubDate>Sat, 11 Mar 2023 14:16:50 +0000</pubDate>
         
-        <guid>https://downeyflyfan.com/p/deep-learning/</guid>
+        <guid>https://downeyflyfan.com/p/deep-learning-basics/</guid>
         <description>&lt;h1 id=&#34;machine-learning-basics&#34;&gt;Machine Learning Basics&lt;/h1&gt;
 &lt;h2 id=&#34;learning-algorithms&#34;&gt;Learning Algorithms&lt;/h2&gt;
 &lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;
@@ -8902,10 +8974,10 @@ $$&lt;/p&gt;
 &lt;p&gt;以下示例对应&lt;strong&gt;一次，2次，9次&lt;/strong&gt;多项式模型&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning-basics/8.png&#34;
 	width=&#34;1069&#34;
 	height=&#34;540&#34;
-	srcset=&#34;https://downeyflyfan.com/p/deep-learning/8_hu45d86fac8a605ed4e1486b0a7e931dd0_50835_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning/8_hu45d86fac8a605ed4e1486b0a7e931dd0_50835_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/deep-learning-basics/8_hu45d86fac8a605ed4e1486b0a7e931dd0_50835_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning-basics/8_hu45d86fac8a605ed4e1486b0a7e931dd0_50835_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -9067,22 +9139,58 @@ f(\pmb x) &amp;amp;= \pmb{w^Tx} + b = b + \sum_{i=1}^n \alpha_i \pmb{x^Tx^{(i)}}
 \\ Also \ known \ as \ \pmb{RBF(radical \ basis function)}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;unsupervised-learning-algorithm&#34;&gt;Unsupervised Learning Algorithm&lt;/h2&gt;
-&lt;h1 id=&#34;deep-learning&#34;&gt;Deep Learning&lt;/h1&gt;
-&lt;h2 id=&#34;感知机---perceptrons&#34;&gt;感知机 - Perceptrons&lt;/h2&gt;
+&lt;h3 id=&#34;principal-component-analysis-pca&#34;&gt;Principal Component Analysis (PCA)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;详见&lt;strong&gt;Linear Algebra&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;k-means-clustering&#34;&gt;K-means Clustering&lt;/h3&gt;
+&lt;p&gt;$$
+J(\theta) = \mathbb E
+$$&lt;/p&gt;
+&lt;h2 id=&#34;gradient-descent&#34;&gt;Gradient Descent&lt;/h2&gt;
 &lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
 &lt;blockquote&gt;
-&lt;p&gt;接受多个&lt;strong&gt;不同权重&lt;/strong&gt;的输入信号,获得一个输出的机器&lt;/p&gt;
+&lt;p&gt;不断地&lt;strong&gt;沿梯度方向&lt;/strong&gt;前进,逐渐&lt;strong&gt;减小函数值&lt;/strong&gt;的过程&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;多层感知机&#34;&gt;多层感知机&lt;/h3&gt;
+&lt;h3 id=&#34;迭代公式&#34;&gt;迭代公式&lt;/h3&gt;
+&lt;p&gt;$$
+\theta = \theta - \alpha \nabla J(\theta) \\\
+\\ \nabla J(\theta) = \begin{pmatrix}
+\frac{\partial J}{\partial \theta_1} \\
+\frac{\partial J}{\partial \theta_2} \\
+&amp;hellip; \\
+\frac{\partial J}{\partial \theta_n}
+\end{pmatrix} \\\
+\\ \theta: 优化参数 \ \ \alpha:学习率 \ \ J: 目标参数
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;学习率&lt;/strong&gt;过大，结果会&lt;strong&gt;超大&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;学习率&lt;/strong&gt;过小，结果&lt;strong&gt;几乎没有改变&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;思想&#34;&gt;思想&lt;/h3&gt;
 &lt;blockquote&gt;
-&lt;p&gt;多层输入获得一个输出&lt;/p&gt;
+&lt;p&gt;沿着梯度的负方向更新参数，求得函数的最小值&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h2 id=&#34;challenges&#34;&gt;Challenges&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;计算资源和时间成本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据偏差和公平性&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;deep-learning&#34;&gt;Deep Learning&lt;/h1&gt;
 &lt;h2 id=&#34;神经网络&#34;&gt;神经网络&lt;/h2&gt;
 &lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning-basics/2.png&#34;
 	width=&#34;882&#34;
 	height=&#34;665&#34;
-	srcset=&#34;https://downeyflyfan.com/p/deep-learning/2_hud580b39abf905638429e215b455d55a7_63669_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning/2_hud580b39abf905638429e215b455d55a7_63669_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/deep-learning-basics/2_hud580b39abf905638429e215b455d55a7_63669_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning-basics/2_hud580b39abf905638429e215b455d55a7_63669_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -9102,10 +9210,10 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
 &lt;h4 id=&#34;图示含有偏置的简单神经网络&#34;&gt;图示——含有偏置的简单神经网络&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning-basics/4.png&#34;
 	width=&#34;401&#34;
 	height=&#34;491&#34;
-	srcset=&#34;https://downeyflyfan.com/p/deep-learning/4_hu155da11c98ba29bca9075cfb2350214e_16996_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning/4_hu155da11c98ba29bca9075cfb2350214e_16996_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/deep-learning-basics/4_hu155da11c98ba29bca9075cfb2350214e_16996_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning-basics/4_hu155da11c98ba29bca9075cfb2350214e_16996_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -9131,10 +9239,10 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;图示&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning-basics/3.png&#34;
 	width=&#34;638&#34;
 	height=&#34;564&#34;
-	srcset=&#34;https://downeyflyfan.com/p/deep-learning/3_hu7ef18733bfcd4b7594bd2fc3b7fad848_33930_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning/3_hu7ef18733bfcd4b7594bd2fc3b7fad848_33930_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/deep-learning-basics/3_hu7ef18733bfcd4b7594bd2fc3b7fad848_33930_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning-basics/3_hu7ef18733bfcd4b7594bd2fc3b7fad848_33930_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -9153,10 +9261,10 @@ $$&lt;/p&gt;
 h(x) = \frac{1}{1+e^{-x}}
 $$&lt;/p&gt;
 &lt;h4 id=&#34;比较&#34;&gt;比较&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning-basics/5.png&#34;
 	width=&#34;1008&#34;
 	height=&#34;778&#34;
-	srcset=&#34;https://downeyflyfan.com/p/deep-learning/5_hu0404e9d3bdf2526c8cd03f3e7297f403_43037_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning/5_hu0404e9d3bdf2526c8cd03f3e7297f403_43037_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/deep-learning-basics/5_hu0404e9d3bdf2526c8cd03f3e7297f403_43037_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning-basics/5_hu0404e9d3bdf2526c8cd03f3e7297f403_43037_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -9193,10 +9301,10 @@ x  &amp;amp; x \gt 0 \\
 \end{cases}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;神经网络的内积&#34;&gt;神经网络的内积&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning-basics/6.png&#34;
 	width=&#34;953&#34;
 	height=&#34;445&#34;
-	srcset=&#34;https://downeyflyfan.com/p/deep-learning/6_hub9c56d5474fa320546904016c38de1e6_65343_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning/6_hub9c56d5474fa320546904016c38de1e6_65343_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/deep-learning-basics/6_hub9c56d5474fa320546904016c38de1e6_65343_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning-basics/6_hub9c56d5474fa320546904016c38de1e6_65343_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -9207,10 +9315,10 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;三层神经网络的实现&#34;&gt;三层神经网络的实现&lt;/h2&gt;
 &lt;h3 id=&#34;权重的符号&#34;&gt;权重的符号&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/deep-learning-basics/7.png&#34;
 	width=&#34;813&#34;
 	height=&#34;411&#34;
-	srcset=&#34;https://downeyflyfan.com/p/deep-learning/7_hu602b21e4c9207379fd43abd604765d5f_47449_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning/7_hu602b21e4c9207379fd43abd604765d5f_47449_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/deep-learning-basics/7_hu602b21e4c9207379fd43abd604765d5f_47449_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/deep-learning-basics/7_hu602b21e4c9207379fd43abd604765d5f_47449_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -9242,32 +9350,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 h(x) = x \ \ x \in R
 $$&lt;/p&gt;
-&lt;h3 id=&#34;分类问题--softmax函数&#34;&gt;分类问题 —— softmax函数&lt;/h3&gt;
-&lt;h4 id=&#34;定义-1&#34;&gt;定义&lt;/h4&gt;
-&lt;p&gt;$$
-y_k = \frac{e^{a_k}}{\sum_{i=1}^n e^{a_i}} \\\
-\\ 假设输出层有n个神经元，则第k个神经元如上所示
-$$&lt;/p&gt;
-&lt;h4 id=&#34;修正&#34;&gt;修正&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;原因&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;指数很大，容易溢出&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;修正&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-y_k = \frac{Ce^{a_k}}{C\sum_{i=1}^ne^{a_i}} = \frac{e^{a_k+lnC}}{\sum_{i=1}^ne^{a_i + lnC}} \\\
-\\ = \frac{e^{a_k-C&amp;rsquo;}}{\sum_{i=1}^{n}e^{a_i-C&amp;rsquo;}}  \\\
-\\ 为了防止溢出,我们选择C&amp;rsquo;为\pmb{输入信号的a最大值}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;特征&#34;&gt;特征&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;输出总和为&lt;strong&gt;1&lt;/strong&gt;,因此把分类解释为&lt;strong&gt;概率&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;上述代码总和&#34;&gt;上述代码总和&lt;/h4&gt;
+&lt;h3 id=&#34;上述代码总和&#34;&gt;上述代码总和&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;  1
@@ -9512,34 +9595,6 @@ $$&lt;/p&gt;
 \frac{df(x)}{dx} = \frac{f(x+h)-f(x-h)}{2h} \\\
 \\ 通过\pmb{中心差分}实现更高的\pmb{精度}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;gradient-descent&#34;&gt;Gradient Descent&lt;/h3&gt;
-&lt;h4 id=&#34;定义-2&#34;&gt;定义&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;不断地&lt;strong&gt;沿梯度方向&lt;/strong&gt;前进,逐渐&lt;strong&gt;减小函数值&lt;/strong&gt;的过程&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;迭代公式&#34;&gt;迭代公式&lt;/h4&gt;
-&lt;p&gt;$$
-\theta = \theta - \alpha \nabla J(\theta) \\\
-\\ \nabla J(\theta) = \begin{pmatrix}
-\frac{\partial J}{\partial \theta_1} \\
-\frac{\partial J}{\partial \theta_2} \\
-&amp;hellip; \\
-\frac{\partial J}{\partial \theta_n}
-\end{pmatrix} \\\
-\\ \theta: 优化参数 \ \ \alpha:学习率 \ \ J: 目标参数
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;学习率&lt;/strong&gt;过大，结果会&lt;strong&gt;超大&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;学习率&lt;/strong&gt;过小，结果&lt;strong&gt;几乎没有改变&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;思想&#34;&gt;思想&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;沿着梯度的负方向更新参数，求得函数的最小值&lt;/p&gt;
-&lt;/blockquote&gt;
 </description>
         </item>
         <item>
