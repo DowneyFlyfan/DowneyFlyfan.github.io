@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='有MOSFET的放大器 图示 $$ V_{DS} = V_{DD} - i_DR_D $$
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='有MOSFET的放大器 图示 压控电流源(VCCS) $$ V_{DS} = V_{DD} - i_DR_D $$
 电压转换特性 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \end{aligned} \\\ \\ V_t \lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} \lt V_{DS} \\\ \\ \begin{aligned} At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ 解(1)得到: V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
 偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
 <title>晶体管放大器</title>
@@ -9,14 +9,14 @@
 <link rel='canonical' href='https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='晶体管放大器'>
-<meta property='og:description' content='有MOSFET的放大器 图示 $$ V_{DS} = V_{DD} - i_DR_D $$
+<meta property='og:description' content='有MOSFET的放大器 图示 压控电流源(VCCS) $$ V_{DS} = V_{DD} - i_DR_D $$
 电压转换特性 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \end{aligned} \\\ \\ V_t \lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} \lt V_{DS} \\\ \\ \begin{aligned} At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ 解(1)得到: V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
 偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-10T11:45:36&#43;08:00'/><meta property='article:modified_time' content='2023-04-10T11:45:36&#43;08:00'/>
 <meta name="twitter:title" content="晶体管放大器">
-<meta name="twitter:description" content="有MOSFET的放大器 图示 $$ V_{DS} = V_{DD} - i_DR_D $$
+<meta name="twitter:description" content="有MOSFET的放大器 图示 压控电流源(VCCS) $$ V_{DS} = V_{DD} - i_DR_D $$
 电压转换特性 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \end{aligned} \\\ \\ V_t \lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} \lt V_{DS} \\\ \\ \begin{aligned} At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ 解(1)得到: V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
 偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
@@ -275,7 +275,17 @@
         <li><a href="#通过图像分析确定vtc">通过图像分析确定VTC</a>
           <ol>
             <li><a href="#图像">图像</a></li>
-            <li><a href="#how-is-q-for-ivc-defined-assuming-vgs-is-fixed">How is Q for IVC defined (assuming VGS is fixed)?</a></li>
+            <li><a href="#q-on-ivc-v_gs-is-fixed">Q on IVC ($V_{GS}$ is fixed)?</a></li>
+          </ol>
+        </li>
+        <li><a href="#example">Example</a>
+          <ol>
+            <li><a href="#ex1">E.x.1</a></li>
+          </ol>
+        </li>
+        <li><a href="#model">Model</a>
+          <ol>
+            <li><a href="#t-equivalent-circuit-model">T Equivalent-Circuit Model</a></li>
           </ol>
         </li>
       </ol>
@@ -344,7 +354,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -373,6 +383,9 @@
 		data-flex-basis="267px"
 	
 ></p>
+<ul>
+<li>压控电流源(VCCS)</li>
+</ul>
 <p>$$
 V_{DS} = V_{DD} - i_DR_D
 $$</p>
@@ -456,7 +469,8 @@ V_{DS} &amp;= V_{DD} - i_DR_D \\
 \\ v_o = -i_dR_D = -g_mV_{OV}R_D \\\
 \\ A_v = \frac{v_o}{v_i} = \frac{v_{ds}}{v_{gs}} = -g_mR_D  = -KV_{OV}R_D \\\
 \\ I_D = \frac{1}{2}KV_{OV}^2 \Longrightarrow K = \frac{2I_D}{V_{OV}^2} \\\
-\\ \therefore \pmb{A_v = -\frac{I_D R_D}{V_{OV}/2} = -k_nV_{OV}R_D = -g_m R_D}
+\\ \therefore \pmb{A_v = -\frac{I_D R_D}{V_{OV}/2} = -k_nV_{OV}R_D = -g_m R_D} \\\
+\\ (具体的增益要视具体情况而言)
 $$</p>
 <h2 id="通过图像分析确定vtc">通过图像分析确定VTC</h2>
 <h3 id="图像">图像</h3>
@@ -472,7 +486,7 @@ $$</p>
 		data-flex-basis="266px"
 	
 ></p>
-<h3 id="how-is-q-for-ivc-defined-assuming-vgs-is-fixed">How is Q for IVC defined (assuming VGS is fixed)?</h3>
+<h3 id="q-on-ivc-v_gs-is-fixed">Q on IVC ($V_{GS}$ is fixed)?</h3>
 <p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/5.png"
 	width="567"
 	height="606"
@@ -493,6 +507,115 @@ $$</p>
 <p>Point $Q_2$ is too close to the boundary of the triode region, thus severely limiting the allowable negative signal swing of vds, resulting in a distorted output signal. In this situation <strong>the circuit does not have sufficient &ldquo;legroom.&rdquo;</strong></p>
 </li>
 </ul>
+<h2 id="example">Example</h2>
+<h3 id="ex1">E.x.1</h3>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6.png"
+	width="655"
+	height="497"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6_hufa7aed3f50723fa7ef9ad254a57d67ff_101142_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6_hufa7aed3f50723fa7ef9ad254a57d67ff_101142_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="131"
+		data-flex-basis="316px"
+	
+></p>
+<ol>
+<li>题目</li>
+</ol>
+<p>$$
+(1)V_t = 1.5V, k’n(W/L) = 0.25mA/V^2 \\\
+\\ (2)V_A = 50V (晶体管的最大反向漏极电压)
+$$</p>
+<ol start="2">
+<li>问题</li>
+</ol>
+<ul>
+<li>
+<p><strong>small-signal voltage gain</strong></p>
+</li>
+<li>
+<p><strong>input resistance, the largest allowable input signal</strong></p>
+</li>
+</ul>
+<ol start="3">
+<li>解答</li>
+</ol>
+<ul>
+<li>分析电路</li>
+</ul>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7.png"
+	width="908"
+	height="474"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7_hub9662af9ed5c368049ba91da2e3bc9eb_122814_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7_hub9662af9ed5c368049ba91da2e3bc9eb_122814_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="459px"
+	
+></p>
+<p>$$
+DC不流过R_G \Longrightarrow V_{GS} = V_{DS} = V_{DD} - I_DR_D\\\
+\\ I_D = \frac{1}{2} k_nV_{OV}^2 \\\
+\\ \therefore I_D = 1.06(mA) , V_{GS} = V_{DS} = 4.4(V), V_{OV}= V_{GS} - V_t =2.9(V) \\\
+\\ g_m = k_nV_{OV}  =0.725(mA/V)
+$$</p>
+<ul>
+<li>继续转换电路</li>
+</ul>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8.png"
+	width="570"
+	height="223"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8_hu946af9961b7d4e7eeeb8fa218873cf48_56733_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8_hu946af9961b7d4e7eeeb8fa218873cf48_56733_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="255"
+		data-flex-basis="613px"
+	
+></p>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9.png"
+	width="742"
+	height="646"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9_hu906b3eee37f9154ea5fcae0632fcb5f7_122625_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9_hu906b3eee37f9154ea5fcae0632fcb5f7_122625_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="275px"
+	
+></p>
+<p>$$
+r_0 =\frac{V_A}{I_D} = 47(k\Omega) \\\
+\\ R&rsquo;<em>L = R_L || R_D || r_0 = 4.52(k\Omega) \\\
+\\ i_i = \frac{v</em>{gs}-v_o}{R_G} \\\
+\\ v_o = (i_i - g_mv_{gs}) R_L&rsquo; \\\
+\\ (2) A_v = -g_m R_L&rsquo; \frac{1-(1/g_mR_G)}{1 + (R_L&rsquo; /R_G)} = -3.3(V/V) \\\
+\\ V_{DS} \ge V_{OV} \\\
+\\ V_{DS min} = V_{GS max} -V_t \\\
+\\ V_{DS} - |A_v| v_{ip}  = V_{GS} + V_{ip} -V_t \\\
+\\ \because V_{GS } = V_{DS} \\\
+\\ V_{iP max} = \frac{V_t}{|A_v| + 1}
+$$</p>
+<h2 id="model">Model</h2>
+<h3 id="t-equivalent-circuit-model">T Equivalent-Circuit Model</h3>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10.png"
+	width="280"
+	height="404"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="69"
+		data-flex-basis="166px"
+	
+></p>
 
 </section>
 

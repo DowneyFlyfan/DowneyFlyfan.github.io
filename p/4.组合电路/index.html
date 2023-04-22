@@ -367,9 +367,10 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
     </li>
     <li><a href="#门电路">门电路</a>
       <ol>
-        <li><a href="#fan-in">Fan-in</a>
+        <li><a href="#fan">Fan</a>
           <ol>
-            <li><a href="#定义">定义</a></li>
+            <li><a href="#fan-in-of-a-logic-family">Fan-in (of a logic family)</a></li>
+            <li><a href="#fan-out-of-a-logic-family">Fan-out (of a logic family)</a></li>
           </ol>
         </li>
         <li><a href="#cmos反相器">CMOS反相器</a>
@@ -377,6 +378,7 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
             <li><a href="#电路-3">电路</a></li>
             <li><a href="#图像">图像</a></li>
             <li><a href="#cmos-逻辑系列电平规格">CMOS 逻辑系列电平规格</a></li>
+            <li><a href="#electrical-behavior">Electrical Behavior</a></li>
           </ol>
         </li>
         <li><a href="#与非门">与非门</a></li>
@@ -455,7 +457,7 @@ Ripple-Carry Adder 输出 真值表 逻辑表达 $$ \begin{aligned} s_i &amp;amp
 
 
                 <time class="article-time--reading">
-                    6 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -1365,10 +1367,14 @@ $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="门电路">门电路</h1>
-<h2 id="fan-in">Fan-in</h2>
-<h3 id="定义">定义</h3>
+<h2 id="fan">Fan</h2>
+<h3 id="fan-in-of-a-logic-family">Fan-in (of a logic family)</h3>
 <blockquote>
-<p><strong>The number of inputs</strong> that a gate can have in a particular logic family is called <strong>the logic family’s fan-in</strong></p>
+<p><strong>The number of inputs</strong> that a gate can have in a particular logic family</p>
+</blockquote>
+<h3 id="fan-out-of-a-logic-family">Fan-out (of a logic family)</h3>
+<blockquote>
+<p><strong>The number of outputs</strong> that a gate can have in a particular logic family</p>
 </blockquote>
 <h2 id="cmos反相器">CMOS反相器</h2>
 <h3 id="电路-3">电路</h3>
@@ -1410,6 +1416,46 @@ $$</p>
 		data-flex-basis="441px"
 	
 ></p>
+<h3 id="electrical-behavior">Electrical Behavior</h3>
+<ol>
+<li>上拉$p$电阻</li>
+</ol>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/31.png"
+	width="507"
+	height="517"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/31_huf098f3ffa1eda94b55ac961436d1bb64_94482_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/31_huf098f3ffa1eda94b55ac961436d1bb64_94482_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="98"
+		data-flex-basis="235px"
+	
+></p>
+<p>$$
+上拉电阻 \ R_{p(on)} = \frac{V_{DD} - V_{OHminT}}{|I_{OHmax}|}
+$$</p>
+<ol start="2">
+<li>下拉$p$电阻</li>
+</ol>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/32.png"
+	width="595"
+	height="509"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/32_hu1ed09861105b45f9e21e8ee039620665_104876_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/32_hu1ed09861105b45f9e21e8ee039620665_104876_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="116"
+		data-flex-basis="280px"
+	
+></p>
+<p>$$
+R_{n(on)} = \frac{V_{OLmax}}{I_{OLmax}}
+$$</p>
+<ol start="2">
+<li>Data Sheet</li>
+</ol>
 <h2 id="与非门">与非门</h2>
 <p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/6.png"
 	width="456"

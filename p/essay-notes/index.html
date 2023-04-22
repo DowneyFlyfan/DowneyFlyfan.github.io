@@ -385,22 +385,39 @@ Clock Jitter 由各种因素引起的数据采样误差和信号失真 Gate Volt
         <li><a href="#错误">错误</a></li>
       </ol>
     </li>
-    <li><a href="#a-fully-dynamic-low-power-wideband-time-interleaved-noise-shaping-sar-adc">A Fully Dynamic Low-Power Wideband Time-Interleaved Noise-Shaping SAR ADC</a>
+    <li><a href="#a-cmos-210-ghz-fundamental-transceiver-with-ook-modulation----wangzheng">A CMOS 210-GHz Fundamental Transceiver With OOK Modulation &ndash; WangZheng</a>
       <ol>
         <li><a href="#链接-3">链接</a></li>
         <li><a href="#术语-2">术语</a>
           <ol>
-            <li><a href="#osr-oversampling-ratio">OSR (OverSampling Ratio)</a></li>
-            <li><a href="#ti-time-interleaved">TI (Time Interleaved)</a></li>
-            <li><a href="#ntf-noise-transfer-function">NTF (Noise Transfer Function)</a></li>
-            <li><a href="#ef-extended-filter">EF (Extended Filter)</a></li>
+            <li><a href="#soi-silicon-on-insulator">SOI (Silicon on Insulator)</a></li>
+            <li><a href="#magmaximum-available-gain">MAG(Maximum Available Gain)</a></li>
+            <li><a href="#ook-on-off-key">OOK (On-off-key)</a></li>
+            <li><a href="#lna-low-noise-amplifier">LNA (Low-noise Amplifier)</a></li>
+            <li><a href="#vcovoltage-controlled-oscillator">VCO(Voltage Controlled Oscillator)</a></li>
+            <li><a href="#nfnoise-figure">NF(Noise Figure)</a></li>
+            <li><a href="#dardistributed-active-radiator">DAR(Distributed active radiator)</a></li>
+            <li><a href="#hfsshigh-frequency-structure-simulator">HFSS(High Frequency Structure Simulator)</a></li>
+            <li><a href="#pae-power-added-efficiency">PAE (Power Added Efficiency)</a></li>
+            <li><a href="#id">i.d.</a></li>
+            <li><a href="#breakout">breakout</a></li>
+            <li><a href="#couple耦合">Couple(耦合)</a></li>
+            <li><a href="#source-degeneration-for-cross-coupled-pair">Source degeneration for cross-coupled pair</a></li>
+            <li><a href="#cpw-coplanar-waveguide">CPW (CoPlanar Waveguide)</a></li>
+            <li><a href="#square-law-region">Square-Law Region</a></li>
+            <li><a href="#vdi-wr51">VDI WR5.1</a></li>
+            <li><a href="#eirp-equivalent-isotropic-radiated-power">EIRP (Equivalent Isotropic Radiated Power)</a></li>
+            <li><a href="#if-intermediate-frequency">IF (Intermediate Frequency)</a></li>
           </ol>
         </li>
         <li><a href="#内容-1">内容</a>
           <ol>
             <li><a href="#i-introdution-2">I. Introdution</a></li>
-            <li><a href="#ii-time-interleaving-of-ns-sar">II. Time Interleaving of NS SAR</a></li>
-            <li><a href="#iii-prosposed-ti-ns-sar">III. Prosposed TI NS SAR</a></li>
+            <li><a href="#ii-system-architecture">II. System Architecture</a></li>
+            <li><a href="#iii-on-chip-a-ntenna-array-and-balun-design">III. ON-CHIP A NTENNA ARRAY AND BALUN DESIGN</a></li>
+            <li><a href="#iv-over-neutralization-technique-and-pa-design">IV. OVER-NEUTRALIZATION TECHNIQUE AND PA DESIGN</a></li>
+            <li><a href="#v-vco-lna-and-power-detector-design">V. VCO, LNA, AND POWER DETECTOR DESIGN</a></li>
+            <li><a href="#vi-measurements">VI. MEASUREMENTS</a></li>
           </ol>
         </li>
       </ol>
@@ -469,7 +486,7 @@ Clock Jitter 由各种因素引起的数据采样误差和信号失真 Gate Volt
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -922,55 +939,506 @@ Clock Jitter 由各种因素引起的数据采样误差和信号失真 Gate Volt
 <ul>
 <li><strong>Application Example</strong>和<strong>Whole-Chip ESD CAD</strong></li>
 </ul>
-<h1 id="a-fully-dynamic-low-power-wideband-time-interleaved-noise-shaping-sar-adc">A Fully Dynamic Low-Power Wideband Time-Interleaved Noise-Shaping SAR ADC</h1>
+<h1 id="a-cmos-210-ghz-fundamental-transceiver-with-ook-modulation----wangzheng">A CMOS 210-GHz Fundamental Transceiver With OOK Modulation &ndash; WangZheng</h1>
 <h2 id="链接-3">链接</h2>
 <ul>
-<li><a class="link" href="https://ieeexplore.ieee.org/abstract/document/9409067"  target="_blank" rel="noopener"
-    >https://ieeexplore.ieee.org/abstract/document/9409067</a></li>
+<li><a class="link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6718086"  target="_blank" rel="noopener"
+    >https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6718086</a></li>
 </ul>
 <h2 id="术语-2">术语</h2>
-<h3 id="osr-oversampling-ratio">OSR (OverSampling Ratio)</h3>
+<h3 id="soi-silicon-on-insulator">SOI (Silicon on Insulator)</h3>
+<h3 id="magmaximum-available-gain">MAG(Maximum Available Gain)</h3>
 <ul>
-<li>过采样比，在模拟信号采样时，采样率高于信号带宽的比率</li>
+<li>又叫$G_{max}$，<strong>Mason&rsquo;s U</strong></li>
 </ul>
-<h3 id="ti-time-interleaved">TI (Time Interleaved)</h3>
+<h3 id="ook-on-off-key">OOK (On-off-key)</h3>
 <ul>
-<li>时间交错,通过将采样时序错开来提高采样速率和分辨率</li>
+<li>脉冲调制，一种将数字信号转换为脉冲信号的方法，其中高电平表示1，低电平表示0。</li>
 </ul>
-<h3 id="ntf-noise-transfer-function">NTF (Noise Transfer Function)</h3>
-<h3 id="ef-extended-filter">EF (Extended Filter)</h3>
+<h3 id="lna-low-noise-amplifier">LNA (Low-noise Amplifier)</h3>
+<h3 id="vcovoltage-controlled-oscillator">VCO(Voltage Controlled Oscillator)</h3>
+<h3 id="nfnoise-figure">NF(Noise Figure)</h3>
 <ul>
-<li>用于实现噪声整形滤波器的结构</li>
+<li>噪声系数</li>
 </ul>
+<h3 id="dardistributed-active-radiator">DAR(Distributed active radiator)</h3>
+<h3 id="hfsshigh-frequency-structure-simulator">HFSS(High Frequency Structure Simulator)</h3>
+<h3 id="pae-power-added-efficiency">PAE (Power Added Efficiency)</h3>
+<h3 id="id">i.d.</h3>
+<ul>
+<li>意为<strong>也就是</strong></li>
+</ul>
+<h3 id="breakout">breakout</h3>
+<ul>
+<li>
+<p>将芯片引脚连接到外部器件或测试点的过程</p>
+</li>
+<li>
+<p>将一个器件或模块从其原始设计中分离出来，以便进行单独测试或修改</p>
+</li>
+</ul>
+<h3 id="couple耦合">Couple(耦合)</h3>
+<ul>
+<li><strong>两个</strong>或<strong>多个</strong>电路之间的<strong>相互作用</strong></li>
+</ul>
+<h3 id="source-degeneration-for-cross-coupled-pair">Source degeneration for cross-coupled pair</h3>
+<ul>
+<li>一个或多个电阻被串联到交叉耦合对的源极，以减小电路的增益并提高电路的稳定性和线性度。这种技术常用于放大器和振荡器电路中。</li>
+</ul>
+<h3 id="cpw-coplanar-waveguide">CPW (CoPlanar Waveguide)</h3>
+<ul>
+<li>共面波导线。一种微波传输线，由一条中心导体和两条平面地面导体组成。CPW广泛应用于微波电路中，具有低损耗、高速度、高阻抗和易于集成等优点</li>
+</ul>
+<h3 id="square-law-region">Square-Law Region</h3>
+<ul>
+<li>在某些电子器件中，电流和电压之间的关系在某个范围内呈平方定律</li>
+</ul>
+<h3 id="vdi-wr51">VDI WR5.1</h3>
+<ul>
+<li>一种波导标准，用于毫米波和亚毫米波频段的通信和雷达系统。它定义了一系列标准化的波导尺寸和接口，以确保不同设备和系统之间的互操作性。</li>
+</ul>
+<h3 id="eirp-equivalent-isotropic-radiated-power">EIRP (Equivalent Isotropic Radiated Power)</h3>
+<ul>
+<li>等效各向同性功率辐射</li>
+</ul>
+<h3 id="if-intermediate-frequency">IF (Intermediate Frequency)</h3>
 <h2 id="内容-1">内容</h2>
 <h3 id="i-introdution-2">I. Introdution</h3>
 <ol>
-<li>
-<p><strong>ADC</strong>的重要性</p>
-</li>
-<li>
-<p><strong>ADC</strong>的设计问题</p>
-</li>
+<li><strong>THz</strong>的应用</li>
 </ol>
 <ul>
-<li>噪声、功耗、带宽限制</li>
+<li>
+<p>Schottky diodes [6],</p>
+</li>
+<li>
+<p>nonlinear optical [7], [8]</p>
+</li>
+<li>
+<p>III-V devices [9]</p>
+</li>
 </ul>
-<h3 id="ii-time-interleaving-of-ns-sar">II. Time Interleaving of NS SAR</h3>
-<ol>
+<ol start="2">
 <li>
-<p>NS SAR ADC的结构和工作原理，并详细讨论了时间交错和噪声整形对ADC性能的影响。</p>
+<p>nano CMOS 有实现THz级别系统的<strong>潜力</strong></p>
 </li>
 <li>
-<p>动态调整时间交错比例的方法，以适应不同的输入信号频率范围</p>
-</li>
-<li>
-<p>最后，文章通过仿真和实验结果验证了NS SAR ADC的性能和优势</p>
+<p>A CMOS 210-GHz Fundamental Transceiver With OOK Modulation</p>
 </li>
 </ol>
-<h3 id="iii-prosposed-ti-ns-sar">III. Prosposed TI NS SAR</h3>
+<h3 id="ii-system-architecture">II. System Architecture</h3>
 <ol>
-<li></li>
+<li>TX</li>
 </ol>
+<ul>
+<li>
+<p>a $2\times 2$ spatial power-combining array architecture</p>
+</li>
+<li>
+<p>VCO at 210 GHz with an OOK modulator</p>
+</li>
+<li>
+<p>PA drive + 4 PAs</p>
+</li>
+<li>
+<p>novel balun-based differential power distribution network</p>
+</li>
+<li>
+<p>On-chip $2\times 2$ dipole antenna array</p>
+</li>
+</ul>
+<ol start="2">
+<li>RX</li>
+</ol>
+<ul>
+<li>
+<p>on-chip antenna</p>
+</li>
+<li>
+<p>LNA</p>
+</li>
+<li>
+<p>Power detector</p>
+</li>
+</ul>
+<ol start="3">
+<li>balun-based differential power distribution network</li>
+</ol>
+<ul>
+<li>减少了交叉电路(crosstalk)</li>
+</ul>
+<h3 id="iii-on-chip-a-ntenna-array-and-balun-design">III. ON-CHIP A NTENNA ARRAY AND BALUN DESIGN</h3>
+<ol>
+<li>$2 \times 2$ Antenna Array</li>
+</ol>
+<ul>
+<li>天线的<strong>Gain - Frequency</strong></li>
+</ul>
+<p><img src="/p/essay-notes/1.png"
+	width="478"
+	height="361"
+	srcset="/p/essay-notes/1_hudd553bce038047d60d7d3f8e9ec20370_75092_480x0_resize_box_3.png 480w, /p/essay-notes/1_hudd553bce038047d60d7d3f8e9ec20370_75092_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="317px"
+	
+></p>
+<ul>
+<li>天线的<strong>Gain - Theta</strong></li>
+</ul>
+<ol start="2">
+<li>Marchand Balun</li>
+</ol>
+<ul>
+<li>一种广泛用于无线通信和射频电路中的平衡器件，用于将单端信号转换为平衡信号或将平衡信号转换为单端信号。</li>
+</ul>
+<p><img src="/p/essay-notes/2.png"
+	width="898"
+	height="376"
+	srcset="/p/essay-notes/2_hubc825796c56985cd82394eba55ba0ad4_107402_480x0_resize_box_3.png 480w, /p/essay-notes/2_hubc825796c56985cd82394eba55ba0ad4_107402_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="238"
+		data-flex-basis="573px"
+	
+></p>
+<h3 id="iv-over-neutralization-technique-and-pa-design">IV. OVER-NEUTRALIZATION TECHNIQUE AND PA DESIGN</h3>
+<ol>
+<li>Neutralization Technique for Differential Pair</li>
+</ol>
+<p><img src="/p/essay-notes/3.png"
+	width="657"
+	height="480"
+	srcset="/p/essay-notes/3_hu727f13db19958bd583f3ebe2df9f94cc_42987_480x0_resize_box_3.png 480w, /p/essay-notes/3_hu727f13db19958bd583f3ebe2df9f94cc_42987_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="328px"
+	
+></p>
+<p>$$
+MAG \ \ U = \frac{Y_{12}-Y_{21}}{4(Re[Y_{11}]Re[Y_{22}] - Re[Y_{21}]Re[Y_{12}])}
+$$</p>
+<ol start="2">
+<li>Revisiting the Neutralization Technique</li>
+</ol>
+<p><img src="/p/essay-notes/4.png"
+	width="656"
+	height="368"
+	srcset="/p/essay-notes/4_hu6726442b9e6bd28406f7310a3371285e_34855_480x0_resize_box_3.png 480w, /p/essay-notes/4_hu6726442b9e6bd28406f7310a3371285e_34855_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="178"
+		data-flex-basis="427px"
+	
+></p>
+<ul>
+<li>以上公式在$f \lt 2f_{max}$的前提下得出，从而得出下式</li>
+</ul>
+<p>$$
+U \approx \frac{|g_m|^2}{4[\omega^2 (C_{gs} + C_{gd})^2 r_gg_{ds}+\omega^2 (C_{gs} + C_{gd})C_{gd}r_gg_m] }
+$$</p>
+<ul>
+<li>Maximum power gain with respect to neutralization capacitance at (a) 100 GHz and (b) 200 GHz</li>
+</ul>
+<p><img src="/p/essay-notes/5.png"
+	width="820"
+	height="349"
+	srcset="/p/essay-notes/5_huad7e4c4663f55445d27a363ad63c0655_132222_480x0_resize_box_3.png 480w, /p/essay-notes/5_huad7e4c4663f55445d27a363ad63c0655_132222_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="234"
+		data-flex-basis="563px"
+	
+></p>
+<ol start="3">
+<li>200-GHz Transistor Layout for PA</li>
+</ol>
+<ul>
+<li>三极管布局</li>
+</ul>
+<p><img src="/p/essay-notes/6.png"
+	width="1040"
+	height="581"
+	srcset="/p/essay-notes/6_hu26e688e63ae03b7203a7decd3ff4485a_180114_480x0_resize_box_3.png 480w, /p/essay-notes/6_hu26e688e63ae03b7203a7decd3ff4485a_180114_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="179"
+		data-flex-basis="429px"
+	
+></p>
+<ul>
+<li>PA 电路</li>
+</ul>
+<p><img src="/p/essay-notes/7.png"
+	width="875"
+	height="209"
+	srcset="/p/essay-notes/7_hud43b587870e5420cb26f41db42caf536_58502_480x0_resize_box_3.png 480w, /p/essay-notes/7_hud43b587870e5420cb26f41db42caf536_58502_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="418"
+		data-flex-basis="1004px"
+	
+></p>
+<ul>
+<li>Over-neutralization Techniques</li>
+</ul>
+<p><img src="/p/essay-notes/8.png"
+	width="900"
+	height="383"
+	srcset="/p/essay-notes/8_hu27fb8ae84627147eeaa85c27ed80fed4_78154_480x0_resize_box_3.png 480w, /p/essay-notes/8_hu27fb8ae84627147eeaa85c27ed80fed4_78154_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="234"
+		data-flex-basis="563px"
+	
+></p>
+<blockquote>
+<p>选择<strong>3dB</strong>,$K_f=1.1$</p>
+</blockquote>
+<ul>
+<li>PA电路效果的测量数据</li>
+</ul>
+<p><img src="/p/essay-notes/9.png"
+	width="843"
+	height="358"
+	srcset="/p/essay-notes/9_hu87ff37e954051c68553b528919fe495d_104791_480x0_resize_box_3.png 480w, /p/essay-notes/9_hu87ff37e954051c68553b528919fe495d_104791_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="235"
+		data-flex-basis="565px"
+	
+></p>
+<h3 id="v-vco-lna-and-power-detector-design">V. VCO, LNA, AND POWER DETECTOR DESIGN</h3>
+<ol>
+<li>VCO</li>
+</ol>
+<p><img src="/p/essay-notes/10.png"
+	width="674"
+	height="195"
+	srcset="/p/essay-notes/10_hu3037e4867afe23b969724f85964d8608_11707_480x0_resize_box_3.png 480w, /p/essay-notes/10_hu3037e4867afe23b969724f85964d8608_11707_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="345"
+		data-flex-basis="829px"
+	
+></p>
+<ul>
+<li>Source degeneration for cross-coupled pair</li>
+</ul>
+<p><img src="/p/essay-notes/11.png"
+	width="775"
+	height="487"
+	srcset="/p/essay-notes/11_hub58c5ad3b85df03f4bc5f2ba1443ac0d_41546_480x0_resize_box_3.png 480w, /p/essay-notes/11_hub58c5ad3b85df03f4bc5f2ba1443ac0d_41546_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="159"
+		data-flex-basis="381px"
+	
+></p>
+<p><img src="/p/essay-notes/12.png"
+	width="679"
+	height="281"
+	srcset="/p/essay-notes/12_hua4ce8102c93c7e920558b17f5161c6d1_21923_480x0_resize_box_3.png 480w, /p/essay-notes/12_hua4ce8102c93c7e920558b17f5161c6d1_21923_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="241"
+		data-flex-basis="579px"
+	
+></p>
+<ul>
+<li>测量结果</li>
+</ul>
+<p><img src="/p/essay-notes/13.png"
+	width="840"
+	height="347"
+	srcset="/p/essay-notes/13_hu8b56b718c97cc56e1b30b91e2d01d507_91645_480x0_resize_box_3.png 480w, /p/essay-notes/13_hu8b56b718c97cc56e1b30b91e2d01d507_91645_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="242"
+		data-flex-basis="580px"
+	
+></p>
+<ol start="2">
+<li>210-GHz LNA</li>
+</ol>
+<ul>
+<li>
+<p>Popular Design: Common Source , Cascode topology</p>
+</li>
+<li>
+<p>电路图</p>
+</li>
+</ul>
+<p><img src="/p/essay-notes/14.png"
+	width="1051"
+	height="321"
+	srcset="/p/essay-notes/14_hue60c64380f330816c0ac2a905ca94bce_166192_480x0_resize_box_3.png 480w, /p/essay-notes/14_hue60c64380f330816c0ac2a905ca94bce_166192_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="327"
+		data-flex-basis="785px"
+	
+></p>
+<ul>
+<li>测量结果</li>
+</ul>
+<p><img src="/p/essay-notes/15.png"
+	width="1005"
+	height="606"
+	srcset="/p/essay-notes/15_hu4d2d230ca69edc406ad3d095a50efa09_236548_480x0_resize_box_3.png 480w, /p/essay-notes/15_hu4d2d230ca69edc406ad3d095a50efa09_236548_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="398px"
+	
+></p>
+<ol start="3">
+<li>Power Detector</li>
+</ol>
+<ul>
+<li>电路图</li>
+</ul>
+<p><img src="/p/essay-notes/16.png"
+	width="496"
+	height="279"
+	srcset="/p/essay-notes/16_hu1a428ab3fcb9f7916cf0dacf5e2321a7_21080_480x0_resize_box_3.png 480w, /p/essay-notes/16_hu1a428ab3fcb9f7916cf0dacf5e2321a7_21080_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p>$$
+V_D = \frac{1}{4} \mu_n C_{OX} (\frac{W}{L}) R_L V_{in}^2
+$$</p>
+<ul>
+<li>仿真结果</li>
+</ul>
+<p><img src="/p/essay-notes/17.png"
+	width="979"
+	height="317"
+	srcset="/p/essay-notes/17_hufa61a73b1c351a4bb7c1ee0b361db76b_70933_480x0_resize_box_3.png 480w, /p/essay-notes/17_hufa61a73b1c351a4bb7c1ee0b361db76b_70933_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="308"
+		data-flex-basis="741px"
+	
+></p>
+<h3 id="vi-measurements">VI. MEASUREMENTS</h3>
+<ol>
+<li>电路板</li>
+</ol>
+<p><img src="/p/essay-notes/18.png"
+	width="964"
+	height="437"
+	srcset="/p/essay-notes/18_hu1f8dee177c24ae8809e4522a3d682d84_569468_480x0_resize_box_3.png 480w, /p/essay-notes/18_hu1f8dee177c24ae8809e4522a3d682d84_569468_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="220"
+		data-flex-basis="529px"
+	
+></p>
+<ol start="2">
+<li>System Measurements</li>
+</ol>
+<ul>
+<li>CW 测量结果</li>
+</ul>
+<p><img src="/p/essay-notes/19.png"
+	width="434"
+	height="413"
+	srcset="/p/essay-notes/19_huf7018ae620df59a5641acaa0ee702424_78157_480x0_resize_box_3.png 480w, /p/essay-notes/19_huf7018ae620df59a5641acaa0ee702424_78157_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="105"
+		data-flex-basis="252px"
+	
+></p>
+<ul>
+<li>信噪比</li>
+</ul>
+<p><img src="/p/essay-notes/20.png"
+	width="316"
+	height="246"
+	srcset="/p/essay-notes/20_hucf3fd0d85cdeb73221b51a5f5692afbe_21576_480x0_resize_box_3.png 480w, /p/essay-notes/20_hucf3fd0d85cdeb73221b51a5f5692afbe_21576_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="308px"
+	
+></p>
+<ul>
+<li>测量结果总结</li>
+</ul>
+<p><img src="/p/essay-notes/21.png"
+	width="739"
+	height="419"
+	srcset="/p/essay-notes/21_hudbbdbc61bca2af679188fc62278a3ee5_56457_480x0_resize_box_3.png 480w, /p/essay-notes/21_hudbbdbc61bca2af679188fc62278a3ee5_56457_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="176"
+		data-flex-basis="423px"
+	
+></p>
+<ul>
+<li>与其他产品的比较</li>
+</ul>
+<p><img src="/p/essay-notes/22.png"
+	width="840"
+	height="371"
+	srcset="/p/essay-notes/22_hue87629bc965fda932afb59e5f1ea78f0_69145_480x0_resize_box_3.png 480w, /p/essay-notes/22_hue87629bc965fda932afb59e5f1ea78f0_69145_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="226"
+		data-flex-basis="543px"
+	
+></p>
 
 </section>
 

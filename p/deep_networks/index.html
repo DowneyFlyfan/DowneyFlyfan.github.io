@@ -269,6 +269,38 @@ Sigmoid Units for Bernoulli Distribution(二分类问题) $$ \sigma = \frac{1}{1
             <li><a href="#rectified-linear-units">Rectified Linear Units</a></li>
           </ol>
         </li>
+        <li><a href="#generalization">Generalization</a>
+          <ol>
+            <li><a href="#leaky-relu">Leaky ReLU</a></li>
+            <li><a href="#parametric-relu">Parametric ReLU</a></li>
+            <li><a href="#exponential-relu">Exponential ReLU</a></li>
+            <li><a href="#randomized-relu">Randomized ReLU</a></li>
+            <li><a href="#maxout">Maxout</a></li>
+          </ol>
+        </li>
+        <li><a href="#architecture-design">Architecture Design</a>
+          <ol>
+            <li><a href="#universal-approximation-properties-and-depth">Universal Approximation Properties and Depth</a></li>
+          </ol>
+        </li>
+        <li><a href="#back-propagation--differentiation-algorithms">Back-Propagation &amp; Differentiation Algorithms</a>
+          <ol>
+            <li><a href="#back-propagation">Back-Propagation</a></li>
+            <li><a href="#differentiation-algorithms">Differentiation Algorithms</a></li>
+            <li><a href="#computational-graphs">Computational Graphs</a></li>
+            <li><a href="#latest-algorithm">Latest Algorithm</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#regularization-for-deep-learning">Regularization for Deep Learning</a>
+      <ol>
+        <li><a href="#parameter-norm-penalties">Parameter Norm Penalties</a>
+          <ol>
+            <li><a href="#l2-parameter-regularization">$L^2$ Parameter Regularization</a></li>
+            <li><a href="#l1-regularization">$L^1$ Regularization</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -335,7 +367,7 @@ Sigmoid Units for Bernoulli Distribution(二分类问题) $$ \sigma = \frac{1}{1
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -408,6 +440,297 @@ h(x) = \begin{cases}
 x , x\ge 0 \\
 0, x\lt 0
 \end{cases}
+$$</p>
+<h2 id="generalization">Generalization</h2>
+<h3 id="leaky-relu">Leaky ReLU</h3>
+<blockquote>
+<p>在ReLU中，当输入小于0时，输出为0，而Leaky ReLU则是当输入小于0时，输出为一个小的非零值而不是0，这有助于解决ReLU中的“死亡神经元”问题。</p>
+</blockquote>
+<p>$$
+f(x) = \begin{cases}
+x &amp; x\ge 0 \\
+\alpha x &amp; x\lt 0, \alpha \lt 1
+\end{cases}
+$$</p>
+<h3 id="parametric-relu">Parametric ReLU</h3>
+<blockquote>
+<p>在Leaky ReLU的基础上引入可学习的参数，使得模型可以自适应地选择最适合的斜率。</p>
+</blockquote>
+<p>$$
+f(x) = \begin{cases}
+x &amp; x\ge 0 \\
+ax &amp; x\lt 0
+\end{cases} \\\
+\\ a是可学习参数
+$$</p>
+<h3 id="exponential-relu">Exponential ReLU</h3>
+<blockquote>
+<p>在ReLU的基础上引入了一个指数函数，使得模型可以更快地收敛，并且对于负数输入也有一个非零输出。</p>
+</blockquote>
+<p>$$
+f(x) = \begin{cases}
+x &amp; x\ge 0 \\
+\alpha (e^x -1) &amp; x\lt 0
+\end{cases}
+$$</p>
+<h3 id="randomized-relu">Randomized ReLU</h3>
+<blockquote>
+<p>在ReLU的基础上引入了随机性，即在训练过程中随机选择一个斜率，这有助于防止过拟合。</p>
+</blockquote>
+<p>$$
+f(x) = \begin{cases}
+x &amp; x\ge 0 \\
+\alpha (e^x -1) &amp; x\lt 0
+\end{cases}  \\\
+\\ \alpha是一个随机选择的常数
+$$</p>
+<h3 id="maxout">Maxout</h3>
+<blockquote>
+<p>Maxout是一种更通用的激活函数，它可以选择多个输入中的最大值作为输出，这使得模型可以学习更复杂的非线性函数</p>
+</blockquote>
+<p>$$
+f(x) = \underset{i}{max}(w_i^T + b_i)
+$$</p>
+<h2 id="architecture-design">Architecture Design</h2>
+<h3 id="universal-approximation-properties-and-depth">Universal Approximation Properties and Depth</h3>
+<ol>
+<li>Universal Approximation Theorem</li>
+</ol>
+<ul>
+<li><strong>一个具有足够多的神经元和层数的神经网络可以近似地表示任何函数</strong></li>
+</ul>
+<ol start="2">
+<li>其他定理</li>
+</ol>
+<ul>
+<li>$d$个<strong>输入</strong>，$l$的深度，每个隐藏层$n$个<strong>单元</strong>,其<strong>Linear Regions</strong>的<strong>个数</strong>为</li>
+</ul>
+<p>$$
+O\begin{pmatrix}
+\begin{pmatrix}
+n \\
+d
+\end{pmatrix}^{d(l-1)} n^d
+\end{pmatrix} \\\
+\\ 对于k次过滤的maxout: O\Big(k^{(l-1)+d}\Big)
+$$</p>
+<h2 id="back-propagation--differentiation-algorithms">Back-Propagation &amp; Differentiation Algorithms</h2>
+<h3 id="back-propagation">Back-Propagation</h3>
+<blockquote>
+<p>通过将误差从输出层向输入层传播，计算每个神经元的误差贡献，并根据误差大小更新网络权重，以逐步优化网络的预测能力</p>
+</blockquote>
+<h3 id="differentiation-algorithms">Differentiation Algorithms</h3>
+<ol>
+<li>前向差分法 (Forward Difference Method)：</li>
+</ol>
+<p>$$\frac{df(x)}{dx} \approx \frac{f(x+h)-f(x)}{h}$$</p>
+<ol start="2">
+<li>后向差分法 (Backward Difference Method)：</li>
+</ol>
+<p>$$\frac{df(x)}{dx} \approx \frac{f(x)-f(x-h)}{h}$$</p>
+<ol start="3">
+<li>中心差分法 (Central Difference Method)：</li>
+</ol>
+<p>$$\frac{df(x)}{dx} \approx \frac{f(x+h)-f(x-h)}{2h}$$</p>
+<ol start="4">
+<li>自适应差分法 (Adaptive Difference Method)：</li>
+</ol>
+<p>$$\frac{df(x)}{dx} \approx \begin{cases}
+\frac{f(x+h)-f(x)}{h}, &amp; \left|\frac{f(x+h)-f(x)}{h}-\frac{f(x)-f(x-h)}{h}\right| \leq \epsilon \
+\frac{f(x+h)-f(x-h)}{2h}, &amp; \text{otherwise}
+\end{cases}$$</p>
+<p>其中，$f(x)$ 表示函数 $f$ 在 $x$ 处的取值，$h$ 表示差分的步长，$\epsilon$ 表示容许的误差。</p>
+<h3 id="computational-graphs">Computational Graphs</h3>
+<ol>
+<li>Recursively Applying the Chain Rule to Obtain Backprop</li>
+</ol>
+<p>$$
+u^{(i)} = f(\mathbb A^{(i)}) \\\
+\\ \begin{aligned}
+&amp;for  \ i = 1,&hellip;,n_i\ do  \\
+&amp; \ \ u^{(i)} \leftarrow x_i \\
+&amp;end \ for \\
+&amp; for \ i = n_i + 1 ,&hellip;,n \ do \\
+&amp; \ \ \mathbb A \leftarrow \lbrace u^{(j)} | j \in Pa(u^{(j)})\rbrace \\
+&amp; \ \ u^{(i)} \leftarrow f^{(i)} (\mathbb A^{(i)}) \\
+&amp; end \ for
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>Back-Propagation Computation in Fully-Connected MLP</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Require: Network depth, l
+</span></span></span><span class="line"><span class="cl"><span class="s1">Require: W (i) (i), i ∈ {1, . . . , l}, the weight matrices of the model
+</span></span></span><span class="line"><span class="cl"><span class="s1">Require: b , i ∈ {1, . . . , l}, the bias parameters of the model
+</span></span></span><span class="line"><span class="cl"><span class="s1">Require: x, the input to process
+</span></span></span><span class="line"><span class="cl"><span class="s1">Require: y, the target output
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">BP_MLP</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y_hat</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">int</span> <span class="n">k</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">W</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">h</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">h</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span> <span class="o">//</span> <span class="n">f假设为一个已经定义的函数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y_hat</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">J</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">)</span> <span class="o">+</span> <span class="n">omega</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">Lambda</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="latest-algorithm">Latest Algorithm</h3>
+<ol>
+<li>自适应动量优化算法（Adaptive Moment Estimation，Adam）</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>均方根传播算法（Root Mean Square Propagation，RMSprop）</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>带动量的随机梯度下降算法（Stochastic Gradient Descent with Momentum，SGDM）</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>自适应梯度算法（Adaptive Gradient Algorithm，AdaGrad）</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adagrad</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>自适应梯度估计算法（Adaptive Gradient Estimation，AdaDelta）</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adadelta</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="regularization-for-deep-learning">Regularization for Deep Learning</h1>
+<h2 id="parameter-norm-penalties">Parameter Norm Penalties</h2>
+<p>$$
+Regularized \ Objective \ Function \\\
+\\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \alpha \Omega(\pmb \theta)
+$$</p>
+<ul>
+<li>
+<p>$\alpha$: <strong>超参数</strong></p>
+</li>
+<li>
+<p>$\Omega$: <em>Parameter Norm</em></p>
+</li>
+<li>
+<p>$J$: <strong>Standard Objective Function</strong></p>
+</li>
+</ul>
+<h3 id="l2-parameter-regularization">$L^2$ Parameter Regularization</h3>
+<ol>
+<li>假设<strong>No Bias</strong>，则$\theta  = \omega$</li>
+</ol>
+<p>$$
+\Omega(\omega) = \frac{1}{2}\omega^T \omega \\\
+\\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \frac{1}{2}\alpha \pmb{\omega^T \omega}\\\
+\\
+$$</p>
+<ol start="2">
+<li>继续</li>
+</ol>
+<p>$$
+\nabla_{\omega}\overset{\sim}{J} (\pmb{\theta;X,y}) = \nabla_{\omega} J (\pmb{\theta;X,y}) +  \alpha \pmb \omega  \\\
+\\ \pmb{\omega} - \epsilon (\nabla_{\omega} J (\pmb{\theta;X,y}) +  \alpha \pmb \omega ) \rightarrow \pmb \omega \\\
+\\ (1-\epsilon \alpha) \pmb \omega - \epsilon \nabla_{\omega} J(\pmb{\omega;X,y}) \rightarrow \pmb \omega \\\
+\\ \therefore \pmb \omega^* = min_{\omega} J(\pmb \omega) \\\
+\\ \therefore \hat J (\pmb \theta) = J(\pmb \omega^<em>) + \frac{1}{2} (\pmb{\omega -\omega^</em>})^T H(\pmb{\omega - \omega^*}) (泰勒展开忽略第二项)
+$$</p>
+<ol start="3">
+<li>Hessian matrix</li>
+</ol>
+<p>$$
+H(J(\pmb \theta)) = J的二阶导 \\\
+\\ \because \frac{\partial f}{\partial x_i \partial x_j} = \frac{\partial f}{\partial x_j \partial x_i}  \\\
+\\ \therefore H 是\pmb{对称矩阵}
+$$</p>
+<h3 id="l1-regularization">$L^1$ Regularization</h3>
+<ol>
+<li>Regularization Function</li>
+</ol>
+<p>$$
+\Omega(\pmb \omega) = ||\pmb \omega||_1 = \sum_i |\omega_i| \\\
+\\
+\overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \alpha ||\pmb \omega ||_1  \\\
 $$</p>
 
 </section>

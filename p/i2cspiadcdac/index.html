@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SPI与I2C SPI &amp;ndash; Serial Peripheral Interface 原理 Serial Communication Protocol Master-Slave Protocol Master controls all activities Full Duplex 组成 SDI SDO SCK SS/CS: 为0时选择 Function 名称 实例/功能 SPI SPI ser_port(A6, A5, A4); // mosi, miso, sclk SPISlave SPISlave ser_port(A6, A5, A4, D3); // mosi, miso, sclk, ssel format ser_port.format(8,0); //8-bit data, Mode 0 frequency ser_port.frequency(1000000); // Clock frequency is set to 1MHz read ser_port.read(); //read from master reply ser_port.reply(switch_word); //send reply to master write recd_val=ser_port.'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SPI与I2C SPI &amp;ndash; Serial Peripheral Interface 原理 Serial Communication Protocol Master-Slave Protocol Master controls all activities Full Duplex Maximum Operating Frequency 组成 SDI SDO SCK SS/CS: 为0时选择 Function 名称 实例/功能 SPI SPI ser_port(A6, A5, A4); // mosi, miso, sclk SPISlave SPISlave ser_port(A6, A5, A4, D3); // mosi, miso, sclk, ssel format ser_port.format(8,0); //8-bit data, Mode 0 frequency ser_port.frequency(1000000); // Clock frequency is set to 1MHz read ser_port.read(); //read from master reply ser_port.'>
 <title>I2C,SPI,ADC,DAC</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/i2cspiadcdac/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='I2C,SPI,ADC,DAC'>
-<meta property='og:description' content='SPI与I2C SPI &amp;ndash; Serial Peripheral Interface 原理 Serial Communication Protocol Master-Slave Protocol Master controls all activities Full Duplex 组成 SDI SDO SCK SS/CS: 为0时选择 Function 名称 实例/功能 SPI SPI ser_port(A6, A5, A4); // mosi, miso, sclk SPISlave SPISlave ser_port(A6, A5, A4, D3); // mosi, miso, sclk, ssel format ser_port.format(8,0); //8-bit data, Mode 0 frequency ser_port.frequency(1000000); // Clock frequency is set to 1MHz read ser_port.read(); //read from master reply ser_port.reply(switch_word); //send reply to master write recd_val=ser_port.'>
+<meta property='og:description' content='SPI与I2C SPI &amp;ndash; Serial Peripheral Interface 原理 Serial Communication Protocol Master-Slave Protocol Master controls all activities Full Duplex Maximum Operating Frequency 组成 SDI SDO SCK SS/CS: 为0时选择 Function 名称 实例/功能 SPI SPI ser_port(A6, A5, A4); // mosi, miso, sclk SPISlave SPISlave ser_port(A6, A5, A4, D3); // mosi, miso, sclk, ssel format ser_port.format(8,0); //8-bit data, Mode 0 frequency ser_port.frequency(1000000); // Clock frequency is set to 1MHz read ser_port.read(); //read from master reply ser_port.'>
 <meta property='og:url' content='https://downeyflyfan.com/p/i2cspiadcdac/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-13T10:30:49&#43;08:00'/><meta property='article:modified_time' content='2023-04-13T10:30:49&#43;08:00'/>
 <meta name="twitter:title" content="I2C,SPI,ADC,DAC">
-<meta name="twitter:description" content="SPI与I2C SPI &amp;ndash; Serial Peripheral Interface 原理 Serial Communication Protocol Master-Slave Protocol Master controls all activities Full Duplex 组成 SDI SDO SCK SS/CS: 为0时选择 Function 名称 实例/功能 SPI SPI ser_port(A6, A5, A4); // mosi, miso, sclk SPISlave SPISlave ser_port(A6, A5, A4, D3); // mosi, miso, sclk, ssel format ser_port.format(8,0); //8-bit data, Mode 0 frequency ser_port.frequency(1000000); // Clock frequency is set to 1MHz read ser_port.read(); //read from master reply ser_port.reply(switch_word); //send reply to master write recd_val=ser_port."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="SPI与I2C SPI &amp;ndash; Serial Peripheral Interface 原理 Serial Communication Protocol Master-Slave Protocol Master controls all activities Full Duplex Maximum Operating Frequency 组成 SDI SDO SCK SS/CS: 为0时选择 Function 名称 实例/功能 SPI SPI ser_port(A6, A5, A4); // mosi, miso, sclk SPISlave SPISlave ser_port(A6, A5, A4, D3); // mosi, miso, sclk, ssel format ser_port.format(8,0); //8-bit data, Mode 0 frequency ser_port.frequency(1000000); // Clock frequency is set to 1MHz read ser_port.read(); //read from master reply ser_port."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -259,6 +259,7 @@
                 <li><a href="#serial-communication-protocol">Serial Communication Protocol</a></li>
                 <li><a href="#master-slave-protocol">Master-Slave Protocol</a></li>
                 <li><a href="#full-duplex">Full Duplex</a></li>
+                <li><a href="#maximum-operating-frequency">Maximum Operating Frequency</a></li>
               </ol>
             </li>
             <li><a href="#组成">组成</a></li>
@@ -371,6 +372,7 @@
 <li>Master <strong>controls all activities</strong></li>
 </ul>
 <h4 id="full-duplex">Full Duplex</h4>
+<h4 id="maximum-operating-frequency">Maximum Operating Frequency</h4>
 <h3 id="组成">组成</h3>
 <ul>
 <li>SDI</li>

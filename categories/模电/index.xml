@@ -26,6 +26,9 @@
 		data-flex-basis=&#34;267px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;压控电流源(VCCS)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 V_{DS} = V_{DD} - i_DR_D
 $$&lt;/p&gt;
@@ -109,7 +112,8 @@ V_{DS} &amp;amp;= V_{DD} - i_DR_D \\
 \\ v_o = -i_dR_D = -g_mV_{OV}R_D \\\
 \\ A_v = \frac{v_o}{v_i} = \frac{v_{ds}}{v_{gs}} = -g_mR_D  = -KV_{OV}R_D \\\
 \\ I_D = \frac{1}{2}KV_{OV}^2 \Longrightarrow K = \frac{2I_D}{V_{OV}^2} \\\
-\\ \therefore \pmb{A_v = -\frac{I_D R_D}{V_{OV}/2} = -k_nV_{OV}R_D = -g_m R_D}
+\\ \therefore \pmb{A_v = -\frac{I_D R_D}{V_{OV}/2} = -k_nV_{OV}R_D = -g_m R_D} \\\
+\\ (具体的增益要视具体情况而言)
 $$&lt;/p&gt;
 &lt;h2 id=&#34;通过图像分析确定vtc&#34;&gt;通过图像分析确定VTC&lt;/h2&gt;
 &lt;h3 id=&#34;图像&#34;&gt;图像&lt;/h3&gt;
@@ -125,7 +129,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;266px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;how-is-q-for-ivc-defined-assuming-vgs-is-fixed&#34;&gt;How is Q for IVC defined (assuming VGS is fixed)?&lt;/h3&gt;
+&lt;h3 id=&#34;q-on-ivc-v_gs-is-fixed&#34;&gt;Q on IVC ($V_{GS}$ is fixed)?&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/5.png&#34;
 	width=&#34;567&#34;
 	height=&#34;606&#34;
@@ -146,6 +150,115 @@ $$&lt;/p&gt;
 &lt;p&gt;Point $Q_2$ is too close to the boundary of the triode region, thus severely limiting the allowable negative signal swing of vds, resulting in a distorted output signal. In this situation &lt;strong&gt;the circuit does not have sufficient &amp;ldquo;legroom.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+&lt;h3 id=&#34;ex1&#34;&gt;E.x.1&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6.png&#34;
+	width=&#34;655&#34;
+	height=&#34;497&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6_hufa7aed3f50723fa7ef9ad254a57d67ff_101142_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6_hufa7aed3f50723fa7ef9ad254a57d67ff_101142_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;131&#34;
+		data-flex-basis=&#34;316px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;题目&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+(1)V_t = 1.5V, k’n(W/L) = 0.25mA/V^2 \\\
+\\ (2)V_A = 50V (晶体管的最大反向漏极电压)
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;问题&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;small-signal voltage gain&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;input resistance, the largest allowable input signal&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;解答&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;分析电路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7.png&#34;
+	width=&#34;908&#34;
+	height=&#34;474&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7_hub9662af9ed5c368049ba91da2e3bc9eb_122814_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7_hub9662af9ed5c368049ba91da2e3bc9eb_122814_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;191&#34;
+		data-flex-basis=&#34;459px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+DC不流过R_G \Longrightarrow V_{GS} = V_{DS} = V_{DD} - I_DR_D\\\
+\\ I_D = \frac{1}{2} k_nV_{OV}^2 \\\
+\\ \therefore I_D = 1.06(mA) , V_{GS} = V_{DS} = 4.4(V), V_{OV}= V_{GS} - V_t =2.9(V) \\\
+\\ g_m = k_nV_{OV}  =0.725(mA/V)
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;继续转换电路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8.png&#34;
+	width=&#34;570&#34;
+	height=&#34;223&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8_hu946af9961b7d4e7eeeb8fa218873cf48_56733_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8_hu946af9961b7d4e7eeeb8fa218873cf48_56733_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;255&#34;
+		data-flex-basis=&#34;613px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9.png&#34;
+	width=&#34;742&#34;
+	height=&#34;646&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9_hu906b3eee37f9154ea5fcae0632fcb5f7_122625_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9_hu906b3eee37f9154ea5fcae0632fcb5f7_122625_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;114&#34;
+		data-flex-basis=&#34;275px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+r_0 =\frac{V_A}{I_D} = 47(k\Omega) \\\
+\\ R&amp;rsquo;&lt;em&gt;L = R_L || R_D || r_0 = 4.52(k\Omega) \\\
+\\ i_i = \frac{v&lt;/em&gt;{gs}-v_o}{R_G} \\\
+\\ v_o = (i_i - g_mv_{gs}) R_L&amp;rsquo; \\\
+\\ (2) A_v = -g_m R_L&amp;rsquo; \frac{1-(1/g_mR_G)}{1 + (R_L&amp;rsquo; /R_G)} = -3.3(V/V) \\\
+\\ V_{DS} \ge V_{OV} \\\
+\\ V_{DS min} = V_{GS max} -V_t \\\
+\\ V_{DS} - |A_v| v_{ip}  = V_{GS} + V_{ip} -V_t \\\
+\\ \because V_{GS } = V_{DS} \\\
+\\ V_{iP max} = \frac{V_t}{|A_v| + 1}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;
+&lt;h3 id=&#34;t-equivalent-circuit-model&#34;&gt;T Equivalent-Circuit Model&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10.png&#34;
+	width=&#34;280&#34;
+	height=&#34;404&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;69&#34;
+		data-flex-basis=&#34;166px&#34;
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -391,26 +504,13 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;图标解释&#34;&gt;图标解释&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;$N^+$: High Concentration&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;S: Source Terminal&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;G: Gate Terminal&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;$N^+$: High Concentration&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;$I_G$始终为0,因为$SiO_2$是绝缘的&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;D: Drain Terminal&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;B: Body Terminal&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;B: Body Terminal&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;电流方向&#34;&gt;电流方向&lt;/h3&gt;
 &lt;ol&gt;
@@ -439,7 +539,7 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;当$V_{DS}$存在时，这两个 &lt;strong&gt;back-back diodes&lt;/strong&gt; 会阻止电流从&lt;strong&gt;D&lt;/strong&gt;流到&lt;strong&gt;S&lt;/strong&gt;,阻值可达$10^{12}\Omega$&lt;/li&gt;
+&lt;li&gt;当$V_{DS}$存在时，这两个 &lt;strong&gt;back-back diodes&lt;/strong&gt; 会阻止电流从&lt;strong&gt;D&lt;/strong&gt;流到&lt;strong&gt;S&lt;/strong&gt;,&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;开启电流通道&#34;&gt;开启电流通道&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/3.png&#34;
@@ -619,7 +719,7 @@ S &amp;amp;\propto \frac{1}{2}[V_{OV}+(V_{OV}-V_{DS})] \\
 \therefore i_D &amp;amp;= \Big[ (\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS}) \Big]V_{DS}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h4 id=&#34;情况分析&#34;&gt;情况分析&lt;/h4&gt;
+&lt;h4 id=&#34;三极管区-饱和区&#34;&gt;三极管区 饱和区&lt;/h4&gt;
 &lt;p&gt;$$
 \begin{aligned}
 (1)当 V_{DS} &amp;amp;= V_{OV}时 \\
@@ -636,68 +736,33 @@ $$&lt;/p&gt;
 &lt;h4 id=&#34;结论&#34;&gt;结论&lt;/h4&gt;
 &lt;p&gt;$$
 i_D = \begin{cases}
-(\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS})V_{DS} &amp;amp; V_{DS} \lt V_{OV} \\
-\frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 &amp;amp; V_{DS} \ge V_{OV}
+(\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS})V_{DS} = k_n(V_{OV}-\frac{1}{2}V_{DS})V_{DS} &amp;amp; V_{DS} \lt V_{OV} \\
+\frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 = \frac{1}{2}k_nV_{OV}^2 &amp;amp; V_{DS} \ge V_{OV}
 \end{cases}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;p沟道-mosfet&#34;&gt;P沟道 MOSFET&lt;/h2&gt;
-&lt;h3 id=&#34;与n沟道-mosfet-的不同之处&#34;&gt;与N沟道 MOSFET 的不同之处&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/10.png&#34;
-	width=&#34;694&#34;
-	height=&#34;525&#34;
-	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;132&#34;
-		data-flex-basis=&#34;317px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Gate&lt;/strong&gt;接电源&lt;strong&gt;负极&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Threshold Voltage&lt;/strong&gt; $V_t$表示为$V_{tp}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;跨导系数&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-k_p&amp;rsquo; &amp;amp;= \mu_nC_{OX} \\
-k_p &amp;amp;= \mu_n C_{OX}\frac{W}{L}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;伏安特性&#34;&gt;伏安特性&lt;/h1&gt;
-&lt;h2 id=&#34;n型mosfet电路符号&#34;&gt;N型MOSFET电路符号&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/11.png&#34;
-	width=&#34;916&#34;
-	height=&#34;392&#34;
-	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;233&#34;
-		data-flex-basis=&#34;560px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;概念电路&#34;&gt;概念电路&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/12.png&#34;
-	width=&#34;403&#34;
-	height=&#34;311&#34;
-	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;129&#34;
-		data-flex-basis=&#34;310px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;h1 id=&#34;pmos-nmos&#34;&gt;PMOS NMOS&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;对比&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;NMOS&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;PMOS&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;主要&lt;/strong&gt;载流子&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电子&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;空穴&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电流方向&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;D$\rightarrow$S&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;S$\rightarrow$D&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;mosfet特性&#34;&gt;MOSFET特性&lt;/h1&gt;
 &lt;h2 id=&#34;伏安曲线&#34;&gt;伏安曲线&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/9.png&#34;
 	width=&#34;1230&#34;
@@ -711,7 +776,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;321px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;设计放大器&#34;&gt;设计放大器&lt;/h3&gt;
+&lt;h2 id=&#34;设计放大器&#34;&gt;设计放大器&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;在&lt;strong&gt;Saturation Area&lt;/strong&gt;，&lt;strong&gt;电流&lt;/strong&gt;只与$V_{DS}$有关&lt;/p&gt;
@@ -745,7 +810,9 @@ $$&lt;/p&gt;
 \\ V_A: 击穿电压
 $$&lt;/p&gt;
 &lt;h1 id=&#34;mosfet-at-dc-circuit&#34;&gt;MOSFET at DC Circuit&lt;/h1&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;可以当作开关&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;channel-pinch-off&#34;&gt;Channel Pinch-off&lt;/h2&gt;
 &lt;blockquote&gt;

@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration
-S: Source Terminal
-G: Gate Terminal
-$I_G$始终为0,因为$SiO_2$是绝缘的 D: Drain Terminal
-B: Body Terminal
-电流方向 载流子从Source region流向Drain Region
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration $I_G$始终为0,因为$SiO_2$是绝缘的 B: Body Terminal 电流方向 载流子从Source region流向Drain Region
 N型MOSFET，电流从D到S
 P型MOSFET,电流从S到D
-操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S,阻值可达$10^{12}\Omega$ 开启电流通道 操作 S与D接地
+操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S, 开启电流通道 操作 S与D接地
 G接电源正极
 结果 $SiO_2$中会产生电场
 P区的holes被电场推走
@@ -19,21 +14,17 @@ Inversion Layer N channel(反型层N沟道)形成了
 电流导通了 说明 使得通道形成的最小电压$V_t$,一般在0.3-1.0V
 Override Voltage $V_{OV} = V_{GS} - V_t$
 由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET)
-电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.'>
+电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.6 \times 10^{-3} (F/m^2) \end{aligned} $$
+施加小电压 电路 电流和电导推导 $$ \begin{aligned} \frac{|Q|}{unit \ channel \ length} &amp;amp;= C_{ox} W V_{OV} \\ |E| &amp;amp;= \frac{V_{DS}}{L} \\ Electron \ drift \ velocity &amp;amp;= \mu_n |E| = \mu_n\frac{V_{DS}}{L} \\ \mu_n: 电子在通&amp;amp;道表面的迁移率 \end{aligned} \\\ \\ \begin{aligned} i_D &amp;amp;= \frac{dQ}{dt} = \frac{dQ}{dL}\frac{dL}{dt} \\ &amp;amp;= (C_{ox}WV_{OV}) (\mu_n\frac{V_{DS}}{L}) \\ &amp;amp; = \Big[ (\mu_n C_{ox} \frac{W}{L} V_{OV}) \Big] V_{DS} (对于较小的V_{DS}) \\\ \\ g_{DS} &amp;amp;= \frac{i_{DS}}{V_{DS}} \\ &amp;amp;= (\mu_n C_{ox}) \Big(\frac{W}{L}\Big) V_{OV} \\ k_n&amp;rsquo; &amp;amp;= \mu_n C_{ox} \\ k_n &amp;amp;= k_n&amp;rsquo; \frac{W}{L} \\ \therefore g_{DS} &amp;amp;= k_n V_{OV} \\ r_{DS} &amp;amp;= \frac{1}{k_nV_{OV}}(\Omega) \end{aligned} $$'>
 <title>5.MOSFET</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/5.mosfet/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5.MOSFET'>
-<meta property='og:description' content='设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration
-S: Source Terminal
-G: Gate Terminal
-$I_G$始终为0,因为$SiO_2$是绝缘的 D: Drain Terminal
-B: Body Terminal
-电流方向 载流子从Source region流向Drain Region
+<meta property='og:description' content='设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration $I_G$始终为0,因为$SiO_2$是绝缘的 B: Body Terminal 电流方向 载流子从Source region流向Drain Region
 N型MOSFET，电流从D到S
 P型MOSFET,电流从S到D
-操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S,阻值可达$10^{12}\Omega$ 开启电流通道 操作 S与D接地
+操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S, 开启电流通道 操作 S与D接地
 G接电源正极
 结果 $SiO_2$中会产生电场
 P区的holes被电场推走
@@ -43,20 +34,16 @@ Inversion Layer N channel(反型层N沟道)形成了
 电流导通了 说明 使得通道形成的最小电压$V_t$,一般在0.3-1.0V
 Override Voltage $V_{OV} = V_{GS} - V_t$
 由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET)
-电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.'>
+电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.6 \times 10^{-3} (F/m^2) \end{aligned} $$
+施加小电压 电路 电流和电导推导 $$ \begin{aligned} \frac{|Q|}{unit \ channel \ length} &amp;amp;= C_{ox} W V_{OV} \\ |E| &amp;amp;= \frac{V_{DS}}{L} \\ Electron \ drift \ velocity &amp;amp;= \mu_n |E| = \mu_n\frac{V_{DS}}{L} \\ \mu_n: 电子在通&amp;amp;道表面的迁移率 \end{aligned} \\\ \\ \begin{aligned} i_D &amp;amp;= \frac{dQ}{dt} = \frac{dQ}{dL}\frac{dL}{dt} \\ &amp;amp;= (C_{ox}WV_{OV}) (\mu_n\frac{V_{DS}}{L}) \\ &amp;amp; = \Big[ (\mu_n C_{ox} \frac{W}{L} V_{OV}) \Big] V_{DS} (对于较小的V_{DS}) \\\ \\ g_{DS} &amp;amp;= \frac{i_{DS}}{V_{DS}} \\ &amp;amp;= (\mu_n C_{ox}) \Big(\frac{W}{L}\Big) V_{OV} \\ k_n&amp;rsquo; &amp;amp;= \mu_n C_{ox} \\ k_n &amp;amp;= k_n&amp;rsquo; \frac{W}{L} \\ \therefore g_{DS} &amp;amp;= k_n V_{OV} \\ r_{DS} &amp;amp;= \frac{1}{k_nV_{OV}}(\Omega) \end{aligned} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/5.mosfet/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-29T10:17:02&#43;08:00'/><meta property='article:modified_time' content='2023-03-29T10:17:02&#43;08:00'/>
 <meta name="twitter:title" content="5.MOSFET">
-<meta name="twitter:description" content="设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration
-S: Source Terminal
-G: Gate Terminal
-$I_G$始终为0,因为$SiO_2$是绝缘的 D: Drain Terminal
-B: Body Terminal
-电流方向 载流子从Source region流向Drain Region
+<meta name="twitter:description" content="设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration $I_G$始终为0,因为$SiO_2$是绝缘的 B: Body Terminal 电流方向 载流子从Source region流向Drain Region
 N型MOSFET，电流从D到S
 P型MOSFET,电流从S到D
-操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S,阻值可达$10^{12}\Omega$ 开启电流通道 操作 S与D接地
+操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S, 开启电流通道 操作 S与D接地
 G接电源正极
 结果 $SiO_2$中会产生电场
 P区的holes被电场推走
@@ -66,7 +53,8 @@ Inversion Layer N channel(反型层N沟道)形成了
 电流导通了 说明 使得通道形成的最小电压$V_t$,一般在0.3-1.0V
 Override Voltage $V_{OV} = V_{GS} - V_t$
 由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET)
-电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.6 \times 10^{-3} (F/m^2) \end{aligned} $$
+施加小电压 电路 电流和电导推导 $$ \begin{aligned} \frac{|Q|}{unit \ channel \ length} &amp;amp;= C_{ox} W V_{OV} \\ |E| &amp;amp;= \frac{V_{DS}}{L} \\ Electron \ drift \ velocity &amp;amp;= \mu_n |E| = \mu_n\frac{V_{DS}}{L} \\ \mu_n: 电子在通&amp;amp;道表面的迁移率 \end{aligned} \\\ \\ \begin{aligned} i_D &amp;amp;= \frac{dQ}{dt} = \frac{dQ}{dL}\frac{dL}{dt} \\ &amp;amp;= (C_{ox}WV_{OV}) (\mu_n\frac{V_{DS}}{L}) \\ &amp;amp; = \Big[ (\mu_n C_{ox} \frac{W}{L} V_{OV}) \Big] V_{DS} (对于较小的V_{DS}) \\\ \\ g_{DS} &amp;amp;= \frac{i_{DS}}{V_{DS}} \\ &amp;amp;= (\mu_n C_{ox}) \Big(\frac{W}{L}\Big) V_{OV} \\ k_n&amp;rsquo; &amp;amp;= \mu_n C_{ox} \\ k_n &amp;amp;= k_n&amp;rsquo; \frac{W}{L} \\ \therefore g_{DS} &amp;amp;= k_n V_{OV} \\ r_{DS} &amp;amp;= \frac{1}{k_nV_{OV}}(\Omega) \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -328,36 +316,23 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
               <ol>
                 <li><a href="#电路-1">电路</a></li>
                 <li><a href="#过程">过程</a></li>
-                <li><a href="#情况分析">情况分析</a></li>
+                <li><a href="#三极管区-饱和区">三极管区 饱和区</a></li>
                 <li><a href="#结论">结论</a></li>
               </ol>
             </li>
           </ol>
         </li>
-        <li><a href="#p沟道-mosfet">P沟道 MOSFET</a>
-          <ol>
-            <li><a href="#与n沟道-mosfet-的不同之处">与N沟道 MOSFET 的不同之处</a></li>
-          </ol>
-        </li>
       </ol>
     </li>
-    <li><a href="#伏安特性">伏安特性</a>
+    <li><a href="#pmos-nmos">PMOS NMOS</a></li>
+    <li><a href="#mosfet特性">MOSFET特性</a>
       <ol>
-        <li><a href="#n型mosfet电路符号">N型MOSFET电路符号</a></li>
-        <li><a href="#概念电路">概念电路</a></li>
-        <li><a href="#伏安曲线">伏安曲线</a>
-          <ol>
-            <li><a href="#设计放大器">设计放大器</a></li>
-          </ol>
-        </li>
+        <li><a href="#伏安曲线">伏安曲线</a></li>
+        <li><a href="#设计放大器">设计放大器</a></li>
         <li><a href="#饱和时有效的输出电阻">饱和时有效的输出电阻</a></li>
       </ol>
     </li>
-    <li><a href="#mosfet-at-dc-circuit">MOSFET at DC Circuit</a>
-      <ol>
-        <li><a href="#heading"></a></li>
-      </ol>
-    </li>
+    <li><a href="#mosfet-at-dc-circuit">MOSFET at DC Circuit</a></li>
     <li><a href="#附录">附录</a>
       <ol>
         <li><a href="#channel-pinch-off">Channel Pinch-off</a></li>
@@ -460,26 +435,13 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 ></p>
 <h3 id="图标解释">图标解释</h3>
 <ol>
-<li>
-<p>$N^+$: High Concentration</p>
-</li>
-<li>
-<p>S: Source Terminal</p>
-</li>
-<li>
-<p>G: Gate Terminal</p>
-</li>
+<li>$N^+$: High Concentration</li>
 </ol>
 <ul>
 <li>$I_G$始终为0,因为$SiO_2$是绝缘的</li>
 </ul>
-<ol start="4">
-<li>
-<p>D: Drain Terminal</p>
-</li>
-<li>
-<p>B: Body Terminal</p>
-</li>
+<ol start="2">
+<li>B: Body Terminal</li>
 </ol>
 <h3 id="电流方向">电流方向</h3>
 <ol>
@@ -508,7 +470,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 	
 ></p>
 <ul>
-<li>当$V_{DS}$存在时，这两个 <strong>back-back diodes</strong> 会阻止电流从<strong>D</strong>流到<strong>S</strong>,阻值可达$10^{12}\Omega$</li>
+<li>当$V_{DS}$存在时，这两个 <strong>back-back diodes</strong> 会阻止电流从<strong>D</strong>流到<strong>S</strong>,</li>
 </ul>
 <h3 id="开启电流通道">开启电流通道</h3>
 <p><img src="/p/5.mosfet/3.png"
@@ -688,7 +650,7 @@ S &amp;\propto \frac{1}{2}[V_{OV}+(V_{OV}-V_{DS})] \\
 \therefore i_D &amp;= \Big[ (\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS}) \Big]V_{DS}
 \end{aligned}
 $$</p>
-<h4 id="情况分析">情况分析</h4>
+<h4 id="三极管区-饱和区">三极管区 饱和区</h4>
 <p>$$
 \begin{aligned}
 (1)当 V_{DS} &amp;= V_{OV}时 \\
@@ -705,68 +667,33 @@ $$</p>
 <h4 id="结论">结论</h4>
 <p>$$
 i_D = \begin{cases}
-(\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS})V_{DS} &amp; V_{DS} \lt V_{OV} \\
-\frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 &amp; V_{DS} \ge V_{OV}
+(\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS})V_{DS} = k_n(V_{OV}-\frac{1}{2}V_{DS})V_{DS} &amp; V_{DS} \lt V_{OV} \\
+\frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 = \frac{1}{2}k_nV_{OV}^2 &amp; V_{DS} \ge V_{OV}
 \end{cases}
 $$</p>
-<h2 id="p沟道-mosfet">P沟道 MOSFET</h2>
-<h3 id="与n沟道-mosfet-的不同之处">与N沟道 MOSFET 的不同之处</h3>
-<p><img src="/p/5.mosfet/10.png"
-	width="694"
-	height="525"
-	srcset="/p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_480x0_resize_box_3.png 480w, /p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="132"
-		data-flex-basis="317px"
-	
-></p>
-<ol>
-<li>
-<p><strong>Gate</strong>接电源<strong>负极</strong></p>
-</li>
-<li>
-<p><strong>Threshold Voltage</strong> $V_t$表示为$V_{tp}$</p>
-</li>
-<li>
-<p>跨导系数</p>
-</li>
-</ol>
-<p>$$
-\begin{aligned}
-k_p&rsquo; &amp;= \mu_nC_{OX} \\
-k_p &amp;= \mu_n C_{OX}\frac{W}{L}
-\end{aligned}
-$$</p>
-<h1 id="伏安特性">伏安特性</h1>
-<h2 id="n型mosfet电路符号">N型MOSFET电路符号</h2>
-<p><img src="/p/5.mosfet/11.png"
-	width="916"
-	height="392"
-	srcset="/p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_480x0_resize_box_3.png 480w, /p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="233"
-		data-flex-basis="560px"
-	
-></p>
-<h2 id="概念电路">概念电路</h2>
-<p><img src="/p/5.mosfet/12.png"
-	width="403"
-	height="311"
-	srcset="/p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_480x0_resize_box_3.png 480w, /p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="129"
-		data-flex-basis="310px"
-	
-></p>
+<h1 id="pmos-nmos">PMOS NMOS</h1>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">对比</th>
+<th style="text-align:center">NMOS</th>
+<th style="text-align:right">PMOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>主要</strong>载流子</td>
+<td style="text-align:center">电子</td>
+<td style="text-align:right">空穴</td>
+</tr>
+<tr>
+<td style="text-align:center">电流方向</td>
+<td style="text-align:center">D$\rightarrow$S</td>
+<td style="text-align:right">S$\rightarrow$D</td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="mosfet特性">MOSFET特性</h1>
 <h2 id="伏安曲线">伏安曲线</h2>
 <p><img src="/p/5.mosfet/9.png"
 	width="1230"
@@ -780,7 +707,7 @@ $$</p>
 		data-flex-basis="321px"
 	
 ></p>
-<h3 id="设计放大器">设计放大器</h3>
+<h2 id="设计放大器">设计放大器</h2>
 <ol>
 <li>
 <p>在<strong>Saturation Area</strong>，<strong>电流</strong>只与$V_{DS}$有关</p>
@@ -814,7 +741,9 @@ $$</p>
 \\ V_A: 击穿电压
 $$</p>
 <h1 id="mosfet-at-dc-circuit">MOSFET at DC Circuit</h1>
-<h2 id="heading"></h2>
+<ul>
+<li>可以当作开关</li>
+</ul>
 <h1 id="附录">附录</h1>
 <h2 id="channel-pinch-off">Channel Pinch-off</h2>
 <blockquote>

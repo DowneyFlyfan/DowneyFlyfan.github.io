@@ -71,6 +71,297 @@ x , x\ge 0 \\
 0, x\lt 0
 \end{cases}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;generalization&#34;&gt;Generalization&lt;/h2&gt;
+&lt;h3 id=&#34;leaky-relu&#34;&gt;Leaky ReLU&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在ReLU中，当输入小于0时，输出为0，而Leaky ReLU则是当输入小于0时，输出为一个小的非零值而不是0，这有助于解决ReLU中的“死亡神经元”问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \begin{cases}
+x &amp;amp; x\ge 0 \\
+\alpha x &amp;amp; x\lt 0, \alpha \lt 1
+\end{cases}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;parametric-relu&#34;&gt;Parametric ReLU&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在Leaky ReLU的基础上引入可学习的参数，使得模型可以自适应地选择最适合的斜率。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \begin{cases}
+x &amp;amp; x\ge 0 \\
+ax &amp;amp; x\lt 0
+\end{cases} \\\
+\\ a是可学习参数
+$$&lt;/p&gt;
+&lt;h3 id=&#34;exponential-relu&#34;&gt;Exponential ReLU&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在ReLU的基础上引入了一个指数函数，使得模型可以更快地收敛，并且对于负数输入也有一个非零输出。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \begin{cases}
+x &amp;amp; x\ge 0 \\
+\alpha (e^x -1) &amp;amp; x\lt 0
+\end{cases}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;randomized-relu&#34;&gt;Randomized ReLU&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在ReLU的基础上引入了随机性，即在训练过程中随机选择一个斜率，这有助于防止过拟合。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \begin{cases}
+x &amp;amp; x\ge 0 \\
+\alpha (e^x -1) &amp;amp; x\lt 0
+\end{cases}  \\\
+\\ \alpha是一个随机选择的常数
+$$&lt;/p&gt;
+&lt;h3 id=&#34;maxout&#34;&gt;Maxout&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Maxout是一种更通用的激活函数，它可以选择多个输入中的最大值作为输出，这使得模型可以学习更复杂的非线性函数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \underset{i}{max}(w_i^T + b_i)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;architecture-design&#34;&gt;Architecture Design&lt;/h2&gt;
+&lt;h3 id=&#34;universal-approximation-properties-and-depth&#34;&gt;Universal Approximation Properties and Depth&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Universal Approximation Theorem&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;一个具有足够多的神经元和层数的神经网络可以近似地表示任何函数&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;其他定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$d$个&lt;strong&gt;输入&lt;/strong&gt;，$l$的深度，每个隐藏层$n$个&lt;strong&gt;单元&lt;/strong&gt;,其&lt;strong&gt;Linear Regions&lt;/strong&gt;的&lt;strong&gt;个数&lt;/strong&gt;为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+O\begin{pmatrix}
+\begin{pmatrix}
+n \\
+d
+\end{pmatrix}^{d(l-1)} n^d
+\end{pmatrix} \\\
+\\ 对于k次过滤的maxout: O\Big(k^{(l-1)+d}\Big)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;back-propagation--differentiation-algorithms&#34;&gt;Back-Propagation &amp;amp; Differentiation Algorithms&lt;/h2&gt;
+&lt;h3 id=&#34;back-propagation&#34;&gt;Back-Propagation&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过将误差从输出层向输入层传播，计算每个神经元的误差贡献，并根据误差大小更新网络权重，以逐步优化网络的预测能力&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;differentiation-algorithms&#34;&gt;Differentiation Algorithms&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;前向差分法 (Forward Difference Method)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$\frac{df(x)}{dx} \approx \frac{f(x+h)-f(x)}{h}$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;后向差分法 (Backward Difference Method)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$\frac{df(x)}{dx} \approx \frac{f(x)-f(x-h)}{h}$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;中心差分法 (Central Difference Method)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$\frac{df(x)}{dx} \approx \frac{f(x+h)-f(x-h)}{2h}$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;自适应差分法 (Adaptive Difference Method)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$\frac{df(x)}{dx} \approx \begin{cases}
+\frac{f(x+h)-f(x)}{h}, &amp;amp; \left|\frac{f(x+h)-f(x)}{h}-\frac{f(x)-f(x-h)}{h}\right| \leq \epsilon \
+\frac{f(x+h)-f(x-h)}{2h}, &amp;amp; \text{otherwise}
+\end{cases}$$&lt;/p&gt;
+&lt;p&gt;其中，$f(x)$ 表示函数 $f$ 在 $x$ 处的取值，$h$ 表示差分的步长，$\epsilon$ 表示容许的误差。&lt;/p&gt;
+&lt;h3 id=&#34;computational-graphs&#34;&gt;Computational Graphs&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Recursively Applying the Chain Rule to Obtain Backprop&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+u^{(i)} = f(\mathbb A^{(i)}) \\\
+\\ \begin{aligned}
+&amp;amp;for  \ i = 1,&amp;hellip;,n_i\ do  \\
+&amp;amp; \ \ u^{(i)} \leftarrow x_i \\
+&amp;amp;end \ for \\
+&amp;amp; for \ i = n_i + 1 ,&amp;hellip;,n \ do \\
+&amp;amp; \ \ \mathbb A \leftarrow \lbrace u^{(j)} | j \in Pa(u^{(j)})\rbrace \\
+&amp;amp; \ \ u^{(i)} \leftarrow f^{(i)} (\mathbb A^{(i)}) \\
+&amp;amp; end \ for
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Back-Propagation Computation in Fully-Connected MLP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: Network depth, l
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: W (i) (i), i ∈ {1, . . . , l}, the weight matrices of the model
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: b , i ∈ {1, . . . , l}, the bias parameters of the model
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: x, the input to process
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: y, the target output
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;BP_MLP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y_hat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f假设为一个已经定义的函数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;y_hat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;J&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;L&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y_hat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;omega&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;theta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Lambda&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;latest-algorithm&#34;&gt;Latest Algorithm&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;自适应动量优化算法（Adaptive Moment Estimation，Adam）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Adam&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;均方根传播算法（Root Mean Square Propagation，RMSprop）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RMSprop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;带动量的随机梯度下降算法（Stochastic Gradient Descent with Momentum，SGDM）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SGD&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;momentum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;自适应梯度算法（Adaptive Gradient Algorithm，AdaGrad）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Adagrad&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;自适应梯度估计算法（Adaptive Gradient Estimation，AdaDelta）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Adadelta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;regularization-for-deep-learning&#34;&gt;Regularization for Deep Learning&lt;/h1&gt;
+&lt;h2 id=&#34;parameter-norm-penalties&#34;&gt;Parameter Norm Penalties&lt;/h2&gt;
+&lt;p&gt;$$
+Regularized \ Objective \ Function \\\
+\\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \alpha \Omega(\pmb \theta)
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$\alpha$: &lt;strong&gt;超参数&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\Omega$: &lt;em&gt;Parameter Norm&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$J$: &lt;strong&gt;Standard Objective Function&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;l2-parameter-regularization&#34;&gt;$L^2$ Parameter Regularization&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;假设&lt;strong&gt;No Bias&lt;/strong&gt;，则$\theta  = \omega$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\Omega(\omega) = \frac{1}{2}\omega^T \omega \\\
+\\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \frac{1}{2}\alpha \pmb{\omega^T \omega}\\\
+\\
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;继续&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\nabla_{\omega}\overset{\sim}{J} (\pmb{\theta;X,y}) = \nabla_{\omega} J (\pmb{\theta;X,y}) +  \alpha \pmb \omega  \\\
+\\ \pmb{\omega} - \epsilon (\nabla_{\omega} J (\pmb{\theta;X,y}) +  \alpha \pmb \omega ) \rightarrow \pmb \omega \\\
+\\ (1-\epsilon \alpha) \pmb \omega - \epsilon \nabla_{\omega} J(\pmb{\omega;X,y}) \rightarrow \pmb \omega \\\
+\\ \therefore \pmb \omega^* = min_{\omega} J(\pmb \omega) \\\
+\\ \therefore \hat J (\pmb \theta) = J(\pmb \omega^&lt;em&gt;) + \frac{1}{2} (\pmb{\omega -\omega^&lt;/em&gt;})^T H(\pmb{\omega - \omega^*}) (泰勒展开忽略第二项)
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Hessian matrix&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+H(J(\pmb \theta)) = J的二阶导 \\\
+\\ \because \frac{\partial f}{\partial x_i \partial x_j} = \frac{\partial f}{\partial x_j \partial x_i}  \\\
+\\ \therefore H 是\pmb{对称矩阵}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;l1-regularization&#34;&gt;$L^1$ Regularization&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Regularization Function&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\Omega(\pmb \omega) = ||\pmb \omega||_1 = \sum_i |\omega_i| \\\
+\\
+\overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \alpha ||\pmb \omega ||_1  \\\
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -2173,17 +2464,29 @@ $$&lt;/p&gt;
         
         <guid>https://downeyflyfan.com/p/%E6%95%B0%E6%A8%A1%E8%A6%81%E7%82%B9/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h1 id=&#34;一-论文&#34;&gt;一 论文&lt;/h1&gt;
-&lt;h2 id=&#34;11-论文结构1&#34;&gt;1.1 论文结构[^1]&lt;/h2&gt;
+&lt;h1 id=&#34;论文&#34;&gt;论文&lt;/h1&gt;
+&lt;h2 id=&#34;论文结构1&#34;&gt;论文结构[^1]&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Abstrat&lt;/li&gt;
-&lt;li&gt;Introduction&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Abstrat&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;引出问题&lt;/li&gt;
-&lt;li&gt;介绍问题背景&lt;/li&gt;
-&lt;li&gt;前人的解决方案&lt;/li&gt;
-&lt;li&gt;前人的局限性&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;引出问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;介绍问题背景&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前人的解决方案&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前人的局限性&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;
@@ -2213,32 +2516,44 @@ $$&lt;/p&gt;
 &lt;p&gt;代码&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;12-建议&#34;&gt;1.2 建议&lt;/h2&gt;
+&lt;h2 id=&#34;建议&#34;&gt;建议&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;适当使用自创词&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;连字符型自创词&lt;/li&gt;
-&lt;li&gt;首字母大写型自创词&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;连字符型自创词&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;首字母大写型自创词&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;数据来源&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;使用数学模型创造&lt;/li&gt;
-&lt;li&gt;官方网站的数据&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用数学模型创造&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;官方网站的数据&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;重要词汇可以&lt;strong&gt;加粗&lt;/strong&gt;或者&lt;em&gt;斜体&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;二经验总结与学习方向&#34;&gt;二、经验总结与学习方向&lt;/h1&gt;
-&lt;h2 id=&#34;21-经验总结&#34;&gt;2.1 经验总结&lt;/h2&gt;
+&lt;h1 id=&#34;经验总结与学习方向&#34;&gt;经验总结与学习方向&lt;/h1&gt;
+&lt;h2 id=&#34;经验总结&#34;&gt;经验总结&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;认真审题&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;时间长不要紧，题目一定要看懂&lt;/li&gt;
-&lt;li&gt;仔细审阅题目的文献&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;时间长不要紧，题目一定要看懂&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;仔细审阅题目的文献&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;&lt;strong&gt;明确分工&lt;/strong&gt;,提高&lt;strong&gt;效率&lt;/strong&gt;&lt;/li&gt;

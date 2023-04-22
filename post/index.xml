@@ -71,6 +71,297 @@ x , x\ge 0 \\
 0, x\lt 0
 \end{cases}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;generalization&#34;&gt;Generalization&lt;/h2&gt;
+&lt;h3 id=&#34;leaky-relu&#34;&gt;Leaky ReLU&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在ReLU中，当输入小于0时，输出为0，而Leaky ReLU则是当输入小于0时，输出为一个小的非零值而不是0，这有助于解决ReLU中的“死亡神经元”问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \begin{cases}
+x &amp;amp; x\ge 0 \\
+\alpha x &amp;amp; x\lt 0, \alpha \lt 1
+\end{cases}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;parametric-relu&#34;&gt;Parametric ReLU&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在Leaky ReLU的基础上引入可学习的参数，使得模型可以自适应地选择最适合的斜率。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \begin{cases}
+x &amp;amp; x\ge 0 \\
+ax &amp;amp; x\lt 0
+\end{cases} \\\
+\\ a是可学习参数
+$$&lt;/p&gt;
+&lt;h3 id=&#34;exponential-relu&#34;&gt;Exponential ReLU&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在ReLU的基础上引入了一个指数函数，使得模型可以更快地收敛，并且对于负数输入也有一个非零输出。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \begin{cases}
+x &amp;amp; x\ge 0 \\
+\alpha (e^x -1) &amp;amp; x\lt 0
+\end{cases}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;randomized-relu&#34;&gt;Randomized ReLU&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在ReLU的基础上引入了随机性，即在训练过程中随机选择一个斜率，这有助于防止过拟合。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \begin{cases}
+x &amp;amp; x\ge 0 \\
+\alpha (e^x -1) &amp;amp; x\lt 0
+\end{cases}  \\\
+\\ \alpha是一个随机选择的常数
+$$&lt;/p&gt;
+&lt;h3 id=&#34;maxout&#34;&gt;Maxout&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Maxout是一种更通用的激活函数，它可以选择多个输入中的最大值作为输出，这使得模型可以学习更复杂的非线性函数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+f(x) = \underset{i}{max}(w_i^T + b_i)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;architecture-design&#34;&gt;Architecture Design&lt;/h2&gt;
+&lt;h3 id=&#34;universal-approximation-properties-and-depth&#34;&gt;Universal Approximation Properties and Depth&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Universal Approximation Theorem&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;一个具有足够多的神经元和层数的神经网络可以近似地表示任何函数&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;其他定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$d$个&lt;strong&gt;输入&lt;/strong&gt;，$l$的深度，每个隐藏层$n$个&lt;strong&gt;单元&lt;/strong&gt;,其&lt;strong&gt;Linear Regions&lt;/strong&gt;的&lt;strong&gt;个数&lt;/strong&gt;为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+O\begin{pmatrix}
+\begin{pmatrix}
+n \\
+d
+\end{pmatrix}^{d(l-1)} n^d
+\end{pmatrix} \\\
+\\ 对于k次过滤的maxout: O\Big(k^{(l-1)+d}\Big)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;back-propagation--differentiation-algorithms&#34;&gt;Back-Propagation &amp;amp; Differentiation Algorithms&lt;/h2&gt;
+&lt;h3 id=&#34;back-propagation&#34;&gt;Back-Propagation&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过将误差从输出层向输入层传播，计算每个神经元的误差贡献，并根据误差大小更新网络权重，以逐步优化网络的预测能力&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;differentiation-algorithms&#34;&gt;Differentiation Algorithms&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;前向差分法 (Forward Difference Method)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$\frac{df(x)}{dx} \approx \frac{f(x+h)-f(x)}{h}$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;后向差分法 (Backward Difference Method)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$\frac{df(x)}{dx} \approx \frac{f(x)-f(x-h)}{h}$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;中心差分法 (Central Difference Method)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$\frac{df(x)}{dx} \approx \frac{f(x+h)-f(x-h)}{2h}$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;自适应差分法 (Adaptive Difference Method)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$\frac{df(x)}{dx} \approx \begin{cases}
+\frac{f(x+h)-f(x)}{h}, &amp;amp; \left|\frac{f(x+h)-f(x)}{h}-\frac{f(x)-f(x-h)}{h}\right| \leq \epsilon \
+\frac{f(x+h)-f(x-h)}{2h}, &amp;amp; \text{otherwise}
+\end{cases}$$&lt;/p&gt;
+&lt;p&gt;其中，$f(x)$ 表示函数 $f$ 在 $x$ 处的取值，$h$ 表示差分的步长，$\epsilon$ 表示容许的误差。&lt;/p&gt;
+&lt;h3 id=&#34;computational-graphs&#34;&gt;Computational Graphs&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Recursively Applying the Chain Rule to Obtain Backprop&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+u^{(i)} = f(\mathbb A^{(i)}) \\\
+\\ \begin{aligned}
+&amp;amp;for  \ i = 1,&amp;hellip;,n_i\ do  \\
+&amp;amp; \ \ u^{(i)} \leftarrow x_i \\
+&amp;amp;end \ for \\
+&amp;amp; for \ i = n_i + 1 ,&amp;hellip;,n \ do \\
+&amp;amp; \ \ \mathbb A \leftarrow \lbrace u^{(j)} | j \in Pa(u^{(j)})\rbrace \\
+&amp;amp; \ \ u^{(i)} \leftarrow f^{(i)} (\mathbb A^{(i)}) \\
+&amp;amp; end \ for
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Back-Propagation Computation in Fully-Connected MLP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: Network depth, l
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: W (i) (i), i ∈ {1, . . . , l}, the weight matrices of the model
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: b , i ∈ {1, . . . , l}, the bias parameters of the model
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: x, the input to process
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Require: y, the target output
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;BP_MLP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y_hat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f假设为一个已经定义的函数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;y_hat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;J&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;L&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y_hat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;omega&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;theta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Lambda&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;latest-algorithm&#34;&gt;Latest Algorithm&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;自适应动量优化算法（Adaptive Moment Estimation，Adam）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Adam&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;均方根传播算法（Root Mean Square Propagation，RMSprop）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RMSprop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;带动量的随机梯度下降算法（Stochastic Gradient Descent with Momentum，SGDM）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SGD&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;momentum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;自适应梯度算法（Adaptive Gradient Algorithm，AdaGrad）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Adagrad&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;自适应梯度估计算法（Adaptive Gradient Estimation，AdaDelta）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch.optim&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;optim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;optimizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;optim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Adadelta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;regularization-for-deep-learning&#34;&gt;Regularization for Deep Learning&lt;/h1&gt;
+&lt;h2 id=&#34;parameter-norm-penalties&#34;&gt;Parameter Norm Penalties&lt;/h2&gt;
+&lt;p&gt;$$
+Regularized \ Objective \ Function \\\
+\\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \alpha \Omega(\pmb \theta)
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$\alpha$: &lt;strong&gt;超参数&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\Omega$: &lt;em&gt;Parameter Norm&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$J$: &lt;strong&gt;Standard Objective Function&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;l2-parameter-regularization&#34;&gt;$L^2$ Parameter Regularization&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;假设&lt;strong&gt;No Bias&lt;/strong&gt;，则$\theta  = \omega$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\Omega(\omega) = \frac{1}{2}\omega^T \omega \\\
+\\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \frac{1}{2}\alpha \pmb{\omega^T \omega}\\\
+\\
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;继续&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\nabla_{\omega}\overset{\sim}{J} (\pmb{\theta;X,y}) = \nabla_{\omega} J (\pmb{\theta;X,y}) +  \alpha \pmb \omega  \\\
+\\ \pmb{\omega} - \epsilon (\nabla_{\omega} J (\pmb{\theta;X,y}) +  \alpha \pmb \omega ) \rightarrow \pmb \omega \\\
+\\ (1-\epsilon \alpha) \pmb \omega - \epsilon \nabla_{\omega} J(\pmb{\omega;X,y}) \rightarrow \pmb \omega \\\
+\\ \therefore \pmb \omega^* = min_{\omega} J(\pmb \omega) \\\
+\\ \therefore \hat J (\pmb \theta) = J(\pmb \omega^&lt;em&gt;) + \frac{1}{2} (\pmb{\omega -\omega^&lt;/em&gt;})^T H(\pmb{\omega - \omega^*}) (泰勒展开忽略第二项)
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Hessian matrix&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+H(J(\pmb \theta)) = J的二阶导 \\\
+\\ \because \frac{\partial f}{\partial x_i \partial x_j} = \frac{\partial f}{\partial x_j \partial x_i}  \\\
+\\ \therefore H 是\pmb{对称矩阵}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;l1-regularization&#34;&gt;$L^1$ Regularization&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Regularization Function&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\Omega(\pmb \omega) = ||\pmb \omega||_1 = \sum_i |\omega_i| \\\
+\\
+\overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \alpha ||\pmb \omega ||_1  \\\
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -148,6 +439,30 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;WA_group_SurnameFirstname eg WA_CE4A_WangJiangqin&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h1 id=&#34;academic-literacy&#34;&gt;Academic Literacy&lt;/h1&gt;
+&lt;h2 id=&#34;scientific-writing&#34;&gt;Scientific Writing&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Readability&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Economy&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;少字多信息&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Precision&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clarity&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Not Just Science&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
@@ -184,6 +499,7 @@ $$&lt;/p&gt;
 &lt;li&gt;Master &lt;strong&gt;controls all activities&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;full-duplex&#34;&gt;Full Duplex&lt;/h4&gt;
+&lt;h4 id=&#34;maximum-operating-frequency&#34;&gt;Maximum Operating Frequency&lt;/h4&gt;
 &lt;h3 id=&#34;组成&#34;&gt;组成&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;SDI&lt;/li&gt;
@@ -787,8 +1103,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;endmodule&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
+&lt;/div&gt;&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;同步复位与异步复位&#34;&gt;同步复位与异步复位&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;同步复位&lt;/strong&gt;在&lt;strong&gt;时钟上升沿&lt;/strong&gt;复位;&lt;strong&gt;异步复位&lt;/strong&gt;可以在&lt;strong&gt;任何时刻&lt;/strong&gt;复位&lt;/p&gt;
@@ -819,6 +1134,9 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;267px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;压控电流源(VCCS)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 V_{DS} = V_{DD} - i_DR_D
 $$&lt;/p&gt;
@@ -902,7 +1220,8 @@ V_{DS} &amp;amp;= V_{DD} - i_DR_D \\
 \\ v_o = -i_dR_D = -g_mV_{OV}R_D \\\
 \\ A_v = \frac{v_o}{v_i} = \frac{v_{ds}}{v_{gs}} = -g_mR_D  = -KV_{OV}R_D \\\
 \\ I_D = \frac{1}{2}KV_{OV}^2 \Longrightarrow K = \frac{2I_D}{V_{OV}^2} \\\
-\\ \therefore \pmb{A_v = -\frac{I_D R_D}{V_{OV}/2} = -k_nV_{OV}R_D = -g_m R_D}
+\\ \therefore \pmb{A_v = -\frac{I_D R_D}{V_{OV}/2} = -k_nV_{OV}R_D = -g_m R_D} \\\
+\\ (具体的增益要视具体情况而言)
 $$&lt;/p&gt;
 &lt;h2 id=&#34;通过图像分析确定vtc&#34;&gt;通过图像分析确定VTC&lt;/h2&gt;
 &lt;h3 id=&#34;图像&#34;&gt;图像&lt;/h3&gt;
@@ -918,7 +1237,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;266px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;how-is-q-for-ivc-defined-assuming-vgs-is-fixed&#34;&gt;How is Q for IVC defined (assuming VGS is fixed)?&lt;/h3&gt;
+&lt;h3 id=&#34;q-on-ivc-v_gs-is-fixed&#34;&gt;Q on IVC ($V_{GS}$ is fixed)?&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/5.png&#34;
 	width=&#34;567&#34;
 	height=&#34;606&#34;
@@ -939,6 +1258,115 @@ $$&lt;/p&gt;
 &lt;p&gt;Point $Q_2$ is too close to the boundary of the triode region, thus severely limiting the allowable negative signal swing of vds, resulting in a distorted output signal. In this situation &lt;strong&gt;the circuit does not have sufficient &amp;ldquo;legroom.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+&lt;h3 id=&#34;ex1&#34;&gt;E.x.1&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6.png&#34;
+	width=&#34;655&#34;
+	height=&#34;497&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6_hufa7aed3f50723fa7ef9ad254a57d67ff_101142_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6_hufa7aed3f50723fa7ef9ad254a57d67ff_101142_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;131&#34;
+		data-flex-basis=&#34;316px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;题目&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+(1)V_t = 1.5V, k’n(W/L) = 0.25mA/V^2 \\\
+\\ (2)V_A = 50V (晶体管的最大反向漏极电压)
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;问题&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;small-signal voltage gain&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;input resistance, the largest allowable input signal&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;解答&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;分析电路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7.png&#34;
+	width=&#34;908&#34;
+	height=&#34;474&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7_hub9662af9ed5c368049ba91da2e3bc9eb_122814_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7_hub9662af9ed5c368049ba91da2e3bc9eb_122814_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;191&#34;
+		data-flex-basis=&#34;459px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+DC不流过R_G \Longrightarrow V_{GS} = V_{DS} = V_{DD} - I_DR_D\\\
+\\ I_D = \frac{1}{2} k_nV_{OV}^2 \\\
+\\ \therefore I_D = 1.06(mA) , V_{GS} = V_{DS} = 4.4(V), V_{OV}= V_{GS} - V_t =2.9(V) \\\
+\\ g_m = k_nV_{OV}  =0.725(mA/V)
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;继续转换电路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8.png&#34;
+	width=&#34;570&#34;
+	height=&#34;223&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8_hu946af9961b7d4e7eeeb8fa218873cf48_56733_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8_hu946af9961b7d4e7eeeb8fa218873cf48_56733_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;255&#34;
+		data-flex-basis=&#34;613px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9.png&#34;
+	width=&#34;742&#34;
+	height=&#34;646&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9_hu906b3eee37f9154ea5fcae0632fcb5f7_122625_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9_hu906b3eee37f9154ea5fcae0632fcb5f7_122625_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;114&#34;
+		data-flex-basis=&#34;275px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+r_0 =\frac{V_A}{I_D} = 47(k\Omega) \\\
+\\ R&amp;rsquo;&lt;em&gt;L = R_L || R_D || r_0 = 4.52(k\Omega) \\\
+\\ i_i = \frac{v&lt;/em&gt;{gs}-v_o}{R_G} \\\
+\\ v_o = (i_i - g_mv_{gs}) R_L&amp;rsquo; \\\
+\\ (2) A_v = -g_m R_L&amp;rsquo; \frac{1-(1/g_mR_G)}{1 + (R_L&amp;rsquo; /R_G)} = -3.3(V/V) \\\
+\\ V_{DS} \ge V_{OV} \\\
+\\ V_{DS min} = V_{GS max} -V_t \\\
+\\ V_{DS} - |A_v| v_{ip}  = V_{GS} + V_{ip} -V_t \\\
+\\ \because V_{GS } = V_{DS} \\\
+\\ V_{iP max} = \frac{V_t}{|A_v| + 1}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;
+&lt;h3 id=&#34;t-equivalent-circuit-model&#34;&gt;T Equivalent-Circuit Model&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10.png&#34;
+	width=&#34;280&#34;
+	height=&#34;404&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;69&#34;
+		data-flex-basis=&#34;166px&#34;
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -976,6 +1404,9 @@ $$&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;dwm&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;coc&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -985,14 +1416,13 @@ $$&lt;/p&gt;
 &lt;p&gt;启动服务&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;dwm&#34;&gt;dwm&lt;/h1&gt;
 &lt;h1 id=&#34;软件&#34;&gt;软件&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S fcitx5 picom openvpn xflux neovim kicad slock mono geogebra wget curl powertop zip unzip libreoffice yarn speedtest-cli okularalacritty acpi brightnessctl fzf grub hugo netease-cloud-music neverball pdftk ranger pulsemixer light upower openssl ueberzug arm-none-eabi-gcc python steam
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S fcitx5 picom openvpn xflux neovim kicad slock mono geogebra wget curl powertop zip unzip libreoffice yarn speedtest-cli okular alacritty acpi brightnessctl fzf grub hugo netease-cloud-music pdftk ranger pulsemixer light upower openssl ueberzug arm-none-eabi-gcc python steam zsh nvidia zathura git firefox base-devel linux-headers
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ol&gt;
@@ -1031,13 +1461,19 @@ $$&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;mbed-os&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;oh-my-zsh&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TexLive&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S electron-qq pdflatex feishu-bin microsoft-edge-stable-bin netease-cloud-music python-mbed-cli
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S electron  netease-cloud-music arm
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;python&#34;&gt;Python&lt;/h1&gt;
@@ -1048,11 +1484,19 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -O https://bootstrap.pypa.io/get-pip.py
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install json threading clipboard Cython fanyi matplotlib numpy openai nvidia-cublas-cu11 nvidia-cuda-nvrtc-cu11 nvidia-cuda-runtime-cu11 nvidia-cudnn-cu11 pygame pydflatex readline torch scikit-learn statsmodels packaging
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install json threading clipboard Cython fanyi matplotlib numpy openai pygame pydflatex readline scikit-learn statsmodels packaging typing_extensions torchvision mbed-cli
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;downloads&#34;&gt;Downloads&lt;/h1&gt;
-&lt;h1 id=&#34;scripts&#34;&gt;Scripts&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/ARMmbed/mbed-os.git -b mbed-os-5.15.6
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;scripts&#34;&gt;Scripts&lt;/h1&gt;
 </description>
         </item>
         <item>
@@ -1848,7 +2292,7 @@ $$&lt;/p&gt;
 &lt;h1 id=&#34;principal-components-analysis&#34;&gt;Principal Components Analysis&lt;/h1&gt;
 &lt;h2 id=&#34;实现&#34;&gt;实现&lt;/h2&gt;
 &lt;p&gt;$$
-Collection:\lbrace \pmb{x^{(1)}&amp;hellip;x^{(m)}} \rbrace \\\
+\lbrace \pmb{x^{(1)}&amp;hellip;x^{(m)}} \rbrace \\\
 \\ Encoder: \ f(\pmb x) = \pmb c \\\
 \\ Decoder: \pmb x \approx g(\pmb c) =  \pmb{Dc} \\\
 \\ \pmb D是正交矩阵\\\
@@ -1880,6 +2324,11 @@ Var(x) = \frac{1}{m-1}\pmb{X^TX} \\\
 \\ Var(\pmb x) = \frac{1}{m-1}\pmb {X^TX} \\\
 \\ if \ \pmb{z = x^TW} \\\
 \\ Var[\pmb z] = \frac{1}{m-1} \Sigma^2
+$$&lt;/p&gt;
+&lt;h1 id=&#34;calculus&#34;&gt;Calculus&lt;/h1&gt;
+&lt;h2 id=&#34;taylor-expression&#34;&gt;Taylor Expression&lt;/h2&gt;
+&lt;p&gt;$$
+f(x) = \sum_{n=0}^{\infin} \frac{f^{(n)}(a)}{n!} (x-a)^n
 $$&lt;/p&gt;
 </description>
         </item>
@@ -2018,6 +2467,69 @@ state 傅里叶变换{
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;FPGA (Field Programmable Gate Array)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pc微机&#34;&gt;PC(微机)&lt;/h2&gt;
+&lt;h3 id=&#34;计算历程&#34;&gt;计算历程&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;计数/计量 &amp;ndash; 数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算 - 总结/审计/交易&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;测量 - 几何&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算系统 - 数字 + 计算&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;计算机的进化&#34;&gt;计算机的进化&lt;/h3&gt;
+&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
+算盘 --&gt; 机械计算机(Enigma)
+机械计算机(Enigma) --&gt; 电磁电子计算(真空管)
+电磁电子计算(真空管) --&gt; 晶体管+集成电路
+晶体管+集成电路 --&gt; 大型计算机
+大型计算机 --&gt; 超算
+大型计算机 --&gt; 个人计算
+大型计算机 --&gt; 单片机
+&lt;/div&gt;
+
+
+
+  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    mermaid.initialize({ startOnLoad: true });
+  &lt;/script&gt;
+
+
+&lt;h3 id=&#34;操作系统&#34;&gt;操作系统&lt;/h3&gt;
+&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
+MS-DOS (Microsoft Disk OS) --&gt; Windows
+&lt;/div&gt;
+
+
+
+  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    mermaid.initialize({ startOnLoad: true });
+  &lt;/script&gt;
+
+
+&lt;h3 id=&#34;os以及app&#34;&gt;OS以及APP&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;软件分类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;系统软件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;应用软件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;中间件(Middleware)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;题外话&#34;&gt;题外话&lt;/h1&gt;
@@ -3210,26 +3722,13 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;图标解释&#34;&gt;图标解释&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;$N^+$: High Concentration&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;S: Source Terminal&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;G: Gate Terminal&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;$N^+$: High Concentration&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;$I_G$始终为0,因为$SiO_2$是绝缘的&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;D: Drain Terminal&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;B: Body Terminal&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;B: Body Terminal&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;电流方向&#34;&gt;电流方向&lt;/h3&gt;
 &lt;ol&gt;
@@ -3258,7 +3757,7 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;当$V_{DS}$存在时，这两个 &lt;strong&gt;back-back diodes&lt;/strong&gt; 会阻止电流从&lt;strong&gt;D&lt;/strong&gt;流到&lt;strong&gt;S&lt;/strong&gt;,阻值可达$10^{12}\Omega$&lt;/li&gt;
+&lt;li&gt;当$V_{DS}$存在时，这两个 &lt;strong&gt;back-back diodes&lt;/strong&gt; 会阻止电流从&lt;strong&gt;D&lt;/strong&gt;流到&lt;strong&gt;S&lt;/strong&gt;,&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;开启电流通道&#34;&gt;开启电流通道&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/3.png&#34;
@@ -3438,7 +3937,7 @@ S &amp;amp;\propto \frac{1}{2}[V_{OV}+(V_{OV}-V_{DS})] \\
 \therefore i_D &amp;amp;= \Big[ (\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS}) \Big]V_{DS}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h4 id=&#34;情况分析&#34;&gt;情况分析&lt;/h4&gt;
+&lt;h4 id=&#34;三极管区-饱和区&#34;&gt;三极管区 饱和区&lt;/h4&gt;
 &lt;p&gt;$$
 \begin{aligned}
 (1)当 V_{DS} &amp;amp;= V_{OV}时 \\
@@ -3455,68 +3954,33 @@ $$&lt;/p&gt;
 &lt;h4 id=&#34;结论&#34;&gt;结论&lt;/h4&gt;
 &lt;p&gt;$$
 i_D = \begin{cases}
-(\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS})V_{DS} &amp;amp; V_{DS} \lt V_{OV} \\
-\frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 &amp;amp; V_{DS} \ge V_{OV}
+(\mu_n C_{OX})\frac{W}{L}(V_{OV}-\frac{1}{2}V_{DS})V_{DS} = k_n(V_{OV}-\frac{1}{2}V_{DS})V_{DS} &amp;amp; V_{DS} \lt V_{OV} \\
+\frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 = \frac{1}{2}k_nV_{OV}^2 &amp;amp; V_{DS} \ge V_{OV}
 \end{cases}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;p沟道-mosfet&#34;&gt;P沟道 MOSFET&lt;/h2&gt;
-&lt;h3 id=&#34;与n沟道-mosfet-的不同之处&#34;&gt;与N沟道 MOSFET 的不同之处&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/10.png&#34;
-	width=&#34;694&#34;
-	height=&#34;525&#34;
-	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/10_huec6cb2cb52d9756a2c9670934d4aabff_86387_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;132&#34;
-		data-flex-basis=&#34;317px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Gate&lt;/strong&gt;接电源&lt;strong&gt;负极&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Threshold Voltage&lt;/strong&gt; $V_t$表示为$V_{tp}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;跨导系数&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-k_p&amp;rsquo; &amp;amp;= \mu_nC_{OX} \\
-k_p &amp;amp;= \mu_n C_{OX}\frac{W}{L}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;伏安特性&#34;&gt;伏安特性&lt;/h1&gt;
-&lt;h2 id=&#34;n型mosfet电路符号&#34;&gt;N型MOSFET电路符号&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/11.png&#34;
-	width=&#34;916&#34;
-	height=&#34;392&#34;
-	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/11_hu34a3c09ee9516a3a5808572a9119a07d_27750_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;233&#34;
-		data-flex-basis=&#34;560px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;概念电路&#34;&gt;概念电路&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/12.png&#34;
-	width=&#34;403&#34;
-	height=&#34;311&#34;
-	srcset=&#34;https://downeyflyfan.com/p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.mosfet/12_hud1dfedd627f7b9becf22f0b87907f22f_13290_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;129&#34;
-		data-flex-basis=&#34;310px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;h1 id=&#34;pmos-nmos&#34;&gt;PMOS NMOS&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;对比&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;NMOS&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;PMOS&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;主要&lt;/strong&gt;载流子&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电子&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;空穴&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电流方向&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;D$\rightarrow$S&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;S$\rightarrow$D&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;mosfet特性&#34;&gt;MOSFET特性&lt;/h1&gt;
 &lt;h2 id=&#34;伏安曲线&#34;&gt;伏安曲线&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/9.png&#34;
 	width=&#34;1230&#34;
@@ -3530,7 +3994,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;321px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;设计放大器&#34;&gt;设计放大器&lt;/h3&gt;
+&lt;h2 id=&#34;设计放大器&#34;&gt;设计放大器&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;在&lt;strong&gt;Saturation Area&lt;/strong&gt;，&lt;strong&gt;电流&lt;/strong&gt;只与$V_{DS}$有关&lt;/p&gt;
@@ -3564,7 +4028,9 @@ $$&lt;/p&gt;
 \\ V_A: 击穿电压
 $$&lt;/p&gt;
 &lt;h1 id=&#34;mosfet-at-dc-circuit&#34;&gt;MOSFET at DC Circuit&lt;/h1&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;可以当作开关&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;channel-pinch-off&#34;&gt;Channel Pinch-off&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -5095,10 +5561,14 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;门电路&#34;&gt;门电路&lt;/h1&gt;
-&lt;h2 id=&#34;fan-in&#34;&gt;Fan-in&lt;/h2&gt;
-&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;h2 id=&#34;fan&#34;&gt;Fan&lt;/h2&gt;
+&lt;h3 id=&#34;fan-in-of-a-logic-family&#34;&gt;Fan-in (of a logic family)&lt;/h3&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;The number of inputs&lt;/strong&gt; that a gate can have in a particular logic family is called &lt;strong&gt;the logic family’s fan-in&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The number of inputs&lt;/strong&gt; that a gate can have in a particular logic family&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;fan-out-of-a-logic-family&#34;&gt;Fan-out (of a logic family)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;The number of outputs&lt;/strong&gt; that a gate can have in a particular logic family&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;cmos反相器&#34;&gt;CMOS反相器&lt;/h2&gt;
 &lt;h3 id=&#34;电路-3&#34;&gt;电路&lt;/h3&gt;
@@ -5140,6 +5610,46 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;441px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h3 id=&#34;electrical-behavior&#34;&gt;Electrical Behavior&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;上拉$p$电阻&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/31.png&#34;
+	width=&#34;507&#34;
+	height=&#34;517&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/31_huf098f3ffa1eda94b55ac961436d1bb64_94482_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/31_huf098f3ffa1eda94b55ac961436d1bb64_94482_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;235px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+上拉电阻 \ R_{p(on)} = \frac{V_{DD} - V_{OHminT}}{|I_{OHmax}|}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;下拉$p$电阻&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/32.png&#34;
+	width=&#34;595&#34;
+	height=&#34;509&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/32_hu1ed09861105b45f9e21e8ee039620665_104876_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/32_hu1ed09861105b45f9e21e8ee039620665_104876_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;280px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+R_{n(on)} = \frac{V_{OLmax}}{I_{OLmax}}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Data Sheet&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;与非门&#34;&gt;与非门&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/6.png&#34;
 	width=&#34;456&#34;
@@ -8214,55 +8724,506 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Application Example&lt;/strong&gt;和&lt;strong&gt;Whole-Chip ESD CAD&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;a-fully-dynamic-low-power-wideband-time-interleaved-noise-shaping-sar-adc&#34;&gt;A Fully Dynamic Low-Power Wideband Time-Interleaved Noise-Shaping SAR ADC&lt;/h1&gt;
+&lt;h1 id=&#34;a-cmos-210-ghz-fundamental-transceiver-with-ook-modulation----wangzheng&#34;&gt;A CMOS 210-GHz Fundamental Transceiver With OOK Modulation &amp;ndash; WangZheng&lt;/h1&gt;
 &lt;h2 id=&#34;链接-3&#34;&gt;链接&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/abstract/document/9409067&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://ieeexplore.ieee.org/abstract/document/9409067&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;amp;arnumber=6718086&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6718086&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;术语-2&#34;&gt;术语&lt;/h2&gt;
-&lt;h3 id=&#34;osr-oversampling-ratio&#34;&gt;OSR (OverSampling Ratio)&lt;/h3&gt;
+&lt;h3 id=&#34;soi-silicon-on-insulator&#34;&gt;SOI (Silicon on Insulator)&lt;/h3&gt;
+&lt;h3 id=&#34;magmaximum-available-gain&#34;&gt;MAG(Maximum Available Gain)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;过采样比，在模拟信号采样时，采样率高于信号带宽的比率&lt;/li&gt;
+&lt;li&gt;又叫$G_{max}$，&lt;strong&gt;Mason&amp;rsquo;s U&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;ti-time-interleaved&#34;&gt;TI (Time Interleaved)&lt;/h3&gt;
+&lt;h3 id=&#34;ook-on-off-key&#34;&gt;OOK (On-off-key)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;时间交错,通过将采样时序错开来提高采样速率和分辨率&lt;/li&gt;
+&lt;li&gt;脉冲调制，一种将数字信号转换为脉冲信号的方法，其中高电平表示1，低电平表示0。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;ntf-noise-transfer-function&#34;&gt;NTF (Noise Transfer Function)&lt;/h3&gt;
-&lt;h3 id=&#34;ef-extended-filter&#34;&gt;EF (Extended Filter)&lt;/h3&gt;
+&lt;h3 id=&#34;lna-low-noise-amplifier&#34;&gt;LNA (Low-noise Amplifier)&lt;/h3&gt;
+&lt;h3 id=&#34;vcovoltage-controlled-oscillator&#34;&gt;VCO(Voltage Controlled Oscillator)&lt;/h3&gt;
+&lt;h3 id=&#34;nfnoise-figure&#34;&gt;NF(Noise Figure)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;用于实现噪声整形滤波器的结构&lt;/li&gt;
+&lt;li&gt;噪声系数&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;dardistributed-active-radiator&#34;&gt;DAR(Distributed active radiator)&lt;/h3&gt;
+&lt;h3 id=&#34;hfsshigh-frequency-structure-simulator&#34;&gt;HFSS(High Frequency Structure Simulator)&lt;/h3&gt;
+&lt;h3 id=&#34;pae-power-added-efficiency&#34;&gt;PAE (Power Added Efficiency)&lt;/h3&gt;
+&lt;h3 id=&#34;id&#34;&gt;i.d.&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;意为&lt;strong&gt;也就是&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;breakout&#34;&gt;breakout&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将芯片引脚连接到外部器件或测试点的过程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将一个器件或模块从其原始设计中分离出来，以便进行单独测试或修改&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;couple耦合&#34;&gt;Couple(耦合)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;两个&lt;/strong&gt;或&lt;strong&gt;多个&lt;/strong&gt;电路之间的&lt;strong&gt;相互作用&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;source-degeneration-for-cross-coupled-pair&#34;&gt;Source degeneration for cross-coupled pair&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一个或多个电阻被串联到交叉耦合对的源极，以减小电路的增益并提高电路的稳定性和线性度。这种技术常用于放大器和振荡器电路中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;cpw-coplanar-waveguide&#34;&gt;CPW (CoPlanar Waveguide)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;共面波导线。一种微波传输线，由一条中心导体和两条平面地面导体组成。CPW广泛应用于微波电路中，具有低损耗、高速度、高阻抗和易于集成等优点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;square-law-region&#34;&gt;Square-Law Region&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在某些电子器件中，电流和电压之间的关系在某个范围内呈平方定律&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vdi-wr51&#34;&gt;VDI WR5.1&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一种波导标准，用于毫米波和亚毫米波频段的通信和雷达系统。它定义了一系列标准化的波导尺寸和接口，以确保不同设备和系统之间的互操作性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;eirp-equivalent-isotropic-radiated-power&#34;&gt;EIRP (Equivalent Isotropic Radiated Power)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;等效各向同性功率辐射&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;if-intermediate-frequency&#34;&gt;IF (Intermediate Frequency)&lt;/h3&gt;
 &lt;h2 id=&#34;内容-1&#34;&gt;内容&lt;/h2&gt;
 &lt;h3 id=&#34;i-introdution-2&#34;&gt;I. Introdution&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ADC&lt;/strong&gt;的重要性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ADC&lt;/strong&gt;的设计问题&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;THz&lt;/strong&gt;的应用&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;噪声、功耗、带宽限制&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schottky diodes [6],&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nonlinear optical [7], [8]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;III-V devices [9]&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;ii-time-interleaving-of-ns-sar&#34;&gt;II. Time Interleaving of NS SAR&lt;/h3&gt;
-&lt;ol&gt;
+&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
-&lt;p&gt;NS SAR ADC的结构和工作原理，并详细讨论了时间交错和噪声整形对ADC性能的影响。&lt;/p&gt;
+&lt;p&gt;nano CMOS 有实现THz级别系统的&lt;strong&gt;潜力&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;动态调整时间交错比例的方法，以适应不同的输入信号频率范围&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最后，文章通过仿真和实验结果验证了NS SAR ADC的性能和优势&lt;/p&gt;
+&lt;p&gt;A CMOS 210-GHz Fundamental Transceiver With OOK Modulation&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;iii-prosposed-ti-ns-sar&#34;&gt;III. Prosposed TI NS SAR&lt;/h3&gt;
+&lt;h3 id=&#34;ii-system-architecture&#34;&gt;II. System Architecture&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;TX&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;a $2\times 2$ spatial power-combining array architecture&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;VCO at 210 GHz with an OOK modulator&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PA drive + 4 PAs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;novel balun-based differential power distribution network&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On-chip $2\times 2$ dipole antenna array&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;RX&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;on-chip antenna&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LNA&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Power detector&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;balun-based differential power distribution network&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;减少了交叉电路(crosstalk)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;iii-on-chip-a-ntenna-array-and-balun-design&#34;&gt;III. ON-CHIP A NTENNA ARRAY AND BALUN DESIGN&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;$2 \times 2$ Antenna Array&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;天线的&lt;strong&gt;Gain - Frequency&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/1.png&#34;
+	width=&#34;478&#34;
+	height=&#34;361&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/1_hudd553bce038047d60d7d3f8e9ec20370_75092_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/1_hudd553bce038047d60d7d3f8e9ec20370_75092_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;天线的&lt;strong&gt;Gain - Theta&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Marchand Balun&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;一种广泛用于无线通信和射频电路中的平衡器件，用于将单端信号转换为平衡信号或将平衡信号转换为单端信号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/2.png&#34;
+	width=&#34;898&#34;
+	height=&#34;376&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/2_hubc825796c56985cd82394eba55ba0ad4_107402_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/2_hubc825796c56985cd82394eba55ba0ad4_107402_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;238&#34;
+		data-flex-basis=&#34;573px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;iv-over-neutralization-technique-and-pa-design&#34;&gt;IV. OVER-NEUTRALIZATION TECHNIQUE AND PA DESIGN&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Neutralization Technique for Differential Pair&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/3.png&#34;
+	width=&#34;657&#34;
+	height=&#34;480&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/3_hu727f13db19958bd583f3ebe2df9f94cc_42987_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/3_hu727f13db19958bd583f3ebe2df9f94cc_42987_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;328px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+MAG \ \ U = \frac{Y_{12}-Y_{21}}{4(Re[Y_{11}]Re[Y_{22}] - Re[Y_{21}]Re[Y_{12}])}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Revisiting the Neutralization Technique&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/4.png&#34;
+	width=&#34;656&#34;
+	height=&#34;368&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/4_hu6726442b9e6bd28406f7310a3371285e_34855_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/4_hu6726442b9e6bd28406f7310a3371285e_34855_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;178&#34;
+		data-flex-basis=&#34;427px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;以上公式在$f \lt 2f_{max}$的前提下得出，从而得出下式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+U \approx \frac{|g_m|^2}{4[\omega^2 (C_{gs} + C_{gd})^2 r_gg_{ds}+\omega^2 (C_{gs} + C_{gd})C_{gd}r_gg_m] }
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maximum power gain with respect to neutralization capacitance at (a) 100 GHz and (b) 200 GHz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/5.png&#34;
+	width=&#34;820&#34;
+	height=&#34;349&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/5_huad7e4c4663f55445d27a363ad63c0655_132222_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/5_huad7e4c4663f55445d27a363ad63c0655_132222_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;234&#34;
+		data-flex-basis=&#34;563px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;200-GHz Transistor Layout for PA&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;三极管布局&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/6.png&#34;
+	width=&#34;1040&#34;
+	height=&#34;581&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/6_hu26e688e63ae03b7203a7decd3ff4485a_180114_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/6_hu26e688e63ae03b7203a7decd3ff4485a_180114_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;429px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PA 电路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/7.png&#34;
+	width=&#34;875&#34;
+	height=&#34;209&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/7_hud43b587870e5420cb26f41db42caf536_58502_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/7_hud43b587870e5420cb26f41db42caf536_58502_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;418&#34;
+		data-flex-basis=&#34;1004px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Over-neutralization Techniques&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/8.png&#34;
+	width=&#34;900&#34;
+	height=&#34;383&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/8_hu27fb8ae84627147eeaa85c27ed80fed4_78154_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/8_hu27fb8ae84627147eeaa85c27ed80fed4_78154_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;234&#34;
+		data-flex-basis=&#34;563px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;选择&lt;strong&gt;3dB&lt;/strong&gt;,$K_f=1.1$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;PA电路效果的测量数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/9.png&#34;
+	width=&#34;843&#34;
+	height=&#34;358&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/9_hu87ff37e954051c68553b528919fe495d_104791_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/9_hu87ff37e954051c68553b528919fe495d_104791_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;235&#34;
+		data-flex-basis=&#34;565px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;v-vco-lna-and-power-detector-design&#34;&gt;V. VCO, LNA, AND POWER DETECTOR DESIGN&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;VCO&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/10.png&#34;
+	width=&#34;674&#34;
+	height=&#34;195&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/10_hu3037e4867afe23b969724f85964d8608_11707_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/10_hu3037e4867afe23b969724f85964d8608_11707_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;345&#34;
+		data-flex-basis=&#34;829px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Source degeneration for cross-coupled pair&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/11.png&#34;
+	width=&#34;775&#34;
+	height=&#34;487&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/11_hub58c5ad3b85df03f4bc5f2ba1443ac0d_41546_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/11_hub58c5ad3b85df03f4bc5f2ba1443ac0d_41546_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;159&#34;
+		data-flex-basis=&#34;381px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/12.png&#34;
+	width=&#34;679&#34;
+	height=&#34;281&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/12_hua4ce8102c93c7e920558b17f5161c6d1_21923_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/12_hua4ce8102c93c7e920558b17f5161c6d1_21923_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;241&#34;
+		data-flex-basis=&#34;579px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;测量结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/13.png&#34;
+	width=&#34;840&#34;
+	height=&#34;347&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/13_hu8b56b718c97cc56e1b30b91e2d01d507_91645_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/13_hu8b56b718c97cc56e1b30b91e2d01d507_91645_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;242&#34;
+		data-flex-basis=&#34;580px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;210-GHz LNA&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Popular Design: Common Source , Cascode topology&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;电路图&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/14.png&#34;
+	width=&#34;1051&#34;
+	height=&#34;321&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/14_hue60c64380f330816c0ac2a905ca94bce_166192_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/14_hue60c64380f330816c0ac2a905ca94bce_166192_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;327&#34;
+		data-flex-basis=&#34;785px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;测量结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/15.png&#34;
+	width=&#34;1005&#34;
+	height=&#34;606&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/15_hu4d2d230ca69edc406ad3d095a50efa09_236548_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/15_hu4d2d230ca69edc406ad3d095a50efa09_236548_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;398px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Power Detector&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;电路图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/16.png&#34;
+	width=&#34;496&#34;
+	height=&#34;279&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/16_hu1a428ab3fcb9f7916cf0dacf5e2321a7_21080_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/16_hu1a428ab3fcb9f7916cf0dacf5e2321a7_21080_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+V_D = \frac{1}{4} \mu_n C_{OX} (\frac{W}{L}) R_L V_{in}^2
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;仿真结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/17.png&#34;
+	width=&#34;979&#34;
+	height=&#34;317&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/17_hufa61a73b1c351a4bb7c1ee0b361db76b_70933_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/17_hufa61a73b1c351a4bb7c1ee0b361db76b_70933_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;308&#34;
+		data-flex-basis=&#34;741px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;vi-measurements&#34;&gt;VI. MEASUREMENTS&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;电路板&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/18.png&#34;
+	width=&#34;964&#34;
+	height=&#34;437&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/18_hu1f8dee177c24ae8809e4522a3d682d84_569468_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/18_hu1f8dee177c24ae8809e4522a3d682d84_569468_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;220&#34;
+		data-flex-basis=&#34;529px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;System Measurements&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;CW 测量结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/19.png&#34;
+	width=&#34;434&#34;
+	height=&#34;413&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/19_huf7018ae620df59a5641acaa0ee702424_78157_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/19_huf7018ae620df59a5641acaa0ee702424_78157_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;105&#34;
+		data-flex-basis=&#34;252px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;信噪比&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/20.png&#34;
+	width=&#34;316&#34;
+	height=&#34;246&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/20_hucf3fd0d85cdeb73221b51a5f5692afbe_21576_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/20_hucf3fd0d85cdeb73221b51a5f5692afbe_21576_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;308px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;测量结果总结&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/21.png&#34;
+	width=&#34;739&#34;
+	height=&#34;419&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/21_hudbbdbc61bca2af679188fc62278a3ee5_56457_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/21_hudbbdbc61bca2af679188fc62278a3ee5_56457_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;423px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;与其他产品的比较&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/essay-notes/22.png&#34;
+	width=&#34;840&#34;
+	height=&#34;371&#34;
+	srcset=&#34;https://downeyflyfan.com/p/essay-notes/22_hue87629bc965fda932afb59e5f1ea78f0_69145_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/essay-notes/22_hue87629bc965fda932afb59e5f1ea78f0_69145_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;226&#34;
+		data-flex-basis=&#34;543px&#34;
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -22994,17 +23955,29 @@ $$&lt;/p&gt;
         
         <guid>https://downeyflyfan.com/p/%E6%95%B0%E6%A8%A1%E8%A6%81%E7%82%B9/</guid>
         <description>&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h1 id=&#34;一-论文&#34;&gt;一 论文&lt;/h1&gt;
-&lt;h2 id=&#34;11-论文结构1&#34;&gt;1.1 论文结构[^1]&lt;/h2&gt;
+&lt;h1 id=&#34;论文&#34;&gt;论文&lt;/h1&gt;
+&lt;h2 id=&#34;论文结构1&#34;&gt;论文结构[^1]&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Abstrat&lt;/li&gt;
-&lt;li&gt;Introduction&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Abstrat&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;引出问题&lt;/li&gt;
-&lt;li&gt;介绍问题背景&lt;/li&gt;
-&lt;li&gt;前人的解决方案&lt;/li&gt;
-&lt;li&gt;前人的局限性&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;引出问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;介绍问题背景&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前人的解决方案&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前人的局限性&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;
@@ -23034,32 +24007,44 @@ $$&lt;/p&gt;
 &lt;p&gt;代码&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;12-建议&#34;&gt;1.2 建议&lt;/h2&gt;
+&lt;h2 id=&#34;建议&#34;&gt;建议&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;适当使用自创词&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;连字符型自创词&lt;/li&gt;
-&lt;li&gt;首字母大写型自创词&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;连字符型自创词&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;首字母大写型自创词&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;数据来源&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;使用数学模型创造&lt;/li&gt;
-&lt;li&gt;官方网站的数据&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用数学模型创造&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;官方网站的数据&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;重要词汇可以&lt;strong&gt;加粗&lt;/strong&gt;或者&lt;em&gt;斜体&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;二经验总结与学习方向&#34;&gt;二、经验总结与学习方向&lt;/h1&gt;
-&lt;h2 id=&#34;21-经验总结&#34;&gt;2.1 经验总结&lt;/h2&gt;
+&lt;h1 id=&#34;经验总结与学习方向&#34;&gt;经验总结与学习方向&lt;/h1&gt;
+&lt;h2 id=&#34;经验总结&#34;&gt;经验总结&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;认真审题&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;时间长不要紧，题目一定要看懂&lt;/li&gt;
-&lt;li&gt;仔细审阅题目的文献&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;时间长不要紧，题目一定要看懂&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;仔细审阅题目的文献&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;&lt;strong&gt;明确分工&lt;/strong&gt;,提高&lt;strong&gt;效率&lt;/strong&gt;&lt;/li&gt;
