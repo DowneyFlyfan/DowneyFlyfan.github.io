@@ -367,7 +367,7 @@ Sigmoid Units for Bernoulli Distribution(二分类问题) $$ \sigma = \frac{1}{1
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -706,7 +706,7 @@ $$</p>
 \\
 $$</p>
 <ol start="2">
-<li>继续</li>
+<li>$J(\theta)$的表达式</li>
 </ol>
 <p>$$
 \nabla_{\omega}\overset{\sim}{J} (\pmb{\theta;X,y}) = \nabla_{\omega} J (\pmb{\theta;X,y}) +  \alpha \pmb \omega  \\\
@@ -723,14 +723,33 @@ H(J(\pmb \theta)) = J的二阶导 \\\
 \\ \because \frac{\partial f}{\partial x_i \partial x_j} = \frac{\partial f}{\partial x_j \partial x_i}  \\\
 \\ \therefore H 是\pmb{对称矩阵}
 $$</p>
+<ol start="4">
+<li>最小值</li>
+</ol>
+<p>$$
+\alpha \overset{\sim}{\pmb \omega} + \pmb{H(\overset{\sim}{\pmb \omega} - w^* )} = 0时取得\pmb{最小值} \\\
+\\  \  \begin{aligned}
+\overset{\sim}{\pmb \omega} &amp;=  (\pmb{H} + \alpha \pmb I)^{-1} \pmb {H\omega^<em>} \\
+&amp;= (Q\Lambda Q^T + \alpha I)^{-1} Q\Lambda Q^T \omega^</em> \\
+&amp;= Q(\Lambda + \alpha I)^{-1} \Lambda Q^T \omega^*
+\end{aligned}
+$$</p>
+<ol start="5">
+<li>以线性回归为例</li>
+</ol>
+<p>$$
+J = \pmb{(X\omega -y)^T(X\omega -y)} + \frac{1}{2}\alpha \omega^T\omega \\\
+\\ \pmb \omega = (\pmb{X^TX} + \alpha \pmb I)^{-1} \pmb{X^T y}  <br>
+$$</p>
 <h3 id="l1-regularization">$L^1$ Regularization</h3>
 <ol>
 <li>Regularization Function</li>
 </ol>
 <p>$$
 \Omega(\pmb \omega) = ||\pmb \omega||_1 = \sum_i |\omega_i| \\\
+\\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) + \alpha ||\pmb \omega ||_1  \\\
+\\ J(\pmb \omega) = J(\pmb \omega^<em>) + \sum_i (\frac{1}{2}\pmb{H(\omega_i - \omega_i^</em>) } + \alpha \omega_i) \ \ (泰勒展开) \\\
 \\
-\overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \alpha ||\pmb \omega ||_1  \\\
 $$</p>
 
 </section>

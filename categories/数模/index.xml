@@ -336,7 +336,7 @@ $$&lt;/p&gt;
 \\
 $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;继续&lt;/li&gt;
+&lt;li&gt;$J(\theta)$的表达式&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \nabla_{\omega}\overset{\sim}{J} (\pmb{\theta;X,y}) = \nabla_{\omega} J (\pmb{\theta;X,y}) +  \alpha \pmb \omega  \\\
@@ -353,14 +353,33 @@ H(J(\pmb \theta)) = J的二阶导 \\\
 \\ \because \frac{\partial f}{\partial x_i \partial x_j} = \frac{\partial f}{\partial x_j \partial x_i}  \\\
 \\ \therefore H 是\pmb{对称矩阵}
 $$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;最小值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\alpha \overset{\sim}{\pmb \omega} + \pmb{H(\overset{\sim}{\pmb \omega} - w^* )} = 0时取得\pmb{最小值} \\\
+\\  \  \begin{aligned}
+\overset{\sim}{\pmb \omega} &amp;amp;=  (\pmb{H} + \alpha \pmb I)^{-1} \pmb {H\omega^&lt;em&gt;} \\
+&amp;amp;= (Q\Lambda Q^T + \alpha I)^{-1} Q\Lambda Q^T \omega^&lt;/em&gt; \\
+&amp;amp;= Q(\Lambda + \alpha I)^{-1} \Lambda Q^T \omega^*
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;以线性回归为例&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+J = \pmb{(X\omega -y)^T(X\omega -y)} + \frac{1}{2}\alpha \omega^T\omega \\\
+\\ \pmb \omega = (\pmb{X^TX} + \alpha \pmb I)^{-1} \pmb{X^T y}  &lt;br&gt;
+$$&lt;/p&gt;
 &lt;h3 id=&#34;l1-regularization&#34;&gt;$L^1$ Regularization&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Regularization Function&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \Omega(\pmb \omega) = ||\pmb \omega||_1 = \sum_i |\omega_i| \\\
+\\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) + \alpha ||\pmb \omega ||_1  \\\
+\\ J(\pmb \omega) = J(\pmb \omega^&lt;em&gt;) + \sum_i (\frac{1}{2}\pmb{H(\omega_i - \omega_i^&lt;/em&gt;) } + \alpha \omega_i) \ \ (泰勒展开) \\\
 \\
-\overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \alpha ||\pmb \omega ||_1  \\\
 $$&lt;/p&gt;
 </description>
         </item>

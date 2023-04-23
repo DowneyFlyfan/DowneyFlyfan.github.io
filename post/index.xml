@@ -336,7 +336,7 @@ $$&lt;/p&gt;
 \\
 $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;继续&lt;/li&gt;
+&lt;li&gt;$J(\theta)$的表达式&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \nabla_{\omega}\overset{\sim}{J} (\pmb{\theta;X,y}) = \nabla_{\omega} J (\pmb{\theta;X,y}) +  \alpha \pmb \omega  \\\
@@ -353,14 +353,33 @@ H(J(\pmb \theta)) = J的二阶导 \\\
 \\ \because \frac{\partial f}{\partial x_i \partial x_j} = \frac{\partial f}{\partial x_j \partial x_i}  \\\
 \\ \therefore H 是\pmb{对称矩阵}
 $$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;最小值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\alpha \overset{\sim}{\pmb \omega} + \pmb{H(\overset{\sim}{\pmb \omega} - w^* )} = 0时取得\pmb{最小值} \\\
+\\  \  \begin{aligned}
+\overset{\sim}{\pmb \omega} &amp;amp;=  (\pmb{H} + \alpha \pmb I)^{-1} \pmb {H\omega^&lt;em&gt;} \\
+&amp;amp;= (Q\Lambda Q^T + \alpha I)^{-1} Q\Lambda Q^T \omega^&lt;/em&gt; \\
+&amp;amp;= Q(\Lambda + \alpha I)^{-1} \Lambda Q^T \omega^*
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;以线性回归为例&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+J = \pmb{(X\omega -y)^T(X\omega -y)} + \frac{1}{2}\alpha \omega^T\omega \\\
+\\ \pmb \omega = (\pmb{X^TX} + \alpha \pmb I)^{-1} \pmb{X^T y}  &lt;br&gt;
+$$&lt;/p&gt;
 &lt;h3 id=&#34;l1-regularization&#34;&gt;$L^1$ Regularization&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Regularization Function&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \Omega(\pmb \omega) = ||\pmb \omega||_1 = \sum_i |\omega_i| \\\
+\\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) + \alpha ||\pmb \omega ||_1  \\\
+\\ J(\pmb \omega) = J(\pmb \omega^&lt;em&gt;) + \sum_i (\frac{1}{2}\pmb{H(\omega_i - \omega_i^&lt;/em&gt;) } + \alpha \omega_i) \ \ (泰勒展开) \\\
 \\
-\overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) +  \alpha ||\pmb \omega ||_1  \\\
 $$&lt;/p&gt;
 </description>
         </item>
@@ -1473,7 +1492,7 @@ $$&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S electron  netease-cloud-music arm
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S electron-qq netease-cloud-music arm
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;python&#34;&gt;Python&lt;/h1&gt;
@@ -2091,7 +2110,9 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;symetrical-matrix&#34;&gt;Symetrical Matrix&lt;/h3&gt;
 &lt;p&gt;$$
-A = A^T
+A = A^T \\\
+\\ A = Q\Lambda Q^T \\\
+\\ 其中,QQ^T = I (即Q与Q^T正交)
 $$&lt;/p&gt;
 &lt;h3 id=&#34;unit-vector-and-orthogonal-matrix&#34;&gt;Unit Vector and Orthogonal Matrix&lt;/h3&gt;
 &lt;ol&gt;
@@ -3958,7 +3979,8 @@ i_D = \begin{cases}
 \frac{1}{2} (\mu_n C_{OX})\frac{W}{L}V_{OV}^2 = \frac{1}{2}k_nV_{OV}^2 &amp;amp; V_{DS} \ge V_{OV}
 \end{cases}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;pmos-nmos&#34;&gt;PMOS NMOS&lt;/h1&gt;
+&lt;h1 id=&#34;pmos&#34;&gt;PMOS&lt;/h1&gt;
+&lt;h2 id=&#34;对比-nmos&#34;&gt;对比 NMOS&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3980,6 +4002,10 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2 id=&#34;不同之处&#34;&gt;不同之处&lt;/h2&gt;
+&lt;p&gt;$$
+i_d = \frac{1}{2} k_p (\pmb{V_{SG} - |V_t|})^2
+$$&lt;/p&gt;
 &lt;h1 id=&#34;mosfet特性&#34;&gt;MOSFET特性&lt;/h1&gt;
 &lt;h2 id=&#34;伏安曲线&#34;&gt;伏安曲线&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.mosfet/9.png&#34;
@@ -9224,6 +9250,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;543px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
 </description>
         </item>
         <item>
