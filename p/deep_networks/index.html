@@ -301,6 +301,11 @@ Sigmoid Units for Bernoulli Distribution(二分类问题) $$ \sigma = \frac{1}{1
             <li><a href="#l1-regularization">$L^1$ Regularization</a></li>
           </ol>
         </li>
+        <li><a href="#norm-penalties-as-constrained-optimization">Norm Penalties as Constrained Optimization</a>
+          <ol>
+            <li><a href="#heading"></a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -748,9 +753,11 @@ $$</p>
 <p>$$
 \Omega(\pmb \omega) = ||\pmb \omega||_1 = \sum_i |\omega_i| \\\
 \\ \overset{\sim}{J} (\pmb{\theta;X,y}) = J (\pmb{\theta;X,y}) + \alpha ||\pmb \omega ||_1  \\\
-\\ J(\pmb \omega) = J(\pmb \omega^<em>) + \sum_i (\frac{1}{2}\pmb{H(\omega_i - \omega_i^</em>) } + \alpha \omega_i) \ \ (泰勒展开) \\\
-\\
+\\ J(\pmb \omega) = J(\pmb \omega^<em>) + \sum_i (\frac{1}{2}\pmb{H(\omega_i - \omega_i^</em>) } + \alpha |\omega_i|) \ \ (泰勒展开) \\\
+\\ \omega_i = sign(\omega^<em>) max\lbrace |\omega^</em><em>i| - \frac{\alpha}{H</em>{i,i}},0\rbrace
 $$</p>
+<h2 id="norm-penalties-as-constrained-optimization">Norm Penalties as Constrained Optimization</h2>
+<h3 id="heading"></h3>
 
 </section>
 
@@ -866,12 +873,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E6%95%B0%E6%A8%A1%E8%A6%81%E7%82%B9/">
+    <a href="/p/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">数模要点</h2>
+            <h2 class="article-title">经验总结</h2>
         </div>
     </a>
 </article>

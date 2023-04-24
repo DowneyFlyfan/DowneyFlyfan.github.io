@@ -290,6 +290,48 @@
         </li>
       </ol>
     </li>
+    <li><a href="#basic-mosfet-amplifier-configurations">Basic MOSFET Amplifier Configurations</a>
+      <ol>
+        <li><a href="#the-common-source-amplifier-with-a-source-resistance">The Common-Source Amplifier with a Source Resistance</a>
+          <ol>
+            <li><a href="#等效图示">等效图示</a></li>
+          </ol>
+        </li>
+        <li><a href="#the-common-gate-cg-amplifier">The Common-Gate (CG) Amplifier</a>
+          <ol>
+            <li><a href="#电路">电路</a></li>
+            <li><a href="#分析">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#the-common-drain-amplifier-source-follower">The Common-Drain Amplifier (Source Follower)</a>
+          <ol>
+            <li><a href="#电路-1">电路</a></li>
+            <li><a href="#分析-1">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#比较">比较</a></li>
+      </ol>
+    </li>
+    <li><a href="#biasing-by-fixing-v_gs">Biasing by Fixing $V_{GS}$</a>
+      <ol>
+        <li><a href="#原因">原因</a></li>
+        <li><a href="#degeneration-resistance">Degeneration Resistance</a>
+          <ol>
+            <li><a href="#电路-2">电路</a></li>
+            <li><a href="#分析-2">分析</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#discrete-circuit-mos-amplifiers">Discrete-Circuit MOS Amplifiers</a>
+      <ol>
+        <li><a href="#the-common-source-amplifier">The Common-Source Amplifier</a>
+          <ol>
+            <li><a href="#典型电路">典型电路</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -616,6 +658,182 @@ $$</p>
 		data-flex-basis="166px"
 	
 ></p>
+<h1 id="basic-mosfet-amplifier-configurations">Basic MOSFET Amplifier Configurations</h1>
+<h2 id="the-common-source-amplifier-with-a-source-resistance">The Common-Source Amplifier with a Source Resistance</h2>
+<h3 id="等效图示">等效图示</h3>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/11.png"
+	width="791"
+	height="614"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/11_huca5997d83d8a7dd7ed5d4b4571c3dab5_70671_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/11_huca5997d83d8a7dd7ed5d4b4571c3dab5_70671_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="309px"
+	
+></p>
+<p>$$
+R_{in} = \infin \\\
+\\ R_{out} = R_D
+$$</p>
+<h2 id="the-common-gate-cg-amplifier">The Common-Gate (CG) Amplifier</h2>
+<h3 id="电路">电路</h3>
+<ol>
+<li>原电路</li>
+</ol>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/12.png"
+	width="424"
+	height="344"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/12_hu528518c378669d8d23f79079383f552e_40978_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/12_hu528518c378669d8d23f79079383f552e_40978_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="123"
+		data-flex-basis="295px"
+	
+></p>
+<ol start="2">
+<li>变换后</li>
+</ol>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/13.png"
+	width="864"
+	height="307"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/13_hu5ad2ac27027ea0fa24f4192f371795af_59118_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/13_hu5ad2ac27027ea0fa24f4192f371795af_59118_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="281"
+		data-flex-basis="675px"
+	
+></p>
+<h3 id="分析">分析</h3>
+<p>$$
+R_{in} = \frac{1}{g_m} \\\
+\\ R_{out} = R_D  \\\
+\\ A_{vo} =  \frac{v_o}{v_{i}} = \frac{-iR_D}{-i\frac{1}{g_m}} = g_mR_D \\\
+\\ G_v = \frac{v_o}{v_{sig}} = \frac{-(R_L || R_D)}{-(R_{sig} + \frac{1}{g_m}i)}= \frac{g_m R_L || R_D}{1 + g_m R_{sig}}
+$$</p>
+<h2 id="the-common-drain-amplifier-source-follower">The Common-Drain Amplifier (Source Follower)</h2>
+<h3 id="电路-1">电路</h3>
+<ol>
+<li>原始</li>
+</ol>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/14.png"
+	width="449"
+	height="293"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/14_huff9318b8f4276b9aa979a2239c25c436_22145_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/14_huff9318b8f4276b9aa979a2239c25c436_22145_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="153"
+		data-flex-basis="367px"
+	
+></p>
+<ol start="2">
+<li>变换后</li>
+</ol>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/15.png"
+	width="540"
+	height="265"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/15_hu467b43c2029db8dce6dbf6892568b3b8_29865_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/15_hu467b43c2029db8dce6dbf6892568b3b8_29865_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="489px"
+	
+></p>
+<h3 id="分析-1">分析</h3>
+<p>$$
+R_{in} = \infin  \\\
+\\ V_o = g_m V_{gs}R_L  \\\
+\\ A_{v} = \frac{iR_L}{i(R_L + \frac{1}{g_m})} \approx 1 \\\
+\\ G_v = \frac{R_L}{R_L + \frac{1}{g_m}} \approx 1 \\\
+\\ R_{out} = \frac{1}{g_m}
+$$</p>
+<h2 id="比较">比较</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="biasing-by-fixing-v_gs">Biasing by Fixing $V_{GS}$</h1>
+<h2 id="原因">原因</h2>
+<p>$$
+I = \frac{1}{2}\mu_nC_{OX} \frac{W}{L} (V_{GS} - V_t)^2
+$$</p>
+<ol>
+<li>
+<p>$\mu_n$和$V_t$易受到<strong>温度</strong>影响</p>
+</li>
+<li>
+<p>$V_t,\frac{W}{L},C_{OX}$即使在<strong>相同尺寸和型号</strong>的设备中<strong>变化</strong>也很大</p>
+</li>
+</ol>
+<h2 id="degeneration-resistance">Degeneration Resistance</h2>
+<h3 id="电路-2">电路</h3>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/16.png"
+	width="264"
+	height="354"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/16_hu7d839c69a980584762634341720ffea0_10682_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/16_hu7d839c69a980584762634341720ffea0_10682_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="74"
+		data-flex-basis="178px"
+	
+></p>
+<h3 id="分析-2">分析</h3>
+<p>$$
+V_G = V_{GS} + I_DR_S (V_G \ is \ fixed)\\\
+\\ I_D \uparrow \longrightarrow V_{GS} \downarrow \longrightarrow I_D \downarrow
+$$</p>
+<h1 id="discrete-circuit-mos-amplifiers">Discrete-Circuit MOS Amplifiers</h1>
+<h2 id="the-common-source-amplifier">The Common-Source Amplifier</h2>
+<h3 id="典型电路">典型电路</h3>
+<p><img src="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/17.png"
+	width="1121"
+	height="602"
+	srcset="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/17_hu07aeb82a2bb161ae9b8745d172023044_95892_480x0_resize_box_3.png 480w, /p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/17_hu07aeb82a2bb161ae9b8745d172023044_95892_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="446px"
+	
+></p>
+<ol>
+<li>Coupling Capacitor</li>
+</ol>
+<ul>
+<li><strong>通交流,阻直流</strong></li>
+</ul>
+<ol start="2">
+<li>Bypass Capacitor</li>
+</ol>
+<ul>
+<li>减少<strong>噪声</strong></li>
+</ul>
 
 </section>
 
