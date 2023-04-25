@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='有MOSFET的放大器 图示 压控电流源(VCCS) $$ V_{DS} = V_{DD} - i_DR_D $$
+电压转换特性 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \end{aligned} \\\ \\ V_t \lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} \lt V_{DS} \\\ \\ \begin{aligned} At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ From(1): V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
+偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
+<title>7.晶体管放大器</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='7.晶体管放大器'>
+<meta property='og:description' content='有MOSFET的放大器 图示 压控电流源(VCCS) $$ V_{DS} = V_{DD} - i_DR_D $$
+电压转换特性 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \end{aligned} \\\ \\ V_t \lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} \lt V_{DS} \\\ \\ \begin{aligned} At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ From(1): V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
+偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-10T11:45:36&#43;08:00'/><meta property='article:modified_time' content='2023-04-10T11:45:36&#43;08:00'/>
+<meta name="twitter:title" content="7.晶体管放大器">
+<meta name="twitter:description" content="有MOSFET的放大器 图示 压控电流源(VCCS) $$ V_{DS} = V_{DD} - i_DR_D $$
+电压转换特性 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \end{aligned} \\\ \\ V_t \lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} \lt V_{DS} \\\ \\ \begin{aligned} At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ From(1): V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
+偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#有mosfet的放大器">有MOSFET的放大器</a>
+      <ol>
+        <li><a href="#图示">图示</a></li>
+        <li><a href="#电压转换特性">电压转换特性</a></li>
+        <li><a href="#偏压获得线性放大">偏压获得线性放大</a>
+          <ol>
+            <li><a href="#图示-1">图示</a></li>
+          </ol>
+        </li>
+        <li><a href="#小信号电压增益">小信号电压增益</a>
+          <ol>
+            <li><a href="#电流">电流</a></li>
+            <li><a href="#电导">电导</a></li>
+            <li><a href="#增益">增益</a></li>
+          </ol>
+        </li>
+        <li><a href="#通过图像分析确定vtc">通过图像分析确定VTC</a>
+          <ol>
+            <li><a href="#图像">图像</a></li>
+            <li><a href="#q-on-ivc-v_gs-is-fixed">Q on IVC ($V_{GS}$ is fixed)?</a></li>
+          </ol>
+        </li>
+        <li><a href="#example">Example</a>
+          <ol>
+            <li><a href="#ex1">E.x.1</a></li>
+          </ol>
+        </li>
+        <li><a href="#model">Model</a>
+          <ol>
+            <li><a href="#t-equivalent-circuit-model">T Equivalent-Circuit Model</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#basic-mosfet-amplifier-configurations">Basic MOSFET Amplifier Configurations</a>
+      <ol>
+        <li><a href="#the-common-source-amplifier-with-a-source-resistance">The Common-Source Amplifier with a Source Resistance</a>
+          <ol>
+            <li><a href="#等效图示">等效图示</a></li>
+          </ol>
+        </li>
+        <li><a href="#the-common-gate-cg-amplifier">The Common-Gate (CG) Amplifier</a>
+          <ol>
+            <li><a href="#电路">电路</a></li>
+            <li><a href="#分析">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#the-common-drain-amplifier-source-follower">The Common-Drain Amplifier (Source Follower)</a>
+          <ol>
+            <li><a href="#电路-1">电路</a></li>
+            <li><a href="#分析-1">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#比较">比较</a></li>
+      </ol>
+    </li>
+    <li><a href="#biasing-by-fixing-v_gs">Biasing by Fixing $V_{GS}$</a>
+      <ol>
+        <li><a href="#原因">原因</a></li>
+        <li><a href="#degeneration-resistance">Degeneration Resistance</a>
+          <ol>
+            <li><a href="#电路-2">电路</a></li>
+            <li><a href="#分析-2">分析</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#discrete-circuit-mos-amplifiers">Discrete-Circuit MOS Amplifiers</a>
+      <ol>
+        <li><a href="#the-common-source-amplifier">The Common-Source Amplifier</a>
+          <ol>
+            <li><a href="#典型电路">典型电路</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%A8%A1%E7%94%B5/" style="background-color: #4169E1; color: #fff;">
+                模电
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/">7.晶体管放大器</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 10, 101010</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="有mosfet的放大器">有MOSFET的放大器</h1>
+<h2 id="图示">图示</h2>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/1.png"
+	width="356"
+	height="319"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/1_hu4b106f65e27412ad3a9058b73a22b643_30185_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/1_hu4b106f65e27412ad3a9058b73a22b643_30185_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="111"
+		data-flex-basis="267px"
+	
+></p>
+<ul>
+<li>压控电流源(VCCS)</li>
+</ul>
+<p>$$
+V_{DS} = V_{DD} - i_DR_D
+$$</p>
+<h2 id="电压转换特性">电压转换特性</h2>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/2.png"
+	width="639"
+	height="564"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/2_huc628eecac238f807656d141bfa47d925_49116_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/2_huc628eecac238f807656d141bfa47d925_49116_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="271px"
+	
+></p>
+<p>$$
+\begin{aligned}
+V_{DS} &amp;= V_{DD} - i_DR_D \\
+&amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1)
+\end{aligned} \\\
+\\ V_t \lt V_{GS} \lt V_{DS} + V_t \\
+V_{OV} \lt V_{DS} \\\
+\\ \begin{aligned}
+At \ B: V_{DS} &amp;= V_{GS} -V_T \\
+From(1): V_{GS}|<em>B &amp;= V_t + \frac{\sqrt{2k_n R_D V</em>{DD}+1}-1}{k_nR_D}
+\end{aligned}
+$$</p>
+<h2 id="偏压获得线性放大">偏压获得线性放大</h2>
+<h3 id="图示-1">图示</h3>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/3.png"
+	width="487"
+	height="618"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/3_hue3a72b3e597d2b3fc196ac9f4981c940_114948_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/3_hue3a72b3e597d2b3fc196ac9f4981c940_114948_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="78"
+		data-flex-basis="189px"
+	
+></p>
+<ul>
+<li>Q点: <strong>bias point/dc operating point/ quiescent point</strong></li>
+</ul>
+<h2 id="小信号电压增益">小信号电压增益</h2>
+<h3 id="电流">电流</h3>
+<p>$$
+\begin{aligned}
+i_D &amp;= I_D + i_d \\
+&amp;= \frac{K(V_{GS}+v_{GS}-V_T)^2}{2} \\
+&amp;= \frac{K(V_{GS}-V_T)^2}{2} + K(V_{GS}-V_T)v_{gs} + \frac{K}{2}v_{gs}^2 \\
+&amp;= dc +  linear \ Gain +  nonlinear \ distortion \\
+\frac{1}{2}kv_{gs}^2 &amp;\ll kv_{ov}v_{gs} \\
+v_{gs} &amp;\ll 2v_{ov}
+\end{aligned}  \\\
+\\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\
+\\ \begin{aligned}
+i_D &amp;= &amp;\frac{K(V_{GS}-V_T)^2}{2} + &amp;K(V_{GS}-V_T)v_{gs} \\
+i_D &amp;= &amp;I_D + &amp;i_d
+\end{aligned} \\\
+\\ i_d = KV_{OV}v_{gs}
+$$</p>
+<h3 id="电导">电导</h3>
+<p>$$
+\begin{aligned}
+g_m &amp;= \frac{\partial i_d}{\partial v_{GS}}\Big|<em>{v</em>{gs} = V_{GS}} \\
+&amp;= \frac{d[\frac{1}{2}k_n(V_{GS}-V_t)^2]}{dv_{GS}}\Big|<em>{v</em>{gs} = V_{GS}} \\
+&amp;= \pmb{k_nV_{OV}}
+\end{aligned} \\\
+\\ \because I_D = \frac{1}{2}k_nV_{OV}^2 \Longrightarrow V_{OV} = \frac{\sqrt{2I_D}}{\sqrt{k_n}} \\\
+\\ \therefore g_n = \pmb{\sqrt{2k_nI_D}}  = \pmb{\frac{2I_D}{V_{OV}}}
+$$</p>
+<h3 id="增益">增益</h3>
+<p>$$
+\begin{aligned}
+V_{DS} &amp;= V_{DD} - i_DR_D \\
+&amp;= V_{DD} - (I_D + i_d)R_D \\
+&amp;= V_{DD} - I_DR_D -i_dR_D
+\end{aligned} \\\
+\\ v_o = -i_dR_D = -g_mV_{OV}R_D \\\
+\\ A_v = \frac{v_o}{v_i} = \frac{v_{ds}}{v_{gs}} = -g_mR_D  = -KV_{OV}R_D \\\
+\\ I_D = \frac{1}{2}KV_{OV}^2 \Longrightarrow K = \frac{2I_D}{V_{OV}^2} \\\
+\\ \therefore \pmb{A_v = -\frac{I_D R_D}{V_{OV}/2} = -k_nV_{OV}R_D = -g_m R_D} \\\
+\\ (具体的增益要视具体情况而言)
+$$</p>
+<h2 id="通过图像分析确定vtc">通过图像分析确定VTC</h2>
+<h3 id="图像">图像</h3>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/4.png"
+	width="624"
+	height="562"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/4_hu427f570c03593071af58bc14676ae97a_63396_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/4_hu427f570c03593071af58bc14676ae97a_63396_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="111"
+		data-flex-basis="266px"
+	
+></p>
+<h3 id="q-on-ivc-v_gs-is-fixed">Q on IVC ($V_{GS}$ is fixed)?</h3>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/5.png"
+	width="567"
+	height="606"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/5_hu801dea193b79025f54624d31cc9b8d44_35934_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/5_hu801dea193b79025f54624d31cc9b8d44_35934_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="93"
+		data-flex-basis="224px"
+	
+></p>
+<ul>
+<li>
+<p>Point $Q_1$ is too close to $V_{DD}$, resulting in the positive peaks of the signal being clipped off which is called <strong>the circuit does not have sufficient &ldquo;headroom&rdquo;</strong></p>
+</li>
+<li>
+<p>Point $Q_2$ is too close to the boundary of the triode region, thus severely limiting the allowable negative signal swing of vds, resulting in a distorted output signal. In this situation <strong>the circuit does not have sufficient &ldquo;legroom.&rdquo;</strong></p>
+</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="ex1">E.x.1</h3>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6.png"
+	width="655"
+	height="497"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6_hufa7aed3f50723fa7ef9ad254a57d67ff_101142_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/6_hufa7aed3f50723fa7ef9ad254a57d67ff_101142_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="131"
+		data-flex-basis="316px"
+	
+></p>
+<ol>
+<li>题目</li>
+</ol>
+<p>$$
+(1)V_t = 1.5V, k’n(W/L) = 0.25mA/V^2 \\\
+\\ (2)V_A = 50V (晶体管的最大反向漏极电压)
+$$</p>
+<ol start="2">
+<li>问题</li>
+</ol>
+<ul>
+<li>
+<p><strong>small-signal voltage gain</strong></p>
+</li>
+<li>
+<p><strong>input resistance, the largest allowable input signal</strong></p>
+</li>
+</ul>
+<ol start="3">
+<li>解答</li>
+</ol>
+<ul>
+<li>分析电路</li>
+</ul>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7.png"
+	width="908"
+	height="474"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7_hub9662af9ed5c368049ba91da2e3bc9eb_122814_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/7_hub9662af9ed5c368049ba91da2e3bc9eb_122814_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="459px"
+	
+></p>
+<p>$$
+DC不流过R_G \Longrightarrow V_{GS} = V_{DS} = V_{DD} - I_DR_D\\\
+\\ I_D = \frac{1}{2} k_nV_{OV}^2 \\\
+\\ \therefore I_D = 1.06(mA) , V_{GS} = V_{DS} = 4.4(V), V_{OV}= V_{GS} - V_t =2.9(V) \\\
+\\ g_m = k_nV_{OV}  =0.725(mA/V)
+$$</p>
+<ul>
+<li>继续转换电路</li>
+</ul>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8.png"
+	width="570"
+	height="223"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8_hu946af9961b7d4e7eeeb8fa218873cf48_56733_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/8_hu946af9961b7d4e7eeeb8fa218873cf48_56733_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="255"
+		data-flex-basis="613px"
+	
+></p>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9.png"
+	width="742"
+	height="646"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9_hu906b3eee37f9154ea5fcae0632fcb5f7_122625_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/9_hu906b3eee37f9154ea5fcae0632fcb5f7_122625_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="275px"
+	
+></p>
+<p>$$
+r_0 =\frac{V_A}{I_D} = 47(k\Omega) \\\
+\\ R&rsquo;<em>L = R_L || R_D || r_0 = 4.52(k\Omega) \\\
+\\ i_i = \frac{v</em>{gs}-v_o}{R_G} \\\
+\\ v_o = (i_i - g_mv_{gs}) R_L&rsquo; \\\
+\\ (2) A_v = -g_m R_L&rsquo; \frac{1-(1/g_mR_G)}{1 + (R_L&rsquo; /R_G)} = -3.3(V/V) \\\
+\\ V_{DS} \ge V_{OV} \\\
+\\ V_{DS min} = V_{GS max} -V_t \\\
+\\ V_{DS} - |A_v| v_{ip}  = V_{GS} + V_{ip} -V_t \\\
+\\ \because V_{GS } = V_{DS} \\\
+\\ V_{iP max} = \frac{V_t}{|A_v| + 1}
+$$</p>
+<h2 id="model">Model</h2>
+<h3 id="t-equivalent-circuit-model">T Equivalent-Circuit Model</h3>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10.png"
+	width="280"
+	height="404"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="69"
+		data-flex-basis="166px"
+	
+></p>
+<h1 id="basic-mosfet-amplifier-configurations">Basic MOSFET Amplifier Configurations</h1>
+<h2 id="the-common-source-amplifier-with-a-source-resistance">The Common-Source Amplifier with a Source Resistance</h2>
+<h3 id="等效图示">等效图示</h3>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/11.png"
+	width="791"
+	height="614"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/11_huca5997d83d8a7dd7ed5d4b4571c3dab5_70671_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/11_huca5997d83d8a7dd7ed5d4b4571c3dab5_70671_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="309px"
+	
+></p>
+<p>$$
+R_{in} = \infin \\\
+\\ R_{out} = R_D
+$$</p>
+<h2 id="the-common-gate-cg-amplifier">The Common-Gate (CG) Amplifier</h2>
+<h3 id="电路">电路</h3>
+<ol>
+<li>原电路</li>
+</ol>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/12.png"
+	width="424"
+	height="344"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/12_hu528518c378669d8d23f79079383f552e_40978_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/12_hu528518c378669d8d23f79079383f552e_40978_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="123"
+		data-flex-basis="295px"
+	
+></p>
+<ol start="2">
+<li>变换后</li>
+</ol>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/13.png"
+	width="864"
+	height="307"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/13_hu5ad2ac27027ea0fa24f4192f371795af_59118_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/13_hu5ad2ac27027ea0fa24f4192f371795af_59118_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="281"
+		data-flex-basis="675px"
+	
+></p>
+<h3 id="分析">分析</h3>
+<p>$$
+R_{in} = \frac{1}{g_m} \\\
+\\ R_{out} = R_D  \\\
+\\ A_{vo} =  \frac{v_o}{v_{i}} = \frac{-iR_D}{-i\frac{1}{g_m}} = g_mR_D \\\
+\\ G_v = \frac{v_o}{v_{sig}} = \frac{-(R_L || R_D)}{-(R_{sig} + \frac{1}{g_m}i)}= \frac{g_m R_L || R_D}{1 + g_m R_{sig}}
+$$</p>
+<h2 id="the-common-drain-amplifier-source-follower">The Common-Drain Amplifier (Source Follower)</h2>
+<h3 id="电路-1">电路</h3>
+<ol>
+<li>原始</li>
+</ol>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/14.png"
+	width="449"
+	height="293"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/14_huff9318b8f4276b9aa979a2239c25c436_22145_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/14_huff9318b8f4276b9aa979a2239c25c436_22145_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="153"
+		data-flex-basis="367px"
+	
+></p>
+<ol start="2">
+<li>变换后</li>
+</ol>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/15.png"
+	width="540"
+	height="265"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/15_hu467b43c2029db8dce6dbf6892568b3b8_29865_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/15_hu467b43c2029db8dce6dbf6892568b3b8_29865_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="489px"
+	
+></p>
+<h3 id="分析-1">分析</h3>
+<p>$$
+R_{in} = \infin  \\\
+\\ V_o = g_m V_{gs}R_L  \\\
+\\ A_{v} = \frac{iR_L}{i(R_L + \frac{1}{g_m})} \approx 1 \\\
+\\ G_v = \frac{R_L}{R_L + \frac{1}{g_m}} \approx 1 \\\
+\\ R_{out} = \frac{1}{g_m}
+$$</p>
+<h2 id="比较">比较</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="biasing-by-fixing-v_gs">Biasing by Fixing $V_{GS}$</h1>
+<h2 id="原因">原因</h2>
+<p>$$
+I = \frac{1}{2}\mu_nC_{OX} \frac{W}{L} (V_{GS} - V_t)^2
+$$</p>
+<ol>
+<li>
+<p>$\mu_n$和$V_t$易受到<strong>温度</strong>影响</p>
+</li>
+<li>
+<p>$V_t,\frac{W}{L},C_{OX}$即使在<strong>相同尺寸和型号</strong>的设备中<strong>变化</strong>也很大</p>
+</li>
+</ol>
+<h2 id="degeneration-resistance">Degeneration Resistance</h2>
+<h3 id="电路-2">电路</h3>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/16.png"
+	width="264"
+	height="354"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/16_hu7d839c69a980584762634341720ffea0_10682_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/16_hu7d839c69a980584762634341720ffea0_10682_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="74"
+		data-flex-basis="178px"
+	
+></p>
+<h3 id="分析-2">分析</h3>
+<p>$$
+V_G = V_{GS} + I_DR_S (V_G \ is \ fixed)\\\
+\\ I_D \uparrow \longrightarrow V_{GS} \downarrow \longrightarrow I_D \downarrow
+$$</p>
+<h1 id="discrete-circuit-mos-amplifiers">Discrete-Circuit MOS Amplifiers</h1>
+<h2 id="the-common-source-amplifier">The Common-Source Amplifier</h2>
+<h3 id="典型电路">典型电路</h3>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/17.png"
+	width="1121"
+	height="602"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/17_hu07aeb82a2bb161ae9b8745d172023044_95892_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/17_hu07aeb82a2bb161ae9b8745d172023044_95892_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="446px"
+	
+></p>
+<ol>
+<li>Coupling Capacitor</li>
+</ol>
+<ul>
+<li><strong>通交流,阻直流</strong></li>
+</ul>
+<ol start="2">
+<li>Bypass Capacitor</li>
+</ol>
+<ul>
+<li>减少<strong>噪声</strong></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/appendix3-single-stage-amplifier/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Appendix3 Single Stage Amplifier</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AE%9E%E9%AA%8C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">实验</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/5.mosfet/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5.MOSFET</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">4.二极管</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3.半导体</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

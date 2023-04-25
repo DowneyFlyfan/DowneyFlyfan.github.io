@@ -2,20 +2,20 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Basic Concepts I/O $$ y(t) = \alpha_1 x(t) &#43; \alpha_0 $$
-模电设计影响因素 CS Stage CS Stage with Resistive Load 图示 分析 $$ V_{out} = \begin{cases} 0 &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t) &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \end{cases} $$'>
+模电设计影响因素 CS Stage CS Stage with Resistive Load 图示 分析 $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} 0 &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ &amp;amp;( R_{on} = \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out}) \end{aligned} \\\ \\ \begin{aligned} A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}} \\ &amp;amp;= -g_m R_D \\ &amp;amp;= -\sqrt{2k_nI_D} \frac{V_{RD}}{I_D} \end{aligned} $$'>
 <title>Appendix3 Single Stage Amplifier</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/appendix3-single-stage-amplifier/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Appendix3 Single Stage Amplifier'>
 <meta property='og:description' content='Basic Concepts I/O $$ y(t) = \alpha_1 x(t) &#43; \alpha_0 $$
-模电设计影响因素 CS Stage CS Stage with Resistive Load 图示 分析 $$ V_{out} = \begin{cases} 0 &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t) &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \end{cases} $$'>
+模电设计影响因素 CS Stage CS Stage with Resistive Load 图示 分析 $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} 0 &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ &amp;amp;( R_{on} = \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out}) \end{aligned} \\\ \\ \begin{aligned} A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}} \\ &amp;amp;= -g_m R_D \\ &amp;amp;= -\sqrt{2k_nI_D} \frac{V_{RD}}{I_D} \end{aligned} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/appendix3-single-stage-amplifier/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-25T09:32:13&#43;08:00'/><meta property='article:modified_time' content='2023-04-25T09:32:13&#43;08:00'/>
 <meta name="twitter:title" content="Appendix3 Single Stage Amplifier">
 <meta name="twitter:description" content="Basic Concepts I/O $$ y(t) = \alpha_1 x(t) &#43; \alpha_0 $$
-模电设计影响因素 CS Stage CS Stage with Resistive Load 图示 分析 $$ V_{out} = \begin{cases} 0 &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t) &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \end{cases} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+模电设计影响因素 CS Stage CS Stage with Resistive Load 图示 分析 $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} 0 &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ &amp;amp;( R_{on} = \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out}) \end{aligned} \\\ \\ \begin{aligned} A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}} \\ &amp;amp;= -g_m R_D \\ &amp;amp;= -\sqrt{2k_nI_D} \frac{V_{RD}}{I_D} \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -383,11 +383,24 @@ $$</p>
 ></p>
 <h3 id="分析">分析</h3>
 <p>$$
-V_{out} = \begin{cases}
+V_{in} = V_{GS}, V_{out} = V_{DS} \\\
+\\ V_{out} = \begin{cases}
 0 &amp; V_{in} \lt V_t \\
-V_{DD} -\frac{1}{2}k_n (V_{in} - V_t) &amp; V_{in} \ge V_t \\
-V_{in} - V_t &amp; V_{in} - V_t = V_{out}
-\end{cases}
+V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 &amp; V_{in} \ge V_t \\
+V_{in} - V_t &amp; V_{in} - V_t = V_{out} \\
+V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp; Triode \ Region
+\end{cases} \\\
+\\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\
+\\ \begin{aligned}
+V_{out} &amp;= \frac{R_{on}}{R_{on} + R_D}V_{DD} \\
+&amp;= \frac{V_{DD}}{1 + k_n R_D(V_{in} -V_t)}  \\
+&amp;( R_{on} = \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out})
+\end{aligned} \\\
+\\ \begin{aligned}
+A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}}  \\
+&amp;= -g_m R_D  \\
+&amp;= -\sqrt{2k_nI_D} \frac{V_{RD}}{I_D}
+\end{aligned}
 $$</p>
 
 </section>
@@ -452,12 +465,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/">
+    <a href="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">晶体管放大器</h2>
+            <h2 class="article-title">7.晶体管放大器</h2>
         </div>
     </a>
 </article>
@@ -491,12 +504,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E4%BA%8C%E6%9E%81%E7%AE%A1/">
+    <a href="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">二极管</h2>
+            <h2 class="article-title">4.二极管</h2>
         </div>
     </a>
 </article>
@@ -504,12 +517,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E5%8D%8A%E5%AF%BC%E4%BD%93/">
+    <a href="/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">半导体</h2>
+            <h2 class="article-title">3.半导体</h2>
         </div>
     </a>
 </article>
