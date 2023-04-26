@@ -270,7 +270,8 @@
         </li>
         <li><a href="#cs-stage-with-diode-connected-load">CS Stage With Diode-Connected Load</a>
           <ol>
-            <li><a href="#图示-1">图示</a></li>
+            <li><a href="#电路图">电路图</a></li>
+            <li><a href="#测量电路">测量电路</a></li>
             <li><a href="#heading"></a></li>
           </ol>
         </li>
@@ -340,7 +341,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -421,7 +422,7 @@ A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
 &amp;= -g_m \frac{r_0R_D}{r_0 + R_D}
 \end{aligned}$$</p>
 <h2 id="cs-stage-with-diode-connected-load">CS Stage With Diode-Connected Load</h2>
-<h3 id="图示-1">图示</h3>
+<h3 id="电路图">电路图</h3>
 <p><img src="/p/appendix3-single-stage-amplifier/3.png"
 	width="809"
 	height="316"
@@ -434,6 +435,40 @@ A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
 		data-flex-basis="614px"
 	
 ></p>
+<p>$$
+V_1 = V_X \\\
+\\ I_X = \frac{V_X}{r_0} + g_mV_X
+$$</p>
+<h3 id="测量电路">测量电路</h3>
+<p><img src="/p/appendix3-single-stage-amplifier/4.png"
+	width="728"
+	height="380"
+	srcset="/p/appendix3-single-stage-amplifier/4_hua52906e99453c04e9c43624692dd2e23_14616_480x0_resize_box_3.png 480w, /p/appendix3-single-stage-amplifier/4_hua52906e99453c04e9c43624692dd2e23_14616_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="459px"
+	
+></p>
+<p>$$
+Impedence: (\frac{1}{g_m} || r_0) \approx \frac{1}{g_m} \\\
+\\ V_1 = -V_X, V_{bs} = -V_X \\\
+\\ \begin{aligned}
+I_X &amp;=\frac{V_X}{r_0} + (g_m + g_{mb})V_X \\
+\frac{V_X}{I_X} &amp;=  \frac{1}{g_m+g_{mb}+r_0^{-1}} \\
+&amp;= \frac{1}{g_m + g_{mb}} || r_0 \\
+&amp; \approx \frac{1}{g_m +g_{mb}} \\\
+\\ A_v &amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
+&amp;= -\frac{g_{m1}}{g_{m2}}\frac{1}{1 + \eta}  \\
+&amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta}(I_{D1} = I_{D2}) \\
+&amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta}
+\end{aligned}
+$$</p>
+<ul>
+<li><strong>输入和输出不影响增益</strong></li>
+</ul>
 <h3 id="heading"></h3>
 
 </section>
@@ -498,6 +533,19 @@ A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
             
                 
 <article class="">
+    <a href="/p/8.ic-amplifer/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">8.IC Amplifer</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/">
         
         
@@ -543,19 +591,6 @@ A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
 
         <div class="article-details">
             <h2 class="article-title">4.二极管</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">3.半导体</h2>
         </div>
     </a>
 </article>
