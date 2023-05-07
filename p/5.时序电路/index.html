@@ -5,7 +5,7 @@
 当S=1，R=0时，SR Latch进入置位状态，Q=1，Q&amp;rsquo;=0。
 当S=0，R=1时，SR Latch进入复位状态，Q=0，Q&amp;rsquo;=1。
 当S=0，R=0时，SR Latch处于禁止状态，输出不确定。
-常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule Clock Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变'>
+常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变'>
 <title>5.时序电路</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/'>
@@ -15,7 +15,7 @@
 当S=1，R=0时，SR Latch进入置位状态，Q=1，Q&amp;rsquo;=0。
 当S=0，R=1时，SR Latch进入复位状态，Q=0，Q&amp;rsquo;=1。
 当S=0，R=0时，SR Latch处于禁止状态，输出不确定。
-常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule Clock Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变'>
+常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变'>
 <meta property='og:url' content='https://downeyflyfan.com/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-04T10:06:42&#43;08:00'/><meta property='article:modified_time' content='2023-04-04T10:06:42&#43;08:00'/>
@@ -24,7 +24,7 @@
 当S=1，R=0时，SR Latch进入置位状态，Q=1，Q&amp;rsquo;=0。
 当S=0，R=1时，SR Latch进入复位状态，Q=0，Q&amp;rsquo;=1。
 当S=0，R=0时，SR Latch处于禁止状态，输出不确定。
-常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule Clock Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+常见SR Latch 串联与非门 电路 Trace 真值表 串联或非门 逻辑符号 Gated SR Latch 增加一个使能端 D SR Latch 输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -287,22 +287,15 @@
         </li>
       </ol>
     </li>
-    <li><a href="#clock">Clock</a>
-      <ol>
-        <li><a href="#clock-divider">Clock Divider</a></li>
-      </ol>
-    </li>
+    <li><a href="#clock-divider">Clock Divider</a></li>
     <li><a href="#d-flip-flop">D Flip-Flop</a>
       <ol>
         <li><a href="#定义">定义</a></li>
         <li><a href="#verilog-代码">Verilog 代码</a></li>
-        <li><a href="#逻辑符号与采样电路">逻辑符号与采样电路</a></li>
-        <li><a href="#用sr-latch-实现的电路">用SR-Latch 实现的电路</a></li>
-        <li><a href="#描述">描述</a>
-          <ol>
-            <li><a href="#状态图-方程-特征表">状态图 方程 特征表</a></li>
-          </ol>
-        </li>
+        <li><a href="#逻辑符号-采样电路-truth-table">逻辑符号 采样电路 Truth Table</a></li>
+        <li><a href="#用sr-latch-实现-d-flip-flop">用SR-Latch 实现 D Flip-Flop</a></li>
+        <li><a href="#描述---状态图-方程-特征表">描述 - 状态图 方程 特征表</a></li>
+        <li><a href="#master-slave-negative-edge-triggered-d-flip-flop">master-slave negative edge-triggered D flip-flop</a></li>
       </ol>
     </li>
     <li><a href="#register-file">Register File</a>
@@ -311,6 +304,12 @@
         <li><a href="#register-verilog">Register Verilog</a></li>
         <li><a href="#电路-1">电路</a></li>
         <li><a href="#register-file-verilog">Register File Verilog</a></li>
+        <li><a href="#4-bit-bidirectional-parallel-in-parallel-out-register">4-bit bidirectional, parallel-in, parallel-out Register</a>
+          <ol>
+            <li><a href="#74x194">74x194</a></li>
+            <li><a href="#function-table">Function table</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#内存">内存</a>
@@ -335,7 +334,43 @@
     </li>
     <li><a href="#counter">Counter</a>
       <ol>
-        <li><a href="#binary-up-counter">Binary Up Counter</a></li>
+        <li><a href="#4-bit-binary-up-counter">4-bit Binary Up Counter</a>
+          <ol>
+            <li><a href="#74x163">74x163</a></li>
+            <li><a href="#rco">RCO</a></li>
+          </ol>
+        </li>
+        <li><a href="#shift-register-counters">Shift-Register Counters</a>
+          <ol>
+            <li><a href="#定义-2">定义</a></li>
+          </ol>
+        </li>
+        <li><a href="#ring-counters">Ring Counters</a>
+          <ol>
+            <li><a href="#电路-2">电路</a></li>
+            <li><a href="#状态">状态</a></li>
+            <li><a href="#self-correcting">Self-Correcting</a></li>
+          </ol>
+        </li>
+        <li><a href="#johnson-counter-扭环计数器">Johnson Counter (扭环计数器)</a>
+          <ol>
+            <li><a href="#电路-3">电路</a></li>
+            <li><a href="#状态-1">状态</a></li>
+            <li><a href="#self-correcting-1">Self-Correcting</a></li>
+          </ol>
+        </li>
+        <li><a href="#linear-feedback-shift-register-counters-lfsr">Linear Feedback Shift Register Counters (LFSR)</a></li>
+      </ol>
+    </li>
+    <li><a href="#serial-signal-generator">Serial Signal Generator</a>
+      <ol>
+        <li><a href="#example---serial-signal-generator-110100">Example - Serial Signal Generator (110100)</a>
+          <ol>
+            <li><a href="#dff">Dff</a></li>
+            <li><a href="#163--151">163 &amp; 151</a></li>
+            <li><a href="#shift-register-1">Shift Register</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#timing-issues">Timing Issues</a></li>
@@ -403,7 +438,7 @@
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -613,8 +648,7 @@
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="clock">Clock</h1>
-<h2 id="clock-divider">Clock Divider</h2>
+</div><h1 id="clock-divider">Clock Divider</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -658,7 +692,7 @@
 </div><h1 id="d-flip-flop">D Flip-Flop</h1>
 <h2 id="定义">定义</h2>
 <blockquote>
-<p>当<strong>时钟输入端</strong>接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来i齐前保持不变</p>
+<p>当<strong>时钟输入端</strong>接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变</p>
 </blockquote>
 <h2 id="verilog-代码">Verilog 代码</h2>
 <div class="highlight"><div class="chroma">
@@ -689,8 +723,8 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">flipflop</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">D</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">flipflop</span><span class="p">(</span> <span class="c1">// 无Enable的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nv">input</span> <span class="nc">D</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nv">clock</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nv">reg</span> <span class="nc">Q</span>
 </span></span><span class="line"><span class="cl"><span class="p">);</span>
@@ -715,7 +749,7 @@
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="逻辑符号与采样电路">逻辑符号与采样电路</h2>
+</div><h2 id="逻辑符号-采样电路-truth-table">逻辑符号 采样电路 Truth Table</h2>
 <p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/10.png"
 	width="945"
 	height="429"
@@ -728,7 +762,19 @@
 		data-flex-basis="528px"
 	
 ></p>
-<h2 id="用sr-latch-实现的电路">用SR-Latch 实现的电路</h2>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/16.png"
+	width="424"
+	height="411"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/16_hu2d2217bb961f78ffa6a75f2dc476a429_22229_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/16_hu2d2217bb961f78ffa6a75f2dc476a429_22229_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="103"
+		data-flex-basis="247px"
+	
+></p>
+<h2 id="用sr-latch-实现-d-flip-flop">用SR-Latch 实现 D Flip-Flop</h2>
 <p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/11.png"
 	width="553"
 	height="448"
@@ -741,8 +787,7 @@
 		data-flex-basis="296px"
 	
 ></p>
-<h2 id="描述">描述</h2>
-<h3 id="状态图-方程-特征表">状态图 方程 特征表</h3>
+<h2 id="描述---状态图-方程-特征表">描述 - 状态图 方程 特征表</h2>
 <div class="mermaid">stateDiagram
 Q=0 --> Q=1: D=1
 Q=0 --> Q=0: D=0
@@ -771,6 +816,19 @@ $$</p>
 		class="gallery-image" 
 		data-flex-grow="125"
 		data-flex-basis="301px"
+	
+></p>
+<h2 id="master-slave-negative-edge-triggered-d-flip-flop">master-slave negative edge-triggered D flip-flop</h2>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/32.png"
+	width="335"
+	height="141"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/32_hu7f2d77f2ab1119e3364183ea0c875ce4_12004_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/32_hu7f2d77f2ab1119e3364183ea0c875ce4_12004_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="237"
+		data-flex-basis="570px"
 	
 ></p>
 <h1 id="register-file">Register File</h1>
@@ -950,7 +1008,34 @@ $$</p>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="内存">内存</h1>
+</div><h2 id="4-bit-bidirectional-parallel-in-parallel-out-register">4-bit bidirectional, parallel-in, parallel-out Register</h2>
+<h3 id="74x194">74x194</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/18.png"
+	width="342"
+	height="493"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/18_hu8033919032930bf6ac4c184cce14b265_19430_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/18_hu8033919032930bf6ac4c184cce14b265_19430_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="69"
+		data-flex-basis="166px"
+	
+></p>
+<h3 id="function-table">Function table</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/19.png"
+	width="934"
+	height="409"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/19_hu2f816b2f8c74e4e0b14e46186f18c8ec_103447_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/19_hu2f816b2f8c74e4e0b14e46186f18c8ec_103447_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="228"
+		data-flex-basis="548px"
+	
+></p>
+<h1 id="内存">内存</h1>
 <h2 id="rom">ROM</h2>
 <h3 id="verilog">Verilog</h3>
 <div class="highlight"><div class="chroma">
@@ -1096,10 +1181,7 @@ $$</p>
 <li></li>
 </ol>
 <h1 id="counter">Counter</h1>
-<h2 id="binary-up-counter">Binary Up Counter</h2>
-<ul>
-<li>四位二进制计数器代码</li>
-</ul>
+<h2 id="4-bit-binary-up-counter">4-bit Binary Up Counter</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1144,7 +1226,199 @@ $$</p>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="timing-issues">Timing Issues</h1>
+</div><h3 id="74x163">74x163</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/17.png"
+	width="415"
+	height="267"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/17_hu1df0890a4c42085fef5311e9ce072fb5_22963_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/17_hu1df0890a4c42085fef5311e9ce072fb5_22963_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="373px"
+	
+></p>
+<h3 id="rco">RCO</h3>
+<ul>
+<li><strong>复位同步输出引脚</strong>。当计数器达到最大计数值时，RCO引脚会输出一个脉冲信号，用于将其他电路中的计数器复位或同步。用于同步多个计数器的计数。</li>
+</ul>
+<h2 id="shift-register-counters">Shift-Register Counters</h2>
+<h3 id="定义-2">定义</h3>
+<blockquote>
+<p>将一个二进制数字序列存储在移位寄存器中，然后通过移位操作将其向左或向右移动，从而实现计数。当移位寄存器中的数字序列达到最大值时，计数器会重新开始计数。可以使用单个移位寄存器或多个级联的移位寄存器来实现不同的计数分辨率。</p>
+</blockquote>
+<h2 id="ring-counters">Ring Counters</h2>
+<h3 id="电路-2">电路</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/20.png"
+	width="925"
+	height="250"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/20_hu5cca551220113b3a9d62f8692231fa8a_16854_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/20_hu5cca551220113b3a9d62f8692231fa8a_16854_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="370"
+		data-flex-basis="888px"
+	
+></p>
+<h3 id="状态">状态</h3>
+<ol>
+<li>主状态(有效状态)</li>
+</ol>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/21.png"
+	width="236"
+	height="212"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/21_hu318aa5e1114af2a9eefe4017f65a7c74_35058_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/21_hu318aa5e1114af2a9eefe4017f65a7c74_35058_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="111"
+		data-flex-basis="267px"
+	
+></p>
+<ol start="2">
+<li>无效状态</li>
+</ol>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/22.png"
+	width="693"
+	height="207"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/22_huaa740a2654a4347be91204b92bb9a7a1_118600_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/22_huaa740a2654a4347be91204b92bb9a7a1_118600_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="334"
+		data-flex-basis="803px"
+	
+></p>
+<h3 id="self-correcting">Self-Correcting</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/23.png"
+	width="831"
+	height="269"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/23_hu6384e92e270319bbbd758d4a54ddd159_14302_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/23_hu6384e92e270319bbbd758d4a54ddd159_14302_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="308"
+		data-flex-basis="741px"
+	
+></p>
+<h2 id="johnson-counter-扭环计数器">Johnson Counter (扭环计数器)</h2>
+<h3 id="电路-3">电路</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/24.png"
+	width="897"
+	height="227"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/24_hu55a61031e997e2ec5e78ae5dfec3e530_11658_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/24_hu55a61031e997e2ec5e78ae5dfec3e530_11658_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="395"
+		data-flex-basis="948px"
+	
+></p>
+<h3 id="状态-1">状态</h3>
+<ol>
+<li>有效状态</li>
+</ol>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/25.png"
+	width="551"
+	height="204"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/25_huc28fc1f6acfb0c015022e7ee29e2c1da_14212_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/25_huc28fc1f6acfb0c015022e7ee29e2c1da_14212_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="270"
+		data-flex-basis="648px"
+	
+></p>
+<ol start="2">
+<li>无效状态</li>
+</ol>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/26.png"
+	width="310"
+	height="314"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/26_hu7dd537475ac0c96e9a73a459474babd2_82840_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/26_hu7dd537475ac0c96e9a73a459474babd2_82840_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="98"
+		data-flex-basis="236px"
+	
+></p>
+<h3 id="self-correcting-1">Self-Correcting</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/27.png"
+	width="474"
+	height="313"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/27_hudc13a4fffdbbaee36ce82320eab46167_38208_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/27_hudc13a4fffdbbaee36ce82320eab46167_38208_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="363px"
+	
+></p>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/28.png"
+	width="355"
+	height="327"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/28_huc121a326fdfb3453ff9e7f617a8e2fbc_18431_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/28_huc121a326fdfb3453ff9e7f617a8e2fbc_18431_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="108"
+		data-flex-basis="260px"
+	
+></p>
+<h2 id="linear-feedback-shift-register-counters-lfsr">Linear Feedback Shift Register Counters (LFSR)</h2>
+<h1 id="serial-signal-generator">Serial Signal Generator</h1>
+<h2 id="example---serial-signal-generator-110100">Example - Serial Signal Generator (110100)</h2>
+<h3 id="dff">Dff</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/29.png"
+	width="304"
+	height="203"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/29_hufeb5ba9bd2414501194d09c4aa050701_17914_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/29_hufeb5ba9bd2414501194d09c4aa050701_17914_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="149"
+		data-flex-basis="359px"
+	
+></p>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/30.png"
+	width="389"
+	height="295"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/30_hu1d5a37df16edb73f0e06bdfd753897cd_18258_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/30_hu1d5a37df16edb73f0e06bdfd753897cd_18258_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="131"
+		data-flex-basis="316px"
+	
+></p>
+<h3 id="163--151">163 &amp; 151</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/31.png"
+	width="799"
+	height="487"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/31_hu707fec6b99c87fd8de47b815a6dafab2_34737_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/31_hu707fec6b99c87fd8de47b815a6dafab2_34737_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="164"
+		data-flex-basis="393px"
+	
+></p>
+<h3 id="shift-register-1">Shift Register</h3>
+<h1 id="timing-issues">Timing Issues</h1>
 <ul>
 <li>时钟偏移、信号延迟、时序失配、时序噪声等</li>
 </ul>

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Finite-State Machine Models 作用 描述有限数量状态的系统/过程 FSM StateDiagram 特点 输出仅取决于当前状态 常见FSM Analysis Next-State Table Next-State Equation 描述Next-State的布尔方程 Verilog Code 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 module Moore_FSM( input [1:0] f,at; input Clock,Reset; output [1:0] go; output [2:1] led; output [1:0] debug_state ); reg [1:0] state; parameter s00 = 2&amp;#39;b00,2&amp;#39;b01,2&amp;#39;b10,2&amp;#39;b11; assign state =debug_state; // next-state logic always @ (posedge Clock or posedge Reset) begin if (Reset) state &amp;lt;= s00; else case (state) s00: begin // floor 1 if (f == 2&amp;#39;b10) state &amp;lt;= s11; else state &amp;lt;= s00; end s01: begin if (at[1]) state &amp;lt;= s00; else state &amp;lt;= s01; end s10: begin // floor 2 if (f == 2&amp;#39;b01) state &amp;lt;= s01; else state &amp;lt;= s10; end s11: begin if (at[2]) state &amp;lt;= s10; else state &amp;lt;= s11; end endcase end // output logic - depends only on the state always @ (state) begin case (state) s00: begin // floor 1 led = 2&amp;#39;b01; go = 2&amp;#39;b00; end s01: begin led = 2&amp;#39;b00; go = 2&amp;#39;b10; end s10: begin // floor 2 led = 2&amp;#39;b10; go = 2&amp;#39;b00; end s11: begin led = 2&amp;#39;b00; go = 2&amp;#39;b11; end endcase end endmodule 附录 同步复位与异步复位 同步复位在时钟上升沿复位;异步复位可以在任何时刻复位'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Finite-State Machine Models 作用 描述有限数量状态的系统/过程 FSM StateDiagram 特点 输出仅取决于当前状态 常见FSM State Diagram 比较 比较 Moore Mealy 输出 仅与当前状态有关 与当前状态和输入信号有关 Analysis Next-State Table Next-State Equation D-Flip-Flop 图示 方程 $$ \begin{aligned} D_1 &amp;amp;= Q_1&amp;rsquo;Q_0 \\ D_0 &amp;amp;= Q_1&amp;rsquo;Q_0&amp;rsquo; &#43; CQ_1&amp;rsquo; \\ Q_{next} &amp;amp;= D \\ Q_{1next} &amp;amp;= D_1 = Q_1&amp;rsquo;Q_0 \\ Q_{2next} &amp;amp;= D_0 = Q_1&amp;rsquo;Q_0&amp;rsquo; &#43; CQ_1&#39; \end{aligned} $$
+Verilog Code 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 module Moore_FSM( input [1:0] f,at; input Clock,Reset; output [1:0] go; output [2:1] led; output [1:0] debug_state ); reg [1:0] state; parameter s00 = 2&amp;#39;b00,2&amp;#39;b01,2&amp;#39;b10,2&amp;#39;b11; assign state =debug_state; // next-state logic always @ (posedge Clock or posedge Reset) begin if (Reset) state &amp;lt;= s00; else case (state) s00: begin // floor 1 if (f == 2&amp;#39;b10) state &amp;lt;= s11; else state &amp;lt;= s00; end s01: begin if (at[1]) state &amp;lt;= s00; else state &amp;lt;= s01; end s10: begin // floor 2 if (f == 2&amp;#39;b01) state &amp;lt;= s01; else state &amp;lt;= s10; end s11: begin if (at[2]) state &amp;lt;= s10; else state &amp;lt;= s11; end endcase end // output logic - depends only on the state always @ (state) begin case (state) s00: begin // floor 1 led = 2&amp;#39;b01; go = 2&amp;#39;b00; end s01: begin led = 2&amp;#39;b00; go = 2&amp;#39;b10; end s10: begin // floor 2 led = 2&amp;#39;b10; go = 2&amp;#39;b00; end s11: begin led = 2&amp;#39;b00; go = 2&amp;#39;b11; end endcase end endmodule Design 101 序列检测 (不允许交叠) State Diagram Verilog 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 /* 状态转移图 0 1 S0 --&amp;gt; S0 S1 S1 --&amp;gt; S2 S1 S2 --&amp;gt; S0 S3 S3 --&amp;gt; S2 S1 */ module moore_101_sequence_detector( input clk, input reset, input data, output reg detected ); parameter S0 = 2&amp;#39;b00; // 状态0 parameter S1 = 2&amp;#39;b01; // 状态1 parameter S2 = 2&amp;#39;b10; // 状态2 parameter S3 = 2&amp;#39;b11; // 状态3 reg [1:0] state; // 状态寄存器 always @(posedge clk, posedge reset) begin if (reset) begin state &amp;lt;= S0; // 复位状态 detected &amp;lt;= 0; // 复位检测信号 end else begin case (state) S0: begin // 状态0 if (data) begin state &amp;lt;= S1; end else begin state &amp;lt;= S0; end end S1: begin // 状态1 if (data) begin state &amp;lt;= S1; end else begin state &amp;lt;= S2; end end S2: begin // 状态2 if (data) begin state &amp;lt;= S3; end else begin state &amp;lt;= S0; end end S3: begin // 状态3 if (data) begin state &amp;lt;= S1; detected &amp;lt;= 1; //检测到101 end else begin state &amp;lt;= S2; end end endcase end endmodule 附录 同步复位与异步复位 同步复位在时钟上升沿复位;异步复位可以在任何时刻复位'>
 <title>6.有限状态机</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='6.有限状态机'>
-<meta property='og:description' content='Finite-State Machine Models 作用 描述有限数量状态的系统/过程 FSM StateDiagram 特点 输出仅取决于当前状态 常见FSM Analysis Next-State Table Next-State Equation 描述Next-State的布尔方程 Verilog Code 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 module Moore_FSM( input [1:0] f,at; input Clock,Reset; output [1:0] go; output [2:1] led; output [1:0] debug_state ); reg [1:0] state; parameter s00 = 2&amp;#39;b00,2&amp;#39;b01,2&amp;#39;b10,2&amp;#39;b11; assign state =debug_state; // next-state logic always @ (posedge Clock or posedge Reset) begin if (Reset) state &amp;lt;= s00; else case (state) s00: begin // floor 1 if (f == 2&amp;#39;b10) state &amp;lt;= s11; else state &amp;lt;= s00; end s01: begin if (at[1]) state &amp;lt;= s00; else state &amp;lt;= s01; end s10: begin // floor 2 if (f == 2&amp;#39;b01) state &amp;lt;= s01; else state &amp;lt;= s10; end s11: begin if (at[2]) state &amp;lt;= s10; else state &amp;lt;= s11; end endcase end // output logic - depends only on the state always @ (state) begin case (state) s00: begin // floor 1 led = 2&amp;#39;b01; go = 2&amp;#39;b00; end s01: begin led = 2&amp;#39;b00; go = 2&amp;#39;b10; end s10: begin // floor 2 led = 2&amp;#39;b10; go = 2&amp;#39;b00; end s11: begin led = 2&amp;#39;b00; go = 2&amp;#39;b11; end endcase end endmodule 附录 同步复位与异步复位 同步复位在时钟上升沿复位;异步复位可以在任何时刻复位'>
+<meta property='og:description' content='Finite-State Machine Models 作用 描述有限数量状态的系统/过程 FSM StateDiagram 特点 输出仅取决于当前状态 常见FSM State Diagram 比较 比较 Moore Mealy 输出 仅与当前状态有关 与当前状态和输入信号有关 Analysis Next-State Table Next-State Equation D-Flip-Flop 图示 方程 $$ \begin{aligned} D_1 &amp;amp;= Q_1&amp;rsquo;Q_0 \\ D_0 &amp;amp;= Q_1&amp;rsquo;Q_0&amp;rsquo; &#43; CQ_1&amp;rsquo; \\ Q_{next} &amp;amp;= D \\ Q_{1next} &amp;amp;= D_1 = Q_1&amp;rsquo;Q_0 \\ Q_{2next} &amp;amp;= D_0 = Q_1&amp;rsquo;Q_0&amp;rsquo; &#43; CQ_1&#39; \end{aligned} $$
+Verilog Code 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 module Moore_FSM( input [1:0] f,at; input Clock,Reset; output [1:0] go; output [2:1] led; output [1:0] debug_state ); reg [1:0] state; parameter s00 = 2&amp;#39;b00,2&amp;#39;b01,2&amp;#39;b10,2&amp;#39;b11; assign state =debug_state; // next-state logic always @ (posedge Clock or posedge Reset) begin if (Reset) state &amp;lt;= s00; else case (state) s00: begin // floor 1 if (f == 2&amp;#39;b10) state &amp;lt;= s11; else state &amp;lt;= s00; end s01: begin if (at[1]) state &amp;lt;= s00; else state &amp;lt;= s01; end s10: begin // floor 2 if (f == 2&amp;#39;b01) state &amp;lt;= s01; else state &amp;lt;= s10; end s11: begin if (at[2]) state &amp;lt;= s10; else state &amp;lt;= s11; end endcase end // output logic - depends only on the state always @ (state) begin case (state) s00: begin // floor 1 led = 2&amp;#39;b01; go = 2&amp;#39;b00; end s01: begin led = 2&amp;#39;b00; go = 2&amp;#39;b10; end s10: begin // floor 2 led = 2&amp;#39;b10; go = 2&amp;#39;b00; end s11: begin led = 2&amp;#39;b00; go = 2&amp;#39;b11; end endcase end endmodule Design 101 序列检测 (不允许交叠) State Diagram Verilog 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 /* 状态转移图 0 1 S0 --&amp;gt; S0 S1 S1 --&amp;gt; S2 S1 S2 --&amp;gt; S0 S3 S3 --&amp;gt; S2 S1 */ module moore_101_sequence_detector( input clk, input reset, input data, output reg detected ); parameter S0 = 2&amp;#39;b00; // 状态0 parameter S1 = 2&amp;#39;b01; // 状态1 parameter S2 = 2&amp;#39;b10; // 状态2 parameter S3 = 2&amp;#39;b11; // 状态3 reg [1:0] state; // 状态寄存器 always @(posedge clk, posedge reset) begin if (reset) begin state &amp;lt;= S0; // 复位状态 detected &amp;lt;= 0; // 复位检测信号 end else begin case (state) S0: begin // 状态0 if (data) begin state &amp;lt;= S1; end else begin state &amp;lt;= S0; end end S1: begin // 状态1 if (data) begin state &amp;lt;= S1; end else begin state &amp;lt;= S2; end end S2: begin // 状态2 if (data) begin state &amp;lt;= S3; end else begin state &amp;lt;= S0; end end S3: begin // 状态3 if (data) begin state &amp;lt;= S1; detected &amp;lt;= 1; //检测到101 end else begin state &amp;lt;= S2; end end endcase end endmodule 附录 同步复位与异步复位 同步复位在时钟上升沿复位;异步复位可以在任何时刻复位'>
 <meta property='og:url' content='https://downeyflyfan.com/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-11T10:29:23&#43;08:00'/><meta property='article:modified_time' content='2023-04-11T10:29:23&#43;08:00'/>
 <meta name="twitter:title" content="6.有限状态机">
-<meta name="twitter:description" content="Finite-State Machine Models 作用 描述有限数量状态的系统/过程 FSM StateDiagram 特点 输出仅取决于当前状态 常见FSM Analysis Next-State Table Next-State Equation 描述Next-State的布尔方程 Verilog Code 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 module Moore_FSM( input [1:0] f,at; input Clock,Reset; output [1:0] go; output [2:1] led; output [1:0] debug_state ); reg [1:0] state; parameter s00 = 2&amp;#39;b00,2&amp;#39;b01,2&amp;#39;b10,2&amp;#39;b11; assign state =debug_state; // next-state logic always @ (posedge Clock or posedge Reset) begin if (Reset) state &amp;lt;= s00; else case (state) s00: begin // floor 1 if (f == 2&amp;#39;b10) state &amp;lt;= s11; else state &amp;lt;= s00; end s01: begin if (at[1]) state &amp;lt;= s00; else state &amp;lt;= s01; end s10: begin // floor 2 if (f == 2&amp;#39;b01) state &amp;lt;= s01; else state &amp;lt;= s10; end s11: begin if (at[2]) state &amp;lt;= s10; else state &amp;lt;= s11; end endcase end // output logic - depends only on the state always @ (state) begin case (state) s00: begin // floor 1 led = 2&amp;#39;b01; go = 2&amp;#39;b00; end s01: begin led = 2&amp;#39;b00; go = 2&amp;#39;b10; end s10: begin // floor 2 led = 2&amp;#39;b10; go = 2&amp;#39;b00; end s11: begin led = 2&amp;#39;b00; go = 2&amp;#39;b11; end endcase end endmodule 附录 同步复位与异步复位 同步复位在时钟上升沿复位;异步复位可以在任何时刻复位"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Finite-State Machine Models 作用 描述有限数量状态的系统/过程 FSM StateDiagram 特点 输出仅取决于当前状态 常见FSM State Diagram 比较 比较 Moore Mealy 输出 仅与当前状态有关 与当前状态和输入信号有关 Analysis Next-State Table Next-State Equation D-Flip-Flop 图示 方程 $$ \begin{aligned} D_1 &amp;amp;= Q_1&amp;rsquo;Q_0 \\ D_0 &amp;amp;= Q_1&amp;rsquo;Q_0&amp;rsquo; &#43; CQ_1&amp;rsquo; \\ Q_{next} &amp;amp;= D \\ Q_{1next} &amp;amp;= D_1 = Q_1&amp;rsquo;Q_0 \\ Q_{2next} &amp;amp;= D_0 = Q_1&amp;rsquo;Q_0&amp;rsquo; &#43; CQ_1&#39; \end{aligned} $$
+Verilog Code 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 module Moore_FSM( input [1:0] f,at; input Clock,Reset; output [1:0] go; output [2:1] led; output [1:0] debug_state ); reg [1:0] state; parameter s00 = 2&amp;#39;b00,2&amp;#39;b01,2&amp;#39;b10,2&amp;#39;b11; assign state =debug_state; // next-state logic always @ (posedge Clock or posedge Reset) begin if (Reset) state &amp;lt;= s00; else case (state) s00: begin // floor 1 if (f == 2&amp;#39;b10) state &amp;lt;= s11; else state &amp;lt;= s00; end s01: begin if (at[1]) state &amp;lt;= s00; else state &amp;lt;= s01; end s10: begin // floor 2 if (f == 2&amp;#39;b01) state &amp;lt;= s01; else state &amp;lt;= s10; end s11: begin if (at[2]) state &amp;lt;= s10; else state &amp;lt;= s11; end endcase end // output logic - depends only on the state always @ (state) begin case (state) s00: begin // floor 1 led = 2&amp;#39;b01; go = 2&amp;#39;b00; end s01: begin led = 2&amp;#39;b00; go = 2&amp;#39;b10; end s10: begin // floor 2 led = 2&amp;#39;b10; go = 2&amp;#39;b00; end s11: begin led = 2&amp;#39;b00; go = 2&amp;#39;b11; end endcase end endmodule Design 101 序列检测 (不允许交叠) State Diagram Verilog 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 /* 状态转移图 0 1 S0 --&amp;gt; S0 S1 S1 --&amp;gt; S2 S1 S2 --&amp;gt; S0 S3 S3 --&amp;gt; S2 S1 */ module moore_101_sequence_detector( input clk, input reset, input data, output reg detected ); parameter S0 = 2&amp;#39;b00; // 状态0 parameter S1 = 2&amp;#39;b01; // 状态1 parameter S2 = 2&amp;#39;b10; // 状态2 parameter S3 = 2&amp;#39;b11; // 状态3 reg [1:0] state; // 状态寄存器 always @(posedge clk, posedge reset) begin if (reset) begin state &amp;lt;= S0; // 复位状态 detected &amp;lt;= 0; // 复位检测信号 end else begin case (state) S0: begin // 状态0 if (data) begin state &amp;lt;= S1; end else begin state &amp;lt;= S0; end end S1: begin // 状态1 if (data) begin state &amp;lt;= S1; end else begin state &amp;lt;= S2; end end S2: begin // 状态2 if (data) begin state &amp;lt;= S3; end else begin state &amp;lt;= S0; end end S3: begin // 状态3 if (data) begin state &amp;lt;= S1; detected &amp;lt;= 1; //检测到101 end else begin state &amp;lt;= S2; end end endcase end endmodule 附录 同步复位与异步复位 同步复位在时钟上升沿复位;异步复位可以在任何时刻复位"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -264,14 +267,27 @@
     <li><a href="#analysis">Analysis</a>
       <ol>
         <li><a href="#next-state-table">Next-State Table</a></li>
-        <li><a href="#next-state-equation">Next-State Equation</a></li>
+        <li><a href="#next-state-equation">Next-State Equation</a>
+          <ol>
+            <li><a href="#d-flip-flop">D-Flip-Flop</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#verilog-code">Verilog Code</a></li>
+    <li><a href="#design">Design</a>
+      <ol>
+        <li><a href="#101-序列检测-不允许交叠">101 序列检测 (不允许交叠)</a>
+          <ol>
+            <li><a href="#state-diagram">State Diagram</a></li>
+            <li><a href="#verilog">Verilog</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
     <li><a href="#附录">附录</a>
       <ol>
         <li><a href="#同步复位与异步复位">同步复位与异步复位</a></li>
-        <li><a href="#next-state-logic">Next-state logic</a></li>
       </ol>
     </li>
   </ol>
@@ -338,7 +354,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -364,6 +380,9 @@
 <li>输出仅取决于<strong>当前状态</strong></li>
 </ul>
 <h3 id="常见fsm">常见FSM</h3>
+<ol>
+<li>State Diagram</li>
+</ol>
 <p><img src="/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/1.png"
 	width="855"
 	height="785"
@@ -376,6 +395,25 @@
 		data-flex-basis="261px"
 	
 ></p>
+<ol start="2">
+<li>比较</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">比较</th>
+<th style="text-align:center">Moore</th>
+<th style="text-align:center">Mealy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">输出</td>
+<td style="text-align:center">仅与<strong>当前状态</strong>有关</td>
+<td style="text-align:center">与<strong>当前状态</strong>和<strong>输入信号</strong>有关</td>
+</tr>
+</tbody>
+</table></div>
 <h1 id="analysis">Analysis</h1>
 <h2 id="next-state-table">Next-State Table</h2>
 <p><img src="/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/2.png"
@@ -391,9 +429,34 @@
 	
 ></p>
 <h2 id="next-state-equation">Next-State Equation</h2>
-<ul>
-<li>描述<strong>Next-State</strong>的布尔方程</li>
-</ul>
+<h3 id="d-flip-flop">D-Flip-Flop</h3>
+<ol>
+<li>图示</li>
+</ol>
+<p><img src="/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/3.png"
+	width="821"
+	height="545"
+	srcset="/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/3_huffbf520bb6660d532a94aaa79c1de725_32490_480x0_resize_box_3.png 480w, /p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/3_huffbf520bb6660d532a94aaa79c1de725_32490_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="150"
+		data-flex-basis="361px"
+	
+></p>
+<ol start="2">
+<li>方程</li>
+</ol>
+<p>$$
+\begin{aligned}
+D_1 &amp;= Q_1&rsquo;Q_0 \\
+D_0 &amp;= Q_1&rsquo;Q_0&rsquo; + CQ_1&rsquo; \\
+Q_{next} &amp;= D \\
+Q_{1next} &amp;= D_1 = Q_1&rsquo;Q_0 \\
+Q_{2next} &amp;= D_0 = Q_1&rsquo;Q_0&rsquo; + CQ_1'
+\end{aligned}
+$$</p>
 <h1 id="verilog-code">Verilog Code</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -543,14 +606,156 @@
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h1 id="design">Design</h1>
+<h2 id="101-序列检测-不允许交叠">101 序列检测 (不允许交叠)</h2>
+<h3 id="state-diagram">State Diagram</h3>
+<p><img src="/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/4.png"
+	width="356"
+	height="252"
+	srcset="/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/4_hu6ab76e5a7bec044bc674a4d141c39eaa_23840_480x0_resize_box_3.png 480w, /p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/4_hu6ab76e5a7bec044bc674a4d141c39eaa_23840_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="339px"
+	
+></p>
+<h3 id="verilog">Verilog</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="cm">/* 
+</span></span></span><span class="line"><span class="cl"><span class="cm">状态转移图
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">         0        1
+</span></span></span><span class="line"><span class="cl"><span class="cm">S0  --&gt;  S0      S1
+</span></span></span><span class="line"><span class="cl"><span class="cm">S1  --&gt;  S2      S1
+</span></span></span><span class="line"><span class="cl"><span class="cm">S2  --&gt;  S0      S3
+</span></span></span><span class="line"><span class="cl"><span class="cm">S3  --&gt;  S2      S1
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">moore_101_sequence_detector</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nv">clk</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nv">reset</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nv">data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">output</span> <span class="nv">reg</span> <span class="nv">detected</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">parameter</span> <span class="nc">S0</span> <span class="o">=</span> <span class="mi">2</span><span class="s1">&#39;b00; // 状态0
+</span></span></span><span class="line"><span class="cl"><span class="s1">parameter S1 = 2&#39;</span><span class="nv">b01</span><span class="p">;</span> <span class="c1">// 状态1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">parameter</span> <span class="nc">S2</span> <span class="o">=</span> <span class="mi">2</span><span class="s1">&#39;b10; // 状态2
+</span></span></span><span class="line"><span class="cl"><span class="s1">parameter S3 = 2&#39;</span><span class="nv">b11</span><span class="p">;</span> <span class="c1">// 状态3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">reg</span> <span class="p">[</span><span class="err">1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">state</span><span class="p">;</span> <span class="c1">// 状态寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">always</span> <span class="o">@</span><span class="p">(</span><span class="nv">posedge</span> <span class="nv">clk</span><span class="p">,</span> <span class="nv">posedge</span> <span class="nv">reset</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nv">reset</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">state</span> <span class="o">&lt;=</span> <span class="nc">S0</span><span class="p">;</span> <span class="c1">// 复位状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nv">detected</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 复位检测信号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">end</span> <span class="k">else</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">case</span> <span class="p">(</span><span class="nv">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nc">S0</span><span class="p">:</span> <span class="nv">begin</span> <span class="c1">// 状态0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="nv">data</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">state</span> <span class="o">&lt;=</span> <span class="nc">S1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">end</span> <span class="k">else</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">state</span> <span class="o">&lt;=</span> <span class="nc">S0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nc">S1</span><span class="p">:</span> <span class="nv">begin</span> <span class="c1">// 状态1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="nv">data</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">state</span> <span class="o">&lt;=</span> <span class="nc">S1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">end</span> <span class="k">else</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">state</span> <span class="o">&lt;=</span> <span class="nc">S2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nc">S2</span><span class="p">:</span> <span class="nv">begin</span> <span class="c1">// 状态2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="nv">data</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">state</span> <span class="o">&lt;=</span> <span class="nc">S3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">end</span> <span class="k">else</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">state</span> <span class="o">&lt;=</span> <span class="nc">S0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nc">S3</span><span class="p">:</span> <span class="nv">begin</span> <span class="c1">// 状态3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="nv">data</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">state</span> <span class="o">&lt;=</span> <span class="nc">S1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">detected</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//检测到101
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nv">end</span> <span class="k">else</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">state</span> <span class="o">&lt;=</span> <span class="nc">S2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">end</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">endcase</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h1 id="附录">附录</h1>
 <h2 id="同步复位与异步复位">同步复位与异步复位</h2>
 <blockquote>
 <p><strong>同步复位</strong>在<strong>时钟上升沿</strong>复位;<strong>异步复位</strong>可以在<strong>任何时刻</strong>复位</p>
-</blockquote>
-<h2 id="next-state-logic">Next-state logic</h2>
-<blockquote>
-<p>在一个时钟周期结束时，当前状态如何转换为下一个状态</p>
 </blockquote>
 
 </section>
