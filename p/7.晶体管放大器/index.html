@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='有MOSFET的放大器 图示 压控电流源(VCCS) $$ V_{DS} = V_{DD} - i_DR_D $$
 电压转换特性 图示 公式 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \\\ \\ V_t &amp;amp;\lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} &amp;amp;\lt V_{DS} \\\ \\ At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ From(1): V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
-偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
+偏压获得线性放大 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
 <title>7.晶体管放大器</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/'>
@@ -11,14 +11,14 @@
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='7.晶体管放大器'>
 <meta property='og:description' content='有MOSFET的放大器 图示 压控电流源(VCCS) $$ V_{DS} = V_{DD} - i_DR_D $$
 电压转换特性 图示 公式 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \\\ \\ V_t &amp;amp;\lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} &amp;amp;\lt V_{DS} \\\ \\ At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ From(1): V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
-偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
+偏压获得线性放大 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-10T11:45:36&#43;08:00'/><meta property='article:modified_time' content='2023-04-10T11:45:36&#43;08:00'/>
 <meta name="twitter:title" content="7.晶体管放大器">
 <meta name="twitter:description" content="有MOSFET的放大器 图示 压控电流源(VCCS) $$ V_{DS} = V_{DD} - i_DR_D $$
 电压转换特性 图示 公式 $$ \begin{aligned} V_{DS} &amp;amp;= V_{DD} - i_DR_D \\ &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{GS}-V_t)^2R_D(1) \\\ \\ V_t &amp;amp;\lt V_{GS} \lt V_{DS} &#43; V_t \\ V_{OV} &amp;amp;\lt V_{DS} \\\ \\ At \ B: V_{DS} &amp;amp;= V_{GS} -V_T \\ From(1): V_{GS}|B &amp;amp;= V_t &#43; \frac{\sqrt{2k_n R_D V{DD}&#43;1}-1}{k_nR_D} \end{aligned} $$
-偏压获得线性放大 图示 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+偏压获得线性放大 Q点: bias point/dc operating point/ quiescent point 小信号电压增益 电流 $$ \begin{aligned} i_D &amp;amp;= I_D &#43; i_d \\ &amp;amp;= \frac{K(V_{GS}&#43;v_{GS}-V_T)^2}{2} \\ &amp;amp;= \frac{K(V_{GS}-V_T)^2}{2} &#43; K(V_{GS}-V_T)v_{gs} &#43; \frac{K}{2}v_{gs}^2 \\ &amp;amp;= dc &#43; linear \ Gain &#43; nonlinear \ distortion \\ \frac{1}{2}kv_{gs}^2 &amp;amp;\ll kv_{ov}v_{gs} \\ v_{gs} &amp;amp;\ll 2v_{ov} \end{aligned} \\\ \\ 由于v_{gs}^2太小，直接\pmb{忽略第三项} \\\ \\ \begin{aligned} i_D &amp;amp;= &amp;amp;\frac{K(V_{GS}-V_T)^2}{2} &#43; &amp;amp;K(V_{GS}-V_T)v_{gs} \\ i_D &amp;amp;= &amp;amp;I_D &#43; &amp;amp;i_d \end{aligned} \\\ \\ i_d = KV_{OV}v_{gs} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -265,11 +265,7 @@
             <li><a href="#公式">公式</a></li>
           </ol>
         </li>
-        <li><a href="#偏压获得线性放大">偏压获得线性放大</a>
-          <ol>
-            <li><a href="#图示-2">图示</a></li>
-          </ol>
-        </li>
+        <li><a href="#偏压获得线性放大">偏压获得线性放大</a></li>
         <li><a href="#小信号电压增益">小信号电压增益</a>
           <ol>
             <li><a href="#电流">电流</a></li>
@@ -297,6 +293,8 @@
         <li><a href="#model">Model</a>
           <ol>
             <li><a href="#t-equivalent-circuit-model">T Equivalent-Circuit Model</a></li>
+            <li><a href="#hybrid-pi-model">Hybrid-$\pi$ Model</a></li>
+            <li><a href="#如何选择模型">如何选择模型</a></li>
           </ol>
         </li>
       </ol>
@@ -476,7 +474,6 @@ From(1): V_{GS}|<em>B &amp;= V_t + \frac{\sqrt{2k_n R_D V</em>{DD}+1}-1}{k_nR_D}
 \end{aligned}
 $$</p>
 <h2 id="偏压获得线性放大">偏压获得线性放大</h2>
-<h3 id="图示-2">图示</h3>
 <p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/3.png"
 	width="487"
 	height="618"
@@ -515,10 +512,10 @@ $$</p>
 \begin{aligned}
 g_m &amp;= \frac{\partial i_d}{\partial v_{GS}}\Big|<em>{v</em>{gs} = V_{GS}} \\
 &amp;= \frac{d[\frac{1}{2}k_n(V_{GS}-V_t)^2]}{dv_{GS}}\Big|<em>{v</em>{gs} = V_{GS}} \\
-&amp;= \pmb{k_nV_{OV}}
-\end{aligned} \\\
-\\ \because I_D = \frac{1}{2}k_nV_{OV}^2 \Longrightarrow V_{OV} = \frac{\sqrt{2I_D}}{\sqrt{k_n}} \\\
-\\ \therefore g_n = \sqrt{2k_nI_D}  = \frac{2I_D}{V_{OV}}
+&amp;= \pmb{k_nV_{OV}} \\
+\because I_D &amp;= \frac{1}{2}k_nV_{OV}^2 \Longrightarrow V_{OV} = \frac{\sqrt{2I_D}}{\sqrt{k_n}} \\
+\therefore g_n &amp;= \sqrt{2k_nI_D}  = \frac{2I_D}{V_{OV}}
+\end{aligned}
 $$</p>
 <h3 id="增益">增益</h3>
 <p>$$
@@ -662,18 +659,78 @@ r_o =\frac{V_A}{I_D} = 47(k\Omega) \\\
 $$</p>
 <h2 id="model">Model</h2>
 <h3 id="t-equivalent-circuit-model">T Equivalent-Circuit Model</h3>
-<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10.png"
-	width="280"
-	height="404"
-	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_1024x0_resize_box_3.png 1024w"
+<ol>
+<li>在电路中加入<strong>第二个MOSFET</strong> (不影响<strong>电路特性</strong>)</li>
+</ol>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/23.png"
+	width="916"
+	height="334"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/23_hu56b68842f5636684a0a3e1445244ab38_100767_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/23_hu56b68842f5636684a0a3e1445244ab38_100767_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="69"
-		data-flex-basis="166px"
+		data-flex-grow="274"
+		data-flex-basis="658px"
 	
 ></p>
+<ol start="2">
+<li>
+<p>连接$X$和$G$，根据$KCL$方程，没有电流流入G</p>
+</li>
+<li>
+<p>将<strong>原MOSFET</strong>等效为一个$\frac{1}{g_m}$的电阻</p>
+</li>
+</ol>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/24.png"
+	width="848"
+	height="449"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/24_hu9e3d433b6436517d2d59bcfd3e2f77d3_109578_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/24_hu9e3d433b6436517d2d59bcfd3e2f77d3_109578_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="453px"
+	
+></p>
+<ol start="4">
+<li>最终电路(加上内阻$r_0$)</li>
+</ol>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/21.png"
+	width="432"
+	height="368"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/21_hu0a6f19e228bf339557554236272fb6f9_18448_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/21_hu0a6f19e228bf339557554236272fb6f9_18448_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="281px"
+	
+></p>
+<h3 id="hybrid-pi-model">Hybrid-$\pi$ Model</h3>
+<p><img src="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/22.png"
+	width="434"
+	height="305"
+	srcset="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/22_hu401251f77c3c85caecddb124da380297_11584_480x0_resize_box_3.png 480w, /p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/22_hu401251f77c3c85caecddb124da380297_11584_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="142"
+		data-flex-basis="341px"
+	
+></p>
+<h3 id="如何选择模型">如何选择模型</h3>
+<ol>
+<li>
+<p><strong>Source</strong>端的<strong>电压</strong>是固定的 $\Longrightarrow \ \pi$ Model</p>
+</li>
+<li>
+<p><strong>Source</strong>端接<strong>电阻</strong>等 $\Longrightarrow$ T Model</p>
+</li>
+</ol>
 <h1 id="basic-mosfet-amplifier-configurations">Basic MOSFET Amplifier Configurations</h1>
 <h2 id="the-common-source-amplifier-with-a-source-resistance">The Common-Source Amplifier with a Source Resistance</h2>
 <h3 id="等效图示">等效图示</h3>

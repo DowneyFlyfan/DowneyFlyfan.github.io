@@ -134,7 +134,7 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;the-mos-differential-pair&#34;&gt;The MOS Differential Pair&lt;/h1&gt;
-&lt;h2 id=&#34;电路-2&#34;&gt;电路&lt;/h2&gt;
+&lt;h2 id=&#34;basic-configuration&#34;&gt;Basic Configuration&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/6.png&#34;
 	width=&#34;649&#34;
 	height=&#34;497&#34;
@@ -148,17 +148,17 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;common-mode-input-voltage&#34;&gt;Common-Mode Input Voltage&lt;/h2&gt;
-&lt;h3 id=&#34;电路-3&#34;&gt;电路&lt;/h3&gt;
+&lt;h3 id=&#34;电路-2&#34;&gt;电路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7.png&#34;
-	width=&#34;531&#34;
-	height=&#34;436&#34;
-	srcset=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7_hu825ecda79882b06636bc879255e8516b_30398_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7_hu825ecda79882b06636bc879255e8516b_30398_1024x0_resize_box_3.png 1024w&#34;
+	width=&#34;588&#34;
+	height=&#34;479&#34;
+	srcset=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7_hue1ad23cbfd0aee6d569bede6d852c4cc_37341_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7_hue1ad23cbfd0aee6d569bede6d852c4cc_37341_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;121&#34;
-		data-flex-basis=&#34;292px&#34;
+		data-flex-grow=&#34;122&#34;
+		data-flex-basis=&#34;294px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;分析-4&#34;&gt;分析&lt;/h3&gt;
@@ -166,19 +166,145 @@ $$&lt;/p&gt;
 \begin{aligned}
 V_{G1} &amp;amp;= V_{G2} = V_{CM} \\
 \frac{I}{2} &amp;amp;= \frac{1}{2} k_n V_{OV}^2 \\
-V_{OV} &amp;amp;= \sqrt{\frac{I}{k_n}} \\
+V_{OV} &amp;amp;= \sqrt{\frac{I}{k_n}} (不变) \\
 V_{D1} &amp;amp;= V_{D2} = V_{DD} -\frac{I}{2} R_D \\\
-\\ V_{DS} &amp;amp;\gt V_{GS} -V_t \\
-V_{D} &amp;amp;\gt V_G - V_t \\
-V_{DD} - \frac{I}{2}R_D &amp;amp;\gt V_G - V_t \\
-V_{CM} = V_{G} &amp;amp;\lt  V_{DD} -\frac{I}{2}R_D + V_t \\
-\therefore V_{CMmax} &amp;amp;= V_{DD} -\frac{I}{2}R_D + V_t
+\\ V_{DS} &amp;amp;\ge V_{GS} -V_t \\
+V_{D} &amp;amp;\ge V_G - V_t \\
+V_{DD} - \frac{I}{2}R_D &amp;amp;\ge V_G - V_t \\
+V_{CM} = V_{G} &amp;amp;\le  V_{DD} -\frac{I}{2}R_D + V_t \\
+\therefore V_{CMmax} &amp;amp;= V_{DD} -\frac{I}{2}R_D + V_t \\\
+\\ V_{GS} &amp;amp;= V_{OV} + V_t \\
+V_{CM} - V_S &amp;amp;= V_{OV} + V_t \\
+V_{CM} - (V_{CS} + (-V_{SS})) &amp;amp;= V_{OV} + V_t \\
+V_{CM} &amp;amp;= V_{CS} - V_{SS} + V_t + V_{OV} \\
+V_{CM min} &amp;amp;= V_{CS \ min} -V_{SS} + V_t +V_{OV}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;结论&#34;&gt;结论&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;The Differential Pair&lt;/strong&gt; Does not respond to &lt;strong&gt;Common Mode Input Signals&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Common-mode input voltage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Current I divides equally between two transistors&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The difference between two drains is zero&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;The differential pair rejects the common-mode input signals&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;differential-input-voltage&#34;&gt;Differential Input Voltage&lt;/h2&gt;
+&lt;h3 id=&#34;电路-3&#34;&gt;电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/8.png&#34;
+	width=&#34;507&#34;
+	height=&#34;466&#34;
+	srcset=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/8_hufbd61a0387c82290c6bbd4aeece368a2_28302_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/8_hufbd61a0387c82290c6bbd4aeece368a2_28302_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;108&#34;
+		data-flex-basis=&#34;261px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;分析-5&#34;&gt;分析&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+When \ i_{D1} &amp;amp;= I,V_S = -V_t \\
+I&amp;amp;= \frac{1}{2}k_n(V_{GS1} -V_t)^2 \\
+\therefore V_{GS1} &amp;amp;= V_t +V_{OV} \\
+&amp;amp;= V_t  +\sqrt 2 V_{OV \ 0.5I} \\
+V_{id} - V_s &amp;amp;= V_t + \sqrt 2 V_{OV \ 0.5I} \\
+V_{id} &amp;amp;= \sqrt{2} V_{OV \ 0.5I} \\\
+\\ \therefore -\sqrt 2 V_{OV \ 0.5I} &amp;amp;\le v_{id}  \le \sqrt 2 V_{OV \ 0.5V} \\
+(V_{OV \ 0.5I} &amp;amp;= \sqrt{\frac{I}{k_n}})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;结论-1&#34;&gt;结论&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The differential pair responds to a difference-mode&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;large-signal-operation&#34;&gt;Large-Signal Operation&lt;/h2&gt;
+&lt;h3 id=&#34;电路-4&#34;&gt;电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9.png&#34;
+	width=&#34;385&#34;
+	height=&#34;261&#34;
+	srcset=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;354px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;假设&#34;&gt;假设&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;不考虑&lt;strong&gt;CLM&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;工作在&lt;strong&gt;饱和区&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Load &lt;strong&gt;Imdependence&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;分析-6&#34;&gt;分析&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+i_{D1} &amp;amp;= \frac{1}{2}k_n(V_{GS1} -V_t)^2 \\
+i_{D2} &amp;amp;= \frac{1}{2}k_n(V_{GS2} -V_t)^2 \\
+V_{G1} - V_{G2} &amp;amp;= V_{id} = V_{GS1} - V_{GS2}  \\\
+\\ \sqrt{i_{D1}} -\sqrt{i_{D2}} &amp;amp;= \sqrt{\frac{1}{2} k_n} \ v_{id} \\
+i_{D1} + i_{D2} &amp;amp;= I \\
+解得: i_{D1} &amp;amp;= \frac{I}{2} + \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \sqrt{1 - \Big(\frac{v_{id}/2}{V_{OV 0.5I}}\Big)^2} \\
+i_{D2} &amp;amp;= \frac{I}{2} - \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \sqrt{1 - \Big(\frac{v_{id}/2}{V_{OV 0.5I}}\Big)^2} \\\
+\\ \because \frac{v_{id}}{2} &amp;amp;\ll V_{OV 0.5I} \\
+\therefore i_{D1} &amp;amp;\approx  \frac{I}{2} + \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \\
+i_{D2} &amp;amp;\approx  \frac{I}{2} - \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \\
+i_d &amp;amp;\approx \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \\
+g_m &amp;amp;= \frac{I}{V_{OV}} \ \ (I_D = \frac{I}{2})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;small-signal-operation&#34;&gt;Small-Signal Operation&lt;/h2&gt;
+&lt;h3 id=&#34;电路同上&#34;&gt;电路同上&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9.png&#34;
+	width=&#34;385&#34;
+	height=&#34;261&#34;
+	srcset=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;354px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;分析-7&#34;&gt;分析&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_{G1} &amp;amp;= V_{CM} + \frac{1}{2} v_{id} \\
+V_{G2} &amp;amp;= V_{CM} - \frac{1}{2} v_{id} \\
+g_m &amp;amp;= \frac{I}{V_{OV}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;等效电路&#34;&gt;等效电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/10.png&#34;
+	width=&#34;792&#34;
+	height=&#34;511&#34;
+	srcset=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/10_hud1c61b533c13ff6898bb435da0aa32fa_98731_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/10_hud1c61b533c13ff6898bb435da0aa32fa_98731_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;154&#34;
+		data-flex-basis=&#34;371px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
 </description>
         </item>
         <item>
@@ -518,8 +644,70 @@ V_{out} &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
 &amp;amp;= g_m(1+\eta) R_D
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;cascode-stage&#34;&gt;Cascode Stage&lt;/h1&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;cascode-stage-d-s&#34;&gt;Cascode Stage (D-S)&lt;/h1&gt;
+&lt;h2 id=&#34;basic-configuration&#34;&gt;Basic Configuration&lt;/h2&gt;
+&lt;h3 id=&#34;电路-2&#34;&gt;电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-single-stage-amplifier/15.png&#34;
+	width=&#34;427&#34;
+	height=&#34;453&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-single-stage-amplifier/15_huace54b084aa4627ec694c04d60064bf2_5403_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-single-stage-amplifier/15_huace54b084aa4627ec694c04d60064bf2_5403_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;94&#34;
+		data-flex-basis=&#34;226px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;分析-5&#34;&gt;分析&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;为了让$M_1$和$M_2$都工作在饱和区，作出以下分析&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_X &amp;amp;\ge  V_{in} - V_{T1} \ (1) \\
+V_b- V_{GS2} &amp;amp;= V_b - V_{G2} + V_{S2} \\
+&amp;amp;= V_b -V_{G2} +V_X \\
+\because V_b &amp;amp;= V_{G2} \\
+\therefore V_X &amp;amp;= V_b - V_{GS2} \ (2) \\\
+\\ 结合(1)(2)  \\
+V_b -V_{GS2} &amp;amp;\ge V_{in} -V_{T1} \\
+V_b &amp;amp;\ge V_{in} - V_{T1} + V_{GS2} \ (3)  \\\
+\\ V_{out} - V_{S2} &amp;amp;\ge V_b - V_S - V_{T2} \\
+V_{out} &amp;amp;\ge V_b - V_{T2} (4)\\
+\therefore 结合(3)(4) \\
+V_{out} &amp;amp;\ge (V_{in} - V_{T1}+ V_{GS2} -V_{T2}) \\
+\therefore V_{out \ min} &amp;amp;= V_{OV1} + V_{OV2}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;io-特性&#34;&gt;I/O 特性&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-single-stage-amplifier/16.png&#34;
+	width=&#34;581&#34;
+	height=&#34;382&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-single-stage-amplifier/16_hubc16c4a636a6fafc5fadf67d0fd20803_5391_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-single-stage-amplifier/16_hubc16c4a636a6fafc5fadf67d0fd20803_5391_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;152&#34;
+		data-flex-basis=&#34;365px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;folded-cascode&#34;&gt;Folded Cascode&lt;/h2&gt;
+&lt;h3 id=&#34;三种电路&#34;&gt;三种电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-single-stage-amplifier/17.png&#34;
+	width=&#34;846&#34;
+	height=&#34;371&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-single-stage-amplifier/17_hub045c750830ed97ed9b63accd9038824_17682_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-single-stage-amplifier/17_hub045c750830ed97ed9b63accd9038824_17682_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;228&#34;
+		data-flex-basis=&#34;547px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
 </description>
         </item>
         <item>
@@ -574,7 +762,6 @@ From(1): V_{GS}|&lt;em&gt;B &amp;amp;= V_t + \frac{\sqrt{2k_n R_D V&lt;/em&gt;{D
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;偏压获得线性放大&#34;&gt;偏压获得线性放大&lt;/h2&gt;
-&lt;h3 id=&#34;图示-2&#34;&gt;图示&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/3.png&#34;
 	width=&#34;487&#34;
 	height=&#34;618&#34;
@@ -613,10 +800,10 @@ $$&lt;/p&gt;
 \begin{aligned}
 g_m &amp;amp;= \frac{\partial i_d}{\partial v_{GS}}\Big|&lt;em&gt;{v&lt;/em&gt;{gs} = V_{GS}} \\
 &amp;amp;= \frac{d[\frac{1}{2}k_n(V_{GS}-V_t)^2]}{dv_{GS}}\Big|&lt;em&gt;{v&lt;/em&gt;{gs} = V_{GS}} \\
-&amp;amp;= \pmb{k_nV_{OV}}
-\end{aligned} \\\
-\\ \because I_D = \frac{1}{2}k_nV_{OV}^2 \Longrightarrow V_{OV} = \frac{\sqrt{2I_D}}{\sqrt{k_n}} \\\
-\\ \therefore g_n = \sqrt{2k_nI_D}  = \frac{2I_D}{V_{OV}}
+&amp;amp;= \pmb{k_nV_{OV}} \\
+\because I_D &amp;amp;= \frac{1}{2}k_nV_{OV}^2 \Longrightarrow V_{OV} = \frac{\sqrt{2I_D}}{\sqrt{k_n}} \\
+\therefore g_n &amp;amp;= \sqrt{2k_nI_D}  = \frac{2I_D}{V_{OV}}
+\end{aligned}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;增益&#34;&gt;增益&lt;/h3&gt;
 &lt;p&gt;$$
@@ -760,18 +947,78 @@ r_o =\frac{V_A}{I_D} = 47(k\Omega) \\\
 $$&lt;/p&gt;
 &lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;
 &lt;h3 id=&#34;t-equivalent-circuit-model&#34;&gt;T Equivalent-Circuit Model&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10.png&#34;
-	width=&#34;280&#34;
-	height=&#34;404&#34;
-	srcset=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/10_hue584978333f5d8baa7276c8e3e855dfb_45456_1024x0_resize_box_3.png 1024w&#34;
+&lt;ol&gt;
+&lt;li&gt;在电路中加入&lt;strong&gt;第二个MOSFET&lt;/strong&gt; (不影响&lt;strong&gt;电路特性&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/23.png&#34;
+	width=&#34;916&#34;
+	height=&#34;334&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/23_hu56b68842f5636684a0a3e1445244ab38_100767_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/23_hu56b68842f5636684a0a3e1445244ab38_100767_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;69&#34;
-		data-flex-basis=&#34;166px&#34;
+		data-flex-grow=&#34;274&#34;
+		data-flex-basis=&#34;658px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;连接$X$和$G$，根据$KCL$方程，没有电流流入G&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将&lt;strong&gt;原MOSFET&lt;/strong&gt;等效为一个$\frac{1}{g_m}$的电阻&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/24.png&#34;
+	width=&#34;848&#34;
+	height=&#34;449&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/24_hu9e3d433b6436517d2d59bcfd3e2f77d3_109578_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/24_hu9e3d433b6436517d2d59bcfd3e2f77d3_109578_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;453px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;最终电路(加上内阻$r_0$)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/21.png&#34;
+	width=&#34;432&#34;
+	height=&#34;368&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/21_hu0a6f19e228bf339557554236272fb6f9_18448_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/21_hu0a6f19e228bf339557554236272fb6f9_18448_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;117&#34;
+		data-flex-basis=&#34;281px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;hybrid-pi-model&#34;&gt;Hybrid-$\pi$ Model&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/22.png&#34;
+	width=&#34;434&#34;
+	height=&#34;305&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/22_hu401251f77c3c85caecddb124da380297_11584_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/22_hu401251f77c3c85caecddb124da380297_11584_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;142&#34;
+		data-flex-basis=&#34;341px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;如何选择模型&#34;&gt;如何选择模型&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Source&lt;/strong&gt;端的&lt;strong&gt;电压&lt;/strong&gt;是固定的 $\Longrightarrow \ \pi$ Model&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Source&lt;/strong&gt;端接&lt;strong&gt;电阻&lt;/strong&gt;等 $\Longrightarrow$ T Model&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;basic-mosfet-amplifier-configurations&#34;&gt;Basic MOSFET Amplifier Configurations&lt;/h1&gt;
 &lt;h2 id=&#34;the-common-source-amplifier-with-a-source-resistance&#34;&gt;The Common-Source Amplifier with a Source Resistance&lt;/h2&gt;
 &lt;h3 id=&#34;等效图示&#34;&gt;等效图示&lt;/h3&gt;

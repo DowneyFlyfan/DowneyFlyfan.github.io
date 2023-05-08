@@ -310,9 +310,21 @@ CMOS设计影响因素 CS Stage CS Stage With Resistive Load 图示 分析$A$和
         <li><a href="#分析-4">分析</a></li>
       </ol>
     </li>
-    <li><a href="#cascode-stage">Cascode Stage</a>
+    <li><a href="#cascode-stage-d-s">Cascode Stage (D-S)</a>
       <ol>
-        <li><a href="#heading"></a></li>
+        <li><a href="#basic-configuration">Basic Configuration</a>
+          <ol>
+            <li><a href="#电路-2">电路</a></li>
+            <li><a href="#分析-5">分析</a></li>
+            <li><a href="#io-特性">I/O 特性</a></li>
+          </ol>
+        </li>
+        <li><a href="#folded-cascode">Folded Cascode</a>
+          <ol>
+            <li><a href="#三种电路">三种电路</a></li>
+            <li><a href="#heading"></a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -379,7 +391,7 @@ CMOS设计影响因素 CS Stage CS Stage With Resistive Load 图示 分析$A$和
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -725,8 +737,70 @@ V_{out} &amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
 &amp;= g_m(1+\eta) R_D
 \end{aligned}
 $$</p>
-<h1 id="cascode-stage">Cascode Stage</h1>
-<h2 id="heading"></h2>
+<h1 id="cascode-stage-d-s">Cascode Stage (D-S)</h1>
+<h2 id="basic-configuration">Basic Configuration</h2>
+<h3 id="电路-2">电路</h3>
+<p><img src="/p/a3-single-stage-amplifier/15.png"
+	width="427"
+	height="453"
+	srcset="/p/a3-single-stage-amplifier/15_huace54b084aa4627ec694c04d60064bf2_5403_480x0_resize_box_3.png 480w, /p/a3-single-stage-amplifier/15_huace54b084aa4627ec694c04d60064bf2_5403_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="94"
+		data-flex-basis="226px"
+	
+></p>
+<h3 id="分析-5">分析</h3>
+<ul>
+<li>为了让$M_1$和$M_2$都工作在饱和区，作出以下分析</li>
+</ul>
+<p>$$
+\begin{aligned}
+V_X &amp;\ge  V_{in} - V_{T1} \ (1) \\
+V_b- V_{GS2} &amp;= V_b - V_{G2} + V_{S2} \\
+&amp;= V_b -V_{G2} +V_X \\
+\because V_b &amp;= V_{G2} \\
+\therefore V_X &amp;= V_b - V_{GS2} \ (2) \\\
+\\ 结合(1)(2)  \\
+V_b -V_{GS2} &amp;\ge V_{in} -V_{T1} \\
+V_b &amp;\ge V_{in} - V_{T1} + V_{GS2} \ (3)  \\\
+\\ V_{out} - V_{S2} &amp;\ge V_b - V_S - V_{T2} \\
+V_{out} &amp;\ge V_b - V_{T2} (4)\\
+\therefore 结合(3)(4) \\
+V_{out} &amp;\ge (V_{in} - V_{T1}+ V_{GS2} -V_{T2}) \\
+\therefore V_{out \ min} &amp;= V_{OV1} + V_{OV2}
+\end{aligned}
+$$</p>
+<h3 id="io-特性">I/O 特性</h3>
+<p><img src="/p/a3-single-stage-amplifier/16.png"
+	width="581"
+	height="382"
+	srcset="/p/a3-single-stage-amplifier/16_hubc16c4a636a6fafc5fadf67d0fd20803_5391_480x0_resize_box_3.png 480w, /p/a3-single-stage-amplifier/16_hubc16c4a636a6fafc5fadf67d0fd20803_5391_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="152"
+		data-flex-basis="365px"
+	
+></p>
+<h2 id="folded-cascode">Folded Cascode</h2>
+<h3 id="三种电路">三种电路</h3>
+<p><img src="/p/a3-single-stage-amplifier/17.png"
+	width="846"
+	height="371"
+	srcset="/p/a3-single-stage-amplifier/17_hub045c750830ed97ed9b63accd9038824_17682_480x0_resize_box_3.png 480w, /p/a3-single-stage-amplifier/17_hub045c750830ed97ed9b63accd9038824_17682_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="228"
+		data-flex-basis="547px"
+	
+></p>
+<h3 id="heading"></h3>
 
 </section>
 

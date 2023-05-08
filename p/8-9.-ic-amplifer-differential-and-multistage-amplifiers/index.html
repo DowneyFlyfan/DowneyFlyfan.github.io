@@ -286,12 +286,34 @@
     </li>
     <li><a href="#the-mos-differential-pair">The MOS Differential Pair</a>
       <ol>
-        <li><a href="#电路-2">电路</a></li>
+        <li><a href="#basic-configuration">Basic Configuration</a></li>
         <li><a href="#common-mode-input-voltage">Common-Mode Input Voltage</a>
           <ol>
-            <li><a href="#电路-3">电路</a></li>
+            <li><a href="#电路-2">电路</a></li>
             <li><a href="#分析-4">分析</a></li>
             <li><a href="#结论">结论</a></li>
+          </ol>
+        </li>
+        <li><a href="#differential-input-voltage">Differential Input Voltage</a>
+          <ol>
+            <li><a href="#电路-3">电路</a></li>
+            <li><a href="#分析-5">分析</a></li>
+            <li><a href="#结论-1">结论</a></li>
+          </ol>
+        </li>
+        <li><a href="#large-signal-operation">Large-Signal Operation</a>
+          <ol>
+            <li><a href="#电路-4">电路</a></li>
+            <li><a href="#假设">假设</a></li>
+            <li><a href="#分析-6">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#small-signal-operation">Small-Signal Operation</a>
+          <ol>
+            <li><a href="#电路同上">电路同上</a></li>
+            <li><a href="#分析-7">分析</a></li>
+            <li><a href="#等效电路">等效电路</a></li>
+            <li><a href="#heading"></a></li>
           </ol>
         </li>
       </ol>
@@ -364,7 +386,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -501,7 +523,7 @@ $$</p>
 	
 ></p>
 <h1 id="the-mos-differential-pair">The MOS Differential Pair</h1>
-<h2 id="电路-2">电路</h2>
+<h2 id="basic-configuration">Basic Configuration</h2>
 <p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/6.png"
 	width="649"
 	height="497"
@@ -515,17 +537,17 @@ $$</p>
 	
 ></p>
 <h2 id="common-mode-input-voltage">Common-Mode Input Voltage</h2>
-<h3 id="电路-3">电路</h3>
+<h3 id="电路-2">电路</h3>
 <p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7.png"
-	width="531"
-	height="436"
-	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7_hu825ecda79882b06636bc879255e8516b_30398_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7_hu825ecda79882b06636bc879255e8516b_30398_1024x0_resize_box_3.png 1024w"
+	width="588"
+	height="479"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7_hue1ad23cbfd0aee6d569bede6d852c4cc_37341_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/7_hue1ad23cbfd0aee6d569bede6d852c4cc_37341_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="121"
-		data-flex-basis="292px"
+		data-flex-grow="122"
+		data-flex-basis="294px"
 	
 ></p>
 <h3 id="分析-4">分析</h3>
@@ -533,19 +555,145 @@ $$</p>
 \begin{aligned}
 V_{G1} &amp;= V_{G2} = V_{CM} \\
 \frac{I}{2} &amp;= \frac{1}{2} k_n V_{OV}^2 \\
-V_{OV} &amp;= \sqrt{\frac{I}{k_n}} \\
+V_{OV} &amp;= \sqrt{\frac{I}{k_n}} (不变) \\
 V_{D1} &amp;= V_{D2} = V_{DD} -\frac{I}{2} R_D \\\
-\\ V_{DS} &amp;\gt V_{GS} -V_t \\
-V_{D} &amp;\gt V_G - V_t \\
-V_{DD} - \frac{I}{2}R_D &amp;\gt V_G - V_t \\
-V_{CM} = V_{G} &amp;\lt  V_{DD} -\frac{I}{2}R_D + V_t \\
-\therefore V_{CMmax} &amp;= V_{DD} -\frac{I}{2}R_D + V_t
+\\ V_{DS} &amp;\ge V_{GS} -V_t \\
+V_{D} &amp;\ge V_G - V_t \\
+V_{DD} - \frac{I}{2}R_D &amp;\ge V_G - V_t \\
+V_{CM} = V_{G} &amp;\le  V_{DD} -\frac{I}{2}R_D + V_t \\
+\therefore V_{CMmax} &amp;= V_{DD} -\frac{I}{2}R_D + V_t \\\
+\\ V_{GS} &amp;= V_{OV} + V_t \\
+V_{CM} - V_S &amp;= V_{OV} + V_t \\
+V_{CM} - (V_{CS} + (-V_{SS})) &amp;= V_{OV} + V_t \\
+V_{CM} &amp;= V_{CS} - V_{SS} + V_t + V_{OV} \\
+V_{CM min} &amp;= V_{CS \ min} -V_{SS} + V_t +V_{OV}
 \end{aligned}
 $$</p>
 <h3 id="结论">结论</h3>
-<blockquote>
-<p><strong>The Differential Pair</strong> Does not respond to <strong>Common Mode Input Signals</strong></p>
-</blockquote>
+<ol>
+<li>
+<p>Common-mode input voltage</p>
+</li>
+<li>
+<p>Current I divides equally between two transistors</p>
+</li>
+<li>
+<p>The difference between two drains is zero</p>
+</li>
+<li>
+<p><strong>The differential pair rejects the common-mode input signals</strong></p>
+</li>
+</ol>
+<h2 id="differential-input-voltage">Differential Input Voltage</h2>
+<h3 id="电路-3">电路</h3>
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/8.png"
+	width="507"
+	height="466"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/8_hufbd61a0387c82290c6bbd4aeece368a2_28302_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/8_hufbd61a0387c82290c6bbd4aeece368a2_28302_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="108"
+		data-flex-basis="261px"
+	
+></p>
+<h3 id="分析-5">分析</h3>
+<p>$$
+\begin{aligned}
+When \ i_{D1} &amp;= I,V_S = -V_t \\
+I&amp;= \frac{1}{2}k_n(V_{GS1} -V_t)^2 \\
+\therefore V_{GS1} &amp;= V_t +V_{OV} \\
+&amp;= V_t  +\sqrt 2 V_{OV \ 0.5I} \\
+V_{id} - V_s &amp;= V_t + \sqrt 2 V_{OV \ 0.5I} \\
+V_{id} &amp;= \sqrt{2} V_{OV \ 0.5I} \\\
+\\ \therefore -\sqrt 2 V_{OV \ 0.5I} &amp;\le v_{id}  \le \sqrt 2 V_{OV \ 0.5V} \\
+(V_{OV \ 0.5I} &amp;= \sqrt{\frac{I}{k_n}})
+\end{aligned}
+$$</p>
+<h3 id="结论-1">结论</h3>
+<ul>
+<li><strong>The differential pair responds to a difference-mode</strong></li>
+</ul>
+<h2 id="large-signal-operation">Large-Signal Operation</h2>
+<h3 id="电路-4">电路</h3>
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9.png"
+	width="385"
+	height="261"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="147"
+		data-flex-basis="354px"
+	
+></p>
+<h3 id="假设">假设</h3>
+<ol>
+<li>
+<p>不考虑<strong>CLM</strong></p>
+</li>
+<li>
+<p>工作在<strong>饱和区</strong></p>
+</li>
+<li>
+<p>Load <strong>Imdependence</strong></p>
+</li>
+</ol>
+<h3 id="分析-6">分析</h3>
+<p>$$
+\begin{aligned}
+i_{D1} &amp;= \frac{1}{2}k_n(V_{GS1} -V_t)^2 \\
+i_{D2} &amp;= \frac{1}{2}k_n(V_{GS2} -V_t)^2 \\
+V_{G1} - V_{G2} &amp;= V_{id} = V_{GS1} - V_{GS2}  \\\
+\\ \sqrt{i_{D1}} -\sqrt{i_{D2}} &amp;= \sqrt{\frac{1}{2} k_n} \ v_{id} \\
+i_{D1} + i_{D2} &amp;= I \\
+解得: i_{D1} &amp;= \frac{I}{2} + \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \sqrt{1 - \Big(\frac{v_{id}/2}{V_{OV 0.5I}}\Big)^2} \\
+i_{D2} &amp;= \frac{I}{2} - \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \sqrt{1 - \Big(\frac{v_{id}/2}{V_{OV 0.5I}}\Big)^2} \\\
+\\ \because \frac{v_{id}}{2} &amp;\ll V_{OV 0.5I} \\
+\therefore i_{D1} &amp;\approx  \frac{I}{2} + \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \\
+i_{D2} &amp;\approx  \frac{I}{2} - \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \\
+i_d &amp;\approx \Big( \frac{I}{V_{OV0.5I}}\Big) \Big( \frac{v_{id}}{2} \Big) \\
+g_m &amp;= \frac{I}{V_{OV}} \ \ (I_D = \frac{I}{2})
+\end{aligned}
+$$</p>
+<h2 id="small-signal-operation">Small-Signal Operation</h2>
+<h3 id="电路同上">电路同上</h3>
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9.png"
+	width="385"
+	height="261"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="147"
+		data-flex-basis="354px"
+	
+></p>
+<h3 id="分析-7">分析</h3>
+<p>$$
+\begin{aligned}
+V_{G1} &amp;= V_{CM} + \frac{1}{2} v_{id} \\
+V_{G2} &amp;= V_{CM} - \frac{1}{2} v_{id} \\
+g_m &amp;= \frac{I}{V_{OV}}
+\end{aligned}
+$$</p>
+<h3 id="等效电路">等效电路</h3>
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/10.png"
+	width="792"
+	height="511"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/10_hud1c61b533c13ff6898bb435da0aa32fa_98731_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/10_hud1c61b533c13ff6898bb435da0aa32fa_98731_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="154"
+		data-flex-basis="371px"
+	
+></p>
+<h3 id="heading"></h3>
 
 </section>
 
