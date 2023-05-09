@@ -736,8 +736,9 @@ $$&lt;/p&gt;
         <pubDate>Sun, 16 Apr 2023 16:22:53 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/</guid>
-        <description>&lt;h1 id=&#34;linear-regression&#34;&gt;Linear Regression&lt;/h1&gt;
-&lt;h2 id=&#34;图示&#34;&gt;图示&lt;/h2&gt;
+        <description>&lt;h1 id=&#34;回归&#34;&gt;回归&lt;/h1&gt;
+&lt;h2 id=&#34;linear-regression&#34;&gt;Linear Regression&lt;/h2&gt;
+&lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/1.png&#34;
 	width=&#34;811&#34;
 	height=&#34;726&#34;
@@ -750,7 +751,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;268px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;表格&#34;&gt;表格&lt;/h2&gt;
+&lt;h3 id=&#34;表格&#34;&gt;表格&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/2.png&#34;
 	width=&#34;962&#34;
 	height=&#34;322&#34;
@@ -763,7 +764,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;717px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;公式&#34;&gt;公式&lt;/h2&gt;
+&lt;h3 id=&#34;公式&#34;&gt;公式&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 \hat y &amp;amp;= b_0 + b_1 x \\
@@ -771,6 +772,48 @@ b_1 &amp;amp;= \frac{\sum (x-\overline x)(y-\overline y)}{\sum (x-\overline x)^2
 b_0 &amp;amp;= \overline y - b_1 \overline x
 \end{aligned}
 $$&lt;/p&gt;
+&lt;h1 id=&#34;插值方法比较&#34;&gt;插值方法比较&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;插值方法&lt;/th&gt;
+&lt;th&gt;优点&lt;/th&gt;
+&lt;th&gt;缺点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;多项式插值&lt;/td&gt;
+&lt;td&gt;1. 简单易懂，容易实现；2. 高阶多项式可以拟合任意函数。&lt;/td&gt;
+&lt;td&gt;1. 容易出现龙格现象；2. 高阶多项式可能会导致过拟合。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;样条插值&lt;/td&gt;
+&lt;td&gt;1. 拟合效果好，精度高；2. 可以通过控制节点数量和位置来平衡精度和复杂度。&lt;/td&gt;
+&lt;td&gt;1. 计算量大，运行速度相对较慢；2. 对于非常大的数据集可能会出现问题。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;分段线性插值&lt;/td&gt;
+&lt;td&gt;1. 简单易懂，计算速度快；2. 不需要额外存储节点信息。&lt;/td&gt;
+&lt;td&gt;1. 只能拟合线性函数，无法处理非线性情况；2. 在节点处可能会出现不连续的情况。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;近邻插值（Nearest Neighbor Interpolation）&lt;/td&gt;
+&lt;td&gt;1、简单快捷,计算速度最快;2、适用于离散化的数据集;3、保留了原始数据特征,不会对峰谷等信息造成影响.&lt;/td&gt;
+&lt;td&gt;常用于分类问题，在图像处理中可能会导致锯齿状的效果。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;双线性插值（Bilinear Interpolation）&lt;/td&gt;
+&lt;td&gt;1、保留了原始数据特征,不会对峰谷等信息造成影响;2、计算速度较快，可用于实时图像处理.&lt;/td&gt;
+&lt;td&gt;可能会出现模糊或失真的情况。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;双三次插值（Bicubic Interpolation）&lt;/td&gt;
+&lt;td&gt;1、拟合效果好，精度高；2、相比于双线性插值更加平滑自然.&lt;/td&gt;
+&lt;td&gt;计算量大，运行速度相对较慢。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         <item>

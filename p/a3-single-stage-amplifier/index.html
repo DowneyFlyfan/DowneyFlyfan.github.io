@@ -322,7 +322,7 @@ CMOS设计影响因素 CS Stage CS Stage With Resistive Load 图示 分析$A$和
         <li><a href="#folded-cascode">Folded Cascode</a>
           <ol>
             <li><a href="#三种电路">三种电路</a></li>
-            <li><a href="#heading"></a></li>
+            <li><a href="#分析-6">分析</a></li>
           </ol>
         </li>
       </ol>
@@ -800,7 +800,20 @@ $$</p>
 		data-flex-basis="547px"
 	
 ></p>
-<h3 id="heading"></h3>
+<h3 id="分析-6">分析</h3>
+<p>$$
+\begin{aligned}
+对于&amp;b图(M_1 是 PMOS,M_2 是NMOS) \\
+I_{D2} &amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
+当I_{D2} &amp;= 0 时: \\
+I_{D1} &amp;=  I_1  \\
+&amp;=\frac{1}{2}\mu_pC_{OX} (\frac{W}{L})<em>1 (V</em>{DD} - V_{in} - |V_{T1}|)^2 \\
+\therefore V_{in1} &amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
+\\ 当V_{in1} &amp;\gt V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}|时: \\
+\because I_{D1} &amp;\le I_1  \\
+\therefore M_1 &amp;将进入Triode \ Region
+\end{aligned}
+$$</p>
 
 </section>
 
