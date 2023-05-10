@@ -292,11 +292,16 @@
     </li>
     <li><a href="#the-mos-differential-pair">The MOS Differential Pair</a>
       <ol>
-        <li><a href="#basic-configuration">Basic Configuration</a></li>
+        <li><a href="#basic-configuration">Basic Configuration</a>
+          <ol>
+            <li><a href="#图示">图示</a></li>
+            <li><a href="#分析-4">分析</a></li>
+          </ol>
+        </li>
         <li><a href="#common-mode-input-voltage">Common-Mode Input Voltage</a>
           <ol>
             <li><a href="#电路-2">电路</a></li>
-            <li><a href="#分析-4">分析</a></li>
+            <li><a href="#分析-5">分析</a></li>
             <li><a href="#电压关系">电压关系</a></li>
             <li><a href="#伏安特性曲线">伏安特性曲线</a></li>
             <li><a href="#结论">结论</a></li>
@@ -305,25 +310,40 @@
         <li><a href="#differential-input-voltage">Differential Input Voltage</a>
           <ol>
             <li><a href="#电路-3">电路</a></li>
-            <li><a href="#分析-5">分析</a></li>
+            <li><a href="#分析-6">分析</a></li>
             <li><a href="#结论-1">结论</a></li>
+          </ol>
+        </li>
+        <li><a href="#the-current-mirror-loaded-mos-differential-pair">The Current-Mirror-Loaded MOS Differential Pair</a>
+          <ol>
+            <li><a href="#电路-4">电路</a></li>
+            <li><a href="#分析-7">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#two-stage-cmos-op-amp-configuration">Two-Stage CMOS Op-Amp Configuration</a></li>
+        <li><a href="#common-mode-rejection">Common-Mode Rejection</a>
+          <ol>
+            <li><a href="#电路-5">电路</a></li>
+            <li><a href="#分析-8">分析</a></li>
           </ol>
         </li>
         <li><a href="#large-signal-operation">Large-Signal Operation</a>
           <ol>
-            <li><a href="#电路-4">电路</a></li>
+            <li><a href="#电路-6">电路</a></li>
             <li><a href="#假设">假设</a></li>
-            <li><a href="#分析-6">分析</a></li>
+            <li><a href="#分析-9">分析</a></li>
           </ol>
         </li>
         <li><a href="#small-signal-operation">Small-Signal Operation</a>
           <ol>
-            <li><a href="#电路同上">电路同上</a></li>
-            <li><a href="#分析-7">分析</a></li>
-            <li><a href="#等效电路">等效电路</a></li>
-            <li><a href="#heading"></a></li>
+            <li><a href="#ex">Ex.</a></li>
           </ol>
         </li>
+      </ol>
+    </li>
+    <li><a href="#appendix">Appendix</a>
+      <ol>
+        <li><a href="#直流偏置点">直流偏置点</a></li>
       </ol>
     </li>
   </ol>
@@ -394,7 +414,7 @@
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -434,8 +454,8 @@
 I_{D1} &amp;= \frac{1}{2} k_{n1}&rsquo;(\frac{W}{L})<em>1 (V</em>{GS} - V_{tn})^2  \\
 &amp;= I_{ref} \\
 &amp;= \frac{V_{DD} - V_{GS}}{R}  \\
-I_{D2} &amp;= \frac{1}{2} k_{n2}&rsquo;(\frac{W}{L})<em>2 (V</em>{GS} - V_{tn})^2 \\\
-\\ \therefore \frac{I_{D1}}{I_{D2}} &amp;= \frac{I_{ref}}{I_O} = \frac{(W/L)_1}{(W/L)_2}
+I_{D2} &amp;= \frac{1}{2} k_{n2}&rsquo;(\frac{W}{L})<em>2 (V</em>{GS} - V_{tn})^2 \\
+\therefore \frac{I_{D1}}{I_{D2}} &amp;= \frac{I_{ref}}{I_O} = \frac{(W/L)_1}{(W/L)_2} \\
 \end{aligned}
 $$</p>
 <h2 id="mos-current-steering-circuit">MOS Current-Steering Circuit</h2>
@@ -524,6 +544,7 @@ $$</p>
 ></p>
 <h1 id="the-mos-differential-pair">The MOS Differential Pair</h1>
 <h2 id="basic-configuration">Basic Configuration</h2>
+<h3 id="图示">图示</h3>
 <p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/6.png"
 	width="649"
 	height="497"
@@ -538,16 +559,54 @@ $$</p>
 ></p>
 <ul>
 <li>
-<p>$V_{G1} = V_{in1}$</p>
+<p>$V_{G1} - V_{T1} = V_{in1}$</p>
 </li>
 <li>
-<p>$V_{G2} = V_{in2}$</p>
+<p>$V_{G2} - V_{T2} = V_{in2}$</p>
 </li>
 <li>
 <p>$V_{D1} = V_{out1}$</p>
 </li>
 <li>
 <p>$V_{D2} = V_{out2}$</p>
+</li>
+</ul>
+<h3 id="分析-4">分析</h3>
+<ol>
+<li>增益</li>
+</ol>
+<p>$$
+\begin{aligned}
+V_{in1} - V_{in2} &amp;= V_{GS1} - V_{GS2} \\
+&amp;= \sqrt{\frac{2I_{D1}}{k_n}} - \sqrt{\frac{2I_{D2}}{k_n}} \\
+(V_{in1} - V_{in2})^2 &amp;= \frac{2}{k_n}(I - 2\sqrt{I_{D1} I_{D2}})  \\
+\because 4I_{D1}{I_{D2}} &amp;= (I_{D1} + I_{D2})^2 - (I_{D1} - I_{D2})^2 \\
+&amp;= I^2 - (I_{D1} - I_{D2})^2 \\
+\therefore (I_{D1} - I_{D2})^2 &amp;= I^2 -4I_{D1}I_{D2} \\
+&amp;= -\frac{1}{4} k_n^2 (V_{in1} - V_{in2})^4 + I k_n(V_{in1} - V_{in2})^2 \\
+\therefore I_{D1} - I_{D2} &amp;= \frac{1}{2}k_n (V_{in1}- V_{in2}) \sqrt{\frac{4I}{k_n} - (V_{in1} -V_{in2})^2} \\
+\frac{\partial \Delta I_D}{\partial \Delta V_{in}} &amp;= \frac{1}{2}k_n \frac{\frac{4I}{k_n} - 2\Delta V_{in}^2}{\sqrt{\frac{4I}{k_n} - \Delta V_{in}^2} } \\
+当V_{in1} &amp;= V_{in2} 时 \\
+\frac{\partial \Delta I_D}{\partial \Delta V_{in}} &amp;= \sqrt{k_n I} \\
+\therefore |A_v| &amp;= \frac{v_o}{v_i} \\
+&amp;= \sqrt{k_n I} R_D
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>矛盾</li>
+</ol>
+<ul>
+<li>
+<p>在上述分析中，当$\Delta V_{in}$使得$\Delta I_D= 0$时，矛盾就出现了:</p>
+</li>
+<li>
+<p>不同的$V_{in}$产生了相同的$I_D$</p>
+</li>
+<li>
+<p>这是因为$\Delta I$和$\Delta V_{in}$的关系是在$M_1$和$M_2$都开启的条件下产生的</p>
+</li>
+<li>
+<p>经过计算得知满足条件的$\Delta V_{in}$ 使得$M_2$ off, 故矛盾解决</p>
 </li>
 </ul>
 <h2 id="common-mode-input-voltage">Common-Mode Input Voltage</h2>
@@ -575,7 +634,7 @@ $$</p>
 <p>电流源是$M_3$</p>
 </li>
 </ul>
-<h3 id="分析-4">分析</h3>
+<h3 id="分析-5">分析</h3>
 <p>$$
 \begin{aligned}
 V_{G1} &amp;= V_{G2} = V_{CM} \\
@@ -591,20 +650,22 @@ V_{CM} = V_{G} &amp;\le  V_{DD} -\frac{I}{2}R_D + V_t \\
 V_{CM} - V_S &amp;= V_{OV} + V_t \\
 V_{CM} - (V_{CS} + (-V_{SS})) &amp;= V_{OV} + V_t \\
 V_{CM} &amp;= V_{CS} - V_{SS} + V_t + V_{OV} \\
-V_{CM min} &amp;= V_{CS \ min} -V_{SS} + V_t +V_{OV}
+V_{CM min} &amp;= V_{CS \ min} -V_{SS} + V_t +V_{OV} \\\
+\\ A_v &amp;= \frac{V_{out}}{V_{in,CM}} \\
+&amp;= - \frac{R_D / 2}{1/(2g_m) + R_{SS}}
 \end{aligned}
 $$</p>
 <h3 id="电压关系">电压关系</h3>
-<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/11.png"
-	width="718"
-	height="198"
-	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/11_hu741bca89db1fee296be608c1a6fd0829_7276_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/11_hu741bca89db1fee296be608c1a6fd0829_7276_1024x0_resize_box_3.png 1024w"
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/13.png"
+	width="711"
+	height="214"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/13_hu18fe593e58ff4a75f5d16a8db8f677cf_11703_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/13_hu18fe593e58ff4a75f5d16a8db8f677cf_11703_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="362"
-		data-flex-basis="870px"
+		data-flex-grow="332"
+		data-flex-basis="797px"
 	
 ></p>
 <h3 id="伏安特性曲线">伏安特性曲线</h3>
@@ -649,7 +710,7 @@ $$</p>
 		data-flex-basis="261px"
 	
 ></p>
-<h3 id="分析-5">分析</h3>
+<h3 id="分析-6">分析</h3>
 <p>$$
 \begin{aligned}
 When \ i_{D1} &amp;= I,V_S = -V_t \\
@@ -666,8 +727,77 @@ $$</p>
 <ul>
 <li><strong>The differential pair responds to a difference-mode</strong></li>
 </ul>
-<h2 id="large-signal-operation">Large-Signal Operation</h2>
+<h2 id="the-current-mirror-loaded-mos-differential-pair">The Current-Mirror-Loaded MOS Differential Pair</h2>
 <h3 id="电路-4">电路</h3>
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/18.png"
+	width="805"
+	height="510"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/18_hu29cf4db1eea49d9febb3f8fe6fce13f4_51060_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/18_hu29cf4db1eea49d9febb3f8fe6fce13f4_51060_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="157"
+		data-flex-basis="378px"
+	
+></p>
+<ul>
+<li>$Q_3$和$Q_4$是构成了<strong>镜像电流源</strong></li>
+</ul>
+<h3 id="分析-7">分析</h3>
+<p>$$
+\begin{aligned}</p>
+<p>\end{aligned}
+$$</p>
+<h2 id="two-stage-cmos-op-amp-configuration">Two-Stage CMOS Op-Amp Configuration</h2>
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/19.png"
+	width="602"
+	height="511"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/19_hud7d5cd39411ec241d4c31371123cf6a3_76071_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/19_hud7d5cd39411ec241d4c31371123cf6a3_76071_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="282px"
+	
+></p>
+<h2 id="common-mode-rejection">Common-Mode Rejection</h2>
+<h3 id="电路-5">电路</h3>
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/15.png"
+	width="750"
+	height="502"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/15_hu668a7e4acbeff999de3f0647074676af_59108_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/15_hu668a7e4acbeff999de3f0647074676af_59108_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="149"
+		data-flex-basis="358px"
+	
+></p>
+<ul>
+<li>$R_{SS}$ 是另一个MOSFET被等效后的源内阻$r_0$</li>
+</ul>
+<h3 id="分析-8">分析</h3>
+<p>$$
+\begin{aligned}
+(1) &amp;对半电路分析 \\
+V_{icm} &amp;= i(2R_{SS} + \frac{1}{g_m}) \\
+i &amp;= \frac{v_{icm}}{2R_{SS} + \frac{1}{g_m}} \\
+v_{o1} &amp;= v_{o2} \\
+&amp; = -\frac{v_{icm}}{2R_{SS} + \frac{1}{g_m}} R_D \\
+&amp;\approx - \frac{v_{icm} R_D}{2R_{SS}} \\
+v_{od} &amp;= v_{o1} - v_{o2} \approx 0 \\
+\therefore A_d &amp;\approx - \frac{R_D}{2R_{SS}} \\\
+\\ (2) 对&amp;整个电路 \\
+A_{CM} &amp;= 0 \ (一正一负) \\
+CMRR &amp;= \frac{|A_d|}{|A_{cm}|} \\
+&amp;= \infin
+\end{aligned}
+$$</p>
+<h2 id="large-signal-operation">Large-Signal Operation</h2>
+<h3 id="电路-6">电路</h3>
 <p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9.png"
 	width="385"
 	height="261"
@@ -692,7 +822,7 @@ $$</p>
 <p>Load <strong>Imdependence</strong></p>
 </li>
 </ol>
-<h3 id="分析-6">分析</h3>
+<h3 id="分析-9">分析</h3>
 <p>$$
 \begin{aligned}
 i_{D1} &amp;= \frac{1}{2}k_n(V_{GS1} -V_t)^2 \\
@@ -710,41 +840,53 @@ g_m &amp;= \frac{I}{V_{OV}} \ \ (I_D = \frac{I}{2})
 \end{aligned}
 $$</p>
 <h2 id="small-signal-operation">Small-Signal Operation</h2>
-<h3 id="电路同上">电路同上</h3>
-<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9.png"
-	width="385"
-	height="261"
-	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/9_hu5089666cd2564fdcac667a4a267f14ae_16976_1024x0_resize_box_3.png 1024w"
+<h3 id="ex">Ex.</h3>
+<ol>
+<li>题目</li>
+</ol>
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/16.png"
+	width="814"
+	height="427"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/16_hu971c4986ab43bd99ba4305fcdfc83e01_73422_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/16_hu971c4986ab43bd99ba4305fcdfc83e01_73422_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="147"
-		data-flex-basis="354px"
+		data-flex-grow="190"
+		data-flex-basis="457px"
 	
 ></p>
-<h3 id="分析-7">分析</h3>
+<ol start="2">
+<li>分析</li>
+</ol>
+<ul>
+<li>因为对称, 把电路等效后差分成两个相同的电路</li>
+</ul>
+<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/17.png"
+	width="399"
+	height="323"
+	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/17_hu7237ccc4b394751835f8f61b2a1d36bf_18671_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/17_hu7237ccc4b394751835f8f61b2a1d36bf_18671_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="123"
+		data-flex-basis="296px"
+	
+></p>
+<ul>
+<li>得到</li>
+</ul>
 <p>$$
 \begin{aligned}
-V_{G1} &amp;= V_{CM} + \frac{1}{2} v_{id} \\
-V_{G2} &amp;= V_{CM} - \frac{1}{2} v_{id} \\
-g_m &amp;= \frac{I}{V_{OV}}
+A_v &amp;= \frac{R_D || (R_L/2)}{\frac{1}{g_m} + R_S}
 \end{aligned}
 $$</p>
-<h3 id="等效电路">等效电路</h3>
-<p><img src="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/10.png"
-	width="792"
-	height="511"
-	srcset="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/10_hud1c61b533c13ff6898bb435da0aa32fa_98731_480x0_resize_box_3.png 480w, /p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/10_hud1c61b533c13ff6898bb435da0aa32fa_98731_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="154"
-		data-flex-basis="371px"
-	
-></p>
-<h3 id="heading"></h3>
+<h1 id="appendix">Appendix</h1>
+<h2 id="直流偏置点">直流偏置点</h2>
+<blockquote>
+<p>放大电路中交流信号的幅度变化围绕着一个直流电平进行，这个直流电平就是所谓的偏置点。在放大器中，通过设置适当的偏置点可以使得输出信号能够在不失真的情况下尽可能地接近于输入信号。</p>
+</blockquote>
 
 </section>
 

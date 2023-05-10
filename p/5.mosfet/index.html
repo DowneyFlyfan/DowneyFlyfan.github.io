@@ -4,17 +4,14 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration $I_G$始终为0,因为$SiO_2$是绝缘的 B: Body Terminal 电流方向 载流子从Source region流向Drain Region
 N型MOSFET，电流从D到S
 P型MOSFET,电流从S到D
-操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S, 开启电流通道 操作 S与D接地
+操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S 开启电流通道 操作 S与D接地
 G接电源正极
 结果 $SiO_2$中会产生电场
 P区的holes被电场推走
 原来被holes平衡的电子不再平衡了
 G的电源正极从$N^&#43;$中吸取电子推向P区
 Inversion Layer N channel(反型层N沟道)形成了
-电流导通了 说明 使得通道形成的最小电压$V_t$,一般在0.3-1.0V
-Override Voltage $V_{OV} = V_{GS} - V_t$
-由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET)
-电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.6 \times 10^{-3} (F/m^2) \end{aligned} $$
+电流导通了 说明 由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET) 电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.6 \times 10^{-3} (F/m^2) \end{aligned} $$
 施加小电压 电路 电流和电导推导 $$ \begin{aligned} \frac{|Q|}{unit \ channel \ length} &amp;amp;= C_{ox} W V_{OV} \\ |E| &amp;amp;= \frac{V_{DS}}{L} \\ Electron \ drift \ velocity &amp;amp;= \mu_n |E| = \mu_n\frac{V_{DS}}{L} \\ \mu_n: 电子在通&amp;amp;道表面的迁移率 \end{aligned} \\\ \\ \begin{aligned} i_D &amp;amp;= \frac{dQ}{dt} = \frac{dQ}{dL}\frac{dL}{dt} \\ &amp;amp;= (C_{ox}WV_{OV}) (\mu_n\frac{V_{DS}}{L}) \\ &amp;amp; = \Big[ (\mu_n C_{ox} \frac{W}{L} V_{OV}) \Big] V_{DS} (对于较小的V_{DS}) \\\ \\ g_{DS} &amp;amp;= \frac{i_{DS}}{V_{DS}} \\ &amp;amp;= (\mu_n C_{ox}) \Big(\frac{W}{L}\Big) V_{OV} \\ k_n&amp;rsquo; &amp;amp;= \mu_n C_{ox} \\ k_n &amp;amp;= k_n&amp;rsquo; \frac{W}{L} \\ \therefore g_{DS} &amp;amp;= k_n V_{OV} \\ r_{DS} &amp;amp;= \frac{1}{k_nV_{OV}}(\Omega) \end{aligned} $$'>
 <title>5.MOSFET</title>
 
@@ -24,17 +21,14 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 <meta property='og:description' content='设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration $I_G$始终为0,因为$SiO_2$是绝缘的 B: Body Terminal 电流方向 载流子从Source region流向Drain Region
 N型MOSFET，电流从D到S
 P型MOSFET,电流从S到D
-操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S, 开启电流通道 操作 S与D接地
+操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S 开启电流通道 操作 S与D接地
 G接电源正极
 结果 $SiO_2$中会产生电场
 P区的holes被电场推走
 原来被holes平衡的电子不再平衡了
 G的电源正极从$N^&#43;$中吸取电子推向P区
 Inversion Layer N channel(反型层N沟道)形成了
-电流导通了 说明 使得通道形成的最小电压$V_t$,一般在0.3-1.0V
-Override Voltage $V_{OV} = V_{GS} - V_t$
-由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET)
-电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.6 \times 10^{-3} (F/m^2) \end{aligned} $$
+电流导通了 说明 由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET) 电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.6 \times 10^{-3} (F/m^2) \end{aligned} $$
 施加小电压 电路 电流和电导推导 $$ \begin{aligned} \frac{|Q|}{unit \ channel \ length} &amp;amp;= C_{ox} W V_{OV} \\ |E| &amp;amp;= \frac{V_{DS}}{L} \\ Electron \ drift \ velocity &amp;amp;= \mu_n |E| = \mu_n\frac{V_{DS}}{L} \\ \mu_n: 电子在通&amp;amp;道表面的迁移率 \end{aligned} \\\ \\ \begin{aligned} i_D &amp;amp;= \frac{dQ}{dt} = \frac{dQ}{dL}\frac{dL}{dt} \\ &amp;amp;= (C_{ox}WV_{OV}) (\mu_n\frac{V_{DS}}{L}) \\ &amp;amp; = \Big[ (\mu_n C_{ox} \frac{W}{L} V_{OV}) \Big] V_{DS} (对于较小的V_{DS}) \\\ \\ g_{DS} &amp;amp;= \frac{i_{DS}}{V_{DS}} \\ &amp;amp;= (\mu_n C_{ox}) \Big(\frac{W}{L}\Big) V_{OV} \\ k_n&amp;rsquo; &amp;amp;= \mu_n C_{ox} \\ k_n &amp;amp;= k_n&amp;rsquo; \frac{W}{L} \\ \therefore g_{DS} &amp;amp;= k_n V_{OV} \\ r_{DS} &amp;amp;= \frac{1}{k_nV_{OV}}(\Omega) \end{aligned} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/5.mosfet/'>
 <meta property='og:site_name' content='飞璠博客'>
@@ -43,17 +37,14 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 <meta name="twitter:description" content="设备结构和操作 N型金属-氧化物-半导体 场效应晶体管 图标解释 $N^&#43;$: High Concentration $I_G$始终为0,因为$SiO_2$是绝缘的 B: Body Terminal 电流方向 载流子从Source region流向Drain Region
 N型MOSFET，电流从D到S
 P型MOSFET,电流从S到D
-操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S, 开启电流通道 操作 S与D接地
+操作 阻流 当$V_{DS}$存在时，这两个 back-back diodes 会阻止电流从D流到S 开启电流通道 操作 S与D接地
 G接电源正极
 结果 $SiO_2$中会产生电场
 P区的holes被电场推走
 原来被holes平衡的电子不再平衡了
 G的电源正极从$N^&#43;$中吸取电子推向P区
 Inversion Layer N channel(反型层N沟道)形成了
-电流导通了 说明 使得通道形成的最小电压$V_t$,一般在0.3-1.0V
-Override Voltage $V_{OV} = V_{GS} - V_t$
-由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET)
-电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.6 \times 10^{-3} (F/m^2) \end{aligned} $$
+电流导通了 说明 由于电场控制了电荷的数量，所以叫做Field-Effect Transistor(FET) 电容 门和通道形成了一个电容 $$ \begin{aligned} |Q| &amp;amp;= C_{ox} (WL) (V_{GS}-V_t) \\ 单位面积电容 \ C_{ox} &amp;amp;= 8.6 \times 10^{-3} (F/m^2) \end{aligned} $$
 施加小电压 电路 电流和电导推导 $$ \begin{aligned} \frac{|Q|}{unit \ channel \ length} &amp;amp;= C_{ox} W V_{OV} \\ |E| &amp;amp;= \frac{V_{DS}}{L} \\ Electron \ drift \ velocity &amp;amp;= \mu_n |E| = \mu_n\frac{V_{DS}}{L} \\ \mu_n: 电子在通&amp;amp;道表面的迁移率 \end{aligned} \\\ \\ \begin{aligned} i_D &amp;amp;= \frac{dQ}{dt} = \frac{dQ}{dL}\frac{dL}{dt} \\ &amp;amp;= (C_{ox}WV_{OV}) (\mu_n\frac{V_{DS}}{L}) \\ &amp;amp; = \Big[ (\mu_n C_{ox} \frac{W}{L} V_{OV}) \Big] V_{DS} (对于较小的V_{DS}) \\\ \\ g_{DS} &amp;amp;= \frac{i_{DS}}{V_{DS}} \\ &amp;amp;= (\mu_n C_{ox}) \Big(\frac{W}{L}\Big) V_{OV} \\ k_n&amp;rsquo; &amp;amp;= \mu_n C_{ox} \\ k_n &amp;amp;= k_n&amp;rsquo; \frac{W}{L} \\ \therefore g_{DS} &amp;amp;= k_n V_{OV} \\ r_{DS} &amp;amp;= \frac{1}{k_nV_{OV}}(\Omega) \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
@@ -475,7 +466,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 	
 ></p>
 <ul>
-<li>当$V_{DS}$存在时，这两个 <strong>back-back diodes</strong> 会阻止电流从<strong>D</strong>流到<strong>S</strong>,</li>
+<li>当$V_{DS}$存在时，这两个 <strong>back-back diodes</strong> 会阻止电流从<strong>D</strong>流到<strong>S</strong></li>
 </ul>
 <h3 id="开启电流通道">开启电流通道</h3>
 <p><img src="/p/5.mosfet/3.png"
@@ -540,15 +531,7 @@ Override Voltage $V_{OV} = V_{GS} - V_t$
 <li>说明</li>
 </ol>
 <ul>
-<li>
-<p>使得通道形成的<strong>最小电压</strong>$V_t$,一般在<strong>0.3-1.0V</strong></p>
-</li>
-<li>
-<p><strong>Override Voltage</strong> $V_{OV} = V_{GS} - V_t$</p>
-</li>
-<li>
-<p>由于电场控制了电荷的数量，所以叫做<strong>Field-Effect Transistor(FET)</strong></p>
-</li>
+<li>由于电场控制了电荷的数量，所以叫做<strong>Field-Effect Transistor(FET)</strong></li>
 </ul>
 <ol start="4">
 <li>电容</li>

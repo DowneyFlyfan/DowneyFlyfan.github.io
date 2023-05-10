@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Lab1 器材 TL082管脚图 LM741管脚图 二极管 黑色端为负极 发光二极管 三极管(C1008) C1008(EBC) 电阻 蜂鸣器 电源 电流源调节至最大
 CH1负极接差分放大器的地
-实验电路 第一部分 &amp;ndash; 温度传感器 &#43; 差分放大器 第二部分 &amp;ndash; 电压比较器 第三部分 &amp;ndash; 报警驱动电路 Lab2 电路和要求 计算 $$ \begin{aligned} A_{vo} &amp;amp;= |-\frac{g_m R_D}{1 &#43; g_m R_S}| \gt 40 \\ &amp;amp;= \frac{k_nV_{OV}R_D}{1&#43;k_nV_{OV}R_S}(取V_{GS} =3V,使得V_{OV} =1V) \\ &amp;amp;= \frac{0.1R_D}{1 &#43; 0.1R_S} &amp;gt; 40 \end{aligned} \\\ \\ 得到 R_D - 40R_S \gt 400 \\\ \\ 选择 R_D = 20k\Omega,R_S = 0.5k\Omega,R_{G1} = 9k\Omega,R_{G2} = 3k\Omega $$'>
+实验电路 第一部分 &amp;ndash; 温度传感器 &#43; 差分放大器 第二部分 &amp;ndash; 电压比较器 第三部分 &amp;ndash; 报警驱动电路 Lab2 电路和要求 ($A_{vo} \ge 30$) 就可以 计算 $$ \begin{aligned} A_{vo} &amp;amp;\ge 30 \\ g_m (r_o || R_D || R_L) &amp;amp;\ge30 \\ k_n (V_{GS} - V_t) (r_o || R_D || R_L) &amp;amp;\ge 30 \\ (V_{GS}-2)(r_o || R_D || R_L) &amp;amp;\ge 300 \\ \because r_0 很大，此处不作考虑 \\ (V_{GS}-2) (R_D || R_L) &amp;amp;\ge 300 \\ 选择 V_G 为 4V \\ 也就是R_{G1} = 20k\Omega, R_{G2} &amp;amp;= 10k\Omega \\\ \\ V_S &amp;amp;= I_DR_S \\ &amp;amp;= \frac{1}{2}k_n(V_G - V_S - V_t)^2 R_S\\ 选择 R_S &amp;amp;= 1k\Omega \\ V_S &amp;amp; = 2.'>
 <title>实验</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/'>
@@ -11,14 +11,14 @@ CH1负极接差分放大器的地
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='实验'>
 <meta property='og:description' content='Lab1 器材 TL082管脚图 LM741管脚图 二极管 黑色端为负极 发光二极管 三极管(C1008) C1008(EBC) 电阻 蜂鸣器 电源 电流源调节至最大
 CH1负极接差分放大器的地
-实验电路 第一部分 &amp;ndash; 温度传感器 &#43; 差分放大器 第二部分 &amp;ndash; 电压比较器 第三部分 &amp;ndash; 报警驱动电路 Lab2 电路和要求 计算 $$ \begin{aligned} A_{vo} &amp;amp;= |-\frac{g_m R_D}{1 &#43; g_m R_S}| \gt 40 \\ &amp;amp;= \frac{k_nV_{OV}R_D}{1&#43;k_nV_{OV}R_S}(取V_{GS} =3V,使得V_{OV} =1V) \\ &amp;amp;= \frac{0.1R_D}{1 &#43; 0.1R_S} &amp;gt; 40 \end{aligned} \\\ \\ 得到 R_D - 40R_S \gt 400 \\\ \\ 选择 R_D = 20k\Omega,R_S = 0.5k\Omega,R_{G1} = 9k\Omega,R_{G2} = 3k\Omega $$'>
+实验电路 第一部分 &amp;ndash; 温度传感器 &#43; 差分放大器 第二部分 &amp;ndash; 电压比较器 第三部分 &amp;ndash; 报警驱动电路 Lab2 电路和要求 ($A_{vo} \ge 30$) 就可以 计算 $$ \begin{aligned} A_{vo} &amp;amp;\ge 30 \\ g_m (r_o || R_D || R_L) &amp;amp;\ge30 \\ k_n (V_{GS} - V_t) (r_o || R_D || R_L) &amp;amp;\ge 30 \\ (V_{GS}-2)(r_o || R_D || R_L) &amp;amp;\ge 300 \\ \because r_0 很大，此处不作考虑 \\ (V_{GS}-2) (R_D || R_L) &amp;amp;\ge 300 \\ 选择 V_G 为 4V \\ 也就是R_{G1} = 20k\Omega, R_{G2} &amp;amp;= 10k\Omega \\\ \\ V_S &amp;amp;= I_DR_S \\ &amp;amp;= \frac{1}{2}k_n(V_G - V_S - V_t)^2 R_S\\ 选择 R_S &amp;amp;= 1k\Omega \\ V_S &amp;amp; = 2.'>
 <meta property='og:url' content='https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-04T17:07:33&#43;08:00'/><meta property='article:modified_time' content='2023-04-04T17:07:33&#43;08:00'/>
 <meta name="twitter:title" content="实验">
 <meta name="twitter:description" content="Lab1 器材 TL082管脚图 LM741管脚图 二极管 黑色端为负极 发光二极管 三极管(C1008) C1008(EBC) 电阻 蜂鸣器 电源 电流源调节至最大
 CH1负极接差分放大器的地
-实验电路 第一部分 &amp;ndash; 温度传感器 &#43; 差分放大器 第二部分 &amp;ndash; 电压比较器 第三部分 &amp;ndash; 报警驱动电路 Lab2 电路和要求 计算 $$ \begin{aligned} A_{vo} &amp;amp;= |-\frac{g_m R_D}{1 &#43; g_m R_S}| \gt 40 \\ &amp;amp;= \frac{k_nV_{OV}R_D}{1&#43;k_nV_{OV}R_S}(取V_{GS} =3V,使得V_{OV} =1V) \\ &amp;amp;= \frac{0.1R_D}{1 &#43; 0.1R_S} &amp;gt; 40 \end{aligned} \\\ \\ 得到 R_D - 40R_S \gt 400 \\\ \\ 选择 R_D = 20k\Omega,R_S = 0.5k\Omega,R_{G1} = 9k\Omega,R_{G2} = 3k\Omega $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+实验电路 第一部分 &amp;ndash; 温度传感器 &#43; 差分放大器 第二部分 &amp;ndash; 电压比较器 第三部分 &amp;ndash; 报警驱动电路 Lab2 电路和要求 ($A_{vo} \ge 30$) 就可以 计算 $$ \begin{aligned} A_{vo} &amp;amp;\ge 30 \\ g_m (r_o || R_D || R_L) &amp;amp;\ge30 \\ k_n (V_{GS} - V_t) (r_o || R_D || R_L) &amp;amp;\ge 30 \\ (V_{GS}-2)(r_o || R_D || R_L) &amp;amp;\ge 300 \\ \because r_0 很大，此处不作考虑 \\ (V_{GS}-2) (R_D || R_L) &amp;amp;\ge 300 \\ 选择 V_G 为 4V \\ 也就是R_{G1} = 20k\Omega, R_{G2} &amp;amp;= 10k\Omega \\\ \\ V_S &amp;amp;= I_DR_S \\ &amp;amp;= \frac{1}{2}k_n(V_G - V_S - V_t)^2 R_S\\ 选择 R_S &amp;amp;= 1k\Omega \\ V_S &amp;amp; = 2."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -283,6 +283,12 @@ CH1负极接差分放大器的地
       <ol>
         <li><a href="#电路和要求">电路和要求</a></li>
         <li><a href="#计算">计算</a></li>
+        <li><a href="#选择器材">选择器材</a></li>
+        <li><a href="#测量频率">测量频率</a>
+          <ol>
+            <li><a href="#heading"></a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#实验知识">实验知识</a>
@@ -354,7 +360,7 @@ CH1负极接差分放大器的地
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -495,16 +501,64 @@ CH1负极接差分放大器的地
 		data-flex-basis="906px"
 	
 ></p>
+<ul>
+<li>($A_{vo} \ge 30$) 就可以</li>
+</ul>
 <h2 id="计算">计算</h2>
 <p>$$
 \begin{aligned}
-A_{vo} &amp;= |-\frac{g_m R_D}{1 + g_m R_S}| \gt 40 \\
-&amp;= \frac{k_nV_{OV}R_D}{1+k_nV_{OV}R_S}(取V_{GS} =3V,使得V_{OV} =1V) \\
-&amp;= \frac{0.1R_D}{1 + 0.1R_S} &gt; 40
-\end{aligned} \\\
-\\ 得到 R_D - 40R_S \gt 400 \\\
-\\ 选择 R_D = 20k\Omega,R_S = 0.5k\Omega,R_{G1} = 9k\Omega,R_{G2} = 3k\Omega
+A_{vo} &amp;\ge 30 \\
+g_m (r_o || R_D || R_L) &amp;\ge30 \\
+k_n (V_{GS} - V_t) (r_o || R_D || R_L) &amp;\ge 30 \\
+(V_{GS}-2)(r_o || R_D || R_L) &amp;\ge 300 \\
+\because r_0 很大，此处不作考虑 \\
+(V_{GS}-2) (R_D || R_L) &amp;\ge 300 \\
+选择 V_G 为 4V \\
+也就是R_{G1} = 20k\Omega, R_{G2} &amp;= 10k\Omega  \\\
+\\ V_S &amp;= I_DR_S \\
+&amp;= \frac{1}{2}k_n(V_G - V_S - V_t)^2 R_S\\
+选择 R_S &amp;= 1k\Omega \\
+V_S &amp; = 2.210(V) 或 \ 1.810(V) \Longrightarrow V_{OV} = 0.21(V) 或 0.19(V)\\
+这样R_D || R_L &amp;\ge  1429 \ or \ 1579 \\
+\frac{R_D R_L}{R_D + R_L} &amp;\ge 1429 \ or \ 1579 \\
+选择R_D &amp;= 2k\Omega, R_L =100k \Omega \Longrightarrow R_D || R_L = 1.96k\\
+最终: A_v &amp;= g_m(R_D || R_L) \\
+&amp;=  0.021\times (R_D || R_L) or  \ 0.019\times 1.96k\\
+&amp;= 41.16  \ or \ 37.24 \\
+V_{op} &amp;= 617(mV) \ or \ 559(mV) \\\
+\\ 总结: R_{G1} &amp;= 20k\Omega, R_{G2} = 10k\Omega \\
+R_S &amp; =1k\Omega \\
+R_D &amp;= 2k\Omega \\
+R_L &amp;= 100k\Omega \\
+A_v &amp;= 41.16 \ or \ 37.24 \\
+R_{in} &amp;= R_{G1} || R_{G2} =  \frac{20}{3}k\Omega \gt 5k\Omega \\
+R_{out} = R_D &amp;= 2 k\Omega \lt 3k\Omega \\
+V_{op} &amp;= 617(mV) = 559(mV)
+\end{aligned}
 $$</p>
+<h2 id="选择器材">选择器材</h2>
+<ol>
+<li>
+<p>电阻</p>
+</li>
+<li>
+<p>MOSFET</p>
+</li>
+</ol>
+<p><img src="/p/%E5%AE%9E%E9%AA%8C/9.png"
+	width="463"
+	height="266"
+	srcset="/p/%E5%AE%9E%E9%AA%8C/9_hu2448cdd7eca145d2ee914b6568de65f1_54305_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/9_hu2448cdd7eca145d2ee914b6568de65f1_54305_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="417px"
+	
+></p>
+<h2 id="测量频率">测量频率</h2>
+<h3 id="heading"></h3>
 <h1 id="实验知识">实验知识</h1>
 <h2 id="电阻色环">电阻色环</h2>
 <ol>
@@ -555,31 +609,31 @@ $$</p>
 <p>黑色：无</p>
 </li>
 <li>
-<p>棕色：10^1</p>
+<p>棕色：$10^1$</p>
 </li>
 <li>
-<p>红色：10^2</p>
+<p>红色：$10^2$</p>
 </li>
 <li>
-<p>橙色：10^3</p>
+<p>橙色：$10^3$</p>
 </li>
 <li>
-<p>黄色：10^4</p>
+<p>黄色：$10^4$</p>
 </li>
 <li>
-<p>绿色：10^5</p>
+<p>绿色：$10^5$</p>
 </li>
 <li>
-<p>蓝色：10^6</p>
+<p>蓝色：$10^6$</p>
 </li>
 <li>
-<p>紫色：10^7</p>
+<p>紫色：$10^7$</p>
 </li>
 <li>
-<p>灰色：10^8</p>
+<p>灰色：$10^8$</p>
 </li>
 <li>
-<p>白色：10^9</p>
+<p>白色：$10^9$</p>
 </li>
 </ul>
 <ol start="4">
