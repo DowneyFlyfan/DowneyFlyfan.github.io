@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Low Frequency Response of the Common-Source Amplifiers CS Amplifier 电路 原电路 变换电路 分析 $$ \begin{aligned} A_v &amp;amp;= \frac{V_o}{V_{i}} \\ &amp;amp;= \frac{V_o}{V_{sig}} \\ &amp;amp;= \frac{V_g}{V_{sig}} \frac{I_d}{V_g} \frac{V_o}{I_d} \\\ \\ V_g &amp;amp;= \frac{R_G}{R_G &#43; \frac{1}{j\omega C} &#43; R_{sig}}\\ &amp;amp;= V_{sig} \frac{R_G}{R_G &#43; R_{sig}}\frac{j\omega}{j\omega &#43; \frac{1}{C_{C1}(R_G &#43; R_{sig})}} \\ \omega_{P1}&amp;amp;=\omega_0 \\
+&amp;amp;= \frac{1}{C_{C1}(R_G &#43; R_{sig})} \\\ \\ I_d &amp;amp;= I_S \\ &amp;amp;= \frac{V_g}{1/g_m &#43; Z_S} \\ &amp;amp;= V_gg_m \frac{\frac{1}{C_SR_S} &#43; j\omega}{\frac{g_mR_S &#43; 1}{C_SR_S} &#43; j\omega} \\ \omega_{P2} &amp;amp;= \omega_0 \\ &amp;amp;= \frac{g_m &#43; 1/R_S}{C_S}\\\ \\ V_o &amp;amp;= I_oR_L \\ &amp;amp;= -I_d \frac{R_DR_L}{R_D &#43; R_L &#43; \frac{1}{j\omega C_{C2}}} \\ &amp;amp;= -I_d \frac{R_DR_L}{R_D &#43; R_L}\frac{j\omega}{j\omega &#43; \frac{1}{C_{C2}(R_D&#43;R_L)}} \\ \omega_{P3} &amp;amp;= \omega_0 \\ &amp;amp;= \frac{1}{C_{C2}(R_D &#43; R_L)} \\\ \\ A_v &amp;amp; = \frac{V_o}{V_{sig}} \\ &amp;amp;= -\frac{R_G}{R_G &#43; R_{sig}} g_m R_L&amp;rsquo; \Big( \frac{j\omega}{j\omega &#43; \omega_{P1}} \Big) \Big( \frac{\omega_z &#43; j\omega}{j\omega &#43; \omega_{P2}} \Big) \Big( \frac{j\omega}{j\omega &#43; \omega_{P3}} \Big) \\ &amp;amp;= A_M \Big( \frac{j\omega}{j\omega &#43; \omega_{P1}} \Big) \Big( \frac{\omega_z &#43; j\omega}{j\omega &#43; \omega_{P2}} \Big) \Big( \frac{j\omega}{j\omega &#43; \omega_{P3}} \Big) \\ 其中, A_M &amp;amp;= -\frac{R_G}{R_G &#43; R_{sig}} g_m R_L&amp;rsquo; \\ R_L&amp;rsquo; &amp;amp;= R_L || R_D \end{aligned} $$'>
+<title>10-11. Frequency Response &amp; Feedback</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/10-11.-frequency-response-feedback/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='10-11. Frequency Response &amp; Feedback'>
+<meta property='og:description' content='Low Frequency Response of the Common-Source Amplifiers CS Amplifier 电路 原电路 变换电路 分析 $$ \begin{aligned} A_v &amp;amp;= \frac{V_o}{V_{i}} \\ &amp;amp;= \frac{V_o}{V_{sig}} \\ &amp;amp;= \frac{V_g}{V_{sig}} \frac{I_d}{V_g} \frac{V_o}{I_d} \\\ \\ V_g &amp;amp;= \frac{R_G}{R_G &#43; \frac{1}{j\omega C} &#43; R_{sig}}\\ &amp;amp;= V_{sig} \frac{R_G}{R_G &#43; R_{sig}}\frac{j\omega}{j\omega &#43; \frac{1}{C_{C1}(R_G &#43; R_{sig})}} \\ \omega_{P1}&amp;amp;=\omega_0 \\
+&amp;amp;= \frac{1}{C_{C1}(R_G &#43; R_{sig})} \\\ \\ I_d &amp;amp;= I_S \\ &amp;amp;= \frac{V_g}{1/g_m &#43; Z_S} \\ &amp;amp;= V_gg_m \frac{\frac{1}{C_SR_S} &#43; j\omega}{\frac{g_mR_S &#43; 1}{C_SR_S} &#43; j\omega} \\ \omega_{P2} &amp;amp;= \omega_0 \\ &amp;amp;= \frac{g_m &#43; 1/R_S}{C_S}\\\ \\ V_o &amp;amp;= I_oR_L \\ &amp;amp;= -I_d \frac{R_DR_L}{R_D &#43; R_L &#43; \frac{1}{j\omega C_{C2}}} \\ &amp;amp;= -I_d \frac{R_DR_L}{R_D &#43; R_L}\frac{j\omega}{j\omega &#43; \frac{1}{C_{C2}(R_D&#43;R_L)}} \\ \omega_{P3} &amp;amp;= \omega_0 \\ &amp;amp;= \frac{1}{C_{C2}(R_D &#43; R_L)} \\\ \\ A_v &amp;amp; = \frac{V_o}{V_{sig}} \\ &amp;amp;= -\frac{R_G}{R_G &#43; R_{sig}} g_m R_L&amp;rsquo; \Big( \frac{j\omega}{j\omega &#43; \omega_{P1}} \Big) \Big( \frac{\omega_z &#43; j\omega}{j\omega &#43; \omega_{P2}} \Big) \Big( \frac{j\omega}{j\omega &#43; \omega_{P3}} \Big) \\ &amp;amp;= A_M \Big( \frac{j\omega}{j\omega &#43; \omega_{P1}} \Big) \Big( \frac{\omega_z &#43; j\omega}{j\omega &#43; \omega_{P2}} \Big) \Big( \frac{j\omega}{j\omega &#43; \omega_{P3}} \Big) \\ 其中, A_M &amp;amp;= -\frac{R_G}{R_G &#43; R_{sig}} g_m R_L&amp;rsquo; \\ R_L&amp;rsquo; &amp;amp;= R_L || R_D \end{aligned} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/10-11.-frequency-response-feedback/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-05-10T11:55:19&#43;08:00'/><meta property='article:modified_time' content='2023-05-10T11:55:19&#43;08:00'/>
+<meta name="twitter:title" content="10-11. Frequency Response &amp; Feedback">
+<meta name="twitter:description" content="Low Frequency Response of the Common-Source Amplifiers CS Amplifier 电路 原电路 变换电路 分析 $$ \begin{aligned} A_v &amp;amp;= \frac{V_o}{V_{i}} \\ &amp;amp;= \frac{V_o}{V_{sig}} \\ &amp;amp;= \frac{V_g}{V_{sig}} \frac{I_d}{V_g} \frac{V_o}{I_d} \\\ \\ V_g &amp;amp;= \frac{R_G}{R_G &#43; \frac{1}{j\omega C} &#43; R_{sig}}\\ &amp;amp;= V_{sig} \frac{R_G}{R_G &#43; R_{sig}}\frac{j\omega}{j\omega &#43; \frac{1}{C_{C1}(R_G &#43; R_{sig})}} \\ \omega_{P1}&amp;amp;=\omega_0 \\
+&amp;amp;= \frac{1}{C_{C1}(R_G &#43; R_{sig})} \\\ \\ I_d &amp;amp;= I_S \\ &amp;amp;= \frac{V_g}{1/g_m &#43; Z_S} \\ &amp;amp;= V_gg_m \frac{\frac{1}{C_SR_S} &#43; j\omega}{\frac{g_mR_S &#43; 1}{C_SR_S} &#43; j\omega} \\ \omega_{P2} &amp;amp;= \omega_0 \\ &amp;amp;= \frac{g_m &#43; 1/R_S}{C_S}\\\ \\ V_o &amp;amp;= I_oR_L \\ &amp;amp;= -I_d \frac{R_DR_L}{R_D &#43; R_L &#43; \frac{1}{j\omega C_{C2}}} \\ &amp;amp;= -I_d \frac{R_DR_L}{R_D &#43; R_L}\frac{j\omega}{j\omega &#43; \frac{1}{C_{C2}(R_D&#43;R_L)}} \\ \omega_{P3} &amp;amp;= \omega_0 \\ &amp;amp;= \frac{1}{C_{C2}(R_D &#43; R_L)} \\\ \\ A_v &amp;amp; = \frac{V_o}{V_{sig}} \\ &amp;amp;= -\frac{R_G}{R_G &#43; R_{sig}} g_m R_L&amp;rsquo; \Big( \frac{j\omega}{j\omega &#43; \omega_{P1}} \Big) \Big( \frac{\omega_z &#43; j\omega}{j\omega &#43; \omega_{P2}} \Big) \Big( \frac{j\omega}{j\omega &#43; \omega_{P3}} \Big) \\ &amp;amp;= A_M \Big( \frac{j\omega}{j\omega &#43; \omega_{P1}} \Big) \Big( \frac{\omega_z &#43; j\omega}{j\omega &#43; \omega_{P2}} \Big) \Big( \frac{j\omega}{j\omega &#43; \omega_{P3}} \Big) \\ 其中, A_M &amp;amp;= -\frac{R_G}{R_G &#43; R_{sig}} g_m R_L&amp;rsquo; \\ R_L&amp;rsquo; &amp;amp;= R_L || R_D \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#low-frequency-response-of-the-common-source-amplifiers">Low Frequency Response of the Common-Source Amplifiers</a>
+      <ol>
+        <li><a href="#cs-amplifier">CS Amplifier</a>
+          <ol>
+            <li><a href="#电路">电路</a></li>
+            <li><a href="#分析">分析</a></li>
+            <li><a href="#frequency-response">Frequency Response</a></li>
+          </ol>
+        </li>
+        <li><a href="#the-method-of-short-circuit-time-constants">The Method of Short-Circuit Time Constants</a></li>
+      </ol>
+    </li>
+    <li><a href="#internal-capacitive-effects-and-the-high-frequency-model-of-the-mosfet">Internal Capacitive Effects and the High-Frequency Model of the MOSFET</a>
+      <ol>
+        <li><a href="#图示">图示</a></li>
+        <li><a href="#分析-1">分析</a></li>
+        <li><a href="#other-models">Other Models</a>
+          <ol>
+            <li><a href="#hybrid-pi-model">hybrid-$\pi$ model</a></li>
+            <li><a href="#simplified-high-frequency-t-model">simplified high-frequency T model</a></li>
+          </ol>
+        </li>
+        <li><a href="#the-mosfet-unity-gain-frequency-f_t">The MOSFET Unity-Gain Frequency ($f_T$)</a>
+          <ol>
+            <li><a href="#电路-1">电路</a></li>
+            <li><a href="#分析-2">分析</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#high-frequency-response">High-Frequency Response</a>
+      <ol>
+        <li><a href="#cs-amplifier-1">CS Amplifier</a>
+          <ol>
+            <li><a href="#电路--电路简化">电路 &amp; 电路简化</a></li>
+            <li><a href="#分析-3">分析</a></li>
+            <li><a href="#进一步等效">进一步等效</a></li>
+            <li><a href="#frequency-response-1">Frequency Response</a>
+              <ol>
+                <li><a href="#r_sig-is-low">$R_{sig}$ Is Low</a></li>
+              </ol>
+            </li>
+            <li><a href="#总结">总结</a></li>
+          </ol>
+        </li>
+        <li><a href="#millers-theorem">Miller’s Theorem</a>
+          <ol>
+            <li><a href="#米勒等效电路">米勒等效电路</a></li>
+            <li><a href="#拆分阻抗">拆分阻抗</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#feedback">Feedback</a>
+      <ol>
+        <li><a href="#the-general-feedback-structure">The General Feedback Structure</a>
+          <ol>
+            <li><a href="#图示-1">图示</a></li>
+            <li><a href="#分析-4">分析</a></li>
+            <li><a href="#公式总结">公式总结</a></li>
+          </ol>
+        </li>
+        <li><a href="#properties">Properties</a>
+          <ol>
+            <li><a href="#gain-de-sensitivity">Gain De-sensitivity</a></li>
+            <li><a href="#bandwidth-extension">Bandwidth Extension</a></li>
+            <li><a href="#interference-reduction">Interference Reduction</a></li>
+            <li><a href="#reduction-in-nonlinear-distortion">Reduction in Nonlinear Distortion</a></li>
+          </ol>
+        </li>
+        <li><a href="#the-feedback-voltage-amplifier">The Feedback Voltage Amplifier</a>
+          <ol>
+            <li><a href="#图示-2">图示</a></li>
+            <li><a href="#heading"></a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#bypass-capacitor">Bypass Capacitor</a></li>
+        <li><a href="#coupling-capacitor">Coupling Capacitor</a></li>
+        <li><a href="#dominant-pole">dominant pole</a></li>
+        <li><a href="#zero-frequency">Zero Frequency</a></li>
+        <li><a href="#f_l公式推导">$f_L$公式推导</a></li>
+        <li><a href="#电容的阻抗">电容的阻抗</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%A8%A1%E7%94%B5/" style="background-color: #4169E1; color: #fff;">
+                模电
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/10-11.-frequency-response-feedback/">10-11. Frequency Response &amp; Feedback</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 10, 101010</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="low-frequency-response-of-the-common-source-amplifiers">Low Frequency Response of the Common-Source Amplifiers</h1>
+<h2 id="cs-amplifier">CS Amplifier</h2>
+<h3 id="电路">电路</h3>
+<ol>
+<li>原电路</li>
+</ol>
+<p><img src="/p/10-11.-frequency-response-feedback/1.png"
+	width="535"
+	height="366"
+	srcset="/p/10-11.-frequency-response-feedback/1_hubcc4210650fabea15cf3ce6a29d4b33c_33413_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/1_hubcc4210650fabea15cf3ce6a29d4b33c_33413_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="146"
+		data-flex-basis="350px"
+	
+></p>
+<ol start="2">
+<li>变换电路</li>
+</ol>
+<p><img src="/p/10-11.-frequency-response-feedback/2.png"
+	width="870"
+	height="484"
+	srcset="/p/10-11.-frequency-response-feedback/2_huc2c431afb9a48b75a33f7fa7766bb121_57612_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/2_huc2c431afb9a48b75a33f7fa7766bb121_57612_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="179"
+		data-flex-basis="431px"
+	
+></p>
+<h3 id="分析">分析</h3>
+<p>$$
+\begin{aligned}
+A_v &amp;= \frac{V_o}{V_{i}} \\
+&amp;= \frac{V_o}{V_{sig}} \\
+&amp;= \frac{V_g}{V_{sig}} \frac{I_d}{V_g} \frac{V_o}{I_d}  \\\
+\\ V_g  &amp;= \frac{R_G}{R_G + \frac{1}{j\omega C} + R_{sig}}\\
+&amp;= V_{sig} \frac{R_G}{R_G + R_{sig}}\frac{j\omega}{j\omega + \frac{1}{C_{C1}(R_G + R_{sig})}}
+\\ \omega_{P1}&amp;=\omega_0  \\</p>
+<p>&amp;= \frac{1}{C_{C1}(R_G + R_{sig})} \\\
+\\ I_d &amp;= I_S \\
+&amp;= \frac{V_g}{1/g_m + Z_S} \\
+&amp;= V_gg_m \frac{\frac{1}{C_SR_S} + j\omega}{\frac{g_mR_S + 1}{C_SR_S} + j\omega}  \\
+\omega_{P2} &amp;= \omega_0 \\
+&amp;= \frac{g_m + 1/R_S}{C_S}\\\
+\\ V_o &amp;= I_oR_L \\
+&amp;= -I_d \frac{R_DR_L}{R_D + R_L + \frac{1}{j\omega C_{C2}}} \\
+&amp;= -I_d \frac{R_DR_L}{R_D + R_L}\frac{j\omega}{j\omega + \frac{1}{C_{C2}(R_D+R_L)}} \\
+\omega_{P3} &amp;= \omega_0 \\
+&amp;= \frac{1}{C_{C2}(R_D + R_L)} \\\
+\\ A_v &amp; = \frac{V_o}{V_{sig}} \\
+&amp;= -\frac{R_G}{R_G + R_{sig}} g_m R_L&rsquo; \Big( \frac{j\omega}{j\omega + \omega_{P1}} \Big) \Big( \frac{\omega_z + j\omega}{j\omega + \omega_{P2}} \Big) \Big( \frac{j\omega}{j\omega + \omega_{P3}} \Big) \\
+&amp;= A_M \Big( \frac{j\omega}{j\omega + \omega_{P1}} \Big) \Big( \frac{\omega_z + j\omega}{j\omega + \omega_{P2}} \Big) \Big( \frac{j\omega}{j\omega + \omega_{P3}} \Big) \\
+其中, A_M &amp;= -\frac{R_G}{R_G + R_{sig}} g_m R_L&rsquo; \\
+R_L&rsquo; &amp;= R_L || R_D
+\end{aligned}
+$$</p>
+<h3 id="frequency-response">Frequency Response</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/5.png"
+	width="862"
+	height="545"
+	srcset="/p/10-11.-frequency-response-feedback/5_hub664abbf6ab78f009026a5cbd12b9daa_33043_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/5_hub664abbf6ab78f009026a5cbd12b9daa_33043_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
+	
+></p>
+<p>$$
+\begin{aligned}
+有&amp;Dominant \ Pole \\
+f_L &amp;\approx f_{P2} \\
+无 &amp;Dominant \ Pole  \\
+f_L &amp;\approx \sqrt{f_{P1}^2 + f_{P2}^2 + f_{P3}^2 - 2f_Z^2} \\\
+\\ 注意,\omega&amp;=2\pi f
+\end{aligned}
+$$</p>
+<h2 id="the-method-of-short-circuit-time-constants">The Method of Short-Circuit Time Constants</h2>
+<ol>
+<li>
+<p>Let $V_{sig}= 0$</p>
+</li>
+<li>
+<p>Consider the capacitors one at a time. That is,while considering capacitor $C_i$ , replace all the other capacitors with short circuits.</p>
+</li>
+<li>
+<p>For each capacitor $C_i$, find the total resistance $R_i$ seen by $C_i$</p>
+</li>
+<li>
+<p>Calculate the 3-dB frequency $f_L$</p>
+</li>
+</ol>
+<p>$$
+f_L = \sum_{i=1}^n\frac{1}{R_i C_i}
+$$</p>
+<h1 id="internal-capacitive-effects-and-the-high-frequency-model-of-the-mosfet">Internal Capacitive Effects and the High-Frequency Model of the MOSFET</h1>
+<h2 id="图示">图示</h2>
+<p><img src="/p/10-11.-frequency-response-feedback/3.png"
+	width="484"
+	height="267"
+	srcset="/p/10-11.-frequency-response-feedback/3_hu8d52b166a90c11ccdc303125958ea673_21697_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/3_hu8d52b166a90c11ccdc303125958ea673_21697_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="181"
+		data-flex-basis="435px"
+	
+></p>
+<h2 id="分析-1">分析</h2>
+<p>$$
+\begin{aligned}
+C_{ov} &amp;= WL_{ov}C_{ox} \\
+C_{gd} &amp;= C_{ov} \\
+C_{gs} &amp;= \frac{2}{3} WLC_{ox} + C_{ov} \\
+C_{sb} &amp;= \frac{C_{sb0}}{\sqrt{1 + \frac{V_{SB}}{V_o}}} \\
+C_{db} &amp;= \frac{C_{db0}}{\sqrt{1 + \frac{V_{DB}}{V_o}}}
+\end{aligned}
+$$</p>
+<ul>
+<li>
+<p>$_{ov}$意为<strong>overlap</strong></p>
+</li>
+<li>
+<p>When the source is connected to the body, $C_{sb}=0$.</p>
+</li>
+<li>
+<p>$C_{db}$ can be neglected.</p>
+</li>
+</ul>
+<h2 id="other-models">Other Models</h2>
+<h3 id="hybrid-pi-model">hybrid-$\pi$ model</h3>
+<ol>
+<li>电路</li>
+</ol>
+<p><img src="/p/10-11.-frequency-response-feedback/7.png"
+	width="603"
+	height="557"
+	srcset="/p/10-11.-frequency-response-feedback/7_hu5fb74790c745030724b104c7c7ab0170_22380_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/7_hu5fb74790c745030724b104c7c7ab0170_22380_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="108"
+		data-flex-basis="259px"
+	
+></p>
+<p><img src="/p/10-11.-frequency-response-feedback/4.png"
+	width="794"
+	height="349"
+	srcset="/p/10-11.-frequency-response-feedback/4_hu2a651c9ee747cb40d3f0896a83527606_50058_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/4_hu2a651c9ee747cb40d3f0896a83527606_50058_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="227"
+		data-flex-basis="546px"
+	
+></p>
+<ol start="2">
+<li>分析</li>
+</ol>
+<ul>
+<li>
+<p>(a)中<strong>S</strong>和<strong>B</strong>想连后得到(b)</p>
+</li>
+<li>
+<p>为了简化分析，去掉$C_{db}$, 得到(c)</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>Hybrid-$\pi$ Model</strong> 又称 <strong>High-Frequency $\pi$ Model</strong></li>
+</ol>
+<h3 id="simplified-high-frequency-t-model">simplified high-frequency T model</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/8.png"
+	width="518"
+	height="551"
+	srcset="/p/10-11.-frequency-response-feedback/8_hu9db30d96b88a85dcd0b16f95ef79ff01_17172_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/8_hu9db30d96b88a85dcd0b16f95ef79ff01_17172_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="94"
+		data-flex-basis="225px"
+	
+></p>
+<h2 id="the-mosfet-unity-gain-frequency-f_t">The MOSFET Unity-Gain Frequency ($f_T$)</h2>
+<h3 id="电路-1">电路</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/6.png"
+	width="636"
+	height="266"
+	srcset="/p/10-11.-frequency-response-feedback/6_hua2b1e841bc15fbfd4f0031ac4822cd25_14705_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/6_hua2b1e841bc15fbfd4f0031ac4822cd25_14705_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="239"
+		data-flex-basis="573px"
+	
+></p>
+<h3 id="分析-2">分析</h3>
+<p>$$
+\begin{aligned}
+I_o &amp;= g_mV_{gs} - sC_{gd}V_{gs} \\
+&amp;\approx g_m V_{gs} \\
+V_{gs} &amp;= \frac{I_i}{s(C_{gs} + C_{gd})} \\
+\frac{I_o}{I_i} &amp;= \frac{g_m}{s(C_{gs} + C_{gd})} \\
+\Big|\frac{I_o}{I_i} \Big| &amp;= \frac{g_m}{\omega(C_{gs} + C_{gd})} \\
+\therefore \omega_T &amp;= \frac{g_m}{C_{gs} + C_{gd}} \\
+f_T &amp;= \frac{\omega_T}{2\pi}\\
+&amp;= \frac{g_m}{2\pi (C_{gs} + C_{gd})}
+\end{aligned}
+$$</p>
+<h1 id="high-frequency-response">High-Frequency Response</h1>
+<h2 id="cs-amplifier-1">CS Amplifier</h2>
+<h3 id="电路--电路简化">电路 &amp; 电路简化</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/9.png"
+	width="633"
+	height="504"
+	srcset="/p/10-11.-frequency-response-feedback/9_hu10828032571eda12d2410ba96d9a5583_27575_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/9_hu10828032571eda12d2410ba96d9a5583_27575_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="125"
+		data-flex-basis="301px"
+	
+></p>
+<h3 id="分析-3">分析</h3>
+<p>$$
+\begin{aligned}
+I_o &amp;= g_mV_{gs} - I_{gd} \\
+&amp;\approx g_mV_{gs} \\
+\therefore V_o &amp;\approx -(g_mV_{gs})R_L&rsquo; \\\
+\\
+I_{gd} &amp;= (V_{gs}-V_{sd})sC_{gd} \\
+&amp;= (V_{gs} - V_o)sC_{gd} \\
+&amp;= sC_{gd}(1 + g_m R_L&rsquo;)V_{gs} \\\
+\\
+为了让&amp;I_{gd}看起来更简洁，我们把C_{gd}替换一下 \\
+sC_{eq}V_{gs} &amp;= sC_{gd}(1 + g_m R_L&rsquo;)V_{gs} \\
+\therefore C_{eq} &amp;= (1 + g_mR_L&rsquo;)C_{gd} \\
+于是，&amp; C_{gd}被放大了很多倍
+\end{aligned}
+$$</p>
+<ul>
+<li>这种放大倍数被称为<strong>Miller Effect</strong>, $(1 + g_mR_L&rsquo;)$被称作<strong>Miller Multiplier</strong></li>
+</ul>
+<p>$$
+\begin{aligned}
+A_M &amp;= - \frac{R_G}{R_G + R_{sig}} (g_m R_L&rsquo;) \\
+结合CAD&amp;的知识 \\
+V_{gs} &amp;=\frac{R_G}{R_G + R_{sig}} V_{sig} \frac{1}{1 + \frac{s}{\omega_0}} \\
+\therefore \frac{V_o}{V_{sig}} &amp;= \frac{R_G}{R_G + R_{sig}} \frac{1}{1 + \frac{s}{\omega_0}}(g_mR_L&rsquo;) \\
+&amp;= A_M \frac{1}{1 + \frac{s}{\omega_0}} \\\
+\\ 其中,\omega_H &amp;= \omega_0 \\
+&amp;= \frac{1}{R_{sig}&lsquo;C_{in}} \\
+f_H &amp;= \omega_0/2\pi \\
+&amp;= \frac{1}{2\pi R_{sig}&lsquo;C_{in}}
+\end{aligned}
+$$</p>
+<h3 id="进一步等效">进一步等效</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/10.png"
+	width="804"
+	height="334"
+	srcset="/p/10-11.-frequency-response-feedback/10_hu1d1e413ce5df0e7720298a3afd09fc9c_20793_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/10_hu1d1e413ce5df0e7720298a3afd09fc9c_20793_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="240"
+		data-flex-basis="577px"
+	
+></p>
+<h3 id="frequency-response-1">Frequency Response</h3>
+<h4 id="r_sig-is-low">$R_{sig}$ Is Low</h4>
+<ol>
+<li>电路</li>
+</ol>
+<p><img src="/p/10-11.-frequency-response-feedback/12.png"
+	width="575"
+	height="235"
+	srcset="/p/10-11.-frequency-response-feedback/12_hu6efb1e77fadf3dd369a9a77fb76e6552_12623_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/12_hu6efb1e77fadf3dd369a9a77fb76e6552_12623_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="244"
+		data-flex-basis="587px"
+	
+></p>
+<ol start="2">
+<li>分析</li>
+</ol>
+<p>$$
+\begin{aligned}
+V_{gs} &amp;\approx V_{sig} \\
+I_{gd} &amp;= sC_{gd}(V_{gs} -V_o) \\
+KCL: I_{gd} &amp;= g_mV_{gs} + \frac{V_o}{R_L&rsquo;} +sC_LV_o \\
+结合以上三式:\frac{V_o}{V_{sig}} &amp;= \frac{sC_{gd} - g_m}{\frac{1}{R_L&rsquo;} + sC_L + sC_{gd}} \\
+&amp;= -g_mR_L&rsquo; \frac{1 - s(C_{gd}/g_m)}{1 + sR_L&rsquo;(C_L + C_{gd})} \\\
+\\ \therefore f_Z &amp;= \frac{g_m}{2\pi C_{gd}} \\
+3-dB \ Frequency \ f_H &amp;= \frac{1}{2\pi (C_L + C_{gd}) R_L&rsquo;} \\
+\frac{f_Z}{f_H}&amp;= g_mR_L&rsquo; (1 + \frac{C_L}{C_{gd}}) \\
+f_t &amp;= |A_M|f_H \\
+&amp;= g_mR_L&rsquo; f_H \\
+&amp;= \frac{g_m}{2\pi (C_L + C_{gd})}
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>Frequency Response</li>
+</ol>
+<p><img src="/p/10-11.-frequency-response-feedback/13.png"
+	width="834"
+	height="428"
+	srcset="/p/10-11.-frequency-response-feedback/13_hu1bb9659449c3a39b2bf42fd8214ef9fd_37190_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/13_hu1bb9659449c3a39b2bf42fd8214ef9fd_37190_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="467px"
+	
+></p>
+<h3 id="总结">总结</h3>
+<p>$$
+\begin{aligned}
+C_{in} &amp;= C_{gs} + C_{gd}(1 + g_mR_L&rsquo;) \\
+&amp;= C_{gs}  + C_{eq} \\
+R_{sig}&rsquo; &amp;= R_{sig} || R_G \\
+&amp;\approx R_{sig}  \\
+\therefore 当 &amp;R_{sig}很大时, f_H会被低估
+\end{aligned}
+$$</p>
+<h2 id="millers-theorem">Miller’s Theorem</h2>
+<h3 id="米勒等效电路">米勒等效电路</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/11.png"
+	width="927"
+	height="400"
+	srcset="/p/10-11.-frequency-response-feedback/11_huffafab3f3574a2f59472b2810a0d2c04_22744_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/11_huffafab3f3574a2f59472b2810a0d2c04_22744_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="231"
+		data-flex-basis="556px"
+	
+></p>
+<h3 id="拆分阻抗">拆分阻抗</h3>
+<p>$$
+\begin{aligned}
+V_2 &amp; = KV_1 \\
+Z &amp;= Z_1 + Z_2 \\
+令Z_1 &amp;= \frac{Z}{1-K} ,Z_2 = \frac{Z}{1 - \frac{1}{K}} \\
+使得I_1 &amp;= I_2 = I
+\end{aligned}
+$$</p>
+<h1 id="feedback">Feedback</h1>
+<h2 id="the-general-feedback-structure">The General Feedback Structure</h2>
+<h3 id="图示-1">图示</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/14.png"
+	width="727"
+	height="332"
+	srcset="/p/10-11.-frequency-response-feedback/14_hu74819576f8bf4d9b03c64d5d9c8d88fa_52811_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/14_hu74819576f8bf4d9b03c64d5d9c8d88fa_52811_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="218"
+		data-flex-basis="525px"
+	
+></p>
+<ul>
+<li>$x$代表<strong>电压</strong>或者<strong>电流</strong>信号</li>
+</ul>
+<h3 id="分析-4">分析</h3>
+<ul>
+<li>$\beta$: <strong>Feedback Factor</strong></li>
+</ul>
+<p>$$
+\begin{aligned}
+x_o &amp;= Ax_i \\
+x_f &amp;= \beta x_o \\
+x_i&amp;= x_s - x_f \\
+A_f &amp;\equiv \frac{x_o}{x_s} \\
+&amp;= \frac{Ax_i}{x_f + x_i} \\
+&amp;= \frac{Ax_i}{x_i + \beta x_o} \\
+&amp;= \frac{Ax_i}{x_i + A\beta x_i} \\
+&amp;= \frac{A}{1 + A\beta} \\
+&amp;\approx \frac{1}{\beta} (A\beta \gg 1) \\\
+\\ x_f &amp;= \beta x_o =\frac{A\beta}{1 + A\beta}x_s \\
+x_i &amp;= x_s - x_f =\frac{1}{1 + A\beta}x_s
+\end{aligned}
+$$</p>
+<ul>
+<li>
+<p>$A\beta$: <strong>Loop Gain</strong></p>
+</li>
+<li>
+<p>$1 + A\beta$: <strong>The amount of Feedback</strong></p>
+</li>
+</ul>
+<h3 id="公式总结">公式总结</h3>
+<p>$$
+\begin{aligned}
+A_f &amp;= \frac{A}{1 + A\beta} = (\frac{1}{\beta})\frac{1}{ 1 + 1/(A\beta)}\\
+x_f &amp;= \frac{A\beta}{1 + A\beta} x_s \\
+x_i &amp;= \frac{1}{1 + A\beta}x_s \\\
+\\ 当A\beta &amp;\gg 1: \\
+A_f &amp;\approx \frac{1}{\beta} \\
+x_f &amp;\approx x_s \\
+x_i &amp;\approx 0
+\end{aligned}
+$$</p>
+<h2 id="properties">Properties</h2>
+<h3 id="gain-de-sensitivity">Gain De-sensitivity</h3>
+<p>$$
+\begin{aligned}
+A_f &amp;= \frac{A}{1 + A\beta} \\
+\frac{dA_f}{dA} &amp;= \frac{1}{(1 + A\beta)^2} \\
+dA_f &amp;= \frac{A}{1 +A\beta} \frac{1}{(1 + A\beta)A}dA \\
+\frac{dA_f}{A_f} &amp;= \frac{1}{1 + A\beta}\frac{dA}{A}
+\end{aligned}
+$$</p>
+<h3 id="bandwidth-extension">Bandwidth Extension</h3>
+<p>$$
+\begin{aligned}
+A(s) &amp;= \frac{A_M}{1 + s/\omega_H} \\
+A_f &amp;= \frac{A(s)}{1 + A(s) \beta} \\
+&amp;= \frac{A_M/(1+A_M\beta)}{1 + s/[(1 + A_M\beta)\omega_H]} \\
+&amp;= \frac{A_{fM}}{1 + s/(1 + A_M\beta)} \\
+\omega_{Hf} &amp;= (1+A_M\beta) \omega_H \\
+\omega_{Lf} &amp;= \frac{\omega_L}{1 + A_M\beta}
+\end{aligned}
+$$</p>
+<h3 id="interference-reduction">Interference Reduction</h3>
+<h3 id="reduction-in-nonlinear-distortion">Reduction in Nonlinear Distortion</h3>
+<h2 id="the-feedback-voltage-amplifier">The Feedback Voltage Amplifier</h2>
+<h3 id="图示-2">图示</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/15.png"
+	width="887"
+	height="440"
+	srcset="/p/10-11.-frequency-response-feedback/15_hu61f785b80c3d762b96c93c80daf2ab60_57374_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/15_hu61f785b80c3d762b96c93c80daf2ab60_57374_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="201"
+		data-flex-basis="483px"
+	
+></p>
+<h3 id="heading"></h3>
+<h1 id="附录">附录</h1>
+<h2 id="bypass-capacitor">Bypass Capacitor</h2>
+<blockquote>
+<p>过滤高频噪声，以确保电路中的稳定电压</p>
+</blockquote>
+<h2 id="coupling-capacitor">Coupling Capacitor</h2>
+<blockquote>
+<p>放置在信号线上，用于将一个信号传输到另一个电路中，同时阻止直流偏移。</p>
+</blockquote>
+<h2 id="dominant-pole">dominant pole</h2>
+<blockquote>
+<p>最高极点频率的极点。这个极点对于电路的频率响应和稳定性非常重要。</p>
+</blockquote>
+<h2 id="zero-frequency">Zero Frequency</h2>
+<blockquote>
+<p>a transmission zero is the value of s at which the input does not reach the output, resulting in $V_o = 0$</p>
+</blockquote>
+<h2 id="f_l公式推导">$f_L$公式推导</h2>
+<p>$$
+这个公式是基于滤波器的频率响应推导出来的。\\
+\\
+假设有一个由三个电感（inductors）和三个电容（capacitors）组成的低通滤波器（low-pass filter），其中电感之间互相并联，电容之间也互相并联。这个滤波器的频率响应可以表示为：\\
+\\
+H(f) = \frac{1}{1+j\frac{f}{f_{P1}}} \cdot \frac{1}{1+j\frac{f}{f_{P2}}} \cdot \frac{1}{1+j\frac{f}{f_{P3}}}\\
+\\
+其中，f是频率，f_P1、f_P2和f_P3是分别由电容和电感决定的三个截止频率（cut-off frequency），式子中的j是虚数单位，满足j^2=-1。\\
+\\
+将H(f)表示成模与相位的形式，可以得到：\\
+\\
+H(f) = \frac{A}{\sqrt{1+(\frac{f}{f_{P1}})^2} \cdot \sqrt{1+(\frac{f}{f_{P2}})^2} \cdot \sqrt{1+(\frac{f}{f_{P3}})^2}} \cdot e^{-j\phi(f)}\\
+\\
+其中，A和φ(f)分别是幅度和相位，可以通过求解每个因子的幅度和相位，再将它们相乘得到H(f)的幅度和相位。\\
+\\
+令f_Z = \frac{1}{2\pi\sqrt{LC}}为电感和电容组成的谐振频率，其中L和C是电感和电容的值。假设f_Z^2远小于f_P1^2、f_P2^2和f_P3^2，可以将H(f)中的每个因子展开成泰勒级数，保留到二阶，得到：\\
+\\
+H(f) \approx \frac{A}{\sqrt{1+\frac{1}{4}(\frac{f}{f_Z})^2} \cdot \sqrt{1+\frac{1}{4}(\frac{f}{f_Z})^2} \cdot \sqrt{1+\frac{1}{4}(\frac{f}{f_Z})^2}} \cdot e^{-j\phi(f)}\\
+\\
+将三个根号内的项视为一个整体，可以得到：\\
+\\
+H(f) \approx \frac{A}{(1+\frac{1}{4}(\frac{f}{f_Z})^2)^{\frac{3}{2}}} \cdot e^{-j\phi(f)}\\
+\\
+对于一个低通滤波器，当f&laquo;f_P1、f_P2和f_P3时，H(f)的幅度近似为1，相位近似为0。因此，可以将H(f)中的A近似为1，φ(f)近似为0，得到：\\
+\\
+H(f) \approx \frac{1}{(1+\frac{1}{4}(\frac{f}{f_Z})^2)^{\frac{3}{2}}}\\
+\\
+将H(f)的幅度与相位分别表示成模和复数的形式，可以得到：\\
+\\
+|H(f)| = \frac{1}{\sqrt{1+\frac{1}{16}(\frac{f}{f_Z})^4}}\\
+\\
+将|H(f)|表示成f的函数，并令其等于0.707，可以解出f_L，得到：\\
+\\
+f_L \approx \sqrt{f_{P1}^2 + f_{P2}^2 + f_{P3}^2 - 2f_Z^2}\\
+$$</p>
+<h2 id="电容的阻抗">电容的阻抗</h2>
+<p>-) 电容通常很小,$1/sC$也就很大，通常可以<strong>忽略不计</strong></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">8-9. IC Amplifer &amp; Differential and Multistage Amplifiers</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/a3-single-stage-amplifier/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">A3 Single Stage Amplifier</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">7.晶体管放大器</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AE%9E%E9%AA%8C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">实验</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/5.mosfet/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5.MOSFET</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

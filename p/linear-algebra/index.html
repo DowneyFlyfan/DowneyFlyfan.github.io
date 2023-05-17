@@ -337,6 +337,7 @@ Linear Dependence &amp;amp; Span Linear Combination $$ Ax =b \Longrightarrow \su
       <ol>
         <li><a href="#实现">实现</a></li>
         <li><a href="#方差">方差</a></li>
+        <li><a href="#适用情况">适用情况</a></li>
       </ol>
     </li>
     <li><a href="#calculus">Calculus</a>
@@ -779,10 +780,8 @@ $$</p>
 &amp;= x^Tx - x^Tg(c)   - g^T(c)x + g^T(x)g(c) \\
 &amp;= 无关项 -2x^Tg(c) + g^T(c)g(c) \\
 &amp;= 无关项 -2x^T Dc + c^TD^TDc \\
-&amp;= 无关项 -2x^TDc + c^Tc
-\end{aligned}  \\\
-\\ \begin{aligned}
-\nabla</em>{\pmb c}(-2x^TDc + c^Tc) &amp;= 0 \\
+&amp;= 无关项 -2x^TDc + c^Tc \\\
+\\ \nabla</em>{\pmb c}(-2x^TDc + c^Tc) &amp;= 0 \\
 -2D^Tx +2c &amp;=0 (疑问!!!) \\
 c &amp;= D^T x
 \end{aligned} \\\
@@ -801,6 +800,21 @@ Var(x) = \frac{1}{m-1}\pmb{X^TX} \\\
 \\ if \ \pmb{z = x^TW} \\\
 \\ Var[\pmb z] = \frac{1}{m-1} \Sigma^2
 $$</p>
+<h2 id="适用情况">适用情况</h2>
+<ol>
+<li>
+<p>数据集包含多个变量，需要降低维度以简化数据。</p>
+</li>
+<li>
+<p>变量之间存在高度相关性，需要将它们转换为更少的无关变量。</p>
+</li>
+<li>
+<p>需要识别数据集中最重要的因素或特征。</p>
+</li>
+<li>
+<p>需要可视化数据集并找到潜在的模式和关系。</p>
+</li>
+</ol>
 <h1 id="calculus">Calculus</h1>
 <h2 id="taylor-expression">Taylor Expression</h2>
 <p>$$

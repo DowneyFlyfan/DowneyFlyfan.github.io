@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='普通问题 PKGBUILD和它的用法 内容与本质 一个shell脚本 一个 makepkg -s -r -i -c -si 自动安装依赖 卸载不需要的依赖项 自动升级安装 删除临时构建文件 常用 没有声音怎么办 1 2 3 sudo vim /etc/default/grub` GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg 删除特定名称的文件 1 sudo find / -name &amp;#34;openssl&amp;#34; -type f -delete 定期清理浏览器缓存 '>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基础问题 没有声音 1 2 3 sudo vim /etc/default/grub GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg 删除特定名称的文件 1 sudo find / -name &amp;#34;openssl&amp;#34; -type f -delete 定期清理浏览器缓存 蓝牙连接失败 1 2 sudo nvim /etc/bluetooth/main.conf ControllerMode = bredr 虚拟机 前提条件 安装软件 1 sudo pacman -S qemu-base virt-manager 开启服务 Network default 1 sudo virsh net-start default '>
 <title>Linux的问题</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/linux%E7%9A%84%E9%97%AE%E9%A2%98/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Linux的问题'>
-<meta property='og:description' content='普通问题 PKGBUILD和它的用法 内容与本质 一个shell脚本 一个 makepkg -s -r -i -c -si 自动安装依赖 卸载不需要的依赖项 自动升级安装 删除临时构建文件 常用 没有声音怎么办 1 2 3 sudo vim /etc/default/grub` GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg 删除特定名称的文件 1 sudo find / -name &amp;#34;openssl&amp;#34; -type f -delete 定期清理浏览器缓存 '>
+<meta property='og:description' content='基础问题 没有声音 1 2 3 sudo vim /etc/default/grub GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg 删除特定名称的文件 1 sudo find / -name &amp;#34;openssl&amp;#34; -type f -delete 定期清理浏览器缓存 蓝牙连接失败 1 2 sudo nvim /etc/bluetooth/main.conf ControllerMode = bredr 虚拟机 前提条件 安装软件 1 sudo pacman -S qemu-base virt-manager 开启服务 Network default 1 sudo virsh net-start default '>
 <meta property='og:url' content='https://downeyflyfan.com/p/linux%E7%9A%84%E9%97%AE%E9%A2%98/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='问题' /><meta property='article:published_time' content='2022-12-13T00:05:44&#43;08:00'/><meta property='article:modified_time' content='2022-12-13T00:05:44&#43;08:00'/>
 <meta name="twitter:title" content="Linux的问题">
-<meta name="twitter:description" content="普通问题 PKGBUILD和它的用法 内容与本质 一个shell脚本 一个 makepkg -s -r -i -c -si 自动安装依赖 卸载不需要的依赖项 自动升级安装 删除临时构建文件 常用 没有声音怎么办 1 2 3 sudo vim /etc/default/grub` GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg 删除特定名称的文件 1 sudo find / -name &amp;#34;openssl&amp;#34; -type f -delete 定期清理浏览器缓存 "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="基础问题 没有声音 1 2 3 sudo vim /etc/default/grub GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34; sudo grub-mkconfig -o /boot/grub/grub.cfg 删除特定名称的文件 1 sudo find / -name &amp;#34;openssl&amp;#34; -type f -delete 定期清理浏览器缓存 蓝牙连接失败 1 2 sudo nvim /etc/bluetooth/main.conf ControllerMode = bredr 虚拟机 前提条件 安装软件 1 sudo pacman -S qemu-base virt-manager 开启服务 Network default 1 sudo virsh net-start default "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -250,10 +250,16 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#普通问题">普通问题</a>
+    <li><a href="#基础问题">基础问题</a>
       <ol>
-        <li><a href="#pkgbuild和它的用法">PKGBUILD和它的用法</a></li>
-        <li><a href="#没有声音怎么办">没有声音怎么办</a></li>
+        <li><a href="#没有声音">没有声音</a></li>
+        <li><a href="#蓝牙连接失败">蓝牙连接失败</a></li>
+        <li><a href="#虚拟机">虚拟机</a>
+          <ol>
+            <li><a href="#前提条件">前提条件</a></li>
+            <li><a href="#network-default">Network default</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -335,39 +341,8 @@
     <section class="article-content">
     
     
-    <h1 id="普通问题">普通问题</h1>
-<h2 id="pkgbuild和它的用法">PKGBUILD和它的用法</h2>
-<ol>
-<li>内容与本质</li>
-</ol>
-<ul>
-<li>一个<u>shell脚本</u></li>
-<li>一个</li>
-</ul>
-<ol start="2">
-<li><code>makepkg</code></li>
-</ol>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">-s</th>
-<th style="text-align:center">-r</th>
-<th style="text-align:center">-i</th>
-<th style="text-align:center">-c</th>
-<th style="text-align:center">-si</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">自动安装依赖</td>
-<td style="text-align:center">卸载不需要的依赖项</td>
-<td style="text-align:center">自动升级安装</td>
-<td style="text-align:center">删除临时构建文件</td>
-<td style="text-align:center">常用</td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="没有声音怎么办">没有声音怎么办</h2>
+    <h1 id="基础问题">基础问题</h1>
+<h2 id="没有声音">没有声音</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -375,8 +350,8 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo vim /etc/default/grub`
-</span></span><span class="line"><span class="cl">GRUB_CMDLINE_LINUX_DEFAULT=&#34;loglevel=3 snd_hda_intel.dmic_detect=0&#34;
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo vim /etc/default/grub
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;loglevel=3 snd_hda_intel.dmic_detect=0&#34;</span>
 </span></span><span class="line"><span class="cl">sudo grub-mkconfig -o /boot/grub/grub.cfg
 </span></span></code></pre></td></tr></table>
 </div>
@@ -394,7 +369,43 @@
 </div><ol start="7">
 <li>定期清理浏览器缓存</li>
 </ol>
-
+<h2 id="蓝牙连接失败">蓝牙连接失败</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo nvim /etc/bluetooth/main.conf
+</span></span><span class="line"><span class="cl"><span class="nv">ControllerMode</span> <span class="o">=</span> bredr
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="虚拟机">虚拟机</h2>
+<h3 id="前提条件">前提条件</h3>
+<ol>
+<li>安装软件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo pacman -S qemu-base virt-manager
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>开启服务</li>
+</ol>
+<h3 id="network-default">Network default</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo virsh net-start default
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -459,12 +470,12 @@
             
                 
 <article class="">
-    <a href="/p/archlinux%E7%9A%84%E5%AE%89%E8%A3%85/">
+    <a href="/p/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Archlinux的安装</h2>
+            <h2 class="article-title">系统安装</h2>
         </div>
     </a>
 </article>

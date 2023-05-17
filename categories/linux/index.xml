@@ -7,11 +7,11 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Fri, 05 May 2023 10:03:14 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Archlinux的安装</title>
-        <link>https://downeyflyfan.com/p/archlinux%E7%9A%84%E5%AE%89%E8%A3%85/</link>
+        <title>系统安装</title>
+        <link>https://downeyflyfan.com/p/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</link>
         <pubDate>Fri, 05 May 2023 10:03:14 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/archlinux%E7%9A%84%E5%AE%89%E8%A3%85/</guid>
+        <guid>https://downeyflyfan.com/p/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</guid>
         <description>&lt;h1 id=&#34;文件备份&#34;&gt;文件备份&lt;/h1&gt;
 &lt;h1 id=&#34;开机分区的安装&#34;&gt;开机分区的安装&lt;/h1&gt;
 &lt;h2 id=&#34;新建boot分区&#34;&gt;新建boot分区&lt;/h2&gt;
@@ -206,7 +206,31 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;Your Name&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h1 id=&#34;windows安装&#34;&gt;Windows安装&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在这里https://www.microsoft.com/zh-cn/software-download/windows10点击“立即下载工具”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下好后打开双击运行,插上一个大于4G的U盘，选择为另一台电脑安装，之后选择你的U盘，等完成后一个人官方工具制作的介质就做好了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这时如果设置从U盘启动，将会遇到你所说的问题，但我从网上看到安装之前先把介质里的eif文件夹（好像是，反正就三个字母的文件夹，不大）直接删除。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置BIOS启动项，从U盘启动然后安装，格式化C盘，装进去。耐心等待，大功告成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果不能继续从系统盘启动，只需要再将BIOS启动项设置回来就OK了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;至此，全新安装完成，如果你原来是数字授权激活，那么它将以同样方式自动激活，只要你联网，因为再上一次激活时，win10激活服务器记录下了你的主板信息，只要主板不坏，就可随便安装。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装后要登录Windows账户 验证账户 设置密码等可自己摸索，有一点很重要，将账户问题设置好后，可能要等一小段时间才能使用会员更新，当你点击“使用”时，它会让你重启已验证你运行的是预览版本，重启后自动显示接受会员版本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
         </item>
         <item>
         <title>创建博客</title>
@@ -2082,39 +2106,8 @@ Hardware --&gt; Kernel
         <pubDate>Tue, 13 Dec 2022 00:05:44 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/linux%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-        <description>&lt;h1 id=&#34;普通问题&#34;&gt;普通问题&lt;/h1&gt;
-&lt;h2 id=&#34;pkgbuild和它的用法&#34;&gt;PKGBUILD和它的用法&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;内容与本质&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;一个&lt;u&gt;shell脚本&lt;/u&gt;&lt;/li&gt;
-&lt;li&gt;一个&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;code&gt;makepkg&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;-s&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;-r&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;-i&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;-c&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;-si&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;自动安装依赖&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;卸载不需要的依赖项&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;自动升级安装&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;删除临时构建文件&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;常用&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;没有声音怎么办&#34;&gt;没有声音怎么办&lt;/h2&gt;
+        <description>&lt;h1 id=&#34;基础问题&#34;&gt;基础问题&lt;/h1&gt;
+&lt;h2 id=&#34;没有声音&#34;&gt;没有声音&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -2122,8 +2115,8 @@ Hardware --&gt; Kernel
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo vim /etc/default/grub`
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo vim /etc/default/grub
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;GRUB_CMDLINE_LINUX_DEFAULT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;loglevel=3 snd_hda_intel.dmic_detect=0&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo grub-mkconfig -o /boot/grub/grub.cfg
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -2141,7 +2134,43 @@ Hardware --&gt; Kernel
 &lt;/div&gt;&lt;ol start=&#34;7&#34;&gt;
 &lt;li&gt;定期清理浏览器缓存&lt;/li&gt;
 &lt;/ol&gt;
-</description>
+&lt;h2 id=&#34;蓝牙连接失败&#34;&gt;蓝牙连接失败&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nvim /etc/bluetooth/main.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;ControllerMode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; bredr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;虚拟机&#34;&gt;虚拟机&lt;/h2&gt;
+&lt;h3 id=&#34;前提条件&#34;&gt;前提条件&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;安装软件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S qemu-base virt-manager
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;开启服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;network-default&#34;&gt;Network default&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo virsh net-start default
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
         </item>
         <item>
         <title>Git</title>
