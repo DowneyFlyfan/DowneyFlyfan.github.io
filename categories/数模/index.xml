@@ -6,7 +6,118 @@
         <description>Recent content in 数模 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 24 Apr 2023 19:18:20 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E6%95%B0%E6%A8%A1/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 20 May 2023 18:55:44 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E6%95%B0%E6%A8%A1/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>分类</title>
+        <link>https://downeyflyfan.com/p/%E5%88%86%E7%B1%BB/</link>
+        <pubDate>Sat, 20 May 2023 18:55:44 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E5%88%86%E7%B1%BB/</guid>
+        <description>&lt;h1 id=&#34;决策树分类&#34;&gt;决策树分类&lt;/h1&gt;
+&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;假设我们有一个包含 $N$ 个样本的训练集，每个样本包含 $M$ 个特征，用 $X_{i,j}$ 表示第 $i$ 个样本的第 $j$ 个特征的取值，用 $y_i$ 表示第 $i$ 个样本的目标值（或标签）。决策树模型的目标是学习从特征到目标值的映射关系，并用学习到的模型对新的样本进行预测。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;流程&#34;&gt;流程&lt;/h2&gt;
+&lt;h3 id=&#34;计算特征阈值和判断最优特征&#34;&gt;计算特征阈值和判断最优特征&lt;/h3&gt;
+&lt;h4 id=&#34;基尼指数&#34;&gt;基尼指数&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;判断最优特征&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;基尼指数越小表示数据集越纯。&lt;/p&gt;
+&lt;p&gt;对于一个特征 $A$ 和其取值 $a_i$，假设 $D$ 表示当前节点的数据集，$D_i$ 表示特征 $A$ 取值为 $a_i$ 时的子数据集，则基尼指数计算公式为：&lt;/p&gt;
+&lt;p&gt;$$Gini(D,A)=\sum_{i=1}^{k}\frac{|D_i|}{|D|}Gini(D_i)$$&lt;/p&gt;
+&lt;p&gt;其中，$k$ 表示特征 $A$ 的取值数目，$|D_i|$ 表示子数据集 $D_i$ 中样本的数目，$|D|$ 表示当前节点的样本数目，$Gini(D_i)$ 表示子数据集 $D_i$ 的基尼指数，计算公式为：&lt;/p&gt;
+&lt;p&gt;$$Gini(D_i)=1-\sum_{j=1}^{c}p_{ij}^2$$&lt;/p&gt;
+&lt;p&gt;其中，$c$ 表示类别数目，$p_{ij}$ 表示子数据集 $D_i$ 中属于第 $j$ 类的样本占比。&lt;/p&gt;
+&lt;p&gt;基尼指数越小表示使用特征 $A$ 进行划分后，得到的子数据集的纯度越高。因此，决策树算法选择基尼指数最小的特征作为最优特征进行划分。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;特征阈值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;信息增益information-gain&#34;&gt;信息增益（Information gain）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;计算特征阈值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;信息增益是评价特征重要性的一种指标，它表示特征 $x_j$ 对分类的贡献程度。信息增益越大，说明特征的重要性越高。可以通过以下公式计算信息增益：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Gain(D,x_j) &amp;amp;= H(D) - \sum_{i=1}^m \frac{|D_i|}{|D|} H(D_i) \\
+H &amp;amp;= -\sum p(x) \times log_2[p(x)]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中 $H(D)$ 表示数据集 $D$ 的熵，$m$ 表示特征 $x_j$的可能取值个数，$D_i$ 表示数据集 $D$ 在特征 $x_j$ 取值为 $i$ 时对应的子集，$|D_i|$ 表示子集 $D_i$ 的大小，$|D|$ 表示数据集 $D$ 的大小。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;对特征 $x_j$ 的取值进行排序，得到一个有序的列表 $[x_1,x_2,\cdots,x_m]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于相邻的取值 $x_i$ 和 $x_{i+1}$，将它们作为特征阈值 $s$，将数据集划分为两个子集 $D_1={x\in D|x_j\leq s}$ 和 $D_2={x\in D|x_j&amp;gt;s}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算使用特征阈值 $s$ 进行划分的信息增益 $Gain(D,x_j,s)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;根据 $x_j \leq s$ 和 $x_j &amp;gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$ ，然后计算信息增益&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$Gain(D,x_j,s) = H(D) - \frac{|D_1|}{|D|} H(D_1) - \frac{|D_2|}{|D|} H(D_2)$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;重复步骤2和3，直到计算完所有相邻取值的信息增益为止。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择信息增益最大的特征阈值作为最终的特征阈值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;筛选最优特征&lt;/p&gt;
+&lt;p&gt;计算训练集的经验熵（entropy）$H(D)$，表示训练集中样本的不确定性&lt;/p&gt;
+&lt;p&gt;对于每个特征$A$，计算其对训练集的条件熵（conditional entropy）$H(D|A)$，表示在特征$A$已知的条件下，训练集中样本的不确定性，公式为：
+$$H(D|A)=\sum_{i=1}^{|A|} \frac{|D_i|}{|D|} H(D_i)$$
+其中，$|A|$表示特征$A$可能的取值个数，$|D_i|$表示在特征$A$取值为第$i$个值时，训练集中样本的个数，$H(D_i)$表示在特征$A$取值为第$i$个值时，训练集中样本的经验熵。&lt;/p&gt;
+&lt;p&gt;计算信息增益（information gain）$g(D,A)$，表示特征$A$对训练集划分的贡献程度，公式为：
+$$g(D,A)=H(D)-H(D|A)$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择信息增益最大的特征作为当前节点的划分特征，将训练集划分成更加纯净的子集，并递归地重复上述步骤，直到所有子集都变得足够纯或达到预定的停止条件为止，生成一棵完整的决策树。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需要注意的是，信息增益存在一个缺陷，即它倾向于选择可能取值较多的特征，因为这些特征往往可以划分出更多的子集。为了克服这个缺陷，可以使用其他的划分指标，例如基尼不纯度（Gini impurity）或者增益率（gain ratio），来选择最优的特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;信息增益比information-gain-ratio&#34;&gt;信息增益比（Information gain ratio）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;信息增益比是信息增益的一种改进，它考虑了特征取值数目对信息增益的影响。可以通过以下公式计算信息增益比：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$Gain \ ratio \ (D,x_j) = \frac{Gain(D,x_j)}{IV(x_j)}$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中 $IV(x_j)$ 表示特征 $x_j$ 的固有值，表示特征 $x_j$ 取值的多样性，可以通过以下公式计算：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$IV(x_j) = - \sum_{i=1}^m \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在特征 $x_j$ 的阈值为 $s$ 时，可以根据 $x_j \leq s$ 和 $x_j &amp;gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$，然后计算信息增益比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;总结&#34;&gt;总结&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;以上三种方法都可以用于计算特征阈值，其中基尼指数适用于连续和离散特征，而信息增益和信息增益比适用于离散特征。在实际应用中，我们可以根据具体问题选择不同的评价指标来计算特征阈值，并选择最优的阈值来进行样本划分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;结点判定规则&#34;&gt;结点判定规则&lt;/h3&gt;
+&lt;p&gt;假设第 $t$ 个节点的判定规则为 $f_t(x)$，其中 $x$ 表示一个样本的特征向量，$f_t(x)$ 返回一个取值为 $0$ 或 $1$ 的标记，表示该样本应该进入该节点的左子树（$f_t(x)=0$）还是右子树（$f_t(x)=1$）。可以将判定规则表示为：&lt;/p&gt;
+&lt;p&gt;$$f_t(x) = \begin{cases} 0, &amp;amp; \text{if}\ x \in R_{t,\text{left}} \ 1, &amp;amp; \text{otherwise} \end{cases}$$&lt;/p&gt;
+&lt;p&gt;其中 $R_{t,\text{left}}$ 是第 $t$ 个节点左子树的样本所在区域，可以用一个特征阈值组合来表示：&lt;/p&gt;
+&lt;p&gt;$$R_{t,\text{left}} = {x | x_j \leq s_t}$$&lt;/p&gt;
+&lt;p&gt;其中 $x_j$ 表示样本 $x$ 的第 $j$ 个特征的取值，$s_t$ 是第 $t$ 个节点的特征阈值。右子树的样本所在区域可以表示为 $R_{t,\text{right}} = { x | x_j &amp;gt; s_t }$。&lt;/p&gt;
+&lt;h3 id=&#34;树的结构&#34;&gt;树的结构&lt;/h3&gt;
+&lt;p&gt;决策树模型的树的结构可以用一个树形图或者一组规则来表示。假设决策树模型的根节点为 $t=1$，可以用以下的数学公式来表示该模型：&lt;/p&gt;
+&lt;p&gt;$$\hat{y}&lt;em&gt;i = \sum&lt;/em&gt;{t=1}^T c_t \cdot I(x_i \in R_{t})$$&lt;/p&gt;
+&lt;p&gt;其中 $\hat{y}_i$ 表示用决策树模型预测样本 $i$ 的目标值，$T$ 表示树的深度或节点个数，$c_t$ 表示第 $t$ 个节点的预测值，可以是该节点所属的样本的平均值或者分类问题中该节点所属的样本中出现最多的类别值， $I(x_i \in R_t)$ 是一个指示函数，如果样本 $i$ 属于第 $t$ 个节点的子树，取值为 $1$，否则取值为 $0$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>分析和求根</title>
         <link>https://downeyflyfan.com/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/</link>
         <pubDate>Mon, 24 Apr 2023 19:18:20 +0800</pubDate>
@@ -3106,6 +3217,9 @@ $$&lt;/p&gt;
 &lt;p&gt;条件极值法：在满足一定条件（如等式、不等式）下寻找极值点。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;第三次训练----校赛&#34;&gt;第三次训练 &amp;ndash; 校赛&lt;/h2&gt;
+&lt;h3 id=&#34;第一步----数据预处理&#34;&gt;第一步 &amp;ndash; 数据预处理&lt;/h3&gt;
+&lt;h3 id=&#34;学会使用excel&#34;&gt;学会使用Excel&lt;/h3&gt;
 </description>
         </item>
         

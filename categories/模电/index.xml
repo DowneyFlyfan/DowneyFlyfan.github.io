@@ -432,7 +432,7 @@ x_i &amp;amp;\approx 0
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;properties&#34;&gt;Properties&lt;/h2&gt;
-&lt;h3 id=&#34;gain-de-sensitivity&#34;&gt;Gain De-sensitivity&lt;/h3&gt;
+&lt;h3 id=&#34;gain-desensitivity&#34;&gt;Gain Desensitivity&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 A_f &amp;amp;= \frac{A}{1 + A\beta} \\
@@ -441,6 +441,9 @@ dA_f &amp;amp;= \frac{A}{1 +A\beta} \frac{1}{(1 + A\beta)A}dA \\
 \frac{dA_f}{A_f} &amp;amp;= \frac{1}{1 + A\beta}\frac{dA}{A}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因此, $1 + A\beta$ 也叫&lt;strong&gt;Desensitivity Factor&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;bandwidth-extension&#34;&gt;Bandwidth Extension&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
@@ -448,14 +451,47 @@ A(s) &amp;amp;= \frac{A_M}{1 + s/\omega_H} \\
 A_f &amp;amp;= \frac{A(s)}{1 + A(s) \beta} \\
 &amp;amp;= \frac{A_M/(1+A_M\beta)}{1 + s/[(1 + A_M\beta)\omega_H]} \\
 &amp;amp;= \frac{A_{fM}}{1 + s/(1 + A_M\beta)} \\
-omega_{Hf} &amp;amp;= (1+A_M\beta) \omega_H \\
+\omega_{Hf} &amp;amp;= (1+A_M\beta) \omega_H \\
 \omega_{Lf} &amp;amp;= \frac{\omega_L}{1 + A_M\beta}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;interference-reduction&#34;&gt;Interference Reduction&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Signal-to-Interference Ratio&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+S/I = V_s / V_n
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/16.png&#34;
+	width=&#34;808&#34;
+	height=&#34;628&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/16_hu1edc63217ecfbfbe5eac52dee39aac05_43064_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/16_hu1edc63217ecfbfbe5eac52dee39aac05_43064_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;308px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_o &amp;amp;= V_n \frac{A_1}{1 + A_1 A_2 \beta} + V_s \frac{A_1A_2}{1 + A_1A_2 \beta} \\
+\therefore \frac{S}{I} &amp;amp;= \frac{V_s}{V_n}A_2
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h3 id=&#34;reduction-in-nonlinear-distortion&#34;&gt;Reduction in Nonlinear Distortion&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Negative feedback may &lt;strong&gt;facilitate linearization&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;the-feedback-voltage-amplifier&#34;&gt;The Feedback Voltage Amplifier&lt;/h2&gt;
-&lt;h3 id=&#34;图示-2&#34;&gt;图示&lt;/h3&gt;
+&lt;h3 id=&#34;basic-structure&#34;&gt;Basic Structure&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/15.png&#34;
 	width=&#34;887&#34;
 	height=&#34;440&#34;
@@ -468,7 +504,162 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;483px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;the-seriesshunt-feedback-topology&#34;&gt;The Series–Shunt Feedback Topology&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/17.png&#34;
+	width=&#34;742&#34;
+	height=&#34;722&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/17_hu6c7bc6c6507ac039a766e02a9c3d94fa_29799_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/17_hu6c7bc6c6507ac039a766e02a9c3d94fa_29799_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;102&#34;
+		data-flex-basis=&#34;246px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;analysis-of-the-feedback-voltage-amplifier-utilizing&#34;&gt;Analysis of the Feedback Voltage Amplifier Utilizing&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18.png&#34;
+	width=&#34;870&#34;
+	height=&#34;498&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;419px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+A\beta = -\frac{V_r}{V_t}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;systematic-analysis-of-feedback-voltage-amplifiers&#34;&gt;Systematic Analysis of Feedback Voltage Amplifiers&lt;/h2&gt;
+&lt;h3 id=&#34;电路-2&#34;&gt;电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/19.png&#34;
+	width=&#34;637&#34;
+	height=&#34;677&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/19_hu227033a84b18f323d1c8eea9734e0b97_49179_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/19_hu227033a84b18f323d1c8eea9734e0b97_49179_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;94&#34;
+		data-flex-basis=&#34;225px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;分析-5&#34;&gt;分析&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_i &amp;amp;= \frac{V_s}{1 + A\beta} \\
+\therefore I_i &amp;amp;= \frac{V_s}{(1  +A\beta)R_i} \\
+R_{if} &amp;amp;= \frac{V_s}{I_i} \\
+&amp;amp;=(1 +A\beta) R_i \\\
+\\ R_{of} &amp;amp;= \frac{V_o}{I_o} \\
+V_i &amp;amp;= -V_f = -\beta V_o\\
+\therefore I_o &amp;amp;= \frac{V_o - AV_i}{R_o} \\
+&amp;amp;= (1 + A\beta) \frac{V_o}{R_o} \\
+\therefore R_{of} &amp;amp;= \frac{R_o}{1 + A\beta}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;a-practical-case&#34;&gt;A Practical Case&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;电路&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/20.png&#34;
+	width=&#34;634&#34;
+	height=&#34;951&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/20_hue3828162ab623149e05499e754f05175_82064_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/20_hue3828162ab623149e05499e754f05175_82064_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;66&#34;
+		data-flex-basis=&#34;160px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\beta &amp;amp;\equiv \frac{V_f}{V_o} \\
+A_f &amp;amp;\equiv \frac{V_o}{V_s} \\
+&amp;amp;= \frac{A}{1 + A\beta} \\
+R_{if} &amp;amp;= R_i(1 + A\beta) \\
+R_{of} &amp;amp;= R_o/(1 + A\beta) \\
+R_{in} &amp;amp;= R_{if} - R_s \\
+R_{out} &amp;amp;= 1/(\frac{1}{R_{out}} - \frac{1}{R_L})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;other-feedback-amplifier-types&#34;&gt;Other Feedback-Amplifier Types&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/21.png&#34;
+	width=&#34;966&#34;
+	height=&#34;566&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/21_hua28244333d32a5ebe2b92f4445988f20_76299_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/21_hua28244333d32a5ebe2b92f4445988f20_76299_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;409px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;the-feedback-transconductance-amplifier-seriesserie&#34;&gt;The Feedback Transconductance Amplifier (Series–Serie)&lt;/h3&gt;
+&lt;h4 id=&#34;理想电路&#34;&gt;理想电路&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/22.png&#34;
+	width=&#34;725&#34;
+	height=&#34;678&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/22_hu31abe724b61bf7499495f1cec97ab43f_54806_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/22_hu31abe724b61bf7499495f1cec97ab43f_54806_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;106&#34;
+		data-flex-basis=&#34;256px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;反馈网络对原网络没有负载效应&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;输出是什么，就稳什么&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;公式&#34;&gt;公式&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_f &amp;amp;\equiv \frac{I_o}{V_i} = \frac{A}{1 + A\beta} \\
+R_{if} &amp;amp;= (1 + A\beta) R_i \\
+R_{of} &amp;amp;= (1 + A\beta ) R_o \\
+R_{in} &amp;amp;= R_{if} - R_s \\
+R_{out}&amp;amp;= R_{of} - R_L \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;the-feedback-transresistance-amplifier-shuntshunt&#34;&gt;The Feedback Transresistance Amplifier (Shunt–Shunt)&lt;/h3&gt;
+&lt;h4 id=&#34;电路-3&#34;&gt;电路&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/23.png&#34;
+	width=&#34;695&#34;
+	height=&#34;787&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/23_hu5a158f52364690fd2e5c19628feaa951_56373_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/23_hu5a158f52364690fd2e5c19628feaa951_56373_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;88&#34;
+		data-flex-basis=&#34;211px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;公式-1&#34;&gt;公式&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A &amp;amp;\equiv
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;the-stability-problem&#34;&gt;The Stability Problem&lt;/h3&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;bypass-capacitor&#34;&gt;Bypass Capacitor&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -523,7 +714,16 @@ H(f) \approx \frac{1}{(1+\frac{1}{4}(\frac{f}{f_Z})^2)^{\frac{3}{2}}}\\
 f_L \approx \sqrt{f_{P1}^2 + f_{P2}^2 + f_{P3}^2 - 2f_Z^2}\\
 $$&lt;/p&gt;
 &lt;h2 id=&#34;电容的阻抗&#34;&gt;电容的阻抗&lt;/h2&gt;
-&lt;p&gt;-) 电容通常很小,$1/sC$也就很大，通常可以&lt;strong&gt;忽略不计&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;电容通常很小,$1/sC$也就很大，通常可以&lt;strong&gt;忽略不计&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;r_if-和-r_i&#34;&gt;$R_{if} 和 R_i$&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+R_{if} &amp;amp;= \frac{\pmb {V_s}}{I_i} \\
+R_i &amp;amp;= \frac{\pmb {V_i}}{I_i}
+\end{aligned}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>

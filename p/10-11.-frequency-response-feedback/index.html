@@ -317,7 +317,7 @@
         </li>
         <li><a href="#properties">Properties</a>
           <ol>
-            <li><a href="#gain-de-sensitivity">Gain De-sensitivity</a></li>
+            <li><a href="#gain-desensitivity">Gain Desensitivity</a></li>
             <li><a href="#bandwidth-extension">Bandwidth Extension</a></li>
             <li><a href="#interference-reduction">Interference Reduction</a></li>
             <li><a href="#reduction-in-nonlinear-distortion">Reduction in Nonlinear Distortion</a></li>
@@ -325,8 +325,33 @@
         </li>
         <li><a href="#the-feedback-voltage-amplifier">The Feedback Voltage Amplifier</a>
           <ol>
-            <li><a href="#图示-2">图示</a></li>
-            <li><a href="#heading"></a></li>
+            <li><a href="#basic-structure">Basic Structure</a></li>
+            <li><a href="#the-seriesshunt-feedback-topology">The Series–Shunt Feedback Topology</a></li>
+            <li><a href="#analysis-of-the-feedback-voltage-amplifier-utilizing">Analysis of the Feedback Voltage Amplifier Utilizing</a></li>
+          </ol>
+        </li>
+        <li><a href="#systematic-analysis-of-feedback-voltage-amplifiers">Systematic Analysis of Feedback Voltage Amplifiers</a>
+          <ol>
+            <li><a href="#电路-2">电路</a></li>
+            <li><a href="#分析-5">分析</a></li>
+            <li><a href="#a-practical-case">A Practical Case</a></li>
+          </ol>
+        </li>
+        <li><a href="#other-feedback-amplifier-types">Other Feedback-Amplifier Types</a>
+          <ol>
+            <li><a href="#the-feedback-transconductance-amplifier-seriesserie">The Feedback Transconductance Amplifier (Series–Serie)</a>
+              <ol>
+                <li><a href="#理想电路">理想电路</a></li>
+                <li><a href="#公式">公式</a></li>
+              </ol>
+            </li>
+            <li><a href="#the-feedback-transresistance-amplifier-shuntshunt">The Feedback Transresistance Amplifier (Shunt–Shunt)</a>
+              <ol>
+                <li><a href="#电路-3">电路</a></li>
+                <li><a href="#公式-1">公式</a></li>
+              </ol>
+            </li>
+            <li><a href="#the-stability-problem">The Stability Problem</a></li>
           </ol>
         </li>
       </ol>
@@ -339,6 +364,7 @@
         <li><a href="#zero-frequency">Zero Frequency</a></li>
         <li><a href="#f_l公式推导">$f_L$公式推导</a></li>
         <li><a href="#电容的阻抗">电容的阻抗</a></li>
+        <li><a href="#r_if-和-r_i">$R_{if} 和 R_i$</a></li>
       </ol>
     </li>
   </ol>
@@ -405,7 +431,7 @@
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -840,7 +866,7 @@ x_i &amp;\approx 0
 \end{aligned}
 $$</p>
 <h2 id="properties">Properties</h2>
-<h3 id="gain-de-sensitivity">Gain De-sensitivity</h3>
+<h3 id="gain-desensitivity">Gain Desensitivity</h3>
 <p>$$
 \begin{aligned}
 A_f &amp;= \frac{A}{1 + A\beta} \\
@@ -849,6 +875,9 @@ dA_f &amp;= \frac{A}{1 +A\beta} \frac{1}{(1 + A\beta)A}dA \\
 \frac{dA_f}{A_f} &amp;= \frac{1}{1 + A\beta}\frac{dA}{A}
 \end{aligned}
 $$</p>
+<ul>
+<li>因此, $1 + A\beta$ 也叫<strong>Desensitivity Factor</strong></li>
+</ul>
 <h3 id="bandwidth-extension">Bandwidth Extension</h3>
 <p>$$
 \begin{aligned}
@@ -856,14 +885,47 @@ A(s) &amp;= \frac{A_M}{1 + s/\omega_H} \\
 A_f &amp;= \frac{A(s)}{1 + A(s) \beta} \\
 &amp;= \frac{A_M/(1+A_M\beta)}{1 + s/[(1 + A_M\beta)\omega_H]} \\
 &amp;= \frac{A_{fM}}{1 + s/(1 + A_M\beta)} \\
-omega_{Hf} &amp;= (1+A_M\beta) \omega_H \\
+\omega_{Hf} &amp;= (1+A_M\beta) \omega_H \\
 \omega_{Lf} &amp;= \frac{\omega_L}{1 + A_M\beta}
 \end{aligned}
 $$</p>
 <h3 id="interference-reduction">Interference Reduction</h3>
+<ol>
+<li><strong>Signal-to-Interference Ratio</strong></li>
+</ol>
+<p>$$
+S/I = V_s / V_n
+$$</p>
+<ol start="2">
+<li>图示</li>
+</ol>
+<p><img src="/p/10-11.-frequency-response-feedback/16.png"
+	width="808"
+	height="628"
+	srcset="/p/10-11.-frequency-response-feedback/16_hu1edc63217ecfbfbe5eac52dee39aac05_43064_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/16_hu1edc63217ecfbfbe5eac52dee39aac05_43064_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="308px"
+	
+></p>
+<ol start="3">
+<li>分析</li>
+</ol>
+<p>$$
+\begin{aligned}
+V_o &amp;= V_n \frac{A_1}{1 + A_1 A_2 \beta} + V_s \frac{A_1A_2}{1 + A_1A_2 \beta} \\
+\therefore \frac{S}{I} &amp;= \frac{V_s}{V_n}A_2
+\end{aligned}
+$$</p>
 <h3 id="reduction-in-nonlinear-distortion">Reduction in Nonlinear Distortion</h3>
+<ul>
+<li>Negative feedback may <strong>facilitate linearization</strong></li>
+</ul>
 <h2 id="the-feedback-voltage-amplifier">The Feedback Voltage Amplifier</h2>
-<h3 id="图示-2">图示</h3>
+<h3 id="basic-structure">Basic Structure</h3>
 <p><img src="/p/10-11.-frequency-response-feedback/15.png"
 	width="887"
 	height="440"
@@ -876,7 +938,162 @@ $$</p>
 		data-flex-basis="483px"
 	
 ></p>
-<h3 id="heading"></h3>
+<h3 id="the-seriesshunt-feedback-topology">The Series–Shunt Feedback Topology</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/17.png"
+	width="742"
+	height="722"
+	srcset="/p/10-11.-frequency-response-feedback/17_hu6c7bc6c6507ac039a766e02a9c3d94fa_29799_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/17_hu6c7bc6c6507ac039a766e02a9c3d94fa_29799_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="246px"
+	
+></p>
+<h3 id="analysis-of-the-feedback-voltage-amplifier-utilizing">Analysis of the Feedback Voltage Amplifier Utilizing</h3>
+<ol>
+<li>图示</li>
+</ol>
+<p><img src="/p/10-11.-frequency-response-feedback/18.png"
+	width="870"
+	height="498"
+	srcset="/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="419px"
+	
+></p>
+<p>$$
+A\beta = -\frac{V_r}{V_t}
+$$</p>
+<h2 id="systematic-analysis-of-feedback-voltage-amplifiers">Systematic Analysis of Feedback Voltage Amplifiers</h2>
+<h3 id="电路-2">电路</h3>
+<p><img src="/p/10-11.-frequency-response-feedback/19.png"
+	width="637"
+	height="677"
+	srcset="/p/10-11.-frequency-response-feedback/19_hu227033a84b18f323d1c8eea9734e0b97_49179_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/19_hu227033a84b18f323d1c8eea9734e0b97_49179_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="94"
+		data-flex-basis="225px"
+	
+></p>
+<h3 id="分析-5">分析</h3>
+<p>$$
+\begin{aligned}
+V_i &amp;= \frac{V_s}{1 + A\beta} \\
+\therefore I_i &amp;= \frac{V_s}{(1  +A\beta)R_i} \\
+R_{if} &amp;= \frac{V_s}{I_i} \\
+&amp;=(1 +A\beta) R_i \\\
+\\ R_{of} &amp;= \frac{V_o}{I_o} \\
+V_i &amp;= -V_f = -\beta V_o\\
+\therefore I_o &amp;= \frac{V_o - AV_i}{R_o} \\
+&amp;= (1 + A\beta) \frac{V_o}{R_o} \\
+\therefore R_{of} &amp;= \frac{R_o}{1 + A\beta}
+\end{aligned}
+$$</p>
+<h3 id="a-practical-case">A Practical Case</h3>
+<ol>
+<li>电路</li>
+</ol>
+<p><img src="/p/10-11.-frequency-response-feedback/20.png"
+	width="634"
+	height="951"
+	srcset="/p/10-11.-frequency-response-feedback/20_hue3828162ab623149e05499e754f05175_82064_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/20_hue3828162ab623149e05499e754f05175_82064_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="66"
+		data-flex-basis="160px"
+	
+></p>
+<ol start="2">
+<li>分析</li>
+</ol>
+<p>$$
+\begin{aligned}
+\beta &amp;\equiv \frac{V_f}{V_o} \\
+A_f &amp;\equiv \frac{V_o}{V_s} \\
+&amp;= \frac{A}{1 + A\beta} \\
+R_{if} &amp;= R_i(1 + A\beta) \\
+R_{of} &amp;= R_o/(1 + A\beta) \\
+R_{in} &amp;= R_{if} - R_s \\
+R_{out} &amp;= 1/(\frac{1}{R_{out}} - \frac{1}{R_L})
+\end{aligned}
+$$</p>
+<h2 id="other-feedback-amplifier-types">Other Feedback-Amplifier Types</h2>
+<p><img src="/p/10-11.-frequency-response-feedback/21.png"
+	width="966"
+	height="566"
+	srcset="/p/10-11.-frequency-response-feedback/21_hua28244333d32a5ebe2b92f4445988f20_76299_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/21_hua28244333d32a5ebe2b92f4445988f20_76299_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="170"
+		data-flex-basis="409px"
+	
+></p>
+<h3 id="the-feedback-transconductance-amplifier-seriesserie">The Feedback Transconductance Amplifier (Series–Serie)</h3>
+<h4 id="理想电路">理想电路</h4>
+<p><img src="/p/10-11.-frequency-response-feedback/22.png"
+	width="725"
+	height="678"
+	srcset="/p/10-11.-frequency-response-feedback/22_hu31abe724b61bf7499495f1cec97ab43f_54806_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/22_hu31abe724b61bf7499495f1cec97ab43f_54806_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="106"
+		data-flex-basis="256px"
+	
+></p>
+<ul>
+<li>
+<p><strong>反馈网络对原网络没有负载效应</strong></p>
+</li>
+<li>
+<p><strong>输出是什么，就稳什么</strong></p>
+</li>
+</ul>
+<h4 id="公式">公式</h4>
+<p>$$
+\begin{aligned}
+A_f &amp;\equiv \frac{I_o}{V_i} = \frac{A}{1 + A\beta} \\
+R_{if} &amp;= (1 + A\beta) R_i \\
+R_{of} &amp;= (1 + A\beta ) R_o \\
+R_{in} &amp;= R_{if} - R_s \\
+R_{out}&amp;= R_{of} - R_L \\
+\end{aligned}
+$$</p>
+<h3 id="the-feedback-transresistance-amplifier-shuntshunt">The Feedback Transresistance Amplifier (Shunt–Shunt)</h3>
+<h4 id="电路-3">电路</h4>
+<p><img src="/p/10-11.-frequency-response-feedback/23.png"
+	width="695"
+	height="787"
+	srcset="/p/10-11.-frequency-response-feedback/23_hu5a158f52364690fd2e5c19628feaa951_56373_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/23_hu5a158f52364690fd2e5c19628feaa951_56373_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="88"
+		data-flex-basis="211px"
+	
+></p>
+<h4 id="公式-1">公式</h4>
+<p>$$
+\begin{aligned}
+A &amp;\equiv
+\end{aligned}
+$$</p>
+<h3 id="the-stability-problem">The Stability Problem</h3>
 <h1 id="附录">附录</h1>
 <h2 id="bypass-capacitor">Bypass Capacitor</h2>
 <blockquote>
@@ -931,7 +1148,16 @@ H(f) \approx \frac{1}{(1+\frac{1}{4}(\frac{f}{f_Z})^2)^{\frac{3}{2}}}\\
 f_L \approx \sqrt{f_{P1}^2 + f_{P2}^2 + f_{P3}^2 - 2f_Z^2}\\
 $$</p>
 <h2 id="电容的阻抗">电容的阻抗</h2>
-<p>-) 电容通常很小,$1/sC$也就很大，通常可以<strong>忽略不计</strong></p>
+<ul>
+<li>电容通常很小,$1/sC$也就很大，通常可以<strong>忽略不计</strong></li>
+</ul>
+<h2 id="r_if-和-r_i">$R_{if} 和 R_i$</h2>
+<p>$$
+\begin{aligned}
+R_{if} &amp;= \frac{\pmb {V_s}}{I_i} \\
+R_i &amp;= \frac{\pmb {V_i}}{I_i}
+\end{aligned}
+$$</p>
 
 </section>
 

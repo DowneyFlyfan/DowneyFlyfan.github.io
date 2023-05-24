@@ -6,7 +6,147 @@
         <description>Recent content on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 15 May 2023 20:54:00 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 22 May 2023 17:54:05 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>附加</title>
+        <link>https://downeyflyfan.com/p/%E9%99%84%E5%8A%A0/</link>
+        <pubDate>Mon, 22 May 2023 17:54:05 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E9%99%84%E5%8A%A0/</guid>
+        <description>&lt;h1 id=&#34;串口设备显示&#34;&gt;串口设备显示&lt;/h1&gt;
+&lt;h2 id=&#34;liunx---screen&#34;&gt;Liunx - Screen&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;使用&lt;code&gt;sudo pacman -S screen&lt;/code&gt;下载&lt;code&gt;screen&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用命令&lt;code&gt;screen /dev/ttyUSB0 9600&lt;/code&gt; 进行显示&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;发送与接收命令&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;发送数据可以按&lt;code&gt;Ctrl+A&lt;/code&gt;，然后按下&lt;code&gt;Shift+:&lt;/code&gt;，输入命令&amp;quot;exec !! echo &amp;lsquo;hello world&amp;rsquo;&amp;quot;，然后按回车键发送数据。接收数据则会自动显示在终端中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;退出screen可以按Ctrl+A，然后按下Shift+:，输入命令&amp;quot;quit&amp;quot;，然后按回车键退出&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>分类</title>
+        <link>https://downeyflyfan.com/p/%E5%88%86%E7%B1%BB/</link>
+        <pubDate>Sat, 20 May 2023 18:55:44 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E5%88%86%E7%B1%BB/</guid>
+        <description>&lt;h1 id=&#34;决策树分类&#34;&gt;决策树分类&lt;/h1&gt;
+&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;假设我们有一个包含 $N$ 个样本的训练集，每个样本包含 $M$ 个特征，用 $X_{i,j}$ 表示第 $i$ 个样本的第 $j$ 个特征的取值，用 $y_i$ 表示第 $i$ 个样本的目标值（或标签）。决策树模型的目标是学习从特征到目标值的映射关系，并用学习到的模型对新的样本进行预测。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;流程&#34;&gt;流程&lt;/h2&gt;
+&lt;h3 id=&#34;计算特征阈值和判断最优特征&#34;&gt;计算特征阈值和判断最优特征&lt;/h3&gt;
+&lt;h4 id=&#34;基尼指数&#34;&gt;基尼指数&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;判断最优特征&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;基尼指数越小表示数据集越纯。&lt;/p&gt;
+&lt;p&gt;对于一个特征 $A$ 和其取值 $a_i$，假设 $D$ 表示当前节点的数据集，$D_i$ 表示特征 $A$ 取值为 $a_i$ 时的子数据集，则基尼指数计算公式为：&lt;/p&gt;
+&lt;p&gt;$$Gini(D,A)=\sum_{i=1}^{k}\frac{|D_i|}{|D|}Gini(D_i)$$&lt;/p&gt;
+&lt;p&gt;其中，$k$ 表示特征 $A$ 的取值数目，$|D_i|$ 表示子数据集 $D_i$ 中样本的数目，$|D|$ 表示当前节点的样本数目，$Gini(D_i)$ 表示子数据集 $D_i$ 的基尼指数，计算公式为：&lt;/p&gt;
+&lt;p&gt;$$Gini(D_i)=1-\sum_{j=1}^{c}p_{ij}^2$$&lt;/p&gt;
+&lt;p&gt;其中，$c$ 表示类别数目，$p_{ij}$ 表示子数据集 $D_i$ 中属于第 $j$ 类的样本占比。&lt;/p&gt;
+&lt;p&gt;基尼指数越小表示使用特征 $A$ 进行划分后，得到的子数据集的纯度越高。因此，决策树算法选择基尼指数最小的特征作为最优特征进行划分。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;特征阈值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;信息增益information-gain&#34;&gt;信息增益（Information gain）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;计算特征阈值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;信息增益是评价特征重要性的一种指标，它表示特征 $x_j$ 对分类的贡献程度。信息增益越大，说明特征的重要性越高。可以通过以下公式计算信息增益：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Gain(D,x_j) &amp;amp;= H(D) - \sum_{i=1}^m \frac{|D_i|}{|D|} H(D_i) \\
+H &amp;amp;= -\sum p(x) \times log_2[p(x)]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中 $H(D)$ 表示数据集 $D$ 的熵，$m$ 表示特征 $x_j$的可能取值个数，$D_i$ 表示数据集 $D$ 在特征 $x_j$ 取值为 $i$ 时对应的子集，$|D_i|$ 表示子集 $D_i$ 的大小，$|D|$ 表示数据集 $D$ 的大小。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;对特征 $x_j$ 的取值进行排序，得到一个有序的列表 $[x_1,x_2,\cdots,x_m]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于相邻的取值 $x_i$ 和 $x_{i+1}$，将它们作为特征阈值 $s$，将数据集划分为两个子集 $D_1={x\in D|x_j\leq s}$ 和 $D_2={x\in D|x_j&amp;gt;s}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算使用特征阈值 $s$ 进行划分的信息增益 $Gain(D,x_j,s)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;根据 $x_j \leq s$ 和 $x_j &amp;gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$ ，然后计算信息增益&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$Gain(D,x_j,s) = H(D) - \frac{|D_1|}{|D|} H(D_1) - \frac{|D_2|}{|D|} H(D_2)$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;重复步骤2和3，直到计算完所有相邻取值的信息增益为止。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择信息增益最大的特征阈值作为最终的特征阈值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;筛选最优特征&lt;/p&gt;
+&lt;p&gt;计算训练集的经验熵（entropy）$H(D)$，表示训练集中样本的不确定性&lt;/p&gt;
+&lt;p&gt;对于每个特征$A$，计算其对训练集的条件熵（conditional entropy）$H(D|A)$，表示在特征$A$已知的条件下，训练集中样本的不确定性，公式为：
+$$H(D|A)=\sum_{i=1}^{|A|} \frac{|D_i|}{|D|} H(D_i)$$
+其中，$|A|$表示特征$A$可能的取值个数，$|D_i|$表示在特征$A$取值为第$i$个值时，训练集中样本的个数，$H(D_i)$表示在特征$A$取值为第$i$个值时，训练集中样本的经验熵。&lt;/p&gt;
+&lt;p&gt;计算信息增益（information gain）$g(D,A)$，表示特征$A$对训练集划分的贡献程度，公式为：
+$$g(D,A)=H(D)-H(D|A)$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择信息增益最大的特征作为当前节点的划分特征，将训练集划分成更加纯净的子集，并递归地重复上述步骤，直到所有子集都变得足够纯或达到预定的停止条件为止，生成一棵完整的决策树。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需要注意的是，信息增益存在一个缺陷，即它倾向于选择可能取值较多的特征，因为这些特征往往可以划分出更多的子集。为了克服这个缺陷，可以使用其他的划分指标，例如基尼不纯度（Gini impurity）或者增益率（gain ratio），来选择最优的特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;信息增益比information-gain-ratio&#34;&gt;信息增益比（Information gain ratio）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;信息增益比是信息增益的一种改进，它考虑了特征取值数目对信息增益的影响。可以通过以下公式计算信息增益比：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$Gain \ ratio \ (D,x_j) = \frac{Gain(D,x_j)}{IV(x_j)}$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中 $IV(x_j)$ 表示特征 $x_j$ 的固有值，表示特征 $x_j$ 取值的多样性，可以通过以下公式计算：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$IV(x_j) = - \sum_{i=1}^m \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在特征 $x_j$ 的阈值为 $s$ 时，可以根据 $x_j \leq s$ 和 $x_j &amp;gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$，然后计算信息增益比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;总结&#34;&gt;总结&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;以上三种方法都可以用于计算特征阈值，其中基尼指数适用于连续和离散特征，而信息增益和信息增益比适用于离散特征。在实际应用中，我们可以根据具体问题选择不同的评价指标来计算特征阈值，并选择最优的阈值来进行样本划分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;结点判定规则&#34;&gt;结点判定规则&lt;/h3&gt;
+&lt;p&gt;假设第 $t$ 个节点的判定规则为 $f_t(x)$，其中 $x$ 表示一个样本的特征向量，$f_t(x)$ 返回一个取值为 $0$ 或 $1$ 的标记，表示该样本应该进入该节点的左子树（$f_t(x)=0$）还是右子树（$f_t(x)=1$）。可以将判定规则表示为：&lt;/p&gt;
+&lt;p&gt;$$f_t(x) = \begin{cases} 0, &amp;amp; \text{if}\ x \in R_{t,\text{left}} \ 1, &amp;amp; \text{otherwise} \end{cases}$$&lt;/p&gt;
+&lt;p&gt;其中 $R_{t,\text{left}}$ 是第 $t$ 个节点左子树的样本所在区域，可以用一个特征阈值组合来表示：&lt;/p&gt;
+&lt;p&gt;$$R_{t,\text{left}} = {x | x_j \leq s_t}$$&lt;/p&gt;
+&lt;p&gt;其中 $x_j$ 表示样本 $x$ 的第 $j$ 个特征的取值，$s_t$ 是第 $t$ 个节点的特征阈值。右子树的样本所在区域可以表示为 $R_{t,\text{right}} = { x | x_j &amp;gt; s_t }$。&lt;/p&gt;
+&lt;h3 id=&#34;树的结构&#34;&gt;树的结构&lt;/h3&gt;
+&lt;p&gt;决策树模型的树的结构可以用一个树形图或者一组规则来表示。假设决策树模型的根节点为 $t=1$，可以用以下的数学公式来表示该模型：&lt;/p&gt;
+&lt;p&gt;$$\hat{y}&lt;em&gt;i = \sum&lt;/em&gt;{t=1}^T c_t \cdot I(x_i \in R_{t})$$&lt;/p&gt;
+&lt;p&gt;其中 $\hat{y}_i$ 表示用决策树模型预测样本 $i$ 的目标值，$T$ 表示树的深度或节点个数，$c_t$ 表示第 $t$ 个节点的预测值，可以是该节点所属的样本的平均值或者分类问题中该节点所属的样本中出现最多的类别值， $I(x_i \in R_t)$ 是一个指示函数，如果样本 $i$ 属于第 $t$ 个节点的子树，取值为 $1$，否则取值为 $0$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>IELTS</title>
         <link>https://downeyflyfan.com/p/ielts/</link>
         <pubDate>Mon, 15 May 2023 20:54:00 +0800</pubDate>
@@ -134,8 +274,154 @@
 &lt;p&gt;Are there health classes in your school ?&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h3 id=&#34;bags&#34;&gt;Bags&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Do you usually carry a bag?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What kinds of bags do you use when travelling?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do you often change bags?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Did you use a backpack when you were a child?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Would you give others bags as gifts?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;tissues, stuff, suitcase, backpack, handbag accessory, kit, luxury, purses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;day-off&#34;&gt;Day off&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Do you usually spend your days off with parents or friends?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What do you often do on your days off?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When was the last time you had a few days off?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What would you like to do if you had a day off tomorrow?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;concentration&#34;&gt;Concentration&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Could you stay focused in class when you were a child?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What do you do to help you concentrate?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Is it difficult for you to stay focused on something?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;horrible movies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;When do you need to be focused?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;language&#34;&gt;Language&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;What languages do you speak?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Have you ever learnt any foreign languages in school?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do you think it&amp;rsquo;s difficult to learn a new language?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Will you learn another language in the future?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;5, Why do people learn foreign languages?&lt;/p&gt;
 &lt;h2 id=&#34;part-ii&#34;&gt;Part II&lt;/h2&gt;
 &lt;h3 id=&#34;describe-an-occasion-when-you-get-lost&#34;&gt;Describe an occasion when you get lost&lt;/h3&gt;
+&lt;h3 id=&#34;describe-a-job-you-are-interested-in&#34;&gt;Describe a job you are interested in&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it is&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When you heard about this job for the first time&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What qualities it requires&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;And explain why you are interested in this job&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;describe-an-exciting-adventure-you-would-like-to-go-on&#34;&gt;Describe an exciting adventure you would like to go on&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Where you want to go&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Who you want to go there with&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When you want to do this&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;And explain why you want to go on this adventure&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;describe-a-piece-of-clothing-you-wear-most-often&#34;&gt;Describe a piece of clothing you wear most often&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it is&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How often you wear it&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What it is like&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;And explain why you enjoy wearing it&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;describe-a-time-when-you-made-a-complaint-and-you-were-satisfied-with-the-result&#34;&gt;Describe a time when you made a complaint and you were satisfied with the result.&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;When it happened&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Who you complained to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What you complained about&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;And explain why you were satisfied with the result&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;describe-an-actor-you-admire&#34;&gt;Describe an actor you admire&lt;/h3&gt;
+&lt;h3 id=&#34;describe-a-daily-routine-that-you-enjoy&#34;&gt;Describe a daily routine that you enjoy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What it is&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Where and when you do it&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Who you do it with&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;And explain why you enjoy it&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -186,7 +472,7 @@
 &lt;p&gt;最多&lt;strong&gt;15张&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;No gif &amp;amp; Video&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;No gifs &amp;amp; Video&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 </description>
@@ -617,7 +903,7 @@ x_i &amp;amp;\approx 0
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;properties&#34;&gt;Properties&lt;/h2&gt;
-&lt;h3 id=&#34;gain-de-sensitivity&#34;&gt;Gain De-sensitivity&lt;/h3&gt;
+&lt;h3 id=&#34;gain-desensitivity&#34;&gt;Gain Desensitivity&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 A_f &amp;amp;= \frac{A}{1 + A\beta} \\
@@ -626,6 +912,9 @@ dA_f &amp;amp;= \frac{A}{1 +A\beta} \frac{1}{(1 + A\beta)A}dA \\
 \frac{dA_f}{A_f} &amp;amp;= \frac{1}{1 + A\beta}\frac{dA}{A}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因此, $1 + A\beta$ 也叫&lt;strong&gt;Desensitivity Factor&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;bandwidth-extension&#34;&gt;Bandwidth Extension&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
@@ -633,14 +922,47 @@ A(s) &amp;amp;= \frac{A_M}{1 + s/\omega_H} \\
 A_f &amp;amp;= \frac{A(s)}{1 + A(s) \beta} \\
 &amp;amp;= \frac{A_M/(1+A_M\beta)}{1 + s/[(1 + A_M\beta)\omega_H]} \\
 &amp;amp;= \frac{A_{fM}}{1 + s/(1 + A_M\beta)} \\
-omega_{Hf} &amp;amp;= (1+A_M\beta) \omega_H \\
+\omega_{Hf} &amp;amp;= (1+A_M\beta) \omega_H \\
 \omega_{Lf} &amp;amp;= \frac{\omega_L}{1 + A_M\beta}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;interference-reduction&#34;&gt;Interference Reduction&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Signal-to-Interference Ratio&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+S/I = V_s / V_n
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/16.png&#34;
+	width=&#34;808&#34;
+	height=&#34;628&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/16_hu1edc63217ecfbfbe5eac52dee39aac05_43064_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/16_hu1edc63217ecfbfbe5eac52dee39aac05_43064_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;308px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_o &amp;amp;= V_n \frac{A_1}{1 + A_1 A_2 \beta} + V_s \frac{A_1A_2}{1 + A_1A_2 \beta} \\
+\therefore \frac{S}{I} &amp;amp;= \frac{V_s}{V_n}A_2
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h3 id=&#34;reduction-in-nonlinear-distortion&#34;&gt;Reduction in Nonlinear Distortion&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Negative feedback may &lt;strong&gt;facilitate linearization&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;the-feedback-voltage-amplifier&#34;&gt;The Feedback Voltage Amplifier&lt;/h2&gt;
-&lt;h3 id=&#34;图示-2&#34;&gt;图示&lt;/h3&gt;
+&lt;h3 id=&#34;basic-structure&#34;&gt;Basic Structure&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/15.png&#34;
 	width=&#34;887&#34;
 	height=&#34;440&#34;
@@ -653,7 +975,162 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;483px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;the-seriesshunt-feedback-topology&#34;&gt;The Series–Shunt Feedback Topology&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/17.png&#34;
+	width=&#34;742&#34;
+	height=&#34;722&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/17_hu6c7bc6c6507ac039a766e02a9c3d94fa_29799_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/17_hu6c7bc6c6507ac039a766e02a9c3d94fa_29799_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;102&#34;
+		data-flex-basis=&#34;246px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;analysis-of-the-feedback-voltage-amplifier-utilizing&#34;&gt;Analysis of the Feedback Voltage Amplifier Utilizing&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18.png&#34;
+	width=&#34;870&#34;
+	height=&#34;498&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;419px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+A\beta = -\frac{V_r}{V_t}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;systematic-analysis-of-feedback-voltage-amplifiers&#34;&gt;Systematic Analysis of Feedback Voltage Amplifiers&lt;/h2&gt;
+&lt;h3 id=&#34;电路-2&#34;&gt;电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/19.png&#34;
+	width=&#34;637&#34;
+	height=&#34;677&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/19_hu227033a84b18f323d1c8eea9734e0b97_49179_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/19_hu227033a84b18f323d1c8eea9734e0b97_49179_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;94&#34;
+		data-flex-basis=&#34;225px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;分析-5&#34;&gt;分析&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_i &amp;amp;= \frac{V_s}{1 + A\beta} \\
+\therefore I_i &amp;amp;= \frac{V_s}{(1  +A\beta)R_i} \\
+R_{if} &amp;amp;= \frac{V_s}{I_i} \\
+&amp;amp;=(1 +A\beta) R_i \\\
+\\ R_{of} &amp;amp;= \frac{V_o}{I_o} \\
+V_i &amp;amp;= -V_f = -\beta V_o\\
+\therefore I_o &amp;amp;= \frac{V_o - AV_i}{R_o} \\
+&amp;amp;= (1 + A\beta) \frac{V_o}{R_o} \\
+\therefore R_{of} &amp;amp;= \frac{R_o}{1 + A\beta}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;a-practical-case&#34;&gt;A Practical Case&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;电路&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/20.png&#34;
+	width=&#34;634&#34;
+	height=&#34;951&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/20_hue3828162ab623149e05499e754f05175_82064_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/20_hue3828162ab623149e05499e754f05175_82064_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;66&#34;
+		data-flex-basis=&#34;160px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\beta &amp;amp;\equiv \frac{V_f}{V_o} \\
+A_f &amp;amp;\equiv \frac{V_o}{V_s} \\
+&amp;amp;= \frac{A}{1 + A\beta} \\
+R_{if} &amp;amp;= R_i(1 + A\beta) \\
+R_{of} &amp;amp;= R_o/(1 + A\beta) \\
+R_{in} &amp;amp;= R_{if} - R_s \\
+R_{out} &amp;amp;= 1/(\frac{1}{R_{out}} - \frac{1}{R_L})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;other-feedback-amplifier-types&#34;&gt;Other Feedback-Amplifier Types&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/21.png&#34;
+	width=&#34;966&#34;
+	height=&#34;566&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/21_hua28244333d32a5ebe2b92f4445988f20_76299_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/21_hua28244333d32a5ebe2b92f4445988f20_76299_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;409px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;the-feedback-transconductance-amplifier-seriesserie&#34;&gt;The Feedback Transconductance Amplifier (Series–Serie)&lt;/h3&gt;
+&lt;h4 id=&#34;理想电路&#34;&gt;理想电路&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/22.png&#34;
+	width=&#34;725&#34;
+	height=&#34;678&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/22_hu31abe724b61bf7499495f1cec97ab43f_54806_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/22_hu31abe724b61bf7499495f1cec97ab43f_54806_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;106&#34;
+		data-flex-basis=&#34;256px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;反馈网络对原网络没有负载效应&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;输出是什么，就稳什么&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;公式&#34;&gt;公式&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_f &amp;amp;\equiv \frac{I_o}{V_i} = \frac{A}{1 + A\beta} \\
+R_{if} &amp;amp;= (1 + A\beta) R_i \\
+R_{of} &amp;amp;= (1 + A\beta ) R_o \\
+R_{in} &amp;amp;= R_{if} - R_s \\
+R_{out}&amp;amp;= R_{of} - R_L \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;the-feedback-transresistance-amplifier-shuntshunt&#34;&gt;The Feedback Transresistance Amplifier (Shunt–Shunt)&lt;/h3&gt;
+&lt;h4 id=&#34;电路-3&#34;&gt;电路&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/23.png&#34;
+	width=&#34;695&#34;
+	height=&#34;787&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/23_hu5a158f52364690fd2e5c19628feaa951_56373_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/23_hu5a158f52364690fd2e5c19628feaa951_56373_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;88&#34;
+		data-flex-basis=&#34;211px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;公式-1&#34;&gt;公式&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A &amp;amp;\equiv
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;the-stability-problem&#34;&gt;The Stability Problem&lt;/h3&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;bypass-capacitor&#34;&gt;Bypass Capacitor&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -708,7 +1185,16 @@ H(f) \approx \frac{1}{(1+\frac{1}{4}(\frac{f}{f_Z})^2)^{\frac{3}{2}}}\\
 f_L \approx \sqrt{f_{P1}^2 + f_{P2}^2 + f_{P3}^2 - 2f_Z^2}\\
 $$&lt;/p&gt;
 &lt;h2 id=&#34;电容的阻抗&#34;&gt;电容的阻抗&lt;/h2&gt;
-&lt;p&gt;-) 电容通常很小,$1/sC$也就很大，通常可以&lt;strong&gt;忽略不计&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;电容通常很小,$1/sC$也就很大，通常可以&lt;strong&gt;忽略不计&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;r_if-和-r_i&#34;&gt;$R_{if} 和 R_i$&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+R_{if} &amp;amp;= \frac{\pmb {V_s}}{I_i} \\
+R_i &amp;amp;= \frac{\pmb {V_i}}{I_i}
+\end{aligned}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -923,7 +1409,8 @@ $$&lt;/p&gt;
 &lt;/div&gt;&lt;h1 id=&#34;windows安装&#34;&gt;Windows安装&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;在这里https://www.microsoft.com/zh-cn/software-download/windows10点击“立即下载工具”&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.microsoft.com/zh-cn/software-download/windows10&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.microsoft.com/zh-cn/software-download/windows10&lt;/a&gt; 点击“立即下载工具”&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;下好后打开双击运行,插上一个大于4G的U盘，选择为另一台电脑安装，之后选择你的U盘，等完成后一个人官方工具制作的介质就做好了。&lt;/p&gt;
@@ -15940,29 +16427,61 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;h2 id=&#34;连接词&#34;&gt;连接词&lt;/h2&gt;
 &lt;h3 id=&#34;开头&#34;&gt;开头&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;To begin with&lt;/li&gt;
+&lt;li&gt;One of the &amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;中间顺承&#34;&gt;中间(顺承)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;In addition&lt;/li&gt;
-&lt;li&gt;Furthermore&lt;/li&gt;
-&lt;li&gt;Besides&lt;/li&gt;
-&lt;li&gt;What&amp;rsquo;s more&lt;/li&gt;
-&lt;li&gt;&amp;hellip; is also &amp;hellip;&lt;/li&gt;
-&lt;li&gt;Moreover&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In addition&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Additionally&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Furthermore&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Besides&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What&amp;rsquo;s more&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;hellip; is also &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Moreover&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;中间转折&#34;&gt;中间(转折)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;but&lt;/li&gt;
-&lt;li&gt;However&lt;/li&gt;
-&lt;li&gt;still&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;but&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;However&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;still&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;中间因果&#34;&gt;中间(因果)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;The aim was to&lt;/li&gt;
-&lt;li&gt;As a result&lt;/li&gt;
-&lt;li&gt;In this way&lt;/li&gt;
-&lt;li&gt;Thus&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The aim was to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As a result&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In this way&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thus&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thereby&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;引用&#34;&gt;引用&lt;/h3&gt;
 &lt;ul&gt;
@@ -15970,25 +16489,44 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;p&gt;Research conducted by &amp;hellip; states/discovers that&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;It was found that&lt;/p&gt;
+&lt;p&gt;It was found/discovered that&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;就而言&#34;&gt;就&amp;hellip;而言&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;In terms of&lt;/li&gt;
-&lt;li&gt;When it comes to&lt;/li&gt;
-&lt;li&gt;With regard to&lt;/li&gt;
-&lt;li&gt;In respect of&lt;/li&gt;
-&lt;li&gt;With reference to&lt;/li&gt;
-&lt;li&gt;As to&lt;/li&gt;
-&lt;li&gt;In relation to&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In terms of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;With regard to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In respect of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;With reference to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In relation to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When it comes to&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;结束语&#34;&gt;结束语&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Overall&lt;/li&gt;
-&lt;li&gt;Generally(Speaking)&lt;/li&gt;
-&lt;li&gt;All in all&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Overall&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generally (Speaking)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;All in all&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;形容词&#34;&gt;形容词&lt;/h2&gt;
 &lt;h3 id=&#34;好与坏&#34;&gt;好与坏&lt;/h3&gt;
@@ -15996,74 +16534,208 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;li&gt;好&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;advantage&lt;/li&gt;
-&lt;li&gt;benefits&lt;/li&gt;
-&lt;li&gt;positive&lt;/li&gt;
-&lt;li&gt;useful characteristic of&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;advantage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;benefits&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;positive&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;useful characteristic of&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;坏&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;disadvantage&lt;/li&gt;
-&lt;li&gt;negative (aspect)&lt;/li&gt;
-&lt;li&gt;drawback&lt;/li&gt;
-&lt;li&gt;flaw&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;disadvantage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;negative&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;drawback&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;flaw&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;多&#34;&gt;多&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;quite a lot&lt;/li&gt;
-&lt;li&gt;a large quantity (number) of&lt;/li&gt;
-&lt;li&gt;numerous&lt;/li&gt;
-&lt;li&gt;countless&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;quite a lot&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A large quantity (number) of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;numerous&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;countless&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A multitude of&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;表示程度的&#34;&gt;表示程度的&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;显著的 大幅度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;sharp&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rapid&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;dramatic&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;稳步的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;steady&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gradual&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;consistent&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;轻微的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;slight&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;minimal&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;marginal&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;描述线性图的&#34;&gt;描述线性图的&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%86%99%E4%BD%9C/1.png&#34;
+	width=&#34;367&#34;
+	height=&#34;294&#34;
+	srcset=&#34;https://downeyflyfan.com/p/%E5%86%99%E4%BD%9C/1_huc508135f95ab47ded1efd3c3bdbde601_83299_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%86%99%E4%BD%9C/1_huc508135f95ab47ded1efd3c3bdbde601_83299_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;124&#34;
+		data-flex-basis=&#34;299px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;重要&#34;&gt;重要&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;vital&lt;/li&gt;
-&lt;li&gt;significant&lt;/li&gt;
-&lt;li&gt;important&lt;/li&gt;
-&lt;li&gt;crucial&lt;/li&gt;
-&lt;li&gt;essential&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vital&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;significant&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;important&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;crucial&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;essential&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;几乎-大概&#34;&gt;几乎 大概&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;nearly&lt;/li&gt;
-&lt;li&gt;almost&lt;/li&gt;
-&lt;li&gt;nearly&lt;/li&gt;
-&lt;li&gt;about&lt;/li&gt;
-&lt;li&gt;around&lt;/li&gt;
-&lt;li&gt;roughly&lt;/li&gt;
-&lt;li&gt;approximately&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nearly&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;almost&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;about&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;around&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;roughly&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;approximately&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;原因与结果&#34;&gt;原因与结果&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;原因&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;As&lt;/li&gt;
-&lt;li&gt;Result from&lt;/li&gt;
-&lt;li&gt;Since&lt;/li&gt;
-&lt;li&gt;Due to&lt;/li&gt;
-&lt;li&gt;On account of&lt;/li&gt;
-&lt;li&gt;owing to&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Result from&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Since&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Due to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On account of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Owing to&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;结果&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;result in&lt;/li&gt;
-&lt;li&gt;consequently&lt;/li&gt;
-&lt;li&gt;Credit to&lt;/li&gt;
-&lt;li&gt;attribute to&lt;/li&gt;
-&lt;li&gt;lead to&lt;/li&gt;
-&lt;li&gt;bring about&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;result in&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;consequently&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Credit to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;attribute to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lead to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;bring about&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;动词&#34;&gt;动词&lt;/h2&gt;
 &lt;h3 id=&#34;发光&#34;&gt;发光&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;illuminate&lt;/li&gt;
-&lt;li&gt;glow&lt;/li&gt;
-&lt;li&gt;lighten&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;illuminate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;glow&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lighten&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;摔-倒-掉&#34;&gt;摔 倒 掉&lt;/h3&gt;
 &lt;ul&gt;
@@ -16074,52 +16746,146 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;p&gt;drop&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;能够-做得好&#34;&gt;能够 做得好&lt;/h3&gt;
+&lt;h3 id=&#34;能够&#34;&gt;能够&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;could/can&lt;/li&gt;
-&lt;li&gt;be able to&lt;/li&gt;
-&lt;li&gt;is capable to/of&lt;/li&gt;
-&lt;li&gt;do well in&lt;/li&gt;
-&lt;li&gt;be good at&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;could/can&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;be able to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;is capable to/of&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;做得好&#34;&gt;做得好&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;be proficient in&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;be adept at&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;be good at&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;增和降&#34;&gt;增和降&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;增&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;increase&lt;/li&gt;
-&lt;li&gt;rise&lt;/li&gt;
-&lt;li&gt;ascent&lt;/li&gt;
-&lt;li&gt;lift&lt;/li&gt;
-&lt;li&gt;uprise&lt;/li&gt;
-&lt;li&gt;soar&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;increase&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rise&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;grow&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lift&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;uprise&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ascent&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;降&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;decrease&lt;/li&gt;
-&lt;li&gt;drop&lt;/li&gt;
-&lt;li&gt;decline&lt;/li&gt;
-&lt;li&gt;lessen&lt;/li&gt;
-&lt;li&gt;diminish&lt;/li&gt;
-&lt;li&gt;reduce&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;decrease&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;drop&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;decline&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lessen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;diminish&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;reduce&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;损害&#34;&gt;损害&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;destory&lt;/li&gt;
-&lt;li&gt;damage&lt;/li&gt;
-&lt;li&gt;hurt&lt;/li&gt;
-&lt;li&gt;ruin&lt;/li&gt;
-&lt;li&gt;break&lt;/li&gt;
-&lt;li&gt;spoil&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;destory&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;damage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hurt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ruin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;break&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;spoil&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;处理&#34;&gt;处理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;deal with&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;handle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cope with&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;连词&#34;&gt;连词&lt;/h2&gt;
 &lt;h3 id=&#34;通过&#34;&gt;通过&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;through&lt;/li&gt;
-&lt;li&gt;via&lt;/li&gt;
-&lt;li&gt;by&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;through&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;via&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;by&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;介词&#34;&gt;介词&lt;/h2&gt;
+&lt;h3 id=&#34;随着&#34;&gt;随着&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;With the &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;thanks to &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;as &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;along with&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;following&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;开头-结尾&#34;&gt;开头 结尾&lt;/h1&gt;
+&lt;h2 id=&#34;开头-1&#34;&gt;开头&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;One of the (major advantage) is &amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
 &lt;ol&gt;
@@ -16131,6 +16897,69 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;最后一条写&lt;em&gt;&lt;strong&gt;In addition to&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;ielts&#34;&gt;IELTS&lt;/h1&gt;
+&lt;h2 id=&#34;线性图&#34;&gt;线性图&lt;/h2&gt;
+&lt;h3 id=&#34;描述&#34;&gt;描述&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The price of textbooks fell sharply in 2019.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There was a rapid decrease in the price of textbooks in 2019.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The year 2019 witnessed a dramatic drop in the price of textbooks.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A sharp fall in the price of textbooks took place in 2019.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The price of textbooks showed a downward trend in 2019.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;怎么写&#34;&gt;怎么写&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;关注&lt;strong&gt;开始点、结束点、相交点、大致趋势、转折点、极值&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;柱状图&#34;&gt;柱状图&lt;/h2&gt;
+&lt;h3 id=&#34;描述-1&#34;&gt;描述&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The amount of CO2 emitted from cars in 1999 was three times more than that in 2000. （没错，这是“A是B的3倍”的意思，不是4倍！）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In 1999, cars produced three times more CO2 than (they did) in 2000.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There was three times more CO2 emitted by cars in 1999 than in 2000.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;看图&#34;&gt;看图&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对于数据较多的&lt;strong&gt;柱状图&lt;/strong&gt;,考虑转换成&lt;strong&gt;线性图&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;饼状图&#34;&gt;饼状图&lt;/h2&gt;
+&lt;h3 id=&#34;描述-2&#34;&gt;描述&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The majority of sales in Bob&amp;rsquo;s store come from DVDs, with exactly 60%.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DVDs account for three fifths of the total sales.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The percentage of PC games sold is exactly 20%.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fifteen percent of items sold in the store are CDs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There is merely 5% of the total revenue generated by selling posters.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For the sales of posters, only 5% contributes to the turnover（营业额）.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;文章类型&#34;&gt;文章类型&lt;/h1&gt;
@@ -16182,7 +17011,6 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;p&gt;大多是&lt;strong&gt;名词&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
 &lt;h1 id=&#34;技巧&#34;&gt;技巧&lt;/h1&gt;
 &lt;h2 id=&#34;paraphrase&#34;&gt;Paraphrase&lt;/h2&gt;
 &lt;ol&gt;
@@ -16198,7 +17026,7 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;主动$Longrightarrow$被动&lt;/p&gt;
+&lt;p&gt;主动$\Longrightarrow$被动&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;简化长句，增长短句&lt;/p&gt;
@@ -27190,6 +28018,9 @@ $$&lt;/p&gt;
 &lt;p&gt;条件极值法：在满足一定条件（如等式、不等式）下寻找极值点。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;第三次训练----校赛&#34;&gt;第三次训练 &amp;ndash; 校赛&lt;/h2&gt;
+&lt;h3 id=&#34;第一步----数据预处理&#34;&gt;第一步 &amp;ndash; 数据预处理&lt;/h3&gt;
+&lt;h3 id=&#34;学会使用excel&#34;&gt;学会使用Excel&lt;/h3&gt;
 </description>
         </item>
         <item>
