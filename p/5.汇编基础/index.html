@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Bytes Arrangements - Little (Big) Endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
+Register
+I/O Devices
+信息的处理 Assembly-Language Instructions
+Hardware Process Actions
+RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
+<title>5.汇编基础</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5.汇编基础'>
+<meta property='og:description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Bytes Arrangements - Little (Big) Endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
+Register
+I/O Devices
+信息的处理 Assembly-Language Instructions
+Hardware Process Actions
+RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
+<meta property='og:url' content='https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-05-25T10:21:04&#43;08:00'/><meta property='article:modified_time' content='2023-05-25T10:21:04&#43;08:00'/>
+<meta name="twitter:title" content="5.汇编基础">
+<meta name="twitter:description" content="基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Bytes Arrangements - Little (Big) Endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
+Register
+I/O Devices
+信息的处理 Assembly-Language Instructions
+Hardware Process Actions
+RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#基本格式">基本格式</a>
+      <ol>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#地址">地址</a></li>
+        <li><a href="#bytes-arrangements---little-big-endian">Bytes Arrangements - Little (Big) Endian</a></li>
+      </ol>
+    </li>
+    <li><a href="#wtite-assembly-for-arm">Wtite Assembly for ARM</a>
+      <ol>
+        <li><a href="#回顾">回顾</a>
+          <ol>
+            <li><a href="#isa-istruction-set-architecture">ISA (Istruction Set Architecture)</a></li>
+            <li><a href="#risc">RISC</a></li>
+          </ol>
+        </li>
+        <li><a href="#重要单元结构">重要单元结构</a>
+          <ol>
+            <li><a href="#arm-register-file">Arm Register File</a></li>
+            <li><a href="#cortex-m-memory-map">Cortex-M Memory Map</a></li>
+            <li><a href="#data-path--control-unit">Data Path &amp; Control Unit</a></li>
+            <li><a href="#instructions">Instructions</a></li>
+            <li><a href="#registers">Registers</a></li>
+          </ol>
+        </li>
+        <li><a href="#指令-助记符-标志位-标签">指令 助记符 标志位 标签</a>
+          <ol>
+            <li><a href="#汇编指令">汇编指令</a></li>
+            <li><a href="#arm-alu">ARM ALU*</a></li>
+            <li><a href="#conditional-flag-nzcv">Conditional Flag (NZCV)</a></li>
+            <li><a href="#branching">Branching</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#代表立即数">#代表立即数</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="background-color: #C0C0C0; color: #fff;">
+                嵌入式
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">5.汇编基础</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 25, 252525</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="基本格式">基本格式</h1>
+<h2 id="语法">语法</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Label</th>
+<th style="text-align:center">Symbolic Labeling of an assembler address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">mnemonic</td>
+<td style="text-align:center">Symbolic description of the operation</td>
+</tr>
+<tr>
+<td style="text-align:center">operands</td>
+<td style="text-align:center">操作数 Contains of variables or addresses if necessary</td>
+</tr>
+<tr>
+<td style="text-align:center">comments</td>
+<td style="text-align:center">用<code>;</code>表示，Optional Field</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="地址">地址</h2>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/1.png"
+	width="503"
+	height="238"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/1_hu4ddb0e2811513e64e76afa235f02df3d_49783_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/1_hu4ddb0e2811513e64e76afa235f02df3d_49783_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="507px"
+	
+></p>
+<h2 id="bytes-arrangements---little-big-endian">Bytes Arrangements - Little (Big) Endian</h2>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/2.png"
+	width="823"
+	height="373"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/2_hu8b5f3ec8c44c10fcce6a0084c152c137_187360_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/2_hu8b5f3ec8c44c10fcce6a0084c152c137_187360_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="220"
+		data-flex-basis="529px"
+	
+></p>
+<h1 id="wtite-assembly-for-arm">Wtite Assembly for ARM</h1>
+<h2 id="回顾">回顾</h2>
+<h3 id="isa-istruction-set-architecture">ISA (Istruction Set Architecture)</h3>
+<ol>
+<li>信息的<strong>获取</strong>和<strong>存储</strong></li>
+</ol>
+<ul>
+<li>
+<p>Memory</p>
+</li>
+<li>
+<p>Register</p>
+</li>
+<li>
+<p>I/O Devices</p>
+</li>
+</ul>
+<ol start="2">
+<li>信息的处理</li>
+</ol>
+<ul>
+<li>
+<p>Assembly-Language Instructions</p>
+</li>
+<li>
+<p>Hardware Process Actions</p>
+</li>
+</ul>
+<h3 id="risc">RISC</h3>
+<ol>
+<li>Load</li>
+</ol>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/3.png"
+	width="467"
+	height="317"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/3_hud8b5184b507ded7bdf8ac8c89cf044f2_32370_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/3_hud8b5184b507ded7bdf8ac8c89cf044f2_32370_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="147"
+		data-flex-basis="353px"
+	
+></p>
+<ol start="2">
+<li>Store</li>
+</ol>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/4.png"
+	width="419"
+	height="275"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/4_hu5fae1e910d4d38b6365529c52ab9b153_29166_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/4_hu5fae1e910d4d38b6365529c52ab9b153_29166_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="152"
+		data-flex-basis="365px"
+	
+></p>
+<h2 id="重要单元结构">重要单元结构</h2>
+<h3 id="arm-register-file">Arm Register File</h3>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/5.png"
+	width="823"
+	height="453"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/5_huc832f89f47994bb7ccd65ddeb888dfc0_117086_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/5_huc832f89f47994bb7ccd65ddeb888dfc0_117086_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="181"
+		data-flex-basis="436px"
+	
+></p>
+<h3 id="cortex-m-memory-map">Cortex-M Memory Map</h3>
+<ol>
+<li>
+<p>32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存</p>
+</li>
+<li>
+<p>Code、Data、I/O <strong>共用内存</strong></p>
+</li>
+<li>
+<p>数据类型: <strong>Bytes, words, halfwords</strong></p>
+</li>
+<li>
+<p>内存地址类型: <strong>Bytes</strong></p>
+</li>
+</ol>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/6.png"
+	width="247"
+	height="511"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/6_hu9eced7e3d5e00570be51ac0e31cd6389_90385_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/6_hu9eced7e3d5e00570be51ac0e31cd6389_90385_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="48"
+		data-flex-basis="116px"
+	
+></p>
+<h3 id="data-path--control-unit">Data Path &amp; Control Unit</h3>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/7.png"
+	width="864"
+	height="486"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/7_hu9800ef9e1298754fccbbae288dc65d59_39831_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/7_hu9800ef9e1298754fccbbae288dc65d59_39831_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<h3 id="instructions">Instructions</h3>
+<ol>
+<li>
+<p><strong>Arithmatic、Logic、Comparison</strong>  Operation</p>
+</li>
+<li>
+<p><strong>Data Movement</strong> between Registers</p>
+</li>
+</ol>
+<h3 id="registers">Registers</h3>
+<ol>
+<li>
+<p><strong>Saved Register</strong>: R4-R11, hold <strong>variables</strong></p>
+</li>
+<li>
+<p><strong>Temporary Register</strong>: R0-R3, R12, hold <strong>intermediate values</strong></p>
+</li>
+</ol>
+<h2 id="指令-助记符-标志位-标签">指令 助记符 标志位 标签</h2>
+<h3 id="汇编指令">汇编指令</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">MOV</th>
+<th style="text-align:center"><strong>寄存器之间</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">LDR</td>
+<td style="text-align:center"><strong>内存</strong>和<strong>寄存器</strong>之间</td>
+</tr>
+<tr>
+<td style="text-align:center">[a,b]</td>
+<td style="text-align:center">地址<code>a+b</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ADD</td>
+<td style="text-align:center">相加</td>
+</tr>
+<tr>
+<td style="text-align:center">ADC</td>
+<td style="text-align:center"><strong>带进位的加法运算</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">SUB</td>
+<td style="text-align:center">相减</td>
+</tr>
+<tr>
+<td style="text-align:center">SBC</td>
+<td style="text-align:center"><strong>带进位的减法运算</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">AND</td>
+<td style="text-align:center">按位与</td>
+</tr>
+<tr>
+<td style="text-align:center">BIC(Bit Clean)</td>
+<td style="text-align:center">按位与非，即<strong>按位取反后再与</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">ORR</td>
+<td style="text-align:center">按位或</td>
+</tr>
+<tr>
+<td style="text-align:center">LSL(Logical Shift Left)</td>
+<td style="text-align:center">左移</td>
+</tr>
+<tr>
+<td style="text-align:center">LSR</td>
+<td style="text-align:center">右移</td>
+</tr>
+<tr>
+<td style="text-align:center">MUL</td>
+<td style="text-align:center">乘法($32_\times32_ = 32_$),结果没有影响</td>
+</tr>
+<tr>
+<td style="text-align:center">CMP</td>
+<td style="text-align:center">比较</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="arm-alu">ARM ALU*</h3>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/8.png"
+	width="826"
+	height="605"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/8_hu59fa1acf6393c02cde34c1c507c76987_108748_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/8_hu59fa1acf6393c02cde34c1c507c76987_108748_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="327px"
+	
+></p>
+<h3 id="conditional-flag-nzcv">Conditional Flag (NZCV)</h3>
+<ol>
+<li>标识位解释</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">N</th>
+<th style="text-align:center">Negative, 负标志位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Z</td>
+<td style="text-align:center">Zero, 零标志位</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">Carry, 进位标志位</td>
+</tr>
+<tr>
+<td style="text-align:center">V</td>
+<td style="text-align:center">Overflow, 溢出标志位</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="2">
+<li>助记符</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">NE</th>
+<th style="text-align:center">不等于</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">EQ</td>
+<td style="text-align:center">等于</td>
+</tr>
+<tr>
+<td style="text-align:center">MI</td>
+<td style="text-align:center">Minor Key, 当标志位N=1时执行指令</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="3">
+<li>示例(Conditional Opcode)</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-s" data-lang="s"><span class="line"><span class="cl"><span class="n">CMP</span> <span class="n">R1</span> <span class="n">R2</span>
+</span></span><span class="line"><span class="cl"><span class="n">SUBNE</span> <span class="n">R3</span><span class="p">,</span> <span class="n">R5</span><span class="p">,</span> <span class="n">R8</span> <span class="p">;</span> 只有当<span class="n">R1</span> <span class="o">!=</span> <span class="n">R2</span> 时才能执行<span class="n">SUB</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="branching">Branching</h3>
+<ol>
+<li>Example</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-s" data-lang="s"><span class="line"><span class="cl"><span class="n">MOV</span> <span class="n">R2</span> <span class="c1">#17</span>
+</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="n">TARGET</span>
+</span></span><span class="line"><span class="cl"><span class="n">ORR</span> <span class="n">R1</span><span class="p">,</span> <span class="n">R4</span><span class="p">,</span> <span class="c1">#14</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">TARGET</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SUB</span> <span class="n">R1</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="c1">#78 ; TARGET就是Label</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>用汇编写C</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">pow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">pow</span> <span class="o">!=</span><span class="mi">128</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pow</span><span class="o">*=</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">R0</span> <span class="err">=</span> <span class="no">pow</span><span class="p">,</span> <span class="no">R1</span> <span class="err">=</span> <span class="no">x</span>
+</span></span><span class="line"><span class="cl"><span class="nf">MOV</span> <span class="no">R0</span> <span class="c1">#1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">MOV</span> <span class="no">R1</span> <span class="c1">#0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nf">WHILE</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">CMP</span> <span class="no">R0</span> <span class="c1">#128
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">BEQ</span> <span class="no">DONE</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">LSL</span> <span class="no">R0</span> <span class="c1">#1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">ADD</span> <span class="no">R1</span> <span class="c1">#1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nf">B</span> <span class="no">WHILE</span><span class="c1">; 重复循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">DONE</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="附录">附录</h1>
+<h2 id="代表立即数">#代表立即数</h2>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E9%99%84%E5%8A%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">附加</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/i2cspiadcdac/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">I2C,SPI,ADC,DAC</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/gpio-pwm-uart/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">GPIO PWM UART</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">汇编基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AD%E6%96%AD/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">中断</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
