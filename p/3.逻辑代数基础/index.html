@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本逻辑系统表达 三种基本运算 与(AND) 符号表示为$\cdot$ 或(OR) 符号表示为$&#43;$ 非(NOR) 符号表示为 &#39; 对偶定律 定义 等号两边同时对偶，等式依然成立
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本逻辑系统表达 三种基本运算 AND $\cdot$ OR $&#43;$ NOR $&#39;$ 对偶定律 反演定律 定义 等号两边同时对偶，等式依然成立
 对偶的法则 与变或，或变与
 真变假，假变真
 遵循原函数的运算先后顺序
@@ -10,16 +10,13 @@
 对偶只对0,1取反，而不对变量取反
 例如
 $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot (C&#43;D’&#43;E)\cdot 1 \\\ \\ 对偶式为YD= (A’&#43;B’)\cdot (C’&#43;D&#43;E’)\cdot 1 $$
-导出的逻辑运算 与非(NAND) $$ F = (A\cdot B)&#39; $$
-或非(NOR) $$ F = (A &#43; B)&#39; $$
-与或非(AND-OR INVERT) $$ F = (A\cdot B &#43; C\cdot D)&#39; $$
-异或(XOR) $$ F = A \textcircled &#43; B = A\cdot B&amp;rsquo; &#43; A&amp;rsquo; \cdot B \\\ \\ 相异为1,相同为0 $$'>
+导出的逻辑运算 NAND(与非) $F = (A \cdot B)&#39;$ NOR $F = (A &#43;B)&#39;$ AND-OR INVERT $F =(A\cdot B &#43; C \cdot D)&#39;$ XOR $F = A \textcircled &#43; B = AB&amp;rsquo; &#43; AB&#39;$ NXOR $F = A\textcircled \cdot B = (A \textcircled &#43; B)&amp;rsquo; = A&amp;rsquo;B&amp;rsquo; &#43; AB$ 逻辑符号 逻辑代数的公理和定理 二变量和三变量定理 满足交换律,结合律 分配律 (Distributivity) $$ A \cdot (B &#43;C ) = A\cdot B &#43; A \cdot C \\\ \\ A &#43; B \cdot C = (A&#43;B) \cdot (A &#43;C) $$'>
 <title>3.逻辑代数基础</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='3.逻辑代数基础'>
-<meta property='og:description' content='基本逻辑系统表达 三种基本运算 与(AND) 符号表示为$\cdot$ 或(OR) 符号表示为$&#43;$ 非(NOR) 符号表示为 &#39; 对偶定律 定义 等号两边同时对偶，等式依然成立
+<meta property='og:description' content='基本逻辑系统表达 三种基本运算 AND $\cdot$ OR $&#43;$ NOR $&#39;$ 对偶定律 反演定律 定义 等号两边同时对偶，等式依然成立
 对偶的法则 与变或，或变与
 真变假，假变真
 遵循原函数的运算先后顺序
@@ -28,15 +25,12 @@ $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot
 对偶只对0,1取反，而不对变量取反
 例如
 $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot (C&#43;D’&#43;E)\cdot 1 \\\ \\ 对偶式为YD= (A’&#43;B’)\cdot (C’&#43;D&#43;E’)\cdot 1 $$
-导出的逻辑运算 与非(NAND) $$ F = (A\cdot B)&#39; $$
-或非(NOR) $$ F = (A &#43; B)&#39; $$
-与或非(AND-OR INVERT) $$ F = (A\cdot B &#43; C\cdot D)&#39; $$
-异或(XOR) $$ F = A \textcircled &#43; B = A\cdot B&amp;rsquo; &#43; A&amp;rsquo; \cdot B \\\ \\ 相异为1,相同为0 $$'>
+导出的逻辑运算 NAND(与非) $F = (A \cdot B)&#39;$ NOR $F = (A &#43;B)&#39;$ AND-OR INVERT $F =(A\cdot B &#43; C \cdot D)&#39;$ XOR $F = A \textcircled &#43; B = AB&amp;rsquo; &#43; AB&#39;$ NXOR $F = A\textcircled \cdot B = (A \textcircled &#43; B)&amp;rsquo; = A&amp;rsquo;B&amp;rsquo; &#43; AB$ 逻辑符号 逻辑代数的公理和定理 二变量和三变量定理 满足交换律,结合律 分配律 (Distributivity) $$ A \cdot (B &#43;C ) = A\cdot B &#43; A \cdot C \\\ \\ A &#43; B \cdot C = (A&#43;B) \cdot (A &#43;C) $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-09T11:25:47&#43;00:00'/><meta property='article:modified_time' content='2023-03-09T11:25:47&#43;00:00'/>
 <meta name="twitter:title" content="3.逻辑代数基础">
-<meta name="twitter:description" content="基本逻辑系统表达 三种基本运算 与(AND) 符号表示为$\cdot$ 或(OR) 符号表示为$&#43;$ 非(NOR) 符号表示为 &#39; 对偶定律 定义 等号两边同时对偶，等式依然成立
+<meta name="twitter:description" content="基本逻辑系统表达 三种基本运算 AND $\cdot$ OR $&#43;$ NOR $&#39;$ 对偶定律 反演定律 定义 等号两边同时对偶，等式依然成立
 对偶的法则 与变或，或变与
 真变假，假变真
 遵循原函数的运算先后顺序
@@ -45,10 +39,7 @@ $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot
 对偶只对0,1取反，而不对变量取反
 例如
 $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot (C&#43;D’&#43;E)\cdot 1 \\\ \\ 对偶式为YD= (A’&#43;B’)\cdot (C’&#43;D&#43;E’)\cdot 1 $$
-导出的逻辑运算 与非(NAND) $$ F = (A\cdot B)&#39; $$
-或非(NOR) $$ F = (A &#43; B)&#39; $$
-与或非(AND-OR INVERT) $$ F = (A\cdot B &#43; C\cdot D)&#39; $$
-异或(XOR) $$ F = A \textcircled &#43; B = A\cdot B&amp;rsquo; &#43; A&amp;rsquo; \cdot B \\\ \\ 相异为1,相同为0 $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+导出的逻辑运算 NAND(与非) $F = (A \cdot B)&#39;$ NOR $F = (A &#43;B)&#39;$ AND-OR INVERT $F =(A\cdot B &#43; C \cdot D)&#39;$ XOR $F = A \textcircled &#43; B = AB&amp;rsquo; &#43; AB&#39;$ NXOR $F = A\textcircled \cdot B = (A \textcircled &#43; B)&amp;rsquo; = A&amp;rsquo;B&amp;rsquo; &#43; AB$ 逻辑符号 逻辑代数的公理和定理 二变量和三变量定理 满足交换律,结合律 分配律 (Distributivity) $$ A \cdot (B &#43;C ) = A\cdot B &#43; A \cdot C \\\ \\ A &#43; B \cdot C = (A&#43;B) \cdot (A &#43;C) $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -290,21 +281,10 @@ $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot
       <ol>
         <li><a href="#三种基本运算">三种基本运算</a>
           <ol>
-            <li><a href="#与and">与(AND)</a></li>
-            <li><a href="#或or">或(OR)</a></li>
-            <li><a href="#非nor">非(NOR)</a></li>
-            <li><a href="#对偶定律">对偶定律</a></li>
+            <li><a href="#对偶定律-反演定律">对偶定律 反演定律</a></li>
           </ol>
         </li>
-        <li><a href="#导出的逻辑运算">导出的逻辑运算</a>
-          <ol>
-            <li><a href="#与非nand">与非(NAND)</a></li>
-            <li><a href="#或非nor">或非(NOR)</a></li>
-            <li><a href="#与或非and-or-invert">与或非(AND-OR INVERT)</a></li>
-            <li><a href="#异或xor">异或(XOR)</a></li>
-            <li><a href="#同或异或非nxor">同或/异或非(NXOR)</a></li>
-          </ol>
-        </li>
+        <li><a href="#导出的逻辑运算">导出的逻辑运算</a></li>
         <li><a href="#逻辑符号">逻辑符号</a></li>
       </ol>
     </li>
@@ -314,7 +294,7 @@ $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot
           <ol>
             <li><a href="#满足交换律结合律">满足<strong>交换律,结合律</strong></a></li>
             <li><a href="#分配律-distributivity">分配律 (Distributivity)</a></li>
-            <li><a href="#合并率combining">合并率(Combining)</a></li>
+            <li><a href="#合并律combining">合并律(Combining)</a></li>
             <li><a href="#吸收率covering">吸收率(Covering)</a></li>
             <li><a href="#一致性定律-consensus"><em>一致性定律 (Consensus)</em></a></li>
           </ol>
@@ -325,11 +305,6 @@ $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot
             <li><a href="#德摩根定律">德摩根定律</a></li>
           </ol>
         </li>
-      </ol>
-    </li>
-    <li><a href="#香农展开定律与标准逻辑流运算">香农展开定律与标准逻辑流运算</a>
-      <ol>
-        <li><a href="#香农展开定律">香农展开定律</a></li>
         <li><a href="#最小项minterm与最大项maxterm">最小项(Minterm)与最大项(Maxterm)</a>
           <ol>
             <li><a href="#最小项">最小项</a></li>
@@ -429,19 +404,25 @@ $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot
     
     <h1 id="基本逻辑系统表达">基本逻辑系统表达</h1>
 <h2 id="三种基本运算">三种基本运算</h2>
-<h3 id="与and">与(AND)</h3>
-<ol>
-<li>符号表示为$\cdot$</li>
-</ol>
-<h3 id="或or">或(OR)</h3>
-<ol start="2">
-<li>符号表示为$+$</li>
-</ol>
-<h3 id="非nor">非(NOR)</h3>
-<ul>
-<li>符号表示为 '</li>
-</ul>
-<h3 id="对偶定律">对偶定律</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">AND</th>
+<th style="text-align:center">$\cdot$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">OR</td>
+<td style="text-align:center">$+$</td>
+</tr>
+<tr>
+<td style="text-align:center">NOR</td>
+<td style="text-align:center">$'$</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="对偶定律-反演定律">对偶定律 反演定律</h3>
 <ol>
 <li>定义</li>
 </ol>
@@ -484,28 +465,45 @@ $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot
 \\ 取反式为Y’= (A+B) \cdot (C+D’+E)\cdot 1 \\\
 \\ 对偶式为YD= (A’+B’)\cdot (C’+D+E’)\cdot 1
 $$</p>
+<p><img src="/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/5.png"
+	width="831"
+	height="266"
+	srcset="/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/5_hu503f77a605a280f8d83e0d4df9de9ae5_44751_480x0_resize_box_3.png 480w, /p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/5_hu503f77a605a280f8d83e0d4df9de9ae5_44751_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="312"
+		data-flex-basis="749px"
+	
+></p>
 <h2 id="导出的逻辑运算">导出的逻辑运算</h2>
-<h3 id="与非nand">与非(NAND)</h3>
-<p>$$
-F = (A\cdot B)'
-$$</p>
-<h3 id="或非nor">或非(NOR)</h3>
-<p>$$
-F = (A + B)'
-$$</p>
-<h3 id="与或非and-or-invert">与或非(AND-OR INVERT)</h3>
-<p>$$
-F = (A\cdot B + C\cdot D)'
-$$</p>
-<h3 id="异或xor">异或(XOR)</h3>
-<p>$$
-F = A \textcircled + B = A\cdot B&rsquo; + A&rsquo; \cdot B \\\
-\\ 相异为1,相同为0
-$$</p>
-<h3 id="同或异或非nxor">同或/异或非(NXOR)</h3>
-<p>$$
-F = (A \textcircled + B)&rsquo; = A&rsquo;\cdot B&rsquo; + A\cdot B
-$$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">NAND(与非)</th>
+<th style="text-align:center">$F = (A \cdot B)'$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">NOR</td>
+<td style="text-align:center">$F = (A +B)'$</td>
+</tr>
+<tr>
+<td style="text-align:center">AND-OR INVERT</td>
+<td style="text-align:center">$F =(A\cdot B + C \cdot D)'$</td>
+</tr>
+<tr>
+<td style="text-align:center">XOR</td>
+<td style="text-align:center">$F = A \textcircled + B = AB&rsquo; + AB'$</td>
+</tr>
+<tr>
+<td style="text-align:center">NXOR</td>
+<td style="text-align:center">$F = A\textcircled \cdot B = (A \textcircled + B)&rsquo; = A&rsquo;B&rsquo; + AB$</td>
+</tr>
+</tbody>
+</table></div>
 <h2 id="逻辑符号">逻辑符号</h2>
 <p><img src="/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/2.png"
 	width="914"
@@ -539,7 +537,7 @@ $$</p>
 A \cdot (B +C ) = A\cdot B + A \cdot C \\\
 \\ A + B \cdot C = (A+B) \cdot (A +C)
 $$</p>
-<h3 id="合并率combining">合并率(Combining)</h3>
+<h3 id="合并律combining">合并律(Combining)</h3>
 <p>$$
 A\cdot B + A\cdot B&rsquo;  =A  \\\
 \\ (A+B)\cdot (A+B&rsquo;) = A
@@ -582,14 +580,6 @@ $$</p>
 		data-flex-basis="484px"
 	
 ></p>
-<h1 id="香农展开定律与标准逻辑流运算">香农展开定律与标准逻辑流运算</h1>
-<h2 id="香农展开定律">香农展开定律</h2>
-<p>$$
-F = F(A_1,A_2&hellip;A_n) \\\
-\\ F = A_1\cdot F(1,A_2&hellip;A_n) + A_1&rsquo;\cdot F(0,A_2&hellip;A_n) \\\
-\\ F = [A_1 + F(0,A_1&hellip;A_n)]\cdot [A_1&rsquo; + F(1,A_2&hellip;A_n)] \\\
-\\ 证明以上等式，只需令A_1=0和A_1=1分别证明
-$$</p>
 <h2 id="最小项minterm与最大项maxterm">最小项(Minterm)与最大项(Maxterm)</h2>
 <h3 id="最小项">最小项</h3>
 <blockquote>
@@ -669,7 +659,8 @@ Z_1 = AB + B&rsquo;D&rsquo; + A&rsquo;CD,求 \\\
 &amp;(3) AOI \ \ 与或非 \\\
 \\ 解: (1) Z_1 &amp;= ((Z_1)&rsquo;)&rsquo; \\
 &amp;= [(AB)&rsquo;(B&rsquo;D&rsquo;)&rsquo;(A&rsquo;CD)&rsquo;]&rsquo; \\
-(2)Z_1 &amp;= \Big[[(A&rsquo;+B+D&rsquo;)(A+C+D&rsquo;)(A+B&rsquo;+D)]&rsquo;\Big]&rsquo; \\
+(2) 先求Z_1&rsquo; &amp;= A&rsquo;C&rsquo;D + AB&rsquo;D + A&rsquo;BD&rsquo; \\
+Z_1 &amp;= \Big[[(A&rsquo;+B+D&rsquo;)(A+C+D&rsquo;)(A+B&rsquo;+D)]&rsquo;\Big]&rsquo; \\
 &amp;= [(A&rsquo; +B + D)&rsquo; +(A + C + D&rsquo;)&rsquo; + (A + B + D)&rsquo;]&rsquo; \\
 (3)Z_1 &amp;= (AB&rsquo;D + A&rsquo;C&rsquo;D + A&rsquo;BD&rsquo;)'
 \end{aligned}

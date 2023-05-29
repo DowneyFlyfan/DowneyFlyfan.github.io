@@ -6,7 +6,16 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 25 May 2023 10:21:04 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 26 May 2023 16:49:31 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Program Desgin &amp; Analysis</title>
+        <link>https://downeyflyfan.com/p/program-desgin-analysis/</link>
+        <pubDate>Fri, 26 May 2023 16:49:31 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/program-desgin-analysis/</guid>
+        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+</description>
+        </item>
+        <item>
         <title>5.汇编基础</title>
         <link>https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/</link>
         <pubDate>Thu, 25 May 2023 10:21:04 +0800</pubDate>
@@ -1280,7 +1289,7 @@ A_f &amp;amp;\equiv \frac{x_o}{x_s} \\
 &amp;amp;= \frac{Ax_i}{x_i + \beta x_o} \\
 &amp;amp;= \frac{Ax_i}{x_i + A\beta x_i} \\
 &amp;amp;= \frac{A}{1 + A\beta} \\
-&amp;amp;\approx \frac{1}{\beta} (A\beta \gg 1) \\\
+&amp;amp;\approx \frac{1}{\beta} (A\beta \gg 1, 即\beta \gg \frac{1}{A}) \\\
 \\ x_f &amp;amp;= \beta x_o =\frac{A\beta}{1 + A\beta}x_s \\
 x_i &amp;amp;= x_s - x_f =\frac{1}{1 + A\beta}x_s
 \end{aligned}
@@ -1301,8 +1310,10 @@ x_f &amp;amp;= \frac{A\beta}{1 + A\beta} x_s \\
 x_i &amp;amp;= \frac{1}{1 + A\beta}x_s \\\
 \\ 当A\beta &amp;amp;\gg 1: \\
 A_f &amp;amp;\approx \frac{1}{\beta} \\
+x_o &amp;amp;\approx x_s \\
 x_f &amp;amp;\approx x_s \\
-x_i &amp;amp;\approx 0
+x_i &amp;amp;\approx 0 \\
+输入几乎&amp;amp;为0, 信号与反馈几乎抵消
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;properties&#34;&gt;Properties&lt;/h2&gt;
@@ -1316,9 +1327,14 @@ dA_f &amp;amp;= \frac{A}{1 +A\beta} \frac{1}{(1 + A\beta)A}dA \\
 \end{aligned}
 $$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;因此, $1 + A\beta$ 也叫&lt;strong&gt;Desensitivity Factor&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$A_f$&lt;strong&gt;变化的幅度比&lt;/strong&gt;$A$小&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;因此, $1 + A\beta$ 也叫&lt;strong&gt;Desensitivity Factor&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;bandwidth-extension&#34;&gt;Bandwidth Extension&lt;/h3&gt;
+&lt;h3 id=&#34;bandwidth-extension&#34;&gt;Bandwidth Extension*&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 A(s) &amp;amp;= \frac{A_M}{1 + s/\omega_H} \\
@@ -1364,7 +1380,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Negative feedback may &lt;strong&gt;facilitate linearization&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;the-feedback-voltage-amplifier&#34;&gt;The Feedback Voltage Amplifier&lt;/h2&gt;
+&lt;h2 id=&#34;the-feedback-voltage-amplifier-series-shunt&#34;&gt;The Feedback Voltage Amplifier (Series-Shunt)&lt;/h2&gt;
 &lt;h3 id=&#34;basic-structure&#34;&gt;Basic Structure&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/15.png&#34;
 	width=&#34;887&#34;
@@ -1391,25 +1407,6 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;246px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;analysis-of-the-feedback-voltage-amplifier-utilizing&#34;&gt;Analysis of the Feedback Voltage Amplifier Utilizing&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;图示&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18.png&#34;
-	width=&#34;870&#34;
-	height=&#34;498&#34;
-	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;174&#34;
-		data-flex-basis=&#34;419px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-A\beta = -\frac{V_r}{V_t}
-$$&lt;/p&gt;
 &lt;h2 id=&#34;systematic-analysis-of-feedback-voltage-amplifiers&#34;&gt;Systematic Analysis of Feedback Voltage Amplifiers&lt;/h2&gt;
 &lt;h3 id=&#34;电路-2&#34;&gt;电路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/19.png&#34;
@@ -1424,17 +1421,42 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;225px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-5&#34;&gt;分析&lt;/h3&gt;
+&lt;h3 id=&#34;分析1&#34;&gt;分析1&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_i &amp;amp;= \frac{V_s}{1 + A\beta} \\
 \therefore I_i &amp;amp;= \frac{V_s}{(1  +A\beta)R_i} \\
 R_{if} &amp;amp;= \frac{V_s}{I_i} \\
 &amp;amp;=(1 +A\beta) R_i \\\
-\\ R_{of} &amp;amp;= \frac{V_o}{I_o} \\
-V_i &amp;amp;= -V_f = -\beta V_o\\
-\therefore I_o &amp;amp;= \frac{V_o - AV_i}{R_o} \\
-&amp;amp;= (1 + A\beta) \frac{V_o}{R_o} \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;分析2&#34;&gt;分析2&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/24.png&#34;
+	width=&#34;719&#34;
+	height=&#34;285&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/24_hu8887b614b9313b3c4a1ad18a5ebdb391_15901_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/24_hu8887b614b9313b3c4a1ad18a5ebdb391_15901_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;252&#34;
+		data-flex-basis=&#34;605px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;数学分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+令V_s &amp;amp;= 0, 对输出端施加测试电压V_X = V_o \\
+R_{of} &amp;amp;= \frac{V_X}{I_X} \\
+I_X &amp;amp;= \frac{V_X - AV_i}{R_o} \\
+\because V_s &amp;amp;=0 \\
+\therefore V_i &amp;amp;= - V_f = -\beta V_o = -\beta V_X\\
+\therefore I_X &amp;amp;= \frac{V_X(1 + A\beta)}{R_o} \\
 \therefore R_{of} &amp;amp;= \frac{R_o}{1 + A\beta}
 \end{aligned}
 $$&lt;/p&gt;
@@ -1533,7 +1555,6 @@ $$&lt;/p&gt;
 A &amp;amp;\equiv
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;the-stability-problem&#34;&gt;The Stability Problem&lt;/h3&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;bypass-capacitor&#34;&gt;Bypass Capacitor&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -1598,15 +1619,37 @@ R_{if} &amp;amp;= \frac{\pmb {V_s}}{I_i} \\
 R_i &amp;amp;= \frac{\pmb {V_i}}{I_i}
 \end{aligned}
 $$&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>CS10-12 展示 6G</title>
-        <link>https://downeyflyfan.com/p/cs10-12-%E5%B1%95%E7%A4%BA-6g/</link>
-        <pubDate>Tue, 09 May 2023 19:31:00 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/cs10-12-%E5%B1%95%E7%A4%BA-6g/</guid>
-        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;增益与中段增益&#34;&gt;增益与中段增益&lt;/h2&gt;
+&lt;p&gt;$A(s) = \frac{A_M}{1 + s/\omega_H}$&lt;/p&gt;
+&lt;p&gt;这个传输函数可以通过对电路进行拉普拉斯变换得到。假设我们有一个电路，其中输入信号为 $V_{in}(t)$，输出信号为 $V_{out}(t)$。我们可以将电路表示为一个线性常微分方程：&lt;/p&gt;
+&lt;p&gt;$$ L\frac{dV_{out}(t)}{dt} + R V_{out}(t) = V_{in}(t) $$&lt;/p&gt;
+&lt;p&gt;其中 $L$ 和 $R$ 分别是电感和电阻的值。应用拉普拉斯变换，我们得到：&lt;/p&gt;
+&lt;p&gt;$$ LsV_{out}(s) + RV_{out}(s) = V_{in}(s) $$&lt;/p&gt;
+&lt;p&gt;将 $V_{out}(s)$ 移项并合并同类项，得到：&lt;/p&gt;
+&lt;p&gt;$$ \frac{V_{out}(s)}{V_{in}(s)} = \frac{1}{Ls + R} $$&lt;/p&gt;
+&lt;p&gt;这个比值即电路的传输函数，表示了输入信号和输出信号之间的关系。&lt;/p&gt;
+&lt;p&gt;接下来，我们可以将传输函数改写为标准的一阶低通滤波器的形式。首先，我们可以将传输函数的分母写成 $1 + s/\omega_H$ 的形式，其中 $\omega_H = R/L$ 是电路的截止频率。这是因为当 $s = j\omega$ 时，分母变为 $1 + j\omega/\omega_H$，其模长为 $\sqrt{1 + (\omega/\omega_H)^2}$，当 $\omega \ll \omega_H$ 时，模长近似为 $1$，而当 $\omega \gg \omega_H$ 时，模长近似为 $\omega/\omega_H$，表示信号被滤波器削弱的程度。&lt;/p&gt;
+&lt;p&gt;为了把传输函数写成标准形式，我们可以将分子和分母同时除以 $A_M$，得到：&lt;/p&gt;
+&lt;p&gt;$$ A(s) = \frac{A_M/L}{s/\omega_H + 1} = \frac{A_M}{1 + s/\omega_H} $$&lt;/p&gt;
+&lt;p&gt;这个形式与标准的一阶低通滤波器的传输函数形式一致，其中 $A_M/L$ 是增益常数，$1/\omega_H$ 是电路的时间常数，表示电路对输入信号的响应速度。&lt;/p&gt;
+&lt;h2 id=&#34;拉普拉斯变换&#34;&gt;拉普拉斯变换&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;p&gt;给定一个函数 $f(t)$，它的拉普拉斯变换 $F(s)$ 定义为：&lt;/p&gt;
+&lt;p&gt;$$F(s) = \mathcal{L}{f(t)} = \int_{0}^{\infty} e^{-st} f(t) dt $$&lt;/p&gt;
+&lt;p&gt;其中 $s$ 是复变量，$e^{-st}$ 是一个复指数函数，$f(t)$ 是一个定义在非负实数域上的函数。这个积分表示了在复平面上以直线 $Re(s) = \sigma$ 为边界的区域内，$F(s)$ 的积分值。&lt;/p&gt;
+&lt;h3 id=&#34;性质&#34;&gt;性质&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;线性性，即对于任意常数 $a$ 和 $b$，有：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$ \mathcal{L}{a f(t) + b g(t)} = a F(s) + b G(s) $$&lt;/p&gt;
+&lt;p&gt;其中 $f(t)$ 和 $g(t)$ 是两个函数，$F(s)$ 和 $G(s)$ 是它们的拉普拉斯变换。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;微分和积分定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果 $f(t)$ 有一个连续的导数 $f&amp;rsquo;(t)$，那么它的拉普拉斯变换为：&lt;/p&gt;
+&lt;p&gt;$$ \mathcal{L}{f&amp;rsquo;(t)} = sF(s) - f(0) $$&lt;/p&gt;
+&lt;p&gt;其中 $f(0)$ 是 $f(t)$ 在 $t=0$ 处的值。类似地，如果 $f(t)$ 是一个连续函数，并且存在一个常数 $T$，使得 $f(t) = 0$ 对于所有 $t &amp;lt; 0$ 和 $t &amp;gt; T$ 成立，那么它的拉普拉斯变换为：&lt;/p&gt;
+&lt;p&gt;$$ \mathcal{L}{\int_0^t f(\tau)d\tau} = \frac{F(s)}{s} $$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -6144,241 +6187,6 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>CS 7-9 信息的时代语义</title>
-        <link>https://downeyflyfan.com/p/cs-7-9-%E4%BF%A1%E6%81%AF%E7%9A%84%E6%97%B6%E4%BB%A3%E8%AF%AD%E4%B9%89/</link>
-        <pubDate>Tue, 04 Apr 2023 20:41:27 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/cs-7-9-%E4%BF%A1%E6%81%AF%E7%9A%84%E6%97%B6%E4%BB%A3%E8%AF%AD%E4%B9%89/</guid>
-        <description>&lt;h1 id=&#34;信息社会的兴起&#34;&gt;信息社会的兴起&lt;/h1&gt;
-&lt;h2 id=&#34;语义&#34;&gt;语义&lt;/h2&gt;
-&lt;h2 id=&#34;信息社会80年代初&#34;&gt;信息社会(80年代初)&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;第三次浪潮&lt;/em&gt; 第一次提出&lt;strong&gt;第三次科技革命&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;大趋势，改变我们生活的十个方向&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;信息社会的技术标志&#34;&gt;信息社会的技术标志&lt;/h1&gt;
-&lt;h2 id=&#34;特征----符号化的技术名词&#34;&gt;特征 &amp;ndash; 符号化的技术名词&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;例如&lt;strong&gt;比特、芯片、数码、ChatGPT&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;比特的概念&#34;&gt;比特的概念&lt;/h2&gt;
-&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;信息量,数据量&lt;/strong&gt;单位&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;计算公式&#34;&gt;计算公式&lt;/h3&gt;
-&lt;p&gt;$$
-X = {p_1,&amp;hellip;p_n}的信息量H(X)比特是指 \\\
-\\ H(X) = -\sum_{i=1}^n p_i log_2p_i
-$$&lt;/p&gt;
-&lt;h3 id=&#34;理解与应用&#34;&gt;理解与应用&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;数据角度&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;具有两种可能性的符号数据单位&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将复杂问题转化为&lt;strong&gt;是与否&lt;/strong&gt;的&lt;strong&gt;二元问题&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;零支持证明&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;比特的发展&#34;&gt;比特的发展&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;图示&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
-state 比特的发展{
-连续度量 --&gt; 数字化度量:奈奎斯特,傅里叶
-数字化度量 --&gt; 数字化
-}
-state 傅里叶变换{
-频谱 --&gt; 时间变化率
-时间变化率 --&gt; 频谱
-}
-&lt;/div&gt;
-
-
-
-  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
-  &lt;script&gt;
-    mermaid.initialize({ startOnLoad: true });
-  &lt;/script&gt;
-
-
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;奈奎斯特(Nyquist)采样定理&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;带宽为$B$的连续信号可以由$f_s \ge 2B$频率的采样无失真表示(采样频率必须大于信号频率的两倍)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;应用
-&lt;ul&gt;
-&lt;li&gt;ADC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;芯片&#34;&gt;芯片&lt;/h2&gt;
-&lt;h3 id=&#34;摩尔定律&#34;&gt;摩尔定律&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;成本不变时，芯片上的&lt;strong&gt;晶体管数量&lt;/strong&gt;每18个月&lt;strong&gt;翻一番&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;概念&#34;&gt;概念&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;实现&lt;strong&gt;数据计算&lt;/strong&gt;和&lt;strong&gt;存储&lt;/strong&gt;的&lt;strong&gt;微小的单一单位&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;一项&lt;strong&gt;综合性技术&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;分类有很多不同的分类方法&#34;&gt;分类(有很多不同的分类方法)&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;类型&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;电子芯片&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;生物芯片&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;量子芯片&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;功能&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;计算&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;存储&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;专用&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;定制&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Soc (System on Chip)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;FPGA (Field Programmable Gate Array)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;pc微机&#34;&gt;PC(微机)&lt;/h2&gt;
-&lt;h3 id=&#34;计算历程&#34;&gt;计算历程&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;计数/计量 &amp;ndash; 数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;计算 - 总结/审计/交易&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;测量 - 几何&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;计算系统 - 数字 + 计算&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;计算机的进化&#34;&gt;计算机的进化&lt;/h3&gt;
-&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
-算盘 --&gt; 机械计算机(Enigma)
-机械计算机(Enigma) --&gt; 电磁电子计算(真空管)
-电磁电子计算(真空管) --&gt; 晶体管+集成电路
-晶体管+集成电路 --&gt; 大型计算机
-大型计算机 --&gt; 超算
-大型计算机 --&gt; 个人计算
-大型计算机 --&gt; 单片机
-&lt;/div&gt;
-
-
-
-  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
-  &lt;script&gt;
-    mermaid.initialize({ startOnLoad: true });
-  &lt;/script&gt;
-
-
-&lt;h3 id=&#34;操作系统&#34;&gt;操作系统&lt;/h3&gt;
-&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
-MS-DOS (Microsoft Disk OS) --&gt; Windows
-&lt;/div&gt;
-
-
-
-  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
-  &lt;script&gt;
-    mermaid.initialize({ startOnLoad: true });
-  &lt;/script&gt;
-
-
-&lt;h3 id=&#34;os以及app&#34;&gt;OS以及APP&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;软件分类&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;系统软件&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;应用软件&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;中间件(Middleware)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;题外话&#34;&gt;题外话&lt;/h1&gt;
-&lt;h2 id=&#34;战争领域&#34;&gt;战争领域&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;陆海空天&lt;strong&gt;数&amp;quot;谱&amp;quot;&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;赛博&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;数据网络空间&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;电磁频谱空间&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;边疆&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;高&lt;/strong&gt;边疆: 太空&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;谱&lt;/strong&gt;边疆&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;adc的位宽&#34;&gt;ADC的位宽&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;指ADC转换输出数据的二进制位数,例如&lt;strong&gt;12位&lt;/strong&gt;的ADC转换$2^{12}$个数字信号&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
         <title>实验</title>
         <link>https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/</link>
         <pubDate>Tue, 04 Apr 2023 17:07:33 +0800</pubDate>
@@ -8559,275 +8367,6 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>CS 5-7 人的七大认知思维变革</title>
-        <link>https://downeyflyfan.com/p/cs-5-7-%E4%BA%BA%E7%9A%84%E4%B8%83%E5%A4%A7%E8%AE%A4%E7%9F%A5%E6%80%9D%E7%BB%B4%E5%8F%98%E9%9D%A9/</link>
-        <pubDate>Tue, 21 Mar 2023 20:43:43 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/cs-5-7-%E4%BA%BA%E7%9A%84%E4%B8%83%E5%A4%A7%E8%AE%A4%E7%9F%A5%E6%80%9D%E7%BB%B4%E5%8F%98%E9%9D%A9/</guid>
-        <description>&lt;h1 id=&#34;火的革命&#34;&gt;&lt;em&gt;火&lt;/em&gt;的革命&lt;/h1&gt;
-&lt;h2 id=&#34;否定人力是最强大之力的认知&#34;&gt;否定人力是最强大之力的认知&lt;/h2&gt;
-&lt;h2 id=&#34;以火造物&#34;&gt;以“火”造物&lt;/h2&gt;
-&lt;h2 id=&#34;以火为源&#34;&gt;以“火”为源&lt;/h2&gt;
-&lt;h2 id=&#34;火的革命-1&#34;&gt;”火“的革命&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;核聚变会成为未来能源吗&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;太阳的革命&#34;&gt;&lt;em&gt;太阳&lt;/em&gt;的革命&lt;/h1&gt;
-&lt;h2 id=&#34;旅行者--地球在哪里&#34;&gt;旅行者 —— 地球在哪里&lt;/h2&gt;
-&lt;h2 id=&#34;宇宙大爆炸学说&#34;&gt;宇宙大爆炸学说&lt;/h2&gt;
-&lt;h3 id=&#34;万物的尺度&#34;&gt;万物的尺度&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;时间的最小尺度:$10^{-43}$秒(普朗克时间)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;温度的最小尺度:$-273.15 C^{circ}$(绝对零度)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;进化的革命&#34;&gt;&lt;em&gt;进化&lt;/em&gt;的革命&lt;/h1&gt;
-&lt;h2 id=&#34;达尔文进化论&#34;&gt;达尔文&amp;quot;进化论&amp;quot;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;遗传变异、物竞天择&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;基因技术的发展&#34;&gt;基因技术的发展&lt;/h2&gt;
-&lt;h1 id=&#34;意识的革命&#34;&gt;&lt;em&gt;意识&lt;/em&gt;的革命&lt;/h1&gt;
-&lt;h2 id=&#34;达尔文&#34;&gt;达尔文&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;人和动物都是&lt;strong&gt;进化&lt;/strong&gt;而来&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;人和动物的不同在于&lt;strong&gt;能够控制精神和意识&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;弗洛伊德&#34;&gt;弗洛伊德&lt;/h2&gt;
-&lt;h3 id=&#34;潜意识理论---三个意识层次&#34;&gt;潜意识理论 - 三个意识层次&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;潜意识&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;不能进入&lt;/strong&gt;或者&lt;strong&gt;很难进入&lt;/strong&gt;意识中的&lt;strong&gt;经验&lt;/strong&gt;,包括&lt;strong&gt;原始的、本能的欲望&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;前意识(下意识)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;能够进入&lt;/strong&gt;意识中的经验&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;自觉意识(self-conciseness)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;结论&#34;&gt;结论&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;意识是&lt;strong&gt;下意识&lt;/strong&gt;的一部分&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;下意识阻止&lt;strong&gt;潜意识&lt;/strong&gt;进入&lt;strong&gt;意识&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;潜意识不受控制&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;精神分析方法&#34;&gt;精神分析方法&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;自由联想法&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;梦的解析法(区分&amp;quot;显梦&amp;quot;和“隐梦”)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;日常生活心理分析法(通过人的&lt;strong&gt;错误&lt;/strong&gt;判断&lt;strong&gt;潜意识&lt;/strong&gt;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;人格理论&#34;&gt;人格理论&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;本我(id)人格:快乐原则&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;自我(ego)人格:现实原则&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;超我(supergo)人格:至善原则&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;马斯洛理论&#34;&gt;马斯洛理论&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;生理&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安全&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;社交&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;尊重&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;审美&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;认知&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;自我实现&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;资本的革命&#34;&gt;&lt;em&gt;资本&lt;/em&gt;的革命&lt;/h1&gt;
-&lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;用于&lt;strong&gt;再生产&lt;/strong&gt;的&lt;strong&gt;可聚集&lt;/strong&gt;的&lt;strong&gt;剩余价值&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;社会的核心经济要素&#34;&gt;社会的核心经济要素&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;生产、产品、价值、财富、资本&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;马克思主义&#34;&gt;马克思主义&lt;/h2&gt;
-&lt;h3 id=&#34;资本论&#34;&gt;资本论&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;第一卷: &lt;strong&gt;资本生产&lt;/strong&gt;与&lt;strong&gt;剩余价值&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;第二卷: &lt;strong&gt;资本流通&lt;/strong&gt;与&lt;strong&gt;剩余价值实现&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;第三卷: &lt;strong&gt;资本主义生产总过程&lt;/strong&gt;及&lt;strong&gt;剩余价值的具体形式&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;资本论也有&lt;strong&gt;时代局限性&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;马克思对资本的研究途径&#34;&gt;马克思对资本的研究途径&lt;/h3&gt;
-&lt;h3 id=&#34;资本在社会发展中的作用与价值&#34;&gt;资本在社会发展中的作用与价值&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;如何对资本&lt;strong&gt;扬善除恶&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&amp;ldquo;民主&amp;quot;是控制&lt;strong&gt;资本&lt;/strong&gt;的理想途径吗&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;信息科技的重要性&#34;&gt;信息科技的重要性&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;信息科技对GDP占比较重&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信息科技是其他产业升级换代的&lt;strong&gt;引擎&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;资本的新挑战&#34;&gt;资本的新挑战&lt;/h2&gt;
-&lt;h3 id=&#34;政治与经济自由密切相关吗&#34;&gt;政治与经济自由密切相关吗&lt;/h3&gt;
-&lt;h3 id=&#34;为什么有些国家向前有些停滞&#34;&gt;为什么有些国家向前，有些停滞&lt;/h3&gt;
-&lt;h1 id=&#34;时空的革命&#34;&gt;&lt;em&gt;时空&lt;/em&gt;的革命&lt;/h1&gt;
-&lt;h2 id=&#34;否定时空是线性的认知&#34;&gt;否定时空是线性的认知&lt;/h2&gt;
-&lt;h2 id=&#34;西方神学时空观&#34;&gt;西方神学时空观&lt;/h2&gt;
-&lt;h3 id=&#34;柏拉图&#34;&gt;柏拉图&lt;/h3&gt;
-&lt;h3 id=&#34;圣cdot奥古斯丁&#34;&gt;圣$\cdot$奥古斯丁&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;上帝创造了时空&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;欧几里得&#34;&gt;欧几里得&lt;/h3&gt;
-&lt;h3 id=&#34;牛顿&#34;&gt;牛顿&lt;/h3&gt;
-&lt;h3 id=&#34;莱布尼茨&#34;&gt;莱布尼茨&lt;/h3&gt;
-&lt;h3 id=&#34;康德做了总结&#34;&gt;康德做了总结&lt;/h3&gt;
-&lt;h2 id=&#34;物理科学时空观&#34;&gt;物理科学时空观&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;牛顿“中观时空”: 测不尽&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;薛定谔-波尔&amp;quot;微观时空&amp;rdquo;: 测不准&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;爱因斯坦-霍金&amp;quot;宏观时空&amp;quot;: 测不到&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;对力的现代认知&#34;&gt;对力的现代认知&lt;/h2&gt;
-&lt;h2 id=&#34;新时空的挑战与认知&#34;&gt;新时空的挑战与认知&lt;/h2&gt;
-&lt;h3 id=&#34;是什么驱动宇宙膨胀&#34;&gt;是什么驱动宇宙膨胀&lt;/h3&gt;
-&lt;h3 id=&#34;黑洞的本质是什么&#34;&gt;黑洞的本质是什么&lt;/h3&gt;
-&lt;h1 id=&#34;信息的革命&#34;&gt;&lt;em&gt;信息&lt;/em&gt;的革命&lt;/h1&gt;
-&lt;h2 id=&#34;特点&#34;&gt;特点&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;载体&lt;/strong&gt;承载&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
-石刻、纸张 --&gt; 记忆、口传、姿态
-记忆、口传、姿态 --&gt; 电子信息
-&lt;/div&gt;
-
-
-
-  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
-  &lt;script&gt;
-    mermaid.initialize({ startOnLoad: true });
-  &lt;/script&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;电子信息&lt;/strong&gt;从&lt;strong&gt;电报&lt;/strong&gt;开始&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;否定人类对世界仅有物质和能量的认知&#34;&gt;否定人类对世界仅有物质和能量的认知&lt;/h2&gt;
-&lt;h3 id=&#34;信息革命&#34;&gt;信息革命&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;社会影响&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;信息科技成为&lt;strong&gt;人类发展&lt;/strong&gt;的&lt;strong&gt;主导力量&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;技术体系&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;狭义的: 以&lt;strong&gt;特定信息交互&lt;/strong&gt;为目的&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;广义的: 以&lt;strong&gt;任何信息处理&lt;/strong&gt;为目的&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;信息的作用&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;事实上的自然&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;人与社会要素&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;挑战&#34;&gt;挑战&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;$赛博空间 = 物理空间 + 信息空间$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;信息流&lt;/strong&gt;影响&lt;strong&gt;能量流、物质流、意识流&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信息可以进行&lt;strong&gt;道路选择&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;题外话&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;导航&lt;/strong&gt;通过实时定位&lt;strong&gt;驾驶者&lt;/strong&gt;，计算&lt;strong&gt;道路拥堵情况&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;联想&#34;&gt;联想&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;机器学习的&lt;strong&gt;极限&lt;/strong&gt;是什么?&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        </item>
-        <item>
         <title>4.组合电路</title>
         <link>https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/</link>
         <pubDate>Tue, 21 Mar 2023 10:23:50 +0800</pubDate>
@@ -8839,7 +8378,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 Z = \Sigma_{i=0}^{n-1} \ m_i D_i
 $$&lt;/p&gt;
-&lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
+&lt;h3 id=&#34;74x151---压缩卡诺图&#34;&gt;74x151 - 压缩卡诺图&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/29.png&#34;
 	width=&#34;334&#34;
 	height=&#34;611&#34;
@@ -8852,10 +8391,22 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;131px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/34.png&#34;
+	width=&#34;734&#34;
+	height=&#34;459&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/34_hu10a3bf0c198b8342782d09aa5217fb65_36550_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/34_hu10a3bf0c198b8342782d09aa5217fb65_36550_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;159&#34;
+		data-flex-basis=&#34;383px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;加法器&#34;&gt;加法器&lt;/h2&gt;
 &lt;h3 id=&#34;full-adder&#34;&gt;Full Adder&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;输出&lt;/li&gt;
+&lt;li&gt;过程&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/10.png&#34;
 	width=&#34;339&#34;
@@ -8870,7 +8421,7 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;真值表&lt;/li&gt;
+&lt;li&gt;真值表与实现效果&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/1.png&#34;
 	width=&#34;503&#34;
@@ -8884,6 +8435,10 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;273px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;$$
+x_i + y_i + c_i = s_i  \\\
+\\ 溢出到c_{i+1}
+$$&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;逻辑表达&lt;/li&gt;
 &lt;/ol&gt;
@@ -8925,11 +8480,30 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;259px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;ripple-carry-adder&#34;&gt;Ripple-Carry Adder&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;级联多个FA, 每一个FA都要等待上一位的输出，&lt;strong&gt;效率低下&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;4-bit-adder&#34;&gt;4-bit Adder&lt;/h3&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Verilog&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-v&#34; data-lang=&#34;v&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FA&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;c0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;output&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;c1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;^&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;^&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;c0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;c1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;xy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;^&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;endmodule&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;4-bit-adder&#34;&gt;4-bit Adder&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/4.png&#34;
 	width=&#34;542&#34;
 	height=&#34;232&#34;
@@ -8942,10 +8516,23 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;560px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;carry-lookahead-adder&#34;&gt;Carry-Lookahead Adder&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;前提与分析&lt;/li&gt;
+&lt;li&gt;Ripple-Carry Adder&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;级联多个FA, 每一个FA都要等待上一位的输出，&lt;strong&gt;效率低下&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Carry-Lookahead Adder (进位预测加法器)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;只适用于&lt;strong&gt;无符号数&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前提与分析&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 c_{i+1} &amp;amp;= x_iy_i + (x_i + y_i)c_i \\\
@@ -8959,11 +8546,8 @@ c_3 &amp;amp;= g_2 + p_2g_1 + p_2p_1g_0 + p_2p_1p_0c_0 \\
 c_4 &amp;amp;= g_3 + p_3g_2 + p_3p_2g_1 + p_3p_2p_1g_0 + p_3p_2p_1p_0c_0
 \end{aligned}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;电路&lt;/li&gt;
-&lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;根据以上&lt;strong&gt;逻辑函数&lt;/strong&gt;得出&lt;strong&gt;电路&lt;/strong&gt;如下&lt;/li&gt;
+&lt;li&gt;电路&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/9.png&#34;
 	width=&#34;898&#34;
@@ -9752,7 +9336,7 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The number of outputs&lt;/strong&gt; that a gate can have in a particular logic family&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;cmos反相器&#34;&gt;CMOS反相器&lt;/h2&gt;
-&lt;h3 id=&#34;电路-1&#34;&gt;电路&lt;/h3&gt;
+&lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/5.png&#34;
 	width=&#34;367&#34;
 	height=&#34;411&#34;
@@ -15171,19 +14755,25 @@ MOSI发送数据 --&gt; MISO接受从机发回的数据: 如果有必要的话
         <guid>https://downeyflyfan.com/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/</guid>
         <description>&lt;h1 id=&#34;基本逻辑系统表达&#34;&gt;基本逻辑系统表达&lt;/h1&gt;
 &lt;h2 id=&#34;三种基本运算&#34;&gt;三种基本运算&lt;/h2&gt;
-&lt;h3 id=&#34;与and&#34;&gt;与(AND)&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;符号表示为$\cdot$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;或or&#34;&gt;或(OR)&lt;/h3&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;符号表示为$+$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;非nor&#34;&gt;非(NOR)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;符号表示为 &#39;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;对偶定律&#34;&gt;对偶定律&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AND&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$\cdot$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;OR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$+$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;NOR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$&#39;$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;对偶定律-反演定律&#34;&gt;对偶定律 反演定律&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
 &lt;/ol&gt;
@@ -15226,28 +14816,45 @@ MOSI发送数据 --&gt; MISO接受从机发回的数据: 如果有必要的话
 \\ 取反式为Y’= (A+B) \cdot (C+D’+E)\cdot 1 \\\
 \\ 对偶式为YD= (A’+B’)\cdot (C’+D+E’)\cdot 1
 $$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/5.png&#34;
+	width=&#34;831&#34;
+	height=&#34;266&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/5_hu503f77a605a280f8d83e0d4df9de9ae5_44751_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/5_hu503f77a605a280f8d83e0d4df9de9ae5_44751_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;312&#34;
+		data-flex-basis=&#34;749px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;导出的逻辑运算&#34;&gt;导出的逻辑运算&lt;/h2&gt;
-&lt;h3 id=&#34;与非nand&#34;&gt;与非(NAND)&lt;/h3&gt;
-&lt;p&gt;$$
-F = (A\cdot B)&#39;
-$$&lt;/p&gt;
-&lt;h3 id=&#34;或非nor&#34;&gt;或非(NOR)&lt;/h3&gt;
-&lt;p&gt;$$
-F = (A + B)&#39;
-$$&lt;/p&gt;
-&lt;h3 id=&#34;与或非and-or-invert&#34;&gt;与或非(AND-OR INVERT)&lt;/h3&gt;
-&lt;p&gt;$$
-F = (A\cdot B + C\cdot D)&#39;
-$$&lt;/p&gt;
-&lt;h3 id=&#34;异或xor&#34;&gt;异或(XOR)&lt;/h3&gt;
-&lt;p&gt;$$
-F = A \textcircled + B = A\cdot B&amp;rsquo; + A&amp;rsquo; \cdot B \\\
-\\ 相异为1,相同为0
-$$&lt;/p&gt;
-&lt;h3 id=&#34;同或异或非nxor&#34;&gt;同或/异或非(NXOR)&lt;/h3&gt;
-&lt;p&gt;$$
-F = (A \textcircled + B)&amp;rsquo; = A&amp;rsquo;\cdot B&amp;rsquo; + A\cdot B
-$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;NAND(与非)&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$F = (A \cdot B)&#39;$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;NOR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$F = (A +B)&#39;$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AND-OR INVERT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$F =(A\cdot B + C \cdot D)&#39;$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;XOR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$F = A \textcircled + B = AB&amp;rsquo; + AB&#39;$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;NXOR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$F = A\textcircled \cdot B = (A \textcircled + B)&amp;rsquo; = A&amp;rsquo;B&amp;rsquo; + AB$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;逻辑符号&#34;&gt;逻辑符号&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/2.png&#34;
 	width=&#34;914&#34;
@@ -15281,7 +14888,7 @@ $$&lt;/p&gt;
 A \cdot (B +C ) = A\cdot B + A \cdot C \\\
 \\ A + B \cdot C = (A+B) \cdot (A +C)
 $$&lt;/p&gt;
-&lt;h3 id=&#34;合并率combining&#34;&gt;合并率(Combining)&lt;/h3&gt;
+&lt;h3 id=&#34;合并律combining&#34;&gt;合并律(Combining)&lt;/h3&gt;
 &lt;p&gt;$$
 A\cdot B + A\cdot B&amp;rsquo;  =A  \\\
 \\ (A+B)\cdot (A+B&amp;rsquo;) = A
@@ -15324,14 +14931,6 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;484px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h1 id=&#34;香农展开定律与标准逻辑流运算&#34;&gt;香农展开定律与标准逻辑流运算&lt;/h1&gt;
-&lt;h2 id=&#34;香农展开定律&#34;&gt;香农展开定律&lt;/h2&gt;
-&lt;p&gt;$$
-F = F(A_1,A_2&amp;hellip;A_n) \\\
-\\ F = A_1\cdot F(1,A_2&amp;hellip;A_n) + A_1&amp;rsquo;\cdot F(0,A_2&amp;hellip;A_n) \\\
-\\ F = [A_1 + F(0,A_1&amp;hellip;A_n)]\cdot [A_1&amp;rsquo; + F(1,A_2&amp;hellip;A_n)] \\\
-\\ 证明以上等式，只需令A_1=0和A_1=1分别证明
-$$&lt;/p&gt;
 &lt;h2 id=&#34;最小项minterm与最大项maxterm&#34;&gt;最小项(Minterm)与最大项(Maxterm)&lt;/h2&gt;
 &lt;h3 id=&#34;最小项&#34;&gt;最小项&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -15411,7 +15010,8 @@ Z_1 = AB + B&amp;rsquo;D&amp;rsquo; + A&amp;rsquo;CD,求 \\\
 &amp;amp;(3) AOI \ \ 与或非 \\\
 \\ 解: (1) Z_1 &amp;amp;= ((Z_1)&amp;rsquo;)&amp;rsquo; \\
 &amp;amp;= [(AB)&amp;rsquo;(B&amp;rsquo;D&amp;rsquo;)&amp;rsquo;(A&amp;rsquo;CD)&amp;rsquo;]&amp;rsquo; \\
-(2)Z_1 &amp;amp;= \Big[[(A&amp;rsquo;+B+D&amp;rsquo;)(A+C+D&amp;rsquo;)(A+B&amp;rsquo;+D)]&amp;rsquo;\Big]&amp;rsquo; \\
+(2) 先求Z_1&amp;rsquo; &amp;amp;= A&amp;rsquo;C&amp;rsquo;D + AB&amp;rsquo;D + A&amp;rsquo;BD&amp;rsquo; \\
+Z_1 &amp;amp;= \Big[[(A&amp;rsquo;+B+D&amp;rsquo;)(A+C+D&amp;rsquo;)(A+B&amp;rsquo;+D)]&amp;rsquo;\Big]&amp;rsquo; \\
 &amp;amp;= [(A&amp;rsquo; +B + D)&amp;rsquo; +(A + C + D&amp;rsquo;)&amp;rsquo; + (A + B + D)&amp;rsquo;]&amp;rsquo; \\
 (3)Z_1 &amp;amp;= (AB&amp;rsquo;D + A&amp;rsquo;C&amp;rsquo;D + A&amp;rsquo;BD&amp;rsquo;)&#39;
 \end{aligned}
@@ -16087,375 +15687,6 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>CS 2-4 人的生存与发展</title>
-        <link>https://downeyflyfan.com/p/cs-2-4-%E4%BA%BA%E7%9A%84%E7%94%9F%E5%AD%98%E4%B8%8E%E5%8F%91%E5%B1%95/</link>
-        <pubDate>Tue, 07 Mar 2023 19:36:28 +0000</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/cs-2-4-%E4%BA%BA%E7%9A%84%E7%94%9F%E5%AD%98%E4%B8%8E%E5%8F%91%E5%B1%95/</guid>
-        <description>&lt;h1 id=&#34;引言&#34;&gt;引言&lt;/h1&gt;
-&lt;h2 id=&#34;文革前---工业部&#34;&gt;文革前 - 工业部&lt;/h2&gt;
-&lt;h3 id=&#34;轻工业&#34;&gt;轻工业&lt;/h3&gt;
-&lt;h3 id=&#34;重工业&#34;&gt;重工业&lt;/h3&gt;
-&lt;h3 id=&#34;n机部&#34;&gt;n机部&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;电子信息是四机部&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;改革开放后-工业与信息化部&#34;&gt;改革开放后-工业与信息化部&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;能源&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;材料&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;航空航天&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;信息科技存在背景人类的文明与认知历程及其生态环境&#34;&gt;信息科技存在背景——人类的文明与认知历程及其生态环境&lt;/h1&gt;
-&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;自然、生物、工具、社会、人&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;人的构成&#34;&gt;人的构成&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;核心&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;精神&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;意识&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;智力&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;体力&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;两条腿&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;制度文化&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;工具机器&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;自然界&#34;&gt;自然界&lt;/h2&gt;
-&lt;h3 id=&#34;生物&#34;&gt;生物&lt;/h3&gt;
-&lt;h3 id=&#34;工具与机器&#34;&gt;工具与机器&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;工具是人的能力的&lt;em&gt;&lt;strong&gt;简单扩展&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;机器是人的能力的&lt;em&gt;&lt;strong&gt;复杂扩展&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;分类&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;物质类&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信息类&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;社会与人&#34;&gt;社会与人&lt;/h2&gt;
-&lt;h3 id=&#34;社会的定义&#34;&gt;社会的定义&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;相对长期的稳定稳态，人的关系的总和&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;人类的基本哲学与终极目标&#34;&gt;人类的基本哲学与终极目标&lt;/h2&gt;
-&lt;h3 id=&#34;世界观与认知观&#34;&gt;世界观与认知观&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;世界观 = 本体论&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;认知观 = 认识论&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;经验主义&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;理性主义&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;直觉主义&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;世界观是认知观的背景&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;唯心主义-唯物主义&#34;&gt;唯心主义 唯物主义&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;唯心主义代表: 康德 薛定谔&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;唯物主义代表: 牛顿 爱因斯坦&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;从主客体到信息&#34;&gt;从主客体到信息&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;客体的属性展现方式&lt;/strong&gt;是一种&lt;strong&gt;信息&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;主体&lt;/strong&gt;要有&lt;strong&gt;属性获取能力&lt;/strong&gt;,&lt;strong&gt;背景知识&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;人&lt;/strong&gt;是&lt;strong&gt;观察者&lt;/strong&gt;，是&lt;strong&gt;智能体&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;strong&gt;信息&lt;/strong&gt;是观察对象的&lt;strong&gt;本原属性&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
-客体 --&gt; 主体:信息
-&lt;/div&gt;
-
-
-
-  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
-  &lt;script&gt;
-    mermaid.initialize({ startOnLoad: true });
-  &lt;/script&gt;
-
-
-&lt;h3 id=&#34;方法论&#34;&gt;方法论&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;中国古代&lt;strong&gt;方法论&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;“一以贯之”、&amp;ldquo;学而不思则罔，思而不学则殆&amp;rdquo; &lt;strong&gt;孔子&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;“虚壹而静” &lt;strong&gt;荀子&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&amp;ldquo;尊德性&amp;rdquo; &lt;strong&gt;陆王学派&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;“格物致知” &lt;strong&gt;王阳明&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;外国&lt;strong&gt;方法论&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;笛卡尔&lt;/strong&gt;方法论&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;普遍怀疑、化繁为简、先易后难、累积为优&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;20世纪方法论&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;K.R.波普尔&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;阿本德&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;生存与发展&#34;&gt;生存与发展&lt;/h3&gt;
-&lt;h2 id=&#34;人类的认知模型与认知途径&#34;&gt;人类的认知模型与认知途径&lt;/h2&gt;
-&lt;h3 id=&#34;信息&#34;&gt;信息&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Shannon&lt;/strong&gt;的定义: &lt;strong&gt;信息&lt;/strong&gt;是&lt;strong&gt;客体&lt;/strong&gt;对于&lt;strong&gt;主体&lt;/strong&gt;而言未知的属性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Weiner&lt;/strong&gt;的定义: &lt;strong&gt;信息&lt;/strong&gt;是&lt;strong&gt;客体&lt;/strong&gt;对于&lt;strong&gt;主体&lt;/strong&gt;而言未知的并对&lt;strong&gt;主体&lt;/strong&gt;具有特定价值的&lt;strong&gt;属性&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;三大理论&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;信息论：香农&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;控制论：维纳&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;系统论：普利高津&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;信息的基本特征&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;不确定性(未知性)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;或然性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;时变性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;选择性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;功效性&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;分类&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;信息论&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;波义耳集&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;模糊集&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;粗糙集&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;无先验知识&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;统计信息论&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;模糊信息论&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;?&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;有先验知识&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;语义信息论&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;?&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;?&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;表现形式(承载体): &lt;strong&gt;消息(信号、数据、新闻)&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;信息系统&#34;&gt;信息系统&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对信息进行处理和响应的系统&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;香农信息系统模型&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;信源: 信息的承载与表达系统&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信号&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信宿&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;信息处理&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;获取、表达、理解、传递、转换、使能&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;信息空间&#34;&gt;信息空间&lt;/h3&gt;
-&lt;div class=&#34;mermaid&#34;&gt;stateDiagram
-消息子空间 --&gt; 信息子空间:承载
-信息子空间 --&gt; 实体子空间:承载
-&lt;/div&gt;
-
-
-
-  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;&gt;&lt;/script&gt;
-  &lt;script&gt;
-    mermaid.initialize({ startOnLoad: true });
-  &lt;/script&gt;
-
-
-&lt;h3 id=&#34;科学&#34;&gt;科学&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;科学是一个建立在可检验的解释和对客观事物的形式、组织等进行预测的有序知识系统，是已系统化和公式化了的知识.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;特点&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;严谨、正确、精准、分科、发展&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;精神&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;探究、怀疑、理性、验证&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;方法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;分析、对比、设计、仿真、实验、创新&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;诞生&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;时间&lt;/strong&gt;: 14-16世纪的&lt;strong&gt;文艺复兴&lt;/strong&gt;时期&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;词义&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;技术&#34;&gt;技术&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;解决问题的方法及方法原理，是指人们利用现有事物形成新事物，或是改变现有事物功能、性能的方法.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;特征&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;实用与适用: 具象实践的必然&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;专有与价值&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;发展与革命&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;与科学相互存在&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;哲学&#34;&gt;哲学&lt;/h3&gt;
-</description>
-        </item>
-        <item>
         <title>单词(2023 3.5-3.12)</title>
         <link>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-3.5-3.12/</link>
         <pubDate>Sat, 04 Mar 2023 09:49:29 +0000</pubDate>
@@ -17028,19 +16259,6 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;p&gt;marginal&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;描述线性图的&#34;&gt;描述线性图的&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%86%99%E4%BD%9C/1.png&#34;
-	width=&#34;367&#34;
-	height=&#34;294&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E5%86%99%E4%BD%9C/1_huc508135f95ab47ded1efd3c3bdbde601_83299_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%86%99%E4%BD%9C/1_huc508135f95ab47ded1efd3c3bdbde601_83299_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;124&#34;
-		data-flex-basis=&#34;299px&#34;
-	
-&gt;&lt;/p&gt;
 &lt;h3 id=&#34;重要&#34;&gt;重要&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -17175,30 +16393,27 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;增和降&#34;&gt;增和降&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;增&lt;/li&gt;
+&lt;li&gt;增(ICRGR)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;increase&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;rise&lt;/p&gt;
+&lt;p&gt;rise to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;reach to&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;grow&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;lift&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;uprise&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;ascent&lt;/p&gt;
+&lt;p&gt;climb to&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;降&lt;/li&gt;
+&lt;li&gt;降(fddddr)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -17211,13 +16426,13 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;p&gt;decline&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;lessen&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;diminish&lt;/p&gt;
+&lt;p&gt;fall&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;reduce&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;downward trend&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;损害&#34;&gt;损害&lt;/h3&gt;
@@ -17267,7 +16482,7 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;介词&#34;&gt;介词&lt;/h2&gt;
-&lt;h3 id=&#34;随着&#34;&gt;随着&lt;/h3&gt;
+&lt;h3 id=&#34;随着wtaaf&#34;&gt;随着(wtaaf)&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;With the &amp;hellip;&lt;/p&gt;
@@ -17285,10 +16500,25 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;p&gt;following&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;相反icio&#34;&gt;相反(ICIO)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In contrast&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Conversely&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In comparison&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the other hand&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;开头-结尾&#34;&gt;开头 结尾&lt;/h1&gt;
 &lt;h2 id=&#34;开头-1&#34;&gt;开头&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;One of the (major advantage) is &amp;hellip;&lt;/li&gt;
+&lt;li&gt;One of the (major advantage/benefit) is &amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
 &lt;ol&gt;
@@ -17304,47 +16534,90 @@ and reduced costs by 15%&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;ielts&#34;&gt;IELTS&lt;/h1&gt;
 &lt;h2 id=&#34;线性图&#34;&gt;线性图&lt;/h2&gt;
+&lt;h3 id=&#34;词组&#34;&gt;词组&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;大变化&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;rapid&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;sharp&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;dramatic&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;平稳(SSCL)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(stay) steady&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(remain) stable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(keep) constant&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;stand at this level&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;波动()&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;fluctuate&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;linear trend viriability&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;最高点&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;peak&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;reach the highest point(level)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;largest&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;最低点&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;valley&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;reach the lowest level(point)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;句式&#34;&gt;句式&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;X &lt;strong&gt;fell sharply&lt;/strong&gt; in XXXX.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There was a &lt;strong&gt;rapid growth&lt;/strong&gt; in X in XXXX.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The year XXXX witnessed a &lt;strong&gt;dramatic decrease&lt;/strong&gt; in X.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;strong&gt;sharp fall&lt;/strong&gt; in X took place in XXXX.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;X showed a &lt;strong&gt;downward trend&lt;/strong&gt; in XXXX.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;关注点&#34;&gt;关注点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开始点、结束点、相交点、大致趋势、转折点、极值&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;柱状图&#34;&gt;柱状图&lt;/h2&gt;
 &lt;h3 id=&#34;描述&#34;&gt;描述&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;The price of textbooks fell sharply in 2019.&lt;/p&gt;
+&lt;p&gt;X in XXXX was three times more than that in YYYY. （这是“A是B的3倍”的意思，不是4倍！）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;There was a rapid decrease in the price of textbooks in 2019.&lt;/p&gt;
+&lt;p&gt;In XXXX, X produced three times more Y than in YYYY.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;The year 2019 witnessed a dramatic drop in the price of textbooks.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A sharp fall in the price of textbooks took place in 2019.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The price of textbooks showed a downward trend in 2019.&lt;/p&gt;
+&lt;p&gt;There was three times more Y emitted by X in XXXX than in YYYY.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;怎么写&#34;&gt;怎么写&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;关注&lt;strong&gt;开始点、结束点、相交点、大致趋势、转折点、极值&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;柱状图&#34;&gt;柱状图&lt;/h2&gt;
-&lt;h3 id=&#34;描述-1&#34;&gt;描述&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;The amount of CO2 emitted from cars in 1999 was three times more than that in 2000. （没错，这是“A是B的3倍”的意思，不是4倍！）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;In 1999, cars produced three times more CO2 than (they did) in 2000.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;There was three times more CO2 emitted by cars in 1999 than in 2000.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;看图&#34;&gt;看图&lt;/h3&gt;
+&lt;h3 id=&#34;词组-1&#34;&gt;词组&lt;/h3&gt;
+&lt;h3 id=&#34;关注&#34;&gt;关注&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;对于数据较多的&lt;strong&gt;柱状图&lt;/strong&gt;,考虑转换成&lt;strong&gt;线性图&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;饼状图&#34;&gt;饼状图&lt;/h2&gt;
-&lt;h3 id=&#34;描述-2&#34;&gt;描述&lt;/h3&gt;
+&lt;h3 id=&#34;描述-1&#34;&gt;描述&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;The majority of sales in Bob&amp;rsquo;s store come from DVDs, with exactly 60%.&lt;/p&gt;
@@ -18848,13 +18121,12 @@ $$&lt;/p&gt;
 &lt;li&gt;构成数的&lt;strong&gt;数字&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;数位(Digit Pisition)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;每个数码所处的&lt;strong&gt;位置&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;基数(Base/Radix)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数位(Digit Pisition)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基数(Base/Radix)&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;决定数码有&lt;strong&gt;多少类&lt;/strong&gt;&lt;/li&gt;
@@ -18893,9 +18165,9 @@ $$&lt;/p&gt;
 &lt;li&gt;按权按位展开&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;二进制到八进制和十六进制&#34;&gt;二进制到八进制和十六进制&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;关系图&lt;/li&gt;
-&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;关系&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/1.png&#34;
 	width=&#34;987&#34;
 	height=&#34;719&#34;
@@ -18908,17 +18180,15 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;329px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;转换技巧&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;转换技巧&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;整数在前面补零&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;小数在后面补零&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;3&#34;&gt;
@@ -18967,55 +18237,40 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;跟十进制差不多&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;原码-反码-补码&#34;&gt;原码 反码 补码&lt;/h2&gt;
-&lt;h3 id=&#34;原码&#34;&gt;原码&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;正数的原码与补码相同&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;正负数无法用原码相加&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;反码&#34;&gt;反码&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;按位取反&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;补码得负数&#34;&gt;补码得负数&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;原码取反&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;加1&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;注意&#34;&gt;注意&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;最高位(MSB)表示正负(一般要补一位)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;1表示负数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;0表示正数&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;符号位&#34;&gt;符号位&lt;/h1&gt;
-&lt;h2 id=&#34;符号位表达&#34;&gt;符号位表达&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;在&lt;strong&gt;MSB&lt;/strong&gt;左边加一个&lt;strong&gt;附加位&lt;/strong&gt;表示&lt;strong&gt;符号&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;正数前补$0$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;负数前补$1$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;各种码&#34;&gt;各种码&lt;/h1&gt;
+&lt;h2 id=&#34;原码-反码-补码-符号位&#34;&gt;原码 反码 补码 符号位&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;分类&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;正数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;负数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;原码&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;绝对值的原码，再补个符号位1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;反码&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;取反&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;取反&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;补码&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;与原码相同&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;原码取反+1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;符号位&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;其他的码&#34;&gt;其他的码&lt;/h1&gt;
+&lt;h2 id=&#34;一些码&#34;&gt;一些码&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/3.png&#34;
 	width=&#34;1215&#34;
 	height=&#34;453&#34;
@@ -19028,33 +18283,6 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;643px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;2421码&#34;&gt;2421码&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对于2421码数字$a_3 a_2 a_1 a_0$,其对应的十进制数字为$2a_3 + 4a_2 + 2a_1 + a_0$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;余3码&#34;&gt;余3码&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;余3码 + 3 = 10-bit number&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;二五混合码&#34;&gt;二五混合码&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;前2位&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;后5位&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$01$表示$1-4$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$00001-10000$依次表示$0,1,2,3,4$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$10$表示$5-9$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$00001-10000$依次表示$5,6,7,8,9$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;h2 id=&#34;格雷码&#34;&gt;格雷码&lt;/h2&gt;
 &lt;h3 id=&#34;示意图&#34;&gt;示意图&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/4.png&#34;
@@ -19097,7 +18325,7 @@ $$&lt;/p&gt;
 
 &lt;h3 id=&#34;要求&#34;&gt;要求&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;相邻两个区域只能有$1$个位差&lt;/li&gt;
+&lt;li&gt;相邻两个区域只能有$\pmb 1$个位差&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;ascii码&#34;&gt;ASCII码&lt;/h2&gt;
 </description>

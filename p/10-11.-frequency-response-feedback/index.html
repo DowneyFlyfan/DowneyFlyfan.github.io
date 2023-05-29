@@ -318,22 +318,22 @@
         <li><a href="#properties">Properties</a>
           <ol>
             <li><a href="#gain-desensitivity">Gain Desensitivity</a></li>
-            <li><a href="#bandwidth-extension">Bandwidth Extension</a></li>
+            <li><a href="#bandwidth-extension">Bandwidth Extension*</a></li>
             <li><a href="#interference-reduction">Interference Reduction</a></li>
             <li><a href="#reduction-in-nonlinear-distortion">Reduction in Nonlinear Distortion</a></li>
           </ol>
         </li>
-        <li><a href="#the-feedback-voltage-amplifier">The Feedback Voltage Amplifier</a>
+        <li><a href="#the-feedback-voltage-amplifier-series-shunt">The Feedback Voltage Amplifier (Series-Shunt)</a>
           <ol>
             <li><a href="#basic-structure">Basic Structure</a></li>
             <li><a href="#the-seriesshunt-feedback-topology">The Series–Shunt Feedback Topology</a></li>
-            <li><a href="#analysis-of-the-feedback-voltage-amplifier-utilizing">Analysis of the Feedback Voltage Amplifier Utilizing</a></li>
           </ol>
         </li>
         <li><a href="#systematic-analysis-of-feedback-voltage-amplifiers">Systematic Analysis of Feedback Voltage Amplifiers</a>
           <ol>
             <li><a href="#电路-2">电路</a></li>
-            <li><a href="#分析-5">分析</a></li>
+            <li><a href="#分析1">分析1</a></li>
+            <li><a href="#分析2">分析2</a></li>
             <li><a href="#a-practical-case">A Practical Case</a></li>
           </ol>
         </li>
@@ -351,7 +351,6 @@
                 <li><a href="#公式-1">公式</a></li>
               </ol>
             </li>
-            <li><a href="#the-stability-problem">The Stability Problem</a></li>
           </ol>
         </li>
       </ol>
@@ -365,6 +364,13 @@
         <li><a href="#f_l公式推导">$f_L$公式推导</a></li>
         <li><a href="#电容的阻抗">电容的阻抗</a></li>
         <li><a href="#r_if-和-r_i">$R_{if} 和 R_i$</a></li>
+        <li><a href="#增益与中段增益">增益与中段增益</a></li>
+        <li><a href="#拉普拉斯变换">拉普拉斯变换</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+            <li><a href="#性质">性质</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -431,7 +437,7 @@
 
 
                 <time class="article-time--reading">
-                    6 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -840,7 +846,7 @@ A_f &amp;\equiv \frac{x_o}{x_s} \\
 &amp;= \frac{Ax_i}{x_i + \beta x_o} \\
 &amp;= \frac{Ax_i}{x_i + A\beta x_i} \\
 &amp;= \frac{A}{1 + A\beta} \\
-&amp;\approx \frac{1}{\beta} (A\beta \gg 1) \\\
+&amp;\approx \frac{1}{\beta} (A\beta \gg 1, 即\beta \gg \frac{1}{A}) \\\
 \\ x_f &amp;= \beta x_o =\frac{A\beta}{1 + A\beta}x_s \\
 x_i &amp;= x_s - x_f =\frac{1}{1 + A\beta}x_s
 \end{aligned}
@@ -861,8 +867,10 @@ x_f &amp;= \frac{A\beta}{1 + A\beta} x_s \\
 x_i &amp;= \frac{1}{1 + A\beta}x_s \\\
 \\ 当A\beta &amp;\gg 1: \\
 A_f &amp;\approx \frac{1}{\beta} \\
+x_o &amp;\approx x_s \\
 x_f &amp;\approx x_s \\
-x_i &amp;\approx 0
+x_i &amp;\approx 0 \\
+输入几乎&amp;为0, 信号与反馈几乎抵消
 \end{aligned}
 $$</p>
 <h2 id="properties">Properties</h2>
@@ -876,9 +884,14 @@ dA_f &amp;= \frac{A}{1 +A\beta} \frac{1}{(1 + A\beta)A}dA \\
 \end{aligned}
 $$</p>
 <ul>
-<li>因此, $1 + A\beta$ 也叫<strong>Desensitivity Factor</strong></li>
+<li>
+<p>$A_f$<strong>变化的幅度比</strong>$A$小</p>
+</li>
+<li>
+<p>因此, $1 + A\beta$ 也叫<strong>Desensitivity Factor</strong></p>
+</li>
 </ul>
-<h3 id="bandwidth-extension">Bandwidth Extension</h3>
+<h3 id="bandwidth-extension">Bandwidth Extension*</h3>
 <p>$$
 \begin{aligned}
 A(s) &amp;= \frac{A_M}{1 + s/\omega_H} \\
@@ -924,7 +937,7 @@ $$</p>
 <ul>
 <li>Negative feedback may <strong>facilitate linearization</strong></li>
 </ul>
-<h2 id="the-feedback-voltage-amplifier">The Feedback Voltage Amplifier</h2>
+<h2 id="the-feedback-voltage-amplifier-series-shunt">The Feedback Voltage Amplifier (Series-Shunt)</h2>
 <h3 id="basic-structure">Basic Structure</h3>
 <p><img src="/p/10-11.-frequency-response-feedback/15.png"
 	width="887"
@@ -951,25 +964,6 @@ $$</p>
 		data-flex-basis="246px"
 	
 ></p>
-<h3 id="analysis-of-the-feedback-voltage-amplifier-utilizing">Analysis of the Feedback Voltage Amplifier Utilizing</h3>
-<ol>
-<li>图示</li>
-</ol>
-<p><img src="/p/10-11.-frequency-response-feedback/18.png"
-	width="870"
-	height="498"
-	srcset="/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="174"
-		data-flex-basis="419px"
-	
-></p>
-<p>$$
-A\beta = -\frac{V_r}{V_t}
-$$</p>
 <h2 id="systematic-analysis-of-feedback-voltage-amplifiers">Systematic Analysis of Feedback Voltage Amplifiers</h2>
 <h3 id="电路-2">电路</h3>
 <p><img src="/p/10-11.-frequency-response-feedback/19.png"
@@ -984,17 +978,42 @@ $$</p>
 		data-flex-basis="225px"
 	
 ></p>
-<h3 id="分析-5">分析</h3>
+<h3 id="分析1">分析1</h3>
 <p>$$
 \begin{aligned}
 V_i &amp;= \frac{V_s}{1 + A\beta} \\
 \therefore I_i &amp;= \frac{V_s}{(1  +A\beta)R_i} \\
 R_{if} &amp;= \frac{V_s}{I_i} \\
 &amp;=(1 +A\beta) R_i \\\
-\\ R_{of} &amp;= \frac{V_o}{I_o} \\
-V_i &amp;= -V_f = -\beta V_o\\
-\therefore I_o &amp;= \frac{V_o - AV_i}{R_o} \\
-&amp;= (1 + A\beta) \frac{V_o}{R_o} \\
+\end{aligned}
+$$</p>
+<h3 id="分析2">分析2</h3>
+<ol>
+<li>图示</li>
+</ol>
+<p><img src="/p/10-11.-frequency-response-feedback/24.png"
+	width="719"
+	height="285"
+	srcset="/p/10-11.-frequency-response-feedback/24_hu8887b614b9313b3c4a1ad18a5ebdb391_15901_480x0_resize_box_3.png 480w, /p/10-11.-frequency-response-feedback/24_hu8887b614b9313b3c4a1ad18a5ebdb391_15901_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="252"
+		data-flex-basis="605px"
+	
+></p>
+<ol start="2">
+<li>数学分析</li>
+</ol>
+<p>$$
+\begin{aligned}
+令V_s &amp;= 0, 对输出端施加测试电压V_X = V_o \\
+R_{of} &amp;= \frac{V_X}{I_X} \\
+I_X &amp;= \frac{V_X - AV_i}{R_o} \\
+\because V_s &amp;=0 \\
+\therefore V_i &amp;= - V_f = -\beta V_o = -\beta V_X\\
+\therefore I_X &amp;= \frac{V_X(1 + A\beta)}{R_o} \\
 \therefore R_{of} &amp;= \frac{R_o}{1 + A\beta}
 \end{aligned}
 $$</p>
@@ -1093,7 +1112,6 @@ $$</p>
 A &amp;\equiv
 \end{aligned}
 $$</p>
-<h3 id="the-stability-problem">The Stability Problem</h3>
 <h1 id="附录">附录</h1>
 <h2 id="bypass-capacitor">Bypass Capacitor</h2>
 <blockquote>
@@ -1158,6 +1176,37 @@ R_{if} &amp;= \frac{\pmb {V_s}}{I_i} \\
 R_i &amp;= \frac{\pmb {V_i}}{I_i}
 \end{aligned}
 $$</p>
+<h2 id="增益与中段增益">增益与中段增益</h2>
+<p>$A(s) = \frac{A_M}{1 + s/\omega_H}$</p>
+<p>这个传输函数可以通过对电路进行拉普拉斯变换得到。假设我们有一个电路，其中输入信号为 $V_{in}(t)$，输出信号为 $V_{out}(t)$。我们可以将电路表示为一个线性常微分方程：</p>
+<p>$$ L\frac{dV_{out}(t)}{dt} + R V_{out}(t) = V_{in}(t) $$</p>
+<p>其中 $L$ 和 $R$ 分别是电感和电阻的值。应用拉普拉斯变换，我们得到：</p>
+<p>$$ LsV_{out}(s) + RV_{out}(s) = V_{in}(s) $$</p>
+<p>将 $V_{out}(s)$ 移项并合并同类项，得到：</p>
+<p>$$ \frac{V_{out}(s)}{V_{in}(s)} = \frac{1}{Ls + R} $$</p>
+<p>这个比值即电路的传输函数，表示了输入信号和输出信号之间的关系。</p>
+<p>接下来，我们可以将传输函数改写为标准的一阶低通滤波器的形式。首先，我们可以将传输函数的分母写成 $1 + s/\omega_H$ 的形式，其中 $\omega_H = R/L$ 是电路的截止频率。这是因为当 $s = j\omega$ 时，分母变为 $1 + j\omega/\omega_H$，其模长为 $\sqrt{1 + (\omega/\omega_H)^2}$，当 $\omega \ll \omega_H$ 时，模长近似为 $1$，而当 $\omega \gg \omega_H$ 时，模长近似为 $\omega/\omega_H$，表示信号被滤波器削弱的程度。</p>
+<p>为了把传输函数写成标准形式，我们可以将分子和分母同时除以 $A_M$，得到：</p>
+<p>$$ A(s) = \frac{A_M/L}{s/\omega_H + 1} = \frac{A_M}{1 + s/\omega_H} $$</p>
+<p>这个形式与标准的一阶低通滤波器的传输函数形式一致，其中 $A_M/L$ 是增益常数，$1/\omega_H$ 是电路的时间常数，表示电路对输入信号的响应速度。</p>
+<h2 id="拉普拉斯变换">拉普拉斯变换</h2>
+<h3 id="定义">定义</h3>
+<p>给定一个函数 $f(t)$，它的拉普拉斯变换 $F(s)$ 定义为：</p>
+<p>$$F(s) = \mathcal{L}{f(t)} = \int_{0}^{\infty} e^{-st} f(t) dt $$</p>
+<p>其中 $s$ 是复变量，$e^{-st}$ 是一个复指数函数，$f(t)$ 是一个定义在非负实数域上的函数。这个积分表示了在复平面上以直线 $Re(s) = \sigma$ 为边界的区域内，$F(s)$ 的积分值。</p>
+<h3 id="性质">性质</h3>
+<ol>
+<li>线性性，即对于任意常数 $a$ 和 $b$，有：</li>
+</ol>
+<p>$$ \mathcal{L}{a f(t) + b g(t)} = a F(s) + b G(s) $$</p>
+<p>其中 $f(t)$ 和 $g(t)$ 是两个函数，$F(s)$ 和 $G(s)$ 是它们的拉普拉斯变换。</p>
+<ol start="2">
+<li>微分和积分定理</li>
+</ol>
+<p>如果 $f(t)$ 有一个连续的导数 $f&rsquo;(t)$，那么它的拉普拉斯变换为：</p>
+<p>$$ \mathcal{L}{f&rsquo;(t)} = sF(s) - f(0) $$</p>
+<p>其中 $f(0)$ 是 $f(t)$ 在 $t=0$ 处的值。类似地，如果 $f(t)$ 是一个连续函数，并且存在一个常数 $T$，使得 $f(t) = 0$ 对于所有 $t &lt; 0$ 和 $t &gt; T$ 成立，那么它的拉普拉斯变换为：</p>
+<p>$$ \mathcal{L}{\int_0^t f(\tau)d\tau} = \frac{F(s)}{s} $$</p>
 
 </section>
 

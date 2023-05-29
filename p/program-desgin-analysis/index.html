@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='二进制的数字表达 进制 $$ \begin{aligned} &amp;amp;r(r进制数) = (a_{n-1}a_{n-2}&amp;hellip;a_0a_1&amp;hellip;a_{-m})r \\ &amp;amp;大小 \ R = a{n-1}\times r^{n-1} &#43; &amp;hellip; &#43; a_{-m}\times r^{-m} = \sum_{i=-m}^{n-1} a_i\times r^i \end{aligned} $$ 最左边的叫高阶位(High-order Bit)或最高有效位(Most Significant Bit)，对应的权最大 最右边的叫低阶位(Low-order Bit)或最低有效位(Least Significant Bit)，对应的权最小 重要概念 数码(Digit) 构成数的数字 数位(Digit Pisition) 基数(Base/Radix) 决定数码有多少类 权(Weight) 二进制数的转换 二进制与十进制 十进制 $\rightarrow$ 二进制 整数:用十进制数除以2，反写得出二进制数 小数 将十进制小数部分乘以2，得到乘积 取乘积的整数部分作为二进制结果的一位，将乘积的小数部分继续乘以2 重复上步，直到乘积的小数部分为0，或者已经得到了所需位数的二进制结果 二进制到十进制 按权按位展开 二进制到八进制和十六进制 关系 转换技巧 整数在前面补零 小数在后面补零 注意 十六进制数码被称为半字节(Nibble) 一串数码又称为一个字(Word) 小数点前的数字都是整数，后的都是小数，适用于任何进制 二进制数的计算 加减法 加法:逢2进1 减法: $0-1$,向高位借2 stateDiagram 1 --&gt;0:被借 0 --&gt;1:被借 乘除法 乘法 $n$位数和$m$位数相乘，得到$(n&#43;m)$位数 除法 跟十进制差不多 原码 反码 补码 符号位 分类 正数 负数 原码 ~ 绝对值的原码，再补个符号位1 反码 取反 取反 补码 与原码相同 原码取反&#43;1 符号位 0 1 其他的码 一些码 格雷码 示意图 二进制码与格雷码 stateDiagram 二进制码 --&gt; 格雷码:相邻位XOR,最后一位保留 格雷码 --&gt; 二进制码:相邻位XOR,最后一位保留 要求 相邻两个区域只能有$\pmb 1$个位差 ASCII码 '>
-<title>2.二进制信息</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=' '>
+<title>Program Desgin &amp; Analysis</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/program-desgin-analysis/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='2.二进制信息'>
-<meta property='og:description' content='二进制的数字表达 进制 $$ \begin{aligned} &amp;amp;r(r进制数) = (a_{n-1}a_{n-2}&amp;hellip;a_0a_1&amp;hellip;a_{-m})r \\ &amp;amp;大小 \ R = a{n-1}\times r^{n-1} &#43; &amp;hellip; &#43; a_{-m}\times r^{-m} = \sum_{i=-m}^{n-1} a_i\times r^i \end{aligned} $$ 最左边的叫高阶位(High-order Bit)或最高有效位(Most Significant Bit)，对应的权最大 最右边的叫低阶位(Low-order Bit)或最低有效位(Least Significant Bit)，对应的权最小 重要概念 数码(Digit) 构成数的数字 数位(Digit Pisition) 基数(Base/Radix) 决定数码有多少类 权(Weight) 二进制数的转换 二进制与十进制 十进制 $\rightarrow$ 二进制 整数:用十进制数除以2，反写得出二进制数 小数 将十进制小数部分乘以2，得到乘积 取乘积的整数部分作为二进制结果的一位，将乘积的小数部分继续乘以2 重复上步，直到乘积的小数部分为0，或者已经得到了所需位数的二进制结果 二进制到十进制 按权按位展开 二进制到八进制和十六进制 关系 转换技巧 整数在前面补零 小数在后面补零 注意 十六进制数码被称为半字节(Nibble) 一串数码又称为一个字(Word) 小数点前的数字都是整数，后的都是小数，适用于任何进制 二进制数的计算 加减法 加法:逢2进1 减法: $0-1$,向高位借2 stateDiagram 1 --&gt;0:被借 0 --&gt;1:被借 乘除法 乘法 $n$位数和$m$位数相乘，得到$(n&#43;m)$位数 除法 跟十进制差不多 原码 反码 补码 符号位 分类 正数 负数 原码 ~ 绝对值的原码，再补个符号位1 反码 取反 取反 补码 与原码相同 原码取反&#43;1 符号位 0 1 其他的码 一些码 格雷码 示意图 二进制码与格雷码 stateDiagram 二进制码 --&gt; 格雷码:相邻位XOR,最后一位保留 格雷码 --&gt; 二进制码:相邻位XOR,最后一位保留 要求 相邻两个区域只能有$\pmb 1$个位差 ASCII码 '>
-<meta property='og:url' content='https://downeyflyfan.com/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Program Desgin &amp; Analysis'>
+<meta property='og:description' content=' '>
+<meta property='og:url' content='https://downeyflyfan.com/p/program-desgin-analysis/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-02-10T20:05:54&#43;08:00'/><meta property='article:modified_time' content='2023-02-10T20:05:54&#43;08:00'/>
-<meta name="twitter:title" content="2.二进制信息">
-<meta name="twitter:description" content="二进制的数字表达 进制 $$ \begin{aligned} &amp;amp;r(r进制数) = (a_{n-1}a_{n-2}&amp;hellip;a_0a_1&amp;hellip;a_{-m})r \\ &amp;amp;大小 \ R = a{n-1}\times r^{n-1} &#43; &amp;hellip; &#43; a_{-m}\times r^{-m} = \sum_{i=-m}^{n-1} a_i\times r^i \end{aligned} $$ 最左边的叫高阶位(High-order Bit)或最高有效位(Most Significant Bit)，对应的权最大 最右边的叫低阶位(Low-order Bit)或最低有效位(Least Significant Bit)，对应的权最小 重要概念 数码(Digit) 构成数的数字 数位(Digit Pisition) 基数(Base/Radix) 决定数码有多少类 权(Weight) 二进制数的转换 二进制与十进制 十进制 $\rightarrow$ 二进制 整数:用十进制数除以2，反写得出二进制数 小数 将十进制小数部分乘以2，得到乘积 取乘积的整数部分作为二进制结果的一位，将乘积的小数部分继续乘以2 重复上步，直到乘积的小数部分为0，或者已经得到了所需位数的二进制结果 二进制到十进制 按权按位展开 二进制到八进制和十六进制 关系 转换技巧 整数在前面补零 小数在后面补零 注意 十六进制数码被称为半字节(Nibble) 一串数码又称为一个字(Word) 小数点前的数字都是整数，后的都是小数，适用于任何进制 二进制数的计算 加减法 加法:逢2进1 减法: $0-1$,向高位借2 stateDiagram 1 --&gt;0:被借 0 --&gt;1:被借 乘除法 乘法 $n$位数和$m$位数相乘，得到$(n&#43;m)$位数 除法 跟十进制差不多 原码 反码 补码 符号位 分类 正数 负数 原码 ~ 绝对值的原码，再补个符号位1 反码 取反 取反 补码 与原码相同 原码取反&#43;1 符号位 0 1 其他的码 一些码 格雷码 示意图 二进制码与格雷码 stateDiagram 二进制码 --&gt; 格雷码:相邻位XOR,最后一位保留 格雷码 --&gt; 二进制码:相邻位XOR,最后一位保留 要求 相邻两个区域只能有$\pmb 1$个位差 ASCII码 "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-05-26T16:49:31&#43;08:00'/><meta property='article:modified_time' content='2023-05-26T16:49:31&#43;08:00'/>
+<meta name="twitter:title" content="Program Desgin &amp; Analysis">
+<meta name="twitter:description" content=" "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -228,79 +228,7 @@
     </ol>
 </aside>
 
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#二进制的数字表达">二进制的数字表达</a>
-      <ol>
-        <li><a href="#进制">进制</a></li>
-        <li><a href="#重要概念">重要概念</a></li>
-      </ol>
-    </li>
-    <li><a href="#二进制数的转换">二进制数的转换</a>
-      <ol>
-        <li><a href="#二进制与十进制">二进制与十进制</a>
-          <ol>
-            <li><a href="#十进制-rightarrow-二进制">十进制 $\rightarrow$ 二进制</a></li>
-            <li><a href="#二进制到十进制">二进制到十进制</a></li>
-          </ol>
-        </li>
-        <li><a href="#二进制到八进制和十六进制">二进制到八进制和十六进制</a></li>
-      </ol>
-    </li>
-    <li><a href="#二进制数的计算">二进制数的计算</a>
-      <ol>
-        <li><a href="#加减法">加减法</a></li>
-        <li><a href="#乘除法">乘除法</a>
-          <ol>
-            <li><a href="#乘法">乘法</a></li>
-            <li><a href="#除法">除法</a></li>
-          </ol>
-        </li>
-        <li><a href="#原码-反码-补码-符号位">原码 反码 补码 符号位</a></li>
-      </ol>
-    </li>
-    <li><a href="#其他的码">其他的码</a>
-      <ol>
-        <li><a href="#一些码">一些码</a></li>
-        <li><a href="#格雷码">格雷码</a>
-          <ol>
-            <li><a href="#示意图">示意图</a></li>
-            <li><a href="#二进制码与格雷码">二进制码与格雷码</a></li>
-            <li><a href="#要求">要求</a></li>
-          </ol>
-        </li>
-        <li><a href="#ascii码">ASCII码</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
-    </aside>
-
+    
 
             <main class="main full-width">
     <article class="main-article">
@@ -310,8 +238,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E6%95%B0%E7%94%B5/" style="background-color: #2F4F4F; color: #fff;">
-                数电
+            <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="background-color: #C0C0C0; color: #fff;">
+                嵌入式
             </a>
         
     </header>
@@ -319,7 +247,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/">2.二进制信息</a>
+            <a href="/p/program-desgin-analysis/">Program Desgin &amp; Analysis</a>
         </h2>
     
         
@@ -341,7 +269,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Feb 10, 101010</time>
+                <time class="article-time--published">May 26, 262626</time>
             </div>
         
 
@@ -356,7 +284,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    0 minute read
                 </time>
             </div>
         
@@ -371,237 +299,7 @@
     <section class="article-content">
     
     
-    <h1 id="二进制的数字表达">二进制的数字表达</h1>
-<h2 id="进制">进制</h2>
-<p>$$
-\begin{aligned}
-&amp;r(r进制数) = (a_{n-1}a_{n-2}&hellip;a_0a_1&hellip;a_{-m})<em>r \\
-&amp;大小 \ R = a</em>{n-1}\times r^{n-1} + &hellip; + a_{-m}\times r^{-m} = \sum_{i=-m}^{n-1} a_i\times r^i
-\end{aligned}
-$$</p>
-<ul>
-<li>
-<p>最左边的叫<strong>高阶位(High-order Bit)<strong>或</strong>最高有效位(Most Significant Bit)</strong>，对应的<strong>权最大</strong></p>
-</li>
-<li>
-<p>最右边的叫<strong>低阶位(Low-order Bit)<strong>或</strong>最低有效位(Least Significant Bit)</strong>，对应的<strong>权最小</strong></p>
-</li>
-</ul>
-<h2 id="重要概念">重要概念</h2>
-<ol>
-<li>数码(Digit)</li>
-</ol>
-<ul>
-<li>构成数的<strong>数字</strong></li>
-</ul>
-<ol start="2">
-<li>
-<p>数位(Digit Pisition)</p>
-</li>
-<li>
-<p>基数(Base/Radix)</p>
-</li>
-</ol>
-<ul>
-<li>决定数码有<strong>多少类</strong></li>
-</ul>
-<ol start="4">
-<li>权(Weight)</li>
-</ol>
-<h1 id="二进制数的转换">二进制数的转换</h1>
-<h2 id="二进制与十进制">二进制与十进制</h2>
-<h3 id="十进制-rightarrow-二进制">十进制 $\rightarrow$ 二进制</h3>
-<ol>
-<li>整数:用十进制数<strong>除以</strong>2，反写得出二进制数</li>
-</ol>
-<p><img src="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/2.png"
-	width="676"
-	height="493"
-	srcset="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/2_hu6eb8b18d51c72c12447454fae2358d69_57052_480x0_resize_box_3.png 480w, /p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/2_hu6eb8b18d51c72c12447454fae2358d69_57052_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="137"
-		data-flex-basis="329px"
-	
-></p>
-<ol start="2">
-<li>小数</li>
-</ol>
-<ul>
-<li>将十进制小数部分乘以2，得到乘积</li>
-<li>取乘积的整数部分作为二进制结果的一位，将乘积的小数部分继续乘以2</li>
-<li>重复上步，直到乘积的小数部分为0，或者已经得到了所需位数的二进制结果</li>
-</ul>
-<h3 id="二进制到十进制">二进制到十进制</h3>
-<ul>
-<li>按权按位展开</li>
-</ul>
-<h2 id="二进制到八进制和十六进制">二进制到八进制和十六进制</h2>
-<ol>
-<li>关系</li>
-</ol>
-<p><img src="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/1.png"
-	width="987"
-	height="719"
-	srcset="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/1_hu15feeaf556bc36ac6f622ce567ed8622_39413_480x0_resize_box_3.png 480w, /p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/1_hu15feeaf556bc36ac6f622ce567ed8622_39413_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="137"
-		data-flex-basis="329px"
-	
-></p>
-<ol start="2">
-<li>转换技巧</li>
-</ol>
-<ul>
-<li>
-<p>整数在前面补零</p>
-</li>
-<li>
-<p>小数在后面补零</p>
-</li>
-</ul>
-<ol start="3">
-<li>注意</li>
-</ol>
-<ul>
-<li>
-<p>十六进制数码被称为<strong>半字节(Nibble)</strong></p>
-</li>
-<li>
-<p>一串数码又称为一个<strong>字(Word)</strong></p>
-</li>
-<li>
-<p>小数点<strong>前</strong>的数字都是<strong>整数</strong>，<strong>后</strong>的都是<strong>小数</strong>，适用于<strong>任何进制</strong></p>
-</li>
-</ul>
-<h1 id="二进制数的计算">二进制数的计算</h1>
-<h2 id="加减法">加减法</h2>
-<ol>
-<li>
-<p>加法:逢<em><strong>2</strong></em>进<em><strong>1</strong></em></p>
-</li>
-<li>
-<p>减法: $0-1$,<em><strong>向高位借2</strong></em></p>
-</li>
-</ol>
-<div class="mermaid">stateDiagram
-1 -->0:被借
-0 -->1:被借
-</div>
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-
-<h2 id="乘除法">乘除法</h2>
-<h3 id="乘法">乘法</h3>
-<ul>
-<li>$n$位数和$m$位数相乘，得到$(n+m)$位数</li>
-</ul>
-<h3 id="除法">除法</h3>
-<ul>
-<li>跟十进制差不多</li>
-</ul>
-<h2 id="原码-反码-补码-符号位">原码 反码 补码 符号位</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">分类</th>
-<th style="text-align:center">正数</th>
-<th style="text-align:center">负数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">原码</td>
-<td style="text-align:center">~</td>
-<td style="text-align:center">绝对值的原码，再补个符号位1</td>
-</tr>
-<tr>
-<td style="text-align:center">反码</td>
-<td style="text-align:center">取反</td>
-<td style="text-align:center">取反</td>
-</tr>
-<tr>
-<td style="text-align:center">补码</td>
-<td style="text-align:center">与原码相同</td>
-<td style="text-align:center">原码取反+1</td>
-</tr>
-<tr>
-<td style="text-align:center">符号位</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-</tbody>
-</table></div>
-<h1 id="其他的码">其他的码</h1>
-<h2 id="一些码">一些码</h2>
-<p><img src="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/3.png"
-	width="1215"
-	height="453"
-	srcset="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/3_hu41f2df6341948f2e6b8526ca26437e38_52674_480x0_resize_box_3.png 480w, /p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/3_hu41f2df6341948f2e6b8526ca26437e38_52674_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="268"
-		data-flex-basis="643px"
-	
-></p>
-<h2 id="格雷码">格雷码</h2>
-<h3 id="示意图">示意图</h3>
-<p><img src="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/4.png"
-	width="743"
-	height="413"
-	srcset="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/4_hu6206d20294048104169ba3d5ca2b65b7_39804_480x0_resize_box_3.png 480w, /p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/4_hu6206d20294048104169ba3d5ca2b65b7_39804_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="179"
-		data-flex-basis="431px"
-	
-></p>
-<h3 id="二进制码与格雷码">二进制码与格雷码</h3>
-<p><img src="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/5.png"
-	width="930"
-	height="590"
-	srcset="/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/5_hu857961a0e2466a0f8e743e8a6b46e559_38333_480x0_resize_box_3.png 480w, /p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/5_hu857961a0e2466a0f8e743e8a6b46e559_38333_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="157"
-		data-flex-basis="378px"
-	
-></p>
-<div class="mermaid">stateDiagram
-二进制码 --> 格雷码:相邻位XOR,最后一位保留
-格雷码 --> 二进制码:相邻位XOR,最后一位保留
-</div>
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-
-<h3 id="要求">要求</h3>
-<ul>
-<li>相邻两个区域只能有$\pmb 1$个位差</li>
-</ul>
-<h2 id="ascii码">ASCII码</h2>
+    <h1 id="heading"></h1>
 
 </section>
 
@@ -665,12 +363,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/6.%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/">
+    <a href="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">6.有限状态机</h2>
+            <h2 class="article-title">5.汇编基础</h2>
         </div>
     </a>
 </article>
@@ -678,12 +376,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/">
+    <a href="/p/%E9%99%84%E5%8A%A0/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">5.时序电路</h2>
+            <h2 class="article-title">附加</h2>
         </div>
     </a>
 </article>
@@ -691,12 +389,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/">
+    <a href="/p/i2cspiadcdac/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">4.组合电路</h2>
+            <h2 class="article-title">I2C,SPI,ADC,DAC</h2>
         </div>
     </a>
 </article>
@@ -704,12 +402,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/verilog%E5%9F%BA%E7%A1%80/">
+    <a href="/p/gpio-pwm-uart/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Verilog基础</h2>
+            <h2 class="article-title">GPIO PWM UART</h2>
         </div>
     </a>
 </article>
@@ -717,12 +415,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/3.%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/">
+    <a href="/p/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">3.逻辑代数基础</h2>
+            <h2 class="article-title">汇编基础</h2>
         </div>
     </a>
 </article>

@@ -406,7 +406,7 @@ A_f &amp;amp;\equiv \frac{x_o}{x_s} \\
 &amp;amp;= \frac{Ax_i}{x_i + \beta x_o} \\
 &amp;amp;= \frac{Ax_i}{x_i + A\beta x_i} \\
 &amp;amp;= \frac{A}{1 + A\beta} \\
-&amp;amp;\approx \frac{1}{\beta} (A\beta \gg 1) \\\
+&amp;amp;\approx \frac{1}{\beta} (A\beta \gg 1, 即\beta \gg \frac{1}{A}) \\\
 \\ x_f &amp;amp;= \beta x_o =\frac{A\beta}{1 + A\beta}x_s \\
 x_i &amp;amp;= x_s - x_f =\frac{1}{1 + A\beta}x_s
 \end{aligned}
@@ -427,8 +427,10 @@ x_f &amp;amp;= \frac{A\beta}{1 + A\beta} x_s \\
 x_i &amp;amp;= \frac{1}{1 + A\beta}x_s \\\
 \\ 当A\beta &amp;amp;\gg 1: \\
 A_f &amp;amp;\approx \frac{1}{\beta} \\
+x_o &amp;amp;\approx x_s \\
 x_f &amp;amp;\approx x_s \\
-x_i &amp;amp;\approx 0
+x_i &amp;amp;\approx 0 \\
+输入几乎&amp;amp;为0, 信号与反馈几乎抵消
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;properties&#34;&gt;Properties&lt;/h2&gt;
@@ -442,9 +444,14 @@ dA_f &amp;amp;= \frac{A}{1 +A\beta} \frac{1}{(1 + A\beta)A}dA \\
 \end{aligned}
 $$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;因此, $1 + A\beta$ 也叫&lt;strong&gt;Desensitivity Factor&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$A_f$&lt;strong&gt;变化的幅度比&lt;/strong&gt;$A$小&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;因此, $1 + A\beta$ 也叫&lt;strong&gt;Desensitivity Factor&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;bandwidth-extension&#34;&gt;Bandwidth Extension&lt;/h3&gt;
+&lt;h3 id=&#34;bandwidth-extension&#34;&gt;Bandwidth Extension*&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 A(s) &amp;amp;= \frac{A_M}{1 + s/\omega_H} \\
@@ -490,7 +497,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Negative feedback may &lt;strong&gt;facilitate linearization&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;the-feedback-voltage-amplifier&#34;&gt;The Feedback Voltage Amplifier&lt;/h2&gt;
+&lt;h2 id=&#34;the-feedback-voltage-amplifier-series-shunt&#34;&gt;The Feedback Voltage Amplifier (Series-Shunt)&lt;/h2&gt;
 &lt;h3 id=&#34;basic-structure&#34;&gt;Basic Structure&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/15.png&#34;
 	width=&#34;887&#34;
@@ -517,25 +524,6 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;246px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;analysis-of-the-feedback-voltage-amplifier-utilizing&#34;&gt;Analysis of the Feedback Voltage Amplifier Utilizing&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;图示&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18.png&#34;
-	width=&#34;870&#34;
-	height=&#34;498&#34;
-	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/18_hu4ce43508560ac8e1fc2f51bb5d8c6ac5_41998_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;174&#34;
-		data-flex-basis=&#34;419px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-A\beta = -\frac{V_r}{V_t}
-$$&lt;/p&gt;
 &lt;h2 id=&#34;systematic-analysis-of-feedback-voltage-amplifiers&#34;&gt;Systematic Analysis of Feedback Voltage Amplifiers&lt;/h2&gt;
 &lt;h3 id=&#34;电路-2&#34;&gt;电路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/19.png&#34;
@@ -550,17 +538,42 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;225px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-5&#34;&gt;分析&lt;/h3&gt;
+&lt;h3 id=&#34;分析1&#34;&gt;分析1&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_i &amp;amp;= \frac{V_s}{1 + A\beta} \\
 \therefore I_i &amp;amp;= \frac{V_s}{(1  +A\beta)R_i} \\
 R_{if} &amp;amp;= \frac{V_s}{I_i} \\
 &amp;amp;=(1 +A\beta) R_i \\\
-\\ R_{of} &amp;amp;= \frac{V_o}{I_o} \\
-V_i &amp;amp;= -V_f = -\beta V_o\\
-\therefore I_o &amp;amp;= \frac{V_o - AV_i}{R_o} \\
-&amp;amp;= (1 + A\beta) \frac{V_o}{R_o} \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;分析2&#34;&gt;分析2&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;图示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/24.png&#34;
+	width=&#34;719&#34;
+	height=&#34;285&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10-11.-frequency-response-feedback/24_hu8887b614b9313b3c4a1ad18a5ebdb391_15901_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10-11.-frequency-response-feedback/24_hu8887b614b9313b3c4a1ad18a5ebdb391_15901_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;252&#34;
+		data-flex-basis=&#34;605px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;数学分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+令V_s &amp;amp;= 0, 对输出端施加测试电压V_X = V_o \\
+R_{of} &amp;amp;= \frac{V_X}{I_X} \\
+I_X &amp;amp;= \frac{V_X - AV_i}{R_o} \\
+\because V_s &amp;amp;=0 \\
+\therefore V_i &amp;amp;= - V_f = -\beta V_o = -\beta V_X\\
+\therefore I_X &amp;amp;= \frac{V_X(1 + A\beta)}{R_o} \\
 \therefore R_{of} &amp;amp;= \frac{R_o}{1 + A\beta}
 \end{aligned}
 $$&lt;/p&gt;
@@ -659,7 +672,6 @@ $$&lt;/p&gt;
 A &amp;amp;\equiv
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;the-stability-problem&#34;&gt;The Stability Problem&lt;/h3&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;bypass-capacitor&#34;&gt;Bypass Capacitor&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -724,6 +736,37 @@ R_{if} &amp;amp;= \frac{\pmb {V_s}}{I_i} \\
 R_i &amp;amp;= \frac{\pmb {V_i}}{I_i}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;增益与中段增益&#34;&gt;增益与中段增益&lt;/h2&gt;
+&lt;p&gt;$A(s) = \frac{A_M}{1 + s/\omega_H}$&lt;/p&gt;
+&lt;p&gt;这个传输函数可以通过对电路进行拉普拉斯变换得到。假设我们有一个电路，其中输入信号为 $V_{in}(t)$，输出信号为 $V_{out}(t)$。我们可以将电路表示为一个线性常微分方程：&lt;/p&gt;
+&lt;p&gt;$$ L\frac{dV_{out}(t)}{dt} + R V_{out}(t) = V_{in}(t) $$&lt;/p&gt;
+&lt;p&gt;其中 $L$ 和 $R$ 分别是电感和电阻的值。应用拉普拉斯变换，我们得到：&lt;/p&gt;
+&lt;p&gt;$$ LsV_{out}(s) + RV_{out}(s) = V_{in}(s) $$&lt;/p&gt;
+&lt;p&gt;将 $V_{out}(s)$ 移项并合并同类项，得到：&lt;/p&gt;
+&lt;p&gt;$$ \frac{V_{out}(s)}{V_{in}(s)} = \frac{1}{Ls + R} $$&lt;/p&gt;
+&lt;p&gt;这个比值即电路的传输函数，表示了输入信号和输出信号之间的关系。&lt;/p&gt;
+&lt;p&gt;接下来，我们可以将传输函数改写为标准的一阶低通滤波器的形式。首先，我们可以将传输函数的分母写成 $1 + s/\omega_H$ 的形式，其中 $\omega_H = R/L$ 是电路的截止频率。这是因为当 $s = j\omega$ 时，分母变为 $1 + j\omega/\omega_H$，其模长为 $\sqrt{1 + (\omega/\omega_H)^2}$，当 $\omega \ll \omega_H$ 时，模长近似为 $1$，而当 $\omega \gg \omega_H$ 时，模长近似为 $\omega/\omega_H$，表示信号被滤波器削弱的程度。&lt;/p&gt;
+&lt;p&gt;为了把传输函数写成标准形式，我们可以将分子和分母同时除以 $A_M$，得到：&lt;/p&gt;
+&lt;p&gt;$$ A(s) = \frac{A_M/L}{s/\omega_H + 1} = \frac{A_M}{1 + s/\omega_H} $$&lt;/p&gt;
+&lt;p&gt;这个形式与标准的一阶低通滤波器的传输函数形式一致，其中 $A_M/L$ 是增益常数，$1/\omega_H$ 是电路的时间常数，表示电路对输入信号的响应速度。&lt;/p&gt;
+&lt;h2 id=&#34;拉普拉斯变换&#34;&gt;拉普拉斯变换&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;p&gt;给定一个函数 $f(t)$，它的拉普拉斯变换 $F(s)$ 定义为：&lt;/p&gt;
+&lt;p&gt;$$F(s) = \mathcal{L}{f(t)} = \int_{0}^{\infty} e^{-st} f(t) dt $$&lt;/p&gt;
+&lt;p&gt;其中 $s$ 是复变量，$e^{-st}$ 是一个复指数函数，$f(t)$ 是一个定义在非负实数域上的函数。这个积分表示了在复平面上以直线 $Re(s) = \sigma$ 为边界的区域内，$F(s)$ 的积分值。&lt;/p&gt;
+&lt;h3 id=&#34;性质&#34;&gt;性质&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;线性性，即对于任意常数 $a$ 和 $b$，有：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$ \mathcal{L}{a f(t) + b g(t)} = a F(s) + b G(s) $$&lt;/p&gt;
+&lt;p&gt;其中 $f(t)$ 和 $g(t)$ 是两个函数，$F(s)$ 和 $G(s)$ 是它们的拉普拉斯变换。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;微分和积分定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果 $f(t)$ 有一个连续的导数 $f&amp;rsquo;(t)$，那么它的拉普拉斯变换为：&lt;/p&gt;
+&lt;p&gt;$$ \mathcal{L}{f&amp;rsquo;(t)} = sF(s) - f(0) $$&lt;/p&gt;
+&lt;p&gt;其中 $f(0)$ 是 $f(t)$ 在 $t=0$ 处的值。类似地，如果 $f(t)$ 是一个连续函数，并且存在一个常数 $T$，使得 $f(t) = 0$ 对于所有 $t &amp;lt; 0$ 和 $t &amp;gt; T$ 成立，那么它的拉普拉斯变换为：&lt;/p&gt;
+&lt;p&gt;$$ \mathcal{L}{\int_0^t f(\tau)d\tau} = \frac{F(s)}{s} $$&lt;/p&gt;
 </description>
         </item>
         <item>
