@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='组合电路 Multiplexer 数学表达式 $$ Z = \Sigma_{i=0}^{n-1} \ m_i D_i $$
-74x151 - 压缩卡诺图 加法器 Full Adder 过程 真值表与实现效果 $$ x_i &#43; y_i &#43; c_i = s_i \\\ \\ 溢出到c_{i&#43;1} $$
+74x151 - 压缩卡诺图 2-1 Multiplier 加法器 Full Adder 过程 真值表与实现效果 $$ x_i &#43; y_i &#43; c_i = s_i \\\ \\ 溢出到c_{i&#43;1} $$
 逻辑表达 $$ \begin{aligned} s_i &amp;amp;= SOP \\ c_{i&#43;1} &amp;amp;= POC \\ s_i &amp;amp;= x_i \oplus y_i \oplus z_i \\ c_{i&#43;1} &amp;amp;= x_iy_i &#43; c_i(x_i \oplus y_i) \end{aligned} $$
 电路 逻辑符号 Verilog Code for a 1-bit FA 1 2 3 4 5 6 7 module FA( input x,y,c0, output s,c1 ); assign s = x^y^c0; assign c1 = (x &amp;amp; y) | (c0 &amp;amp; (x^y)); endmodule Ripple-Carry Adder (串位进行加法器) 定义 级联多个FA, 每一个FA都要等待上一位的输出，效率低下 通过 RCA实现4-bit adder Verilog 1 2 3 4 5 6 7 module Adder4( input A,B; output Sum; output Cout ); assign {Cout,Sum} = A &#43; B; // 多路赋值 endmodule Carry-Lookahead Adder (进位预测加法器) 只适用于无符号数'>
 <title>4.组合电路</title>
@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4.组合电路'>
 <meta property='og:description' content='组合电路 Multiplexer 数学表达式 $$ Z = \Sigma_{i=0}^{n-1} \ m_i D_i $$
-74x151 - 压缩卡诺图 加法器 Full Adder 过程 真值表与实现效果 $$ x_i &#43; y_i &#43; c_i = s_i \\\ \\ 溢出到c_{i&#43;1} $$
+74x151 - 压缩卡诺图 2-1 Multiplier 加法器 Full Adder 过程 真值表与实现效果 $$ x_i &#43; y_i &#43; c_i = s_i \\\ \\ 溢出到c_{i&#43;1} $$
 逻辑表达 $$ \begin{aligned} s_i &amp;amp;= SOP \\ c_{i&#43;1} &amp;amp;= POC \\ s_i &amp;amp;= x_i \oplus y_i \oplus z_i \\ c_{i&#43;1} &amp;amp;= x_iy_i &#43; c_i(x_i \oplus y_i) \end{aligned} $$
 电路 逻辑符号 Verilog Code for a 1-bit FA 1 2 3 4 5 6 7 module FA( input x,y,c0, output s,c1 ); assign s = x^y^c0; assign c1 = (x &amp;amp; y) | (c0 &amp;amp; (x^y)); endmodule Ripple-Carry Adder (串位进行加法器) 定义 级联多个FA, 每一个FA都要等待上一位的输出，效率低下 通过 RCA实现4-bit adder Verilog 1 2 3 4 5 6 7 module Adder4( input A,B; output Sum; output Cout ); assign {Cout,Sum} = A &#43; B; // 多路赋值 endmodule Carry-Lookahead Adder (进位预测加法器) 只适用于无符号数'>
 <meta property='og:url' content='https://downeyflyfan.com/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/'>
@@ -19,7 +19,7 @@
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-21T10:23:50&#43;08:00'/><meta property='article:modified_time' content='2023-03-21T10:23:50&#43;08:00'/>
 <meta name="twitter:title" content="4.组合电路">
 <meta name="twitter:description" content="组合电路 Multiplexer 数学表达式 $$ Z = \Sigma_{i=0}^{n-1} \ m_i D_i $$
-74x151 - 压缩卡诺图 加法器 Full Adder 过程 真值表与实现效果 $$ x_i &#43; y_i &#43; c_i = s_i \\\ \\ 溢出到c_{i&#43;1} $$
+74x151 - 压缩卡诺图 2-1 Multiplier 加法器 Full Adder 过程 真值表与实现效果 $$ x_i &#43; y_i &#43; c_i = s_i \\\ \\ 溢出到c_{i&#43;1} $$
 逻辑表达 $$ \begin{aligned} s_i &amp;amp;= SOP \\ c_{i&#43;1} &amp;amp;= POC \\ s_i &amp;amp;= x_i \oplus y_i \oplus z_i \\ c_{i&#43;1} &amp;amp;= x_iy_i &#43; c_i(x_i \oplus y_i) \end{aligned} $$
 电路 逻辑符号 Verilog Code for a 1-bit FA 1 2 3 4 5 6 7 module FA( input x,y,c0, output s,c1 ); assign s = x^y^c0; assign c1 = (x &amp;amp; y) | (c0 &amp;amp; (x^y)); endmodule Ripple-Carry Adder (串位进行加法器) 定义 级联多个FA, 每一个FA都要等待上一位的输出，效率低下 通过 RCA实现4-bit adder Verilog 1 2 3 4 5 6 7 module Adder4( input A,B; output Sum; output Cout ); assign {Cout,Sum} = A &#43; B; // 多路赋值 endmodule Carry-Lookahead Adder (进位预测加法器) 只适用于无符号数"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
@@ -265,6 +265,7 @@
           <ol>
             <li><a href="#数学表达式">数学表达式</a></li>
             <li><a href="#74x151---压缩卡诺图">74x151 - 压缩卡诺图</a></li>
+            <li><a href="#2-1-multiplier">2-1 Multiplier</a></li>
           </ol>
         </li>
         <li><a href="#加法器">加法器</a>
@@ -291,11 +292,12 @@
         <li><a href="#alu">ALU</a>
           <ol>
             <li><a href="#4位alu电路和逻辑符号">4位ALU电路和逻辑符号</a></li>
+            <li><a href="#操作表-真值表">操作表 真值表</a></li>
             <li><a href="#组成单元">组成单元</a>
               <ol>
-                <li><a href="#le">LE</a></li>
-                <li><a href="#ae">AE</a></li>
-                <li><a href="#ce">CE</a></li>
+                <li><a href="#le-logic-extender">LE (Logic Extender)</a></li>
+                <li><a href="#ae-arithmatic-extender">AE (Arithmatic Extender)</a></li>
+                <li><a href="#ce-carry-extender">CE (Carry Extender)</a></li>
               </ol>
             </li>
             <li><a href="#verilog代码">Verilog代码</a>
@@ -309,44 +311,45 @@
         <li><a href="#decoder">Decoder</a>
           <ol>
             <li><a href="#电路和逻辑符号">电路和逻辑符号</a></li>
-            <li><a href="#verilog-代码">Verilog 代码</a></li>
+            <li><a href="#verilog">Verilog</a></li>
           </ol>
         </li>
         <li><a href="#encoder">Encoder</a>
           <ol>
             <li><a href="#74x148-encoder">74x148 Encoder</a></li>
-            <li><a href="#代码">代码</a></li>
+            <li><a href="#verilog-1">Verilog</a></li>
           </ol>
         </li>
         <li><a href="#tri-state-buffer">Tri-State Buffer</a>
           <ol>
             <li><a href="#性质与作用">性质与作用</a></li>
             <li><a href="#电路和逻辑符号-1">电路和逻辑符号</a></li>
-            <li><a href="#verilog-代码-1">Verilog 代码</a></li>
+            <li><a href="#verilog-2">Verilog</a></li>
           </ol>
         </li>
         <li><a href="#comparator">Comparator</a>
           <ol>
             <li><a href="#常见的四位比较器">常见的四位比较器</a></li>
-            <li><a href="#x--y-迭代比较器">X &gt; Y 迭代比较器</a></li>
+            <li><a href="#4-bit-x--y-comparator">4-bit X &gt; Y Comparator</a></li>
           </ol>
         </li>
         <li><a href="#shifter">Shifter</a>
           <ol>
             <li><a href="#类型">类型</a></li>
-            <li><a href="#四位shifter">四位Shifter</a></li>
-            <li><a href="#verilog-代码-2">Verilog 代码</a></li>
+            <li><a href="#4-bit-shifter">4-bit Shifter</a></li>
+            <li><a href="#verilog-3">Verilog</a></li>
           </ol>
         </li>
         <li><a href="#multiplier">Multiplier</a>
           <ol>
-            <li><a href="#乘法器原理">乘法器原理</a></li>
-            <li><a href="#verilog-代码-3">Verilog 代码</a></li>
+            <li><a href="#原理-电路图">原理 电路图</a></li>
+            <li><a href="#verilog-4">Verilog</a></li>
           </ol>
         </li>
         <li><a href="#parity-generatorchecker">Parity Generator/Checker</a>
           <ol>
-            <li><a href="#verilog">Verilog</a></li>
+            <li><a href="#电路">电路</a></li>
+            <li><a href="#verilog-5">Verilog</a></li>
           </ol>
         </li>
       </ol>
@@ -361,10 +364,10 @@
         </li>
         <li><a href="#cmos反相器">CMOS反相器</a>
           <ol>
-            <li><a href="#电路">电路</a></li>
+            <li><a href="#电路-1">电路</a></li>
             <li><a href="#图像">图像</a></li>
             <li><a href="#cmos-逻辑系列电平规格">CMOS 逻辑系列电平规格</a></li>
-            <li><a href="#electrical-behavior">Electrical Behavior</a></li>
+            <li><a href="#上下拉电阻">上/下拉电阻</a></li>
           </ol>
         </li>
         <li><a href="#与非门">与非门</a></li>
@@ -487,6 +490,19 @@ $$</p>
 		class="gallery-image" 
 		data-flex-grow="159"
 		data-flex-basis="383px"
+	
+></p>
+<h3 id="2-1-multiplier">2-1 Multiplier</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/41.png"
+	width="638"
+	height="485"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/41_hu4027d057edd3d20d5f957f52a4500928_34083_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/41_hu4027d057edd3d20d5f957f52a4500928_34083_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="131"
+		data-flex-basis="315px"
 	
 ></p>
 <h2 id="加法器">加法器</h2>
@@ -701,12 +717,16 @@ d_i &amp;= x_i \oplus y_i \oplus z_i \\
 b_{i+1} &amp;= x_i&rsquo;b_i + x_i&rsquo;y_i + y_ib_i
 \end{aligned}
 $$</p>
-<p><img src="/41.png"
-	
-	
-	
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/41.png"
+	width="638"
+	height="485"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/41_hu4027d057edd3d20d5f957f52a4500928_34083_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/41_hu4027d057edd3d20d5f957f52a4500928_34083_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="131"
+		data-flex-basis="315px"
 	
 ></p>
 <h2 id="加法和减法器的结合">加法和减法器的结合</h2>
@@ -825,11 +845,24 @@ $$</p>
 		data-flex-basis="305px"
 	
 ></p>
+<h3 id="操作表-真值表">操作表 真值表</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/37.png"
+	width="887"
+	height="924"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/37_hu60ace1d6dbb17542600a3d080b3c839b_86821_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/37_hu60ace1d6dbb17542600a3d080b3c839b_86821_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="95"
+		data-flex-basis="230px"
+	
+></p>
+<ul>
+<li>通过卡诺图化简(只考虑$s_2 = 0 \ or \ 1$, 这样就只有四个变量)</li>
+</ul>
 <h3 id="组成单元">组成单元</h3>
-<h4 id="le">LE</h4>
-<ol>
-<li>电路图</li>
-</ol>
+<h4 id="le-logic-extender">LE (Logic Extender)</h4>
 <p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/15.png"
 	width="297"
 	height="397"
@@ -842,13 +875,7 @@ $$</p>
 		data-flex-basis="179px"
 	
 ></p>
-<ol start="2">
-<li>布尔方程</li>
-</ol>
-<h4 id="ae">AE</h4>
-<ol>
-<li>电路图</li>
-</ol>
+<h4 id="ae-arithmatic-extender">AE (Arithmatic Extender)</h4>
 <p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/16.png"
 	width="258"
 	height="400"
@@ -861,13 +888,7 @@ $$</p>
 		data-flex-basis="154px"
 	
 ></p>
-<ol start="2">
-<li></li>
-</ol>
-<h4 id="ce">CE</h4>
-<ol>
-<li>电路图</li>
-</ol>
+<h4 id="ce-carry-extender">CE (Carry Extender)</h4>
 <p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/17.png"
 	width="179"
 	height="187"
@@ -1093,7 +1114,7 @@ $$</p>
 		data-flex-basis="573px"
 	
 ></p>
-<h3 id="verilog-代码">Verilog 代码</h3>
+<h3 id="verilog">Verilog</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1164,7 +1185,7 @@ $$</p>
 		data-flex-basis="481px"
 	
 ></p>
-<h3 id="代码">代码</h3>
+<h3 id="verilog-1">Verilog</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1237,25 +1258,21 @@ $$</p>
 		data-flex-basis="525px"
 	
 ></p>
-<h3 id="verilog-代码-1">Verilog 代码</h3>
+<h3 id="verilog-2">Verilog</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">TriState_Buffer</span>
-</span></span><span class="line"><span class="cl">	<span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"> 	<span class="c1">// allow n to be changed externally
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)(</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">E</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">D</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Y</span>
@@ -1278,33 +1295,36 @@ $$</p>
 		data-flex-basis="273px"
 	
 ></p>
-<h3 id="x--y-迭代比较器">X &gt; Y 迭代比较器</h3>
+<h3 id="4-bit-x--y-comparator">4-bit X &gt; Y Comparator</h3>
 <ol>
-<li>电路</li>
+<li>设计</li>
 </ol>
-<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/24.png"
-	width="593"
-	height="418"
-	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/24_hu052483f7511ec59170a9cdbf9f47737f_21316_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/24_hu052483f7511ec59170a9cdbf9f47737f_21316_1024x0_resize_box_3.png 1024w"
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/38.png"
+	width="746"
+	height="864"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/38_hua0bcaab7a7b00e5c0f82afb2415b41ae_73204_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/38_hua0bcaab7a7b00e5c0f82afb2415b41ae_73204_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="141"
-		data-flex-basis="340px"
+		data-flex-grow="86"
+		data-flex-basis="207px"
+	
+></p>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/39.png"
+	width="696"
+	height="435"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/39_hubb9c4499b9b012c8a9423dff68fbaa72_29766_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/39_hubb9c4499b9b012c8a9423dff68fbaa72_29766_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="160"
+		data-flex-basis="384px"
 	
 ></p>
 <ol start="2">
-<li>布尔函数</li>
-</ol>
-<p>$$
-\begin{aligned}
-g_{out} &amp;= g_{in} + e_{in}x_iy_i&rsquo; \\
-e_{out} &amp;= g_{in}e_{in} + e_{in}x_i&rsquo;y_i&rsquo; + e_{in}x_iy_i
-\end{aligned}
-$$</p>
-<ol start="3">
-<li>Verilog 代码</li>
+<li>Verilog (Behavioral Code)</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1338,7 +1358,7 @@ $$</p>
 		data-flex-basis="389px"
 	
 ></p>
-<h3 id="四位shifter">四位Shifter</h3>
+<h3 id="4-bit-shifter">4-bit Shifter</h3>
 <p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/26.png"
 	width="760"
 	height="298"
@@ -1351,7 +1371,7 @@ $$</p>
 		data-flex-basis="612px"
 	
 ></p>
-<h3 id="verilog-代码-2">Verilog 代码</h3>
+<h3 id="verilog-3">Verilog</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1382,14 +1402,14 @@ $$</p>
 </span></span><span class="line"><span class="cl">		<span class="mi">0</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="nv">date_in</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">		<span class="mi">1</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="nv">date_in</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">		<span class="mi">2</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="nv">date_in</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">		<span class="mi">3</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="p">{</span><span class="nv">date_in</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="nv">data_out</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">1</span><span class="p">]}</span>
+</span></span><span class="line"><span class="cl">		<span class="mi">3</span><span class="p">:</span> <span class="nv">data_out</span> <span class="o">=</span> <span class="p">{</span><span class="nv">date_in</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="nv">data_out</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">1</span><span class="p">]};</span>
 </span></span><span class="line"><span class="cl">		<span class="nv">endcase</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">end</span>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="multiplier">Multiplier</h2>
-<h3 id="乘法器原理">乘法器原理</h3>
+<h3 id="原理-电路图">原理 电路图</h3>
 <p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/27.png"
 	width="706"
 	height="777"
@@ -1402,7 +1422,7 @@ $$</p>
 		data-flex-basis="218px"
 	
 ></p>
-<h3 id="verilog-代码-3">Verilog 代码</h3>
+<h3 id="verilog-4">Verilog</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1422,7 +1442,26 @@ $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="parity-generatorchecker">Parity Generator/Checker</h2>
-<h3 id="verilog">Verilog</h3>
+<h3 id="电路">电路</h3>
+<p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/40.png"
+	width="764"
+	height="384"
+	srcset="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/40_hu1ae36648c3565c8df75d936c2744af0c_45458_480x0_resize_box_3.png 480w, /p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/40_hu1ae36648c3565c8df75d936c2744af0c_45458_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="477px"
+	
+></p>
+<ol>
+<li>校验位</li>
+</ol>
+<ul>
+<li>奇数为1. 偶数为0</li>
+</ul>
+<h3 id="verilog-5">Verilog</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1438,8 +1477,8 @@ $$</p>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">DB</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="nc">EVEN</span><span class="p">,</span> <span class="nc">ODD</span>
 </span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="nc">ODD</span> <span class="o">=</span> <span class="nc">DB</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="o">^</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span> <span class="c1">//异或，1的个数为奇数就是1,为偶数就是0
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nc">EVEN</span> <span class="o">=</span> <span class="o">~</span><span class="nc">ODD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">ODD</span> <span class="o">=</span> <span class="nc">DB</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="o">^</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">^</span><span class="nc">DB</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">EVEN</span> <span class="o">=</span> <span class="o">~</span><span class="nc">ODD</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -1454,7 +1493,7 @@ $$</p>
 <p><strong>The number of outputs</strong> that a gate can have in a particular logic family</p>
 </blockquote>
 <h2 id="cmos反相器">CMOS反相器</h2>
-<h3 id="电路">电路</h3>
+<h3 id="电路-1">电路</h3>
 <p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/5.png"
 	width="367"
 	height="411"
@@ -1480,6 +1519,14 @@ $$</p>
 		data-flex-basis="265px"
 	
 ></p>
+<ul>
+<li>
+<p>低电位时，PMOS导通，NMOS截止</p>
+</li>
+<li>
+<p>高电位时，PMOS截止，NMOS导通</p>
+</li>
+</ul>
 <h3 id="cmos-逻辑系列电平规格">CMOS 逻辑系列电平规格</h3>
 <p><img src="/p/4.%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/22.png"
 	width="569"
@@ -1493,7 +1540,7 @@ $$</p>
 		data-flex-basis="441px"
 	
 ></p>
-<h3 id="electrical-behavior">Electrical Behavior</h3>
+<h3 id="上下拉电阻">上/下拉电阻</h3>
 <ol>
 <li>上拉$p$电阻</li>
 </ol>
@@ -1510,7 +1557,7 @@ $$</p>
 	
 ></p>
 <p>$$
-上拉电阻 \ R_{p(on)} = \frac{V_{DD} - V_{OHminT}}{|I_{OHmax}|}
+上拉电阻 \ R_{p(on)} = \frac{V_{CC} - V_{OHminT}}{|I_{OHmax}|}
 $$</p>
 <ol start="2">
 <li>下拉$p$电阻</li>

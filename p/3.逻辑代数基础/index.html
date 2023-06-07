@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本逻辑系统表达 三种基本运算 AND $\cdot$ OR $&#43;$ NOR $&#39;$ 对偶定律 反演定律 定义 等号两边同时对偶，等式依然成立
 对偶的法则 与变或，或变与
@@ -307,8 +307,7 @@ $$ 已知Y=A’B’&#43;C’DE’&#43;0 \\\ \\ 取反式为Y’= (A&#43;B) \cdot
         </li>
         <li><a href="#最小项minterm与最大项maxterm">最小项(Minterm)与最大项(Maxterm)</a>
           <ol>
-            <li><a href="#最小项">最小项</a></li>
-            <li><a href="#最大项">最大项</a></li>
+            <li><a href="#性质">性质</a></li>
           </ol>
         </li>
       </ol>
@@ -581,14 +580,15 @@ $$</p>
 	
 ></p>
 <h2 id="最小项minterm与最大项maxterm">最小项(Minterm)与最大项(Maxterm)</h2>
-<h3 id="最小项">最小项</h3>
-<blockquote>
-<p>对于$n$个因子,最小项有$2^n$个,该乘积项包含 n 个变量中的每一个变量,若每一个变量都以原变量或反变量的形式出现,且只出现一次,则该乘积项称为最小项。</p>
-</blockquote>
-<h3 id="最大项">最大项</h3>
-<blockquote>
-<p>具有 $n$ 个因子的标准求和项。对于一个 $n$ 变量的函数,该和项包括 $n$ 个变量中的每一个变量,若每个变量都以原变量或反变量的形式出现一次,且只出现一次,则该求和项称为最大项。</p>
-</blockquote>
+<h3 id="性质">性质</h3>
+<ol>
+<li>
+<p>最小项取反是<strong>逆</strong>的最大项: $m_i&rsquo; = M_i$</p>
+</li>
+<li>
+<p>$m_i^D = M_j, i + j = 2^n - 1$ (n为变量数)</p>
+</li>
+</ol>
 <h1 id="卡诺图">卡诺图</h1>
 <h2 id="画法">画法</h2>
 <ol>

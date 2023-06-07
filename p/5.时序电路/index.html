@@ -1,30 +1,18 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Bistable Element 电路图 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) - SR 锁存器 特点 当S=1，R=1时，SR Latch处于保持状态，Q和Q&amp;rsquo;的状态不变。
-当S=1，R=0时，SR Latch进入置位状态，Q=1，Q&amp;rsquo;=0。
-当S=0，R=1时，SR Latch进入复位状态，Q=0，Q&amp;rsquo;=1。
-当S=0，R=0时，SR Latch处于禁止状态，输出不确定。
-实现方法 串联与非门 电路 时序图 真值表 串联或非门 逻辑符号 Gated SR Latch D SR Latch 效果:输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Bistable Element 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) - SR 锁存器 与非门 或非门 Gated SR Latch / S Latch With Enable (NAND) D Latch (NAND) 效果:输出端保持稳定 Gated D Latch 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule 总结 NAND NOR 输入为$11$是不稳定的 输入为00是不稳定的 Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 module clock_divider #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 ( input clock_in, // 50MHz Input Clock output reg clock ); reg [24:0] count; always @ (posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 1; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变'>
 <title>5.时序电路</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5.时序电路'>
-<meta property='og:description' content='Bistable Element 电路图 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) - SR 锁存器 特点 当S=1，R=1时，SR Latch处于保持状态，Q和Q&amp;rsquo;的状态不变。
-当S=1，R=0时，SR Latch进入置位状态，Q=1，Q&amp;rsquo;=0。
-当S=0，R=1时，SR Latch进入复位状态，Q=0，Q&amp;rsquo;=1。
-当S=0，R=0时，SR Latch处于禁止状态，输出不确定。
-实现方法 串联与非门 电路 时序图 真值表 串联或非门 逻辑符号 Gated SR Latch D SR Latch 效果:输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变'>
+<meta property='og:description' content='Bistable Element 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) - SR 锁存器 与非门 或非门 Gated SR Latch / S Latch With Enable (NAND) D Latch (NAND) 效果:输出端保持稳定 Gated D Latch 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule 总结 NAND NOR 输入为$11$是不稳定的 输入为00是不稳定的 Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 module clock_divider #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 ( input clock_in, // 50MHz Input Clock output reg clock ); reg [24:0] count; always @ (posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 1; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变'>
 <meta property='og:url' content='https://downeyflyfan.com/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-04T10:06:42&#43;08:00'/><meta property='article:modified_time' content='2023-04-04T10:06:42&#43;08:00'/>
 <meta name="twitter:title" content="5.时序电路">
-<meta name="twitter:description" content="Bistable Element 电路图 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) - SR 锁存器 特点 当S=1，R=1时，SR Latch处于保持状态，Q和Q&amp;rsquo;的状态不变。
-当S=1，R=0时，SR Latch进入置位状态，Q=1，Q&amp;rsquo;=0。
-当S=0，R=1时，SR Latch进入复位状态，Q=0，Q&amp;rsquo;=1。
-当S=0，R=0时，SR Latch处于禁止状态，输出不确定。
-实现方法 串联与非门 电路 时序图 真值表 串联或非门 逻辑符号 Gated SR Latch D SR Latch 效果:输出端保持稳定 Gated D Latch 电路 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 module clock_divider( #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 input clock_in, output reg clock ); reg [24:0] count; always@(posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 2; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Bistable Element 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) - SR 锁存器 与非门 或非门 Gated SR Latch / S Latch With Enable (NAND) D Latch (NAND) 效果:输出端保持稳定 Gated D Latch 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule 总结 NAND NOR 输入为$11$是不稳定的 输入为00是不稳定的 Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 module clock_divider #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 ( input clock_in, // 50MHz Input Clock output reg clock ); reg [24:0] count; always @ (posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 1; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -262,47 +250,35 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#bistable-element">Bistable Element</a>
-      <ol>
-        <li><a href="#电路图">电路图</a></li>
-      </ol>
-    </li>
+    <li><a href="#bistable-element">Bistable Element</a></li>
     <li><a href="#sr-latch-set-reset---sr-锁存器">SR Latch (Set Reset) - SR 锁存器</a>
       <ol>
-        <li><a href="#特点">特点</a></li>
-        <li><a href="#实现方法">实现方法</a>
-          <ol>
-            <li><a href="#串联与非门">串联与非门</a></li>
-            <li><a href="#串联或非门">串联或非门</a></li>
-            <li><a href="#逻辑符号">逻辑符号</a></li>
-          </ol>
-        </li>
-        <li><a href="#gated-sr-latch">Gated SR Latch</a></li>
-        <li><a href="#d-sr-latch">D SR Latch</a></li>
-        <li><a href="#gated-d-latch">Gated D Latch</a>
-          <ol>
-            <li><a href="#电路">电路</a></li>
-            <li><a href="#verilog-code">Verilog Code</a></li>
-          </ol>
-        </li>
+        <li><a href="#与非门">与非门</a></li>
+        <li><a href="#或非门">或非门</a></li>
+        <li><a href="#gated-sr-latch--s-latch-with-enable-nand">Gated SR Latch / S Latch With Enable (NAND)</a></li>
+        <li><a href="#d-latch-nand">D Latch (NAND)</a></li>
+        <li><a href="#gated-d-latch">Gated D Latch</a></li>
+        <li><a href="#verilog-code">Verilog Code</a></li>
+        <li><a href="#总结">总结</a></li>
       </ol>
     </li>
     <li><a href="#clock-divider">Clock Divider</a></li>
     <li><a href="#d-flip-flop">D Flip-Flop</a>
       <ol>
         <li><a href="#定义">定义</a></li>
-        <li><a href="#verilog-代码">Verilog 代码</a></li>
-        <li><a href="#逻辑符号-采样电路-truth-table">逻辑符号 采样电路 Truth Table</a></li>
+        <li><a href="#behavioral-verilog">Behavioral Verilog</a></li>
+        <li><a href="#master-slave-positive-edge-triggered-d-flip-flop">Master-slave positive edge-triggered D flip-flop</a></li>
         <li><a href="#用sr-latch-实现-d-flip-flop">用SR-Latch 实现 D Flip-Flop</a></li>
         <li><a href="#描述---状态图-方程-特征表">描述 - 状态图 方程 特征表</a></li>
         <li><a href="#master-slave-negative-edge-triggered-d-flip-flop">master-slave negative edge-triggered D flip-flop</a></li>
+        <li><a href="#d-flip-flop-with-enable">D flip-flop With Enable</a></li>
       </ol>
     </li>
     <li><a href="#register-file">Register File</a>
       <ol>
         <li><a href="#定义-1">定义</a></li>
         <li><a href="#register-verilog">Register Verilog</a></li>
-        <li><a href="#电路-1">电路</a></li>
+        <li><a href="#4-location-x-8-bit-register-file-circuit">4 location x 8-bit Register File Circuit</a></li>
         <li><a href="#register-file-verilog">Register File Verilog</a></li>
         <li><a href="#4-bit-bidirectional-parallel-in-parallel-out-register">4-bit bidirectional, parallel-in, parallel-out Register</a>
           <ol>
@@ -316,18 +292,22 @@
       <ol>
         <li><a href="#rom">ROM</a>
           <ol>
+            <li><a href="#逻辑符号-操作表">逻辑符号 操作表</a></li>
             <li><a href="#verilog">Verilog</a></li>
           </ol>
         </li>
         <li><a href="#ram">RAM</a>
           <ol>
+            <li><a href="#逻辑符号-操作表-1">逻辑符号 操作表</a></li>
+            <li><a href="#4times-4-ram">$4\times 4$ RAM</a></li>
             <li><a href="#经典ram-verilog-代码">经典RAM Verilog 代码</a></li>
+            <li><a href="#32times-8-ram-used-in-ec-2-microprocessor">$32\times 8$ RAM used in EC-2 Microprocessor</a></li>
           </ol>
         </li>
         <li><a href="#shift-register">Shift Register</a>
           <ol>
+            <li><a href="#4-bit-serial-to-parallel-register">4-bit serial-to-parallel register</a></li>
             <li><a href="#right-shift-register">Right Shift Register</a></li>
-            <li><a href="#4-bit-shift-register">4-bit Shift Register</a></li>
           </ol>
         </li>
       </ol>
@@ -336,8 +316,12 @@
       <ol>
         <li><a href="#4-bit-binary-up-counter">4-bit Binary Up Counter</a>
           <ol>
-            <li><a href="#74x163">74x163</a></li>
-            <li><a href="#rco">RCO</a></li>
+            <li><a href="#verilog-1">Verilog</a></li>
+          </ol>
+        </li>
+        <li><a href="#74x163---4-bit-binary-synchronous-counter">74x163 - 4-bit Binary Synchronous Counter</a>
+          <ol>
+            <li><a href="#rco-reset-carry-out">RCO (Reset Carry-Out)</a></li>
           </ol>
         </li>
         <li><a href="#shift-register-counters">Shift-Register Counters</a>
@@ -347,14 +331,14 @@
         </li>
         <li><a href="#ring-counters">Ring Counters</a>
           <ol>
-            <li><a href="#电路-2">电路</a></li>
+            <li><a href="#电路">电路</a></li>
             <li><a href="#状态">状态</a></li>
             <li><a href="#self-correcting">Self-Correcting</a></li>
           </ol>
         </li>
         <li><a href="#johnson-counter-扭环计数器">Johnson Counter (扭环计数器)</a>
           <ol>
-            <li><a href="#电路-3">电路</a></li>
+            <li><a href="#电路-1">电路</a></li>
             <li><a href="#状态-1">状态</a></li>
             <li><a href="#self-correcting-1">Self-Correcting</a></li>
           </ol>
@@ -450,7 +434,7 @@
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -466,7 +450,6 @@
     
     
     <h1 id="bistable-element">Bistable Element</h1>
-<h2 id="电路图">电路图</h2>
 <p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/1.png"
 	width="242"
 	height="160"
@@ -483,69 +466,20 @@
 <li>串联两个<strong>Inverter</strong>达到保持<strong>input</strong>和<strong>output</strong>都不变的效果</li>
 </ul>
 <h1 id="sr-latch-set-reset---sr-锁存器">SR Latch (Set Reset) - SR 锁存器</h1>
-<h2 id="特点">特点</h2>
-<ol>
-<li>
-<p>当S=1，R=1时，SR Latch处于保持状态，Q和Q&rsquo;的状态不变。</p>
-</li>
-<li>
-<p>当S=1，R=0时，SR Latch进入置位状态，Q=1，Q&rsquo;=0。</p>
-</li>
-<li>
-<p>当S=0，R=1时，SR Latch进入复位状态，Q=0，Q&rsquo;=1。</p>
-</li>
-<li>
-<p>当S=0，R=0时，SR Latch处于禁止状态，输出不确定。</p>
-</li>
-</ol>
-<h2 id="实现方法">实现方法</h2>
-<h3 id="串联与非门">串联与非门</h3>
-<ol>
-<li>电路</li>
-</ol>
-<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/2.png"
-	width="375"
-	height="366"
-	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/2_huf2eff64f043a4cee94f15764c79886aa_10163_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/2_huf2eff64f043a4cee94f15764c79886aa_10163_1024x0_resize_box_3.png 1024w"
+<h2 id="与非门">与非门</h2>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/35.png"
+	width="725"
+	height="578"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/35_hud589489651c8ac3f495f4e519c761b7c_37236_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/35_hud589489651c8ac3f495f4e519c761b7c_37236_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="102"
-		data-flex-basis="245px"
+		data-flex-grow="125"
+		data-flex-basis="301px"
 	
 ></p>
-<ol start="2">
-<li>时序图</li>
-</ol>
-<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/3.png"
-	width="612"
-	height="288"
-	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/3_hu62e4d27093877211d9ae1c66158d03f7_16936_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/3_hu62e4d27093877211d9ae1c66158d03f7_16936_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="212"
-		data-flex-basis="510px"
-	
-></p>
-<ol start="3">
-<li>真值表</li>
-</ol>
-<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/33.png"
-	width="398"
-	height="269"
-	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/33_hu653f789a881694090cc5db85cd154188_11408_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/33_hu653f789a881694090cc5db85cd154188_11408_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="147"
-		data-flex-basis="355px"
-	
-></p>
-<h3 id="串联或非门">串联或非门</h3>
+<h2 id="或非门">或非门</h2>
 <p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/34.png"
 	width="949"
 	height="288"
@@ -558,50 +492,36 @@
 		data-flex-basis="790px"
 	
 ></p>
-<h3 id="逻辑符号">逻辑符号</h3>
-<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/5.png"
-	width="213"
-	height="192"
-	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/5_huf6430daccca14b16128d9cc3f2d34c80_4250_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/5_huf6430daccca14b16128d9cc3f2d34c80_4250_1024x0_resize_box_3.png 1024w"
+<h2 id="gated-sr-latch--s-latch-with-enable-nand">Gated SR Latch / S Latch With Enable (NAND)</h2>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/36.png"
+	width="739"
+	height="517"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/36_hu3d0d66efab994182d9f5608f2afd347a_34320_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/36_hu3d0d66efab994182d9f5608f2afd347a_34320_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="110"
-		data-flex-basis="266px"
+		data-flex-grow="142"
+		data-flex-basis="343px"
 	
 ></p>
-<h2 id="gated-sr-latch">Gated SR Latch</h2>
-<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/6.png"
-	width="424"
-	height="293"
-	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/6_hu1b143fd539b3e90bd7262b8c6b7e4609_12485_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/6_hu1b143fd539b3e90bd7262b8c6b7e4609_12485_1024x0_resize_box_3.png 1024w"
+<h2 id="d-latch-nand">D Latch (NAND)</h2>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/37.png"
+	width="775"
+	height="281"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/37_huffe2cbc1702f08fd55f3ed69ce9ddb6c_27906_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/37_huffe2cbc1702f08fd55f3ed69ce9ddb6c_27906_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="144"
-		data-flex-basis="347px"
-	
-></p>
-<h2 id="d-sr-latch">D SR Latch</h2>
-<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/7.png"
-	width="420"
-	height="265"
-	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/7_hufc446d127c156d62b5813c17f5fc905a_10144_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/7_hufc446d127c156d62b5813c17f5fc905a_10144_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="158"
-		data-flex-basis="380px"
+		data-flex-grow="275"
+		data-flex-basis="661px"
 	
 ></p>
 <ul>
 <li>效果:<strong>输出端保持稳定</strong></li>
 </ul>
 <h2 id="gated-d-latch">Gated D Latch</h2>
-<h3 id="电路">电路</h3>
 <ol>
 <li>2 NAND</li>
 </ol>
@@ -632,7 +552,7 @@
 		data-flex-basis="388px"
 	
 ></p>
-<h3 id="verilog-code">Verilog Code</h3>
+<h2 id="verilog-code">Verilog Code</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -661,7 +581,22 @@
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="clock-divider">Clock Divider</h1>
+</div><h2 id="总结">总结</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">NAND</th>
+<th style="text-align:center">NOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">输入为$11$是<strong>不稳定的</strong></td>
+<td style="text-align:center">输入为<strong>00</strong>是不稳定的</td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="clock-divider">Clock Divider</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -681,15 +616,19 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">clock_divider</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nv">clock_divider</span>
 </span></span><span class="line"><span class="cl"><span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="p">[</span><span class="err">24</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">half</span> <span class="o">=</span> <span class="mi">25</span><span class="s1">&#39;d6250000) // 指定时钟分频的周期
-</span></span></span><span class="line"><span class="cl"><span class="s1">	input clock_in,
+</span></span></span><span class="line"><span class="cl"><span class="s1">(
+</span></span></span><span class="line"><span class="cl"><span class="s1">	input clock_in, // 50MHz Input Clock
 </span></span></span><span class="line"><span class="cl"><span class="s1">	output reg clock
-</span></span></span><span class="line"><span class="cl"><span class="s1">);
+</span></span></span><span class="line"><span class="cl"><span class="s1">    );
 </span></span></span><span class="line"><span class="cl"><span class="s1">	reg [24:0] count;
-</span></span></span><span class="line"><span class="cl"><span class="s1">	always@(posedge clock_in)
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">	always @ (posedge clock_in)
 </span></span></span><span class="line"><span class="cl"><span class="s1">	begin
 </span></span></span><span class="line"><span class="cl"><span class="s1">        if (count == half)
 </span></span></span><span class="line"><span class="cl"><span class="s1">        begin
@@ -697,7 +636,7 @@
 </span></span><span class="line"><span class="cl">			<span class="nv">clock</span> <span class="o">=</span> <span class="o">~</span><span class="nv">clock</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">end</span>
 </span></span><span class="line"><span class="cl">		<span class="k">else</span>
-</span></span><span class="line"><span class="cl">			<span class="nv">count</span> <span class="o">&lt;=</span> <span class="nv">count</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="nv">count</span> <span class="o">&lt;=</span> <span class="nv">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">end</span>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
@@ -707,7 +646,7 @@
 <blockquote>
 <p>当<strong>时钟输入端</strong>接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变</p>
 </blockquote>
-<h2 id="verilog-代码">Verilog 代码</h2>
+<h2 id="behavioral-verilog">Behavioral Verilog</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -762,29 +701,17 @@
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="逻辑符号-采样电路-truth-table">逻辑符号 采样电路 Truth Table</h2>
-<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/10.png"
-	width="945"
-	height="429"
-	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/10_hubf18ed61048eaa2b4dcba4f79c1c4a9e_28472_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/10_hubf18ed61048eaa2b4dcba4f79c1c4a9e_28472_1024x0_resize_box_3.png 1024w"
+</div><h2 id="master-slave-positive-edge-triggered-d-flip-flop">Master-slave positive edge-triggered D flip-flop</h2>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/38.png"
+	width="838"
+	height="624"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/38_hudf447758efd0eb79f74496ceff62c2dc_62838_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/38_hudf447758efd0eb79f74496ceff62c2dc_62838_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="220"
-		data-flex-basis="528px"
-	
-></p>
-<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/16.png"
-	width="424"
-	height="411"
-	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/16_hu2d2217bb961f78ffa6a75f2dc476a429_22229_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/16_hu2d2217bb961f78ffa6a75f2dc476a429_22229_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="103"
-		data-flex-basis="247px"
+		data-flex-grow="134"
+		data-flex-basis="322px"
 	
 ></p>
 <h2 id="用sr-latch-实现-d-flip-flop">用SR-Latch 实现 D Flip-Flop</h2>
@@ -844,6 +771,19 @@ $$</p>
 		data-flex-basis="570px"
 	
 ></p>
+<h2 id="d-flip-flop-with-enable">D flip-flop With Enable</h2>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/39.png"
+	width="930"
+	height="470"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/39_hu23cf8760555039e9fb3accfe7126e896_48949_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/39_hu23cf8760555039e9fb3accfe7126e896_48949_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="474px"
+	
+></p>
 <h1 id="register-file">Register File</h1>
 <h2 id="定义-1">定义</h2>
 <blockquote>
@@ -867,17 +807,15 @@ $$</p>
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nv">register</span>
-</span></span><span class="line"><span class="cl"><span class="o">#</span> <span class="p">(</span><span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="nv">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">(</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">Clock</span><span class="p">,</span><span class="nc">Clear</span><span class="p">,</span><span class="nc">Load</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">D</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="na">n</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Q</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">always</span> <span class="o">@</span><span class="p">(</span><span class="nv">posedge</span> <span class="nc">Clock</span> <span class="k">or</span> <span class="nv">posedge</span> <span class="nc">Clear</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">begin</span>
 </span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="nc">Clear</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
@@ -888,10 +826,7 @@ $$</p>
 </span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="电路-1">电路</h2>
-<ul>
-<li>$4\times 8$ Register File</li>
-</ul>
+</div><h2 id="4-location-x-8-bit-register-file-circuit">4 location x 8-bit Register File Circuit</h2>
 <p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/14.png"
 	width="1086"
 	height="854"
@@ -904,6 +839,36 @@ $$</p>
 		data-flex-basis="305px"
 	
 ></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">WA</th>
+<th style="text-align:center">Write Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">WE</td>
+<td style="text-align:center">Write Enable</td>
+</tr>
+<tr>
+<td style="text-align:center">RAA</td>
+<td style="text-align:center">Read A Address</td>
+</tr>
+<tr>
+<td style="text-align:center">RAE</td>
+<td style="text-align:center">Read A Enable</td>
+</tr>
+<tr>
+<td style="text-align:center">RBA</td>
+<td style="text-align:center">Read B Address</td>
+</tr>
+<tr>
+<td style="text-align:center">RBE</td>
+<td style="text-align:center">Read B Enable</td>
+</tr>
+</tbody>
+</table></div>
 <h2 id="register-file-verilog">Register File Verilog</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -972,8 +937,8 @@ $$</p>
 </span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nc">RAE</span><span class="p">,</span><span class="nc">RBE</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nc">RAA</span><span class="p">,</span><span class="nc">RBA</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">PortA</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">PortB</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">PortB</span> <span class="c1">// 注意输出是reg变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">reg0</span><span class="p">,</span><span class="nv">reg1</span><span class="p">,</span><span class="nv">reg2</span><span class="p">,</span><span class="nv">reg3</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="nv">always</span><span class="o">@</span><span class="p">(</span><span class="nv">posedge</span> <span class="nc">Clock</span><span class="p">)</span>
@@ -987,7 +952,7 @@ $$</p>
 </span></span><span class="line"><span class="cl">            <span class="nv">endcase</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">end</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="nv">always</span> <span class="o">@</span><span class="p">(</span><span class="nc">RAA</span><span class="p">,</span><span class="nc">RAE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">always</span> <span class="o">@</span><span class="p">(</span><span class="nc">RAA</span><span class="p">,</span> <span class="nc">RAE</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">begin</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nc">RAE</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">begin</span>
@@ -1050,6 +1015,19 @@ $$</p>
 ></p>
 <h1 id="内存">内存</h1>
 <h2 id="rom">ROM</h2>
+<h3 id="逻辑符号-操作表">逻辑符号 操作表</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/40.png"
+	width="836"
+	height="360"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/40_hu26ff66d699129c9e550c2fad9bc3495a_39854_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/40_hu26ff66d699129c9e550c2fad9bc3495a_39854_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="232"
+		data-flex-basis="557px"
+	
+></p>
 <h3 id="verilog">Verilog</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1072,7 +1050,6 @@ $$</p>
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">ROM</span>
@@ -1081,24 +1058,116 @@ $$</p>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="na">size</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Address</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">EO</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">D</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">mem</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">**</span><span class="nv">size</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nv">initial</span> 
-</span></span><span class="line"><span class="cl">	<span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">initial</span>	<span class="nv">begin</span>
 </span></span><span class="line"><span class="cl">		<span class="nv">mem</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="s1">&#39;b01100000; // IN A
 </span></span></span><span class="line"><span class="cl"><span class="s1">		mem[1] &lt;= 8&#39;</span><span class="nv">b10000000</span><span class="p">;</span> <span class="c1">// OUT A
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nv">mem</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="s1">&#39;b10100000; // DEC A
 </span></span></span><span class="line"><span class="cl"><span class="s1">		mem[3] &lt;= 8&#39;</span><span class="nv">b11000001</span><span class="p">;</span> <span class="c1">// JNZ 0001
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nv">mem</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="s1">&#39;b11111111; // HALT
 </span></span></span><span class="line"><span class="cl"><span class="s1">	end
-</span></span></span><span class="line"><span class="cl"><span class="s1">	
-</span></span></span><span class="line"><span class="cl"><span class="s1">	assign D = (OE) ? mem[Address]: 8&#39;</span><span class="nv">bz</span><span class="p">;</span> <span class="c1">//8&#39;bz意为8位二进制未知数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">endmodule</span>
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">	assign D = (OE) ? mem[Address]: 8&#39;</span><span class="nv">bz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="ram">RAM</h2>
+<h3 id="逻辑符号-操作表-1">逻辑符号 操作表</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/41.png"
+	width="756"
+	height="307"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/41_hu3a3349b4b982ce8337e26fe927175770_41709_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/41_hu3a3349b4b982ce8337e26fe927175770_41709_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="246"
+		data-flex-basis="591px"
+	
+></p>
+<h3 id="4times-4-ram">$4\times 4$ RAM</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/42.png"
+	width="815"
+	height="646"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/42_huc548c69bedbcab71969c0b6e6b276ded_62309_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/42_huc548c69bedbcab71969c0b6e6b276ded_62309_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="126"
+		data-flex-basis="302px"
+	
+></p>
 <h3 id="经典ram-verilog-代码">经典RAM Verilog 代码</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">CE</th>
+<th style="text-align:center">WR</th>
+<th style="text-align:center">EO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Chip</strong> Enable</td>
+<td style="text-align:center"><strong>Write</strong></td>
+<td style="text-align:center"><strong>Enable</strong> Output</td>
+</tr>
+</tbody>
+</table></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">RAM</span>
+</span></span><span class="line"><span class="cl"><span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="nv">size</span> <span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">CE</span><span class="p">,</span><span class="nc">WR</span><span class="p">,</span><span class="nc">OE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="na">size</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Address</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">mem</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">**</span><span class="nv">size</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">data_out</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">Data</span> <span class="o">=</span> <span class="p">(</span><span class="nc">CE</span> <span class="o">&amp;</span> <span class="nc">OE</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nc">WR</span><span class="p">)</span> <span class="kd">?</span> <span class="nv">data_out</span><span class="p">:</span> <span class="mi">8</span><span class="s1">&#39;bz; // Data should output the previously stored value which can be accessed from data_out
+</span></span></span><span class="line"><span class="cl"><span class="s1">	always@(*) begin
+</span></span></span><span class="line"><span class="cl"><span class="s1">        if(CE &amp;&amp; WR)
+</span></span></span><span class="line"><span class="cl"><span class="s1">		    mem[Address] = Data;
+</span></span></span><span class="line"><span class="cl"><span class="s1">	end
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">	always@(*)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    begin
+</span></span></span><span class="line"><span class="cl"><span class="s1">        if (CE &amp; OE &amp; ~WR)
+</span></span></span><span class="line"><span class="cl"><span class="s1">            data_out = mem[Address];
+</span></span></span><span class="line"><span class="cl"><span class="s1">    end
+</span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="32times-8-ram-used-in-ec-2-microprocessor">$32\times 8$ RAM used in EC-2 Microprocessor</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1124,34 +1193,63 @@ $$</p>
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nc">RAM</span>
-</span></span><span class="line"><span class="cl"><span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="nv">size</span> <span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">input</span> <span class="nc">CE</span><span class="p">,</span><span class="nc">WR</span><span class="p">,</span><span class="nc">OE</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">inout</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Data</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">output</span> <span class="p">[</span><span class="na">size</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Address</span>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="kn">module</span> <span class="nf">ram</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="o">#</span><span class="p">(</span><span class="nv">parameter</span> <span class="nv">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nc">Clock</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nc">Reset</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="nc">WE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="p">[</span><span class="na">size</span><span class="err">-1</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Address</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">input</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">D</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">output</span> <span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nc">Q</span>
 </span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">mem</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">**</span><span class="nv">size</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">data_out</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nv">assign</span> <span class="nc">Data</span> <span class="o">=</span> <span class="p">(</span><span class="nc">CE</span> <span class="o">&amp;</span> <span class="nc">OE</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nc">WR</span><span class="p">)</span> <span class="kd">?</span> <span class="nv">data_out</span><span class="p">:</span> <span class="mi">8</span><span class="s1">&#39;bz;
-</span></span></span><span class="line"><span class="cl"><span class="s1">	always@(*)
-</span></span></span><span class="line"><span class="cl"><span class="s1">	begin
-</span></span></span><span class="line"><span class="cl"><span class="s1">        if(CE &amp;&amp; WR)
-</span></span></span><span class="line"><span class="cl"><span class="s1">		    mem[Address] = Data;
-</span></span></span><span class="line"><span class="cl"><span class="s1">	end
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">	always@(*)
-</span></span></span><span class="line"><span class="cl"><span class="s1">    begin
-</span></span></span><span class="line"><span class="cl"><span class="s1">        if (CE &amp; OE &amp; ~WR)
-</span></span></span><span class="line"><span class="cl"><span class="s1">            data_out = mem[Address];
-</span></span></span><span class="line"><span class="cl"><span class="s1">    end
-</span></span></span><span class="line"><span class="cl"><span class="s1">endmodule
-</span></span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="nv">reg</span> <span class="p">[</span><span class="err">7</span><span class="p">:</span><span class="s">0</span><span class="p">]</span> <span class="nv">mem</span><span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="nv">size</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">always</span> <span class="o">@</span><span class="p">(</span><span class="nv">posedge</span> <span class="nc">Clock</span> <span class="k">or</span> <span class="nv">posedge</span> <span class="nc">Reset</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nc">Reset</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">mem</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="s1">&#39;b10000000; // IN A
+</span></span></span><span class="line"><span class="cl"><span class="s1">    mem[1] &lt;= 8&#39;</span><span class="nv">b01111111</span><span class="p">;</span> <span class="c1">// SUB A,11111
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">mem</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="s1">&#39;b10100100; // JZ 00100
+</span></span></span><span class="line"><span class="cl"><span class="s1">    mem[3] &lt;= 8&#39;</span><span class="nv">b11000001</span><span class="p">;</span> <span class="c1">// JPOS 00001
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">mem</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="s1">&#39;b11111111; // HALT
+</span></span></span><span class="line"><span class="cl"><span class="s1">    mem[31]&lt;= 8&#39;</span><span class="nv">b00000001</span><span class="p">;</span> <span class="c1">// storage for the constant 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">end</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nc">WE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">mem</span><span class="p">[</span><span class="nc">Address</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nc">D</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">end</span> <span class="c1">// always
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">always</span> <span class="o">@</span> <span class="p">(</span><span class="nc">Address</span><span class="p">)</span> <span class="nv">begin</span>
+</span></span><span class="line"><span class="cl">    <span class="nc">Q</span> <span class="o">&lt;=</span> <span class="nv">mem</span><span class="p">[</span><span class="nc">Address</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nv">end</span>
+</span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="shift-register">Shift Register</h2>
+<h3 id="4-bit-serial-to-parallel-register">4-bit serial-to-parallel register</h3>
+<p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/43.png"
+	width="894"
+	height="640"
+	srcset="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/43_hu263584aae387e356692deb7e1774d0cb_66821_480x0_resize_box_3.png 480w, /p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/43_hu263584aae387e356692deb7e1774d0cb_66821_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="139"
+		data-flex-basis="335px"
+	
+></p>
 <h3 id="right-shift-register">Right Shift Register</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1189,12 +1287,9 @@ $$</p>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="4-bit-shift-register">4-bit Shift Register</h3>
-<ol>
-<li></li>
-</ol>
-<h1 id="counter">Counter</h1>
+</div><h1 id="counter">Counter</h1>
 <h2 id="4-bit-binary-up-counter">4-bit Binary Up Counter</h2>
+<h3 id="verilog-1">Verilog</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1239,7 +1334,7 @@ $$</p>
 </span></span><span class="line"><span class="cl"><span class="nv">endmodule</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="74x163">74x163</h3>
+</div><h2 id="74x163---4-bit-binary-synchronous-counter">74x163 - 4-bit Binary Synchronous Counter</h2>
 <p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/17.png"
 	width="415"
 	height="267"
@@ -1252,17 +1347,17 @@ $$</p>
 		data-flex-basis="373px"
 	
 ></p>
-<h3 id="rco">RCO</h3>
+<h3 id="rco-reset-carry-out">RCO (Reset Carry-Out)</h3>
 <ul>
 <li><strong>复位同步输出引脚</strong>。当计数器达到最大计数值时，RCO引脚会输出一个脉冲信号，用于将其他电路中的计数器复位或同步。用于同步多个计数器的计数。</li>
 </ul>
 <h2 id="shift-register-counters">Shift-Register Counters</h2>
 <h3 id="定义-2">定义</h3>
 <blockquote>
-<p>将一个二进制数字序列存储在移位寄存器中，然后通过移位操作将其向左或向右移动，从而实现计数。当移位寄存器中的数字序列达到最大值时，计数器会重新开始计数。可以使用单个移位寄存器或多个级联的移位寄存器来实现不同的计数分辨率。</p>
+<p>将一个二进制数字序列存储在移位寄存器中，然后通过移位操作将其向左或向右移动，从而实现计数。当移位寄存器中的数字序列达到最大值时，计数器会重新开始计数。可以使用单个移位寄存器或多个级联的移位寄存器来实现不同的计数分辨率</p>
 </blockquote>
 <h2 id="ring-counters">Ring Counters</h2>
-<h3 id="电路-2">电路</h3>
+<h3 id="电路">电路</h3>
 <p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/20.png"
 	width="925"
 	height="250"
@@ -1320,7 +1415,7 @@ $$</p>
 	
 ></p>
 <h2 id="johnson-counter-扭环计数器">Johnson Counter (扭环计数器)</h2>
-<h3 id="电路-3">电路</h3>
+<h3 id="电路-1">电路</h3>
 <p><img src="/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/24.png"
 	width="897"
 	height="227"

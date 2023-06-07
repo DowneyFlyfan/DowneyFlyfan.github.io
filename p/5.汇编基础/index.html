@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Bytes Arrangements - Little (Big) Endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
 Register
 I/O Devices
 信息的处理 Assembly-Language Instructions
 Hardware Process Actions
-RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
+RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的地址 Cortex-M Memory Map (内存图) 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
 <title>5.汇编基础</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/'>
@@ -17,7 +17,7 @@ Register
 I/O Devices
 信息的处理 Assembly-Language Instructions
 Hardware Process Actions
-RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
+RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的地址 Cortex-M Memory Map (内存图) 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
 <meta property='og:url' content='https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-05-25T10:21:04&#43;08:00'/><meta property='article:modified_time' content='2023-05-25T10:21:04&#43;08:00'/>
@@ -27,7 +27,7 @@ Register
 I/O Devices
 信息的处理 Assembly-Language Instructions
 Hardware Process Actions
-RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的地址 Cortex-M Memory Map (内存图) 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -283,7 +283,7 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
         <li><a href="#重要单元结构">重要单元结构</a>
           <ol>
             <li><a href="#arm-register-file">Arm Register File</a></li>
-            <li><a href="#cortex-m-memory-map">Cortex-M Memory Map</a></li>
+            <li><a href="#cortex-m-memory-map-内存图">Cortex-M Memory Map (内存图)</a></li>
             <li><a href="#data-path--control-unit">Data Path &amp; Control Unit</a></li>
             <li><a href="#instructions">Instructions</a></li>
             <li><a href="#registers">Registers</a></li>
@@ -291,10 +291,11 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
         </li>
         <li><a href="#指令-助记符-标志位-标签">指令 助记符 标志位 标签</a>
           <ol>
-            <li><a href="#汇编指令">汇编指令</a></li>
+            <li><a href="#cortex-m的汇编指令">Cortex-M的汇编指令</a></li>
             <li><a href="#arm-alu">ARM ALU*</a></li>
-            <li><a href="#conditional-flag-nzcv">Conditional Flag (NZCV)</a></li>
+            <li><a href="#conditional-flag-cnvz">Conditional Flag (CNVZ)</a></li>
             <li><a href="#branching">Branching</a></li>
+            <li><a href="#用汇编写c">用汇编写C</a></li>
           </ol>
         </li>
       </ol>
@@ -506,7 +507,10 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
 		data-flex-basis="436px"
 	
 ></p>
-<h3 id="cortex-m-memory-map">Cortex-M Memory Map</h3>
+<ul>
+<li>PC 存储<strong>下一条指令的地址</strong></li>
+</ul>
+<h3 id="cortex-m-memory-map-内存图">Cortex-M Memory Map (内存图)</h3>
 <ol>
 <li>
 <p>32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存</p>
@@ -533,6 +537,9 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
 		data-flex-basis="116px"
 	
 ></p>
+<ul>
+<li>Vendor Specifc: 针对<strong>某个厂商的</strong></li>
+</ul>
 <h3 id="data-path--control-unit">Data Path &amp; Control Unit</h3>
 <p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/7.png"
 	width="864"
@@ -565,7 +572,7 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
 </li>
 </ol>
 <h2 id="指令-助记符-标志位-标签">指令 助记符 标志位 标签</h2>
-<h3 id="汇编指令">汇编指令</h3>
+<h3 id="cortex-m的汇编指令">Cortex-M的汇编指令</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -576,11 +583,19 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
 <tbody>
 <tr>
 <td style="text-align:center">LDR</td>
-<td style="text-align:center"><strong>内存</strong>和<strong>寄存器</strong>之间</td>
+<td style="text-align:center">LOAD, 从内存(<strong>操作数2</strong>)中加载到寄存器(<strong>操作数1</strong>)中</td>
+</tr>
+<tr>
+<td style="text-align:center">STR</td>
+<td style="text-align:center">STORE, 从寄存器(<strong>操作数1</strong>)中存储到内存(<strong>操作数2</strong>)中</td>
 </tr>
 <tr>
 <td style="text-align:center">[a,b]</td>
 <td style="text-align:center">地址<code>a+b</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ADR(伪指令)</td>
+<td style="text-align:center">Address, 让寄存器指向<strong>后面</strong>的地址</td>
 </tr>
 <tr>
 <td style="text-align:center">ADD</td>
@@ -604,7 +619,7 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
 </tr>
 <tr>
 <td style="text-align:center">BIC(Bit Clean)</td>
-<td style="text-align:center">按位与非，即<strong>按位取反后再与</strong></td>
+<td style="text-align:center">按位与非,<strong>将第一个操作数中对应的第二个操作数中为1的位清零</strong></td>
 </tr>
 <tr>
 <td style="text-align:center">ORR</td>
@@ -641,7 +656,7 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
 		data-flex-basis="327px"
 	
 ></p>
-<h3 id="conditional-flag-nzcv">Conditional Flag (NZCV)</h3>
+<h3 id="conditional-flag-cnvz">Conditional Flag (CNVZ)</h3>
 <ol>
 <li>标识位解释</li>
 </ol>
@@ -655,7 +670,7 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
 <tbody>
 <tr>
 <td style="text-align:center">Z</td>
-<td style="text-align:center">Zero, 零标志位</td>
+<td style="text-align:center">Zero, 零标志位(若相等，零标志位=1)</td>
 </tr>
 <tr>
 <td style="text-align:center">C</td>
@@ -684,7 +699,7 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
 </tr>
 <tr>
 <td style="text-align:center">MI</td>
-<td style="text-align:center">Minor Key, 当标志位N=1时执行指令</td>
+<td style="text-align:center">Morse Code International, 当标志位N=1时执行指令</td>
 </tr>
 </tbody>
 </table></div>
@@ -776,6 +791,109 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">DONE</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="用汇编写c">用汇编写C</h3>
+<ol>
+<li>MAX函数</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-s" data-lang="s"><span class="line"><span class="cl"><span class="n">MAIN</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MOV</span> <span class="n">R1</span> <span class="c1">#2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MOV</span> <span class="n">R2</span> <span class="c1">#3</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CMP</span> <span class="n">R1</span> <span class="n">R2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BLT</span> <span class="n">LOWER</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">MOV</span> <span class="n">R0</span> <span class="n">R1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="n">END</span>
+</span></span><span class="line"><span class="cl"><span class="n">LOWER</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MOV</span> <span class="n">R0</span> <span class="n">R2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="n">END</span>
+</span></span><span class="line"><span class="cl"><span class="n">END</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BX</span> <span class="n">LR</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>循环</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-s" data-lang="s"><span class="line"><span class="cl"><span class="n">MAIN</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MOV</span> <span class="n">R0</span> <span class="c1">#0</span>
+</span></span><span class="line"><span class="cl"><span class="n">WHILE</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CMP</span> <span class="n">R0</span> <span class="c1">#4</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BEQ</span> <span class="n">END</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ADD</span> <span class="n">R0</span> <span class="c1">#1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="n">WHILE</span>
+</span></span><span class="line"><span class="cl"><span class="n">END</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BX</span> <span class="n">LR</span>
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h1 id="附录">附录</h1>
 <h2 id="代表立即数">#代表立即数</h2>
 
@@ -841,12 +959,12 @@ RISC Load Store 重要单元结构 Arm Register File Cortex-M Memory Map 32位�
             
                 
 <article class="">
-    <a href="/p/program-desgin-analysis/">
+    <a href="/p/embedded-system-software-design-testing-and-debugging/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Program Desgin &amp; Analysis</h2>
+            <h2 class="article-title">Embedded System Software Design, Testing, and Debugging</h2>
         </div>
     </a>
 </article>

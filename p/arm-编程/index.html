@@ -1,51 +1,30 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ARM 处理器 指令集结构 Low-level Programming 名称 Advanced RISC Machine
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ARM 处理器 计算机结构 Bus 总线，在module之间传输数据 Port 端口，I/O的实体设备 Device Driver 驱动I/O设备的软件(硬件设备的软件界面) Interface 软件是Device Driver, 硬件是I/O &#43; 外部设备 Memory CPU 指令集结构 Low-level Programming 名称 Advanced RISC Machine
 RISC = Reduced Instruction Set Computer
 CISC = Complex Instruction Set Computer
 比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython 界面技巧 GPIO 定义 General Purpose Input/Output
-实例 对于microcontroller，pin就是GPIO
-pin是双向的
-工作模式 输入 Floating Mode
-Pull-Up
-Pull-Down
-Analog Mode
-输出 General purpose output push-pull
-General purpose output Open-drain'>
+实例 对于microcontroller，pin就是GPIO'>
 <title>ARM 编程</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='ARM 编程'>
-<meta property='og:description' content='ARM 处理器 指令集结构 Low-level Programming 名称 Advanced RISC Machine
+<meta property='og:description' content='ARM 处理器 计算机结构 Bus 总线，在module之间传输数据 Port 端口，I/O的实体设备 Device Driver 驱动I/O设备的软件(硬件设备的软件界面) Interface 软件是Device Driver, 硬件是I/O &#43; 外部设备 Memory CPU 指令集结构 Low-level Programming 名称 Advanced RISC Machine
 RISC = Reduced Instruction Set Computer
 CISC = Complex Instruction Set Computer
 比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython 界面技巧 GPIO 定义 General Purpose Input/Output
-实例 对于microcontroller，pin就是GPIO
-pin是双向的
-工作模式 输入 Floating Mode
-Pull-Up
-Pull-Down
-Analog Mode
-输出 General purpose output push-pull
-General purpose output Open-drain'>
+实例 对于microcontroller，pin就是GPIO'>
 <meta property='og:url' content='https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-10T14:43:37&#43;00:00'/><meta property='article:modified_time' content='2023-03-10T14:43:37&#43;00:00'/>
 <meta name="twitter:title" content="ARM 编程">
-<meta name="twitter:description" content="ARM 处理器 指令集结构 Low-level Programming 名称 Advanced RISC Machine
+<meta name="twitter:description" content="ARM 处理器 计算机结构 Bus 总线，在module之间传输数据 Port 端口，I/O的实体设备 Device Driver 驱动I/O设备的软件(硬件设备的软件界面) Interface 软件是Device Driver, 硬件是I/O &#43; 外部设备 Memory CPU 指令集结构 Low-level Programming 名称 Advanced RISC Machine
 RISC = Reduced Instruction Set Computer
 CISC = Complex Instruction Set Computer
 比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython 界面技巧 GPIO 定义 General Purpose Input/Output
-实例 对于microcontroller，pin就是GPIO
-pin是双向的
-工作模式 输入 Floating Mode
-Pull-Up
-Pull-Down
-Analog Mode
-输出 General purpose output push-pull
-General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+实例 对于microcontroller，pin就是GPIO"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -285,6 +264,7 @@ General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico"
   <ol>
     <li><a href="#arm-处理器">ARM 处理器</a>
       <ol>
+        <li><a href="#计算机结构">计算机结构</a></li>
         <li><a href="#指令集结构">指令集结构</a></li>
         <li><a href="#名称">名称</a>
           <ol>
@@ -404,6 +384,37 @@ General purpose output Open-drain"><link rel="shortcut icon" href="/favicon.ico"
     
     
     <h1 id="arm-处理器">ARM 处理器</h1>
+<h2 id="计算机结构">计算机结构</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Bus</th>
+<th style="text-align:center"><strong>总线</strong>，在module之间传输数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Port</td>
+<td style="text-align:center"><strong>端口</strong>，I/O的实体设备</td>
+</tr>
+<tr>
+<td style="text-align:center">Device Driver</td>
+<td style="text-align:center">驱动I/O设备的<strong>软件</strong>(硬件设备的<strong>软件界面</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center">Interface</td>
+<td style="text-align:center">软件是<strong>Device Driver</strong>, 硬件是<strong>I/O + 外部设备</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Memory</strong></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>CPU</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
 <h2 id="指令集结构">指令集结构</h2>
 <ul>
 <li>Low-level Programming</li>
@@ -839,12 +850,12 @@ MOSI发送数据 --> MISO接受从机发回的数据: 如果有必要的话
             
                 
 <article class="">
-    <a href="/p/program-desgin-analysis/">
+    <a href="/p/embedded-system-software-design-testing-and-debugging/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Program Desgin &amp; Analysis</h2>
+            <h2 class="article-title">Embedded System Software Design, Testing, and Debugging</h2>
         </div>
     </a>
 </article>

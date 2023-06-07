@@ -1,0 +1,202 @@
+---
+title: "6.有限状态机"
+date: 2023-04-11T10:29:23+08:00
+description: ""
+categories: ["数电"]
+tags: [""]
+image: ""
+math: true
+draft: true
+---
+
+# Finite-State Machine Models
+
+## 作用
+
+- 描述有限数量状态的系统/过程
+
+## 常见FSM
+
+1. State Diagram
+
+![](1.png)
+
+2. 比较
+
+|比较|Moore|Mealy|
+|:-:|:-:|:-:|
+|输出|仅与**当前状态**有关|与**当前状态**和**输入信号**有关|
+
+# Analysis
+
+## Next-State Table
+
+![](2.png)
+
+## Next-State Equation
+
+### D-Flip-Flop
+
+1. 图示
+
+![](3.png)
+
+2. 方程
+
+$$
+\begin{aligned} 
+D_1 &= Q_1'Q_0 \\\
+D_0 &= Q_1'Q_0' + CQ_1' \\\
+Q_{next} &= D \\\
+Q_{1next} &= D_1 = Q_1'Q_0 \\\
+Q_{2next} &= D_0 = Q_1'Q_0' + CQ_1'
+\end{aligned}
+$$
+
+# Moore FSM Verilog
+
+```v
+module Moore_FSM(
+    input [1:0] f, at;
+    input Clock, Reset;
+    output [1:0] go;
+    output [2:1] led;
+    output [1:0] debug_state
+);
+    reg [1:0] state;
+    parameter s00 = 2'b00,2'b01,2'b10,2'b11;
+    assign state =debug_state;
+
+    // next-state logic
+    always @ (posedge Clock or posedge Reset) 
+    begin
+    if (Reset)
+        state <= s00;
+    else
+    case (state)
+
+    s00: begin // floor 1
+    if (f == 2'b10)
+    state <= s11;
+    else
+    state <= s00;
+    end
+
+    s01: begin
+    if (at[1])
+    state <= s00;
+    else
+    state <= s01;
+    end
+
+    s10: begin // floor 2
+    if (f == 2'b01)
+    state <= s01;
+    else
+    state <= s10;
+    end
+
+    s11: begin
+    if (at[2])
+    state <= s10;
+    else
+    state <= s11;
+    end
+    endcase
+    end
+
+    // output logic - depends only on the state
+    always @ (state) begin
+    case (state)
+    s00: begin // floor 1
+    led = 2'b01;
+    go = 2'b00;
+    end
+    s01: begin
+    led = 2'b00;
+    go = 2'b10;
+    end
+    s10: begin // floor 2
+    led = 2'b10;
+    go = 2'b00;
+    end
+    s11: begin
+    led = 2'b00;
+    go = 2'b11;
+    end
+    endcase
+    end
+endmodule
+```
+
+# Design
+
+## 101 序列检测 (不允许交叠)
+
+### State Diagram
+
+![](4.png)
+
+### Verilog
+
+```v
+module moore_101_sequence_detector(
+    input clk,
+    input reset,
+    input data,
+    output reg detected
+);
+
+parameter S0 = 2'b00; // 状态0
+parameter S1 = 2'b01; // 状态1
+parameter S2 = 2'b10; // 状态2
+parameter S3 = 2'b11; // 状态3
+
+reg [1:0] state; // 状态寄存器
+
+always @(posedge clk, posedge reset) begin
+    if (reset) begin
+        state <= S0; // 复位状态
+        detected <= 0; // 复位检测信号
+    end 
+    else begin
+    case (state)
+        S0: begin // 状态0
+            if (data) begin
+                state <= S1;
+            end else begin
+                state <= S0;
+            end
+        end
+        S1: begin // 状态1
+            if (data) begin
+                state <= S1;
+            end else begin
+                state <= S2;
+            end
+        end
+        S2: begin // 状态2
+            if (data) begin
+                state <= S3;
+            end else begin
+                state <= S0;
+            end
+        end
+        S3: begin // 状态3
+            if (data) begin
+                state <= S1;
+                detected <= 1; //检测到101
+            end else begin
+                state <= S2;
+            end
+            end
+    endcase
+    end
+endmodule
+```
+
+# 附录
+
+## 同步复位与异步复位
+
+> **同步复位**在**时钟上升沿**复位;**异步复位**可以在**任何时刻**复位
