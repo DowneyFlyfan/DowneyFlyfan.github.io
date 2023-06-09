@@ -1,30 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Factor Analysis ( Two Way Anova ) Sum of Squares Sum of Square of the 1st Factor $$ S_1 = 32 $$
-Sum of the Square of the 2nd Factor $$ S_2 = 93.0 $$
-Sum of the Sqaure Within (Error) $$ S_{error} = 68 $$
-Sum of Sqaure Total $$ S_{total} = 200 $$
-Sum of Square Both Factors $$ \begin{aligned} S_{Both \ Factors} &amp;amp;= S_{total} -S_1 - S_2 -S_{Error} \\ &amp;amp;= 7 \end{aligned} $$'>
-<title>分析和求根</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='PCA (Principal Componets Analysis) SVD实现二维PCA $$ \begin{aligned} a^2 &amp;amp;= b^2 &#43; c^2 \\ a &amp;ndash; &amp;amp;\Longrightarrow b \uparrow c \downarrow \\ SS = max&amp;amp; \lbrace \sum_{i}^n d_i^2\rbrace \Longrightarrow PC1 \\\ \\ PC1 \ Eigenvalue &amp;amp;= \frac{SS}{n-1} \\ PC1 \ Singularvalue &amp;amp;= \sqrt{SS} \\ PC3 &amp;amp;\perp PC2 \perp PC1 \end{aligned} $$
+CCA (Conanical Corelation Analysis) '>
+<title>统计模型</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%9E%8B/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='分析和求根'>
-<meta property='og:description' content='Factor Analysis ( Two Way Anova ) Sum of Squares Sum of Square of the 1st Factor $$ S_1 = 32 $$
-Sum of the Square of the 2nd Factor $$ S_2 = 93.0 $$
-Sum of the Sqaure Within (Error) $$ S_{error} = 68 $$
-Sum of Sqaure Total $$ S_{total} = 200 $$
-Sum of Square Both Factors $$ \begin{aligned} S_{Both \ Factors} &amp;amp;= S_{total} -S_1 - S_2 -S_{Error} \\ &amp;amp;= 7 \end{aligned} $$'>
-<meta property='og:url' content='https://downeyflyfan.com/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='统计模型'>
+<meta property='og:description' content='PCA (Principal Componets Analysis) SVD实现二维PCA $$ \begin{aligned} a^2 &amp;amp;= b^2 &#43; c^2 \\ a &amp;ndash; &amp;amp;\Longrightarrow b \uparrow c \downarrow \\ SS = max&amp;amp; \lbrace \sum_{i}^n d_i^2\rbrace \Longrightarrow PC1 \\\ \\ PC1 \ Eigenvalue &amp;amp;= \frac{SS}{n-1} \\ PC1 \ Singularvalue &amp;amp;= \sqrt{SS} \\ PC3 &amp;amp;\perp PC2 \perp PC1 \end{aligned} $$
+CCA (Conanical Corelation Analysis) '>
+<meta property='og:url' content='https://downeyflyfan.com/p/%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%9E%8B/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-24T19:18:20&#43;08:00'/><meta property='article:modified_time' content='2023-04-24T19:18:20&#43;08:00'/>
-<meta name="twitter:title" content="分析和求根">
-<meta name="twitter:description" content="Factor Analysis ( Two Way Anova ) Sum of Squares Sum of Square of the 1st Factor $$ S_1 = 32 $$
-Sum of the Square of the 2nd Factor $$ S_2 = 93.0 $$
-Sum of the Sqaure Within (Error) $$ S_{error} = 68 $$
-Sum of Sqaure Total $$ S_{total} = 200 $$
-Sum of Square Both Factors $$ \begin{aligned} S_{Both \ Factors} &amp;amp;= S_{total} -S_1 - S_2 -S_{Error} \\ &amp;amp;= 7 \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-06-07T19:19:31&#43;08:00'/><meta property='article:modified_time' content='2023-06-07T19:19:31&#43;08:00'/>
+<meta name="twitter:title" content="统计模型">
+<meta name="twitter:description" content="PCA (Principal Componets Analysis) SVD实现二维PCA $$ \begin{aligned} a^2 &amp;amp;= b^2 &#43; c^2 \\ a &amp;ndash; &amp;amp;\Longrightarrow b \uparrow c \downarrow \\ SS = max&amp;amp; \lbrace \sum_{i}^n d_i^2\rbrace \Longrightarrow PC1 \\\ \\ PC1 \ Eigenvalue &amp;amp;= \frac{SS}{n-1} \\ PC1 \ Singularvalue &amp;amp;= \sqrt{SS} \\ PC3 &amp;amp;\perp PC2 \perp PC1 \end{aligned} $$
+CCA (Conanical Corelation Analysis) "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -262,52 +253,8 @@ Sum of Square Both Factors $$ \begin{aligned} S_{Both \ Factors} &amp;amp;= S_{t
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#factor-analysis--two-way-anova-">Factor Analysis ( Two Way Anova )</a>
-      <ol>
-        <li><a href="#sum-of-squares">Sum of Squares</a>
-          <ol>
-            <li><a href="#sum-of-square-of-the-1st-factor">Sum of Square of the 1st Factor</a></li>
-            <li><a href="#sum-of-the-square-of-the-2nd-factor">Sum of the Square of the 2nd Factor</a></li>
-            <li><a href="#sum-of-the-sqaure-within-error">Sum of the Sqaure Within (Error)</a></li>
-            <li><a href="#sum-of-sqaure-total">Sum of Sqaure Total</a></li>
-            <li><a href="#sum-of-square-both-factors">Sum of Square Both Factors</a></li>
-          </ol>
-        </li>
-        <li><a href="#degree-of-freedoms">Degree of Freedoms</a></li>
-        <li><a href="#mean-sqaure">Mean Sqaure</a></li>
-        <li><a href="#f-score">F Score</a></li>
-        <li><a href="#conclusion">Conclusion</a></li>
-      </ol>
-    </li>
-    <li><a href="#anova--analysis-of-variance-">ANOVA ( Analysis of Variance )</a>
-      <ol>
-        <li><a href="#sum-of-square">Sum of Square</a>
-          <ol>
-            <li><a href="#sos-within-groups">SoS Within Groups</a></li>
-            <li><a href="#sos-total">SoS Total</a></li>
-            <li><a href="#sos-between-groups">SoS Between Groups</a></li>
-            <li><a href="#f-ratio">F Ratio</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#cluster-analysis">Cluster Analysis</a>
-      <ol>
-        <li><a href="#k-means-clustering">K-Means Clustering</a>
-          <ol>
-            <li><a href="#steps">Steps</a></li>
-            <li><a href="#如何选择k">如何选择K</a></li>
-          </ol>
-        </li>
-        <li><a href="#clustering">Clustering</a></li>
-        <li><a href="#heading"></a></li>
-      </ol>
-    </li>
-    <li><a href="#非线性方程求根">非线性方程求根</a>
-      <ol>
-        <li><a href="#heading-1"></a></li>
-      </ol>
-    </li>
+    <li><a href="#pca-principal-componets-analysis">PCA (Principal Componets Analysis)</a></li>
+    <li><a href="#cca-conanical-corelation-analysis">CCA (Conanical Corelation Analysis)</a></li>
   </ol>
 </nav>
         </div>
@@ -335,7 +282,7 @@ Sum of Square Both Factors $$ \begin{aligned} S_{Both \ Factors} &amp;amp;= S_{t
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/">分析和求根</a>
+            <a href="/p/%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%9E%8B/">统计模型</a>
         </h2>
     
         
@@ -357,7 +304,7 @@ Sum of Square Both Factors $$ \begin{aligned} S_{Both \ Factors} &amp;amp;= S_{t
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 24, 242424</time>
+                <time class="article-time--published">Jun 07, 7077</time>
             </div>
         
 
@@ -372,7 +319,7 @@ Sum of Square Both Factors $$ \begin{aligned} S_{Both \ Factors} &amp;amp;= S_{t
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -387,346 +334,21 @@ Sum of Square Both Factors $$ \begin{aligned} S_{Both \ Factors} &amp;amp;= S_{t
     <section class="article-content">
     
     
-    <h1 id="factor-analysis--two-way-anova-">Factor Analysis ( Two Way Anova )</h1>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/1.png"
-	width="1667"
-	height="812"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/1_hu73c3c7481bd49eeec329d7f2a3d57fa8_289238_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/1_hu73c3c7481bd49eeec329d7f2a3d57fa8_289238_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="205"
-		data-flex-basis="492px"
-	
-></p>
-<h2 id="sum-of-squares">Sum of Squares</h2>
-<h3 id="sum-of-square-of-the-1st-factor">Sum of Square of the 1st Factor</h3>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/2.png"
-	width="808"
-	height="647"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/2_hua373f5cc568bd76ef264d385d9fa96dc_153855_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/2_hua373f5cc568bd76ef264d385d9fa96dc_153855_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="124"
-		data-flex-basis="299px"
-	
-></p>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/3.png"
-	width="745"
-	height="609"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/3_hu62120021c88acc1481be0b27933b4e78_159667_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/3_hu62120021c88acc1481be0b27933b4e78_159667_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="122"
-		data-flex-basis="293px"
-	
-></p>
-<p>$$
-S_1 = 32
-$$</p>
-<h3 id="sum-of-the-square-of-the-2nd-factor">Sum of the Square of the 2nd Factor</h3>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/4.png"
-	width="1645"
-	height="628"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/4_huf8f4c286d0b11d535e0996d93640a3f1_326140_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/4_huf8f4c286d0b11d535e0996d93640a3f1_326140_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="261"
-		data-flex-basis="628px"
-	
-></p>
-<p>$$
-S_2 = 93.0
-$$</p>
-<h3 id="sum-of-the-sqaure-within-error">Sum of the Sqaure Within (Error)</h3>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/5.png"
-	width="1541"
-	height="611"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/5_hu5bfbcb830cfff45ef660844b4da0e489_280012_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/5_hu5bfbcb830cfff45ef660844b4da0e489_280012_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="252"
-		data-flex-basis="605px"
-	
-></p>
-<p>$$
-S_{error} = 68
-$$</p>
-<h3 id="sum-of-sqaure-total">Sum of Sqaure Total</h3>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/6.png"
-	width="792"
-	height="1039"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/6_hu08fe95c279b385318490b8b55c115aa0_236030_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/6_hu08fe95c279b385318490b8b55c115aa0_236030_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="76"
-		data-flex-basis="182px"
-	
-></p>
-<p>$$
-S_{total} = 200
-$$</p>
-<h3 id="sum-of-square-both-factors">Sum of Square Both Factors</h3>
-<p>$$
-\begin{aligned}
-S_{Both \ Factors} &amp;= S_{total} -S_1 - S_2 -S_{Error}  \\
-&amp;= 7
-\end{aligned}
-$$</p>
-<h2 id="degree-of-freedoms">Degree of Freedoms</h2>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/1.png"
-	width="1667"
-	height="812"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/1_hu73c3c7481bd49eeec329d7f2a3d57fa8_289238_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/1_hu73c3c7481bd49eeec329d7f2a3d57fa8_289238_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="205"
-		data-flex-basis="492px"
-	
-></p>
-<p>$$
-{d.f.}<em>1 = 2 - 1 = 1 (Gender) \\\
-\\ {d.f.}<em>2 = 3 - 1 = 2 (Age) \\\
-\\ {d.f.}</em>{Error} = (3-1)\times 6 = 12 \\\
-\\ {d.f.}</em>{Both \ Factor} = {d.f.}_1 \times {d.f.}<em>2 = 2 \\\
-\\ {d.f.}</em>{total} = 17
-$$</p>
-<h2 id="mean-sqaure">Mean Sqaure</h2>
-<p>$$
-Mean \ Sqaure = \frac{Sum \ of \ Square}{d.f.} \\\
-\\ \therefore {M.S.}_1 =
-$$</p>
-<h2 id="f-score">F Score</h2>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/11.png"
-	width="1753"
-	height="685"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/11_hua70c10c3ab6e763c670324a1eb51018f_123647_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/11_hua70c10c3ab6e763c670324a1eb51018f_123647_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="255"
-		data-flex-basis="614px"
-	
-></p>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/12.png"
-	width="1399"
-	height="811"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/12_hu8601b3ccf00d145280dc6ccce25ac64c_223128_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/12_hu8601b3ccf00d145280dc6ccce25ac64c_223128_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="172"
-		data-flex-basis="414px"
-	
-></p>
-<h2 id="conclusion">Conclusion</h2>
-<ul>
-<li>
-<p>$H_0$: <strong>Age</strong> and <strong>Gender</strong> don&rsquo;t have significant impact on <strong>scores</strong></p>
-</li>
-<li>
-<p>$3.89$为查表所知</p>
-</li>
-</ul>
-<h1 id="anova--analysis-of-variance-">ANOVA ( Analysis of Variance )</h1>
-<h2 id="sum-of-square">Sum of Square</h2>
-<h3 id="sos-within-groups">SoS Within Groups</h3>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/7.png"
-	width="1475"
-	height="482"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/7_hu69a13dfc2da464f7409a5e5334af8697_245028_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/7_hu69a13dfc2da464f7409a5e5334af8697_245028_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="306"
-		data-flex-basis="734px"
-	
-></p>
-<p>$$
-\begin{aligned}
-S_{in \ Group} &amp;= \sum_{i,j} (各组样本数-本组平均值)^2 \\
-&amp;= 22 + 18 + 14 = 54
-\end{aligned}
-$$</p>
-<h3 id="sos-total">SoS Total</h3>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/8.png"
-	width="1649"
-	height="1018"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/8_hue42eb639e3acdc51bed9146e8deaa1b8_279522_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/8_hue42eb639e3acdc51bed9146e8deaa1b8_279522_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="161"
-		data-flex-basis="388px"
-	
-></p>
-<p>$$
-\begin{aligned}
-S_{Total} &amp;= \sum_i(每个样本值-总平均值)^2 \\
-&amp;= 257.3
-\end{aligned}
-$$</p>
-<h3 id="sos-between-groups">SoS Between Groups</h3>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/9.png"
-	width="1830"
-	height="1052"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/9_hu5797baf45aeeeacb71f65d5032e8f3f7_294904_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/9_hu5797baf45aeeeacb71f65d5032e8f3f7_294904_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="173"
-		data-flex-basis="417px"
-	
-></p>
-<p>$$
-\begin{aligned}
-S_{Between \ Group } &amp;= \sum_{i,j}(每组平均值-总平均值)^2 \times(每组样本数) \\
-&amp;= 203.3
-\end{aligned}
-$$</p>
-<h3 id="f-ratio">F Ratio</h3>
-<p>$$
-\frac{S_{Between \ Group}}{d.f.} = \frac{203.3}{Groups -1} = \frac{203.3}{2} =101.667 \\\
-\\ \frac{S_{Within \ Group}}{d.f.} = \frac{54}{(Numbers - 1)\times Groups} = \frac{54}{12} = 4.5 \\\
-\\ F(2,12) = \frac{101.667}{4.5} = 22.59(Mean \ Sqaure 之比)
-$$</p>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/10.png"
-	width="1454"
-	height="877"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/10_hubf29a04ddc7749eaf4f4471a4b2c2e75_149188_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/10_hubf29a04ddc7749eaf4f4471a4b2c2e75_149188_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="165"
-		data-flex-basis="397px"
-	
-></p>
-<ul>
-<li>$3.89$为查表所知</li>
-</ul>
-<h1 id="cluster-analysis">Cluster Analysis</h1>
-<h2 id="k-means-clustering">K-Means Clustering</h2>
-<h3 id="steps">Steps</h3>
+    <h1 id="pca-principal-componets-analysis">PCA (Principal Componets Analysis)</h1>
 <ol>
-<li>
-<p>选择<strong>类</strong>的<strong>个数</strong>$K$</p>
-</li>
-<li>
-<p><strong>随机</strong>选择$K$个数据</p>
-</li>
-<li>
-<p>分别测量<strong>第一个数据点</strong>到<strong>选择点</strong>的距离</p>
-</li>
-<li>
-<p>将<strong>第一个点</strong>归类到<strong>最近的Cluster</strong></p>
-</li>
+<li>SVD实现二维PCA</li>
 </ol>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/13.png"
-	width="1615"
-	height="516"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/13_hue468068458ac3f2ea963e34f6331ab5c_136575_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/13_hue468068458ac3f2ea963e34f6331ab5c_136575_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="312"
-		data-flex-basis="751px"
-	
-></p>
-<ol start="5">
-<li>重复$3,4$,对所有点进行分类</li>
-</ol>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/14.png"
-	width="1603"
-	height="204"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/14_hu0ff7a1f50aae8228749149ef58695430_77003_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/14_hu0ff7a1f50aae8228749149ef58695430_77003_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="785"
-		data-flex-basis="1885px"
-	
-></p>
-<ol start="6">
-<li>
-<p>计算每个<strong>Cluster</strong>的<strong>Mean</strong></p>
-</li>
-<li>
-<p>获得每个<strong>Cluster</strong>的方差</p>
-</li>
-</ol>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/15.png"
-	width="877"
-	height="147"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/15_hue500909f7c94862b11677a267846447e_16895_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/15_hue500909f7c94862b11677a267846447e_16895_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="596"
-		data-flex-basis="1431px"
-	
-></p>
-<ol start="8">
-<li>
-<p>根据计算得到的<strong>Mean</strong>重新<strong>选择数据点</strong></p>
-</li>
-<li>
-<p>重复以上步骤,<strong>直到均值不再改变</strong></p>
-</li>
-<li>
-<p>比较每次的<strong>方差</strong>，得出最好的</p>
-</li>
-</ol>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/16.png"
-	width="1515"
-	height="305"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/16_hu0e92bc790eb3d2cc85db58931bfe5fe5_92148_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/16_hu0e92bc790eb3d2cc85db58931bfe5fe5_92148_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="496"
-		data-flex-basis="1192px"
-	
-></p>
-<h3 id="如何选择k">如何选择K</h3>
-<p><img src="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/17.png"
-	width="1285"
-	height="848"
-	srcset="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/17_hu5fba056343d213fb40be331acb339576_209902_480x0_resize_box_3.png 480w, /p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/17_hu5fba056343d213fb40be331acb339576_209902_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="151"
-		data-flex-basis="363px"
-	
-></p>
-<h2 id="clustering">Clustering</h2>
-<h2 id="heading"></h2>
-<h1 id="非线性方程求根">非线性方程求根</h1>
-<h2 id="heading-1"></h2>
+<p>$$
+\begin{aligned}
+a^2 &amp;= b^2 + c^2 \\
+a &ndash; &amp;\Longrightarrow b \uparrow c \downarrow \\
+SS = max&amp; \lbrace \sum_{i}^n d_i^2\rbrace \Longrightarrow PC1 \\\
+\\ PC1 \ Eigenvalue &amp;= \frac{SS}{n-1} \\
+PC1 \ Singularvalue &amp;= \sqrt{SS} \\
+PC3 &amp;\perp PC2 \perp PC1
+\end{aligned}
+$$</p>
+<h1 id="cca-conanical-corelation-analysis">CCA (Conanical Corelation Analysis)</h1>
 
 </section>
 
@@ -790,12 +412,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%9E%8B/">
+    <a href="/p/%E5%88%86%E7%B1%BB/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">统计模型</h2>
+            <h2 class="article-title">分类</h2>
         </div>
     </a>
 </article>
@@ -803,12 +425,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E5%88%86%E7%B1%BB/">
+    <a href="/p/%E5%88%86%E6%9E%90%E5%92%8C%E6%B1%82%E6%A0%B9/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">分类</h2>
+            <h2 class="article-title">分析和求根</h2>
         </div>
     </a>
 </article>

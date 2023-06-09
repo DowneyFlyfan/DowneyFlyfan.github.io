@@ -6,7 +6,30 @@
         <description>Recent content on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Fri, 26 May 2023 16:49:31 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 07 Jun 2023 19:19:31 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>统计模型</title>
+        <link>https://downeyflyfan.com/p/%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%9E%8B/</link>
+        <pubDate>Wed, 07 Jun 2023 19:19:31 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%9E%8B/</guid>
+        <description>&lt;h1 id=&#34;pca-principal-componets-analysis&#34;&gt;PCA (Principal Componets Analysis)&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;SVD实现二维PCA&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+a^2 &amp;amp;= b^2 + c^2 \\
+a &amp;ndash; &amp;amp;\Longrightarrow b \uparrow c \downarrow \\
+SS = max&amp;amp; \lbrace \sum_{i}^n d_i^2\rbrace \Longrightarrow PC1 \\\
+\\ PC1 \ Eigenvalue &amp;amp;= \frac{SS}{n-1} \\
+PC1 \ Singularvalue &amp;amp;= \sqrt{SS} \\
+PC3 &amp;amp;\perp PC2 \perp PC1
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;cca-conanical-corelation-analysis&#34;&gt;CCA (Conanical Corelation Analysis)&lt;/h1&gt;
+</description>
+        </item>
+        <item>
         <title>Embedded System Software Design, Testing, and Debugging</title>
         <link>https://downeyflyfan.com/p/embedded-system-software-design-testing-and-debugging/</link>
         <pubDate>Fri, 26 May 2023 16:49:31 +0800</pubDate>
@@ -8066,10 +8089,10 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;synchronous--asynchronous&#34;&gt;Synchronous &amp;amp; Asynchronous&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Preset = Set&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Preset = Set, Clear = Reset&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Clear = Reset&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在时钟的&lt;strong&gt;上升/下降沿&lt;/strong&gt;改变的信号叫做&lt;strong&gt;同步信号&lt;/strong&gt;, 否则是&lt;strong&gt;异步信号&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 </description>
@@ -15473,6 +15496,10 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;最小项minterm与最大项maxterm&#34;&gt;最小项(Minterm)与最大项(Maxterm)&lt;/h2&gt;
+&lt;h3 id=&#34;要求&#34;&gt;要求&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;必须包含&lt;strong&gt;每一个变量&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3 id=&#34;性质&#34;&gt;性质&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -18830,6 +18857,9 @@ $$&lt;/p&gt;
 &lt;li&gt;跟十进制差不多&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;原码-反码-补码-符号位&#34;&gt;原码 反码 补码 符号位&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;几种码&lt;/li&gt;
+&lt;/ol&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -18846,7 +18876,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;反码&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;取反&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;与原码相同&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;取反&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -18859,8 +18889,16 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;0&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;补齐&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;补0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;补1&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;0&lt;/strong&gt;的补码是&lt;strong&gt;0&lt;/strong&gt;，&lt;strong&gt;-128&lt;/strong&gt;的补码和&lt;strong&gt;128&lt;/strong&gt;的补码相同(8进制)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;其他的码&#34;&gt;其他的码&lt;/h1&gt;
 &lt;h2 id=&#34;一些码&#34;&gt;一些码&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BF%A1%E6%81%AF/3.png&#34;
