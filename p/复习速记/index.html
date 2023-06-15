@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Lab1 器材 TL082管脚图 LM741管脚图 二极管 黑色端为负极 发光二极管 三极管(C1008) C1008(EBC) 电阻 蜂鸣器 电源 电流源调节至最大
-CH1负极接差分放大器的地
-实验电路 第一部分 &amp;ndash; 温度传感器 &#43; 差分放大器 第二部分 &amp;ndash; 电压比较器 第三部分 &amp;ndash; 报警驱动电路 Lab2 电路和要求 ($A_{vo} \ge 30$) 就可以 计算 $$ \begin{aligned} A_{vo} &amp;amp;\ge 30 \\ g_m (r_o || R_D || R_L) &amp;amp;\ge30 \\ k_n (V_{GS} - V_t) (r_o || R_D || R_L) &amp;amp;\ge 30 \\ (V_{GS}-2)(r_o || R_D || R_L) &amp;amp;\ge 300 \\ \because r_0 很大，此处不作考虑 \\ (V_{GS}-2) (R_D || R_L) &amp;amp;\ge 300 \\ 选择 V_G 为 4V \\ 也就是R_{G1} = 20k\Omega, R_{G2} &amp;amp;= 10k\Omega \\\ \\ V_S &amp;amp;= I_DR_S \\ &amp;amp;= \frac{1}{2}k_n(V_G - V_S - V_t)^2 R_S\\ 选择 R_S &amp;amp;= 1k\Omega \\ V_S &amp;amp; = 2.'>
-<title>实验</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='四种放大器 输出/输入电阻 确定了静态工作点，才能得到小信号模型的参数 不考 差分 BJT 6，7，8章考的少 '>
+<title>复习速记</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/%E5%A4%8D%E4%B9%A0%E9%80%9F%E8%AE%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='实验'>
-<meta property='og:description' content='Lab1 器材 TL082管脚图 LM741管脚图 二极管 黑色端为负极 发光二极管 三极管(C1008) C1008(EBC) 电阻 蜂鸣器 电源 电流源调节至最大
-CH1负极接差分放大器的地
-实验电路 第一部分 &amp;ndash; 温度传感器 &#43; 差分放大器 第二部分 &amp;ndash; 电压比较器 第三部分 &amp;ndash; 报警驱动电路 Lab2 电路和要求 ($A_{vo} \ge 30$) 就可以 计算 $$ \begin{aligned} A_{vo} &amp;amp;\ge 30 \\ g_m (r_o || R_D || R_L) &amp;amp;\ge30 \\ k_n (V_{GS} - V_t) (r_o || R_D || R_L) &amp;amp;\ge 30 \\ (V_{GS}-2)(r_o || R_D || R_L) &amp;amp;\ge 300 \\ \because r_0 很大，此处不作考虑 \\ (V_{GS}-2) (R_D || R_L) &amp;amp;\ge 300 \\ 选择 V_G 为 4V \\ 也就是R_{G1} = 20k\Omega, R_{G2} &amp;amp;= 10k\Omega \\\ \\ V_S &amp;amp;= I_DR_S \\ &amp;amp;= \frac{1}{2}k_n(V_G - V_S - V_t)^2 R_S\\ 选择 R_S &amp;amp;= 1k\Omega \\ V_S &amp;amp; = 2.'>
-<meta property='og:url' content='https://downeyflyfan.com/p/%E5%AE%9E%E9%AA%8C/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='复习速记'>
+<meta property='og:description' content='四种放大器 输出/输入电阻 确定了静态工作点，才能得到小信号模型的参数 不考 差分 BJT 6，7，8章考的少 '>
+<meta property='og:url' content='https://downeyflyfan.com/p/%E5%A4%8D%E4%B9%A0%E9%80%9F%E8%AE%B0/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-04T17:07:33&#43;08:00'/><meta property='article:modified_time' content='2023-04-04T17:07:33&#43;08:00'/>
-<meta name="twitter:title" content="实验">
-<meta name="twitter:description" content="Lab1 器材 TL082管脚图 LM741管脚图 二极管 黑色端为负极 发光二极管 三极管(C1008) C1008(EBC) 电阻 蜂鸣器 电源 电流源调节至最大
-CH1负极接差分放大器的地
-实验电路 第一部分 &amp;ndash; 温度传感器 &#43; 差分放大器 第二部分 &amp;ndash; 电压比较器 第三部分 &amp;ndash; 报警驱动电路 Lab2 电路和要求 ($A_{vo} \ge 30$) 就可以 计算 $$ \begin{aligned} A_{vo} &amp;amp;\ge 30 \\ g_m (r_o || R_D || R_L) &amp;amp;\ge30 \\ k_n (V_{GS} - V_t) (r_o || R_D || R_L) &amp;amp;\ge 30 \\ (V_{GS}-2)(r_o || R_D || R_L) &amp;amp;\ge 300 \\ \because r_0 很大，此处不作考虑 \\ (V_{GS}-2) (R_D || R_L) &amp;amp;\ge 300 \\ 选择 V_G 为 4V \\ 也就是R_{G1} = 20k\Omega, R_{G2} &amp;amp;= 10k\Omega \\\ \\ V_S &amp;amp;= I_DR_S \\ &amp;amp;= \frac{1}{2}k_n(V_G - V_S - V_t)^2 R_S\\ 选择 R_S &amp;amp;= 1k\Omega \\ V_S &amp;amp; = 2."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-06-15T14:41:36&#43;08:00'/><meta property='article:modified_time' content='2023-06-15T14:41:36&#43;08:00'/>
+<meta name="twitter:title" content="复习速记">
+<meta name="twitter:description" content="四种放大器 输出/输入电阻 确定了静态工作点，才能得到小信号模型的参数 不考 差分 BJT 6，7，8章考的少 "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -256,44 +250,14 @@ CH1负极接差分放大器的地
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#lab1">Lab1</a>
+    <li><a href="#四种放大器">四种放大器</a></li>
+    <li><a href="#输出输入电阻">输出/输入电阻</a></li>
+    <li><a href="#确定了静态工作点才能得到小信号模型的参数">确定了静态工作点，才能得到小信号模型的参数</a></li>
+    <li><a href="#不考">不考</a>
       <ol>
-        <li><a href="#器材">器材</a>
-          <ol>
-            <li><a href="#tl082管脚图">TL082管脚图</a></li>
-            <li><a href="#lm741管脚图">LM741管脚图</a></li>
-            <li><a href="#二极管">二极管</a></li>
-            <li><a href="#发光二极管">发光二极管</a></li>
-            <li><a href="#三极管c1008">三极管(C1008)</a></li>
-            <li><a href="#电阻">电阻</a></li>
-            <li><a href="#蜂鸣器">蜂鸣器</a></li>
-          </ol>
-        </li>
-        <li><a href="#电源">电源</a></li>
-        <li><a href="#实验电路">实验电路</a>
-          <ol>
-            <li><a href="#第一部分----温度传感器--差分放大器">第一部分 &ndash; 温度传感器 + 差分放大器</a></li>
-            <li><a href="#第二部分----电压比较器">第二部分 &ndash; 电压比较器</a></li>
-            <li><a href="#第三部分----报警驱动电路">第三部分 &ndash; 报警驱动电路</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#lab2">Lab2</a>
-      <ol>
-        <li><a href="#电路和要求">电路和要求</a></li>
-        <li><a href="#计算">计算</a></li>
-        <li><a href="#选择器材">选择器材</a></li>
-        <li><a href="#测量频率">测量频率</a>
-          <ol>
-            <li><a href="#heading"></a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#实验知识">实验知识</a>
-      <ol>
-        <li><a href="#电阻色环">电阻色环</a></li>
+        <li><a href="#差分">差分</a></li>
+        <li><a href="#bjt">BJT</a></li>
+        <li><a href="#678章考的少">6，7，8章考的少</a></li>
       </ol>
     </li>
   </ol>
@@ -323,7 +287,7 @@ CH1负极接差分放大器的地
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%AE%9E%E9%AA%8C/">实验</a>
+            <a href="/p/%E5%A4%8D%E4%B9%A0%E9%80%9F%E8%AE%B0/">复习速记</a>
         </h2>
     
         
@@ -345,7 +309,7 @@ CH1负极接差分放大器的地
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 04, 4044</time>
+                <time class="article-time--published">Jun 15, 151515</time>
             </div>
         
 
@@ -360,7 +324,7 @@ CH1负极接差分放大器的地
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -375,303 +339,13 @@ CH1负极接差分放大器的地
     <section class="article-content">
     
     
-    <h1 id="lab1">Lab1</h1>
-<h2 id="器材">器材</h2>
-<h3 id="tl082管脚图">TL082管脚图</h3>
-<p><img src="/p/%E5%AE%9E%E9%AA%8C/1.png"
-	width="599"
-	height="406"
-	srcset="/p/%E5%AE%9E%E9%AA%8C/1_hu313a57c991e95514bd5fba79dc75ea3c_149282_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/1_hu313a57c991e95514bd5fba79dc75ea3c_149282_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="147"
-		data-flex-basis="354px"
-	
-></p>
-<h3 id="lm741管脚图">LM741管脚图</h3>
-<p><img src="/p/%E5%AE%9E%E9%AA%8C/2.png"
-	width="230"
-	height="169"
-	srcset="/p/%E5%AE%9E%E9%AA%8C/2_huae98dc3d10fc84820a8e47791df54863_19289_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/2_huae98dc3d10fc84820a8e47791df54863_19289_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="136"
-		data-flex-basis="326px"
-	
-></p>
-<h3 id="二极管">二极管</h3>
-<ul>
-<li><strong>黑色</strong>端为<strong>负极</strong></li>
-</ul>
-<h3 id="发光二极管">发光二极管</h3>
-<h3 id="三极管c1008">三极管(C1008)</h3>
-<ul>
-<li><strong>C1008(EBC)</strong></li>
-</ul>
-<h3 id="电阻">电阻</h3>
-<h3 id="蜂鸣器">蜂鸣器</h3>
-<h2 id="电源">电源</h2>
-<ol>
-<li>
-<p>电流源调节至<strong>最大</strong></p>
-</li>
-<li>
-<p><strong>CH1负极</strong>接<strong>差分放大器</strong>的<strong>地</strong></p>
-</li>
-</ol>
-<p><img src="/p/%E5%AE%9E%E9%AA%8C/6.png"
-	width="1245"
-	height="856"
-	srcset="/p/%E5%AE%9E%E9%AA%8C/6_hu14e849c76431442497d37428148bee30_65284_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/6_hu14e849c76431442497d37428148bee30_65284_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="145"
-		data-flex-basis="349px"
-	
-></p>
-<h2 id="实验电路">实验电路</h2>
-<h3 id="第一部分----温度传感器--差分放大器">第一部分 &ndash; 温度传感器 + 差分放大器</h3>
-<p><img src="/p/%E5%AE%9E%E9%AA%8C/3.png"
-	width="1192"
-	height="517"
-	srcset="/p/%E5%AE%9E%E9%AA%8C/3_hu1ed22082fc81680b6d82c9e23a78f10f_111789_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/3_hu1ed22082fc81680b6d82c9e23a78f10f_111789_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="230"
-		data-flex-basis="553px"
-	
-></p>
-<h3 id="第二部分----电压比较器">第二部分 &ndash; 电压比较器</h3>
-<p><img src="/p/%E5%AE%9E%E9%AA%8C/4.png"
-	width="894"
-	height="333"
-	srcset="/p/%E5%AE%9E%E9%AA%8C/4_hu2d508207e9b0d53792c5c1ee0a8fd7fd_55873_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/4_hu2d508207e9b0d53792c5c1ee0a8fd7fd_55873_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="268"
-		data-flex-basis="644px"
-	
-></p>
-<h3 id="第三部分----报警驱动电路">第三部分 &ndash; 报警驱动电路</h3>
-<p><img src="/p/%E5%AE%9E%E9%AA%8C/5.png"
-	width="871"
-	height="399"
-	srcset="/p/%E5%AE%9E%E9%AA%8C/5_hucb08987c33d511f79b70c8cb7273ac3d_100542_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/5_hucb08987c33d511f79b70c8cb7273ac3d_100542_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="218"
-		data-flex-basis="523px"
-	
-></p>
-<h1 id="lab2">Lab2</h1>
-<h2 id="电路和要求">电路和要求</h2>
-<p><img src="/p/%E5%AE%9E%E9%AA%8C/7.png"
-	width="789"
-	height="411"
-	srcset="/p/%E5%AE%9E%E9%AA%8C/7_huc3a102a5b38202278a461a412eaf6324_53041_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/7_huc3a102a5b38202278a461a412eaf6324_53041_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="191"
-		data-flex-basis="460px"
-	
-></p>
-<p><img src="/p/%E5%AE%9E%E9%AA%8C/8.png"
-	width="831"
-	height="220"
-	srcset="/p/%E5%AE%9E%E9%AA%8C/8_hu1e089b4f7932f48892b935fc13883bab_27707_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/8_hu1e089b4f7932f48892b935fc13883bab_27707_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="377"
-		data-flex-basis="906px"
-	
-></p>
-<ul>
-<li>($A_{vo} \ge 30$) 就可以</li>
-</ul>
-<h2 id="计算">计算</h2>
-<p>$$
-\begin{aligned}
-A_{vo} &amp;\ge 30 \\
-g_m (r_o || R_D || R_L) &amp;\ge30 \\
-k_n (V_{GS} - V_t) (r_o || R_D || R_L) &amp;\ge 30 \\
-(V_{GS}-2)(r_o || R_D || R_L) &amp;\ge 300 \\
-\because r_0 很大，此处不作考虑 \\
-(V_{GS}-2) (R_D || R_L) &amp;\ge 300 \\
-选择 V_G 为 4V \\
-也就是R_{G1} = 20k\Omega, R_{G2} &amp;= 10k\Omega  \\\
-\\ V_S &amp;= I_DR_S \\
-&amp;= \frac{1}{2}k_n(V_G - V_S - V_t)^2 R_S\\
-选择 R_S &amp;= 1k\Omega \\
-V_S &amp; = 2.210(V) 或 \ 1.810(V) \Longrightarrow V_{OV} = 0.21(V) 或 0.19(V)\\
-这样R_D || R_L &amp;\ge  1429 \ or \ 1579 \\
-\frac{R_D R_L}{R_D + R_L} &amp;\ge 1429 \ or \ 1579 \\
-选择R_D &amp;= 2k\Omega, R_L =100k \Omega \Longrightarrow R_D || R_L = 1.96k\\
-最终: A_v &amp;= g_m(R_D || R_L) \\
-&amp;=  0.021\times (R_D || R_L) or  \ 0.019\times 1.96k\\
-&amp;= 41.16  \ or \ 37.24 \\
-V_{op} &amp;= 617(mV) \ or \ 559(mV) \\\
-\\ 总结: R_{G1} &amp;= 20k\Omega, R_{G2} = 10k\Omega \\
-R_S &amp; =1k\Omega \\
-R_D &amp;= 2k\Omega \\
-R_L &amp;= 100k\Omega \\
-A_v &amp;= 41.16 \ or \ 37.24 \\
-R_{in} &amp;= R_{G1} || R_{G2} =  \frac{20}{3}k\Omega \gt 5k\Omega \\
-R_{out} = R_D &amp;= 2 k\Omega \lt 3k\Omega \\
-V_{op} &amp;= 617(mV) = 559(mV)
-\end{aligned}
-$$</p>
-<h2 id="选择器材">选择器材</h2>
-<ol>
-<li>
-<p>电阻</p>
-</li>
-<li>
-<p>MOSFET</p>
-</li>
-</ol>
-<p><img src="/p/%E5%AE%9E%E9%AA%8C/9.png"
-	width="463"
-	height="266"
-	srcset="/p/%E5%AE%9E%E9%AA%8C/9_hu2448cdd7eca145d2ee914b6568de65f1_54305_480x0_resize_box_3.png 480w, /p/%E5%AE%9E%E9%AA%8C/9_hu2448cdd7eca145d2ee914b6568de65f1_54305_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="174"
-		data-flex-basis="417px"
-	
-></p>
-<h2 id="测量频率">测量频率</h2>
-<h3 id="heading"></h3>
-<h1 id="实验知识">实验知识</h1>
-<h2 id="电阻色环">电阻色环</h2>
-<ol>
-<li>
-<p>第一个环（最左边的环）：代表第一位数字，即阻值的第一位数字。</p>
-</li>
-<li>
-<p>第二个环：代表第二位数字，即阻值的第二位数字。</p>
-</li>
-</ol>
-<ul>
-<li>
-<p>黑色：0</p>
-</li>
-<li>
-<p>棕色：1</p>
-</li>
-<li>
-<p>红色：2</p>
-</li>
-<li>
-<p>橙色：3</p>
-</li>
-<li>
-<p>黄色：4</p>
-</li>
-<li>
-<p>绿色：5</p>
-</li>
-<li>
-<p>蓝色：6</p>
-</li>
-<li>
-<p>紫色：7</p>
-</li>
-<li>
-<p>灰色：8</p>
-</li>
-<li>
-<p>白色：9</p>
-</li>
-</ul>
-<ol start="3">
-<li>第三个环：代表乘法因子，用于计算阻值的数量级。</li>
-</ol>
-<ul>
-<li>
-<p>黑色：无</p>
-</li>
-<li>
-<p>棕色：$10^1$</p>
-</li>
-<li>
-<p>红色：$10^2$</p>
-</li>
-<li>
-<p>橙色：$10^3$</p>
-</li>
-<li>
-<p>黄色：$10^4$</p>
-</li>
-<li>
-<p>绿色：$10^5$</p>
-</li>
-<li>
-<p>蓝色：$10^6$</p>
-</li>
-<li>
-<p>紫色：$10^7$</p>
-</li>
-<li>
-<p>灰色：$10^8$</p>
-</li>
-<li>
-<p>白色：$10^9$</p>
-</li>
-</ul>
-<ol start="4">
-<li>第四个环（最右边的环）：代表容差，即电阻值的允许误差范围。</li>
-</ol>
-<ul>
-<li>
-<p>无色环：±20%</p>
-</li>
-<li>
-<p>银色环：±10%</p>
-</li>
-<li>
-<p>金色环：±5%</p>
-</li>
-<li>
-<p>棕色环：±1%</p>
-</li>
-<li>
-<p>红色环：±2%</p>
-</li>
-<li>
-<p>绿色环：±0.5%</p>
-</li>
-<li>
-<p>蓝色环：±0.25%</p>
-</li>
-<li>
-<p>紫色环：±0.10%</p>
-</li>
-<li>
-<p>灰色环：±0.05%</p>
-</li>
-<li>
-<p>白色环：±10%</p>
-</li>
-</ul>
-<p>例如，如果电阻色环的顺序为棕色、黑色、红色、金色，那么其阻值为1 0 2乘以10^5，即1020000欧姆，容差为±5%。</p>
+    <h1 id="四种放大器">四种放大器</h1>
+<h1 id="输出输入电阻">输出/输入电阻</h1>
+<h1 id="确定了静态工作点才能得到小信号模型的参数">确定了静态工作点，才能得到小信号模型的参数</h1>
+<h1 id="不考">不考</h1>
+<h2 id="差分">差分</h2>
+<h2 id="bjt">BJT</h2>
+<h2 id="678章考的少">6，7，8章考的少</h2>
 
 </section>
 
@@ -735,19 +409,6 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E5%A4%8D%E4%B9%A0%E9%80%9F%E8%AE%B0/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">复习速记</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/10-11.-frequency-response-feedback/">
         
         
@@ -793,6 +454,19 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">7.晶体管放大器</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AE%9E%E9%AA%8C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">实验</h2>
         </div>
     </a>
 </article>

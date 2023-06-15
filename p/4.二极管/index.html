@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='二极管正向特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='二极管正向特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
 其他特性 $$ I_1 = I_S e^{V_1/V_T} \\\ \\ I_2 = I_S e^{V_2/V_T} \\\ \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\ \\ \because lnx = 2.3 \ lgx \\\ \\ \therefore V_2 = V_1 &#43; V_T ln(\frac{I_2}{I_1}) = V_1 &#43; 2.3V_T lg(\frac{I_2}{I_1}) \\\ \\ 其中2.3 V_T \approx 60(mV) $$
 正向偏置 $$ V \gg V_T \Longrightarrow i \approx I_Se^{V/V_T} \\\ \\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{I_S}\Big) $$'>
 <title>4.二极管</title>
@@ -9,14 +9,14 @@
 <link rel='canonical' href='https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4.二极管'>
-<meta property='og:description' content='二极管正向特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
+<meta property='og:description' content='二极管正向特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
 其他特性 $$ I_1 = I_S e^{V_1/V_T} \\\ \\ I_2 = I_S e^{V_2/V_T} \\\ \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\ \\ \because lnx = 2.3 \ lgx \\\ \\ \therefore V_2 = V_1 &#43; V_T ln(\frac{I_2}{I_1}) = V_1 &#43; 2.3V_T lg(\frac{I_2}{I_1}) \\\ \\ 其中2.3 V_T \approx 60(mV) $$
 正向偏置 $$ V \gg V_T \Longrightarrow i \approx I_Se^{V/V_T} \\\ \\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{I_S}\Big) $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-13T10:07:39&#43;00:00'/><meta property='article:modified_time' content='2023-03-13T10:07:39&#43;00:00'/>
 <meta name="twitter:title" content="4.二极管">
-<meta name="twitter:description" content="二极管正向特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\\ \\ I_S: 给定温度，给定二极管的一个常数 \\\ \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
+<meta name="twitter:description" content="二极管正向特性 终端特性 $$ i = I_S (e^{V/V_T}-1) \\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV $$
 其他特性 $$ I_1 = I_S e^{V_1/V_T} \\\ \\ I_2 = I_S e^{V_2/V_T} \\\ \\ \frac{I_2}{I_1} = e^{(V_2-V_1)/V_T} \\\ \\ \because lnx = 2.3 \ lgx \\\ \\ \therefore V_2 = V_1 &#43; V_T ln(\frac{I_2}{I_1}) = V_1 &#43; 2.3V_T lg(\frac{I_2}{I_1}) \\\ \\ 其中2.3 V_T \approx 60(mV) $$
 正向偏置 $$ V \gg V_T \Longrightarrow i \approx I_Se^{V/V_T} \\\ \\ i = I_Se^{V/V_T} \Longrightarrow V = V_T \ ln\Big(\frac{i}{I_S}\Big) $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
@@ -277,22 +277,22 @@
         </li>
         <li><a href="#恒压降模型cvdm">恒压降模型(CVDM)</a></li>
         <li><a href="#理想二极管模型">理想二极管模型</a></li>
-        <li><a href="#模型的选择">模型的选择</a></li>
-      </ol>
-    </li>
-    <li><a href="#小信号模型信号增加模型">小信号模型(信号增加模型)</a>
-      <ol>
-        <li><a href="#原因">原因</a></li>
-        <li><a href="#图像">图像</a></li>
-        <li><a href="#代数分析">代数分析</a>
+        <li><a href="#小信号模型信号增加模型">小信号模型(信号增加模型)</a>
           <ol>
-            <li><a href="#电路">电路</a></li>
-            <li><a href="#电流方程">电流方程</a></li>
-            <li><a href="#小信号电阻">小信号电阻</a></li>
+            <li><a href="#原因">原因</a></li>
+            <li><a href="#图像">图像</a></li>
+            <li><a href="#代数分析">代数分析</a>
+              <ol>
+                <li><a href="#电路">电路</a></li>
+                <li><a href="#电流方程">电流方程</a></li>
+                <li><a href="#小信号电阻">小信号电阻</a></li>
+              </ol>
+            </li>
+            <li><a href="#例题">例题</a></li>
           </ol>
         </li>
         <li><a href="#总结">总结</a></li>
-        <li><a href="#例题">例题</a></li>
+        <li><a href="#模型的选择">模型的选择</a></li>
       </ol>
     </li>
     <li><a href="#电压管理">电压管理</a>
@@ -446,9 +446,8 @@
     <h1 id="二极管正向特性">二极管正向特性</h1>
 <h2 id="终端特性">终端特性</h2>
 <p>$$
-i = I_S (e^{V/V_T}-1) \\\
-\\ I_S: 给定温度，给定二极管的一个常数 \\\
-\\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV
+i = I_S (e^{V/V_T}-1) \\
+V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV
 $$</p>
 <h2 id="其他特性">其他特性</h2>
 <p>$$
@@ -561,6 +560,104 @@ $$</p>
 <ul>
 <li>将$I_S-V_D$关系在$V_D=0$时近似为<strong>垂直</strong></li>
 </ul>
+<h2 id="小信号模型信号增加模型">小信号模型(信号增加模型)</h2>
+<h3 id="原因">原因</h3>
+<ul>
+<li>
+<p>使用<strong>非线性元件</strong>传输信号</p>
+</li>
+<li>
+<p>保证<strong>不失真</strong></p>
+</li>
+</ul>
+<h3 id="图像">图像</h3>
+<p><img src="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9.png"
+	width="487"
+	height="464"
+	srcset="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_480x0_resize_box_3.png 480w, /p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="104"
+		data-flex-basis="251px"
+	
+></p>
+<h3 id="代数分析">代数分析</h3>
+<h4 id="电路">电路</h4>
+<p><img src="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11.png"
+	width="338"
+	height="368"
+	srcset="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11_hu26799b2d5e93d026de8d47e68d2f8769_32114_480x0_resize_box_3.png 480w, /p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11_hu26799b2d5e93d026de8d47e68d2f8769_32114_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="91"
+		data-flex-basis="220px"
+	
+></p>
+<h4 id="电流方程">电流方程</h4>
+<p>$$
+把电源分成直流和交流两种叠加 \\\
+\\ i_D(t) = I_D + i_d(t) \\\
+\\ 总电流 = DC偏移量 + AC信号(失真) \\\
+\\ \begin{aligned}
+i_D(t) &amp;= I_S e^{(V_D+V_d)/V_T}
+\\ &amp;= I_S \ e^{V_D/V_T} e^{V_d/V_T}
+\\ &amp;= I_D e^{V_d/V_T} (泰勒展开，取前两项)
+\\ &amp;= I_D (1 + \frac{V_d}{V_T})
+\\ &amp;= I_D + \underset{i_d}{\frac{I_D}{V_T}V_d}
+\end{aligned}
+$$</p>
+<h4 id="小信号电阻">小信号电阻</h4>
+<p>$$
+\begin{aligned}
+i_d &amp;= \frac{I_D}{V_T}V_d \\
+\therefore r_d &amp;= \frac{V_T}{I_D} \\
+&amp;= \frac{dV_D}{di_D}\Big|_Q
+\end{aligned} \\\
+\\ 注意，这个\pmb{近似}只有在v_d \lt 5mV时才\pmb{有效}
+$$</p>
+<ul>
+<li>直流分量$I_D$只取决于$\pmb{V_D}$和<strong>温度</strong></li>
+</ul>
+<h3 id="例题">例题</h3>
+<blockquote>
+<p>The power supply $V_{+}$ has a DC value of 10V over which is superimposed a 60Hz sinusoid of 1V peak amplitude (known as the ripple)</p>
+</blockquote>
+<p><img src="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12.png"
+	width="342"
+	height="593"
+	srcset="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_480x0_resize_box_3.png 480w, /p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="138px"
+	
+></p>
+<p>$$
+假设I=1mA时, V_D = 0.7V\\\
+\\ \begin{aligned}
+I_D &amp;= \frac{10-0.7}{R} = 0.93(mA) \\
+r_d &amp;= \frac{V_T}{I_D} = 26.9(\Omega)  \\
+V_d(peak) &amp;= \frac{r_d}{r_d + R}V_s = 2.68(mV)
+\end{aligned}
+$$</p>
+<h2 id="总结">总结</h2>
+<ol>
+<li>
+<p>把电压分为<strong>稳定的直流</strong>和<strong>随时间变化的交流</strong>两部分</p>
+</li>
+<li>
+<p>稳定时，二极管当作<strong>CVDM</strong></p>
+</li>
+<li>
+<p>变化时，二极管当作<strong>电阻器</strong></p>
+</li>
+</ol>
 <h2 id="模型的选择">模型的选择</h2>
 <div class="table-wrapper"><table>
 <thead>
@@ -596,104 +693,6 @@ $$</p>
 </tr>
 </tbody>
 </table></div>
-<h1 id="小信号模型信号增加模型">小信号模型(信号增加模型)</h1>
-<h2 id="原因">原因</h2>
-<ul>
-<li>
-<p>使用<strong>非线性元件</strong>传输信号</p>
-</li>
-<li>
-<p>保证<strong>不失真</strong></p>
-</li>
-</ul>
-<h2 id="图像">图像</h2>
-<p><img src="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9.png"
-	width="487"
-	height="464"
-	srcset="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_480x0_resize_box_3.png 480w, /p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="104"
-		data-flex-basis="251px"
-	
-></p>
-<h2 id="代数分析">代数分析</h2>
-<h3 id="电路">电路</h3>
-<p><img src="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11.png"
-	width="338"
-	height="368"
-	srcset="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11_hu26799b2d5e93d026de8d47e68d2f8769_32114_480x0_resize_box_3.png 480w, /p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11_hu26799b2d5e93d026de8d47e68d2f8769_32114_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="91"
-		data-flex-basis="220px"
-	
-></p>
-<h3 id="电流方程">电流方程</h3>
-<p>$$
-把电源分成直流和交流两种叠加 \\\
-\\ i_D(t) = I_D + i_d(t) \\\
-\\ 总电流 = DC偏移量 + AC信号(失真) \\\
-\\ \begin{aligned}
-i_D(t) &amp;= I_S e^{(V_D+V_d)/V_T}
-\\ &amp;= I_S \ e^{V_D/V_T} e^{V_d/V_T}
-\\ &amp;= I_D e^{V_d/V_T} (泰勒展开，取前两项)
-\\ &amp;= I_D (1 + \frac{V_d}{V_T})
-\\ &amp;= I_D + \underset{i_d}{\frac{I_D}{V_T}V_d}
-\end{aligned}
-$$</p>
-<h3 id="小信号电阻">小信号电阻</h3>
-<p>$$
-\begin{aligned}
-i_d &amp;= \frac{I_D}{V_T}V_d \\
-\therefore r_d &amp;= \frac{V_T}{I_D} \\
-&amp;= \frac{dV_D}{di_D}\Big|_Q
-\end{aligned} \\\
-\\ 注意，这个\pmb{近似}只有在v_d \lt 5mV时才\pmb{有效}
-$$</p>
-<ul>
-<li>直流分量$I_D$只取决于$\pmb{V_D}$和<strong>温度</strong></li>
-</ul>
-<h2 id="总结">总结</h2>
-<ol>
-<li>
-<p>把电压分为<strong>稳定的直流</strong>和<strong>随时间变化的交流</strong>两部分</p>
-</li>
-<li>
-<p>稳定时，二极管当作<strong>CVDM</strong></p>
-</li>
-<li>
-<p>变化时，二极管当作<strong>电阻器</strong></p>
-</li>
-</ol>
-<h2 id="例题">例题</h2>
-<blockquote>
-<p>The power supply $V_{+}$ has a DC value of 10V over which is superimposed a 60Hz sinusoid of 1V peak amplitude (known as the ripple)</p>
-</blockquote>
-<p><img src="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12.png"
-	width="342"
-	height="593"
-	srcset="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_480x0_resize_box_3.png 480w, /p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="57"
-		data-flex-basis="138px"
-	
-></p>
-<p>$$
-\pmb{假设I=1mA时, V_D = 0.7V}\\\
-\\ \begin{aligned}
-I_D &amp;= \frac{10-0.7}{R} = 0.93(mA) \\
-r_d &amp;= \frac{V_T}{I_D} = 26.9(\Omega)  \\
-V_d(peak) &amp;= \frac{r_d}{r_d + R}V_s = 2.68(mV)
-\end{aligned}
-$$</p>
 <h1 id="电压管理">电压管理</h1>
 <h2 id="图像-1">图像</h2>
 <p><img src="/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/13.png"
@@ -1070,6 +1069,19 @@ $$</p>
             
                 
 <article class="">
+    <a href="/p/%E5%A4%8D%E4%B9%A0%E9%80%9F%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">复习速记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/10-11.-frequency-response-feedback/">
         
         
@@ -1115,19 +1127,6 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">7.晶体管放大器</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E5%AE%9E%E9%AA%8C/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">实验</h2>
         </div>
     </a>
 </article>

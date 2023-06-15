@@ -6,7 +6,22 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Tue, 13 Jun 2023 20:34:19 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 15 Jun 2023 14:41:36 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>复习速记</title>
+        <link>https://downeyflyfan.com/p/%E5%A4%8D%E4%B9%A0%E9%80%9F%E8%AE%B0/</link>
+        <pubDate>Thu, 15 Jun 2023 14:41:36 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E5%A4%8D%E4%B9%A0%E9%80%9F%E8%AE%B0/</guid>
+        <description>&lt;h1 id=&#34;四种放大器&#34;&gt;四种放大器&lt;/h1&gt;
+&lt;h1 id=&#34;输出输入电阻&#34;&gt;输出/输入电阻&lt;/h1&gt;
+&lt;h1 id=&#34;确定了静态工作点才能得到小信号模型的参数&#34;&gt;确定了静态工作点，才能得到小信号模型的参数&lt;/h1&gt;
+&lt;h1 id=&#34;不考&#34;&gt;不考&lt;/h1&gt;
+&lt;h2 id=&#34;差分&#34;&gt;差分&lt;/h2&gt;
+&lt;h2 id=&#34;bjt&#34;&gt;BJT&lt;/h2&gt;
+&lt;h2 id=&#34;678章考的少&#34;&gt;6，7，8章考的少&lt;/h2&gt;
+</description>
+        </item>
+        <item>
         <title>考试速记</title>
         <link>https://downeyflyfan.com/p/%E8%80%83%E8%AF%95%E9%80%9F%E8%AE%B0/</link>
         <pubDate>Tue, 13 Jun 2023 20:34:19 +0800</pubDate>
@@ -9068,15 +9083,17 @@ $$&lt;/p&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;Baud Rate&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;Data Bits&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;Stop Bit&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Parity Bits&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Start Bits&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;(Parity Bit)&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;传输速率&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;一次传几位(5,6,7,8)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;什么时候结束一次传输&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;奇偶校验&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;什么时候结束一次传开始位&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;可选&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13696,9 +13713,8 @@ $$&lt;/p&gt;
         <description>&lt;h1 id=&#34;二极管正向特性&#34;&gt;二极管正向特性&lt;/h1&gt;
 &lt;h2 id=&#34;终端特性&#34;&gt;终端特性&lt;/h2&gt;
 &lt;p&gt;$$
-i = I_S (e^{V/V_T}-1) \\\
-\\ I_S: 给定温度，给定二极管的一个常数 \\\
-\\ V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV
+i = I_S (e^{V/V_T}-1) \\
+V_T:热电压，室温下(20C^\circ),V_T = 25.3(mV) \approx 25mV
 $$&lt;/p&gt;
 &lt;h2 id=&#34;其他特性&#34;&gt;其他特性&lt;/h2&gt;
 &lt;p&gt;$$
@@ -13811,6 +13827,104 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;将$I_S-V_D$关系在$V_D=0$时近似为&lt;strong&gt;垂直&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;小信号模型信号增加模型&#34;&gt;小信号模型(信号增加模型)&lt;/h2&gt;
+&lt;h3 id=&#34;原因&#34;&gt;原因&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用&lt;strong&gt;非线性元件&lt;/strong&gt;传输信号&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;保证&lt;strong&gt;不失真&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;图像&#34;&gt;图像&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9.png&#34;
+	width=&#34;487&#34;
+	height=&#34;464&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;104&#34;
+		data-flex-basis=&#34;251px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;代数分析&#34;&gt;代数分析&lt;/h3&gt;
+&lt;h4 id=&#34;电路&#34;&gt;电路&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11.png&#34;
+	width=&#34;338&#34;
+	height=&#34;368&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11_hu26799b2d5e93d026de8d47e68d2f8769_32114_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11_hu26799b2d5e93d026de8d47e68d2f8769_32114_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;91&#34;
+		data-flex-basis=&#34;220px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;电流方程&#34;&gt;电流方程&lt;/h4&gt;
+&lt;p&gt;$$
+把电源分成直流和交流两种叠加 \\\
+\\ i_D(t) = I_D + i_d(t) \\\
+\\ 总电流 = DC偏移量 + AC信号(失真) \\\
+\\ \begin{aligned}
+i_D(t) &amp;amp;= I_S e^{(V_D+V_d)/V_T}
+\\ &amp;amp;= I_S \ e^{V_D/V_T} e^{V_d/V_T}
+\\ &amp;amp;= I_D e^{V_d/V_T} (泰勒展开，取前两项)
+\\ &amp;amp;= I_D (1 + \frac{V_d}{V_T})
+\\ &amp;amp;= I_D + \underset{i_d}{\frac{I_D}{V_T}V_d}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;小信号电阻&#34;&gt;小信号电阻&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{aligned}
+i_d &amp;amp;= \frac{I_D}{V_T}V_d \\
+\therefore r_d &amp;amp;= \frac{V_T}{I_D} \\
+&amp;amp;= \frac{dV_D}{di_D}\Big|_Q
+\end{aligned} \\\
+\\ 注意，这个\pmb{近似}只有在v_d \lt 5mV时才\pmb{有效}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直流分量$I_D$只取决于$\pmb{V_D}$和&lt;strong&gt;温度&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;例题&#34;&gt;例题&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The power supply $V_{+}$ has a DC value of 10V over which is superimposed a 60Hz sinusoid of 1V peak amplitude (known as the ripple)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12.png&#34;
+	width=&#34;342&#34;
+	height=&#34;593&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;138px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+假设I=1mA时, V_D = 0.7V\\\
+\\ \begin{aligned}
+I_D &amp;amp;= \frac{10-0.7}{R} = 0.93(mA) \\
+r_d &amp;amp;= \frac{V_T}{I_D} = 26.9(\Omega)  \\
+V_d(peak) &amp;amp;= \frac{r_d}{r_d + R}V_s = 2.68(mV)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;把电压分为&lt;strong&gt;稳定的直流&lt;/strong&gt;和&lt;strong&gt;随时间变化的交流&lt;/strong&gt;两部分&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;稳定时，二极管当作&lt;strong&gt;CVDM&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;变化时，二极管当作&lt;strong&gt;电阻器&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;模型的选择&#34;&gt;模型的选择&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -13846,104 +13960,6 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id=&#34;小信号模型信号增加模型&#34;&gt;小信号模型(信号增加模型)&lt;/h1&gt;
-&lt;h2 id=&#34;原因&#34;&gt;原因&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用&lt;strong&gt;非线性元件&lt;/strong&gt;传输信号&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;保证&lt;strong&gt;不失真&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;图像&#34;&gt;图像&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9.png&#34;
-	width=&#34;487&#34;
-	height=&#34;464&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/9_hu207aaad02ea10dd0c47269f625f0980f_30462_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;104&#34;
-		data-flex-basis=&#34;251px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;代数分析&#34;&gt;代数分析&lt;/h2&gt;
-&lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11.png&#34;
-	width=&#34;338&#34;
-	height=&#34;368&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11_hu26799b2d5e93d026de8d47e68d2f8769_32114_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/11_hu26799b2d5e93d026de8d47e68d2f8769_32114_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;91&#34;
-		data-flex-basis=&#34;220px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;电流方程&#34;&gt;电流方程&lt;/h3&gt;
-&lt;p&gt;$$
-把电源分成直流和交流两种叠加 \\\
-\\ i_D(t) = I_D + i_d(t) \\\
-\\ 总电流 = DC偏移量 + AC信号(失真) \\\
-\\ \begin{aligned}
-i_D(t) &amp;amp;= I_S e^{(V_D+V_d)/V_T}
-\\ &amp;amp;= I_S \ e^{V_D/V_T} e^{V_d/V_T}
-\\ &amp;amp;= I_D e^{V_d/V_T} (泰勒展开，取前两项)
-\\ &amp;amp;= I_D (1 + \frac{V_d}{V_T})
-\\ &amp;amp;= I_D + \underset{i_d}{\frac{I_D}{V_T}V_d}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;小信号电阻&#34;&gt;小信号电阻&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{aligned}
-i_d &amp;amp;= \frac{I_D}{V_T}V_d \\
-\therefore r_d &amp;amp;= \frac{V_T}{I_D} \\
-&amp;amp;= \frac{dV_D}{di_D}\Big|_Q
-\end{aligned} \\\
-\\ 注意，这个\pmb{近似}只有在v_d \lt 5mV时才\pmb{有效}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;直流分量$I_D$只取决于$\pmb{V_D}$和&lt;strong&gt;温度&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;把电压分为&lt;strong&gt;稳定的直流&lt;/strong&gt;和&lt;strong&gt;随时间变化的交流&lt;/strong&gt;两部分&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;稳定时，二极管当作&lt;strong&gt;CVDM&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;变化时，二极管当作&lt;strong&gt;电阻器&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;例题&#34;&gt;例题&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The power supply $V_{+}$ has a DC value of 10V over which is superimposed a 60Hz sinusoid of 1V peak amplitude (known as the ripple)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12.png&#34;
-	width=&#34;342&#34;
-	height=&#34;593&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/12_hud32ecf81d2861c083613bf14295068f0_33601_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;57&#34;
-		data-flex-basis=&#34;138px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\pmb{假设I=1mA时, V_D = 0.7V}\\\
-\\ \begin{aligned}
-I_D &amp;amp;= \frac{10-0.7}{R} = 0.93(mA) \\
-r_d &amp;amp;= \frac{V_T}{I_D} = 26.9(\Omega)  \\
-V_d(peak) &amp;amp;= \frac{r_d}{r_d + R}V_s = 2.68(mV)
-\end{aligned}
-$$&lt;/p&gt;
 &lt;h1 id=&#34;电压管理&#34;&gt;电压管理&lt;/h1&gt;
 &lt;h2 id=&#34;图像-1&#34;&gt;图像&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E4%BA%8C%E6%9E%81%E7%AE%A1/13.png&#34;
@@ -15127,71 +15143,12 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;C, C++, Python, Java, MicroPython&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;界面技巧&#34;&gt;界面技巧&lt;/h1&gt;
-&lt;h2 id=&#34;gpio&#34;&gt;GPIO&lt;/h2&gt;
-&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;General Purpose Input/Output&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;实例&#34;&gt;实例&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;对于microcontroller，&lt;strong&gt;pin&lt;/strong&gt;就是&lt;strong&gt;GPIO&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;pin&lt;/strong&gt;是双向的&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;工作模式&#34;&gt;工作模式&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;输入&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Floating Mode&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Pull-Up&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Pull-Down&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Analog Mode&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;输出&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;General purpose output push-pull&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;General purpose output Open-drain&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Alternate function output push-pull&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Alternate function output Open-drain.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;pwm---pulse-width-modulation&#34;&gt;PWM - Pulse Width Modulation&lt;/h2&gt;
-&lt;h3 id=&#34;模电和数电&#34;&gt;模电和数电&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;模拟信号可以多样&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数字信号只能是&lt;strong&gt;High&lt;/strong&gt;或&lt;strong&gt;Low&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;原理&#34;&gt;原理&lt;/h3&gt;
+&lt;h1 id=&#34;pwm---pulse-width-modulation&#34;&gt;PWM - Pulse Width Modulation&lt;/h1&gt;
+&lt;h2 id=&#34;原理&#34;&gt;原理&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;用&lt;strong&gt;数字源&lt;/strong&gt;产生&lt;strong&gt;模拟信号&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;图像分析&#34;&gt;图像分析&lt;/h3&gt;
+&lt;h2 id=&#34;图像分析&#34;&gt;图像分析&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/arm-%E7%BC%96%E7%A8%8B/1.png&#34;
 	width=&#34;850&#34;
 	height=&#34;408&#34;
@@ -15208,8 +15165,8 @@ $$&lt;/p&gt;
 Duty \ Cycle = \frac{Active \ time}{T} \times 100% \\\
 \\ Average \ Time = high \cdot Duty \ Cycle / 100%
 $$&lt;/p&gt;
-&lt;h2 id=&#34;串行通信的方式&#34;&gt;串行通信的方式&lt;/h2&gt;
-&lt;h3 id=&#34;uart----universal-asynchronous-reception-and-transmission&#34;&gt;UART &amp;ndash; Universal Asynchronous Reception and Transmission&lt;/h3&gt;
+&lt;h1 id=&#34;串行通信的方式&#34;&gt;串行通信的方式&lt;/h1&gt;
+&lt;h2 id=&#34;uart----universal-asynchronous-reception-and-transmission&#34;&gt;UART &amp;ndash; Universal Asynchronous Reception and Transmission&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;部件与原理&lt;/li&gt;
 &lt;/ol&gt;
@@ -15250,7 +15207,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;理想状态下，串行线为$1$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;i2c---inter-integrated-circuit&#34;&gt;I2C - Inter-Integrated-Circuit&lt;/h3&gt;
+&lt;h2 id=&#34;i2c---inter-integrated-circuit&#34;&gt;I2C - Inter-Integrated-Circuit&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;部件与原理&lt;/li&gt;
 &lt;/ol&gt;
@@ -15349,7 +15306,7 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;SCL保持低位&lt;/strong&gt;时可以操作数据线&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;spi---serial-peripheral-interface&#34;&gt;SPI - Serial Peripheral Interface&lt;/h3&gt;
+&lt;h2 id=&#34;spi---serial-peripheral-interface&#34;&gt;SPI - Serial Peripheral Interface&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;部件与协议&lt;/li&gt;
 &lt;/ol&gt;
@@ -15429,6 +15386,49 @@ MOSI发送数据 --&gt; MISO接受从机发回的数据: 如果有必要的话
 &lt;blockquote&gt;
 &lt;p&gt;当CPHA为0时，在时钟信号的第一个跳变沿（上升沿或下降沿）采样数据；当CPHA为1时，在时钟信号的第二个跳变沿（另一个上升沿或下降沿）采样数据。&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h2 id=&#34;对比&#34;&gt;对比&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;比较项目&lt;/th&gt;
+&lt;th&gt;UART&lt;/th&gt;
+&lt;th&gt;I2C&lt;/th&gt;
+&lt;th&gt;SPI&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Communication Type&lt;/td&gt;
+&lt;td&gt;Serial&lt;/td&gt;
+&lt;td&gt;Serial/Parallel (multi-master)&lt;/td&gt;
+&lt;td&gt;Serial (single-master)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Number of Wires Required&lt;/td&gt;
+&lt;td&gt;Minimum of two (TX and RX)&lt;/td&gt;
+&lt;td&gt;Two wires (SDA and SCL) plus optional ground wire&lt;/td&gt;
+&lt;td&gt;Minimum of three (MOSI, MISO, and CLK) plus optional slave select wire(s)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data Transfer Speed&lt;/td&gt;
+&lt;td&gt;Typically up to several Mbps&lt;/td&gt;
+&lt;td&gt;Typically up to several hundred Kbps&lt;/td&gt;
+&lt;td&gt;Typically up to tens of Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Maximum Distance Supported&lt;/td&gt;
+&lt;td&gt;Up to a few meters&lt;/td&gt;
+&lt;td&gt;Up to several meters&lt;/td&gt;
+&lt;td&gt;Up to several meters&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Simplicity&lt;/td&gt;
+&lt;td&gt;Simple&lt;/td&gt;
+&lt;td&gt;Simple&lt;/td&gt;
+&lt;td&gt;Relatively Complex&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         <item>
