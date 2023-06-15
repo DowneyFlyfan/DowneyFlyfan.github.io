@@ -6,30 +6,7 @@
         <description>Recent content in 数模 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 07 Jun 2023 19:19:31 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E6%95%B0%E6%A8%A1/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>统计模型</title>
-        <link>https://downeyflyfan.com/p/%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%9E%8B/</link>
-        <pubDate>Wed, 07 Jun 2023 19:19:31 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%9E%8B/</guid>
-        <description>&lt;h1 id=&#34;pca-principal-componets-analysis&#34;&gt;PCA (Principal Componets Analysis)&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;SVD实现二维PCA&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-a^2 &amp;amp;= b^2 + c^2 \\
-a &amp;ndash; &amp;amp;\Longrightarrow b \uparrow c \downarrow \\
-SS = max&amp;amp; \lbrace \sum_{i}^n d_i^2\rbrace \Longrightarrow PC1 \\\
-\\ PC1 \ Eigenvalue &amp;amp;= \frac{SS}{n-1} \\
-PC1 \ Singularvalue &amp;amp;= \sqrt{SS} \\
-PC3 &amp;amp;\perp PC2 \perp PC1
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;cca-conanical-corelation-analysis&#34;&gt;CCA (Conanical Corelation Analysis)&lt;/h1&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Sat, 20 May 2023 18:55:44 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E6%95%B0%E6%A8%A1/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>分类</title>
         <link>https://downeyflyfan.com/p/%E5%88%86%E7%B1%BB/</link>
         <pubDate>Sat, 20 May 2023 18:55:44 +0800</pubDate>
@@ -951,7 +928,36 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;机器学习算法&#34;&gt;机器学习算法&lt;/h1&gt;
+&lt;h2 id=&#34;adaboost-adaptive-boosting&#34;&gt;adaboost (adaptive Boosting)&lt;/h2&gt;
+&lt;h3 id=&#34;原理&#34;&gt;原理&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;组合&lt;strong&gt;多个弱算法&lt;/strong&gt;，形成&lt;strong&gt;强算法&lt;/strong&gt;, 属于&lt;strong&gt;集成学习&lt;/strong&gt;, 更适合于&lt;strong&gt;复杂问题&lt;/strong&gt;，但是容易&lt;strong&gt;Overfit&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;步骤&#34;&gt;步骤&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;训练样本困难度的初始化和更新&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+初始困难度: \omega_i &amp;amp;= \frac{1}{N} \\
+\omega_i^{new} &amp;amp;= \begin{cases}
+\dfrac{1}{2(\varepsilon - 1)} \omega_i^{old
+} &amp;amp; 当前样本被正确分类 \\
+\dfrac{1}{2\varepsilon} \omega_i^{old} &amp;amp; 当前样本被错误分类
+\end{cases}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;更新每个Weak Learner的权重&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\alpha_k &amp;amp;= \frac{1}{2} log(\frac{1-\varepsilon_k}{\varepsilon_k}) \\
+\overline F &amp;amp;= \sum_{i=1}^n \alpha_i f_i
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;优缺点&#34;&gt;优缺点&lt;/h3&gt;
 </description>
         </item>
         <item>

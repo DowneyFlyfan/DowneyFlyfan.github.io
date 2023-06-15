@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='GPIO结构图 结构解释 Pull-Up Resistance 将一个输入端连接到高电平，以确保输入端在没有外部信号的情况下保持高电平。当外部信号拉低输入端时，输入端的电平会变为低电平. Pull-Down Resistance 将一个输入端连接到低电平，以确保输入端在没有外部信号的情况下保持低电平。当外部信号拉高输入端时，输入端的电平会变为高电平. Schmitt Trigger Converts an input signal into a digital output signal.
-Remove noise and provide hysteresis, which helps in stabilizing the output when the input signal is near the threshold level.
-It has two threshold voltage levels. When the input voltage crosses these threshold levels, it triggers a change in the output state.
-Applications: level shifting, noise filtering, waveform shaping.
-工作模式 输入模式 Floating Input 将GPIO引脚不连接到任何信号上，需要外部信号输入才能确定GPIO引脚的电平。 Pull-Up 将GPIO引脚连接到一个高电平信号上，通过内部上拉电阻将GPIO引脚拉高，当外部信号低于GPIO引脚电平时，GPIO引脚为低电平。 Pull-Down 将GPIO引脚连接到一个低电平信号上，通过内部下拉电阻将GPIO引脚拉低，当外部信号高于GPIO引脚电平时，GPIO引脚为高电平。 Analog Mode 双向输入模式，将GPIO引脚连接到双向信号上，可以通过软件控制来选择GPIO引脚是输入还是输出 输出模式 General purpose output Open-drain 只能输出低电平(Sink Current) Alternate function output Open-drain 复用输出,被用于其他模式 General purpose output push-pull 输出稳定，可高可低 Alternate function output push-pull PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.'>
-<title>GPIO PWM UART</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='知识点速记 CAN bus is a vehicle bus standard designed to allow microcontrollers and device to communicate with each other within a vehicle without a host computer. CAN: Control Area Network Volatile Keyword Indicate to the complier that the variable may change its value
+Must be written from RAM instead of CPU register
+If not used, there might be Bugs/ Unstable Conditions
+Almost every processor has a number of privileged instructions for Operating System(OS) fucntions'>
+<title>考试速记</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/gpio-pwm-uart/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/%E8%80%83%E8%AF%95%E9%80%9F%E8%AE%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='GPIO PWM UART'>
-<meta property='og:description' content='GPIO结构图 结构解释 Pull-Up Resistance 将一个输入端连接到高电平，以确保输入端在没有外部信号的情况下保持高电平。当外部信号拉低输入端时，输入端的电平会变为低电平. Pull-Down Resistance 将一个输入端连接到低电平，以确保输入端在没有外部信号的情况下保持低电平。当外部信号拉高输入端时，输入端的电平会变为高电平. Schmitt Trigger Converts an input signal into a digital output signal.
-Remove noise and provide hysteresis, which helps in stabilizing the output when the input signal is near the threshold level.
-It has two threshold voltage levels. When the input voltage crosses these threshold levels, it triggers a change in the output state.
-Applications: level shifting, noise filtering, waveform shaping.
-工作模式 输入模式 Floating Input 将GPIO引脚不连接到任何信号上，需要外部信号输入才能确定GPIO引脚的电平。 Pull-Up 将GPIO引脚连接到一个高电平信号上，通过内部上拉电阻将GPIO引脚拉高，当外部信号低于GPIO引脚电平时，GPIO引脚为低电平。 Pull-Down 将GPIO引脚连接到一个低电平信号上，通过内部下拉电阻将GPIO引脚拉低，当外部信号高于GPIO引脚电平时，GPIO引脚为高电平。 Analog Mode 双向输入模式，将GPIO引脚连接到双向信号上，可以通过软件控制来选择GPIO引脚是输入还是输出 输出模式 General purpose output Open-drain 只能输出低电平(Sink Current) Alternate function output Open-drain 复用输出,被用于其他模式 General purpose output push-pull 输出稳定，可高可低 Alternate function output push-pull PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0.'>
-<meta property='og:url' content='https://downeyflyfan.com/p/gpio-pwm-uart/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='考试速记'>
+<meta property='og:description' content='知识点速记 CAN bus is a vehicle bus standard designed to allow microcontrollers and device to communicate with each other within a vehicle without a host computer. CAN: Control Area Network Volatile Keyword Indicate to the complier that the variable may change its value
+Must be written from RAM instead of CPU register
+If not used, there might be Bugs/ Unstable Conditions
+Almost every processor has a number of privileged instructions for Operating System(OS) fucntions'>
+<meta property='og:url' content='https://downeyflyfan.com/p/%E8%80%83%E8%AF%95%E9%80%9F%E8%AE%B0/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-24T18:06:41&#43;08:00'/><meta property='article:modified_time' content='2023-03-24T18:06:41&#43;08:00'/>
-<meta name="twitter:title" content="GPIO PWM UART">
-<meta name="twitter:description" content="GPIO结构图 结构解释 Pull-Up Resistance 将一个输入端连接到高电平，以确保输入端在没有外部信号的情况下保持高电平。当外部信号拉低输入端时，输入端的电平会变为低电平. Pull-Down Resistance 将一个输入端连接到低电平，以确保输入端在没有外部信号的情况下保持低电平。当外部信号拉高输入端时，输入端的电平会变为高电平. Schmitt Trigger Converts an input signal into a digital output signal.
-Remove noise and provide hysteresis, which helps in stabilizing the output when the input signal is near the threshold level.
-It has two threshold voltage levels. When the input voltage crosses these threshold levels, it triggers a change in the output state.
-Applications: level shifting, noise filtering, waveform shaping.
-工作模式 输入模式 Floating Input 将GPIO引脚不连接到任何信号上，需要外部信号输入才能确定GPIO引脚的电平。 Pull-Up 将GPIO引脚连接到一个高电平信号上，通过内部上拉电阻将GPIO引脚拉高，当外部信号低于GPIO引脚电平时，GPIO引脚为低电平。 Pull-Down 将GPIO引脚连接到一个低电平信号上，通过内部下拉电阻将GPIO引脚拉低，当外部信号高于GPIO引脚电平时，GPIO引脚为高电平。 Analog Mode 双向输入模式，将GPIO引脚连接到双向信号上，可以通过软件控制来选择GPIO引脚是输入还是输出 输出模式 General purpose output Open-drain 只能输出低电平(Sink Current) Alternate function output Open-drain 复用输出,被用于其他模式 General purpose output push-pull 输出稳定，可高可低 Alternate function output push-pull PWM 函数 PwmOut 创建PWM的接口 write 写入duty cycle(0."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-06-13T20:34:19&#43;08:00'/><meta property='article:modified_time' content='2023-06-13T20:34:19&#43;08:00'/>
+<meta name="twitter:title" content="考试速记">
+<meta name="twitter:description" content="知识点速记 CAN bus is a vehicle bus standard designed to allow microcontrollers and device to communicate with each other within a vehicle without a host computer. CAN: Control Area Network Volatile Keyword Indicate to the complier that the variable may change its value
+Must be written from RAM instead of CPU register
+If not used, there might be Bugs/ Unstable Conditions
+Almost every processor has a number of privileged instructions for Operating System(OS) fucntions"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -262,58 +259,11 @@ Applications: level shifting, noise filtering, waveform shaping.
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#gpio结构图">GPIO结构图</a>
+    <li><a href="#知识点速记">知识点速记</a></li>
+    <li><a href="#polling-and-interrupt">Polling and Interrupt</a>
       <ol>
-        <li><a href="#结构解释">结构解释</a>
-          <ol>
-            <li><a href="#pull-up-resistance">Pull-Up Resistance</a></li>
-            <li><a href="#pull-down-resistance">Pull-Down Resistance</a></li>
-            <li><a href="#schmitt-trigger">Schmitt Trigger</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#工作模式">工作模式</a>
-      <ol>
-        <li><a href="#输入模式">输入模式</a>
-          <ol>
-            <li><a href="#floating-input">Floating Input</a></li>
-            <li><a href="#pull-up">Pull-Up</a></li>
-            <li><a href="#pull-down">Pull-Down</a></li>
-            <li><a href="#analog-mode">Analog Mode</a></li>
-          </ol>
-        </li>
-        <li><a href="#输出模式">输出模式</a>
-          <ol>
-            <li><a href="#general-purpose-output-open-drain">General purpose output Open-drain</a></li>
-            <li><a href="#alternate-function-output-open-drain">Alternate function output Open-drain</a></li>
-            <li><a href="#general-purpose-output-push-pull">General purpose output push-pull</a></li>
-            <li><a href="#alternate-function-output-push-pull">Alternate function output push-pull</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#pwm">PWM</a>
-      <ol>
-        <li><a href="#函数">函数</a></li>
-        <li><a href="#其他函数与对象">其他函数与对象</a>
-          <ol>
-            <li><a href="#tone">tone</a></li>
-            <li><a href="#pc">pc</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#uart">UART</a>
-      <ol>
-        <li><a href="#工作原理">工作原理</a></li>
-        <li><a href="#优缺点">优缺点</a></li>
-        <li><a href="#example">Example</a></li>
-      </ol>
-    </li>
-    <li><a href="#quiz">Quiz</a>
-      <ol>
-        <li><a href="#为什么过大的数会导致程序无法运行">为什么过大的数会导致程序无法运行</a></li>
+        <li><a href="#polling-轮询">Polling (轮询)</a></li>
+        <li><a href="#interrupt">Interrupt</a></li>
       </ol>
     </li>
   </ol>
@@ -343,7 +293,7 @@ Applications: level shifting, noise filtering, waveform shaping.
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/gpio-pwm-uart/">GPIO PWM UART</a>
+            <a href="/p/%E8%80%83%E8%AF%95%E9%80%9F%E8%AE%B0/">考试速记</a>
         </h2>
     
         
@@ -365,7 +315,7 @@ Applications: level shifting, noise filtering, waveform shaping.
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 24, 242424</time>
+                <time class="article-time--published">Jun 13, 131313</time>
             </div>
         
 
@@ -380,7 +330,7 @@ Applications: level shifting, noise filtering, waveform shaping.
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -395,305 +345,104 @@ Applications: level shifting, noise filtering, waveform shaping.
     <section class="article-content">
     
     
-    <h1 id="gpio结构图">GPIO结构图</h1>
-<p><img src="/p/gpio-pwm-uart/1.png"
-	width="1295"
-	height="573"
-	srcset="/p/gpio-pwm-uart/1_hud6fc8d1694692fdb766600d81e0e1df1_221437_480x0_resize_box_3.png 480w, /p/gpio-pwm-uart/1_hud6fc8d1694692fdb766600d81e0e1df1_221437_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="226"
-		data-flex-basis="542px"
-	
-></p>
-<h2 id="结构解释">结构解释</h2>
-<h3 id="pull-up-resistance">Pull-Up Resistance</h3>
-<ul>
-<li>将一个输入端连接到高电平，以<strong>确保输入端在没有外部信号的情况下保持高电平</strong>。当外部信号拉低输入端时，输入端的电平会变为低电平.</li>
-</ul>
-<h3 id="pull-down-resistance">Pull-Down Resistance</h3>
-<ul>
-<li>将一个输入端连接到低电平，以<strong>确保输入端在没有外部信号的情况下保持低电平</strong>。当外部信号拉高输入端时，输入端的电平会变为高电平.</li>
-</ul>
-<h3 id="schmitt-trigger">Schmitt Trigger</h3>
-<ul>
-<li>
-<p><strong>Converts</strong> an input signal into a <strong>digital</strong> output signal.</p>
-</li>
-<li>
-<p>Remove noise and provide hysteresis, which helps in stabilizing the output when the input signal is near the threshold level.</p>
-</li>
-<li>
-<p>It has two threshold voltage levels. When the input voltage crosses these threshold levels, it triggers a change in the output state.</p>
-</li>
-<li>
-<p>Applications: level shifting, noise filtering, waveform shaping.</p>
-</li>
-</ul>
-<h1 id="工作模式">工作模式</h1>
-<h2 id="输入模式">输入模式</h2>
-<h3 id="floating-input">Floating Input</h3>
-<ul>
-<li>将GPIO引脚不连接到任何信号上，需要外部信号输入才能确定GPIO引脚的电平。</li>
-</ul>
-<p><img src="/p/gpio-pwm-uart/2.png"
-	width="887"
-	height="495"
-	srcset="/p/gpio-pwm-uart/2_hu7b28e640209138565ab84f57859df50f_193531_480x0_resize_box_3.png 480w, /p/gpio-pwm-uart/2_hu7b28e640209138565ab84f57859df50f_193531_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="179"
-		data-flex-basis="430px"
-	
-></p>
-<h3 id="pull-up">Pull-Up</h3>
-<ul>
-<li>将GPIO引脚连接到一个高电平信号上，通过内部上拉电阻将GPIO引脚拉高，当外部信号低于GPIO引脚电平时，GPIO引脚为低电平。</li>
-</ul>
-<p><img src="/p/gpio-pwm-uart/3.png"
-	width="891"
-	height="506"
-	srcset="/p/gpio-pwm-uart/3_hu95caf0c6493692282868c0e62c10054d_193611_480x0_resize_box_3.png 480w, /p/gpio-pwm-uart/3_hu95caf0c6493692282868c0e62c10054d_193611_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="176"
-		data-flex-basis="422px"
-	
-></p>
-<h3 id="pull-down">Pull-Down</h3>
-<ul>
-<li>将GPIO引脚连接到一个低电平信号上，通过内部下拉电阻将GPIO引脚拉低，当外部信号高于GPIO引脚电平时，GPIO引脚为高电平。</li>
-</ul>
-<p><img src="/p/gpio-pwm-uart/4.png"
-	width="888"
-	height="505"
-	srcset="/p/gpio-pwm-uart/4_hubae385d3d14bf8fcf77d666fd29b6c7a_192955_480x0_resize_box_3.png 480w, /p/gpio-pwm-uart/4_hubae385d3d14bf8fcf77d666fd29b6c7a_192955_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="175"
-		data-flex-basis="422px"
-	
-></p>
-<h3 id="analog-mode">Analog Mode</h3>
-<ul>
-<li>双向输入模式，将GPIO引脚连接到双向信号上，可以通过软件控制来选择GPIO引脚是输入还是输出</li>
-</ul>
-<p><img src="/p/gpio-pwm-uart/5.png"
-	width="886"
-	height="507"
-	srcset="/p/gpio-pwm-uart/5_hu21395c4c470901378e37fe2a66870626_203852_480x0_resize_box_3.png 480w, /p/gpio-pwm-uart/5_hu21395c4c470901378e37fe2a66870626_203852_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="174"
-		data-flex-basis="419px"
-	
-></p>
-<h2 id="输出模式">输出模式</h2>
-<h3 id="general-purpose-output-open-drain">General purpose output Open-drain</h3>
-<ul>
-<li>只能输出<strong>低电平</strong>(Sink Current)</li>
-</ul>
-<p><img src="/p/gpio-pwm-uart/6.png"
-	width="1083"
-	height="520"
-	srcset="/p/gpio-pwm-uart/6_hu0fc5abb93863200d48b4ab0227b5f593_209746_480x0_resize_box_3.png 480w, /p/gpio-pwm-uart/6_hu0fc5abb93863200d48b4ab0227b5f593_209746_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="208"
-		data-flex-basis="499px"
-	
-></p>
-<h3 id="alternate-function-output-open-drain">Alternate function output Open-drain</h3>
-<ul>
-<li>复用输出,被用于其他模式</li>
-</ul>
-<p><img src="/p/gpio-pwm-uart/7.png"
-	width="919"
-	height="544"
-	srcset="/p/gpio-pwm-uart/7_hu26c9afe38169f9ea3805b2f0b4a96a6b_201275_480x0_resize_box_3.png 480w, /p/gpio-pwm-uart/7_hu26c9afe38169f9ea3805b2f0b4a96a6b_201275_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="168"
-		data-flex-basis="405px"
-	
-></p>
-<h3 id="general-purpose-output-push-pull">General purpose output push-pull</h3>
-<ul>
-<li>输出稳定，可高可低</li>
-</ul>
-<p><img src="/p/gpio-pwm-uart/8.png"
-	width="1091"
-	height="535"
-	srcset="/p/gpio-pwm-uart/8_hubfbd1651104df50fc79b6b591cc41db6_209260_480x0_resize_box_3.png 480w, /p/gpio-pwm-uart/8_hubfbd1651104df50fc79b6b591cc41db6_209260_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="203"
-		data-flex-basis="489px"
-	
-></p>
-<h3 id="alternate-function-output-push-pull">Alternate function output push-pull</h3>
-<p><img src="/p/gpio-pwm-uart/9.png"
-	width="896"
-	height="546"
-	srcset="/p/gpio-pwm-uart/9_hu7e9cbc340a35367440951ed98408bf9e_199905_480x0_resize_box_3.png 480w, /p/gpio-pwm-uart/9_hu7e9cbc340a35367440951ed98408bf9e_199905_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="164"
-		data-flex-basis="393px"
-	
-></p>
-<h1 id="pwm">PWM</h1>
-<h2 id="函数">函数</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">PwmOut</th>
-<th style="text-align:center">创建PWM的接口</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">write</td>
-<td style="text-align:center">写入<strong>duty cycle(0.0-1.0)</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">read</td>
-<td style="text-align:center">写入<strong>duty cycle(0.0-1.0)</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">period,period_ms,period_us</td>
-<td style="text-align:center">设置周期</td>
-</tr>
-<tr>
-<td style="text-align:center">pulsewidth,pulsewidth_ms,pulsewidth_us</td>
-<td style="text-align:center">设置脉冲宽度</td>
-</tr>
-<tr>
-<td style="text-align:center">operator =</td>
-<td style="text-align:center">设置duty cycle</td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="其他函数与对象">其他函数与对象</h2>
-<h3 id="tone">tone</h3>
+    <h1 id="知识点速记">知识点速记</h1>
 <ol>
-<li>定义</li>
+<li><strong>CAN</strong> bus is a vehicle bus standard designed to allow microcontrollers and device to communicate with each other within a vehicle without a host computer.</li>
 </ol>
 <ul>
-<li>一个驱动扬声器发生的函数</li>
+<li>CAN: Control Area Network</li>
 </ul>
 <ol start="2">
-<li>语法</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">tone</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span><span class="n">frequency</span><span class="p">,</span><span class="n">duration</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 其中，duration是可选项
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="pc">pc</h3>
-<ul>
-<li><strong>C++<strong>中的</strong>Serial</strong>类对象</li>
-</ul>
-<h1 id="uart">UART</h1>
-<h2 id="工作原理">工作原理</h2>
-<ol>
-<li><strong>Baud Rate</strong>: 每秒钟传输的二进制位数</li>
+<li><strong>Volatile</strong> Keyword</li>
 </ol>
 <ul>
-<li>发送和接受的<strong>Baud Rate</strong>必须相同</li>
-</ul>
-<ol start="2">
-<li>发送<strong>Start Bit</strong></li>
-</ol>
-<ul>
-<li>逻辑为<strong>0</strong>的<strong>一位</strong>信号</li>
+<li>
+<p>Indicate to the complier that the variable may change its value</p>
+</li>
+<li>
+<p>Must be written from <strong>RAM</strong> instead of <strong>CPU register</strong></p>
+</li>
+<li>
+<p>If <strong>not used</strong>, there might be <strong>Bugs/ Unstable Conditions</strong></p>
+</li>
 </ul>
 <ol start="3">
-<li>发送<strong>Data Frame</strong></li>
+<li>
+<p>Almost every processor has a number of privileged instructions for <strong>Operating System(OS) fucntions</strong></p>
+</li>
+<li>
+<p><strong>Critical Sections</strong></p>
+</li>
 </ol>
 <ul>
-<li><strong>5-8</strong>位不等,通常是<strong>8位</strong></li>
+<li>
+<p>Code Segments share the **same resources(Memory, I/O ports).</p>
+</li>
+<li>
+<p>So they must be <strong>executed atomically</strong> ( 作为整体执行，不受interruption 或 interve 等任何因素的干扰)</p>
+</li>
 </ul>
-<ol start="4">
-<li>一个可选的<strong>Parity bit</strong></li>
+<h1 id="polling-and-interrupt">Polling and Interrupt</h1>
+<h2 id="polling-轮询">Polling (轮询)</h2>
+<ul>
+<li>Polling is the protocol that indicates the CPU that a device requires its attention. It is a continuous act to figure out whether the device is working properly.</li>
+</ul>
+<h2 id="interrupt">Interrupt</h2>
+<ol>
+<li>
+<p>An interrupt is the automatic transfer of software execution in response to a hardware event that is asynchronous with the current software execution.</p>
+</li>
+<li>
+<p>When the interrupt program is finished, which line should the main program return to?</p>
+</li>
 </ol>
 <ul>
-<li>根数据帧中的<strong>1</strong>的个数，<strong>奇数为0,偶数为1</strong></li>
+<li>
+<p>The line that the interrupt occurred, i.e., current instruction;</p>
+</li>
+<li>
+<p>The next line that the interrupt occurred, i.e., next instruction;</p>
+</li>
+<li>
+<p>Abort (there is an error)</p>
+</li>
 </ul>
-<ol start="5">
-<li>发送<strong>Stop Bit</strong></li>
+<ol start="3">
+<li>Interrupt 和 Polling</li>
 </ol>
-<ul>
-<li>逻辑为<strong>1</strong>而<strong>1、1.5或2位</strong>信号</li>
-</ul>
-<ol start="6">
-<li><strong>idle State</strong></li>
-</ol>
-<ul>
-<li>闲置状态为<strong>1</strong></li>
-</ul>
-<h2 id="优缺点">优缺点</h2>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th style="text-align:center">优点</th>
-<th style="text-align:center">缺点</th>
+<th style="text-align:center">比较</th>
+<th style="text-align:center">Interrupt</th>
+<th style="text-align:center">Polling</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">简单易操作</td>
-<td style="text-align:center"><strong>慢</strong></td>
+<td style="text-align:center">Servcing</td>
+<td style="text-align:center">ISR(Interrupt Servcing Ruotine), immediately stop</td>
+<td style="text-align:center">monitoring devices</td>
 </tr>
 <tr>
-<td style="text-align:center">有<strong>奇偶校验位</strong>检查错误</td>
-<td style="text-align:center">不支持<strong>多主从系统</strong></td>
+<td style="text-align:center">Mechanism</td>
+<td style="text-align:center">Organized Mechanism</td>
+<td style="text-align:center">Protocol</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>不需要时钟</strong></td>
-<td style="text-align:center">速度变化要稳定在10%以内，都则会造成<strong>数据丢失</strong></td>
+<td style="text-align:center">Advantage</td>
+<td style="text-align:center">More flexible, efficient</td>
+<td style="text-align:center">Simple</td>
+</tr>
+<tr>
+<td style="text-align:center">Disadvantages</td>
+<td style="text-align:center">More Complex Hardware</td>
+<td style="text-align:center">Unnecessary time</td>
 </tr>
 </tbody>
 </table></div>
-<h2 id="example">Example</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"></code></pre></td></tr></table>
-</div>
-</div><h1 id="quiz">Quiz</h1>
-<h2 id="为什么过大的数会导致程序无法运行">为什么过大的数会导致程序无法运行</h2>
-<ol>
-<li>
-<p>超出<strong>类型范围</strong></p>
-</li>
-<li>
-<p>超出<strong>内存大小</strong></p>
-</li>
+<ol start="4">
+<li>Interrupt Handlers Designs</li>
 </ol>
 
 </section>
@@ -758,19 +507,6 @@ Applications: level shifting, noise filtering, waveform shaping.
             
                 
 <article class="">
-    <a href="/p/%E8%80%83%E8%AF%95%E9%80%9F%E8%AE%B0/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">考试速记</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/embedded-system-software-design-testing-and-debugging/">
         
         
@@ -803,6 +539,19 @@ Applications: level shifting, noise filtering, waveform shaping.
 
         <div class="article-details">
             <h2 class="article-title">I2C,SPI,ADC,DAC</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/gpio-pwm-uart/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">GPIO PWM UART</h2>
         </div>
     </a>
 </article>

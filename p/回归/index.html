@@ -265,7 +265,17 @@
       </ol>
     </li>
     <li><a href="#插值方法比较">插值方法比较</a></li>
-    <li><a href="#heading"></a></li>
+    <li><a href="#机器学习算法">机器学习算法</a>
+      <ol>
+        <li><a href="#adaboost-adaptive-boosting">adaboost (adaptive Boosting)</a>
+          <ol>
+            <li><a href="#原理">原理</a></li>
+            <li><a href="#步骤">步骤</a></li>
+            <li><a href="#优缺点">优缺点</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -423,7 +433,36 @@ $$</p>
 </tr>
 </tbody>
 </table></div>
-<h1 id="heading"></h1>
+<h1 id="机器学习算法">机器学习算法</h1>
+<h2 id="adaboost-adaptive-boosting">adaboost (adaptive Boosting)</h2>
+<h3 id="原理">原理</h3>
+<blockquote>
+<p>组合<strong>多个弱算法</strong>，形成<strong>强算法</strong>, 属于<strong>集成学习</strong>, 更适合于<strong>复杂问题</strong>，但是容易<strong>Overfit</strong></p>
+</blockquote>
+<h3 id="步骤">步骤</h3>
+<ol>
+<li>训练样本困难度的初始化和更新</li>
+</ol>
+<p>$$
+\begin{aligned}
+初始困难度: \omega_i &amp;= \frac{1}{N} \\
+\omega_i^{new} &amp;= \begin{cases}
+\dfrac{1}{2(\varepsilon - 1)} \omega_i^{old
+} &amp; 当前样本被正确分类 \\
+\dfrac{1}{2\varepsilon} \omega_i^{old} &amp; 当前样本被错误分类
+\end{cases}
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>更新每个Weak Learner的权重</li>
+</ol>
+<p>$$
+\begin{aligned}
+\alpha_k &amp;= \frac{1}{2} log(\frac{1-\varepsilon_k}{\varepsilon_k}) \\
+\overline F &amp;= \sum_{i=1}^n \alpha_i f_i
+\end{aligned}
+$$</p>
+<h3 id="优缺点">优缺点</h3>
 
 </section>
 
@@ -487,19 +526,6 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%9E%8B/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">统计模型</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/%E5%88%86%E7%B1%BB/">
         
         
@@ -545,6 +571,19 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">爬虫</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E7%AE%97%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">算法</h2>
         </div>
     </a>
 </article>
