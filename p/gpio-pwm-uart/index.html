@@ -308,12 +308,13 @@ Applications: level shifting, noise filtering, waveform shaping.
       <ol>
         <li><a href="#工作原理">工作原理</a></li>
         <li><a href="#优缺点">优缺点</a></li>
-        <li><a href="#example">Example</a></li>
       </ol>
     </li>
     <li><a href="#quiz">Quiz</a>
       <ol>
         <li><a href="#为什么过大的数会导致程序无法运行">为什么过大的数会导致程序无法运行</a></li>
+        <li><a href="#3-bus">3 Bus</a></li>
+        <li><a href="#what-parameters-should-be-agreed-on-between-tx-and-rx-for-uart-protocol">What parameters should be agreed on between TX and RX for UART protocol?</a></li>
       </ol>
     </li>
   </ol>
@@ -678,18 +679,42 @@ Applications: level shifting, noise filtering, waveform shaping.
 </tr>
 </tbody>
 </table></div>
-<h2 id="example">Example</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"></code></pre></td></tr></table>
-</div>
-</div><h1 id="quiz">Quiz</h1>
+<h1 id="quiz">Quiz</h1>
 <h2 id="为什么过大的数会导致程序无法运行">为什么过大的数会导致程序无法运行</h2>
-<ol>
+<ul>
 <li>超出<strong>类型范围</strong>和<strong>内存大小</strong></li>
-</ol>
+</ul>
+<h2 id="3-bus">3 Bus</h2>
+<ul>
+<li>
+<p>Data Bus (<strong>Bidirectional</strong>)</p>
+</li>
+<li>
+<p>Address Bus</p>
+</li>
+<li>
+<p>Control Bus</p>
+</li>
+</ul>
+<h2 id="what-parameters-should-be-agreed-on-between-tx-and-rx-for-uart-protocol">What parameters should be agreed on between TX and RX for UART protocol?</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Baud Rate</th>
+<th style="text-align:center">Data Bits</th>
+<th style="text-align:center">Stop Bit</th>
+<th style="text-align:center">Parity Bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">传输速率</td>
+<td style="text-align:center">一次传几位(5,6,7,8)</td>
+<td style="text-align:center">什么时候结束一次传输</td>
+<td style="text-align:center">奇偶校验</td>
+</tr>
+</tbody>
+</table></div>
 
 </section>
 
