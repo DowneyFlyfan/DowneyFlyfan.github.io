@@ -49,6 +49,37 @@
 &lt;p&gt;So they must be &lt;strong&gt;executed atomically&lt;/strong&gt; ( 作为整体执行，不受interruption 或 interve 等任何因素的干扰)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Fixed-Point Expression &amp;amp; Floating-Point Expression&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Difference: &lt;strong&gt;How they handle decimal numbers&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In a fixed-point number representation, a fixed number of bits is allocated for the integer part and the fractional part of the number. This means that the range and precision of numbers that can be represented are limited. For example, if we allocate 8 bits for the integer part and 8 bits for the fractional part, we can represent numbers from -128 to 127 with a resolution of 1/256.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;a floating-point number representation allows for more flexibility in representing decimal numbers. It uses a combination of sign, exponent, and mantissa to represent numbers in scientific notation. This allows for both large and small values to be represented accurately with varying levels of precision.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Von Neumann &amp;amp; Harvard Architecture&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;V: CPU performs both data processing and instruction fetching from the same memory unit. The instructions and data are stored in the same memory spac&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;H: Harvard Architecture separates the instruction memory and data memory into two separate units with dedicated buses.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;bit-bands&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;each byte of memory is divided into 8-bit segments called &lt;strong&gt;bit-bands&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;polling-and-interrupt&#34;&gt;Polling and Interrupt&lt;/h1&gt;
 &lt;h2 id=&#34;polling-轮询&#34;&gt;Polling (轮询)&lt;/h2&gt;
 &lt;ul&gt;
@@ -109,7 +140,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;Interrupt Handlers Designs&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interrupt Handlers Designs&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         </item>
@@ -528,7 +559,7 @@
 		data-flex-basis=&#34;507px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;bytes-arrangements---little-big-endian&#34;&gt;Bytes Arrangements - Little (Big) Endian&lt;/h2&gt;
+&lt;h2 id=&#34;endianess-bit-order&#34;&gt;Endianess (Bit Order)&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/2.png&#34;
 	width=&#34;823&#34;
 	height=&#34;373&#34;
@@ -1022,13 +1053,32 @@
 &lt;h4 id=&#34;full-duplex&#34;&gt;Full Duplex&lt;/h4&gt;
 &lt;h4 id=&#34;maximum-operating-frequency&#34;&gt;Maximum Operating Frequency&lt;/h4&gt;
 &lt;h3 id=&#34;组成&#34;&gt;组成&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;SDI&lt;/li&gt;
-&lt;li&gt;SDO&lt;/li&gt;
-&lt;li&gt;SCK&lt;/li&gt;
-&lt;li&gt;SS/CS: 为0时&lt;strong&gt;选择&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;MOSI&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;MISO&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SCLK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Serial Clock&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SSEL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Slvae Select&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h3 id=&#34;function&#34;&gt;Function&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Master&lt;/li&gt;
+&lt;/ol&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1042,8 +1092,8 @@
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;SPI ser_port(A6, A5, A4); // mosi, miso, sclk&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;SPISlave&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;SPISlave ser_port(A6, A5, A4, D3); // mosi, miso, sclk, ssel&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;write&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;recd_val=ser_port.write(0x88|0x66|0x4A); &lt;/code&gt; 写入slave，并&lt;strong&gt;接受返回信息&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;format&lt;/td&gt;
@@ -1053,6 +1103,31 @@
 &lt;td style=&#34;text-align:center&#34;&gt;frequency&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ser_port.frequency(1000000); // Clock frequency is set to 1MHz&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Slave&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;SPISlave&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;code&gt;SPISlave ser_port(A6, A5, A4, D3); // mosi, miso, sclk, ssel&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;format&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ser_port.format(8,0); //8-bit data, Mode 0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;frequency&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ser_port.frequency(1000000); // Clock frequency is set to 1MHz&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;receive&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Polls the SPI to whether the data has been received&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;read&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ser_port.read(); //read from master&lt;/code&gt;&lt;/td&gt;
@@ -1060,14 +1135,6 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;reply&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ser_port.reply(switch_word); //send reply to master&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;write&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;recd_val=ser_port.write(0x88|0x66|0x4A);&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;receive&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Slave&lt;/strong&gt; Polls the SPI to see if data has been received&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1206,15 +1273,24 @@
 &lt;li&gt;Master &lt;strong&gt;initials the data transimission&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;组成-1&#34;&gt;组成&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;SCK&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;SDA(Bi-Directional)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;SCK&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Clock&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SDA&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Bi-Directional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h3 id=&#34;function-1&#34;&gt;Function&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Master&lt;/li&gt;
+&lt;/ol&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1223,10 +1299,6 @@
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;I2CSlave&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;I2CSlave slave(D0, D1); // SDA, SCL&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;frequency&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -1247,13 +1319,42 @@
 &lt;td style=&#34;text-align:center&#34;&gt;stop&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Stop&lt;/strong&gt; or &lt;strong&gt;Reset the I2C Slave&lt;/strong&gt; back into the known ready receiving state.&lt;/td&gt;
 &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Slave&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;I2CSlave&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;code&gt;I2CSlave slave(D0, D1); // SDA, SCL&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;frequency&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;receive&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Checks to see if this I2 C Slave has been addressed. (&lt;strong&gt;0&lt;/strong&gt;: the Slave has not been addressed; &lt;strong&gt;1&lt;/strong&gt;: it has been addressed to read;&lt;strong&gt;3&lt;/strong&gt;: addressed to write)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Checks to see if this I2C Slave has been addressed. (0: Has not been addressed; 1: addressed to &lt;strong&gt;read&lt;/strong&gt;; 3: addressed to &lt;strong&gt;write&lt;/strong&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;address&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;slave.address(0x52); //set the slave address&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;read&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;write&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;stop&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reset the I2C Slave back into the known ready receiving state.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1306,7 +1407,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;master&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_word&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0xA0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;master_word&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0xA0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;//send a single byte of data, in a correct I2C package
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;i2c_port&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// start condition
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;i2c_port&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;write&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;device_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//send the device address
@@ -1387,7 +1488,6 @@
 &lt;p&gt;I2C&lt;strong&gt;更简单，支持多主机(一次只能开一个)&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;adxl345---加速度传感器&#34;&gt;ADXL345 - 加速度传感器&lt;/h2&gt;
 &lt;h1 id=&#34;adc&#34;&gt;ADC&lt;/h1&gt;
 &lt;h2 id=&#34;端口-原理&#34;&gt;端口 原理&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/i2cspiadcdac/1.png&#34;
@@ -1415,20 +1515,34 @@
 &lt;/ul&gt;
 &lt;p&gt;$$
 D = \frac{V_i}{V_r} 2^n \\\
+\\ \frac{Input}{Resolution} = Output \\\
 \\ V_i : Analogue \ Input \\\
 \\ V_r: Reference \ Voltage \\\
-\\ n: Resolution  \\\
-\\ D: Digital \ Output \ Value
+\\ \frac{V_r}{2^n}: Resolution  \\\
+\\ 0 \le D \le 2^{n-1}: Digital \ Output \ Value
 $$&lt;/p&gt;
-&lt;h2 id=&#34;重要概念&#34;&gt;重要概念&lt;/h2&gt;
-&lt;h3 id=&#34;输出值d&#34;&gt;输出值$D$&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;在$0-2^{n-1}$之间&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;分辨率resolution&#34;&gt;分辨率(Resolution)&lt;/h3&gt;
-&lt;p&gt;$$
-Resolution  = \frac{V_r}{2^n}
-$$&lt;/p&gt;
+&lt;h2 id=&#34;分类&#34;&gt;分类&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Successive Approximation ADC&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Delta-sigma ADC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Flash ADC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Dual-Slope Integrating ADC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pipeline ADC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;successive-approximation-adc&#34;&gt;Successive Approximation ADC&lt;/h2&gt;
 &lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
 &lt;ul&gt;
@@ -1460,6 +1574,96 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;374px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h2 id=&#34;应用&#34;&gt;应用&lt;/h2&gt;
+&lt;h3 id=&#34;创建-digital-voltmeter&#34;&gt;创建 Digital Voltmeter&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;#34;mbed.h&amp;#34;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AnalogIn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Ain&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;D3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Serial&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;pc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;USBRX&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;USBTX&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;V&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;pc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;----Digital Voltmeter----&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;V&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3.3f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Ain&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;pc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;The measured voltage is %.2f&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;V&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;digital-thermometer&#34;&gt;Digital Thermometer&lt;/h3&gt;
+&lt;h1 id=&#34;dac&#34;&gt;DAC&lt;/h1&gt;
+&lt;h2 id=&#34;电路-解释&#34;&gt;电路 解释&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/i2cspiadcdac/4.png&#34;
+	width=&#34;1570&#34;
+	height=&#34;978&#34;
+	srcset=&#34;https://downeyflyfan.com/p/i2cspiadcdac/4_hucb12e129ef5d7544812405e25b1eeec7_136006_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/i2cspiadcdac/4_hucb12e129ef5d7544812405e25b1eeec7_136006_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;160&#34;
+		data-flex-basis=&#34;385px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+V_o = \frac{D}{2^n}V_r
+$$&lt;/p&gt;
+&lt;h2 id=&#34;binary-ladder-or-r-2r-ladder&#34;&gt;Binary Ladder or R-2R Ladder&lt;/h2&gt;
+&lt;h3 id=&#34;配置&#34;&gt;配置&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/i2cspiadcdac/5.png&#34;
+	width=&#34;1832&#34;
+	height=&#34;1384&#34;
+	srcset=&#34;https://downeyflyfan.com/p/i2cspiadcdac/5_hua7fe9180121dbc5c855a0c3db2c08319_144132_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/i2cspiadcdac/5_hua7fe9180121dbc5c855a0c3db2c08319_144132_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+V_o = \dfrac{\sum_{i=0}^n 2^i V_i}{2^n}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;优缺点&#34;&gt;优缺点&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Advantages&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Disadvantages&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;High Resolution&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Voltage levels must be exactly the same for all inputs in Weighted Resistors DAC.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;High Accuracy&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Binary weighted Resistor circuit that require Op- Amps are expensive.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Simple to implement&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;In R-2R Ladder converters, delay is caused as the circuit needs switching based on the inputs.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         <item>
@@ -1649,7 +1853,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;read&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;写入&lt;strong&gt;duty cycle(0.0-1.0)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;读取&lt;strong&gt;duty cycle(0.0-1.0)&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;period,period_ms,period_us&lt;/td&gt;
@@ -3035,6 +3239,12 @@ MOSI发送数据 --&gt; MISO接受从机发回的数据: 如果有必要的话
 &lt;td&gt;Simple&lt;/td&gt;
 &lt;td&gt;Simple&lt;/td&gt;
 &lt;td&gt;Relatively Compleg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;工作方式&lt;/td&gt;
+&lt;td&gt;异步&lt;/td&gt;
+&lt;td&gt;Half-duplex&lt;/td&gt;
+&lt;td&gt;Full-duplex&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

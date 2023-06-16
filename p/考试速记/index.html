@@ -382,6 +382,37 @@ Almost every processor has a number of privileged instructions for Operating Sys
 <p>So they must be <strong>executed atomically</strong> ( 作为整体执行，不受interruption 或 interve 等任何因素的干扰)</p>
 </li>
 </ul>
+<ol start="5">
+<li>Fixed-Point Expression &amp; Floating-Point Expression</li>
+</ol>
+<ul>
+<li>
+<p>Difference: <strong>How they handle decimal numbers</strong></p>
+</li>
+<li>
+<p>In a fixed-point number representation, a fixed number of bits is allocated for the integer part and the fractional part of the number. This means that the range and precision of numbers that can be represented are limited. For example, if we allocate 8 bits for the integer part and 8 bits for the fractional part, we can represent numbers from -128 to 127 with a resolution of 1/256.</p>
+</li>
+<li>
+<p>a floating-point number representation allows for more flexibility in representing decimal numbers. It uses a combination of sign, exponent, and mantissa to represent numbers in scientific notation. This allows for both large and small values to be represented accurately with varying levels of precision.</p>
+</li>
+</ul>
+<ol start="6">
+<li>Von Neumann &amp; Harvard Architecture</li>
+</ol>
+<ul>
+<li>
+<p>V: CPU performs both data processing and instruction fetching from the same memory unit. The instructions and data are stored in the same memory spac</p>
+</li>
+<li>
+<p>H: Harvard Architecture separates the instruction memory and data memory into two separate units with dedicated buses.</p>
+</li>
+</ul>
+<ol start="7">
+<li>bit-bands</li>
+</ol>
+<ul>
+<li>each byte of memory is divided into 8-bit segments called <strong>bit-bands</strong></li>
+</ul>
 <h1 id="polling-and-interrupt">Polling and Interrupt</h1>
 <h2 id="polling-轮询">Polling (轮询)</h2>
 <ul>
@@ -442,7 +473,7 @@ Almost every processor has a number of privileged instructions for Operating Sys
 </tbody>
 </table></div>
 <ol start="4">
-<li>Interrupt Handlers Designs</li>
+<li><strong>Interrupt Handlers Designs</strong></li>
 </ol>
 
 </section>

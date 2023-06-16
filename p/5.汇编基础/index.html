@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Bytes Arrangements - Little (Big) Endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Endianess (Bit Order) Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
 Register
 I/O Devices
 信息的处理 Assembly-Language Instructions
@@ -12,7 +12,7 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 <link rel='canonical' href='https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5.汇编基础'>
-<meta property='og:description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Bytes Arrangements - Little (Big) Endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
+<meta property='og:description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Endianess (Bit Order) Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
 Register
 I/O Devices
 信息的处理 Assembly-Language Instructions
@@ -22,7 +22,7 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-05-25T10:21:04&#43;08:00'/><meta property='article:modified_time' content='2023-05-25T10:21:04&#43;08:00'/>
 <meta name="twitter:title" content="5.汇编基础">
-<meta name="twitter:description" content="基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Bytes Arrangements - Little (Big) Endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
+<meta name="twitter:description" content="基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Endianess (Bit Order) Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
 Register
 I/O Devices
 信息的处理 Assembly-Language Instructions
@@ -269,7 +269,7 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
       <ol>
         <li><a href="#语法">语法</a></li>
         <li><a href="#地址">地址</a></li>
-        <li><a href="#bytes-arrangements---little-big-endian">Bytes Arrangements - Little (Big) Endian</a></li>
+        <li><a href="#endianess-bit-order">Endianess (Bit Order)</a></li>
       </ol>
     </li>
     <li><a href="#wtite-assembly-for-arm">Wtite Assembly for ARM</a>
@@ -421,7 +421,7 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 		data-flex-basis="507px"
 	
 ></p>
-<h2 id="bytes-arrangements---little-big-endian">Bytes Arrangements - Little (Big) Endian</h2>
+<h2 id="endianess-bit-order">Endianess (Bit Order)</h2>
 <p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/2.png"
 	width="823"
 	height="373"
