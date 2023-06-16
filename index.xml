@@ -105,6 +105,12 @@
 &lt;ul&gt;
 &lt;li&gt;each byte of memory is divided into 8-bit segments called &lt;strong&gt;bit-bands&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;Embedded Firmware&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The control algorithm (Program instructions) and or the configuration settings that an embedded system developer dumps into the code (Program) memory of the embedded system.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;polling-and-interrupt&#34;&gt;Polling and Interrupt&lt;/h1&gt;
 &lt;h2 id=&#34;polling-轮询&#34;&gt;Polling (轮询)&lt;/h2&gt;
 &lt;ul&gt;
@@ -167,6 +173,9 @@
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;&lt;strong&gt;Interrupt Handlers Designs&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h1 id=&#34;小的知识点&#34;&gt;小的知识点&lt;/h1&gt;
+&lt;h2 id=&#34;l432kc-的结构内存&#34;&gt;L432KC 的结构,内存&lt;/h2&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 </description>
         </item>
         <item>
@@ -292,15 +301,72 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;testing-techniques&#34;&gt;Testing Techniques&lt;/h2&gt;
-&lt;h3 id=&#34;white-box-testing&#34;&gt;White-Box Testing&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;测试前对&lt;strong&gt;硬件和软件&lt;/strong&gt;都了如指掌&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;black-box-testing&#34;&gt;Black-Box Testing&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;测试前只知道&lt;strong&gt;输入&lt;/strong&gt;和&lt;strong&gt;输出&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&#34;黑盒测试分类&#34;&gt;黑盒测试分类&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Function Testing&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;测试功能&lt;strong&gt;可不可用&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Non-functional Testing&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;测试&lt;strong&gt;怎么&lt;/strong&gt;实现功能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Regression Testing&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;测试更新后的软件性能&lt;strong&gt;是否下降了&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;白盒黑盒比较&#34;&gt;白盒/黑盒比较&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;比较项目&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;White-Box Testing&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Black-Box Testing(functional testing)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;测试前的数据&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;测试前对&lt;strong&gt;硬件和软件&lt;/strong&gt;都了如指掌&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;测试前只知道&lt;strong&gt;输入&lt;/strong&gt;和&lt;strong&gt;输出&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(时间和经济)成本&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;高&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;复杂度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;高&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;对测试者的知识储备要求&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;高&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;效果&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;高&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;相对较差&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;debugging&#34;&gt;Debugging&lt;/h2&gt;
+&lt;h3 id=&#34;debug--test&#34;&gt;Debug &amp;amp; Test&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Debug: Given a symptom of software failure, locate and correct the defect.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Test: Executing a program to see if it performs as expected.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3 id=&#34;选择debug工具&#34;&gt;选择Debug工具&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;ESC (&lt;strong&gt;Easy Use, Special Capability, Cost&lt;/strong&gt;)&lt;/li&gt;
@@ -362,17 +428,20 @@
 &lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;Hardware Emulation&lt;/li&gt;
 &lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;In-Circuit Emultaion (ICE)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;In Circuit Debug (ICD)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;ICE比ICD &lt;strong&gt;更强大，更贵&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;In-Circuit Emulation (ICE)&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;More Powerful, more expensive&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;In-Circuit Debug (ICD)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h1 id=&#34;section-ii&#34;&gt;Section II&lt;/h1&gt;
 &lt;h2 id=&#34;embedded-firmware--design-and-development&#34;&gt;Embedded Firmware – Design and Development&lt;/h2&gt;
 &lt;h3 id=&#34;super-loop&#34;&gt;Super Loop&lt;/h3&gt;
@@ -506,9 +575,9 @@
 &lt;li&gt;每当&lt;strong&gt;有新的任务进入队列&lt;/strong&gt;，系统会重新计算&lt;strong&gt;SRT&lt;/strong&gt;，并重新调整当前执行任务&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;round-robin-rr&#34;&gt;Round Robin (RR)&lt;/h4&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;Ready Queue&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/embedded-system-software-design-testing-and-debugging/6.png&#34;
 	width=&#34;419&#34;
 	height=&#34;424&#34;
@@ -521,9 +590,9 @@
 		data-flex-basis=&#34;237px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Pre-defined Time&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ready Queue&lt;/strong&gt;中的程序都执行*Pre-defined Time**&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h4 id=&#34;preemptive-priority-based-scheduling&#34;&gt;Preemptive Priority-Based Scheduling&lt;/h4&gt;
 &lt;h4 id=&#34;rate-monotonic-rm-scheduling-algorithm&#34;&gt;Rate Monotonic (RM) Scheduling Algorithm&lt;/h4&gt;
 &lt;ul&gt;
@@ -597,6 +666,9 @@
 		data-flex-basis=&#34;529px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;ARM&lt;/strong&gt; processor is &lt;strong&gt;little endian by default&lt;/strong&gt;; and can be programmed to &lt;strong&gt;operate&lt;/strong&gt; as &lt;strong&gt;big endian&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;wtite-assembly-for-arm&#34;&gt;Wtite Assembly for ARM&lt;/h1&gt;
 &lt;h2 id=&#34;回顾&#34;&gt;回顾&lt;/h2&gt;
 &lt;h3 id=&#34;isa-istruction-set-architecture&#34;&gt;ISA (Istruction Set Architecture)&lt;/h3&gt;
@@ -654,6 +726,36 @@
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;152&#34;
 		data-flex-basis=&#34;365px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Data Path &amp;amp; Control Unit&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/9.png&#34;
+	width=&#34;1962&#34;
+	height=&#34;1154&#34;
+	srcset=&#34;https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/9_hu6971ea223e1ceed925032fcb1e774a04_226397_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/9_hu6971ea223e1ceed925032fcb1e774a04_226397_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;408px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Instruction Pipelines&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/10.png&#34;
+	width=&#34;2732&#34;
+	height=&#34;866&#34;
+	srcset=&#34;https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/10_huc358cfe367d463ca9892e51a70965273_921265_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/10_huc358cfe367d463ca9892e51a70965273_921265_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;315&#34;
+		data-flex-basis=&#34;757px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;重要单元结构&#34;&gt;重要单元结构&lt;/h2&gt;
@@ -735,15 +837,19 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;指令-助记符-标志位-标签&#34;&gt;指令 助记符 标志位 标签&lt;/h2&gt;
-&lt;h3 id=&#34;cortex-m的汇编指令&#34;&gt;Cortex-M的汇编指令&lt;/h3&gt;
+&lt;h3 id=&#34;arm-cortex-m的汇编指令&#34;&gt;ARM Cortex-M的汇编指令&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;MOV&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;寄存器之间&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;寄存器之间移动&lt;/strong&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;MVN&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;MOVE and NOT, &lt;strong&gt;取反并移动&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;LDR&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;LOAD, 从内存(&lt;strong&gt;操作数2&lt;/strong&gt;)中加载到寄存器(&lt;strong&gt;操作数1&lt;/strong&gt;)中&lt;/td&gt;
@@ -803,6 +909,10 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;CMP&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;比较&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;EOR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Exclusive OR, &lt;strong&gt;异或&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -880,9 +990,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;branching&#34;&gt;Branching&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Example&lt;/li&gt;
-&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -899,59 +1006,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;TARGET&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;SUB&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;R1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#78 ; TARGET就是Label&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;用汇编写C&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pow&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pow&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;128&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;pow&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-asm&#34; data-lang=&#34;asm&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;R0&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;pow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R1&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;x&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;MOV&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R0&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#1
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;MOV&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R1&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#0
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;WHILE&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;CMP&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R0&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#128
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;BEQ&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;DONE&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;LSL&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R0&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#1
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;ADD&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R1&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#1
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;B&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;WHILE&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;; 重复循环
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;DONE&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;用汇编写c&#34;&gt;用汇编写C&lt;/h3&gt;
@@ -1055,6 +1109,59 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;B&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WHILE&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;END&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;BX&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LR&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;指数运算&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pow&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pow&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;128&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;pow&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-asm&#34; data-lang=&#34;asm&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;R0&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;pow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R1&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;MOV&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R0&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;MOV&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R1&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;WHILE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;CMP&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R0&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#128
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;BEQ&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;DONE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;LSL&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R0&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;ADD&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;R1&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;B&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;WHILE&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;; 重复循环
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;DONE&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;

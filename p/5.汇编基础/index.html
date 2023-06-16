@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Endianess (Bit Order) Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Endianess (Bit Order) The ARM processor is little endian by default; and can be programmed to operate as big endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
 Register
 I/O Devices
 信息的处理 Assembly-Language Instructions
 Hardware Process Actions
-RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的地址 Cortex-M Memory Map (内存图) 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
+RISC Load Store Data Path &amp;amp; Control Unit Instruction Pipelines 重要单元结构 Arm Register File PC 存储下一条指令的地址 Cortex-M Memory Map (内存图) 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
 <title>5.汇编基础</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5.汇编基础'>
-<meta property='og:description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Endianess (Bit Order) Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
+<meta property='og:description' content='基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Endianess (Bit Order) The ARM processor is little endian by default; and can be programmed to operate as big endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
 Register
 I/O Devices
 信息的处理 Assembly-Language Instructions
 Hardware Process Actions
-RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的地址 Cortex-M Memory Map (内存图) 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
+RISC Load Store Data Path &amp;amp; Control Unit Instruction Pipelines 重要单元结构 Arm Register File PC 存储下一条指令的地址 Cortex-M Memory Map (内存图) 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存'>
 <meta property='og:url' content='https://downeyflyfan.com/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-05-25T10:21:04&#43;08:00'/><meta property='article:modified_time' content='2023-05-25T10:21:04&#43;08:00'/>
 <meta name="twitter:title" content="5.汇编基础">
-<meta name="twitter:description" content="基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Endianess (Bit Order) Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
+<meta name="twitter:description" content="基本格式 语法 Label Symbolic Labeling of an assembler address mnemonic Symbolic description of the operation operands 操作数 Contains of variables or addresses if necessary comments 用;表示，Optional Field 地址 Endianess (Bit Order) The ARM processor is little endian by default; and can be programmed to operate as big endian Wtite Assembly for ARM 回顾 ISA (Istruction Set Architecture) 信息的获取和存储 Memory
 Register
 I/O Devices
 信息的处理 Assembly-Language Instructions
 Hardware Process Actions
-RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的地址 Cortex-M Memory Map (内存图) 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+RISC Load Store Data Path &amp;amp; Control Unit Instruction Pipelines 重要单元结构 Arm Register File PC 存储下一条指令的地址 Cortex-M Memory Map (内存图) 32位支持$2^{32} = 2^{30} \times 2^2 =4G$ 内存"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -291,7 +291,7 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
         </li>
         <li><a href="#指令-助记符-标志位-标签">指令 助记符 标志位 标签</a>
           <ol>
-            <li><a href="#cortex-m的汇编指令">Cortex-M的汇编指令</a></li>
+            <li><a href="#arm-cortex-m的汇编指令">ARM Cortex-M的汇编指令</a></li>
             <li><a href="#arm-alu">ARM ALU*</a></li>
             <li><a href="#conditional-flag-cnvz">Conditional Flag (CNVZ)</a></li>
             <li><a href="#branching">Branching</a></li>
@@ -369,7 +369,7 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -434,6 +434,9 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 		data-flex-basis="529px"
 	
 ></p>
+<ul>
+<li>The <strong>ARM</strong> processor is <strong>little endian by default</strong>; and can be programmed to <strong>operate</strong> as <strong>big endian</strong></li>
+</ul>
 <h1 id="wtite-assembly-for-arm">Wtite Assembly for ARM</h1>
 <h2 id="回顾">回顾</h2>
 <h3 id="isa-istruction-set-architecture">ISA (Istruction Set Architecture)</h3>
@@ -491,6 +494,36 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 		class="gallery-image" 
 		data-flex-grow="152"
 		data-flex-basis="365px"
+	
+></p>
+<ol start="3">
+<li>Data Path &amp; Control Unit</li>
+</ol>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/9.png"
+	width="1962"
+	height="1154"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/9_hu6971ea223e1ceed925032fcb1e774a04_226397_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/9_hu6971ea223e1ceed925032fcb1e774a04_226397_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="170"
+		data-flex-basis="408px"
+	
+></p>
+<ol start="4">
+<li>Instruction Pipelines</li>
+</ol>
+<p><img src="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/10.png"
+	width="2732"
+	height="866"
+	srcset="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/10_huc358cfe367d463ca9892e51a70965273_921265_480x0_resize_box_3.png 480w, /p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/10_huc358cfe367d463ca9892e51a70965273_921265_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="315"
+		data-flex-basis="757px"
 	
 ></p>
 <h2 id="重要单元结构">重要单元结构</h2>
@@ -572,15 +605,19 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 </li>
 </ol>
 <h2 id="指令-助记符-标志位-标签">指令 助记符 标志位 标签</h2>
-<h3 id="cortex-m的汇编指令">Cortex-M的汇编指令</h3>
+<h3 id="arm-cortex-m的汇编指令">ARM Cortex-M的汇编指令</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
 <th style="text-align:center">MOV</th>
-<th style="text-align:center"><strong>寄存器之间</strong></th>
+<th style="text-align:center"><strong>寄存器之间移动</strong></th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:center">MVN</td>
+<td style="text-align:center">MOVE and NOT, <strong>取反并移动</strong></td>
+</tr>
 <tr>
 <td style="text-align:center">LDR</td>
 <td style="text-align:center">LOAD, 从内存(<strong>操作数2</strong>)中加载到寄存器(<strong>操作数1</strong>)中</td>
@@ -640,6 +677,10 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 <tr>
 <td style="text-align:center">CMP</td>
 <td style="text-align:center">比较</td>
+</tr>
+<tr>
+<td style="text-align:center">EOR</td>
+<td style="text-align:center">Exclusive OR, <strong>异或</strong></td>
 </tr>
 </tbody>
 </table></div>
@@ -717,9 +758,6 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="branching">Branching</h3>
-<ol>
-<li>Example</li>
-</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -736,59 +774,6 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">TARGET</span>
 </span></span><span class="line"><span class="cl">    <span class="n">SUB</span> <span class="n">R1</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="c1">#78 ; TARGET就是Label</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>用汇编写C</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">pow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">pow</span> <span class="o">!=</span><span class="mi">128</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">pow</span><span class="o">*=</span><span class="mi">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">R0</span> <span class="err">=</span> <span class="no">pow</span><span class="p">,</span> <span class="no">R1</span> <span class="err">=</span> <span class="no">x</span>
-</span></span><span class="line"><span class="cl"><span class="nf">MOV</span> <span class="no">R0</span> <span class="c1">#1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">MOV</span> <span class="no">R1</span> <span class="c1">#0
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="nf">WHILE</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">CMP</span> <span class="no">R0</span> <span class="c1">#128
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">BEQ</span> <span class="no">DONE</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">LSL</span> <span class="no">R0</span> <span class="c1">#1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">ADD</span> <span class="no">R1</span> <span class="c1">#1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="nf">B</span> <span class="no">WHILE</span><span class="c1">; 重复循环
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">DONE</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="用汇编写c">用汇编写C</h3>
@@ -892,6 +877,59 @@ RISC Load Store 重要单元结构 Arm Register File PC 存储下一条指令的
 </span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="n">WHILE</span>
 </span></span><span class="line"><span class="cl"><span class="n">END</span>
 </span></span><span class="line"><span class="cl">    <span class="n">BX</span> <span class="n">LR</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>指数运算</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">pow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">pow</span> <span class="o">!=</span><span class="mi">128</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pow</span><span class="o">*=</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">R0</span> <span class="err">=</span> <span class="no">pow</span><span class="p">,</span> <span class="no">R1</span> <span class="err">=</span> <span class="no">x</span>
+</span></span><span class="line"><span class="cl"><span class="nf">MOV</span> <span class="no">R0</span> <span class="c1">#1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">MOV</span> <span class="no">R1</span> <span class="c1">#0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nf">WHILE</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">CMP</span> <span class="no">R0</span> <span class="c1">#128
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">BEQ</span> <span class="no">DONE</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">LSL</span> <span class="no">R0</span> <span class="c1">#1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">ADD</span> <span class="no">R1</span> <span class="c1">#1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nf">B</span> <span class="no">WHILE</span><span class="c1">; 重复循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">DONE</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="附录">附录</h1>

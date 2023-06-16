@@ -284,12 +284,13 @@ Components for Embedded Programs State Machine Circular Buffers Queue Models of 
         </li>
         <li><a href="#testing-techniques">Testing Techniques</a>
           <ol>
-            <li><a href="#white-box-testing">White-Box Testing</a></li>
-            <li><a href="#black-box-testing">Black-Box Testing</a></li>
+            <li><a href="#黑盒测试分类">黑盒测试分类</a></li>
+            <li><a href="#白盒黑盒比较">白盒/黑盒比较</a></li>
           </ol>
         </li>
         <li><a href="#debugging">Debugging</a>
           <ol>
+            <li><a href="#debug--test">Debug &amp; Test</a></li>
             <li><a href="#选择debug工具">选择Debug工具</a></li>
             <li><a href="#debug-工具">Debug 工具</a></li>
           </ol>
@@ -529,15 +530,72 @@ Components for Embedded Programs State Machine Circular Buffers Queue Models of 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="testing-techniques">Testing Techniques</h2>
-<h3 id="white-box-testing">White-Box Testing</h3>
-<ul>
-<li>测试前对<strong>硬件和软件</strong>都了如指掌</li>
-</ul>
-<h3 id="black-box-testing">Black-Box Testing</h3>
-<ul>
-<li>测试前只知道<strong>输入</strong>和<strong>输出</strong></li>
-</ul>
+<h3 id="黑盒测试分类">黑盒测试分类</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Function Testing</th>
+<th style="text-align:center">测试功能<strong>可不可用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Non-functional Testing</td>
+<td style="text-align:center">测试<strong>怎么</strong>实现功能</td>
+</tr>
+<tr>
+<td style="text-align:center">Regression Testing</td>
+<td style="text-align:center">测试更新后的软件性能<strong>是否下降了</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="白盒黑盒比较">白盒/黑盒比较</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">比较项目</th>
+<th style="text-align:center">White-Box Testing</th>
+<th style="text-align:center">Black-Box Testing(functional testing)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">测试前的数据</td>
+<td style="text-align:center">测试前对<strong>硬件和软件</strong>都了如指掌</td>
+<td style="text-align:center">测试前只知道<strong>输入</strong>和<strong>输出</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">(时间和经济)成本</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">低</td>
+</tr>
+<tr>
+<td style="text-align:center">复杂度</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">低</td>
+</tr>
+<tr>
+<td style="text-align:center">对测试者的知识储备要求</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">低</td>
+</tr>
+<tr>
+<td style="text-align:center">效果</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">相对较差</td>
+</tr>
+</tbody>
+</table></div>
 <h2 id="debugging">Debugging</h2>
+<h3 id="debug--test">Debug &amp; Test</h3>
+<ol>
+<li>
+<p>Debug: Given a symptom of software failure, locate and correct the defect.</p>
+</li>
+<li>
+<p>Test: Executing a program to see if it performs as expected.</p>
+</li>
+</ol>
 <h3 id="选择debug工具">选择Debug工具</h3>
 <ul>
 <li>ESC (<strong>Easy Use, Special Capability, Cost</strong>)</li>
@@ -599,17 +657,20 @@ Components for Embedded Programs State Machine Circular Buffers Queue Models of 
 <ol start="5">
 <li>Hardware Emulation</li>
 </ol>
-<ul>
-<li>
-<p>In-Circuit Emultaion (ICE)</p>
-</li>
-<li>
-<p>In Circuit Debug (ICD)</p>
-</li>
-<li>
-<p>ICE比ICD <strong>更强大，更贵</strong></p>
-</li>
-</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">In-Circuit Emulation (ICE)</th>
+<th style="text-align:center">More Powerful, more expensive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">In-Circuit Debug (ICD)</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
 <h1 id="section-ii">Section II</h1>
 <h2 id="embedded-firmware--design-and-development">Embedded Firmware – Design and Development</h2>
 <h3 id="super-loop">Super Loop</h3>
@@ -743,9 +804,9 @@ Components for Embedded Programs State Machine Circular Buffers Queue Models of 
 <li>每当<strong>有新的任务进入队列</strong>，系统会重新计算<strong>SRT</strong>，并重新调整当前执行任务</li>
 </ul>
 <h4 id="round-robin-rr">Round Robin (RR)</h4>
-<ol>
+<ul>
 <li>Ready Queue</li>
-</ol>
+</ul>
 <p><img src="/p/embedded-system-software-design-testing-and-debugging/6.png"
 	width="419"
 	height="424"
@@ -758,9 +819,9 @@ Components for Embedded Programs State Machine Circular Buffers Queue Models of 
 		data-flex-basis="237px"
 	
 ></p>
-<ol start="2">
-<li>Pre-defined Time</li>
-</ol>
+<ul>
+<li><strong>Ready Queue</strong>中的程序都执行*Pre-defined Time**</li>
+</ul>
 <h4 id="preemptive-priority-based-scheduling">Preemptive Priority-Based Scheduling</h4>
 <h4 id="rate-monotonic-rm-scheduling-algorithm">Rate Monotonic (RM) Scheduling Algorithm</h4>
 <ul>
