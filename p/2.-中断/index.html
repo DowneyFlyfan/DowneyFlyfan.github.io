@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='几个概念 Polling (轮询) 定义 轮询设备的状态，确保它们正常工作
+特点 可以实现简单、可靠的设备管理
+消耗大量的处理器时间
+中断 定义 外部设备通过向处理器发送信号打断正在运行的程序
+特点 异步的，由外部事件触发 实例 移动鼠标
+使用键盘
+打印
+结果 当前指令被打断
+保护当前指令的状态,八个寄存器被放入栈
+寄存器
+LR(Link)被设为0xFFFFFFF9
+IPSR (Interrupt Program Status Register) 被设为Interrupt Number
+PC(Program Counter)加载Interrupt vector
+比较 中断是一种事件驱动的控制方式，当一个事件发生时（例如外部设备发出的信号），处理器会暂停当前执行的程序，转而执行与该事件相关的中断服务程序（ISR）。ISR执行完毕后，处理器会恢复之前的执行状态，继续执行被中断的程序。中断具有实时响应、低处理器占用率等优点，适用于需要快速响应外部事件的应用场景。
+轮询是一种基于循环的控制方式，程序会周期性地检查某个条件是否满足，然后决定下一步操作。轮询通常在一个无限循环中执行，会占用处理器的大量时间。轮询适用于处理器资源较为充足，但需要周期性检查某个条件的应用场景。
+分类 中断 轮询 背景 在需要时调用处理器 定期查询 机制 机制 协议 Servicing Interrupt Handler CPU 中断处理程序设计 Let us consider a main process with an interrupt, where the main process is to input 10 random numbers with range [0, 100], and the interrupt is to input {$11^2 , 12^2 , 13^2 , &amp;hellip; , 20^2$} once the input number in the main process is out of range.'>
+<title>2. 中断</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/2.-%E4%B8%AD%E6%96%AD/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='2. 中断'>
+<meta property='og:description' content='几个概念 Polling (轮询) 定义 轮询设备的状态，确保它们正常工作
+特点 可以实现简单、可靠的设备管理
+消耗大量的处理器时间
+中断 定义 外部设备通过向处理器发送信号打断正在运行的程序
+特点 异步的，由外部事件触发 实例 移动鼠标
+使用键盘
+打印
+结果 当前指令被打断
+保护当前指令的状态,八个寄存器被放入栈
+寄存器
+LR(Link)被设为0xFFFFFFF9
+IPSR (Interrupt Program Status Register) 被设为Interrupt Number
+PC(Program Counter)加载Interrupt vector
+比较 中断是一种事件驱动的控制方式，当一个事件发生时（例如外部设备发出的信号），处理器会暂停当前执行的程序，转而执行与该事件相关的中断服务程序（ISR）。ISR执行完毕后，处理器会恢复之前的执行状态，继续执行被中断的程序。中断具有实时响应、低处理器占用率等优点，适用于需要快速响应外部事件的应用场景。
+轮询是一种基于循环的控制方式，程序会周期性地检查某个条件是否满足，然后决定下一步操作。轮询通常在一个无限循环中执行，会占用处理器的大量时间。轮询适用于处理器资源较为充足，但需要周期性检查某个条件的应用场景。
+分类 中断 轮询 背景 在需要时调用处理器 定期查询 机制 机制 协议 Servicing Interrupt Handler CPU 中断处理程序设计 Let us consider a main process with an interrupt, where the main process is to input 10 random numbers with range [0, 100], and the interrupt is to input {$11^2 , 12^2 , 13^2 , &amp;hellip; , 20^2$} once the input number in the main process is out of range.'>
+<meta property='og:url' content='https://downeyflyfan.com/p/2.-%E4%B8%AD%E6%96%AD/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-16T09:24:02&#43;00:00'/><meta property='article:modified_time' content='2023-03-16T09:24:02&#43;00:00'/>
+<meta name="twitter:title" content="2. 中断">
+<meta name="twitter:description" content="几个概念 Polling (轮询) 定义 轮询设备的状态，确保它们正常工作
+特点 可以实现简单、可靠的设备管理
+消耗大量的处理器时间
+中断 定义 外部设备通过向处理器发送信号打断正在运行的程序
+特点 异步的，由外部事件触发 实例 移动鼠标
+使用键盘
+打印
+结果 当前指令被打断
+保护当前指令的状态,八个寄存器被放入栈
+寄存器
+LR(Link)被设为0xFFFFFFF9
+IPSR (Interrupt Program Status Register) 被设为Interrupt Number
+PC(Program Counter)加载Interrupt vector
+比较 中断是一种事件驱动的控制方式，当一个事件发生时（例如外部设备发出的信号），处理器会暂停当前执行的程序，转而执行与该事件相关的中断服务程序（ISR）。ISR执行完毕后，处理器会恢复之前的执行状态，继续执行被中断的程序。中断具有实时响应、低处理器占用率等优点，适用于需要快速响应外部事件的应用场景。
+轮询是一种基于循环的控制方式，程序会周期性地检查某个条件是否满足，然后决定下一步操作。轮询通常在一个无限循环中执行，会占用处理器的大量时间。轮询适用于处理器资源较为充足，但需要周期性检查某个条件的应用场景。
+分类 中断 轮询 背景 在需要时调用处理器 定期查询 机制 机制 协议 Servicing Interrupt Handler CPU 中断处理程序设计 Let us consider a main process with an interrupt, where the main process is to input 10 random numbers with range [0, 100], and the interrupt is to input {$11^2 , 12^2 , 13^2 , &amp;hellip; , 20^2$} once the input number in the main process is out of range."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#几个概念">几个概念</a>
+      <ol>
+        <li><a href="#polling-轮询">Polling (轮询)</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+            <li><a href="#特点">特点</a></li>
+          </ol>
+        </li>
+        <li><a href="#中断">中断</a>
+          <ol>
+            <li><a href="#定义-1">定义</a></li>
+            <li><a href="#特点-1">特点</a></li>
+            <li><a href="#实例">实例</a></li>
+            <li><a href="#结果">结果</a></li>
+          </ol>
+        </li>
+        <li><a href="#比较">比较</a></li>
+      </ol>
+    </li>
+    <li><a href="#中断处理程序设计">中断处理程序设计</a>
+      <ol>
+        <li><a href="#c程序不确定能不能跑">C++程序(不确定能不能跑)</a></li>
+        <li><a href="#汇编程序">汇编程序</a>
+          <ol>
+            <li><a href="#中断的情况">中断的情况</a></li>
+            <li><a href="#程序-输出overflow">程序-输出overflow</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="background-color: #C0C0C0; color: #fff;">
+                嵌入式
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2.-%E4%B8%AD%E6%96%AD/">2. 中断</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 16, 161616</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="几个概念">几个概念</h1>
+<h2 id="polling-轮询">Polling (轮询)</h2>
+<h3 id="定义">定义</h3>
+<blockquote>
+<p>轮询设备的状态，确保它们正常工作</p>
+</blockquote>
+<h3 id="特点">特点</h3>
+<ul>
+<li>
+<p>可以实现<strong>简单、可靠</strong>的设备管理</p>
+</li>
+<li>
+<p>消耗<strong>大量的处理器时间</strong></p>
+</li>
+</ul>
+<h2 id="中断">中断</h2>
+<h3 id="定义-1">定义</h3>
+<blockquote>
+<p><strong>外部设备</strong>通过向处理器发送信号<strong>打断正在运行的程序</strong></p>
+</blockquote>
+<h3 id="特点-1">特点</h3>
+<ul>
+<li><strong>异步</strong>的，由<strong>外部事件</strong>触发</li>
+</ul>
+<h3 id="实例">实例</h3>
+<ol>
+<li>
+<p>移动鼠标</p>
+</li>
+<li>
+<p>使用键盘</p>
+</li>
+<li>
+<p>打印</p>
+</li>
+</ol>
+<h3 id="结果">结果</h3>
+<ol>
+<li>
+<p><strong>当前指令</strong>被打断</p>
+</li>
+<li>
+<p><strong>保护当前指令</strong>的状态,八个寄存器被放入<strong>栈</strong></p>
+</li>
+<li>
+<p>寄存器</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>LR(Link)被设为<strong>0xFFFFFFF9</strong></p>
+</li>
+<li>
+<p>IPSR (Interrupt Program Status Register) 被设为<strong>Interrupt Number</strong></p>
+</li>
+<li>
+<p>PC(Program Counter)加载<strong>Interrupt vector</strong></p>
+</li>
+</ul>
+<h2 id="比较">比较</h2>
+<ul>
+<li>
+<p>中断是一种事件驱动的控制方式，当一个事件发生时（例如外部设备发出的信号），处理器会暂停当前执行的程序，转而执行与该事件相关的中断服务程序（ISR）。ISR执行完毕后，处理器会恢复之前的执行状态，继续执行被中断的程序。中断具有实时响应、低处理器占用率等优点，适用于需要快速响应外部事件的应用场景。</p>
+</li>
+<li>
+<p>轮询是一种基于循环的控制方式，程序会周期性地检查某个条件是否满足，然后决定下一步操作。轮询通常在一个无限循环中执行，会占用处理器的大量时间。轮询适用于处理器资源较为充足，但需要周期性检查某个条件的应用场景。</p>
+</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">分类</th>
+<th style="text-align:center">中断</th>
+<th style="text-align:center">轮询</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">背景</td>
+<td style="text-align:center">在需要时调用处理器</td>
+<td style="text-align:center"><strong>定期</strong>查询</td>
+</tr>
+<tr>
+<td style="text-align:center">机制</td>
+<td style="text-align:center">机制</td>
+<td style="text-align:center">协议</td>
+</tr>
+<tr>
+<td style="text-align:center">Servicing</td>
+<td style="text-align:center">Interrupt Handler</td>
+<td style="text-align:center">CPU</td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="中断处理程序设计">中断处理程序设计</h1>
+<ul>
+<li>Let us consider a main process with an interrupt, where the main process is to
+input 10 random numbers with range [0, 100], and the interrupt is to input
+{$11^2 , 12^2 , 13^2 , &hellip; , 20^2$} once the input number in the main process is out of range.</li>
+</ul>
+<h2 id="c程序不确定能不能跑">C++程序(不确定能不能跑)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span><span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">Using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">extern</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nf">Register</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//仿真寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">extern</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nf">Stack</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//仿真栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*保护状态，把数据从寄存器放到栈中*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Protect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span> <span class="c1">// 延迟2s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Start to protect Status! </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">m</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">m</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Stack</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">Register</span><span class="p">[</span><span class="n">m</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nf">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Finish the protect process! </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*恢复状态,把数据从栈放到寄存器中*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Recover</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Begin to Recover State!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">m</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Register</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Stack</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Finish the Recover Process!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">Flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//中断标志位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">char</span> <span class="n">Choice</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;N&#34;</span><span class="p">;</span> <span class="c1">// 决定打开还是关闭“中断”进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Please indicate whether or not to switch on Interrupt (Y; on , N:off): </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">Choice</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nf">strcmp</span><span class="p">((</span><span class="n">Choice</span><span class="p">,</span><span class="s">&#34;Y&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Please insert number&#34;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">tem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">((</span><span class="n">tem</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">tem</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Out of range. Interrupt is triggered! </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span><span class="n">Flag</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nf">Protect</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">				<span class="nf">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Execute Interrupt!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="nf">Interrupt</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">				<span class="nf">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Interrupt is finished&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="nf">Recover</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">				<span class="n">i</span><span class="o">-=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">else</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nf">Sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Interrupt is switched off!</span><span class="se">\n</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Output the 10 numbers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;The input 10 numbers are:</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Register</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\t</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="汇编程序">汇编程序</h2>
+<h3 id="中断的情况">中断的情况</h3>
+<ul>
+<li>当<strong>除法溢出</strong>时，就会<strong>中断</strong></li>
+</ul>
+<h3 id="程序-输出overflow">程序-输出overflow</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">code</span> <span class="no">segment</span>             <span class="c1">; 开始定义代码段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">start:</span>                   <span class="c1">; 定义程序入口标签
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">as</span><span class="p">,</span> <span class="no">cs</span>           <span class="c1">; 将代码段的段地址 CS 赋值给 AS 寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ds</span><span class="p">,</span> <span class="no">as</span>           <span class="c1">; 将 DS 寄存器的值设置为 AS 寄存器的值，用于访问数据段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">si</span><span class="p">,</span> <span class="no">offset</span> <span class="no">do0</span>   <span class="c1">; 将标签 do0 的偏移地址赋值给 SI 寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将 ES 寄存器的值设置为 0，用于访问内存地址 0 - FFFFH
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">es</span><span class="p">,</span> <span class="no">ax</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将 DI 寄存器的值设置为内存地址 200H，用于存储数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">di</span><span class="p">,</span> <span class="mi">200</span><span class="no">h</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将 CX 寄存器的值设置为标签 do0end 和 do0 之间的字节数，
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">; 用于循环复制数据到 DI 所指向的内存地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">cx</span><span class="p">,</span> <span class="no">offset</span> <span class="no">do0end</span> <span class="p">-</span> <span class="no">offset</span> <span class="no">do0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将处理器的方向标志位 DF 清零，设置为正向操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">cld</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 重复执行将源地址（SI）所指向的数据复制到目标地址（DI）所指向的内存地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">; 的操作，重复次数为 CX 寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="na">rep</span> <span class="nf">movsb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将 ES 寄存器的值设置为 0，用于访问内存地址 0 - FFFFH
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">es</span><span class="p">,</span> <span class="no">ax</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将内存地址 0 处的值设置为 200H，用于存储数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">word</span> <span class="no">ptr</span> <span class="no">es</span><span class="p">:[</span><span class="mi">0</span><span class="p">*</span><span class="mi">4</span><span class="p">],</span> <span class="mi">200</span><span class="no">h</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 将内存地址 2 处的值设置为 0，用于存储数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">word</span> <span class="no">ptr</span> <span class="no">es</span><span class="p">:[</span><span class="mi">0</span><span class="p">*</span><span class="mi">4</span><span class="err">+</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">; 调用 DOS 中断 21H，功能码为 4C00H，用于结束程序并返回操作系统
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="mi">4</span><span class="no">c00h</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">int</span> <span class="mi">21</span><span class="no">h</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">; 定义标签 do0，用于显示字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">do0:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">jmp</span> <span class="no">short</span> <span class="no">do0start</span>    <span class="c1">; 无条件跳转到标签 do0start
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">db</span> <span class="err">&#34;</span><span class="no">overflow</span><span class="p">!</span><span class="err">&#34;</span>        <span class="c1">; 字符串 &#34;overflow!&#34;，以字节方式存储
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">; 定义标签 do0start，用于显示字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">do0start:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="no">cs</span>            <span class="c1">; 将代码段的段地址 CS 赋值给 AX 寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">ds</span><span class="p">,</span> <span class="no">ax</span>            <span class="c1">; 将 DS 寄存器的值设置为 AX 寄存器的值，用于访问数据段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">si</span><span class="p">,</span> <span class="mi">202</span><span class="no">h</span>          <span class="c1">; 将偏移地址 202H 赋值给 SI 寄存器，用于读取数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="mi">0</span><span class="no">b800h</span>        <span class="c1">; 将文本缓冲区地址 0B800H 赋值给 AX 寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">mov</span> <span class="no">es</span><span class="p">,</span> <span class="no">ax</span>            <span class="c1">; 将 ES 寄存器的值设置为 AX 寄存器的值，用于访
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/7.-%E8%80%83%E8%AF%95%E9%80%9F%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">7. 考试速记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/6.-embedded-system-software-design-testing-and-debugging/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">6. Embedded System Software Design, Testing, and Debugging</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5.汇编基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/4.-i2cspiadcdac/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">4. I2C,SPI,ADC,DAC</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/3.-gpio-pwm-uart/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3. GPIO PWM UART</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

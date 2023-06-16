@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ARM 处理器 计算机结构 Bus 总线，在module之间传输数据 Port 端口，I/O的实体设备 Device Driver 驱动I/O设备的软件(硬件设备的软件界面) Interface 软件是Device Driver, 硬件是I/O &#43; 外部设备 Memory CPU 指令集结构 Low-level Programming 名称 Advanced RISC Machine
+RISC = Reduced Instruction Set Computer
+CISC = Complex Instruction Set Computer
+比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython PWM - Pulse Width Modulation 原理 用数字源产生模拟信号 图像分析 $$ Duty \ Cycle = \frac{Active \ time}{T} \times 100% \\\ \\ Average \ Time = high \cdot Duty \ Cycle / 100% $$'>
+<title>1. ARM 编程</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/1.-arm-%E7%BC%96%E7%A8%8B/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='1. ARM 编程'>
+<meta property='og:description' content='ARM 处理器 计算机结构 Bus 总线，在module之间传输数据 Port 端口，I/O的实体设备 Device Driver 驱动I/O设备的软件(硬件设备的软件界面) Interface 软件是Device Driver, 硬件是I/O &#43; 外部设备 Memory CPU 指令集结构 Low-level Programming 名称 Advanced RISC Machine
+RISC = Reduced Instruction Set Computer
+CISC = Complex Instruction Set Computer
+比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython PWM - Pulse Width Modulation 原理 用数字源产生模拟信号 图像分析 $$ Duty \ Cycle = \frac{Active \ time}{T} \times 100% \\\ \\ Average \ Time = high \cdot Duty \ Cycle / 100% $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/1.-arm-%E7%BC%96%E7%A8%8B/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-10T14:43:37&#43;00:00'/><meta property='article:modified_time' content='2023-03-10T14:43:37&#43;00:00'/>
+<meta name="twitter:title" content="1. ARM 编程">
+<meta name="twitter:description" content="ARM 处理器 计算机结构 Bus 总线，在module之间传输数据 Port 端口，I/O的实体设备 Device Driver 驱动I/O设备的软件(硬件设备的软件界面) Interface 软件是Device Driver, 硬件是I/O &#43; 外部设备 Memory CPU 指令集结构 Low-level Programming 名称 Advanced RISC Machine
+RISC = Reduced Instruction Set Computer
+CISC = Complex Instruction Set Computer
+比较 RISC CISC 指令多 指令少 更多编译器 更多微指令 更多寄存器 更少寄存器 ARM vs. MIPS ARM MIPS 16个寄存器 32个寄存器 更高效，支持64位数据线 ARM的指令集不一样 结论：ARM比MIPS更NB！ 嵌入式编程语言 常见语言 C, C&#43;&#43;, Python, Java, MicroPython PWM - Pulse Width Modulation 原理 用数字源产生模拟信号 图像分析 $$ Duty \ Cycle = \frac{Active \ time}{T} \times 100% \\\ \\ Average \ Time = high \cdot Duty \ Cycle / 100% $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#arm-处理器">ARM 处理器</a>
+      <ol>
+        <li><a href="#计算机结构">计算机结构</a></li>
+        <li><a href="#指令集结构">指令集结构</a></li>
+        <li><a href="#名称">名称</a>
+          <ol>
+            <li><a href="#比较">比较</a></li>
+          </ol>
+        </li>
+        <li><a href="#arm-vs-mips">ARM vs. MIPS</a></li>
+      </ol>
+    </li>
+    <li><a href="#嵌入式编程语言">嵌入式编程语言</a>
+      <ol>
+        <li><a href="#常见语言">常见语言</a></li>
+      </ol>
+    </li>
+    <li><a href="#pwm---pulse-width-modulation">PWM - Pulse Width Modulation</a>
+      <ol>
+        <li><a href="#原理">原理</a></li>
+        <li><a href="#图像分析">图像分析</a></li>
+      </ol>
+    </li>
+    <li><a href="#串行通信的方式">串行通信的方式</a>
+      <ol>
+        <li><a href="#uart----universal-asynchronous-reception-and-transmission">UART &ndash; Universal Asynchronous Reception and Transmission</a></li>
+        <li><a href="#i2c---inter-integrated-circuit">I2C - Inter-Integrated-Circuit</a></li>
+        <li><a href="#spi---serial-peripheral-interface">SPI - Serial Peripheral Interface</a></li>
+        <li><a href="#对比">对比</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="background-color: #C0C0C0; color: #fff;">
+                嵌入式
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/1.-arm-%E7%BC%96%E7%A8%8B/">1. ARM 编程</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 10, 101010</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="arm-处理器">ARM 处理器</h1>
+<h2 id="计算机结构">计算机结构</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Bus</th>
+<th style="text-align:center"><strong>总线</strong>，在module之间传输数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Port</td>
+<td style="text-align:center"><strong>端口</strong>，I/O的实体设备</td>
+</tr>
+<tr>
+<td style="text-align:center">Device Driver</td>
+<td style="text-align:center">驱动I/O设备的<strong>软件</strong>(硬件设备的<strong>软件界面</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center">Interface</td>
+<td style="text-align:center">软件是<strong>Device Driver</strong>, 硬件是<strong>I/O + 外部设备</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Memory</strong></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>CPU</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="指令集结构">指令集结构</h2>
+<ul>
+<li>Low-level Programming</li>
+</ul>
+<h2 id="名称">名称</h2>
+<ul>
+<li>
+<p><strong>Advanced RISC Machine</strong></p>
+</li>
+<li>
+<p><strong>RISC</strong> = <strong>Reduced Instruction Set Computer</strong></p>
+</li>
+<li>
+<p><strong>CISC</strong> = <strong>Complex Instruction Set Computer</strong></p>
+</li>
+</ul>
+<h3 id="比较">比较</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">RISC</th>
+<th style="text-align:center">CISC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">指令多</td>
+<td style="text-align:center">指令少</td>
+</tr>
+<tr>
+<td style="text-align:center">更多<strong>编译器</strong></td>
+<td style="text-align:center">更多<strong>微指令</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">更多<strong>寄存器</strong></td>
+<td style="text-align:center">更少<strong>寄存器</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="arm-vs-mips">ARM vs. MIPS</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">ARM</th>
+<th style="text-align:center">MIPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">16个寄存器</td>
+<td style="text-align:center">32个寄存器</td>
+</tr>
+<tr>
+<td style="text-align:center">更高效，支持64位数据线</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">ARM的指令集不一样</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>结论：ARM比MIPS更NB！</li>
+</ul>
+<h1 id="嵌入式编程语言">嵌入式编程语言</h1>
+<h2 id="常见语言">常见语言</h2>
+<ul>
+<li>C, C++, Python, Java, MicroPython</li>
+</ul>
+<h1 id="pwm---pulse-width-modulation">PWM - Pulse Width Modulation</h1>
+<h2 id="原理">原理</h2>
+<ul>
+<li>用<strong>数字源</strong>产生<strong>模拟信号</strong></li>
+</ul>
+<h2 id="图像分析">图像分析</h2>
+<p><img src="/p/1.-arm-%E7%BC%96%E7%A8%8B/1.png"
+	width="850"
+	height="408"
+	srcset="/p/1.-arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_480x0_resize_box_3.png 480w, /p/1.-arm-%E7%BC%96%E7%A8%8B/1_hu262f865ce2abf20326d39359c0413f89_94757_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="208"
+		data-flex-basis="500px"
+	
+></p>
+<p>$$
+Duty \ Cycle = \frac{Active \ time}{T} \times 100% \\\
+\\ Average \ Time = high \cdot Duty \ Cycle / 100%
+$$</p>
+<h1 id="串行通信的方式">串行通信的方式</h1>
+<h2 id="uart----universal-asynchronous-reception-and-transmission">UART &ndash; Universal Asynchronous Reception and Transmission</h2>
+<ol>
+<li>部件与原理</li>
+</ol>
+<ul>
+<li>
+<p>RX - Receiver</p>
+</li>
+<li>
+<p>TX - Transmitter</p>
+</li>
+<li>
+<p>Protocal - 总线异步通信系统<strong>协议</strong></p>
+</li>
+</ul>
+<ol start="2">
+<li>工作原理</li>
+</ol>
+<ul>
+<li>
+<p>Start Bit $0$ $\longrightarrow$ Stop Bit $1$</p>
+</li>
+<li>
+<p>Data Length</p>
+</li>
+</ul>
+<p><img src="/p/1.-arm-%E7%BC%96%E7%A8%8B/2.png"
+	width="1232"
+	height="302"
+	srcset="/p/1.-arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_480x0_resize_box_3.png 480w, /p/1.-arm-%E7%BC%96%E7%A8%8B/2_hue57f6ef53bfdc8101e018c160630118d_65722_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="407"
+		data-flex-basis="979px"
+	
+></p>
+<ul>
+<li>理想状态下，串行线为$1$</li>
+</ul>
+<h2 id="i2c---inter-integrated-circuit">I2C - Inter-Integrated-Circuit</h2>
+<ol>
+<li>部件与原理</li>
+</ol>
+<ul>
+<li>
+<p>一主机，多从机</p>
+</li>
+<li>
+<p>只有主机可以<strong>初始化</strong>传输数据</p>
+</li>
+<li>
+<p>总线系统同步通信的<strong>协议</strong></p>
+</li>
+<li>
+<p>SDA - Serial Data Line: 传输<strong>数据、地址、控制</strong>信号</p>
+</li>
+<li>
+<p>SCL - Serial Clock Line：用于<strong>同步</strong></p>
+</li>
+</ul>
+<p><img src="/p/1.-arm-%E7%BC%96%E7%A8%8B/3.png"
+	width="1043"
+	height="366"
+	srcset="/p/1.-arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_480x0_resize_box_3.png 480w, /p/1.-arm-%E7%BC%96%E7%A8%8B/3_hu4e6811288732873c9777878de2ddb0ec_41007_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="284"
+		data-flex-basis="683px"
+	
+></p>
+<ol start="2">
+<li>工作原理</li>
+</ol>
+<ul>
+<li>
+<p>Data Length: 8-bit</p>
+</li>
+<li>
+<p>Start (Stop) Condition</p>
+</li>
+</ul>
+<p><img src="/p/1.-arm-%E7%BC%96%E7%A8%8B/5.png"
+	width="826"
+	height="401"
+	srcset="/p/1.-arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_480x0_resize_box_3.png 480w, /p/1.-arm-%E7%BC%96%E7%A8%8B/5_hu1d4ebd30d218917b4ee50bdb80be4c40_41968_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="205"
+		data-flex-basis="494px"
+	
+></p>
+<ol start="3">
+<li>地址字节(8位)</li>
+</ol>
+<ul>
+<li>
+<p>前7位构成<strong>从机地址</strong></p>
+</li>
+<li>
+<p>最后1位作为<strong>读/写</strong>指令</p>
+<ul>
+<li>0是写入(从机)</li>
+<li>1是读取</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>确认位和非确认位(ACB/NACB)</li>
+</ol>
+<ul>
+<li>
+<p>每字节数据输入成功，<strong>接受者</strong>返回ACB;失败返回<strong>NACB</strong></p>
+</li>
+<li>
+<p>在SCL为<strong>High</strong>时，保持SDA为<strong>low</strong>,以此产生<strong>ACB</strong></p>
+</li>
+</ul>
+<ol start="5">
+<li>数据位</li>
+</ol>
+<ul>
+<li>
+<p>8位字节格式</p>
+</li>
+<li>
+<p>以地址字节开头，每个地址字节后必须跟着一个ACB/NACB</p>
+</li>
+<li>
+<p>必须在<strong>SCL保持high</strong>时才能发送和接收数据</p>
+</li>
+<li>
+<p><strong>SCL保持低位</strong>时可以操作数据线</p>
+</li>
+</ul>
+<h2 id="spi---serial-peripheral-interface">SPI - Serial Peripheral Interface</h2>
+<ol>
+<li>部件与协议</li>
+</ol>
+<ul>
+<li>
+<p>总线系统的串行通信<strong>协议</strong></p>
+</li>
+<li>
+<p>一主机，(一)多从机</p>
+</li>
+<li>
+<p>全双工</p>
+</li>
+<li>
+<p>主从层次结构</p>
+</li>
+</ul>
+<ol start="2">
+<li>结构</li>
+</ol>
+<p><img src="/p/1.-arm-%E7%BC%96%E7%A8%8B/4.png"
+	width="572"
+	height="580"
+	srcset="/p/1.-arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_480x0_resize_box_3.png 480w, /p/1.-arm-%E7%BC%96%E7%A8%8B/4_hu610675fabea523e11f162134641c8f32_64277_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="98"
+		data-flex-basis="236px"
+	
+></p>
+<ul>
+<li>SS(CS): Slave Select (Chip Select),从机并行连接，处于<strong>low</strong>位时被激活</li>
+</ul>
+<ol start="3">
+<li>原理</li>
+</ol>
+<p><img src="/p/1.-arm-%E7%BC%96%E7%A8%8B/6.png"
+	width="886"
+	height="233"
+	srcset="/p/1.-arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_480x0_resize_box_3.png 480w, /p/1.-arm-%E7%BC%96%E7%A8%8B/6_hu097eafb5152170817214e3f051cb7c78_45180_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="380"
+		data-flex-basis="912px"
+	
+></p>
+<div class="mermaid">stateDiagram
+主机向从机发送时钟信号 --> 将对应从机的SS/CS调成low
+将对应从机的SS/CS调成low --> MOSI发送数据
+MOSI发送数据 --> MISO接受从机发回的数据: 如果有必要的话
+</div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
+
+<ol start="4">
+<li><strong>时钟参数</strong></li>
+</ol>
+<ul>
+<li>CPOL(Clock Polarity)</li>
+</ul>
+<blockquote>
+<p>当CPOL为0时，时钟信号在空闲状态下为低电平（0），在上升沿（rising edge）采样数据，下降沿（falling edge）传输数据。当CPOL为1时，时钟信号在空闲状态下为高电平（1），在下降沿采样数据，上升沿传输数据。</p>
+</blockquote>
+<ul>
+<li>CPHA(Clock Phase)</li>
+</ul>
+<blockquote>
+<p>当CPHA为0时，在时钟信号的第一个跳变沿（上升沿或下降沿）采样数据；当CPHA为1时，在时钟信号的第二个跳变沿（另一个上升沿或下降沿）采样数据。</p>
+</blockquote>
+<h2 id="对比">对比</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>比较项目</th>
+<th>UART</th>
+<th>I2C</th>
+<th>SPI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Communication Type</td>
+<td>Serial</td>
+<td>Serial/Parallel (multi-master, one at a time)</td>
+<td>Serial (single-master)</td>
+</tr>
+<tr>
+<td>Number of Wires Required</td>
+<td>Minimum of two (TX and RX)</td>
+<td>Two wires (SDA and SCL) plus optional ground wire</td>
+<td>Minimum of three (MOSI, MISO, and CLK) plus optional slave select wire(s)</td>
+</tr>
+<tr>
+<td>Data Transfer Speed</td>
+<td>Typically up to several Mbps</td>
+<td>Typically up to several hundred Kbps</td>
+<td>Typically up to tens of Mbps</td>
+</tr>
+<tr>
+<td>Maximum Distance Supported</td>
+<td>Up to a few meters</td>
+<td>Up to several meters</td>
+<td>Up to several meters</td>
+</tr>
+<tr>
+<td>Simplicity</td>
+<td>Simple</td>
+<td>Simple</td>
+<td>Relatively Compleg</td>
+</tr>
+<tr>
+<td>工作方式</td>
+<td>异步</td>
+<td>Half-duplex</td>
+<td>Full-duplex</td>
+</tr>
+</tbody>
+</table></div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/7.-%E8%80%83%E8%AF%95%E9%80%9F%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">7. 考试速记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/6.-embedded-system-software-design-testing-and-debugging/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">6. Embedded System Software Design, Testing, and Debugging</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/5.%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5.汇编基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/4.-i2cspiadcdac/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">4. I2C,SPI,ADC,DAC</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/3.-gpio-pwm-uart/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3. GPIO PWM UART</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
