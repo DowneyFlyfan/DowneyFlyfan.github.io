@@ -702,18 +702,27 @@ MOSI发送数据 --> MISO接受从机发回的数据: 如果有必要的话
 <ol start="4">
 <li><strong>时钟参数</strong></li>
 </ol>
-<ul>
-<li>CPOL(Clock Polarity)</li>
-</ul>
-<blockquote>
-<p>当CPOL为0时，时钟信号在空闲状态下为低电平（0），在上升沿（rising edge）采样数据，下降沿（falling edge）传输数据。当CPOL为1时，时钟信号在空闲状态下为高电平（1），在下降沿采样数据，上升沿传输数据。</p>
-</blockquote>
-<ul>
-<li>CPHA(Clock Phase)</li>
-</ul>
-<blockquote>
-<p>当CPHA为0时，在时钟信号的第一个跳变沿（上升沿或下降沿）采样数据；当CPHA为1时，在时钟信号的第二个跳变沿（另一个上升沿或下降沿）采样数据。</p>
-</blockquote>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Bit</th>
+<th style="text-align:center">CPOL(Clock Polarity)</th>
+<th style="text-align:center">CPHA(Clock Phase)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">Idle State = 0</td>
+<td style="text-align:center">In Phase</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Idle State = 1</td>
+<td style="text-align:center">Out of Phase</td>
+</tr>
+</tbody>
+</table></div>
 <h2 id="对比">对比</h2>
 <div class="table-wrapper"><table>
 <thead>
