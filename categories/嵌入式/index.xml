@@ -6,154 +6,7 @@
         <description>Recent content in 嵌入式 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Tue, 13 Jun 2023 20:34:19 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>7. 考试速记</title>
-        <link>https://downeyflyfan.com/p/7.-%E8%80%83%E8%AF%95%E9%80%9F%E8%AE%B0/</link>
-        <pubDate>Tue, 13 Jun 2023 20:34:19 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/7.-%E8%80%83%E8%AF%95%E9%80%9F%E8%AE%B0/</guid>
-        <description>&lt;h1 id=&#34;知识点速记&#34;&gt;知识点速记&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;CAN&lt;/strong&gt; bus is a vehicle bus standard designed to allow microcontrollers and device to communicate with each other within a vehicle without a host computer.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;CAN: Control Area Network&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Volatile&lt;/strong&gt; Keyword&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Indicate to the complier that the variable may change its value&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Must be written from &lt;strong&gt;RAM&lt;/strong&gt; instead of &lt;strong&gt;CPU register&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;If &lt;strong&gt;not used&lt;/strong&gt;, there might be &lt;strong&gt;Bugs/ Unstable Conditions&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;Almost every processor has a number of privileged instructions for &lt;strong&gt;Operating System(OS) fucntions&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Critical Sections&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Code Segments share the **same resources(Memory, I/O ports).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;So they must be &lt;strong&gt;executed atomically&lt;/strong&gt; ( 作为整体执行，不受interruption 或 interve 等任何因素的干扰)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;Fixed-Point Expression &amp;amp; Floating-Point Expression&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Difference: &lt;strong&gt;How they handle decimal numbers&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;In a fixed-point number representation, a fixed number of bits is allocated for the integer part and the fractional part of the number. This means that the range and precision of numbers that can be represented are limited. For example, if we allocate 8 bits for the integer part and 8 bits for the fractional part, we can represent numbers from -128 to 127 with a resolution of 1/256.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;a floating-point number representation allows for more flexibility in representing decimal numbers. It uses a combination of sign, exponent, and mantissa to represent numbers in scientific notation. This allows for both large and small values to be represented accurately with varying levels of precision.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;Von Neumann &amp;amp; Harvard Architecture&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;V: CPU performs both data processing and instruction fetching from the same memory unit. The instructions and data are stored in the same memory spac&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;H: Harvard Architecture separates the instruction memory and data memory into two separate units with dedicated buses.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;7&#34;&gt;
-&lt;li&gt;bit-bands&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;each byte of memory is divided into 8-bit segments called &lt;strong&gt;bit-bands&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;8&#34;&gt;
-&lt;li&gt;Embedded Firmware&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;The control algorithm (Program instructions) and or the configuration settings that an embedded system developer dumps into the code (Program) memory of the embedded system.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;polling-and-interrupt&#34;&gt;Polling and Interrupt&lt;/h1&gt;
-&lt;h2 id=&#34;polling-轮询&#34;&gt;Polling (轮询)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Polling is the protocol that indicates the CPU that a device requires its attention. It is a continuous act to figure out whether the device is working properly.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;interrupt&#34;&gt;Interrupt&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;An interrupt is the automatic transfer of software execution in response to a hardware event that is asynchronous with the current software execution.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When the interrupt program is finished, which line should the main program return to?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;The line that the interrupt occurred, i.e., current instruction;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The next line that the interrupt occurred, i.e., next instruction;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Abort (there is an error)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Interrupt 和 Polling&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;比较&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Interrupt&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Polling&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Servcing&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;ISR(Interrupt Servcing Ruotine), immediately stop&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;monitoring devices&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Mechanism&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Organized Mechanism&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Protocol&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Advantage&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;More flexible, efficient&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Simple&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Disadvantages&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;More Complex Hardware&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Unnecessary time&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Interrupt Handlers Designs&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;小的知识点&#34;&gt;小的知识点&lt;/h1&gt;
-&lt;h2 id=&#34;l432kc-的结构内存&#34;&gt;L432KC 的结构,内存&lt;/h2&gt;
-&lt;h2 id=&#34;要写简单的汇编&#34;&gt;要写简单的汇编&lt;/h2&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Fri, 26 May 2023 16:49:31 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>6. Embedded System Software Design, Testing, and Debugging</title>
         <link>https://downeyflyfan.com/p/6.-embedded-system-software-design-testing-and-debugging/</link>
         <pubDate>Fri, 26 May 2023 16:49:31 +0800</pubDate>
@@ -879,7 +732,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;MUL&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;乘法($32_\times32_ = 32_$),结果没有影响&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;乘法($32bit \times 32bit = 32bit$),结果没有影响&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;CMP&lt;/td&gt;
@@ -3354,7 +3207,7 @@ MOSI发送数据 --&gt; MISO接受从机发回的数据: 如果有必要的话
 &lt;td&gt;Simplicity&lt;/td&gt;
 &lt;td&gt;Simple&lt;/td&gt;
 &lt;td&gt;Simple&lt;/td&gt;
-&lt;td&gt;Relatively Compleg&lt;/td&gt;
+&lt;td&gt;Relatively Complex&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;工作方式&lt;/td&gt;
