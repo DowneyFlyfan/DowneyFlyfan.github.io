@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Basic Concepts I/O $$ y(t) = \alpha_1 x(t) &#43; \alpha_0 $$
+CMOS设计影响因素 CS Stage CS Stage With Resistive Load 图示 分析$A$和$V_{out}$ $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} V_{DD} &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} ) \end{aligned} \\\ \\ \begin{aligned} A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\ &amp;amp;= -g_m R_D \\ &amp;amp;= -\sqrt{2k_nI_D} \frac{V_{R_D}}{I_D} \\ &amp;amp;= -\sqrt{2\mu_n C_{OX}\frac{W}{L}}\frac{V_{R_D}}{\sqrt {I_D}} \\ \end{aligned} $$'>
+<title>3. Single Stage Amplifier</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/3.-single-stage-amplifier/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='3. Single Stage Amplifier'>
+<meta property='og:description' content='Basic Concepts I/O $$ y(t) = \alpha_1 x(t) &#43; \alpha_0 $$
+CMOS设计影响因素 CS Stage CS Stage With Resistive Load 图示 分析$A$和$V_{out}$ $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} V_{DD} &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} ) \end{aligned} \\\ \\ \begin{aligned} A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\ &amp;amp;= -g_m R_D \\ &amp;amp;= -\sqrt{2k_nI_D} \frac{V_{R_D}}{I_D} \\ &amp;amp;= -\sqrt{2\mu_n C_{OX}\frac{W}{L}}\frac{V_{R_D}}{\sqrt {I_D}} \\ \end{aligned} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/3.-single-stage-amplifier/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-25T09:32:13&#43;08:00'/><meta property='article:modified_time' content='2023-04-25T09:32:13&#43;08:00'/>
+<meta name="twitter:title" content="3. Single Stage Amplifier">
+<meta name="twitter:description" content="Basic Concepts I/O $$ y(t) = \alpha_1 x(t) &#43; \alpha_0 $$
+CMOS设计影响因素 CS Stage CS Stage With Resistive Load 图示 分析$A$和$V_{out}$ $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} V_{DD} &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} ) \end{aligned} \\\ \\ \begin{aligned} A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\ &amp;amp;= -g_m R_D \\ &amp;amp;= -\sqrt{2k_nI_D} \frac{V_{R_D}}{I_D} \\ &amp;amp;= -\sqrt{2\mu_n C_{OX}\frac{W}{L}}\frac{V_{R_D}}{\sqrt {I_D}} \\ \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#basic-concepts">Basic Concepts</a>
+      <ol>
+        <li><a href="#io">I/O</a></li>
+        <li><a href="#cmos设计影响因素">CMOS设计影响因素</a></li>
+      </ol>
+    </li>
+    <li><a href="#cs-stage">CS Stage</a>
+      <ol>
+        <li><a href="#cs-stage-with-resistive-load">CS Stage With Resistive Load</a>
+          <ol>
+            <li><a href="#图示">图示</a></li>
+            <li><a href="#分析a和v_out">分析$A$和$V_{out}$</a></li>
+            <li><a href="#分析-channel-length-modulation">分析 Channel Length Modulation</a></li>
+          </ol>
+        </li>
+        <li><a href="#cs-stage-with-diode-connected-load">CS Stage With Diode-Connected Load</a>
+          <ol>
+            <li><a href="#电路图">电路图</a></li>
+            <li><a href="#测量电路">测量电路</a></li>
+          </ol>
+        </li>
+        <li><a href="#cs-stage-with-current-source-load">CS Stage With Current-Source Load</a>
+          <ol>
+            <li><a href="#图示-1">图示</a></li>
+            <li><a href="#分析">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#cs-stage-woth-triode-load">CS Stage Woth Triode Load</a>
+          <ol>
+            <li><a href="#电路图-1">电路图</a></li>
+            <li><a href="#分析-1">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#cs-stage-with-source-degeneration">CS Stage With Source Degeneration</a>
+          <ol>
+            <li><a href="#电路">电路</a></li>
+            <li><a href="#分析-2">分析</a></li>
+            <li><a href="#小信号等效电路">小信号等效电路</a></li>
+            <li><a href="#效果">效果</a></li>
+          </ol>
+        </li>
+        <li><a href="#总结">总结</a></li>
+      </ol>
+    </li>
+    <li><a href="#source-follower-cd">Source Follower (CD)</a>
+      <ol>
+        <li><a href="#电路-电压特性">电路 电压特性</a></li>
+        <li><a href="#分析-3">分析</a></li>
+        <li><a href="#小信号等效电路-增益曲线">小信号等效电路 增益曲线</a></li>
+      </ol>
+    </li>
+    <li><a href="#common-gate-stage">Common-Gate Stage</a>
+      <ol>
+        <li><a href="#电路-1">电路</a></li>
+        <li><a href="#分析-4">分析</a></li>
+      </ol>
+    </li>
+    <li><a href="#cascode-stage-d-s">Cascode Stage (D-S)</a>
+      <ol>
+        <li><a href="#basic-configuration">Basic Configuration</a>
+          <ol>
+            <li><a href="#电路-2">电路</a></li>
+            <li><a href="#分析-5">分析</a></li>
+            <li><a href="#io-特性">I/O 特性</a></li>
+          </ol>
+        </li>
+        <li><a href="#folded-cascode">Folded Cascode</a>
+          <ol>
+            <li><a href="#三种电路">三种电路</a></li>
+            <li><a href="#分析-6">分析</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#heading"></a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/cmos/" >
+                CMOS
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/3.-single-stage-amplifier/">3. Single Stage Amplifier</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 25, 252525</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="basic-concepts">Basic Concepts</h1>
+<h2 id="io">I/O</h2>
+<p>$$
+y(t) = \alpha_1 x(t) + \alpha_0
+$$</p>
+<h2 id="cmos设计影响因素">CMOS设计影响因素</h2>
+<p><img src="/p/3.-single-stage-amplifier/1.png"
+	width="459"
+	height="361"
+	srcset="/p/3.-single-stage-amplifier/1_hu21dd54acae7708b134000fa80433ff51_13125_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/1_hu21dd54acae7708b134000fa80433ff51_13125_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<h1 id="cs-stage">CS Stage</h1>
+<h2 id="cs-stage-with-resistive-load">CS Stage With Resistive Load</h2>
+<h3 id="图示">图示</h3>
+<p><img src="/p/3.-single-stage-amplifier/2.png"
+	width="964"
+	height="777"
+	srcset="/p/3.-single-stage-amplifier/2_hudcb8a034dae6b1b96aa691964e122ab8_27658_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/2_hudcb8a034dae6b1b96aa691964e122ab8_27658_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="124"
+		data-flex-basis="297px"
+	
+></p>
+<h3 id="分析a和v_out">分析$A$和$V_{out}$</h3>
+<p>$$
+V_{in} = V_{GS}, V_{out} = V_{DS} \\\
+\\ V_{out} =
+\begin{cases}
+V_{DD} &amp; V_{in} \lt V_t \\
+V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp; V_{in} \ge V_t \\
+V_{in} - V_t &amp; V_{in} - V_t = V_{out} \\
+V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp; Triode \ Region
+\end{cases} \\\
+\\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\
+\\ \begin{aligned}
+V_{out} &amp;= \frac{R_{on}}{R_{on} + R_D}V_{DD} \\
+&amp;= \frac{V_{DD}}{1 + k_n R_D(V_{in} -V_t)}  \\
+( R_{on} &amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} )
+\end{aligned} \\\
+\\ \begin{aligned}
+A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
+&amp;= -g_m R_D  \\
+&amp;= -\sqrt{2k_nI_D} \frac{V_{R_D}}{I_D} \\
+&amp;= -\sqrt{2\mu_n C_{OX}\frac{W}{L}}\frac{V_{R_D}}{\sqrt {I_D}} \\
+\end{aligned}
+$$</p>
+<h3 id="分析-channel-length-modulation">分析 Channel Length Modulation</h3>
+<p>$$
+V_{out} = V_{DD} - \frac{1}{2}k_n(V_{in} - V_t)^2 (1 + \lambda V_{out})R_D \\\
+\\ \begin{aligned}
+A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
+&amp;= - R_Dk_n (V_{in} - V_t)(1 + \lambda V_{out})- \frac{1}{2}k_n R_D(V_{in} - V_t)^2 \lambda\frac{\partial V_{out}}{\partial V_{in}} \\
+&amp;= -R_D g_m - I_DR_D \lambda A_v  (近似) \\
+&amp;= -\frac{g_m R_D}{1 + R_D \lambda I_D} \\
+&amp;= -g_m \frac{r_0R_D}{r_0 + R_D}
+\end{aligned}$$</p>
+<h2 id="cs-stage-with-diode-connected-load">CS Stage With Diode-Connected Load</h2>
+<h3 id="电路图">电路图</h3>
+<p><img src="/p/3.-single-stage-amplifier/3.png"
+	width="809"
+	height="316"
+	srcset="/p/3.-single-stage-amplifier/3_huab5b33b05b85ead937a0fce9ac8efe5e_11377_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/3_huab5b33b05b85ead937a0fce9ac8efe5e_11377_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="256"
+		data-flex-basis="614px"
+	
+></p>
+<p>$$
+V_1 = V_X \\\
+\\ I_X = \frac{V_X}{r_0} + g_mV_X
+$$</p>
+<h3 id="测量电路">测量电路</h3>
+<p><img src="/p/3.-single-stage-amplifier/4.png"
+	width="728"
+	height="380"
+	srcset="/p/3.-single-stage-amplifier/4_hua52906e99453c04e9c43624692dd2e23_14616_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/4_hua52906e99453c04e9c43624692dd2e23_14616_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="459px"
+	
+></p>
+<p>$$
+Impedence: (\frac{1}{g_m} || r_0) \approx \frac{1}{g_m} \\\
+\\ V_1 = -V_X, V_{bs} = -V_X \\\
+\\ \begin{aligned}
+I_X &amp;=\frac{V_X}{r_0} + (g_m + g_{mb})V_X \\
+\frac{V_X}{I_X} &amp;=  \frac{1}{g_m+g_{mb}+r_0^{-1}} \\
+&amp;= \frac{1}{g_m + g_{mb}} || r_0 \\
+&amp; \approx \frac{1}{g_m +g_{mb}} \\\
+\\ A_v &amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} (不知道为什么)\\
+&amp;= -\frac{g_{m1}}{g_{m2}}\frac{1}{1 + \eta}  \\
+&amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta}(I_{D1} = I_{D2}) \\
+&amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta}(NMOS是D-C \ MOS) \\
+&amp;= - \sqrt{\frac{\mu_n(W/L)_1}{\mu_p(W/L)_2}} (PMOS是D-C \ MOS)
+\end{aligned}
+$$</p>
+<ul>
+<li>PMOS 电路</li>
+</ul>
+<p><img src="/p/3.-single-stage-amplifier/5.png"
+	width="326"
+	height="433"
+	srcset="/p/3.-single-stage-amplifier/5_hu77250ce278d5d3832a2d29fd5050fa45_3476_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/5_hu77250ce278d5d3832a2d29fd5050fa45_3476_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="75"
+		data-flex-basis="180px"
+	
+></p>
+<p>$$
+\begin{aligned}
+I_{D1} &amp;= I_{|D2|} \\
+\mu_n C_{OX}(\frac{W}{L})<em>1(V</em>{GS1} - V_{T1})^2 &amp;= \mu_p C_{OX}(\frac{W}{L})<em>2(V</em>{GS2} - V_{T2})^2 \\
+\therefore A_v &amp;= \frac{|V_{GS2} - V_{T2}|}{V_{GS1} - V_{T1}}
+\end{aligned}
+$$</p>
+<ul>
+<li><strong>输入和输出不影响增益</strong></li>
+</ul>
+<h2 id="cs-stage-with-current-source-load">CS Stage With Current-Source Load</h2>
+<h3 id="图示-1">图示</h3>
+<p><img src="/p/3.-single-stage-amplifier/6.png"
+	width="176"
+	height="224"
+	srcset="/p/3.-single-stage-amplifier/6_huaa4483bd5cc4f9901046e7fa7fb291f2_3583_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/6_huaa4483bd5cc4f9901046e7fa7fb291f2_3583_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="78"
+		data-flex-basis="188px"
+	
+></p>
+<h3 id="分析">分析</h3>
+<p>$$
+\begin{aligned}
+A_v &amp;= -g_m(r_{o1} || r_{o2})(负号表示相位差为180^{\circ}) \\
+&amp;= \sqrt{2(\frac{W}{L})\mu_nC_{OX}I_D} \frac{1}{\lambda I_D}
+\end{aligned}
+$$</p>
+<h2 id="cs-stage-woth-triode-load">CS Stage Woth Triode Load</h2>
+<h3 id="电路图-1">电路图</h3>
+<p><img src="/p/3.-single-stage-amplifier/7.png"
+	width="608"
+	height="346"
+	srcset="/p/3.-single-stage-amplifier/7_hub4c3469d8242314acd07d3b4da6a6fff_6734_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/7_hub4c3469d8242314acd07d3b4da6a6fff_6734_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="175"
+		data-flex-basis="421px"
+	
+></p>
+<h3 id="分析-1">分析</h3>
+<p>$$
+R_{on2} = \frac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V-b-V_{Tp})}
+$$</p>
+<h2 id="cs-stage-with-source-degeneration">CS Stage With Source Degeneration</h2>
+<h3 id="电路">电路</h3>
+<p><img src="/p/3.-single-stage-amplifier/8.png"
+	width="658"
+	height="325"
+	srcset="/p/3.-single-stage-amplifier/8_hud65e262e53f30e7c2f36dccc51d65baa_7643_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/8_hud65e262e53f30e7c2f36dccc51d65baa_7643_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="202"
+		data-flex-basis="485px"
+	
+></p>
+<h3 id="分析-2">分析</h3>
+<p>$$
+设I_D = f(V_{GS})  \\\
+\\ \begin{aligned}
+G_m &amp;= \frac{\partial I_D}{\partial V_{in}} \\
+&amp;= \frac{\partial f}{\partial V_{GS}}\frac{\partial V_{GS}}{\partial V_{in}} \\
+&amp;= g_m(\frac{ \partial (V_{in} - I_DR_S)}{\partial V_{in}}) \\
+&amp;= g_m (1-R_S\frac{\partial I_D}{\partial V_{in}}) \\
+&amp;= g_m(1 -R_SG_m)
+\end{aligned} \\\
+\\ \therefore G_m = \frac{g_m}{1+g_mR_S} \\\
+\\ \therefore A_v = -G_m R_D = -\frac{g_mR_D}{1 + g_mR_S}
+$$</p>
+<h3 id="小信号等效电路">小信号等效电路</h3>
+<ol>
+<li>电路</li>
+</ol>
+<p><img src="/p/3.-single-stage-amplifier/9.png"
+	width="613"
+	height="286"
+	srcset="/p/3.-single-stage-amplifier/9_hu74eddae3a937e5bd06f53099a85297ea_5998_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/9_hu74eddae3a937e5bd06f53099a85297ea_5998_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="214"
+		data-flex-basis="514px"
+	
+></p>
+<ol start="2">
+<li>分析</li>
+</ol>
+<p>$$
+\begin{aligned}
+I_{out} &amp;= g_mV_1 - \frac{I_{out} R_S}{r_O} -g_mV_X \\
+&amp;= g_m (V_{in} - I_{out} R_S) - \frac{I_{out}R_S}{r_O} + g_m (-I_{out}R_S) \\
+G_m &amp;= \frac{I_{out}}{V_{in}} \\
+&amp;= \frac{g_mr_o}{R_S + [1 + (g_m + g_{mb}R_S)]r_O}
+\end{aligned} \\\
+$$</p>
+<h3 id="效果">效果</h3>
+<p><img src="/p/3.-single-stage-amplifier/10.png"
+	width="901"
+	height="295"
+	srcset="/p/3.-single-stage-amplifier/10_hu4a90f2d70e2bdb063cba45596d2e996b_13388_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/10_hu4a90f2d70e2bdb063cba45596d2e996b_13388_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="305"
+		data-flex-basis="733px"
+	
+></p>
+<h2 id="总结">总结</h2>
+<ol>
+<li>
+<p>CS 将<strong>Voltage Signal</strong>转换成<strong>Current Signal</strong></p>
+</li>
+<li></li>
+</ol>
+<h1 id="source-follower-cd">Source Follower (CD)</h1>
+<h2 id="电路-电压特性">电路 电压特性</h2>
+<p><img src="/p/3.-single-stage-amplifier/11.png"
+	width="809"
+	height="382"
+	srcset="/p/3.-single-stage-amplifier/11_hub5f2c310bf50ba806646476e40a2263d_6911_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/11_hub5f2c310bf50ba806646476e40a2263d_6911_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="508px"
+	
+></p>
+<h2 id="分析-3">分析</h2>
+<p>$$
+\begin{aligned}
+V_{out} &amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
+\frac{\partial V_{out}}{\partial V_{in}} &amp;= k_n(V_{in}- V_{out} -V_t) (1 - \frac{\partial V_{out}}{\partial V_{in}} - \frac{\partial V_t}{\partial V_{in}}) \\
+\because \frac{\partial V_t}{\partial V_{in}} &amp;= \eta \frac{\partial V_{out}}{\partial V_{in}} (\pmb{为什么呢})\\
+\therefore \frac{\partial V_{out}}{\partial V_{in}} &amp;= \frac{k_nV_{OV}R_S}{1+k_nV_{OV}R_S(1  +\eta)} \\
+\because g_m &amp;= k_nV_{OV} \\
+\therefore A_v &amp;= \frac{g_m R_S}{1 + (g_m + g_{mb}) R_S}
+\end{aligned}
+$$</p>
+<h2 id="小信号等效电路-增益曲线">小信号等效电路 增益曲线</h2>
+<p><img src="/p/3.-single-stage-amplifier/12.png"
+	width="386"
+	height="226"
+	srcset="/p/3.-single-stage-amplifier/12_hue9fa49292013660437d5fa4ac8f3836e_4526_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/12_hue9fa49292013660437d5fa4ac8f3836e_4526_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="170"
+		data-flex-basis="409px"
+	
+></p>
+<p><img src="/p/3.-single-stage-amplifier/13.png"
+	width="301"
+	height="206"
+	srcset="/p/3.-single-stage-amplifier/13_hu9db048e169a0cf96270dcfc1c7c17682_2958_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/13_hu9db048e169a0cf96270dcfc1c7c17682_2958_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="146"
+		data-flex-basis="350px"
+	
+></p>
+<h1 id="common-gate-stage">Common-Gate Stage</h1>
+<h2 id="电路-1">电路</h2>
+<p><img src="/p/3.-single-stage-amplifier/14.png"
+	width="644"
+	height="372"
+	srcset="/p/3.-single-stage-amplifier/14_hu2381b9be18ed234a5d1d40231c42aece_8572_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/14_hu2381b9be18ed234a5d1d40231c42aece_8572_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="415px"
+	
+></p>
+<ul>
+<li>
+<p>(a) 直接耦合</p>
+</li>
+<li>
+<p>(b) 电容耦合</p>
+</li>
+</ul>
+<h2 id="分析-4">分析</h2>
+<p>$$
+\begin{aligned}
+V_{out} &amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
+\because \frac{\partial V_t}{\partial V_{in}} &amp;= \frac{\partial V_t}{\partial V_{SB}} = \eta \\
+\therefore A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}} \\
+&amp;= g_m(1+\eta) R_D
+\end{aligned}
+$$</p>
+<h1 id="cascode-stage-d-s">Cascode Stage (D-S)</h1>
+<h2 id="basic-configuration">Basic Configuration</h2>
+<h3 id="电路-2">电路</h3>
+<p><img src="/p/3.-single-stage-amplifier/15.png"
+	width="427"
+	height="453"
+	srcset="/p/3.-single-stage-amplifier/15_huace54b084aa4627ec694c04d60064bf2_5403_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/15_huace54b084aa4627ec694c04d60064bf2_5403_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="94"
+		data-flex-basis="226px"
+	
+></p>
+<h3 id="分析-5">分析</h3>
+<ul>
+<li>为了让$M_1$和$M_2$都工作在饱和区，作出以下分析</li>
+</ul>
+<p>$$
+\begin{aligned}
+V_X &amp;\ge  V_{in} - V_{T1} \ (1) \\
+V_b- V_{GS2} &amp;= V_b - V_{G2} + V_{S2} \\
+&amp;= V_b -V_{G2} +V_X \\
+\because V_b &amp;= V_{G2} \\
+\therefore V_X &amp;= V_b - V_{GS2} \ (2) \\\
+\\ 结合(1)(2)  \\
+V_b -V_{GS2} &amp;\ge V_{in} -V_{T1} \\
+V_b &amp;\ge V_{in} - V_{T1} + V_{GS2} \ (3)  \\\
+\\ V_{out} - V_{S2} &amp;\ge V_b - V_S - V_{T2} \\
+V_{out} &amp;\ge V_b - V_{T2} (4)\\
+\therefore 结合(3)(4) \\
+V_{out} &amp;\ge (V_{in} - V_{T1}+ V_{GS2} -V_{T2}) \\
+\therefore V_{out \ min} &amp;= V_{OV1} + V_{OV2}
+\end{aligned}
+$$</p>
+<h3 id="io-特性">I/O 特性</h3>
+<p><img src="/p/3.-single-stage-amplifier/16.png"
+	width="581"
+	height="382"
+	srcset="/p/3.-single-stage-amplifier/16_hubc16c4a636a6fafc5fadf67d0fd20803_5391_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/16_hubc16c4a636a6fafc5fadf67d0fd20803_5391_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="152"
+		data-flex-basis="365px"
+	
+></p>
+<h2 id="folded-cascode">Folded Cascode</h2>
+<h3 id="三种电路">三种电路</h3>
+<p><img src="/p/3.-single-stage-amplifier/17.png"
+	width="846"
+	height="371"
+	srcset="/p/3.-single-stage-amplifier/17_hub045c750830ed97ed9b63accd9038824_17682_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/17_hub045c750830ed97ed9b63accd9038824_17682_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="228"
+		data-flex-basis="547px"
+	
+></p>
+<h3 id="分析-6">分析</h3>
+<p>$$
+\begin{aligned}
+对于&amp;b图(M_1 是 PMOS,M_2 是NMOS) \\
+I_{D2} &amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
+当I_{D2} &amp;= 0 时: \\
+I_{D1} &amp;=  I_1  \\
+&amp;=\frac{1}{2}\mu_pC_{OX} (\frac{W}{L})<em>1 (V</em>{DD} - V_{in} - |V_{T1}|)^2 \\
+\therefore V_{in1} &amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
+\\ 当V_{in1} &amp;\gt V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}|时: \\
+\because I_{D1} &amp;\le I_1  \\
+\therefore M_1 &amp;将进入Triode \ Region
+\end{aligned}
+$$</p>
+<h1 id="heading"></h1>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
