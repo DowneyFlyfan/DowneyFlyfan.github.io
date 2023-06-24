@@ -6,7 +6,16 @@
         <description>Recent content on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 21 Jun 2023 13:44:17 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 24 Jun 2023 10:07:33 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>9. Operational Amplifier</title>
+        <link>https://downeyflyfan.com/p/9.-operational-amplifier/</link>
+        <pubDate>Sat, 24 Jun 2023 10:07:33 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/9.-operational-amplifier/</guid>
+        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+</description>
+        </item>
+        <item>
         <title>6. Frequency Response</title>
         <link>https://downeyflyfan.com/p/6.-frequency-response/</link>
         <pubDate>Wed, 21 Jun 2023 13:44:17 +0800</pubDate>
@@ -78,7 +87,52 @@ Input \ Impedence \ Z_{in} &amp;amp;= (1+A) C_F \\
 f_p &amp;amp;= \frac{1}{(1+A)RC_F}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
+&lt;h1 id=&#34;common-source-stage&#34;&gt;Common-Source Stage&lt;/h1&gt;
+&lt;h2 id=&#34;inputoutput-frequency&#34;&gt;Input/Output Frequency&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/4.png&#34;
+	width=&#34;918&#34;
+	height=&#34;640&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;143&#34;
+		data-flex-basis=&#34;344px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+X \ to \ ground \\
+Z_X &amp;amp;= C_{GS} + (1-A)C_{GD} \\
+\omega_{in} &amp;amp;= \frac{1}{R_S [C_{GS} + (1-g_mR_D)C_{GD}]} \\
+V_{out} \ to \ ground \\
+Z_X &amp;amp;= C_{DB} + (1-A^{-1})C_{GD} \\
+&amp;amp;\approx C_{DB} + C_{GD} \\
+\therefore \omega_{out} &amp;amp;= \frac{1}{R_S(C_{GS} + C_{GD})}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;r_s-is-large&#34;&gt;$R_S$ is large&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/5.png&#34;
+	width=&#34;750&#34;
+	height=&#34;642&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;280px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Z_X &amp;amp;= \frac{1}{sC_{eq}} || (  \frac{C_{GD} + C_{GS}}{C_{GD}} \frac{1}{g_m})  (???) \\
+\therefore \omega_{out} &amp;amp;= \frac{1}{\Big[ R_D  || \Big(\dfrac{C_{GD} + C_{GS}}{C_{GD}} \dfrac{1}{g_m}\Big) \Big] (C_{eq} + C_{DB})} \\
+\therefore \frac{V_{out}}{V_{in}}(s) &amp;amp;= -\frac{g_mR_D}{(1 + \dfrac{s}{\omega_{in}}) (1 + \dfrac{s}{\omega_{out}})}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;source-followers&#34;&gt;Source Followers&lt;/h1&gt;
 </description>
         </item>
         <item>
@@ -3559,7 +3613,8 @@ V_1 &amp;amp;= V_{bs} = -V_X \\\
 I_X &amp;amp;=\frac{V_X}{r_0} + (g_m + g_{mb})V_X \\
 \frac{V_X}{I_X} &amp;amp;=  \frac{1}{g_m+g_{mb}+r_0^{-1}} \\
 &amp;amp;= \frac{1}{g_m + g_{mb}} || r_0 \\
-&amp;amp; \approx \frac{1}{g_m +g_{mb}}
+&amp;amp; \approx \frac{1}{g_m +g_{mb}} \\
+Z_{in} &amp;amp;\approx \frac{1}{g_m + g_{mb}}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;cs--diode-connected&#34;&gt;CS + Diode-Connected&lt;/h3&gt;
@@ -3584,28 +3639,50 @@ A_v &amp;amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
 &amp;amp;= -\frac{g_{m1}}{g_{m2}}\frac{1}{1 + \eta}  \\
 &amp;amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta}(I_{D1} = I_{D2}) \\
 &amp;amp;= -\sqrt{\frac{(W/L)&lt;em&gt;1}{(W/L)&lt;em&gt;2}}\frac{1}{1+\eta} \\
-其中, \eta&amp;amp;=\frac{g&lt;/em&gt;{mb2}}{g&lt;/em&gt;{m2}}
+其中, \eta&amp;amp;=\frac{g&lt;/em&gt;{mb2}}{g&lt;/em&gt;{m2}} = \frac{\partial V_{TH}}{\partial V_{out}}(???), 一般可以忽略不计
 \end{aligned}
 $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Gain的推导 Method II&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
-\begin{\aligned}
+\begin{aligned}
 I_{D1} &amp;amp;= I_{D2}  \\
 \frac{1}{2}k_{n1}(V_{in} - V_{t1})^2  &amp;amp;= \frac{1}{2}k_{n2}(V_{DD} - V_{out} -V_{t2})^2 \\
 \sqrt{(\frac{W}{L})&lt;em&gt;1} (V&lt;/em&gt;{in} -V_{t1}) &amp;amp;= \sqrt{(\frac{W}{L})&lt;em&gt;2}(V&lt;/em&gt;{DD} - V_{out} - V_{t2}) \\
 将V_{t2}当作变量，&amp;amp;对两边关于V_{in}求导\\
 \sqrt{(\frac{W}{L})&lt;em&gt;1} &amp;amp;= -\sqrt{(\frac{W}{L})&lt;em&gt;2}(\frac{\partial V&lt;/em&gt;{out}}{\partial V&lt;/em&gt;{in}} - \frac{\partial V_{t2}}{\partial V_{in}}) \\
 其中, \frac{\partial V_{t2}}{\partial V_{in}} &amp;amp;= \frac{\partial V_{t2}}{\partial V_{out}} \frac{\partial V_{out}}{\partial V_{in}} = \eta\frac{\partial V_{out}}{\partial V_{in}} \\
-\therefore A_v &amp;amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta}
+\therefore A_v &amp;amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta} \\
+&amp;amp;\approx -\sqrt{\frac{(W/L)_1}{(W/L)_2}}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入和输出不影响增益&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&#34;cs-stage-with-diode-connected-pmos-device&#34;&gt;CS stage with diode-connected PMOS device&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/19.png&#34;
+	width=&#34;526&#34;
+	height=&#34;668&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/19_huf0b9f0e80a8a8c93e710b52afeb0f4fa_37195_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/19_huf0b9f0e80a8a8c93e710b52afeb0f4fa_37195_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;78&#34;
+		data-flex-basis=&#34;188px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+I_{D1} &amp;amp; = I_{D2} \\
+\therefore k_nV_{ovn}^2 &amp;amp;= k_pV_{ovp}^2 \\
+\therefore \frac{\mu_n (W/L)&lt;em&gt;n}{\mu_p(W/L)&lt;em&gt;p}  &amp;amp;= \frac{|V&lt;/em&gt;{ovp}|}{V&lt;/em&gt;{ovn}} \\
+\therefore A_v &amp;amp;\approx -\frac{|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
+&amp;amp;\approx -\frac{k_n|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
+&amp;amp;\approx \frac{g_{mn}}{g_{mp}} \\
+由于CLM十分重要 \\
+A_v &amp;amp;= -g_{m1} (\frac{1}{g_{m2}} || r_{o1} || r_{o2})
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-current-source-load&#34;&gt;CS Stage With Current-Source Load&lt;/h2&gt;
-&lt;h3 id=&#34;图示-1&#34;&gt;图示&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/6.png&#34;
 	width=&#34;176&#34;
 	height=&#34;224&#34;
@@ -3618,15 +3695,13 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;188px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
-A_v &amp;amp;= -g_m(r_{o1} || r_{o2})(负号表示相位差为180^{\circ}) \\
-&amp;amp;= \sqrt{2(\frac{W}{L})\mu_nC_{OX}I_D} \frac{1}{\lambda I_D}
+A_v &amp;amp;= -g_m(r_{o1} || r_{o2}) \\
+Intrinsic \ Gain: \ g_mr_o &amp;amp;= \sqrt{2(\frac{W}{L})\mu_nC_{OX}I_D} \frac{1}{\lambda I_D}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-woth-triode-load&#34;&gt;CS Stage Woth Triode Load&lt;/h2&gt;
-&lt;h3 id=&#34;电路图-1&#34;&gt;电路图&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/7.png&#34;
 	width=&#34;608&#34;
 	height=&#34;346&#34;
@@ -3639,7 +3714,6 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;421px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-1&#34;&gt;分析&lt;/h3&gt;
 &lt;p&gt;$$
 R_{on2} = \frac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V-b-V_{Tp})}
 $$&lt;/p&gt;
@@ -3657,7 +3731,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;485px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-2&#34;&gt;分析&lt;/h3&gt;
+&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
 &lt;p&gt;$$
 设I_D = f(V_{GS})  \\\
 \\ \begin{aligned}
@@ -3666,9 +3740,11 @@ G_m &amp;amp;= \frac{\partial I_D}{\partial V_{in}} \\
 &amp;amp;= g_m(\frac{ \partial (V_{in} - I_DR_S)}{\partial V_{in}}) \\
 &amp;amp;= g_m (1-R_S\frac{\partial I_D}{\partial V_{in}}) \\
 &amp;amp;= g_m(1 -R_SG_m)
-\end{aligned} \\\
-\\ \therefore G_m = \frac{g_m}{1+g_mR_S} \\\
-\\ \therefore A_v = -G_m R_D = -\frac{g_mR_D}{1 + g_mR_S}
+\\ \therefore G_m &amp;amp;= \frac{g_m}{1+g_mR_S} \\\
+\\ \therefore A_v &amp;amp;= -G_m R_D  \\
+&amp;amp;= -\frac{g_mR_D}{1 + g_mR_S} \\
+&amp;amp;= -\frac{R_D}{ \dfrac{1}{g_m}}
+\end{aligned}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;小信号等效电路&#34;&gt;小信号等效电路&lt;/h3&gt;
 &lt;ol&gt;
@@ -3687,17 +3763,17 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;分析&lt;/li&gt;
+&lt;li&gt;考虑CLM的分析&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
 I_{out} &amp;amp;= g_mV_1 - \frac{I_{out} R_S}{r_O} -g_mV_X \\
 &amp;amp;= g_m (V_{in} - I_{out} R_S) - \frac{I_{out}R_S}{r_O} + g_m (-I_{out}R_S) \\
 G_m &amp;amp;= \frac{I_{out}}{V_{in}} \\
-&amp;amp;= \frac{g_mr_o}{R_S + [1 + (g_m + g_{mb}R_S)]r_O}
+&amp;amp;= \frac{g_mr_o}{R_S + [1 + (g_m + g_{mb})R_S]r_O}
 \end{aligned} \\\
 $$&lt;/p&gt;
-&lt;h3 id=&#34;效果&#34;&gt;效果&lt;/h3&gt;
+&lt;h3 id=&#34;图像&#34;&gt;图像&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/10.png&#34;
 	width=&#34;901&#34;
 	height=&#34;295&#34;
@@ -3710,13 +3786,18 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;733px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;CS 将&lt;strong&gt;Voltage Signal&lt;/strong&gt;转换成&lt;strong&gt;Current Signal&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/20.png&#34;
+	width=&#34;790&#34;
+	height=&#34;562&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/20_hu75dba8cbe1b9f420a4a22883b60d9682_49369_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/20_hu75dba8cbe1b9f420a4a22883b60d9682_49369_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;337px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h1 id=&#34;source-follower-cd&#34;&gt;Source Follower (CD)&lt;/h1&gt;
 &lt;h2 id=&#34;电路-电压特性&#34;&gt;电路 电压特性&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/11.png&#34;
@@ -3731,12 +3812,12 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;508px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;分析-3&#34;&gt;分析&lt;/h2&gt;
+&lt;h2 id=&#34;分析-1&#34;&gt;分析&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
-\frac{\partial V_{out}}{\partial V_{in}} &amp;amp;= k_n(V_{in}- V_{out} -V_t) (1 - \frac{\partial V_{out}}{\partial V_{in}} - \frac{\partial V_t}{\partial V_{in}}) \\
-\because \frac{\partial V_t}{\partial V_{in}} &amp;amp;= \eta \frac{\partial V_{out}}{\partial V_{in}} (\pmb{为什么呢})\\
+\frac{\partial V_{out}}{\partial V_{in}} &amp;amp;= k_n(V_{in}- V_{out} -V_t) (1 - \frac{\partial V_{out}}{\partial V_{in}} - \frac{\partial V_t}{\partial V_{in}}) R_S \\
+\because \frac{\partial V_t}{\partial V_{in}} &amp;amp;= \eta \frac{\partial V_{out}}{\partial V_{in}} \\
 \therefore \frac{\partial V_{out}}{\partial V_{in}} &amp;amp;= \frac{k_nV_{OV}R_S}{1+k_nV_{OV}R_S(1  +\eta)} \\
 \because g_m &amp;amp;= k_nV_{OV} \\
 \therefore A_v &amp;amp;= \frac{g_m R_S}{1 + (g_m + g_{mb}) R_S}
@@ -3789,7 +3870,7 @@ $$&lt;/p&gt;
 &lt;p&gt;(b) 电容耦合&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;分析-4&#34;&gt;分析&lt;/h2&gt;
+&lt;h2 id=&#34;分析-2&#34;&gt;分析&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
@@ -3813,7 +3894,15 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;226px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-5&#34;&gt;分析&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$M_1$: Input Device&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$M_2$: Cascode Device&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;分析-3&#34;&gt;分析&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;为了让$M_1$和$M_2$都工作在饱和区，作出以下分析&lt;/li&gt;
 &lt;/ul&gt;
@@ -3827,7 +3916,7 @@ V_b- V_{GS2} &amp;amp;= V_b - V_{G2} + V_{S2} \\
 \\ 结合(1)(2)  \\
 V_b -V_{GS2} &amp;amp;\ge V_{in} -V_{T1} \\
 V_b &amp;amp;\ge V_{in} - V_{T1} + V_{GS2} \ (3)  \\\
-\\ V_{out} - V_{S2} &amp;amp;\ge V_b - V_S - V_{T2} \\
+\\ V_{out} - V_{S2} &amp;amp;\ge V_b - V_{S2} - V_{T2} \\
 V_{out} &amp;amp;\ge V_b - V_{T2} (4)\\
 \therefore 结合(3)(4) \\
 V_{out} &amp;amp;\ge (V_{in} - V_{T1}+ V_{GS2} -V_{T2}) \\
@@ -3861,7 +3950,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;547px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-6&#34;&gt;分析&lt;/h3&gt;
+&lt;h3 id=&#34;分析-4&#34;&gt;分析&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 对于&amp;amp;b图(M_1 是 PMOS,M_2 是NMOS) \\
@@ -3880,6 +3969,19 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;We can approximate $R_{DS}$ as being equal to its maximum value, which is equal to $\dfrac{V_D}{I_D}$. This gives us an equivalent resistance of $R_{on} = \dfrac{V_D}{I_D}$.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h2 id=&#34;mosfet的电阻&#34;&gt;MOSFET的电阻&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;输出电阻$\frac{1}{g_m}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;反向传输电阻$r_o$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;一般的, $r_o \gg \frac{1}{g_m}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;body-effect&#34;&gt;Body Effect&lt;/h2&gt;
 </description>
         </item>
         <item>

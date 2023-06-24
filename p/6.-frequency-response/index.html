@@ -260,11 +260,17 @@ Association of Poles with Nodes General Case $$ \begin{aligned} H(s) &amp;amp;= 
           <ol>
             <li><a href="#general-case">General Case</a></li>
             <li><a href="#input-example">Input Example</a></li>
-            <li><a href="#heading"></a></li>
           </ol>
         </li>
       </ol>
     </li>
+    <li><a href="#common-source-stage">Common-Source Stage</a>
+      <ol>
+        <li><a href="#inputoutput-frequency">Input/Output Frequency</a></li>
+        <li><a href="#r_s-is-large">$R_S$ is large</a></li>
+      </ol>
+    </li>
+    <li><a href="#source-followers">Source Followers</a></li>
   </ol>
 </nav>
         </div>
@@ -410,7 +416,52 @@ Input \ Impedence \ Z_{in} &amp;= (1+A) C_F \\
 f_p &amp;= \frac{1}{(1+A)RC_F}
 \end{aligned}
 $$</p>
-<h3 id="heading"></h3>
+<h1 id="common-source-stage">Common-Source Stage</h1>
+<h2 id="inputoutput-frequency">Input/Output Frequency</h2>
+<p><img src="/p/6.-frequency-response/4.png"
+	width="918"
+	height="640"
+	srcset="/p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_480x0_resize_box_3.png 480w, /p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="143"
+		data-flex-basis="344px"
+	
+></p>
+<p>$$
+\begin{aligned}
+X \ to \ ground \\
+Z_X &amp;= C_{GS} + (1-A)C_{GD} \\
+\omega_{in} &amp;= \frac{1}{R_S [C_{GS} + (1-g_mR_D)C_{GD}]} \\
+V_{out} \ to \ ground \\
+Z_X &amp;= C_{DB} + (1-A^{-1})C_{GD} \\
+&amp;\approx C_{DB} + C_{GD} \\
+\therefore \omega_{out} &amp;= \frac{1}{R_S(C_{GS} + C_{GD})}
+\end{aligned}
+$$</p>
+<h2 id="r_s-is-large">$R_S$ is large</h2>
+<p><img src="/p/6.-frequency-response/5.png"
+	width="750"
+	height="642"
+	srcset="/p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_480x0_resize_box_3.png 480w, /p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="116"
+		data-flex-basis="280px"
+	
+></p>
+<p>$$
+\begin{aligned}
+Z_X &amp;= \frac{1}{sC_{eq}} || (  \frac{C_{GD} + C_{GS}}{C_{GD}} \frac{1}{g_m})  (???) \\
+\therefore \omega_{out} &amp;= \frac{1}{\Big[ R_D  || \Big(\dfrac{C_{GD} + C_{GS}}{C_{GD}} \dfrac{1}{g_m}\Big) \Big] (C_{eq} + C_{DB})} \\
+\therefore \frac{V_{out}}{V_{in}}(s) &amp;= -\frac{g_mR_D}{(1 + \dfrac{s}{\omega_{in}}) (1 + \dfrac{s}{\omega_{out}})}
+\end{aligned}
+$$</p>
+<h1 id="source-followers">Source Followers</h1>
 
 </section>
 
@@ -471,6 +522,19 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/9.-operational-amplifier/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">9. Operational Amplifier</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">
