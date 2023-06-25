@@ -264,7 +264,12 @@
           <ol>
             <li><a href="#电路图">电路图</a></li>
             <li><a href="#测量电路">测量电路</a></li>
-            <li><a href="#cs--diode-connected">CS + Diode-Connected</a></li>
+            <li><a href="#cs--diode-connected">CS + Diode-Connected</a>
+              <ol>
+                <li><a href="#gain的推导-method-i">Gain的推导 Method I</a></li>
+                <li><a href="#gain的推导-method-ii">Gain的推导 Method II</a></li>
+              </ol>
+            </li>
             <li><a href="#cs-stage-with-diode-connected-pmos-device">CS stage with diode-connected PMOS device</a></li>
           </ol>
         </li>
@@ -510,9 +515,7 @@ $$</p>
 		data-flex-basis="188px"
 	
 ></p>
-<ol>
-<li>Gain的推导 Method I</li>
-</ol>
+<h4 id="gain的推导-method-i">Gain的推导 Method I</h4>
 <p>$$
 \begin{aligned}
 A_v &amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
@@ -522,9 +525,7 @@ A_v &amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
 其中, \eta&amp;=\frac{g</em>{mb2}}{g</em>{m2}} = \frac{\partial V_{TH}}{\partial V_{out}}(???), 一般可以忽略不计
 \end{aligned}
 $$</p>
-<ol start="2">
-<li>Gain的推导 Method II</li>
-</ol>
+<h4 id="gain的推导-method-ii">Gain的推导 Method II</h4>
 <p>$$
 \begin{aligned}
 I_{D1} &amp;= I_{D2}  \\
@@ -558,7 +559,7 @@ I_{D1} &amp; = I_{D2} \\
 \therefore A_v &amp;\approx -\frac{|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
 &amp;\approx -\frac{k_n|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
 &amp;\approx \frac{g_{mn}}{g_{mp}} \\
-由于CLM十分重要 \\
+If \ CLM \ Considered \\
 A_v &amp;= -g_{m1} (\frac{1}{g_{m2}} || r_{o1} || r_{o2})
 \end{aligned}
 $$</p>
@@ -594,9 +595,7 @@ $$</p>
 		data-flex-basis="421px"
 	
 ></p>
-<p>$$
-R_{on2} = \frac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V-b-V_{Tp})}
-$$</p>
+<p>$R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V-b-V_{Tp})}$</p>
 <h2 id="cs-stage-with-source-degeneration">CS Stage With Source Degeneration</h2>
 <h3 id="电路">电路</h3>
 <p><img src="/p/3.-single-stage-amplifier/8.png"
@@ -897,15 +896,15 @@ $$</p>
 <h3 id="分析-4">分析</h3>
 <p>$$
 \begin{aligned}
-对于&amp;b图(M_1 是 PMOS,M_2 是NMOS) \\
+对于b图(M_1 是 PMOS,M_2 是NMOS) \\
 I_{D2} &amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
-当I_{D2} &amp;= 0 时: \\
+if \ I_{D2} &amp;= 0 : \\
 I_{D1} &amp;=  I_1  \\
 &amp;=\frac{1}{2}\mu_pC_{OX} (\frac{W}{L})<em>1 (V</em>{DD} - V_{in} - |V_{T1}|)^2 \\
 \therefore V_{in1} &amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
-\\ 当V_{in1} &amp;\gt V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}|时: \\
+\\ If \ V_{in1} &amp;\gt V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}|: \\
 \because I_{D1} &amp;\le I_1  \\
-\therefore M_1 &amp;将进入Triode \ Region
+\therefore M_1 &amp;is \ in \ Triode \ Region
 \end{aligned}
 $$</p>
 <h1 id="附录">附录</h1>
