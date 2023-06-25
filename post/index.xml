@@ -39,13 +39,13 @@
 \begin{aligned}
 Z_1 &amp;amp;= \frac{1}{1-A} Z  \\
 Z_2 &amp;amp;= \frac{1}{1 - \dfrac{1}{A}}Z \\\
-\\ In \ case \ case \\
+\\ In \ this \ case \\
 Z_1 &amp;amp;= \frac{1}{s(1 + A)C_F} \\
 \therefore C_{in} &amp;amp;= (1+A)C_F \\
 Method \ II \\
 Q_{in} &amp;amp;= C_F(-A\Delta V - \Delta V)  \\
 &amp;amp;= -(1+A)C_F\Delta V \\
-\therefore C_{in} &amp;amp;= (1+A ) C_F
+\therefore C_{in} &amp;amp;= (1+A) C_F
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;association-of-poles-with-nodes&#34;&gt;Association of Poles with Nodes&lt;/h2&gt;
@@ -64,7 +64,7 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-H(s) &amp;amp;= \frac{V_{out}}{V_{in}} \\
+H(s) &amp;amp;= \frac{V_{out}}{V_{in}}(s) \\
 &amp;amp;= \frac{A_1}{1 + sR_SC_{in}} \frac{A_2}{1 + sR_1 C_N}\frac{1}{1 + sR_2C_P}
 \end{aligned}
 $$&lt;/p&gt;
@@ -84,7 +84,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 Input \ Impedence \ Z_{in} &amp;amp;= (1+A) C_F \\
-f_p &amp;amp;= \frac{1}{(1+A)RC_F}
+f_p &amp;amp;= \frac{1}{(1+A)R_SC_F}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;common-source-stage&#34;&gt;Common-Source Stage&lt;/h1&gt;
@@ -105,7 +105,7 @@ $$&lt;/p&gt;
 \begin{aligned}
 X \ to \ ground \\
 Z_X &amp;amp;= C_{GS} + (1-A)C_{GD} \\
-\omega_{in} &amp;amp;= \frac{1}{R_S [C_{GS} + (1-g_mR_D)C_{GD}]} \\
+\omega_{in} &amp;amp;= \frac{1}{R_S [C_{GS} + (1 + g_mR_D)C_{GD}]} \\
 V_{out} \ to \ ground \\
 Z_X &amp;amp;= C_{DB} + (1-A^{-1})C_{GD} \\
 &amp;amp;\approx C_{DB} + C_{GD} \\
@@ -132,7 +132,111 @@ Z_X &amp;amp;= \frac{1}{sC_{eq}} || (  \frac{C_{GD} + C_{GS}}{C_{GD}} \frac{1}{g
 \therefore \frac{V_{out}}{V_{in}}(s) &amp;amp;= -\frac{g_mR_D}{(1 + \dfrac{s}{\omega_{in}}) (1 + \dfrac{s}{\omega_{out}})}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;h3 id=&#34;exact-transfer-function&#34;&gt;Exact Transfer Function&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/6.png&#34;
+	width=&#34;1400&#34;
+	height=&#34;512&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;273&#34;
+		data-flex-basis=&#34;656px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+KCL: \\
+0 &amp;amp;= V_X sC_{GS} + (V_X - V_{in})/R_S + (V_X - V_{out})sC_{GD} \\
+0 &amp;amp;= V_{out} (\frac{1}{R_D} + C_{DB}) + (V_{out} - V_X)sC_{GD} \\
+\therefore \ H(s) &amp;amp;= \frac{V_{out}}{V_{in}} \\
+&amp;amp;= \frac{(C_{GD}s - g_m)R_D}{R_SR_D\xi s^2 + [R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})]s + 1} \\
+\xi = C_{GS}C_{GD} + C_{GS}C_{DB} + C_{GD}C_{DB} \\
+Two \ Pole \ Systems: \\
+D &amp;amp;= (1 + \frac{s}{\omega_{p1}})(1 + \frac{s}{\omega_{p2}}) \\
+&amp;amp;= \frac{s^2}{\omega_{p1}\omega_{p2}} + (\frac{1}{\omega_{p1}} + \frac{1}{\omega_{p2}})s + 1 \\
+\omega_{p2} &amp;amp;\gg \omega_{p1} \\
+\therefore coefficient \ of \ s &amp;amp;\approx \frac{1}{\omega_{p1}} \\
+\therefore \omega_{p1} &amp;amp;= \frac{1}{R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})}
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;source-followers&#34;&gt;Source Followers&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/7.png&#34;
+	width=&#34;1250&#34;
+	height=&#34;510&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/7_huc115fb711a5d3ed0132595c475f43b98_71040_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/7_huc115fb711a5d3ed0132595c475f43b98_71040_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;245&#34;
+		data-flex-basis=&#34;588px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;transfer-function-and-poles&#34;&gt;Transfer Function and Poles&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+KCL: \\
+V_1C_{GS}s + g_mV_1 &amp;amp;= V_{out}C_Ls \\
+\therefore V_1 &amp;amp;= \frac{C_Ls}{g_m + C_{GS}s}V_{out} \\
+KVL: \\
+V_{in} &amp;amp;= R_S[V_1C_{GS}s + (V_1 + V_{out})C_{GD}s] + V_1 + V_{out} \\
+\therefore \frac{V_{out}}{V_{in}}(s) &amp;amp;= \frac{g_m + C_{GS}s}{R_S\xi s^2 + (g_mR_SC_{GD} + C_L + C_{GS})s + g_m} \\
+Poles: \\
+\therefore \omega_{p1} &amp;amp;\approx \frac{g_m}{g_mR_SC_{GD} + C_L + C_{GS}} \\
+&amp;amp;= \frac{1}{R_SC_{GD} + \dfrac{C_L + C_{GS}}{g_m}} \\
+if \ R_S &amp;amp;= 0: \\
+\omega_{p1} &amp;amp;= \frac{g_m}{C_L + C_{GS}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;input-impedence&#34;&gt;Input Impedence&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/8.png&#34;
+	width=&#34;606&#34;
+	height=&#34;410&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/8_hu010e2f6847d9d0f2ddf87a7dd35e58ab_29342_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/8_hu010e2f6847d9d0f2ddf87a7dd35e58ab_29342_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;354px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$C_{GD}$ &lt;strong&gt;shunts&lt;/strong&gt; the input, neglected.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_X &amp;amp;= \frac{I_X}{C_{GS}s} + (I_X + \frac{g_m I_X}{C_{GS}s}) (\frac{1}{g_{mb}} || \frac{1}{C_Ls}) \\
+Z_{in} &amp;amp;= \frac{1}{C_{GS}s} + (1 + \frac{g_m}{C_{GS}s})\frac{1}{g_{mb} + C_L s} \\
+Low \ Frequency: \\
+g_{mb} &amp;amp;\gg |C_Ls| \\
+\therefore Z_{in} &amp;amp;\approx \frac{1}{C_{GS}s}(1 + \frac{g_m}{g_{mb}}) + \frac{1}{g_{mb}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;common-gate-stage&#34;&gt;Common-Gate Stage&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/9.png&#34;
+	width=&#34;636&#34;
+	height=&#34;636&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/9_hu7c655d5ff7e36edc51637b9deb28f0d3_46669_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/9_hu7c655d5ff7e36edc51637b9deb28f0d3_46669_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{V_{out}}{V_{in}}(s) &amp;amp;= \frac{(g_m + g_{mb})R_D}{1 + (g_m + g_{mb})R_S} \frac{1}{\Big(1 + \dfrac{C_S}{g_m + g_{mb} + \dfrac{1}{R_S}}s \Big) (1 + R_DC_D s)} \\
+\therefore Z_{in} &amp;amp;\approx \frac{Z_L}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
+Z_L &amp;amp;= R_D || [1/(C_D s)]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;cascode-stage&#34;&gt;Cascode Stage&lt;/h1&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 </description>
         </item>
         <item>
