@@ -300,6 +300,7 @@
             <li><a href="#电路-2">电路</a></li>
             <li><a href="#分析-3">分析</a></li>
             <li><a href="#io-特性">I/O 特性</a></li>
+            <li><a href="#cascode-stage-with-current-source-load">Cascode Stage With Current-Source Load</a></li>
           </ol>
         </li>
         <li><a href="#folded-cascode">Folded Cascode</a>
@@ -652,6 +653,30 @@ G_m &amp;= \frac{I_{out}}{V_{in}} \\
 &amp;= \frac{g_mr_o}{R_S + [1 + (g_m + g_{mb})R_S]r_O}
 \end{aligned} \\\
 $$</p>
+<ol start="3">
+<li>计算$R_{out}$</li>
+</ol>
+<p><img src="/p/3.-single-stage-amplifier/23.png"
+	width="1542"
+	height="770"
+	srcset="/p/3.-single-stage-amplifier/23_hua7acad1e15f16241acf976a8f004671d_85717_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/23_hua7acad1e15f16241acf976a8f004671d_85717_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="480px"
+	
+></p>
+<p>$$
+\begin{aligned}
+I_{ro} &amp;= I_X - g_m(V_1 + V_{bs}) \\
+V_1 &amp;= - I_XR_S \\
+\therefore V_X &amp;= I_{ro} r_o + I_X R_S \\
+\therefore R_{out} &amp;= \frac{V_X}{I_X} \\
+&amp;= R_S + [1 + (g_m + g_{mb}) R_S]r_o
+\end{aligned}
+$$</p>
 <h3 id="图像">图像</h3>
 <p><img src="/p/3.-single-stage-amplifier/10.png"
 	width="901"
@@ -815,6 +840,46 @@ $$</p>
 		data-flex-basis="365px"
 	
 ></p>
+<h3 id="cascode-stage-with-current-source-load">Cascode Stage With Current-Source Load</h3>
+<p><img src="/p/3.-single-stage-amplifier/21.png"
+	width="614"
+	height="866"
+	srcset="/p/3.-single-stage-amplifier/21_hu5f90b383082772b9adb4e35d056f557e_51917_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/21_hu5f90b383082772b9adb4e35d056f557e_51917_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="70"
+		data-flex-basis="170px"
+	
+></p>
+<ol>
+<li>变换电路</li>
+</ol>
+<p><img src="/p/3.-single-stage-amplifier/22.png"
+	width="1698"
+	height="1244"
+	srcset="/p/3.-single-stage-amplifier/22_hudd0c19235a15104b86ec51d0e7960d54_163709_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/22_hudd0c19235a15104b86ec51d0e7960d54_163709_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="327px"
+	
+></p>
+<ol start="2">
+<li>推导</li>
+</ol>
+<p>$$
+\begin{aligned}
+I_{out} &amp;= g_{m1}V_{in}\frac{r_{o1}}{r_{o1} + r_{o2} || \dfrac{1}{g_m + g_{mb}}} \\
+G_m &amp;= \frac{I_{out}}{V_{in}} \\
+&amp;= g_{m1}\frac{r_{o1}}{r_{o1} + r_{o2} || \dfrac{1}{g_m + g_{mb}}} \\
+|A_v| &amp;= G_m R_{out} \\
+&amp;= ???
+\end{aligned}
+$$</p>
 <h2 id="folded-cascode">Folded Cascode</h2>
 <h3 id="三种电路">三种电路</h3>
 <p><img src="/p/3.-single-stage-amplifier/17.png"
