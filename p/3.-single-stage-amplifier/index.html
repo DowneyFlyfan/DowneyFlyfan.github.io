@@ -274,7 +274,7 @@
           </ol>
         </li>
         <li><a href="#cs-stage-with-current-source-load">CS Stage With Current-Source Load</a></li>
-        <li><a href="#cs-stage-woth-triode-load">CS Stage Woth Triode Load</a></li>
+        <li><a href="#cs-stage-with-triode-load">CS Stage With Triode Load</a></li>
         <li><a href="#cs-stage-with-source-degeneration">CS Stage With Source Degeneration</a>
           <ol>
             <li><a href="#电路">电路</a></li>
@@ -522,7 +522,7 @@ A_v &amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
 &amp;= -\frac{g_{m1}}{g_{m2}}\frac{1}{1 + \eta}  \\
 &amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta}(I_{D1} = I_{D2}) \\
 &amp;= -\sqrt{\frac{(W/L)<em>1}{(W/L)<em>2}}\frac{1}{1+\eta} \\
-其中, \eta&amp;=\frac{g</em>{mb2}}{g</em>{m2}} = \frac{\partial V_{TH}}{\partial V_{out}}(???), 一般可以忽略不计
+\eta&amp;=\frac{g</em>{mb2}}{g</em>{m2}} = \frac{\partial V_{TH}}{\partial V_{out}} \ (???)
 \end{aligned}
 $$</p>
 <h4 id="gain的推导-method-ii">Gain的推导 Method II</h4>
@@ -531,9 +531,8 @@ $$</p>
 I_{D1} &amp;= I_{D2}  \\
 \frac{1}{2}k_{n1}(V_{in} - V_{t1})^2  &amp;= \frac{1}{2}k_{n2}(V_{DD} - V_{out} -V_{t2})^2 \\
 \sqrt{(\frac{W}{L})<em>1} (V</em>{in} -V_{t1}) &amp;= \sqrt{(\frac{W}{L})<em>2}(V</em>{DD} - V_{out} - V_{t2}) \\
-将V_{t2}当作变量，&amp;对两边关于V_{in}求导\\
 \sqrt{(\frac{W}{L})<em>1} &amp;= -\sqrt{(\frac{W}{L})<em>2}(\frac{\partial V</em>{out}}{\partial V</em>{in}} - \frac{\partial V_{t2}}{\partial V_{in}}) \\
-其中, \frac{\partial V_{t2}}{\partial V_{in}} &amp;= \frac{\partial V_{t2}}{\partial V_{out}} \frac{\partial V_{out}}{\partial V_{in}} = \eta\frac{\partial V_{out}}{\partial V_{in}} \\
+\frac{\partial V_{t2}}{\partial V_{in}} &amp;= \frac{\partial V_{t2}}{\partial V_{out}} \frac{\partial V_{out}}{\partial V_{in}} = \eta\frac{\partial V_{out}}{\partial V_{in}} \\
 \therefore A_v &amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta} \\
 &amp;\approx -\sqrt{\frac{(W/L)_1}{(W/L)_2}}
 \end{aligned}
@@ -558,11 +557,12 @@ I_{D1} &amp; = I_{D2} \\
 \therefore \frac{\mu_n (W/L)<em>n}{\mu_p(W/L)<em>p}  &amp;= \frac{|V</em>{ovp}|}{V</em>{ovn}} \\
 \therefore A_v &amp;\approx -\frac{|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
 &amp;\approx -\frac{k_n|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
-&amp;\approx \frac{g_{mn}}{g_{mp}} \\
-If \ CLM \ Considered \\
-A_v &amp;= -g_{m1} (\frac{1}{g_{m2}} || r_{o1} || r_{o2})
+&amp;\approx \frac{g_{mn}}{g_{mp}}
 \end{aligned}
 $$</p>
+<ul>
+<li>在考虑现实因素的情况下，$A_v = -g_{m1} (\frac{1}{g_{m2}} || r_{o1} || r_{o2})$</li>
+</ul>
 <h2 id="cs-stage-with-current-source-load">CS Stage With Current-Source Load</h2>
 <p><img src="/p/3.-single-stage-amplifier/6.png"
 	width="176"
@@ -582,7 +582,7 @@ A_v &amp;= -g_m(r_{o1} || r_{o2}) \\
 Intrinsic \ Gain: \ g_mr_o &amp;= \sqrt{2(\frac{W}{L})\mu_nC_{OX}I_D} \frac{1}{\lambda I_D}
 \end{aligned}
 $$</p>
-<h2 id="cs-stage-woth-triode-load">CS Stage Woth Triode Load</h2>
+<h2 id="cs-stage-with-triode-load">CS Stage With Triode Load</h2>
 <p><img src="/p/3.-single-stage-amplifier/7.png"
 	width="608"
 	height="346"
@@ -595,7 +595,9 @@ $$</p>
 		data-flex-basis="421px"
 	
 ></p>
-<p>$R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V-b-V_{Tp})}$</p>
+<p>$$
+R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V-b-V_{Tp})}
+$$</p>
 <h2 id="cs-stage-with-source-degeneration">CS Stage With Source Degeneration</h2>
 <h3 id="电路">电路</h3>
 <p><img src="/p/3.-single-stage-amplifier/8.png"
@@ -896,7 +898,6 @@ $$</p>
 <h3 id="分析-4">分析</h3>
 <p>$$
 \begin{aligned}
-对于b图(M_1 是 PMOS,M_2 是NMOS) \\
 I_{D2} &amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
 if \ I_{D2} &amp;= 0 : \\
 I_{D1} &amp;=  I_1  \\
@@ -904,7 +905,7 @@ I_{D1} &amp;=  I_1  \\
 \therefore V_{in1} &amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
 \\ If \ V_{in1} &amp;\gt V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}|: \\
 \because I_{D1} &amp;\le I_1  \\
-\therefore M_1 &amp;is \ in \ Triode \ Region
+\therefore M_1 &amp; \ in \ Triode \ Region
 \end{aligned}
 $$</p>
 <h1 id="附录">附录</h1>

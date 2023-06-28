@@ -755,7 +755,7 @@ A_v &amp;amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
 &amp;amp;= -\frac{g_{m1}}{g_{m2}}\frac{1}{1 + \eta}  \\
 &amp;amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta}(I_{D1} = I_{D2}) \\
 &amp;amp;= -\sqrt{\frac{(W/L)&lt;em&gt;1}{(W/L)&lt;em&gt;2}}\frac{1}{1+\eta} \\
-其中, \eta&amp;amp;=\frac{g&lt;/em&gt;{mb2}}{g&lt;/em&gt;{m2}} = \frac{\partial V_{TH}}{\partial V_{out}}(???), 一般可以忽略不计
+\eta&amp;amp;=\frac{g&lt;/em&gt;{mb2}}{g&lt;/em&gt;{m2}} = \frac{\partial V_{TH}}{\partial V_{out}} \ (???)
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h4 id=&#34;gain的推导-method-ii&#34;&gt;Gain的推导 Method II&lt;/h4&gt;
@@ -764,9 +764,8 @@ $$&lt;/p&gt;
 I_{D1} &amp;amp;= I_{D2}  \\
 \frac{1}{2}k_{n1}(V_{in} - V_{t1})^2  &amp;amp;= \frac{1}{2}k_{n2}(V_{DD} - V_{out} -V_{t2})^2 \\
 \sqrt{(\frac{W}{L})&lt;em&gt;1} (V&lt;/em&gt;{in} -V_{t1}) &amp;amp;= \sqrt{(\frac{W}{L})&lt;em&gt;2}(V&lt;/em&gt;{DD} - V_{out} - V_{t2}) \\
-将V_{t2}当作变量，&amp;amp;对两边关于V_{in}求导\\
 \sqrt{(\frac{W}{L})&lt;em&gt;1} &amp;amp;= -\sqrt{(\frac{W}{L})&lt;em&gt;2}(\frac{\partial V&lt;/em&gt;{out}}{\partial V&lt;/em&gt;{in}} - \frac{\partial V_{t2}}{\partial V_{in}}) \\
-其中, \frac{\partial V_{t2}}{\partial V_{in}} &amp;amp;= \frac{\partial V_{t2}}{\partial V_{out}} \frac{\partial V_{out}}{\partial V_{in}} = \eta\frac{\partial V_{out}}{\partial V_{in}} \\
+\frac{\partial V_{t2}}{\partial V_{in}} &amp;amp;= \frac{\partial V_{t2}}{\partial V_{out}} \frac{\partial V_{out}}{\partial V_{in}} = \eta\frac{\partial V_{out}}{\partial V_{in}} \\
 \therefore A_v &amp;amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta} \\
 &amp;amp;\approx -\sqrt{\frac{(W/L)_1}{(W/L)_2}}
 \end{aligned}
@@ -791,11 +790,12 @@ I_{D1} &amp;amp; = I_{D2} \\
 \therefore \frac{\mu_n (W/L)&lt;em&gt;n}{\mu_p(W/L)&lt;em&gt;p}  &amp;amp;= \frac{|V&lt;/em&gt;{ovp}|}{V&lt;/em&gt;{ovn}} \\
 \therefore A_v &amp;amp;\approx -\frac{|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
 &amp;amp;\approx -\frac{k_n|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
-&amp;amp;\approx \frac{g_{mn}}{g_{mp}} \\
-If \ CLM \ Considered \\
-A_v &amp;amp;= -g_{m1} (\frac{1}{g_{m2}} || r_{o1} || r_{o2})
+&amp;amp;\approx \frac{g_{mn}}{g_{mp}}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在考虑现实因素的情况下，$A_v = -g_{m1} (\frac{1}{g_{m2}} || r_{o1} || r_{o2})$&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;cs-stage-with-current-source-load&#34;&gt;CS Stage With Current-Source Load&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/6.png&#34;
 	width=&#34;176&#34;
@@ -815,7 +815,7 @@ A_v &amp;amp;= -g_m(r_{o1} || r_{o2}) \\
 Intrinsic \ Gain: \ g_mr_o &amp;amp;= \sqrt{2(\frac{W}{L})\mu_nC_{OX}I_D} \frac{1}{\lambda I_D}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;cs-stage-woth-triode-load&#34;&gt;CS Stage Woth Triode Load&lt;/h2&gt;
+&lt;h2 id=&#34;cs-stage-with-triode-load&#34;&gt;CS Stage With Triode Load&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/7.png&#34;
 	width=&#34;608&#34;
 	height=&#34;346&#34;
@@ -828,7 +828,9 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;421px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;$R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V-b-V_{Tp})}$&lt;/p&gt;
+&lt;p&gt;$$
+R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V-b-V_{Tp})}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-source-degeneration&#34;&gt;CS Stage With Source Degeneration&lt;/h2&gt;
 &lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/8.png&#34;
@@ -1129,7 +1131,6 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;分析-4&#34;&gt;分析&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
-对于b图(M_1 是 PMOS,M_2 是NMOS) \\
 I_{D2} &amp;amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
 if \ I_{D2} &amp;amp;= 0 : \\
 I_{D1} &amp;amp;=  I_1  \\
@@ -1137,7 +1138,7 @@ I_{D1} &amp;amp;=  I_1  \\
 \therefore V_{in1} &amp;amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
 \\ If \ V_{in1} &amp;amp;\gt V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}|: \\
 \because I_{D1} &amp;amp;\le I_1  \\
-\therefore M_1 &amp;amp;is \ in \ Triode \ Region
+\therefore M_1 &amp;amp; \ in \ Triode \ Region
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
