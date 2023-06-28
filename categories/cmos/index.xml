@@ -12,7 +12,8 @@
         <pubDate>Sat, 24 Jun 2023 10:07:33 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/9.-operational-amplifier/</guid>
-        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;one-stage-op-amps&#34;&gt;One-Stage Op Amps&lt;/h1&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 </description>
         </item>
         <item>
@@ -236,7 +237,25 @@ Z_L &amp;amp;= R_D || [1/(C_D s)]
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;cascode-stage&#34;&gt;Cascode Stage&lt;/h1&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/10.png&#34;
+	width=&#34;1004&#34;
+	height=&#34;994&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/10_hud9f19130b36c8e9787455d1bc9ee1e1e_95879_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/10_hud9f19130b36c8e9787455d1bc9ee1e1e_95879_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;101&#34;
+		data-flex-basis=&#34;242px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\omega_{p,A} &amp;amp;= \frac{1}{R_S \Big[C_{GS1} + \Big( 1 + \dfrac{g_{m1}}{g_{m2} + g_{mb2}})C_{GD1}]} (???)\\
+\omega_{p,X} &amp;amp;= \frac{g_{m2} + g_{mb2}}{2C_{GD1} + C_{DB1} + C_{SB1} + C_{GS2}} \\
+\omega_{p,Y} &amp;amp;= \frac{1}{R_D(C_{DB2} + C_L + C_{GD2})}
+\end{aligned}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -275,7 +294,7 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;加上&lt;strong&gt;Bias Current Source&lt;/strong&gt; for &lt;strong&gt;Reducing the Variation of CM level&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bias Current Source&lt;/strong&gt; $I_{SS}$ : &lt;strong&gt;Reducing the Variation of CM level&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;qualitative-analysis&#34;&gt;Qualitative Analysis&lt;/h2&gt;
 &lt;ol&gt;
@@ -298,9 +317,6 @@ $$&lt;/p&gt;
 V_{in1} - V_{in2} &amp;amp;\in (-\infin, + \infin)
 \end{aligned}
 $$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;横轴两头&lt;/strong&gt;是其中一个MOSFET未打开的情况&lt;/li&gt;
-&lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Other Characteristics&lt;/li&gt;
 &lt;/ol&gt;
@@ -366,7 +382,7 @@ V_{in1} - V_{in2} &amp;amp;= V_{G1} - V_{G2} \\
 V_{GS} - V_t&amp;amp;= \sqrt{\frac{2I}{k_n}} \\
 (V_{in1} - V_{in2})^2 &amp;amp;=  \frac{2}{k_n} (I_{SS} - 2\sqrt{I_{D1} I_{D2}}) \\
 \frac{1}{2}k_n(V_{in1} - V_{in2})^2 &amp;amp;= I_{SS} - 2\sqrt{I_{D1}I_{D2}} \\
-4I_{D1}I_{D2} &amp;amp;= (I_{D1} + I_{D2})^2 - (I_{D1} - I_{D2})^2 \\
+\because 4I_{D1}I_{D2} &amp;amp;= (I_{D1} + I_{D2})^2 - (I_{D1} - I_{D2})^2 \\
 &amp;amp;= I_{SS}^2 - (I_{D1} - I_{D2})^2 \\
 \therefore (I_{D1} - I_{D2})^2 &amp;amp;= I_{SS}^2 - 4I_{D1}I_{D2} \\
 &amp;amp;= I_{SS}^2 - (I_{SS} - \frac{1}{2}k_n(V_{in1} - V_{in2})^2)^2 \\
@@ -374,15 +390,14 @@ V_{GS} - V_t&amp;amp;= \sqrt{\frac{2I}{k_n}} \\
 \therefore I_{D1} - I_{D2} &amp;amp;= \frac{1}{2}k_n(V_{in1} - V_{in2})\sqrt{\frac{4I_{SS}}{k_n} - (V_{in1} - V_{in2})^2} \\
 \therefore \Delta I_{D} &amp;amp;= \frac{1}{2} k_n\Delta V_{in} \sqrt{\frac{4I_{SS}}{k_n} - \Delta V_{in}^2} \\\
 \\ \frac{\partial \Delta I_D}{\partial \Delta V_{in}} &amp;amp;= \frac{1}{2} k_n \dfrac{\dfrac{4I_{SS}}{k_n} - 2\Delta V_{in}^2}{\sqrt{\dfrac{4I_{SS}}{k_n} - \Delta V_{in}^2}} \\
-当\Delta V_{in} &amp;amp;= 0 时 \\
+当\Delta V_{in} &amp;amp;= 0 时: \\
 G_m &amp;amp;= \sqrt{k_nI_{SS}}\\
 |A_v| &amp;amp;= \sqrt{k_nI_{SS}} R_D \\
 当 \Delta V_{in} &amp;amp;= \sqrt{\frac{2I_{SS}}{k_n}}时: \\
 G_m &amp;amp;= 0 \\
 V_{GS} &amp;amp;= \sqrt{\frac{I_{SS}}{k_n}} + V_T \\
 当\Delta V_{in} &amp;amp;= \sqrt{\frac{4I_{SS}}{k_n}}时: \\
-G_m &amp;amp;= \infin, 显然不可能，原因是 \\
-此时的&amp;amp; M_1, M_2 已不在Satuartion \ Region 工作
+M_1, M_2 &amp;amp;\ not \ in \ Satuartion \ Region
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;voltage-gain&#34;&gt;Voltage Gain&lt;/h3&gt;
@@ -416,12 +431,24 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 \frac{V_X}{V_{in1}} &amp;amp;= -\frac{R_{D1}}{\dfrac{1}{g_{m1}} + \dfrac{1}{g_{m2}}} \\
-\frac{V_Y}{V_{in1}} &amp;amp;= \frac{R_{D2}}{\dfrac{1}{g_{m1}} + \dfrac{1}{g_{m2}}} \\\
-\\ A_v &amp;amp;=\frac{V_X - V_Y}{V_{in1} - V_{in2}}  \\
+\frac{V_Y}{V_{in1}} &amp;amp;= \frac{R_{D2}}{\dfrac{1}{g_{m1}} + \dfrac{1}{g_{m2}}} \\
+A_v &amp;amp;=\frac{V_X - V_Y}{V_{in1} - V_{in2}}  \\
 &amp;amp;= -g_m R_D
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;对于线性电路v_p不变&#34;&gt;对于线性电路，$V_P$不变&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/6.png&#34;
+	width=&#34;1836&#34;
+	height=&#34;766&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/6_hu6439aa2ed500bac08990ccca7b346f73_147016_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/6_hu6439aa2ed500bac08990ccca7b346f73_147016_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;239&#34;
+		data-flex-basis=&#34;575px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;对于线性电路v_p虚接地&#34;&gt;对于线性电路，$V_P$虚接地&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/8.png&#34;
 	width=&#34;2354&#34;
 	height=&#34;770&#34;
@@ -439,31 +466,21 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
-假设\Delta V_1 = V_a + \Delta V_1, \Delta V_2 &amp;amp;= V_a - \Delta V_2 \\
+V_{in1} = V_0 + \Delta V_{in}, V_{in2} &amp;amp;= V_0 - \Delta V_{in} \\
+V_1 = V_a + V_1, \Delta V_2 &amp;amp;= V_a - \Delta V_2 \\
 \because I_1 + I_2 &amp;amp;= I_T  \\
 \therefore g_m(\Delta V_1 + \Delta V_2) &amp;amp;= 0 \\
 \therefore \Delta V_1 &amp;amp;= - \Delta  V_2 \\\
 \\ V_{in1} - V_1 &amp;amp;= V_{in2} - V_2 = V_P \\
 V_{in1} + \Delta V_{in} - (V_a + \Delta V_1) &amp;amp;= V_{in2} - \Delta V_{in} - (V_a - \Delta V_2) \\
 \therefore \Delta V_{in} &amp;amp;= \Delta V_1 \\
-\therefore V_P不变
+\therefore V_P&amp;amp;不变
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
-&lt;h3 id=&#34;图像&#34;&gt;图像&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/6.png&#34;
-	width=&#34;1836&#34;
-	height=&#34;766&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/6_hu6439aa2ed500bac08990ccca7b346f73_147016_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/6_hu6439aa2ed500bac08990ccca7b346f73_147016_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;239&#34;
-		data-flex-basis=&#34;575px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h1 id=&#34;commmon-mode-response&#34;&gt;Commmon-Mode Response&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;$P$ is a &lt;strong&gt;Virtual Ground&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;common-mode-response-small-signal-model&#34;&gt;Common-Mode Response (Small-Signal Model)&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/9.png&#34;
 	width=&#34;1554&#34;
 	height=&#34;1844&#34;
@@ -476,28 +493,58 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;202px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h2 id=&#34;common-mode-gain&#34;&gt;Common-Mode Gain&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 A_v &amp;amp;= \frac{\dfrac{R_D}{2}}{\dfrac{1}{2g_m} + R_{SS}} \\
-A_{transconductance} &amp;amp;= \frac{g_m}{1 + 2g_m R_{SS}} \\\
-\\ M_1 和 M_2 若不同 \\
+G_m &amp;amp;= \frac{g_m}{1 + 2g_m R_{SS}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;considering-the-manufactured-difference&#34;&gt;Considering the Manufactured Difference&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+M_1 和 M_2 若不同 \\
 V_P &amp;amp;= (g_{m1} + g_{m2})(V_{in,CM} - V_P)R_{ss} \\
 \therefore V_P &amp;amp;= \frac{g_{m1} + g_{m2}}{1 + (g_{m1} + g_{m2})R_{SS}} R_{SS} \\
 V_X &amp;amp;= g_{m1}R_D(V_{in,CM} - V_P) \\
 &amp;amp;=  \frac{-g_{m1}}{1 + (g_{m1} + g_{m2})R_{SS}}R_D V_{in,CM} \\
 V_Y &amp;amp;=  \frac{-g_{m2}}{1 + (g_{m1} + g_{m2})R_{SS}}R_D V_{in,CM} \\
 \therefore A_{CM-DM} &amp;amp;= \frac{V_X - V_Y}{V_{in,CM}} \\
-&amp;amp;= \frac{\Delta g_m R_D}{1 + (g_{m1} +g_{m2}) R_{SS})} \\
+&amp;amp;= \frac{\Delta g_m R_D}{1 + (g_{m1} +g_{m2}) R_{SS}} \\
 将R_{SS} 替换为C_S \\
 A_{CM-DM} &amp;amp;= \frac{\Delta g_m R_D}{\sqrt{1 + (g_{m1} + g_{m2})^2 \Big|\dfrac{1}{\omega C_S}\Big|^2} } \\
-A_{DM} &amp;amp;= ??? \\
+A_{DM} &amp;amp;= -g_m R_D \\
 CMRR &amp;amp;= \frac{A_{DM}}{A_{CM-DM}} \\
 &amp;amp;= \frac{g_m}{\Delta g_m}(1 + 2g_mR_{ss}) \\
 其中, g_m &amp;amp;= \frac{g_{m1} + g_{m2}}{2}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;all-gains&#34;&gt;All Gains&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;分类&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;相同的MOSFET&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;不同的MOSFET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$g_m$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$g_m$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{g_{m1} + g_{m2}}{2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_{DM} &amp;amp;= -g_mR_D \\
+A_{CM} &amp;amp;= \frac{\dfrac{R_D}{2}}{R_{SS} + \dfrac{1}{2g_m}} \\
+A_{CM-DM} &amp;amp;= \dfrac{\Delta g_m R_D}{1 + (g_{m1} + g_{m2})R_{SS}}
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;differential-pair-with-mos-loads&#34;&gt;Differential Pair With MOS Loads&lt;/h1&gt;
-&lt;h2 id=&#34;differential-pair-with-diode-connected-and-commmon-source-loads&#34;&gt;Differential Pair With Diode-Connected and Commmon-Source Loads&lt;/h2&gt;
+&lt;h2 id=&#34;differential-pair-with-diode-connected-and-common-source-loads&#34;&gt;Differential Pair With Diode-Connected and Common-Source Loads&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/11.png&#34;
 	width=&#34;1824&#34;
 	height=&#34;978&#34;
@@ -513,7 +560,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 For \ (a) \\
-A_v &amp;amp;= -g_{mN} (\frac{1}{g_mP} || r_{oP} || r_{oN}) \\
+A_v &amp;amp;= -g_{mN} (\frac{1}{g_{mP}} || r_{oP} || r_{oN}) \\
 &amp;amp; \approx -\frac{g_{mN}}{g_{mP}} \\
 For \ (b) \\
 A_v &amp;amp;= -g_{mN} (r_{oP} || r_{oN})
