@@ -6,700 +6,7 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sat, 24 Jun 2023 10:07:33 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>9. Operational Amplifier</title>
-        <link>https://downeyflyfan.com/p/9.-operational-amplifier/</link>
-        <pubDate>Sat, 24 Jun 2023 10:07:33 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/9.-operational-amplifier/</guid>
-        <description>&lt;h1 id=&#34;simple-feedback-circuit&#34;&gt;Simple Feedback Circuit&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/9.-operational-amplifier/1.png&#34;
-	width=&#34;694&#34;
-	height=&#34;534&#34;
-	srcset=&#34;https://downeyflyfan.com/p/9.-operational-amplifier/1_hu47c161500cfac074ff812f6edce2c01b_40953_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/9.-operational-amplifier/1_hu47c161500cfac074ff812f6edce2c01b_40953_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;129&#34;
-		data-flex-basis=&#34;311px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;relative-gain-error&#34;&gt;Relative Gain Error&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;G&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Actual Gain&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Ideal Gain&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;$$
-\begin{aligned}
-RGE &amp;amp;= \frac{G - A}{A} \times 100% \\
-&amp;amp;= \frac{\dfrac{A}{1 + A\beta} - \dfrac{1}{\beta}}{\dfrac{1}{\beta}} \times 100% \\
-&amp;amp;= - \frac{1}{1 + A\beta}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;small-signal-bandwidth&#34;&gt;Small Signal Bandwidth&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;The time required to reach &lt;strong&gt;1%&lt;/strong&gt; of its final value&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-H(s) &amp;amp;= \frac{V_{out}}{V_{in}}  \\
-&amp;amp;= \frac{A(s)}{1 + A(s)\beta} \\
-&amp;amp;= \frac{\dfrac{A_0}{1 + \dfrac{s}{\omega_0}}}{1 + \dfrac{A_0}{1 + \dfrac{s}{\omega_0}}\beta} \\
-&amp;amp;=\frac{A_0}{1 + \dfrac{s}{\omega_0} + A_0\beta} \\
-&amp;amp;= \frac{\dfrac{A_0}{1 + A_0 \beta}}{1 + \dfrac{s}{(1 + A_0\beta)\omega_0}} \\
-\therefore \tau &amp;amp;= \frac{1}{(1+A_0\beta)\omega_0} \\because \beta &amp;amp;= \frac{R_2}{R_1 + R_2} (In \ this \ case) \\
-Also, \ A_0\beta &amp;amp;\gg 1 \\
-\therefore \tau &amp;amp;\approx (1+\frac{R_1}{R_2})\frac{1}{A_0\omega_0} \\
-Step \ Response: \\
-V_{in} &amp;amp;= au(t) \\
-V_{out} &amp;amp;= a(1 + \frac{R_1}{R_2}) (1 - e^{-\frac{t}{\tau}})u(t) \\
-V_F &amp;amp;= a(1 + \frac{R_1}{R_2}) \\
-\therefore let \ 1 - e^{-\frac{t}{\tau}} &amp;amp;=0.01 \\
-t &amp;amp;= 4.6 \tau
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
-&lt;h2 id=&#34;one-pole-system-transfer-function&#34;&gt;One-Pole System Transfer Function&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}
-H(s) &amp;amp;= \frac{A}{1 + s\tau}  \\
-&amp;amp;= \frac{A}{1 + \dfrac{s}{\omega_0}}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;负反馈电路的阶跃响应&#34;&gt;负反馈电路的阶跃响应&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}&lt;/p&gt;
-&lt;p&gt;\end{aligned}
-$$&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>6. Frequency Response</title>
-        <link>https://downeyflyfan.com/p/6.-frequency-response/</link>
-        <pubDate>Wed, 21 Jun 2023 13:44:17 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/6.-frequency-response/</guid>
-        <description>&lt;h1 id=&#34;general-considerations&#34;&gt;General Considerations&lt;/h1&gt;
-&lt;h2 id=&#34;millers-law&#34;&gt;Miller&amp;rsquo;s Law&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/1.png&#34;
-	width=&#34;2324&#34;
-	height=&#34;716&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/1_hud8728b819905a001ac63431a0c22a482_114652_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/1_hud8728b819905a001ac63431a0c22a482_114652_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;324&#34;
-		data-flex-basis=&#34;778px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-Z_1 &amp;amp;= \frac{1}{1-A} Z  \\
-Z_2 &amp;amp;= \frac{1}{1 - \dfrac{1}{A}}Z \\\
-\\ In \ this \ case \\
-Z_1 &amp;amp;= \frac{1}{s(1 + A)C_F} \\
-\therefore C_{in} &amp;amp;= (1+A)C_F \\
-Method \ II \\
-Q_{in} &amp;amp;= C_F(-A\Delta V - \Delta V)  \\
-&amp;amp;= -(1+A)C_F\Delta V \\
-\therefore C_{in} &amp;amp;= (1+A) C_F
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;association-of-poles-with-nodes&#34;&gt;Association of Poles with Nodes&lt;/h2&gt;
-&lt;h3 id=&#34;general-case&#34;&gt;General Case&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/2.png&#34;
-	width=&#34;2324&#34;
-	height=&#34;716&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/2_hud8728b819905a001ac63431a0c22a482_133930_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/2_hud8728b819905a001ac63431a0c22a482_133930_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;324&#34;
-		data-flex-basis=&#34;778px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-H(s) &amp;amp;= \frac{V_{out}}{V_{in}}(s) \\
-&amp;amp;= \frac{A_1}{1 + sR_SC_{in}} \frac{A_2}{1 + sR_1 C_N}\frac{1}{1 + sR_2C_P}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;input-example&#34;&gt;Input Example&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/3.png&#34;
-	width=&#34;1172&#34;
-	height=&#34;686&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/3_hube17b7b07764fcfa6e3751c70bdb1c91_64511_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/3_hube17b7b07764fcfa6e3751c70bdb1c91_64511_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;170&#34;
-		data-flex-basis=&#34;410px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-Input \ Impedence \ Z_{in} &amp;amp;= (1+A) C_F \\
-f_p &amp;amp;= \frac{1}{(1+A)R_SC_F}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;common-source-stage&#34;&gt;Common-Source Stage&lt;/h1&gt;
-&lt;h2 id=&#34;inputoutput-frequency&#34;&gt;Input/Output Frequency&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/4.png&#34;
-	width=&#34;918&#34;
-	height=&#34;640&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;143&#34;
-		data-flex-basis=&#34;344px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-X \ to \ ground \\
-Z_X &amp;amp;= C_{GS} + (1-A)C_{GD} \\
-\omega_{in} &amp;amp;= \frac{1}{R_S [C_{GS} + (1 + g_mR_D)C_{GD}]} \\
-V_{out} \ to \ ground \\
-Z_X &amp;amp;= C_{DB} + (1-A^{-1})C_{GD} \\
-&amp;amp;\approx C_{DB} + C_{GD} \\
-\therefore \omega_{out} &amp;amp;= \frac{1}{R_S(C_{GS} + C_{GD})}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;r_s-is-large&#34;&gt;$R_S$ is large&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/5.png&#34;
-	width=&#34;750&#34;
-	height=&#34;642&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;116&#34;
-		data-flex-basis=&#34;280px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-Z_X &amp;amp;= \frac{1}{sC_{eq}} || (  \frac{C_{GD} + C_{GS}}{C_{GD}} \frac{1}{g_m})  (???) \\
-\therefore \omega_{out} &amp;amp;= \frac{1}{\Big[ R_D  || \Big(\dfrac{C_{GD} + C_{GS}}{C_{GD}} \dfrac{1}{g_m}\Big) \Big] (C_{eq} + C_{DB})} \\
-\therefore \frac{V_{out}}{V_{in}}(s) &amp;amp;= -\frac{g_mR_D}{(1 + \dfrac{s}{\omega_{in}}) (1 + \dfrac{s}{\omega_{out}})}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;exact-transfer-function&#34;&gt;Exact Transfer Function&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/6.png&#34;
-	width=&#34;1400&#34;
-	height=&#34;512&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;273&#34;
-		data-flex-basis=&#34;656px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-KCL: \\
-0 &amp;amp;= V_X sC_{GS} + (V_X - V_{in})/R_S + (V_X - V_{out})sC_{GD} \\
-0 &amp;amp;= V_{out} (\frac{1}{R_D} + C_{DB}) + (V_{out} - V_X)sC_{GD} \\
-\therefore \ H(s) &amp;amp;= \frac{V_{out}}{V_{in}} \\
-&amp;amp;= \frac{(C_{GD}s - g_m)R_D}{R_SR_D\xi s^2 + [R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})]s + 1} \\
-\xi = C_{GS}C_{GD} + C_{GS}C_{DB} + C_{GD}C_{DB} \\
-Two \ Pole \ Systems: \\
-D &amp;amp;= (1 + \frac{s}{\omega_{p1}})(1 + \frac{s}{\omega_{p2}}) \\
-&amp;amp;= \frac{s^2}{\omega_{p1}\omega_{p2}} + (\frac{1}{\omega_{p1}} + \frac{1}{\omega_{p2}})s + 1 \\
-\omega_{p2} &amp;amp;\gg \omega_{p1} \\
-\therefore coefficient \ of \ s &amp;amp;\approx \frac{1}{\omega_{p1}} \\
-\therefore \omega_{p1} &amp;amp;= \frac{1}{R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;source-followers&#34;&gt;Source Followers&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/7.png&#34;
-	width=&#34;1250&#34;
-	height=&#34;510&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/7_huc115fb711a5d3ed0132595c475f43b98_71040_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/7_huc115fb711a5d3ed0132595c475f43b98_71040_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;245&#34;
-		data-flex-basis=&#34;588px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;transfer-function-and-poles&#34;&gt;Transfer Function and Poles&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}
-KCL: \\
-V_1C_{GS}s + g_mV_1 &amp;amp;= V_{out}C_Ls \\
-\therefore V_1 &amp;amp;= \frac{C_Ls}{g_m + C_{GS}s}V_{out} \\
-KVL: \\
-V_{in} &amp;amp;= R_S[V_1C_{GS}s + (V_1 + V_{out})C_{GD}s] + V_1 + V_{out} \\
-\therefore \frac{V_{out}}{V_{in}}(s) &amp;amp;= \frac{g_m + C_{GS}s}{R_S\xi s^2 + (g_mR_SC_{GD} + C_L + C_{GS})s + g_m} \\
-Poles: \\
-\therefore \omega_{p1} &amp;amp;\approx \frac{g_m}{g_mR_SC_{GD} + C_L + C_{GS}} \\
-&amp;amp;= \frac{1}{R_SC_{GD} + \dfrac{C_L + C_{GS}}{g_m}} \\
-if \ R_S &amp;amp;= 0: \\
-\omega_{p1} &amp;amp;= \frac{g_m}{C_L + C_{GS}}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;input-impedence&#34;&gt;Input Impedence&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/8.png&#34;
-	width=&#34;606&#34;
-	height=&#34;410&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/8_hu010e2f6847d9d0f2ddf87a7dd35e58ab_29342_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/8_hu010e2f6847d9d0f2ddf87a7dd35e58ab_29342_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;147&#34;
-		data-flex-basis=&#34;354px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;$C_{GD}$ &lt;strong&gt;shunts&lt;/strong&gt; the input, neglected.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-V_X &amp;amp;= \frac{I_X}{C_{GS}s} + (I_X + \frac{g_m I_X}{C_{GS}s}) (\frac{1}{g_{mb}} || \frac{1}{C_Ls}) \\
-Z_{in} &amp;amp;= \frac{1}{C_{GS}s} + (1 + \frac{g_m}{C_{GS}s})\frac{1}{g_{mb} + C_L s} \\
-Low \ Frequency: \\
-g_{mb} &amp;amp;\gg |C_Ls| \\
-\therefore Z_{in} &amp;amp;\approx \frac{1}{C_{GS}s}(1 + \frac{g_m}{g_{mb}}) + \frac{1}{g_{mb}}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;common-gate-stage&#34;&gt;Common-Gate Stage&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/9.png&#34;
-	width=&#34;636&#34;
-	height=&#34;636&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/9_hu7c655d5ff7e36edc51637b9deb28f0d3_46669_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/9_hu7c655d5ff7e36edc51637b9deb28f0d3_46669_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;100&#34;
-		data-flex-basis=&#34;240px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\frac{V_{out}}{V_{in}}(s) &amp;amp;= \frac{(g_m + g_{mb})R_D}{1 + (g_m + g_{mb})R_S} \frac{1}{\Big(1 + \dfrac{C_S}{g_m + g_{mb} + \dfrac{1}{R_S}}s \Big) (1 + R_DC_D s)} \\
-\therefore Z_{in} &amp;amp;\approx \frac{Z_L}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
-Z_L &amp;amp;= R_D || [1/(C_D s)]
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;cascode-stage&#34;&gt;Cascode Stage&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/10.png&#34;
-	width=&#34;1004&#34;
-	height=&#34;994&#34;
-	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/10_hud9f19130b36c8e9787455d1bc9ee1e1e_95879_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/10_hud9f19130b36c8e9787455d1bc9ee1e1e_95879_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;101&#34;
-		data-flex-basis=&#34;242px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\omega_{p,A} &amp;amp;= \frac{1}{R_S \Big[C_{GS1} + \Big( 1 + \dfrac{g_{m1}}{g_{m2} + g_{mb2}})C_{GD1}]} (???)\\
-\omega_{p,X} &amp;amp;= \frac{g_{m2} + g_{mb2}}{2C_{GD1} + C_{DB1} + C_{SB1} + C_{GS2}} \\
-\omega_{p,Y} &amp;amp;= \frac{1}{R_D(C_{DB2} + C_L + C_{GD2})}
-\end{aligned}
-$$&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>4. Differential Amplifiers</title>
-        <link>https://downeyflyfan.com/p/4.-differential-amplifiers/</link>
-        <pubDate>Mon, 19 Jun 2023 10:45:40 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/4.-differential-amplifiers/</guid>
-        <description>&lt;h1 id=&#34;single-ended-signal--differential-signal&#34;&gt;Single-Ended Signal &amp;amp; Differential Signal&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/1.png&#34;
-	width=&#34;2664&#34;
-	height=&#34;756&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/1_hu3930b6845c824c361517e07d3f7690e9_144476_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/1_hu3930b6845c824c361517e07d3f7690e9_144476_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;352&#34;
-		data-flex-basis=&#34;845px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;CM-level&lt;/strong&gt;: Center Voltage (图中的虚线)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;basic-differential-pair&#34;&gt;Basic Differential Pair&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/3.png&#34;
-	width=&#34;1220&#34;
-	height=&#34;868&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/3_hubb1fdc5700161c5798cf54b8e9591543_97545_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/3_hubb1fdc5700161c5798cf54b8e9591543_97545_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;140&#34;
-		data-flex-basis=&#34;337px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Bias Current Source&lt;/strong&gt; $I_{SS}$ : &lt;strong&gt;Reducing the Variation of CM level&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;qualitative-analysis&#34;&gt;Qualitative Analysis&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;$V_{out} - V_{in}$ 图像&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/2.png&#34;
-	width=&#34;2682&#34;
-	height=&#34;982&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/2_hu7f72b250f4635d856fd50af6c7daf8fb_199090_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/2_hu7f72b250f4635d856fd50af6c7daf8fb_199090_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;273&#34;
-		data-flex-basis=&#34;655px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-V_{in1} - V_{in2} &amp;amp;\in (-\infin, + \infin)
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Other Characteristics&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/4.png&#34;
-	width=&#34;3172&#34;
-	height=&#34;1638&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/4_hud9b170aae1d2e2b51c5846fd0761bbf9_345473_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/4_hud9b170aae1d2e2b51c5846fd0761bbf9_345473_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;193&#34;
-		data-flex-basis=&#34;464px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-为了使M_3&amp;amp;工作在饱和区 \\
-V_P &amp;amp;\ge V_{GS3} - V_{TH3} \\
-V_{in,CM} - V_{GS1} &amp;amp;\ge V_{GS3} - V_{TH3} \\
-\therefore V_{in,CM} &amp;amp;\ge V_{GS1} + V_{OV3} \\\
-\\ 为了使M1,M2&amp;amp;工作在饱和区 \\
-V_{DS1} &amp;amp;\ge V_{GS1} - V_{TH1} \\
-\therefore V_{in,CM} &amp;amp;\le V_{out1} + V_{TH1} = V_{DD}- \frac{I_{SS}}{2} R_D + V_{TH1} \\\
-\\ V_{GS1} + (V_{GS3} - V_{TH3} ) &amp;amp;\le V_{in,CM} \le min \Big[ V_{DD}-\frac{I_{SS}}{2}R_D + V_{TH1, V_{DD}} \Big]
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;$|A_v| - V_{in,CM}$ 图像&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/5.png&#34;
-	width=&#34;2624&#34;
-	height=&#34;938&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/5_hu0e4a4cebf122b681b703cafd88814209_202941_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/5_hu0e4a4cebf122b681b703cafd88814209_202941_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;279&#34;
-		data-flex-basis=&#34;671px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;quantitative-analysis&#34;&gt;Quantitative Analysis&lt;/h2&gt;
-&lt;h3 id=&#34;differential-voltage-gain&#34;&gt;Differential Voltage Gain&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/3.png&#34;
-	width=&#34;1220&#34;
-	height=&#34;868&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/3_hubb1fdc5700161c5798cf54b8e9591543_97545_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/3_hubb1fdc5700161c5798cf54b8e9591543_97545_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;140&#34;
-		data-flex-basis=&#34;337px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;当$M_1$和$M_2$都工作在&lt;strong&gt;Satuartion Region&lt;/strong&gt;时，有以下分析:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-V_{in1} - V_{in2} &amp;amp;= V_{G1} - V_{G2} \\
-V_{GS} - V_t&amp;amp;= \sqrt{\frac{2I}{k_n}} \\
-(V_{in1} - V_{in2})^2 &amp;amp;=  \frac{2}{k_n} (I_{SS} - 2\sqrt{I_{D1} I_{D2}}) \\
-\frac{1}{2}k_n(V_{in1} - V_{in2})^2 &amp;amp;= I_{SS} - 2\sqrt{I_{D1}I_{D2}} \\
-\because 4I_{D1}I_{D2} &amp;amp;= (I_{D1} + I_{D2})^2 - (I_{D1} - I_{D2})^2 \\
-&amp;amp;= I_{SS}^2 - (I_{D1} - I_{D2})^2 \\
-\therefore (I_{D1} - I_{D2})^2 &amp;amp;= I_{SS}^2 - 4I_{D1}I_{D2} \\
-&amp;amp;= I_{SS}^2 - (I_{SS} - \frac{1}{2}k_n(V_{in1} - V_{in2})^2)^2 \\
-&amp;amp;= I_{SS}k_n(V_{in1} - V_{in2})^2 - \frac{1}{4}k_n^2(V_{in1} -V_{in2})^4 \\
-\therefore I_{D1} - I_{D2} &amp;amp;= \frac{1}{2}k_n(V_{in1} - V_{in2})\sqrt{\frac{4I_{SS}}{k_n} - (V_{in1} - V_{in2})^2} \\
-\therefore \Delta I_{D} &amp;amp;= \frac{1}{2} k_n\Delta V_{in} \sqrt{\frac{4I_{SS}}{k_n} - \Delta V_{in}^2} \\\
-\\ \frac{\partial \Delta I_D}{\partial \Delta V_{in}} &amp;amp;= \frac{1}{2} k_n \dfrac{\dfrac{4I_{SS}}{k_n} - 2\Delta V_{in}^2}{\sqrt{\dfrac{4I_{SS}}{k_n} - \Delta V_{in}^2}} \\
-当\Delta V_{in} &amp;amp;= 0 时: \\
-G_m &amp;amp;= \sqrt{k_nI_{SS}}\\
-|A_v| &amp;amp;= \sqrt{k_nI_{SS}} R_D \\
-当 \Delta V_{in} &amp;amp;= \sqrt{\frac{2I_{SS}}{k_n}}时: \\
-G_m &amp;amp;= 0 \\
-V_{GS} &amp;amp;= \sqrt{\frac{I_{SS}}{k_n}} + V_T \\
-当\Delta V_{in} &amp;amp;= \sqrt{\frac{4I_{SS}}{k_n}}时: \\
-M_1, M_2 &amp;amp;\ not \ in \ Satuartion \ Region
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;voltage-gain&#34;&gt;Voltage Gain&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/7.png&#34;
-	width=&#34;1836&#34;
-	height=&#34;1574&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/7_hu33cec60249c6415fa3ed3815bfff2a2c_248950_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/7_hu33cec60249c6415fa3ed3815bfff2a2c_248950_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;116&#34;
-		data-flex-basis=&#34;279px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;本图中，$M_1$与$M_2$相同，$R_{D1} = R_{D2}$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/10.png&#34;
-	width=&#34;1936&#34;
-	height=&#34;776&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/10_hu0df30a76fe1fd7fcefc9feb611a0b23b_124943_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/10_hu0df30a76fe1fd7fcefc9feb611a0b23b_124943_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;249&#34;
-		data-flex-basis=&#34;598px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\frac{V_X}{V_{in1}} &amp;amp;= -\frac{R_{D1}}{\dfrac{1}{g_{m1}} + \dfrac{1}{g_{m2}}} \\
-\frac{V_Y}{V_{in1}} &amp;amp;= \frac{R_{D2}}{\dfrac{1}{g_{m1}} + \dfrac{1}{g_{m2}}} \\
-A_v &amp;amp;=\frac{V_X - V_Y}{V_{in1} - V_{in2}}  \\
-&amp;amp;= -g_m R_D
-\end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/6.png&#34;
-	width=&#34;1836&#34;
-	height=&#34;766&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/6_hu6439aa2ed500bac08990ccca7b346f73_147016_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/6_hu6439aa2ed500bac08990ccca7b346f73_147016_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;239&#34;
-		data-flex-basis=&#34;575px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;对于线性电路v_p虚接地&#34;&gt;对于线性电路，$V_P$虚接地&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/8.png&#34;
-	width=&#34;2354&#34;
-	height=&#34;770&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/8_hu69fbd30cc68e575e4119102ea01039ef_142863_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/8_hu69fbd30cc68e575e4119102ea01039ef_142863_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;305&#34;
-		data-flex-basis=&#34;733px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;假设(a)图输入电压以图(b)所视方式变化&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-V_{in1} = V_0 + \Delta V_{in}, V_{in2} &amp;amp;= V_0 - \Delta V_{in} \\
-V_1 = V_a + V_1, \Delta V_2 &amp;amp;= V_a - \Delta V_2 \\
-\because I_1 + I_2 &amp;amp;= I_T  \\
-\therefore g_m(\Delta V_1 + \Delta V_2) &amp;amp;= 0 \\
-\therefore \Delta V_1 &amp;amp;= - \Delta  V_2 \\\
-\\ V_{in1} - V_1 &amp;amp;= V_{in2} - V_2 = V_P \\
-V_{in1} + \Delta V_{in} - (V_a + \Delta V_1) &amp;amp;= V_{in2} - \Delta V_{in} - (V_a - \Delta V_2) \\
-\therefore \Delta V_{in} &amp;amp;= \Delta V_1 \\
-\therefore V_P&amp;amp;不变
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;$P$ is a &lt;strong&gt;Virtual Ground&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;common-mode-response-small-signal-model&#34;&gt;Common-Mode Response (Small-Signal Model)&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/9.png&#34;
-	width=&#34;1554&#34;
-	height=&#34;1844&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/9_hua21bcd5a244a9f970ce4b6e10192af89_235377_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/9_hua21bcd5a244a9f970ce4b6e10192af89_235377_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;84&#34;
-		data-flex-basis=&#34;202px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;common-mode-gain&#34;&gt;Common-Mode Gain&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}
-A_v &amp;amp;= \frac{\dfrac{R_D}{2}}{\dfrac{1}{2g_m} + R_{SS}} \\
-G_m &amp;amp;= \frac{g_m}{1 + 2g_m R_{SS}}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;considering-the-manufactured-difference&#34;&gt;Considering the Manufactured Difference&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}
-M_1 和 M_2 若不同 \\
-V_P &amp;amp;= (g_{m1} + g_{m2})(V_{in,CM} - V_P)R_{ss} \\
-\therefore V_P &amp;amp;= \frac{g_{m1} + g_{m2}}{1 + (g_{m1} + g_{m2})R_{SS}} R_{SS} \\
-V_X &amp;amp;= g_{m1}R_D(V_{in,CM} - V_P) \\
-&amp;amp;=  \frac{-g_{m1}}{1 + (g_{m1} + g_{m2})R_{SS}}R_D V_{in,CM} \\
-V_Y &amp;amp;=  \frac{-g_{m2}}{1 + (g_{m1} + g_{m2})R_{SS}}R_D V_{in,CM} \\
-\therefore A_{CM-DM} &amp;amp;= \frac{V_X - V_Y}{V_{in,CM}} \\
-&amp;amp;= \frac{\Delta g_m R_D}{1 + (g_{m1} +g_{m2}) R_{SS}} \\
-将R_{SS} 替换为C_S \\
-A_{CM-DM} &amp;amp;= \frac{\Delta g_m R_D}{\sqrt{1 + (g_{m1} + g_{m2})^2 \Big|\dfrac{1}{\omega C_S}\Big|^2} } \\
-A_{DM} &amp;amp;= -g_m R_D \\
-CMRR &amp;amp;= \frac{A_{DM}}{A_{CM-DM}} \\
-&amp;amp;= \frac{g_m}{\Delta g_m}(1 + 2g_mR_{ss}) \\
-其中, g_m &amp;amp;= \frac{g_{m1} + g_{m2}}{2}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;all-gains&#34;&gt;All Gains&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;分类&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;相同的MOSFET&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;不同的MOSFET&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$g_m$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$g_m$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{g_{m1} + g_{m2}}{2}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;$$
-\begin{aligned}
-A_{DM} &amp;amp;= -g_mR_D \\
-A_{CM} &amp;amp;= \frac{\dfrac{R_D}{2}}{R_{SS} + \dfrac{1}{2g_m}} \\
-A_{CM-DM} &amp;amp;= \dfrac{\Delta g_m R_D}{1 + (g_{m1} + g_{m2})R_{SS}}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;differential-pair-with-mos-loads&#34;&gt;Differential Pair With MOS Loads&lt;/h1&gt;
-&lt;h2 id=&#34;differential-pair-with-diode-connected-and-common-source-loads&#34;&gt;Differential Pair With Diode-Connected and Common-Source Loads&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/11.png&#34;
-	width=&#34;1824&#34;
-	height=&#34;978&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/11_hub5ede1f213710bcf093477f6a2618528_170357_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/11_hub5ede1f213710bcf093477f6a2618528_170357_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;186&#34;
-		data-flex-basis=&#34;447px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-For \ (a) \\
-A_v &amp;amp;= -g_{mN} (\frac{1}{g_{mP}} || r_{oP} || r_{oN}) \\
-&amp;amp; \approx -\frac{g_{mN}}{g_{mP}} \\
-For \ (b) \\
-A_v &amp;amp;= -g_{mN} (r_{oP} || r_{oN})
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;addition-of-current-sources-to-increase-the-voltage-gain&#34;&gt;Addition of current sources to increase the voltage gain&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/12.png&#34;
-	width=&#34;1138&#34;
-	height=&#34;820&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/12_hube2e47587f5a005a4506b68e1634ce44_92168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/12_hube2e47587f5a005a4506b68e1634ce44_92168_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;138&#34;
-		data-flex-basis=&#34;333px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-|A_v| &amp;amp;\approx g_{m1} [(g_{m3}r_{o3}r_{o1}) || (g_{m5}r_{o5}r_{o7})]
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;gilbert-cell&#34;&gt;Gilbert Cell&lt;/h2&gt;
-&lt;h3 id=&#34;simple-vgas&#34;&gt;Simple VGAs&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/13.png&#34;
-	width=&#34;2370&#34;
-	height=&#34;834&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/13_hu2bddb2ab0c87833cae0185ed99e8b983_169747_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/13_hu2bddb2ab0c87833cae0185ed99e8b983_169747_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;284&#34;
-		data-flex-basis=&#34;682px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;gilbert-cell-1&#34;&gt;Gilbert Cell&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/14.png&#34;
-	width=&#34;1358&#34;
-	height=&#34;1376&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/14_hu8a5f142b7a6688e6068e8f007b74afee_222137_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/14_hu8a5f142b7a6688e6068e8f007b74afee_222137_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;98&#34;
-		data-flex-basis=&#34;236px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;(d)是(c)的化简&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-For (a) \\
-V_{out} &amp;amp;= A_1 V_{cont1} + A_2 V_{cont2} \\
-&amp;amp;= R_D(I_{D1} + I_{D4}) - R_D(I_{D2} + I_{D3})
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
-&lt;h2 id=&#34;degeneration-resistance&#34;&gt;Degeneration Resistance&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Make the system more stable, able to resist degredation&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;vga-variable-gain-amplifier&#34;&gt;VGA (Variable-Gain Amplifier)&lt;/h2&gt;
-&lt;h2 id=&#34;什么时候考虑输出电阻dfrac1g_m-&#34;&gt;什么时候考虑输出电阻$\dfrac{1}{g_m}$ ???&lt;/h2&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Thu, 15 Jun 2023 14:41:36 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>复习速记</title>
         <link>https://downeyflyfan.com/p/%E5%A4%8D%E4%B9%A0%E9%80%9F%E8%AE%B0/</link>
         <pubDate>Thu, 15 Jun 2023 14:41:36 +0800</pubDate>
@@ -3761,9 +3068,9 @@ V_{in} = V_{GS}, V_{out} = V_{DS} \\\
 V_{DD} (没有压降) &amp;amp; V_{in} \lt V_t \\
 V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\
 V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\
-V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region
+V_{DD} - \frac{1}{2}[2(V_{in} - V_t)V_{out}- V_{out}^2] R_D &amp;amp; Triode \ Region
 \end{cases} \\\
-\\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\
+\\ 如果V_{in}很大,使得V_{out} \ll 2(V_{in} -V_t) \\\
 \\ \begin{aligned}
 V_{out} &amp;amp;= \frac{R_{on}}{R_{on} + R_D}V_{DD} \\
 &amp;amp;= \frac{V_{DD}}{1 + k_n R_D(V_{in} -V_t)}  \\
@@ -3797,7 +3104,7 @@ A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
 &amp;amp;= -g_m \frac{r_0R_D}{r_0 + R_D}
 \end{aligned}$$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-diode-connected-load&#34;&gt;CS Stage With Diode-Connected Load&lt;/h2&gt;
-&lt;h3 id=&#34;电路图&#34;&gt;电路图&lt;/h3&gt;
+&lt;h3 id=&#34;diode-connected-load-电路--简单电阻测量&#34;&gt;Diode-Connected Load 电路 + 简单电阻测量&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/3.png&#34;
 	width=&#34;809&#34;
 	height=&#34;316&#34;
@@ -3811,10 +3118,14 @@ A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
-V_1 = V_X \\\
-\\ I_X = \frac{V_X}{r_0} + g_mV_X
+\begin{aligned}
+V_1 &amp;amp;= V_X \\
+I_X &amp;amp;= \frac{V_X}{r_0} + g_mV_X \\
+Z_{in} &amp;amp;=\frac{V_X}{I_X}  \\
+&amp;amp;\approx \frac{1}{g_m}
+\end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;测量电路&#34;&gt;测量电路&lt;/h3&gt;
+&lt;h3 id=&#34;精确电阻测量&#34;&gt;精确电阻测量&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/4.png&#34;
 	width=&#34;728&#34;
 	height=&#34;380&#34;
@@ -3874,7 +3185,8 @@ I_{D1} &amp;amp;= I_{D2} \\
 \sqrt{(\frac{W}{L})&lt;em&gt;1} (V&lt;/em&gt;{in} -V_{t1}) &amp;amp;= \sqrt{(\frac{W}{L})&lt;em&gt;2}(V&lt;/em&gt;{DD} - V_{out} - V_{t2}) \\
 \sqrt{(\frac{W}{L})&lt;em&gt;1} &amp;amp;= -\sqrt{(\frac{W}{L})&lt;em&gt;2}(\frac{\partial V&lt;/em&gt;{out}}{\partial V&lt;/em&gt;{in}} - \frac{\partial V_{t2}}{\partial V_{in}}) \\
 \because \frac{\partial V_{t2}}{\partial V_{in}} &amp;amp;= \frac{\partial V_{t2}}{\partial V_{out}} \frac{\partial V_{out}}{\partial V_{in}} = \eta\frac{\partial V_{out}}{\partial V_{in}} \\
-\therefore A_v &amp;amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta} \\
+\therefore A_v &amp;amp;= \frac{\partial V_{out}}{V_{in}} \\
+&amp;amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta} \\
 &amp;amp;\approx -\sqrt{\frac{(W/L)_1}{(W/L)_2}}
 \end{aligned}
 $$&lt;/p&gt;
@@ -3893,7 +3205,7 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-I_{D1} &amp;amp; = I_{D2} \\
+\because I_{D1} &amp;amp; = I_{D2} \\
 \therefore k_nV_{ovn}^2 &amp;amp;= k_pV_{ovp}^2 \\
 \therefore \frac{\mu_n (W/L)&lt;em&gt;n}{\mu_p(W/L)&lt;em&gt;p}  &amp;amp;= \frac{|V&lt;/em&gt;{ovp}|}{V&lt;/em&gt;{ovn}} \\
 \therefore A_v &amp;amp;\approx -\frac{|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
@@ -3938,7 +3250,8 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V_b-V_{Tp})}
+R_{on2} &amp;amp;= \frac{1}{g_{m2}} \\
+&amp;amp;= \dfrac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V_b-V_{Tp})}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-source-degeneration&#34;&gt;CS Stage With Source Degeneration&lt;/h2&gt;
@@ -3955,7 +3268,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;485px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
+&lt;h3 id=&#34;简化分析&#34;&gt;简化分析&lt;/h3&gt;
 &lt;p&gt;$$
 设I_D = f(V_{GS})  \\\
 \\ \begin{aligned}
@@ -3966,11 +3279,13 @@ G_m &amp;amp;= \frac{\partial I_D}{\partial V_{in}} \\
 &amp;amp;= g_m(1 -R_SG_m)
 \\ \therefore G_m &amp;amp;= \frac{g_m}{1+g_mR_S} \\\
 \\ \therefore A_v &amp;amp;= -G_m R_D  \\
-&amp;amp;= -\frac{g_mR_D}{1 + g_mR_S} \\
-&amp;amp;= -\frac{R_D}{ \dfrac{1}{g_m}}
+&amp;amp;= -\frac{g_mR_D}{1 + g_mR_S}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;小信号等效电路&#34;&gt;小信号等效电路&lt;/h3&gt;
+&lt;h3 id=&#34;具体分析&#34;&gt;具体分析&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;考虑了&lt;strong&gt;Channel Length Modulation&lt;/strong&gt;和&lt;strong&gt;Body Effect&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;ol&gt;
 &lt;li&gt;电路&lt;/li&gt;
 &lt;/ol&gt;
@@ -3987,7 +3302,7 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;考虑CLM的分析&lt;/li&gt;
+&lt;li&gt;等效跨导&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
@@ -3998,7 +3313,7 @@ G_m &amp;amp;= \frac{I_{out}}{V_{in}} \\
 \end{aligned} \\\
 $$&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;计算$R_{out}$&lt;/li&gt;
+&lt;li&gt;增大的&lt;strong&gt;输出电阻&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/23.png&#34;
 	width=&#34;1542&#34;
@@ -4019,6 +3334,27 @@ V_1 &amp;amp;= - I_XR_S \\
 \therefore V_X &amp;amp;= I_{ro} r_o + I_X R_S \\
 \therefore R_{out} &amp;amp;= \frac{V_X}{I_X} \\
 &amp;amp;= R_S + [1 + (g_m + g_{mb}) R_S]r_o
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;最终增益&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/24.png&#34;
+	width=&#34;1442&#34;
+	height=&#34;516&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/24_hudb799f5c73098304764fe5112427af00_62841_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/24_hudb799f5c73098304764fe5112427af00_62841_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;279&#34;
+		data-flex-basis=&#34;670px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_v &amp;amp;= \frac{V_{out}}{V_{in}}  \\
+&amp;amp;= -\frac{g_m r_o R_D}{R_D + R_S + r_o + (g_m + g_{mb}) R_S r_o}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;图像&#34;&gt;图像&lt;/h3&gt;
@@ -4046,7 +3382,28 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;337px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h1 id=&#34;source-follower-cd&#34;&gt;Source Follower (CD)&lt;/h1&gt;
+&lt;h2 id=&#34;cs-stage-with-source-degeneration--constant-current-source&#34;&gt;CS Stage With Source Degeneration &amp;amp; Constant Current Source&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/25.png&#34;
+	width=&#34;494&#34;
+	height=&#34;618&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/25_hu49699bf4809f6df26d9c6deaa4bcc595_35048_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/25_hu49699bf4809f6df26d9c6deaa4bcc595_35048_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;79&#34;
+		data-flex-basis=&#34;191px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_v &amp;amp;= -g_m r_o
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;if $I_o$ is ideal, the current through $R_s$ cannot change and hence the small-signal voltage drop across $R_s$ is zero&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;source-follower&#34;&gt;Source Follower&lt;/h1&gt;
 &lt;h2 id=&#34;电路-电压特性&#34;&gt;电路 电压特性&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/11.png&#34;
 	width=&#34;809&#34;
@@ -4060,7 +3417,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;508px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;分析-1&#34;&gt;分析&lt;/h2&gt;
+&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
@@ -4118,7 +3475,7 @@ $$&lt;/p&gt;
 &lt;p&gt;(b) 电容耦合&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;分析-2&#34;&gt;分析&lt;/h2&gt;
+&lt;h2 id=&#34;分析-1&#34;&gt;分析&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
@@ -4150,7 +3507,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$M_2$: Cascode Device&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;分析-3&#34;&gt;分析&lt;/h3&gt;
+&lt;h3 id=&#34;分析-2&#34;&gt;分析&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;为了让$M_1$和$M_2$都工作在饱和区，作出以下分析&lt;/li&gt;
 &lt;/ul&gt;
@@ -4255,28 +3612,57 @@ $$&lt;/p&gt;
 &lt;p&gt;We can approximate $R_{DS}$ as being equal to its maximum value, which is equal to $\dfrac{V_D}{I_D}$. This gives us an equivalent resistance of $R_{on} = \dfrac{V_D}{I_D}$.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;mosfet的电阻&#34;&gt;MOSFET的电阻&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;输出电阻$\frac{1}{g_m}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;反向传输电阻$r_o$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;输出电阻&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;反向输出电阻&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;符号&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\frac{1}{g_m}$ 或 $r_{ds}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$r_o$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;适用情况&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;考虑CLM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不适用情况&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;高频电路&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;ul&gt;
-&lt;li&gt;一般的, $r_o \gg \frac{1}{g_m}$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在饱和区，当MOSFET的输入电压足够高，使得MOSFET的通道完全打开，电流受限于外部电路阻抗而不是MOSFET本身。在这种情况下，MOSFET的漏-源电压和漏电流之间的关系可以近似为线性关系，类似于&lt;strong&gt;普通的电阻&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一般的, $r_o \gg \frac{1}{g_m}$&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;body-effect&#34;&gt;Body Effect&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;the voltage at the body terminal (which is usually connected to the s ource) affects the threshold voltage of the device. This occurs because of the depletion region that forms between the body and channel regions. When a voltage is applied to the body, it changes the width of this depletion region, which alters the effective thickness of the oxide layer between gate and channel.&lt;/p&gt;
+&lt;p&gt;the voltage at the body terminal (which is usually connected to the source) affects the threshold voltage of the device. This occurs because of the depletion region that forms between the body and channel regions. When a voltage is applied to the body, it changes the width of this depletion region, which alters the effective thickness of the oxide layer between gate and channel.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;formula-&#34;&gt;Formula ???&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 \eta &amp;amp;= \frac{g_m}{g_{mb}} \\
 &amp;amp;=\dfrac{\partial V_{TH}}{\partial V_{in}}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在考虑&lt;strong&gt;Body Effect&lt;/strong&gt;时, $V_t$是一个随电流变化的参数(一般情况下变化很小，忽略不计)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;g_mbv_bs&#34;&gt;$g_{mb}V_{bs}$&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;二极管的反向传输电阻对二极管电流的影响, 其中$g_{mb}$叫做&lt;strong&gt;反向跨导&lt;/strong&gt;, 指栅-漏结电容在反向偏置下存储的电荷引起的漏极电流变化的比例，反映了MOSFET的输入特性。&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -4625,6 +4011,699 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 &lt;h1 id=&#34;非线性方程求根&#34;&gt;非线性方程求根&lt;/h1&gt;
 &lt;h2 id=&#34;heading-1&#34;&gt;&lt;/h2&gt;
+</description>
+        </item>
+        <item>
+        <title>9. Operational Amplifier</title>
+        <link>https://downeyflyfan.com/p/9.-operational-amplifier/</link>
+        <pubDate>Mon, 24 Apr 2023 10:07:33 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/9.-operational-amplifier/</guid>
+        <description>&lt;h1 id=&#34;simple-feedback-circuit&#34;&gt;Simple Feedback Circuit&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/9.-operational-amplifier/1.png&#34;
+	width=&#34;694&#34;
+	height=&#34;534&#34;
+	srcset=&#34;https://downeyflyfan.com/p/9.-operational-amplifier/1_hu47c161500cfac074ff812f6edce2c01b_40953_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/9.-operational-amplifier/1_hu47c161500cfac074ff812f6edce2c01b_40953_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;311px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;relative-gain-error&#34;&gt;Relative Gain Error&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;G&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Actual Gain&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Ideal Gain&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{aligned}
+RGE &amp;amp;= \frac{G - A}{A} \times 100% \\
+&amp;amp;= \frac{\dfrac{A}{1 + A\beta} - \dfrac{1}{\beta}}{\dfrac{1}{\beta}} \times 100% \\
+&amp;amp;= - \frac{1}{1 + A\beta}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;small-signal-bandwidth&#34;&gt;Small Signal Bandwidth&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The time required to reach &lt;strong&gt;1%&lt;/strong&gt; of its final value&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+H(s) &amp;amp;= \frac{V_{out}}{V_{in}}  \\
+&amp;amp;= \frac{A(s)}{1 + A(s)\beta} \\
+&amp;amp;= \frac{\dfrac{A_0}{1 + \dfrac{s}{\omega_0}}}{1 + \dfrac{A_0}{1 + \dfrac{s}{\omega_0}}\beta} \\
+&amp;amp;=\frac{A_0}{1 + \dfrac{s}{\omega_0} + A_0\beta} \\
+&amp;amp;= \frac{\dfrac{A_0}{1 + A_0 \beta}}{1 + \dfrac{s}{(1 + A_0\beta)\omega_0}} \\
+\therefore \tau &amp;amp;= \frac{1}{(1+A_0\beta)\omega_0} \\because \beta &amp;amp;= \frac{R_2}{R_1 + R_2} (In \ this \ case) \\
+Also, \ A_0\beta &amp;amp;\gg 1 \\
+\therefore \tau &amp;amp;\approx (1+\frac{R_1}{R_2})\frac{1}{A_0\omega_0} \\
+Step \ Response: \\
+V_{in} &amp;amp;= au(t) \\
+V_{out} &amp;amp;= a(1 + \frac{R_1}{R_2}) (1 - e^{-\frac{t}{\tau}})u(t) \\
+V_F &amp;amp;= a(1 + \frac{R_1}{R_2}) \\
+\therefore let \ 1 - e^{-\frac{t}{\tau}} &amp;amp;=0.01 \\
+t &amp;amp;= 4.6 \tau
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
+&lt;h2 id=&#34;one-pole-system-transfer-function&#34;&gt;One-Pole System Transfer Function&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+H(s) &amp;amp;= \frac{A}{1 + s\tau}  \\
+&amp;amp;= \frac{A}{1 + \dfrac{s}{\omega_0}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;负反馈电路的阶跃响应&#34;&gt;负反馈电路的阶跃响应&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}&lt;/p&gt;
+&lt;p&gt;\end{aligned}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>6. Frequency Response</title>
+        <link>https://downeyflyfan.com/p/6.-frequency-response/</link>
+        <pubDate>Fri, 21 Apr 2023 13:44:17 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/6.-frequency-response/</guid>
+        <description>&lt;h1 id=&#34;general-considerations&#34;&gt;General Considerations&lt;/h1&gt;
+&lt;h2 id=&#34;millers-law&#34;&gt;Miller&amp;rsquo;s Law&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/1.png&#34;
+	width=&#34;2324&#34;
+	height=&#34;716&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/1_hud8728b819905a001ac63431a0c22a482_114652_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/1_hud8728b819905a001ac63431a0c22a482_114652_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;324&#34;
+		data-flex-basis=&#34;778px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Z_1 &amp;amp;= \frac{1}{1-A} Z  \\
+Z_2 &amp;amp;= \frac{1}{1 - \dfrac{1}{A}}Z \\\
+\\ In \ this \ case \\
+Z_1 &amp;amp;= \frac{1}{s(1 + A)C_F} \\
+\therefore C_{in} &amp;amp;= (1+A)C_F \\
+Method \ II \\
+Q_{in} &amp;amp;= C_F(-A\Delta V - \Delta V)  \\
+&amp;amp;= -(1+A)C_F\Delta V \\
+\therefore C_{in} &amp;amp;= (1+A) C_F
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;association-of-poles-with-nodes&#34;&gt;Association of Poles with Nodes&lt;/h2&gt;
+&lt;h3 id=&#34;general-case&#34;&gt;General Case&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/2.png&#34;
+	width=&#34;2324&#34;
+	height=&#34;716&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/2_hud8728b819905a001ac63431a0c22a482_133930_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/2_hud8728b819905a001ac63431a0c22a482_133930_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;324&#34;
+		data-flex-basis=&#34;778px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+H(s) &amp;amp;= \frac{V_{out}}{V_{in}}(s) \\
+&amp;amp;= \frac{A_1}{1 + sR_SC_{in}} \frac{A_2}{1 + sR_1 C_N}\frac{1}{1 + sR_2C_P}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;input-example&#34;&gt;Input Example&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/3.png&#34;
+	width=&#34;1172&#34;
+	height=&#34;686&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/3_hube17b7b07764fcfa6e3751c70bdb1c91_64511_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/3_hube17b7b07764fcfa6e3751c70bdb1c91_64511_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;410px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Input \ Impedence \ Z_{in} &amp;amp;= (1+A) C_F \\
+f_p &amp;amp;= \frac{1}{(1+A)R_SC_F}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;common-source-stage&#34;&gt;Common-Source Stage&lt;/h1&gt;
+&lt;h2 id=&#34;inputoutput-frequency&#34;&gt;Input/Output Frequency&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/4.png&#34;
+	width=&#34;918&#34;
+	height=&#34;640&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;143&#34;
+		data-flex-basis=&#34;344px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+X \ to \ ground \\
+Z_X &amp;amp;= C_{GS} + (1-A)C_{GD} \\
+\omega_{in} &amp;amp;= \frac{1}{R_S [C_{GS} + (1 + g_mR_D)C_{GD}]} \\
+V_{out} \ to \ ground \\
+Z_X &amp;amp;= C_{DB} + (1-A^{-1})C_{GD} \\
+&amp;amp;\approx C_{DB} + C_{GD} \\
+\therefore \omega_{out} &amp;amp;= \frac{1}{R_S(C_{GS} + C_{GD})}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;r_s-is-large&#34;&gt;$R_S$ is large&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/5.png&#34;
+	width=&#34;750&#34;
+	height=&#34;642&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;280px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Z_X &amp;amp;= \frac{1}{sC_{eq}} || (  \frac{C_{GD} + C_{GS}}{C_{GD}} \frac{1}{g_m})  (???) \\
+\therefore \omega_{out} &amp;amp;= \frac{1}{\Big[ R_D  || \Big(\dfrac{C_{GD} + C_{GS}}{C_{GD}} \dfrac{1}{g_m}\Big) \Big] (C_{eq} + C_{DB})} \\
+\therefore \frac{V_{out}}{V_{in}}(s) &amp;amp;= -\frac{g_mR_D}{(1 + \dfrac{s}{\omega_{in}}) (1 + \dfrac{s}{\omega_{out}})}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;exact-transfer-function&#34;&gt;Exact Transfer Function&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/6.png&#34;
+	width=&#34;1400&#34;
+	height=&#34;512&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;273&#34;
+		data-flex-basis=&#34;656px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+KCL: \\
+0 &amp;amp;= V_X sC_{GS} + (V_X - V_{in})/R_S + (V_X - V_{out})sC_{GD} \\
+0 &amp;amp;= V_{out} (\frac{1}{R_D} + C_{DB}) + (V_{out} - V_X)sC_{GD} \\
+\therefore \ H(s) &amp;amp;= \frac{V_{out}}{V_{in}} \\
+&amp;amp;= \frac{(C_{GD}s - g_m)R_D}{R_SR_D\xi s^2 + [R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})]s + 1} \\
+\xi = C_{GS}C_{GD} + C_{GS}C_{DB} + C_{GD}C_{DB} \\
+Two \ Pole \ Systems: \\
+D &amp;amp;= (1 + \frac{s}{\omega_{p1}})(1 + \frac{s}{\omega_{p2}}) \\
+&amp;amp;= \frac{s^2}{\omega_{p1}\omega_{p2}} + (\frac{1}{\omega_{p1}} + \frac{1}{\omega_{p2}})s + 1 \\
+\omega_{p2} &amp;amp;\gg \omega_{p1} \\
+\therefore coefficient \ of \ s &amp;amp;\approx \frac{1}{\omega_{p1}} \\
+\therefore \omega_{p1} &amp;amp;= \frac{1}{R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;source-followers&#34;&gt;Source Followers&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/7.png&#34;
+	width=&#34;1250&#34;
+	height=&#34;510&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/7_huc115fb711a5d3ed0132595c475f43b98_71040_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/7_huc115fb711a5d3ed0132595c475f43b98_71040_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;245&#34;
+		data-flex-basis=&#34;588px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;transfer-function-and-poles&#34;&gt;Transfer Function and Poles&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+KCL: \\
+V_1C_{GS}s + g_mV_1 &amp;amp;= V_{out}C_Ls \\
+\therefore V_1 &amp;amp;= \frac{C_Ls}{g_m + C_{GS}s}V_{out} \\
+KVL: \\
+V_{in} &amp;amp;= R_S[V_1C_{GS}s + (V_1 + V_{out})C_{GD}s] + V_1 + V_{out} \\
+\therefore \frac{V_{out}}{V_{in}}(s) &amp;amp;= \frac{g_m + C_{GS}s}{R_S\xi s^2 + (g_mR_SC_{GD} + C_L + C_{GS})s + g_m} \\
+Poles: \\
+\therefore \omega_{p1} &amp;amp;\approx \frac{g_m}{g_mR_SC_{GD} + C_L + C_{GS}} \\
+&amp;amp;= \frac{1}{R_SC_{GD} + \dfrac{C_L + C_{GS}}{g_m}} \\
+if \ R_S &amp;amp;= 0: \\
+\omega_{p1} &amp;amp;= \frac{g_m}{C_L + C_{GS}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;input-impedence&#34;&gt;Input Impedence&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/8.png&#34;
+	width=&#34;606&#34;
+	height=&#34;410&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/8_hu010e2f6847d9d0f2ddf87a7dd35e58ab_29342_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/8_hu010e2f6847d9d0f2ddf87a7dd35e58ab_29342_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;354px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$C_{GD}$ &lt;strong&gt;shunts&lt;/strong&gt; the input, neglected.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_X &amp;amp;= \frac{I_X}{C_{GS}s} + (I_X + \frac{g_m I_X}{C_{GS}s}) (\frac{1}{g_{mb}} || \frac{1}{C_Ls}) \\
+Z_{in} &amp;amp;= \frac{1}{C_{GS}s} + (1 + \frac{g_m}{C_{GS}s})\frac{1}{g_{mb} + C_L s} \\
+Low \ Frequency: \\
+g_{mb} &amp;amp;\gg |C_Ls| \\
+\therefore Z_{in} &amp;amp;\approx \frac{1}{C_{GS}s}(1 + \frac{g_m}{g_{mb}}) + \frac{1}{g_{mb}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;common-gate-stage&#34;&gt;Common-Gate Stage&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/9.png&#34;
+	width=&#34;636&#34;
+	height=&#34;636&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/9_hu7c655d5ff7e36edc51637b9deb28f0d3_46669_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/9_hu7c655d5ff7e36edc51637b9deb28f0d3_46669_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{V_{out}}{V_{in}}(s) &amp;amp;= \frac{(g_m + g_{mb})R_D}{1 + (g_m + g_{mb})R_S} \frac{1}{\Big(1 + \dfrac{C_S}{g_m + g_{mb} + \dfrac{1}{R_S}}s \Big) (1 + R_DC_D s)} \\
+\therefore Z_{in} &amp;amp;\approx \frac{Z_L}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
+Z_L &amp;amp;= R_D || [1/(C_D s)]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;cascode-stage&#34;&gt;Cascode Stage&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/10.png&#34;
+	width=&#34;1004&#34;
+	height=&#34;994&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/10_hud9f19130b36c8e9787455d1bc9ee1e1e_95879_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/10_hud9f19130b36c8e9787455d1bc9ee1e1e_95879_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;101&#34;
+		data-flex-basis=&#34;242px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\omega_{p,A} &amp;amp;= \frac{1}{R_S \Big[C_{GS1} + \Big( 1 + \dfrac{g_{m1}}{g_{m2} + g_{mb2}})C_{GD1}]} (???)\\
+\omega_{p,X} &amp;amp;= \frac{g_{m2} + g_{mb2}}{2C_{GD1} + C_{DB1} + C_{SB1} + C_{GS2}} \\
+\omega_{p,Y} &amp;amp;= \frac{1}{R_D(C_{DB2} + C_L + C_{GD2})}
+\end{aligned}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>4. Differential Amplifiers</title>
+        <link>https://downeyflyfan.com/p/4.-differential-amplifiers/</link>
+        <pubDate>Wed, 19 Apr 2023 10:45:40 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/4.-differential-amplifiers/</guid>
+        <description>&lt;h1 id=&#34;single-ended-signal--differential-signal&#34;&gt;Single-Ended Signal &amp;amp; Differential Signal&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/1.png&#34;
+	width=&#34;2664&#34;
+	height=&#34;756&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/1_hu3930b6845c824c361517e07d3f7690e9_144476_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/1_hu3930b6845c824c361517e07d3f7690e9_144476_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;352&#34;
+		data-flex-basis=&#34;845px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CM-level&lt;/strong&gt;: Center Voltage (图中的虚线)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;basic-differential-pair&#34;&gt;Basic Differential Pair&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/3.png&#34;
+	width=&#34;1220&#34;
+	height=&#34;868&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/3_hubb1fdc5700161c5798cf54b8e9591543_97545_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/3_hubb1fdc5700161c5798cf54b8e9591543_97545_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;337px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bias Current Source&lt;/strong&gt; $I_{SS}$ : &lt;strong&gt;Reducing the Variation of CM level&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;qualitative-analysis&#34;&gt;Qualitative Analysis&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;$V_{out} - V_{in}$ 图像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/2.png&#34;
+	width=&#34;2682&#34;
+	height=&#34;982&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/2_hu7f72b250f4635d856fd50af6c7daf8fb_199090_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/2_hu7f72b250f4635d856fd50af6c7daf8fb_199090_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;273&#34;
+		data-flex-basis=&#34;655px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_{in1} - V_{in2} &amp;amp;\in (-\infin, + \infin)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Other Characteristics&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/4.png&#34;
+	width=&#34;3172&#34;
+	height=&#34;1638&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/4_hud9b170aae1d2e2b51c5846fd0761bbf9_345473_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/4_hud9b170aae1d2e2b51c5846fd0761bbf9_345473_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;193&#34;
+		data-flex-basis=&#34;464px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+为了使M_3&amp;amp;工作在饱和区 \\
+V_P &amp;amp;\ge V_{GS3} - V_{TH3} \\
+V_{in,CM} - V_{GS1} &amp;amp;\ge V_{GS3} - V_{TH3} \\
+\therefore V_{in,CM} &amp;amp;\ge V_{GS1} + V_{OV3} \\\
+\\ 为了使M1,M2&amp;amp;工作在饱和区 \\
+V_{DS1} &amp;amp;\ge V_{GS1} - V_{TH1} \\
+\therefore V_{in,CM} &amp;amp;\le V_{out1} + V_{TH1} = V_{DD}- \frac{I_{SS}}{2} R_D + V_{TH1} \\\
+\\ V_{GS1} + (V_{GS3} - V_{TH3} ) &amp;amp;\le V_{in,CM} \le min \Big[ V_{DD}-\frac{I_{SS}}{2}R_D + V_{TH1, V_{DD}} \Big]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;$|A_v| - V_{in,CM}$ 图像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/5.png&#34;
+	width=&#34;2624&#34;
+	height=&#34;938&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/5_hu0e4a4cebf122b681b703cafd88814209_202941_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/5_hu0e4a4cebf122b681b703cafd88814209_202941_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;279&#34;
+		data-flex-basis=&#34;671px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;quantitative-analysis&#34;&gt;Quantitative Analysis&lt;/h2&gt;
+&lt;h3 id=&#34;differential-voltage-gain&#34;&gt;Differential Voltage Gain&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/3.png&#34;
+	width=&#34;1220&#34;
+	height=&#34;868&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/3_hubb1fdc5700161c5798cf54b8e9591543_97545_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/3_hubb1fdc5700161c5798cf54b8e9591543_97545_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;337px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当$M_1$和$M_2$都工作在&lt;strong&gt;Satuartion Region&lt;/strong&gt;时，有以下分析:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_{in1} - V_{in2} &amp;amp;= V_{G1} - V_{G2} \\
+V_{GS} - V_t&amp;amp;= \sqrt{\frac{2I}{k_n}} \\
+(V_{in1} - V_{in2})^2 &amp;amp;=  \frac{2}{k_n} (I_{SS} - 2\sqrt{I_{D1} I_{D2}}) \\
+\frac{1}{2}k_n(V_{in1} - V_{in2})^2 &amp;amp;= I_{SS} - 2\sqrt{I_{D1}I_{D2}} \\
+\because 4I_{D1}I_{D2} &amp;amp;= (I_{D1} + I_{D2})^2 - (I_{D1} - I_{D2})^2 \\
+&amp;amp;= I_{SS}^2 - (I_{D1} - I_{D2})^2 \\
+\therefore (I_{D1} - I_{D2})^2 &amp;amp;= I_{SS}^2 - 4I_{D1}I_{D2} \\
+&amp;amp;= I_{SS}^2 - (I_{SS} - \frac{1}{2}k_n(V_{in1} - V_{in2})^2)^2 \\
+&amp;amp;= I_{SS}k_n(V_{in1} - V_{in2})^2 - \frac{1}{4}k_n^2(V_{in1} -V_{in2})^4 \\
+\therefore I_{D1} - I_{D2} &amp;amp;= \frac{1}{2}k_n(V_{in1} - V_{in2})\sqrt{\frac{4I_{SS}}{k_n} - (V_{in1} - V_{in2})^2} \\
+\therefore \Delta I_{D} &amp;amp;= \frac{1}{2} k_n\Delta V_{in} \sqrt{\frac{4I_{SS}}{k_n} - \Delta V_{in}^2} \\\
+\\ \frac{\partial \Delta I_D}{\partial \Delta V_{in}} &amp;amp;= \frac{1}{2} k_n \dfrac{\dfrac{4I_{SS}}{k_n} - 2\Delta V_{in}^2}{\sqrt{\dfrac{4I_{SS}}{k_n} - \Delta V_{in}^2}} \\
+当\Delta V_{in} &amp;amp;= 0 时: \\
+G_m &amp;amp;= \sqrt{k_nI_{SS}}\\
+|A_v| &amp;amp;= \sqrt{k_nI_{SS}} R_D \\
+当 \Delta V_{in} &amp;amp;= \sqrt{\frac{2I_{SS}}{k_n}}时: \\
+G_m &amp;amp;= 0 \\
+V_{GS} &amp;amp;= \sqrt{\frac{I_{SS}}{k_n}} + V_T \\
+当\Delta V_{in} &amp;amp;= \sqrt{\frac{4I_{SS}}{k_n}}时: \\
+M_1, M_2 &amp;amp;\ not \ in \ Satuartion \ Region
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;voltage-gain&#34;&gt;Voltage Gain&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/7.png&#34;
+	width=&#34;1836&#34;
+	height=&#34;1574&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/7_hu33cec60249c6415fa3ed3815bfff2a2c_248950_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/7_hu33cec60249c6415fa3ed3815bfff2a2c_248950_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;279px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;本图中，$M_1$与$M_2$相同，$R_{D1} = R_{D2}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/10.png&#34;
+	width=&#34;1936&#34;
+	height=&#34;776&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/10_hu0df30a76fe1fd7fcefc9feb611a0b23b_124943_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/10_hu0df30a76fe1fd7fcefc9feb611a0b23b_124943_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;249&#34;
+		data-flex-basis=&#34;598px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{V_X}{V_{in1}} &amp;amp;= -\frac{R_{D1}}{\dfrac{1}{g_{m1}} + \dfrac{1}{g_{m2}}} \\
+\frac{V_Y}{V_{in1}} &amp;amp;= \frac{R_{D2}}{\dfrac{1}{g_{m1}} + \dfrac{1}{g_{m2}}} \\
+A_v &amp;amp;=\frac{V_X - V_Y}{V_{in1} - V_{in2}}  \\
+&amp;amp;= -g_m R_D
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/6.png&#34;
+	width=&#34;1836&#34;
+	height=&#34;766&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/6_hu6439aa2ed500bac08990ccca7b346f73_147016_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/6_hu6439aa2ed500bac08990ccca7b346f73_147016_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;239&#34;
+		data-flex-basis=&#34;575px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;对于线性电路v_p虚接地&#34;&gt;对于线性电路，$V_P$虚接地&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/8.png&#34;
+	width=&#34;2354&#34;
+	height=&#34;770&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/8_hu69fbd30cc68e575e4119102ea01039ef_142863_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/8_hu69fbd30cc68e575e4119102ea01039ef_142863_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;305&#34;
+		data-flex-basis=&#34;733px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;假设(a)图输入电压以图(b)所视方式变化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_{in1} = V_0 + \Delta V_{in}, V_{in2} &amp;amp;= V_0 - \Delta V_{in} \\
+V_1 = V_a + V_1, \Delta V_2 &amp;amp;= V_a - \Delta V_2 \\
+\because I_1 + I_2 &amp;amp;= I_T  \\
+\therefore g_m(\Delta V_1 + \Delta V_2) &amp;amp;= 0 \\
+\therefore \Delta V_1 &amp;amp;= - \Delta  V_2 \\\
+\\ V_{in1} - V_1 &amp;amp;= V_{in2} - V_2 = V_P \\
+V_{in1} + \Delta V_{in} - (V_a + \Delta V_1) &amp;amp;= V_{in2} - \Delta V_{in} - (V_a - \Delta V_2) \\
+\therefore \Delta V_{in} &amp;amp;= \Delta V_1 \\
+\therefore V_P&amp;amp;不变
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$P$ is a &lt;strong&gt;Virtual Ground&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;common-mode-response-small-signal-model&#34;&gt;Common-Mode Response (Small-Signal Model)&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/9.png&#34;
+	width=&#34;1554&#34;
+	height=&#34;1844&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/9_hua21bcd5a244a9f970ce4b6e10192af89_235377_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/9_hua21bcd5a244a9f970ce4b6e10192af89_235377_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;84&#34;
+		data-flex-basis=&#34;202px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;common-mode-gain&#34;&gt;Common-Mode Gain&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_v &amp;amp;= \frac{\dfrac{R_D}{2}}{\dfrac{1}{2g_m} + R_{SS}} \\
+G_m &amp;amp;= \frac{g_m}{1 + 2g_m R_{SS}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;considering-the-manufactured-difference&#34;&gt;Considering the Manufactured Difference&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+M_1 和 M_2 若不同 \\
+V_P &amp;amp;= (g_{m1} + g_{m2})(V_{in,CM} - V_P)R_{ss} \\
+\therefore V_P &amp;amp;= \frac{g_{m1} + g_{m2}}{1 + (g_{m1} + g_{m2})R_{SS}} R_{SS} \\
+V_X &amp;amp;= g_{m1}R_D(V_{in,CM} - V_P) \\
+&amp;amp;=  \frac{-g_{m1}}{1 + (g_{m1} + g_{m2})R_{SS}}R_D V_{in,CM} \\
+V_Y &amp;amp;=  \frac{-g_{m2}}{1 + (g_{m1} + g_{m2})R_{SS}}R_D V_{in,CM} \\
+\therefore A_{CM-DM} &amp;amp;= \frac{V_X - V_Y}{V_{in,CM}} \\
+&amp;amp;= \frac{\Delta g_m R_D}{1 + (g_{m1} +g_{m2}) R_{SS}} \\
+将R_{SS} 替换为C_S \\
+A_{CM-DM} &amp;amp;= \frac{\Delta g_m R_D}{\sqrt{1 + (g_{m1} + g_{m2})^2 \Big|\dfrac{1}{\omega C_S}\Big|^2} } \\
+A_{DM} &amp;amp;= -g_m R_D \\
+CMRR &amp;amp;= \frac{A_{DM}}{A_{CM-DM}} \\
+&amp;amp;= \frac{g_m}{\Delta g_m}(1 + 2g_mR_{ss}) \\
+其中, g_m &amp;amp;= \frac{g_{m1} + g_{m2}}{2}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;all-gains&#34;&gt;All Gains&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;分类&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;相同的MOSFET&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;不同的MOSFET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$g_m$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$g_m$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{g_{m1} + g_{m2}}{2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_{DM} &amp;amp;= -g_mR_D \\
+A_{CM} &amp;amp;= \frac{\dfrac{R_D}{2}}{R_{SS} + \dfrac{1}{2g_m}} \\
+A_{CM-DM} &amp;amp;= \dfrac{\Delta g_m R_D}{1 + (g_{m1} + g_{m2})R_{SS}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;differential-pair-with-mos-loads&#34;&gt;Differential Pair With MOS Loads&lt;/h1&gt;
+&lt;h2 id=&#34;differential-pair-with-diode-connected-and-common-source-loads&#34;&gt;Differential Pair With Diode-Connected and Common-Source Loads&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/11.png&#34;
+	width=&#34;1824&#34;
+	height=&#34;978&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/11_hub5ede1f213710bcf093477f6a2618528_170357_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/11_hub5ede1f213710bcf093477f6a2618528_170357_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;447px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+For \ (a) \\
+A_v &amp;amp;= -g_{mN} (\frac{1}{g_{mP}} || r_{oP} || r_{oN}) \\
+&amp;amp; \approx -\frac{g_{mN}}{g_{mP}} \\
+For \ (b) \\
+A_v &amp;amp;= -g_{mN} (r_{oP} || r_{oN})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;addition-of-current-sources-to-increase-the-voltage-gain&#34;&gt;Addition of current sources to increase the voltage gain&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/12.png&#34;
+	width=&#34;1138&#34;
+	height=&#34;820&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/12_hube2e47587f5a005a4506b68e1634ce44_92168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/12_hube2e47587f5a005a4506b68e1634ce44_92168_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;138&#34;
+		data-flex-basis=&#34;333px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+|A_v| &amp;amp;\approx g_{m1} [(g_{m3}r_{o3}r_{o1}) || (g_{m5}r_{o5}r_{o7})]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;gilbert-cell&#34;&gt;Gilbert Cell&lt;/h2&gt;
+&lt;h3 id=&#34;simple-vgas&#34;&gt;Simple VGAs&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/13.png&#34;
+	width=&#34;2370&#34;
+	height=&#34;834&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/13_hu2bddb2ab0c87833cae0185ed99e8b983_169747_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/13_hu2bddb2ab0c87833cae0185ed99e8b983_169747_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;284&#34;
+		data-flex-basis=&#34;682px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;gilbert-cell-1&#34;&gt;Gilbert Cell&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/14.png&#34;
+	width=&#34;1358&#34;
+	height=&#34;1376&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/14_hu8a5f142b7a6688e6068e8f007b74afee_222137_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/14_hu8a5f142b7a6688e6068e8f007b74afee_222137_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;236px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(d)是(c)的化简&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+For (a) \\
+V_{out} &amp;amp;= A_1 V_{cont1} + A_2 V_{cont2} \\
+&amp;amp;= R_D(I_{D1} + I_{D4}) - R_D(I_{D2} + I_{D3})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
+&lt;h2 id=&#34;degeneration-resistance&#34;&gt;Degeneration Resistance&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Make the system more stable, able to resist degredation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;vga-variable-gain-amplifier&#34;&gt;VGA (Variable-Gain Amplifier)&lt;/h2&gt;
+&lt;h2 id=&#34;什么时候考虑输出电阻dfrac1g_m-&#34;&gt;什么时候考虑输出电阻$\dfrac{1}{g_m}$ ???&lt;/h2&gt;
 </description>
         </item>
         <item>
@@ -29245,63 +29324,19 @@ $$&lt;/p&gt;
 &lt;p&gt;代码&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;建议&#34;&gt;建议&lt;/h2&gt;
-&lt;h3 id=&#34;适当使用自创词&#34;&gt;适当使用自创词&lt;/h3&gt;
+&lt;h2 id=&#34;摘要写法&#34;&gt;摘要写法&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;连字符型自创词&lt;/p&gt;
+&lt;p&gt;综述要&lt;strong&gt;简短&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;首字母大写型自创词&lt;/p&gt;
+&lt;p&gt;针对每个问题描述模型&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;求解后设立参数值&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;数据来源&#34;&gt;数据来源&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用数学模型创造&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;官方网站的数据&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;重要词汇可以加粗或者斜体&#34;&gt;重要词汇可以&lt;strong&gt;加粗&lt;/strong&gt;或者&lt;em&gt;斜体&lt;/em&gt;&lt;/h3&gt;
-&lt;h1 id=&#34;经验总结与学习方向&#34;&gt;经验总结与学习方向&lt;/h1&gt;
-&lt;h2 id=&#34;经验总结&#34;&gt;经验总结&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;认真审题&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;时间长不要紧，题目一定要看懂&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;仔细审阅题目的文献&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;strong&gt;明确分工&lt;/strong&gt;,提高&lt;strong&gt;效率&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;分工可以有重复&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;明确接下来的学习方向&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;学习LaTeX并&lt;strong&gt;熟练掌握&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;学会画图&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;论文结构&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;老师经验&#34;&gt;老师经验&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;算法要通过&lt;strong&gt;伪代码&lt;/strong&gt;或&lt;strong&gt;自然语言&lt;/strong&gt;描述&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;s 经验总结&lt;/p&gt;
 &lt;h1 id=&#34;训练经验&#34;&gt;训练经验&lt;/h1&gt;
 &lt;h2 id=&#34;第一次训练&#34;&gt;第一次训练&lt;/h2&gt;
 &lt;p&gt;1.建模过程中会出现分段拟合的情况，分段进行建模；&lt;/p&gt;
@@ -29312,15 +29347,8 @@ $$&lt;/p&gt;
 &lt;p&gt;6.模型假设时可以考虑的两个角度：一是对数据的可靠性，二是对其他影响因素忽略不计；&lt;/p&gt;
 &lt;p&gt;7.数据预处理时用到的理论也要进行说明；&lt;/p&gt;
 &lt;p&gt;8.列表简化数据的表述；&lt;/p&gt;
-&lt;p&gt;9.对图片大小和密集程度进行调整，记得给图片标上小标题和序号；&lt;/p&gt;
-&lt;p&gt;10.目前我们擅长使用的：MATLAB、lingo（最优化可采用）、python、spss、Excel&lt;/p&gt;
-&lt;h2 id=&#34;任务&#34;&gt;任务&lt;/h2&gt;
-&lt;p&gt;1.主成分分析、因子分析、方差分析、聚类分析（数模群里的文件+网上相关文件）【4.22——4.28】&lt;/p&gt;
-&lt;p&gt;2.曲线拟合、插值拟合、非线性方差求根、极值问题（群里的文件）【五一期间完成】&lt;/p&gt;
-&lt;p&gt;3.Lingo软件学习-最优化方法【5.4-5.11】&lt;/p&gt;
-&lt;p&gt;4.学习往届优秀论文一到两篇【到校赛前】&lt;/p&gt;
+&lt;p&gt;9.目前我们擅长使用的：MATLAB、lingo（最优化可采用）、python、spss、Excel&lt;/p&gt;
 &lt;h2 id=&#34;第二次训练&#34;&gt;第二次训练&lt;/h2&gt;
-&lt;h3 id=&#34;代码准备&#34;&gt;代码准备&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;数据拟合&lt;/li&gt;
 &lt;/ol&gt;
@@ -29399,9 +29427,51 @@ $$&lt;/p&gt;
 &lt;p&gt;条件极值法：在满足一定条件（如等式、不等式）下寻找极值点。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;第三次训练----校赛&#34;&gt;第三次训练 &amp;ndash; 校赛&lt;/h2&gt;
-&lt;h3 id=&#34;第一步----数据预处理&#34;&gt;第一步 &amp;ndash; 数据预处理&lt;/h3&gt;
-&lt;h3 id=&#34;学会使用excel&#34;&gt;学会使用Excel&lt;/h3&gt;
+&lt;h2 id=&#34;第三次训练&#34;&gt;第三次训练&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;分析问题，&lt;strong&gt;写下&lt;/strong&gt;概要&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;图要清晰&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;算法&lt;/strong&gt;要通过&lt;strong&gt;伪代码&lt;/strong&gt;或&lt;strong&gt;自然语言&lt;/strong&gt;描述&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;strong&gt;流程图&lt;/strong&gt;描述&lt;strong&gt;算法&lt;/strong&gt;时要提前描述&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;明确模型&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;算法要编号&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;spss表格要重新编辑&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;7-8个参考文献&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;非技术性报告要&lt;strong&gt;图文并茂&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;摘要不需要&lt;strong&gt;公式、图表&lt;/strong&gt;等&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不要连续画图&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;非技术性报告&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参考文献不加编号&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;题目不要太泛&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='CS Stage CS Stage With Resistive Load 图示 分析$A$和$V_{out}$ $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} V_{DD} (没有压降) &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} ) \\\ \\ Saturation \ Gain: \\ A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\ &amp;amp;= -g_m R_D \end{aligned} $$'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='CS Stage CS Stage With Resistive Load 图示 分析$A$和$V_{out}$ $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} V_{DD} (没有压降) &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2}[2(V_{in} - V_t)V_{out}- V_{out}^2] R_D &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大,使得V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} ) \\\ \\ Saturation \ Gain: \\ A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\ &amp;amp;= -g_m R_D \end{aligned} $$'>
 <title>3. Single Stage Amplifier</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/3.-single-stage-amplifier/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='3. Single Stage Amplifier'>
-<meta property='og:description' content='CS Stage CS Stage With Resistive Load 图示 分析$A$和$V_{out}$ $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} V_{DD} (没有压降) &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} ) \\\ \\ Saturation \ Gain: \\ A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\ &amp;amp;= -g_m R_D \end{aligned} $$'>
+<meta property='og:description' content='CS Stage CS Stage With Resistive Load 图示 分析$A$和$V_{out}$ $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} V_{DD} (没有压降) &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2}[2(V_{in} - V_t)V_{out}- V_{out}^2] R_D &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大,使得V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} ) \\\ \\ Saturation \ Gain: \\ A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\ &amp;amp;= -g_m R_D \end{aligned} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/3.-single-stage-amplifier/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-25T09:32:13&#43;08:00'/><meta property='article:modified_time' content='2023-04-25T09:32:13&#43;08:00'/>
 <meta name="twitter:title" content="3. Single Stage Amplifier">
-<meta name="twitter:description" content="CS Stage CS Stage With Resistive Load 图示 分析$A$和$V_{out}$ $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} V_{DD} (没有压降) &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} ) \\\ \\ Saturation \ Gain: \\ A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\ &amp;amp;= -g_m R_D \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="CS Stage CS Stage With Resistive Load 图示 分析$A$和$V_{out}$ $$ V_{in} = V_{GS}, V_{out} = V_{DS} \\\ \\ V_{out} = \begin{cases} V_{DD} (没有压降) &amp;amp; V_{in} \lt V_t \\ V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp;amp; V_{in} \ge V_t \\ V_{in} - V_t &amp;amp; V_{in} - V_t = V_{out} \\ V_{DD} - \frac{1}{2}[2(V_{in} - V_t)V_{out}- V_{out}^2] R_D &amp;amp; Triode \ Region \end{cases} \\\ \\ 如果V_{in}很大,使得V_{out} \ll 2(V_{in} -V_t) \\\ \\ \begin{aligned} V_{out} &amp;amp;= \frac{R_{on}}{R_{on} &#43; R_D}V_{DD} \\ &amp;amp;= \frac{V_{DD}}{1 &#43; k_n R_D(V_{in} -V_t)} \\ ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} ) \\\ \\ Saturation \ Gain: \\ A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\ &amp;amp;= -g_m R_D \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -262,8 +262,8 @@
         </li>
         <li><a href="#cs-stage-with-diode-connected-load">CS Stage With Diode-Connected Load</a>
           <ol>
-            <li><a href="#电路图">电路图</a></li>
-            <li><a href="#测量电路">测量电路</a></li>
+            <li><a href="#diode-connected-load-电路--简单电阻测量">Diode-Connected Load 电路 + 简单电阻测量</a></li>
+            <li><a href="#精确电阻测量">精确电阻测量</a></li>
             <li><a href="#gain-of-cs--diode-connected">Gain of CS + Diode-Connected</a></li>
             <li><a href="#cs-stage-with-diode-connected-pmos-device">CS stage with diode-connected PMOS device</a></li>
           </ol>
@@ -273,24 +273,25 @@
         <li><a href="#cs-stage-with-source-degeneration">CS Stage With Source Degeneration</a>
           <ol>
             <li><a href="#电路">电路</a></li>
-            <li><a href="#分析">分析</a></li>
-            <li><a href="#小信号等效电路">小信号等效电路</a></li>
+            <li><a href="#简化分析">简化分析</a></li>
+            <li><a href="#具体分析">具体分析</a></li>
             <li><a href="#图像">图像</a></li>
           </ol>
         </li>
+        <li><a href="#cs-stage-with-source-degeneration--constant-current-source">CS Stage With Source Degeneration &amp; Constant Current Source</a></li>
       </ol>
     </li>
-    <li><a href="#source-follower-cd">Source Follower (CD)</a>
+    <li><a href="#source-follower">Source Follower</a>
       <ol>
         <li><a href="#电路-电压特性">电路 电压特性</a></li>
-        <li><a href="#分析-1">分析</a></li>
+        <li><a href="#分析">分析</a></li>
         <li><a href="#小信号等效电路-增益曲线">小信号等效电路 增益曲线</a></li>
       </ol>
     </li>
     <li><a href="#common-gate-stage">Common-Gate Stage</a>
       <ol>
         <li><a href="#电路-1">电路</a></li>
-        <li><a href="#分析-2">分析</a></li>
+        <li><a href="#分析-1">分析</a></li>
       </ol>
     </li>
     <li><a href="#cascode-stage-d-s">Cascode Stage (D-S)</a>
@@ -298,7 +299,7 @@
         <li><a href="#basic-configuration">Basic Configuration</a>
           <ol>
             <li><a href="#电路-2">电路</a></li>
-            <li><a href="#分析-3">分析</a></li>
+            <li><a href="#分析-2">分析</a></li>
             <li><a href="#io-特性">I/O 特性</a></li>
             <li><a href="#cascode-stage-with-current-source-load">Cascode Stage With Current-Source Load</a></li>
           </ol>
@@ -311,7 +312,7 @@
         <li><a href="#triode-region-resistance">Triode Region Resistance</a></li>
         <li><a href="#mosfet的电阻">MOSFET的电阻</a></li>
         <li><a href="#body-effect">Body Effect</a></li>
-        <li><a href="#formula-">Formula ???</a></li>
+        <li><a href="#g_mbv_bs">$g_{mb}V_{bs}$</a></li>
       </ol>
     </li>
   </ol>
@@ -378,7 +379,7 @@
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -416,9 +417,9 @@ V_{in} = V_{GS}, V_{out} = V_{DS} \\\
 V_{DD} (没有压降) &amp; V_{in} \lt V_t \\
 V_{DD} -\frac{1}{2}k_n (V_{in} - V_t)^2 R_D &amp; V_{in} \ge V_t \\
 V_{in} - V_t &amp; V_{in} - V_t = V_{out} \\
-V_{DD} - \frac{1}{2} R_Dk_n[2(V_{in} - V_t)V_{out}- V_{out}^2] &amp; Triode \ Region
+V_{DD} - \frac{1}{2}[2(V_{in} - V_t)V_{out}- V_{out}^2] R_D &amp; Triode \ Region
 \end{cases} \\\
-\\ 如果V_{in}很大, V_{out} \ll 2(V_{in} -V_t) \\\
+\\ 如果V_{in}很大,使得V_{out} \ll 2(V_{in} -V_t) \\\
 \\ \begin{aligned}
 V_{out} &amp;= \frac{R_{on}}{R_{on} + R_D}V_{DD} \\
 &amp;= \frac{V_{DD}}{1 + k_n R_D(V_{in} -V_t)}  \\
@@ -452,7 +453,7 @@ A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
 &amp;= -g_m \frac{r_0R_D}{r_0 + R_D}
 \end{aligned}$$</p>
 <h2 id="cs-stage-with-diode-connected-load">CS Stage With Diode-Connected Load</h2>
-<h3 id="电路图">电路图</h3>
+<h3 id="diode-connected-load-电路--简单电阻测量">Diode-Connected Load 电路 + 简单电阻测量</h3>
 <p><img src="/p/3.-single-stage-amplifier/3.png"
 	width="809"
 	height="316"
@@ -466,10 +467,14 @@ A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
 	
 ></p>
 <p>$$
-V_1 = V_X \\\
-\\ I_X = \frac{V_X}{r_0} + g_mV_X
+\begin{aligned}
+V_1 &amp;= V_X \\
+I_X &amp;= \frac{V_X}{r_0} + g_mV_X \\
+Z_{in} &amp;=\frac{V_X}{I_X}  \\
+&amp;\approx \frac{1}{g_m}
+\end{aligned}
 $$</p>
-<h3 id="测量电路">测量电路</h3>
+<h3 id="精确电阻测量">精确电阻测量</h3>
 <p><img src="/p/3.-single-stage-amplifier/4.png"
 	width="728"
 	height="380"
@@ -529,7 +534,8 @@ I_{D1} &amp;= I_{D2} \\
 \sqrt{(\frac{W}{L})<em>1} (V</em>{in} -V_{t1}) &amp;= \sqrt{(\frac{W}{L})<em>2}(V</em>{DD} - V_{out} - V_{t2}) \\
 \sqrt{(\frac{W}{L})<em>1} &amp;= -\sqrt{(\frac{W}{L})<em>2}(\frac{\partial V</em>{out}}{\partial V</em>{in}} - \frac{\partial V_{t2}}{\partial V_{in}}) \\
 \because \frac{\partial V_{t2}}{\partial V_{in}} &amp;= \frac{\partial V_{t2}}{\partial V_{out}} \frac{\partial V_{out}}{\partial V_{in}} = \eta\frac{\partial V_{out}}{\partial V_{in}} \\
-\therefore A_v &amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta} \\
+\therefore A_v &amp;= \frac{\partial V_{out}}{V_{in}} \\
+&amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta} \\
 &amp;\approx -\sqrt{\frac{(W/L)_1}{(W/L)_2}}
 \end{aligned}
 $$</p>
@@ -548,7 +554,7 @@ $$</p>
 ></p>
 <p>$$
 \begin{aligned}
-I_{D1} &amp; = I_{D2} \\
+\because I_{D1} &amp; = I_{D2} \\
 \therefore k_nV_{ovn}^2 &amp;= k_pV_{ovp}^2 \\
 \therefore \frac{\mu_n (W/L)<em>n}{\mu_p(W/L)<em>p}  &amp;= \frac{|V</em>{ovp}|}{V</em>{ovn}} \\
 \therefore A_v &amp;\approx -\frac{|V_{GS2} - V_{TH2}|}{V_{GS1} - V_{TH1}} \\
@@ -593,7 +599,8 @@ $$</p>
 ></p>
 <p>$$
 \begin{aligned}
-R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V_b-V_{Tp})}
+R_{on2} &amp;= \frac{1}{g_{m2}} \\
+&amp;= \dfrac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V_b-V_{Tp})}
 \end{aligned}
 $$</p>
 <h2 id="cs-stage-with-source-degeneration">CS Stage With Source Degeneration</h2>
@@ -610,7 +617,7 @@ $$</p>
 		data-flex-basis="485px"
 	
 ></p>
-<h3 id="分析">分析</h3>
+<h3 id="简化分析">简化分析</h3>
 <p>$$
 设I_D = f(V_{GS})  \\\
 \\ \begin{aligned}
@@ -621,11 +628,13 @@ G_m &amp;= \frac{\partial I_D}{\partial V_{in}} \\
 &amp;= g_m(1 -R_SG_m)
 \\ \therefore G_m &amp;= \frac{g_m}{1+g_mR_S} \\\
 \\ \therefore A_v &amp;= -G_m R_D  \\
-&amp;= -\frac{g_mR_D}{1 + g_mR_S} \\
-&amp;= -\frac{R_D}{ \dfrac{1}{g_m}}
+&amp;= -\frac{g_mR_D}{1 + g_mR_S}
 \end{aligned}
 $$</p>
-<h3 id="小信号等效电路">小信号等效电路</h3>
+<h3 id="具体分析">具体分析</h3>
+<ul>
+<li>考虑了<strong>Channel Length Modulation</strong>和<strong>Body Effect</strong></li>
+</ul>
 <ol>
 <li>电路</li>
 </ol>
@@ -642,7 +651,7 @@ $$</p>
 	
 ></p>
 <ol start="2">
-<li>考虑CLM的分析</li>
+<li>等效跨导</li>
 </ol>
 <p>$$
 \begin{aligned}
@@ -653,7 +662,7 @@ G_m &amp;= \frac{I_{out}}{V_{in}} \\
 \end{aligned} \\\
 $$</p>
 <ol start="3">
-<li>计算$R_{out}$</li>
+<li>增大的<strong>输出电阻</strong></li>
 </ol>
 <p><img src="/p/3.-single-stage-amplifier/23.png"
 	width="1542"
@@ -674,6 +683,27 @@ V_1 &amp;= - I_XR_S \\
 \therefore V_X &amp;= I_{ro} r_o + I_X R_S \\
 \therefore R_{out} &amp;= \frac{V_X}{I_X} \\
 &amp;= R_S + [1 + (g_m + g_{mb}) R_S]r_o
+\end{aligned}
+$$</p>
+<ol start="4">
+<li>最终增益</li>
+</ol>
+<p><img src="/p/3.-single-stage-amplifier/24.png"
+	width="1442"
+	height="516"
+	srcset="/p/3.-single-stage-amplifier/24_hudb799f5c73098304764fe5112427af00_62841_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/24_hudb799f5c73098304764fe5112427af00_62841_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="279"
+		data-flex-basis="670px"
+	
+></p>
+<p>$$
+\begin{aligned}
+A_v &amp;= \frac{V_{out}}{V_{in}}  \\
+&amp;= -\frac{g_m r_o R_D}{R_D + R_S + r_o + (g_m + g_{mb}) R_S r_o}
 \end{aligned}
 $$</p>
 <h3 id="图像">图像</h3>
@@ -701,7 +731,28 @@ $$</p>
 		data-flex-basis="337px"
 	
 ></p>
-<h1 id="source-follower-cd">Source Follower (CD)</h1>
+<h2 id="cs-stage-with-source-degeneration--constant-current-source">CS Stage With Source Degeneration &amp; Constant Current Source</h2>
+<p><img src="/p/3.-single-stage-amplifier/25.png"
+	width="494"
+	height="618"
+	srcset="/p/3.-single-stage-amplifier/25_hu49699bf4809f6df26d9c6deaa4bcc595_35048_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/25_hu49699bf4809f6df26d9c6deaa4bcc595_35048_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="79"
+		data-flex-basis="191px"
+	
+></p>
+<p>$$
+\begin{aligned}
+A_v &amp;= -g_m r_o
+\end{aligned}
+$$</p>
+<ul>
+<li>if $I_o$ is ideal, the current through $R_s$ cannot change and hence the small-signal voltage drop across $R_s$ is zero</li>
+</ul>
+<h1 id="source-follower">Source Follower</h1>
 <h2 id="电路-电压特性">电路 电压特性</h2>
 <p><img src="/p/3.-single-stage-amplifier/11.png"
 	width="809"
@@ -715,7 +766,7 @@ $$</p>
 		data-flex-basis="508px"
 	
 ></p>
-<h2 id="分析-1">分析</h2>
+<h2 id="分析">分析</h2>
 <p>$$
 \begin{aligned}
 V_{out} &amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
@@ -773,7 +824,7 @@ $$</p>
 <p>(b) 电容耦合</p>
 </li>
 </ul>
-<h2 id="分析-2">分析</h2>
+<h2 id="分析-1">分析</h2>
 <p>$$
 \begin{aligned}
 V_{out} &amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
@@ -805,7 +856,7 @@ $$</p>
 <p>$M_2$: Cascode Device</p>
 </li>
 </ul>
-<h3 id="分析-3">分析</h3>
+<h3 id="分析-2">分析</h3>
 <ul>
 <li>为了让$M_1$和$M_2$都工作在饱和区，作出以下分析</li>
 </ul>
@@ -910,28 +961,57 @@ $$</p>
 <p>We can approximate $R_{DS}$ as being equal to its maximum value, which is equal to $\dfrac{V_D}{I_D}$. This gives us an equivalent resistance of $R_{on} = \dfrac{V_D}{I_D}$.</p>
 </blockquote>
 <h2 id="mosfet的电阻">MOSFET的电阻</h2>
-<ol>
-<li>
-<p>输出电阻$\frac{1}{g_m}$</p>
-</li>
-<li>
-<p>反向传输电阻$r_o$</p>
-</li>
-</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">输出电阻</th>
+<th style="text-align:center">反向输出电阻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">符号</td>
+<td style="text-align:center">$\frac{1}{g_m}$ 或 $r_{ds}$</td>
+<td style="text-align:center">$r_o$</td>
+</tr>
+<tr>
+<td style="text-align:center">适用情况</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">考虑CLM</td>
+</tr>
+<tr>
+<td style="text-align:center">不适用情况</td>
+<td style="text-align:center">高频电路</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
 <ul>
-<li>一般的, $r_o \gg \frac{1}{g_m}$</li>
+<li>
+<p>在饱和区，当MOSFET的输入电压足够高，使得MOSFET的通道完全打开，电流受限于外部电路阻抗而不是MOSFET本身。在这种情况下，MOSFET的漏-源电压和漏电流之间的关系可以近似为线性关系，类似于<strong>普通的电阻</strong>。</p>
+</li>
+<li>
+<p>一般的, $r_o \gg \frac{1}{g_m}$</p>
+</li>
 </ul>
 <h2 id="body-effect">Body Effect</h2>
 <blockquote>
-<p>the voltage at the body terminal (which is usually connected to the s ource) affects the threshold voltage of the device. This occurs because of the depletion region that forms between the body and channel regions. When a voltage is applied to the body, it changes the width of this depletion region, which alters the effective thickness of the oxide layer between gate and channel.</p>
+<p>the voltage at the body terminal (which is usually connected to the source) affects the threshold voltage of the device. This occurs because of the depletion region that forms between the body and channel regions. When a voltage is applied to the body, it changes the width of this depletion region, which alters the effective thickness of the oxide layer between gate and channel.</p>
 </blockquote>
-<h2 id="formula-">Formula ???</h2>
 <p>$$
 \begin{aligned}
 \eta &amp;= \frac{g_m}{g_{mb}} \\
 &amp;=\dfrac{\partial V_{TH}}{\partial V_{in}}
 \end{aligned}
 $$</p>
+<ul>
+<li>在考虑<strong>Body Effect</strong>时, $V_t$是一个随电流变化的参数(一般情况下变化很小，忽略不计)</li>
+</ul>
+<h2 id="g_mbv_bs">$g_{mb}V_{bs}$</h2>
+<ul>
+<li>二极管的反向传输电阻对二极管电流的影响, 其中$g_{mb}$叫做<strong>反向跨导</strong>, 指栅-漏结电容在反向偏置下存储的电荷引起的漏极电流变化的比例，反映了MOSFET的输入特性。</li>
+</ul>
 
 </section>
 
