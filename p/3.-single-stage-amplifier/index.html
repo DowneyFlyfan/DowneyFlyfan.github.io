@@ -264,7 +264,7 @@
           <ol>
             <li><a href="#电路图">电路图</a></li>
             <li><a href="#测量电路">测量电路</a></li>
-            <li><a href="#cs--diode-connected">CS + Diode-Connected</a></li>
+            <li><a href="#gain-of-cs--diode-connected">Gain of CS + Diode-Connected</a></li>
             <li><a href="#cs-stage-with-diode-connected-pmos-device">CS stage with diode-connected PMOS device</a></li>
           </ol>
         </li>
@@ -493,7 +493,7 @@ I_X &amp;=\frac{V_X}{r_0} + (g_m + g_{mb})V_X \\
 Z_{in} &amp;\approx \frac{1}{g_m + g_{mb}}
 \end{aligned}
 $$</p>
-<h3 id="cs--diode-connected">CS + Diode-Connected</h3>
+<h3 id="gain-of-cs--diode-connected">Gain of CS + Diode-Connected</h3>
 <p><img src="/p/3.-single-stage-amplifier/5.png"
 	width="526"
 	height="668"
@@ -507,19 +507,20 @@ $$</p>
 	
 ></p>
 <ol>
-<li>Gain (Method I)</li>
+<li>Method I</li>
 </ol>
 <p>$$
 \begin{aligned}
 A_v &amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
 &amp;= -\frac{g_{m1}}{g_{m2}}\frac{1}{1 + \eta}  \\
-&amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta}(I_{D1} = I_{D2}) \\
-&amp;= -\sqrt{\frac{(W/L)<em>1}{(W/L)<em>2}}\frac{1}{1+\eta} \\
-\eta&amp;=\frac{g</em>{mb2}}{g</em>{m2}} = \frac{\partial V_{TH}}{\partial V_{out}}
+\Big( \eta&amp;=\frac{g_{mb2}}{g_{m2}} = \frac{\partial V_{TH}}{\partial V_{out}} \Big) \\
+\because I_{D1} &amp;= I_{D2} \\
+\therefore A_v &amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta} \\
+&amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta}
 \end{aligned}
 $$</p>
 <ol start="2">
-<li>Gain (Method II)</li>
+<li>Method II</li>
 </ol>
 <p>$$
 \begin{aligned}
@@ -527,7 +528,7 @@ I_{D1} &amp;= I_{D2} \\
 \frac{1}{2}k_{n1}(V_{in} - V_{t1})^2  &amp;= \frac{1}{2}k_{n2}(V_{DD} - V_{out} -V_{t2})^2 \\
 \sqrt{(\frac{W}{L})<em>1} (V</em>{in} -V_{t1}) &amp;= \sqrt{(\frac{W}{L})<em>2}(V</em>{DD} - V_{out} - V_{t2}) \\
 \sqrt{(\frac{W}{L})<em>1} &amp;= -\sqrt{(\frac{W}{L})<em>2}(\frac{\partial V</em>{out}}{\partial V</em>{in}} - \frac{\partial V_{t2}}{\partial V_{in}}) \\
-\frac{\partial V_{t2}}{\partial V_{in}} &amp;= \frac{\partial V_{t2}}{\partial V_{out}} \frac{\partial V_{out}}{\partial V_{in}} = \eta\frac{\partial V_{out}}{\partial V_{in}} \\
+\because \frac{\partial V_{t2}}{\partial V_{in}} &amp;= \frac{\partial V_{t2}}{\partial V_{out}} \frac{\partial V_{out}}{\partial V_{in}} = \eta\frac{\partial V_{out}}{\partial V_{in}} \\
 \therefore A_v &amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta} \\
 &amp;\approx -\sqrt{\frac{(W/L)_1}{(W/L)_2}}
 \end{aligned}
@@ -894,7 +895,7 @@ $$</p>
 <p>$$
 \begin{aligned}
 I_{D2} &amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
-\circled{1} I_{D2} &amp;= 0 : \\
+I_{D2} &amp;= 0 : \\
 I_{D1} &amp;=  I_1  \\
 &amp;=\frac{1}{2}\mu_pC_{OX} (\frac{W}{L})<em>1 (V</em>{DD} - V_{in} - |V_{T1}|)^2 \\
 \therefore V_{in1} &amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
