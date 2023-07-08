@@ -264,12 +264,7 @@
           <ol>
             <li><a href="#电路图">电路图</a></li>
             <li><a href="#测量电路">测量电路</a></li>
-            <li><a href="#cs--diode-connected">CS + Diode-Connected</a>
-              <ol>
-                <li><a href="#gain的推导-method-i">Gain的推导 Method I</a></li>
-                <li><a href="#gain的推导-method-ii">Gain的推导 Method II</a></li>
-              </ol>
-            </li>
+            <li><a href="#cs--diode-connected">CS + Diode-Connected</a></li>
             <li><a href="#cs-stage-with-diode-connected-pmos-device">CS stage with diode-connected PMOS device</a></li>
           </ol>
         </li>
@@ -308,12 +303,7 @@
             <li><a href="#cascode-stage-with-current-source-load">Cascode Stage With Current-Source Load</a></li>
           </ol>
         </li>
-        <li><a href="#folded-cascode">Folded Cascode</a>
-          <ol>
-            <li><a href="#三种电路">三种电路</a></li>
-            <li><a href="#分析-4">分析</a></li>
-          </ol>
-        </li>
+        <li><a href="#folded-cascode">Folded Cascode</a></li>
       </ol>
     </li>
     <li><a href="#附录">附录</a>
@@ -321,6 +311,7 @@
         <li><a href="#triode-region-resistance">Triode Region Resistance</a></li>
         <li><a href="#mosfet的电阻">MOSFET的电阻</a></li>
         <li><a href="#body-effect">Body Effect</a></li>
+        <li><a href="#formula-">Formula ???</a></li>
       </ol>
     </li>
   </ol>
@@ -515,20 +506,24 @@ $$</p>
 		data-flex-basis="188px"
 	
 ></p>
-<h4 id="gain的推导-method-i">Gain的推导 Method I</h4>
+<ol>
+<li>Gain (Method I)</li>
+</ol>
 <p>$$
 \begin{aligned}
 A_v &amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
 &amp;= -\frac{g_{m1}}{g_{m2}}\frac{1}{1 + \eta}  \\
 &amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta}(I_{D1} = I_{D2}) \\
 &amp;= -\sqrt{\frac{(W/L)<em>1}{(W/L)<em>2}}\frac{1}{1+\eta} \\
-\eta&amp;=\frac{g</em>{mb2}}{g</em>{m2}} = \frac{\partial V_{TH}}{\partial V_{out}} \ (???)
+\eta&amp;=\frac{g</em>{mb2}}{g</em>{m2}} = \frac{\partial V_{TH}}{\partial V_{out}}
 \end{aligned}
 $$</p>
-<h4 id="gain的推导-method-ii">Gain的推导 Method II</h4>
+<ol start="2">
+<li>Gain (Method II)</li>
+</ol>
 <p>$$
 \begin{aligned}
-I_{D1} &amp;= I_{D2}  \\
+I_{D1} &amp;= I_{D2} \\
 \frac{1}{2}k_{n1}(V_{in} - V_{t1})^2  &amp;= \frac{1}{2}k_{n2}(V_{DD} - V_{out} -V_{t2})^2 \\
 \sqrt{(\frac{W}{L})<em>1} (V</em>{in} -V_{t1}) &amp;= \sqrt{(\frac{W}{L})<em>2}(V</em>{DD} - V_{out} - V_{t2}) \\
 \sqrt{(\frac{W}{L})<em>1} &amp;= -\sqrt{(\frac{W}{L})<em>2}(\frac{\partial V</em>{out}}{\partial V</em>{in}} - \frac{\partial V_{t2}}{\partial V_{in}}) \\
@@ -596,7 +591,9 @@ $$</p>
 	
 ></p>
 <p>$$
-R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V-b-V_{Tp})}
+\begin{aligned}
+R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V_b-V_{Tp})}
+\end{aligned}
 $$</p>
 <h2 id="cs-stage-with-source-degeneration">CS Stage With Source Degeneration</h2>
 <h3 id="电路">电路</h3>
@@ -882,7 +879,6 @@ G_m &amp;= \frac{I_{out}}{V_{in}} \\
 \end{aligned}
 $$</p>
 <h2 id="folded-cascode">Folded Cascode</h2>
-<h3 id="三种电路">三种电路</h3>
 <p><img src="/p/3.-single-stage-amplifier/17.png"
 	width="846"
 	height="371"
@@ -895,11 +891,10 @@ $$</p>
 		data-flex-basis="547px"
 	
 ></p>
-<h3 id="分析-4">分析</h3>
 <p>$$
 \begin{aligned}
 I_{D2} &amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
-if \ I_{D2} &amp;= 0 : \\
+\circled{1} I_{D2} &amp;= 0 : \\
 I_{D1} &amp;=  I_1  \\
 &amp;=\frac{1}{2}\mu_pC_{OX} (\frac{W}{L})<em>1 (V</em>{DD} - V_{in} - |V_{T1}|)^2 \\
 \therefore V_{in1} &amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
@@ -927,8 +922,15 @@ $$</p>
 </ul>
 <h2 id="body-effect">Body Effect</h2>
 <blockquote>
-<p>the voltage at the body terminal (which is usually connected to the source) affects the threshold voltage of the device. This occurs because of the depletion region that forms between the body and channel regions. When a voltage is applied to the body, it changes the width of this depletion region, which alters the effective thickness of the oxide layer between gate and channel.</p>
+<p>the voltage at the body terminal (which is usually connected to the s ource) affects the threshold voltage of the device. This occurs because of the depletion region that forms between the body and channel regions. When a voltage is applied to the body, it changes the width of this depletion region, which alters the effective thickness of the oxide layer between gate and channel.</p>
 </blockquote>
+<h2 id="formula-">Formula ???</h2>
+<p>$$
+\begin{aligned}
+\eta &amp;= \frac{g_m}{g_{mb}} \\
+&amp;=\dfrac{\partial V_{TH}}{\partial V_{in}}
+\end{aligned}
+$$</p>
 
 </section>
 

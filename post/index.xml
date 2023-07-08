@@ -12,8 +12,77 @@
         <pubDate>Sat, 24 Jun 2023 10:07:33 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/9.-operational-amplifier/</guid>
-        <description>&lt;h1 id=&#34;one-stage-op-amps&#34;&gt;One-Stage Op Amps&lt;/h1&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+        <description>&lt;h1 id=&#34;simple-feedback-circuit&#34;&gt;Simple Feedback Circuit&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/9.-operational-amplifier/1.png&#34;
+	width=&#34;694&#34;
+	height=&#34;534&#34;
+	srcset=&#34;https://downeyflyfan.com/p/9.-operational-amplifier/1_hu47c161500cfac074ff812f6edce2c01b_40953_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/9.-operational-amplifier/1_hu47c161500cfac074ff812f6edce2c01b_40953_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;311px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;relative-gain-error&#34;&gt;Relative Gain Error&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;G&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Actual Gain&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Ideal Gain&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{aligned}
+RGE &amp;amp;= \frac{G - A}{A} \times 100% \\
+&amp;amp;= \frac{\dfrac{A}{1 + A\beta} - \dfrac{1}{\beta}}{\dfrac{1}{\beta}} \times 100% \\
+&amp;amp;= - \frac{1}{1 + A\beta}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;small-signal-bandwidth&#34;&gt;Small Signal Bandwidth&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The time required to reach &lt;strong&gt;1%&lt;/strong&gt; of its final value&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+H(s) &amp;amp;= \frac{V_{out}}{V_{in}}  \\
+&amp;amp;= \frac{A(s)}{1 + A(s)\beta} \\
+&amp;amp;= \frac{\dfrac{A_0}{1 + \dfrac{s}{\omega_0}}}{1 + \dfrac{A_0}{1 + \dfrac{s}{\omega_0}}\beta} \\
+&amp;amp;=\frac{A_0}{1 + \dfrac{s}{\omega_0} + A_0\beta} \\
+&amp;amp;= \frac{\dfrac{A_0}{1 + A_0 \beta}}{1 + \dfrac{s}{(1 + A_0\beta)\omega_0}} \\
+\therefore \tau &amp;amp;= \frac{1}{(1+A_0\beta)\omega_0} \\because \beta &amp;amp;= \frac{R_2}{R_1 + R_2} (In \ this \ case) \\
+Also, \ A_0\beta &amp;amp;\gg 1 \\
+\therefore \tau &amp;amp;\approx (1+\frac{R_1}{R_2})\frac{1}{A_0\omega_0} \\
+Step \ Response: \\
+V_{in} &amp;amp;= au(t) \\
+V_{out} &amp;amp;= a(1 + \frac{R_1}{R_2}) (1 - e^{-\frac{t}{\tau}})u(t) \\
+V_F &amp;amp;= a(1 + \frac{R_1}{R_2}) \\
+\therefore let \ 1 - e^{-\frac{t}{\tau}} &amp;amp;=0.01 \\
+t &amp;amp;= 4.6 \tau
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
+&lt;h2 id=&#34;one-pole-system-transfer-function&#34;&gt;One-Pole System Transfer Function&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+H(s) &amp;amp;= \frac{A}{1 + s\tau}  \\
+&amp;amp;= \frac{A}{1 + \dfrac{s}{\omega_0}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;负反馈电路的阶跃响应&#34;&gt;负反馈电路的阶跃响应&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}&lt;/p&gt;
+&lt;p&gt;\end{aligned}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -277,9 +346,9 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;845px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;CM-level&lt;/strong&gt;: Center Voltage (图中的虚线)&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;basic-differential-pair&#34;&gt;Basic Differential Pair&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/3.png&#34;
 	width=&#34;1220&#34;
@@ -581,7 +650,7 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-|A_v| &amp;amp;= ??139
+|A_v| &amp;amp;\approx g_{m1} [(g_{m3}r_{o3}r_{o1}) || (g_{m5}r_{o5}r_{o7})]
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;gilbert-cell&#34;&gt;Gilbert Cell&lt;/h2&gt;
@@ -627,6 +696,7 @@ $$&lt;/p&gt;
 &lt;li&gt;Make the system more stable, able to resist degredation&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;vga-variable-gain-amplifier&#34;&gt;VGA (Variable-Gain Amplifier)&lt;/h2&gt;
+&lt;h2 id=&#34;什么时候考虑输出电阻dfrac1g_m-&#34;&gt;什么时候考虑输出电阻$\dfrac{1}{g_m}$ ???&lt;/h2&gt;
 </description>
         </item>
         <item>
@@ -3781,20 +3851,24 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;188px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;gain的推导-method-i&#34;&gt;Gain的推导 Method I&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Gain (Method I)&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
 A_v &amp;amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
 &amp;amp;= -\frac{g_{m1}}{g_{m2}}\frac{1}{1 + \eta}  \\
 &amp;amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta}(I_{D1} = I_{D2}) \\
 &amp;amp;= -\sqrt{\frac{(W/L)&lt;em&gt;1}{(W/L)&lt;em&gt;2}}\frac{1}{1+\eta} \\
-\eta&amp;amp;=\frac{g&lt;/em&gt;{mb2}}{g&lt;/em&gt;{m2}} = \frac{\partial V_{TH}}{\partial V_{out}} \ (???)
+\eta&amp;amp;=\frac{g&lt;/em&gt;{mb2}}{g&lt;/em&gt;{m2}} = \frac{\partial V_{TH}}{\partial V_{out}}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h4 id=&#34;gain的推导-method-ii&#34;&gt;Gain的推导 Method II&lt;/h4&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Gain (Method II)&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
-I_{D1} &amp;amp;= I_{D2}  \\
+I_{D1} &amp;amp;= I_{D2} \\
 \frac{1}{2}k_{n1}(V_{in} - V_{t1})^2  &amp;amp;= \frac{1}{2}k_{n2}(V_{DD} - V_{out} -V_{t2})^2 \\
 \sqrt{(\frac{W}{L})&lt;em&gt;1} (V&lt;/em&gt;{in} -V_{t1}) &amp;amp;= \sqrt{(\frac{W}{L})&lt;em&gt;2}(V&lt;/em&gt;{DD} - V_{out} - V_{t2}) \\
 \sqrt{(\frac{W}{L})&lt;em&gt;1} &amp;amp;= -\sqrt{(\frac{W}{L})&lt;em&gt;2}(\frac{\partial V&lt;/em&gt;{out}}{\partial V&lt;/em&gt;{in}} - \frac{\partial V_{t2}}{\partial V_{in}}) \\
@@ -3862,7 +3936,9 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
-R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V-b-V_{Tp})}
+\begin{aligned}
+R_{on2} = \dfrac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V_b-V_{Tp})}
+\end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-source-degeneration&#34;&gt;CS Stage With Source Degeneration&lt;/h2&gt;
 &lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
@@ -4148,7 +4224,6 @@ G_m &amp;amp;= \frac{I_{out}}{V_{in}} \\
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;folded-cascode&#34;&gt;Folded Cascode&lt;/h2&gt;
-&lt;h3 id=&#34;三种电路&#34;&gt;三种电路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/17.png&#34;
 	width=&#34;846&#34;
 	height=&#34;371&#34;
@@ -4161,11 +4236,10 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;547px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-4&#34;&gt;分析&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 I_{D2} &amp;amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
-if \ I_{D2} &amp;amp;= 0 : \\
+\circled{1} I_{D2} &amp;amp;= 0 : \\
 I_{D1} &amp;amp;=  I_1  \\
 &amp;amp;=\frac{1}{2}\mu_pC_{OX} (\frac{W}{L})&lt;em&gt;1 (V&lt;/em&gt;{DD} - V_{in} - |V_{T1}|)^2 \\
 \therefore V_{in1} &amp;amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
@@ -4193,8 +4267,15 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;body-effect&#34;&gt;Body Effect&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;the voltage at the body terminal (which is usually connected to the source) affects the threshold voltage of the device. This occurs because of the depletion region that forms between the body and channel regions. When a voltage is applied to the body, it changes the width of this depletion region, which alters the effective thickness of the oxide layer between gate and channel.&lt;/p&gt;
+&lt;p&gt;the voltage at the body terminal (which is usually connected to the s ource) affects the threshold voltage of the device. This occurs because of the depletion region that forms between the body and channel regions. When a voltage is applied to the body, it changes the width of this depletion region, which alters the effective thickness of the oxide layer between gate and channel.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h2 id=&#34;formula-&#34;&gt;Formula ???&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\eta &amp;amp;= \frac{g_m}{g_{mb}} \\
+&amp;amp;=\dfrac{\partial V_{TH}}{\partial V_{in}}
+\end{aligned}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
