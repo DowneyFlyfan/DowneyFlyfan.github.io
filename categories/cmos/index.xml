@@ -489,7 +489,7 @@ $$&lt;/p&gt;
 \begin{aligned}
 V_1  - \frac{V_{out}}{R_D} R_S + V_{in} &amp;amp;=0  \\
 V_{out} &amp;amp;=V_{in} -\frac{V_{out}}{R_D} R_S  + (V_1(g_m + g_{mb}) - \frac{V_{out}}{R_D})r_o \\
-\therefore \frac{V_{out}}{V_{in}} &amp;amp;= \frac{1 + (g_m + g_{mb})r_o }{r_o + (g_m + g_{mb})r_oR_S + R_S +R_D}R_D \\
+\therefore A_v &amp;amp;=\frac{V_{out}}{V_{in}} = \frac{1 + (g_m + g_{mb})r_o }{r_o + (g_m + g_{mb})r_oR_S + R_S +R_D}R_D \\
 if \ R_D &amp;amp;\rightarrow \infin \\
 A_v &amp;amp;= 1 + (g_m + g_{mb}) r_o
 \end{aligned}
@@ -533,10 +533,11 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
-\begin{aligned}&lt;/p&gt;
-&lt;p&gt;\end{aligned}
+\begin{aligned}
+R_{out} &amp;amp;= \big[ (1 + (g_m + g_{mb})r_o)R_S + r_o \big] || R_D
+\end{aligned}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;cascode-stage-d-s&#34;&gt;Cascode Stage (D-S)&lt;/h1&gt;
+&lt;h1 id=&#34;cascode-stage&#34;&gt;Cascode Stage&lt;/h1&gt;
 &lt;h2 id=&#34;basic-configuration&#34;&gt;Basic Configuration&lt;/h2&gt;
 &lt;h3 id=&#34;电路-2&#34;&gt;电路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/15.png&#34;
@@ -553,13 +554,16 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CS + CG&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;$M_1$: Input Device&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;$M_2$: Cascode Device&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
+&lt;h3 id=&#34;output-voltage-range&#34;&gt;Output Voltage Range&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;为了让$M_1$和$M_2$都工作在饱和区，作出以下分析&lt;/li&gt;
 &lt;/ul&gt;
@@ -590,7 +594,28 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;365px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;cascode-stage-with-current-source-load&#34;&gt;Cascode Stage With Current-Source Load&lt;/h3&gt;
+&lt;h2 id=&#34;cascode-stage-with-a-source-resistance&#34;&gt;Cascode Stage With a Source Resistance&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/31.png&#34;
+	width=&#34;690&#34;
+	height=&#34;1024&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/31_huce3af16cfe0c94e60285c5c7124a24eb_62191_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/31_huce3af16cfe0c94e60285c5c7124a24eb_62191_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;67&#34;
+		data-flex-basis=&#34;161px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+I_{D2} &amp;amp;= I_{D1} \frac{R_p}{\dfrac{1}{g_m + g_{mb}} + R_p} \\
+&amp;amp;= I_{D1} \frac{(g_m + g_{mb})R_p}{1 + (g_m + g_{mb})R_p} \\
+\therefore A_v &amp;amp;= -g_mR_D\frac{(g_m + g_{mb})R_p}{1 + (g_m + g_{mb})R_p} \\
+R_{out} &amp;amp;= [1 + (g_{m2} + g_{mb2})r_{o2}]r_{o1} + r_{o2}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;cascode-stage-with-current-source-load&#34;&gt;Cascode Stage With Current-Source Load&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/21.png&#34;
 	width=&#34;614&#34;
 	height=&#34;866&#34;
@@ -621,16 +646,20 @@ $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;推导&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$r_{o1}$ 分走了很多流&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 I_{out} &amp;amp;= g_{m1}V_{in}\frac{r_{o1}}{r_{o1} + r_{o2} || \dfrac{1}{g_m + g_{mb}}} \\
 G_m &amp;amp;= \frac{I_{out}}{V_{in}} \\
 &amp;amp;= g_{m1}\frac{r_{o1}}{r_{o1} + r_{o2} || \dfrac{1}{g_m + g_{mb}}} \\
 |A_v| &amp;amp;= G_m R_{out} \\
-&amp;amp;= ???
+&amp;amp;= g_{m1} r_{o1} [1 + (g_{m2} + g_{mb2})r_{o2}]
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;folded-cascode&#34;&gt;Folded Cascode&lt;/h2&gt;
+&lt;h3 id=&#34;simple-folded-cascode&#34;&gt;Simple Folded Cascode&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/17.png&#34;
 	width=&#34;846&#34;
 	height=&#34;371&#34;
@@ -645,15 +674,28 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-I_{D2} &amp;amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
-I_{D2} &amp;amp;= 0 : \\
-I_{D1} &amp;amp;=  I_1  \\
-&amp;amp;=\frac{1}{2}\mu_pC_{OX} (\frac{W}{L})&lt;em&gt;1 (V&lt;/em&gt;{DD} - V_{in} - |V_{T1}|)^2 \\
-\therefore V_{in1} &amp;amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
-\\ If \ V_{in1} &amp;amp;\gt V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}|: \\
-\because I_{D1} &amp;amp;\le I_1  \\
-\therefore M_1 &amp;amp; \ in \ Triode \ Region
+For \ (b) \\
+I_{D2} &amp;amp;= I_1 - \frac{1}{2}k_p(V_{DD} - V_{in1} - |V_{tp}|)^2 \\
+I_{D2} &amp;amp; \downarrow \ \Rightarrow I_{D2} = 0 \\
+I_1 &amp;amp;= \frac{1}{2}k_p(V_{DD} - V_{in1} - |V_{tp}|)^2 \\
+\therefore V_{in1} &amp;amp;= V_{DD} - |V_{tp}| -\sqrt{\frac{2I_{1}}{k_p}}
 \end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;folded-cascode-with-current-source&#34;&gt;Folded Cascode With Current Source&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/32.png&#34;
+	width=&#34;994&#34;
+	height=&#34;740&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/32_hu01a1a458cc84f47a4718229479fbe4df_61949_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/32_hu01a1a458cc84f47a4718229479fbe4df_61949_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;134&#34;
+		data-flex-basis=&#34;322px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+R_{out} = \big[ 1 + (g_{m2} + g_{mb2})r_{o2} \big] (r_{o1} || r_{o3}) + r_{o2}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;triode-region-resistance&#34;&gt;Triode Region Resistance&lt;/h2&gt;
@@ -706,13 +748,20 @@ $$&lt;/p&gt;
 &amp;amp;= \frac{\partial V_t}{\partial V_{SB}}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在考虑&lt;strong&gt;Body Effect&lt;/strong&gt;时, $V_t$是一个随电流变化的参数(一般情况下变化很小，忽略不计)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;g_mbv_bs&#34;&gt;$g_{mb}V_{bs}$&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在考虑&lt;strong&gt;Body Effect&lt;/strong&gt;时, $V_t$是一个随电流变化的参数(一般情况下变化很小，忽略不计)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$g_{mb}V_{bs}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;二极管的反向传输电阻对二极管电流的影响, 其中$g_{mb}$叫做&lt;strong&gt;反向跨导&lt;/strong&gt;, 指栅-漏结电容在反向偏置下存储的电荷引起的漏极电流变化的比例，反映了MOSFET的输入特性。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;shielded-property-of-cascode-stage&#34;&gt;Shielded Property of Cascode Stage&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
 </description>
         </item>
         <item>

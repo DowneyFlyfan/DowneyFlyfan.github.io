@@ -301,17 +301,23 @@
         <li><a href="#output-impedence">Output Impedence</a></li>
       </ol>
     </li>
-    <li><a href="#cascode-stage-d-s">Cascode Stage (D-S)</a>
+    <li><a href="#cascode-stage">Cascode Stage</a>
       <ol>
         <li><a href="#basic-configuration">Basic Configuration</a>
           <ol>
             <li><a href="#电路-2">电路</a></li>
-            <li><a href="#分析">分析</a></li>
+            <li><a href="#output-voltage-range">Output Voltage Range</a></li>
             <li><a href="#io-特性">I/O 特性</a></li>
-            <li><a href="#cascode-stage-with-current-source-load">Cascode Stage With Current-Source Load</a></li>
           </ol>
         </li>
-        <li><a href="#folded-cascode">Folded Cascode</a></li>
+        <li><a href="#cascode-stage-with-a-source-resistance">Cascode Stage With a Source Resistance</a></li>
+        <li><a href="#cascode-stage-with-current-source-load">Cascode Stage With Current-Source Load</a></li>
+        <li><a href="#folded-cascode">Folded Cascode</a>
+          <ol>
+            <li><a href="#simple-folded-cascode">Simple Folded Cascode</a></li>
+            <li><a href="#folded-cascode-with-current-source">Folded Cascode With Current Source</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#附录">附录</a>
@@ -319,7 +325,7 @@
         <li><a href="#triode-region-resistance">Triode Region Resistance</a></li>
         <li><a href="#mosfet的电阻">MOSFET的电阻</a></li>
         <li><a href="#body-effect">Body Effect</a></li>
-        <li><a href="#g_mbv_bs">$g_{mb}V_{bs}$</a></li>
+        <li><a href="#shielded-property-of-cascode-stage">Shielded Property of Cascode Stage</a></li>
       </ol>
     </li>
   </ol>
@@ -878,7 +884,7 @@ $$</p>
 \begin{aligned}
 V_1  - \frac{V_{out}}{R_D} R_S + V_{in} &amp;=0  \\
 V_{out} &amp;=V_{in} -\frac{V_{out}}{R_D} R_S  + (V_1(g_m + g_{mb}) - \frac{V_{out}}{R_D})r_o \\
-\therefore \frac{V_{out}}{V_{in}} &amp;= \frac{1 + (g_m + g_{mb})r_o }{r_o + (g_m + g_{mb})r_oR_S + R_S +R_D}R_D \\
+\therefore A_v &amp;=\frac{V_{out}}{V_{in}} = \frac{1 + (g_m + g_{mb})r_o }{r_o + (g_m + g_{mb})r_oR_S + R_S +R_D}R_D \\
 if \ R_D &amp;\rightarrow \infin \\
 A_v &amp;= 1 + (g_m + g_{mb}) r_o
 \end{aligned}
@@ -922,10 +928,11 @@ $$</p>
 	
 ></p>
 <p>$$
-\begin{aligned}</p>
-<p>\end{aligned}
+\begin{aligned}
+R_{out} &amp;= \big[ (1 + (g_m + g_{mb})r_o)R_S + r_o \big] || R_D
+\end{aligned}
 $$</p>
-<h1 id="cascode-stage-d-s">Cascode Stage (D-S)</h1>
+<h1 id="cascode-stage">Cascode Stage</h1>
 <h2 id="basic-configuration">Basic Configuration</h2>
 <h3 id="电路-2">电路</h3>
 <p><img src="/p/3.-single-stage-amplifier/15.png"
@@ -942,13 +949,16 @@ $$</p>
 ></p>
 <ul>
 <li>
+<p><strong>CS + CG</strong></p>
+</li>
+<li>
 <p>$M_1$: Input Device</p>
 </li>
 <li>
 <p>$M_2$: Cascode Device</p>
 </li>
 </ul>
-<h3 id="分析">分析</h3>
+<h3 id="output-voltage-range">Output Voltage Range</h3>
 <ul>
 <li>为了让$M_1$和$M_2$都工作在饱和区，作出以下分析</li>
 </ul>
@@ -979,7 +989,28 @@ $$</p>
 		data-flex-basis="365px"
 	
 ></p>
-<h3 id="cascode-stage-with-current-source-load">Cascode Stage With Current-Source Load</h3>
+<h2 id="cascode-stage-with-a-source-resistance">Cascode Stage With a Source Resistance</h2>
+<p><img src="/p/3.-single-stage-amplifier/31.png"
+	width="690"
+	height="1024"
+	srcset="/p/3.-single-stage-amplifier/31_huce3af16cfe0c94e60285c5c7124a24eb_62191_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/31_huce3af16cfe0c94e60285c5c7124a24eb_62191_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="67"
+		data-flex-basis="161px"
+	
+></p>
+<p>$$
+\begin{aligned}
+I_{D2} &amp;= I_{D1} \frac{R_p}{\dfrac{1}{g_m + g_{mb}} + R_p} \\
+&amp;= I_{D1} \frac{(g_m + g_{mb})R_p}{1 + (g_m + g_{mb})R_p} \\
+\therefore A_v &amp;= -g_mR_D\frac{(g_m + g_{mb})R_p}{1 + (g_m + g_{mb})R_p} \\
+R_{out} &amp;= [1 + (g_{m2} + g_{mb2})r_{o2}]r_{o1} + r_{o2}
+\end{aligned}
+$$</p>
+<h2 id="cascode-stage-with-current-source-load">Cascode Stage With Current-Source Load</h2>
 <p><img src="/p/3.-single-stage-amplifier/21.png"
 	width="614"
 	height="866"
@@ -1010,16 +1041,20 @@ $$</p>
 <ol start="2">
 <li>推导</li>
 </ol>
+<ul>
+<li>$r_{o1}$ 分走了很多流</li>
+</ul>
 <p>$$
 \begin{aligned}
 I_{out} &amp;= g_{m1}V_{in}\frac{r_{o1}}{r_{o1} + r_{o2} || \dfrac{1}{g_m + g_{mb}}} \\
 G_m &amp;= \frac{I_{out}}{V_{in}} \\
 &amp;= g_{m1}\frac{r_{o1}}{r_{o1} + r_{o2} || \dfrac{1}{g_m + g_{mb}}} \\
 |A_v| &amp;= G_m R_{out} \\
-&amp;= ???
+&amp;= g_{m1} r_{o1} [1 + (g_{m2} + g_{mb2})r_{o2}]
 \end{aligned}
 $$</p>
 <h2 id="folded-cascode">Folded Cascode</h2>
+<h3 id="simple-folded-cascode">Simple Folded Cascode</h3>
 <p><img src="/p/3.-single-stage-amplifier/17.png"
 	width="846"
 	height="371"
@@ -1034,15 +1069,28 @@ $$</p>
 ></p>
 <p>$$
 \begin{aligned}
-I_{D2} &amp;= I_1 - \frac{1}{2} k_n(V_{DD} - V_{in} -|V_{T1}|)^2 \\
-I_{D2} &amp;= 0 : \\
-I_{D1} &amp;=  I_1  \\
-&amp;=\frac{1}{2}\mu_pC_{OX} (\frac{W}{L})<em>1 (V</em>{DD} - V_{in} - |V_{T1}|)^2 \\
-\therefore V_{in1} &amp;= V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}| \\\
-\\ If \ V_{in1} &amp;\gt V_{DD}  -\sqrt{\frac{2I_1}{k_{p}}} -|V_{T1}|: \\
-\because I_{D1} &amp;\le I_1  \\
-\therefore M_1 &amp; \ in \ Triode \ Region
+For \ (b) \\
+I_{D2} &amp;= I_1 - \frac{1}{2}k_p(V_{DD} - V_{in1} - |V_{tp}|)^2 \\
+I_{D2} &amp; \downarrow \ \Rightarrow I_{D2} = 0 \\
+I_1 &amp;= \frac{1}{2}k_p(V_{DD} - V_{in1} - |V_{tp}|)^2 \\
+\therefore V_{in1} &amp;= V_{DD} - |V_{tp}| -\sqrt{\frac{2I_{1}}{k_p}}
 \end{aligned}
+$$</p>
+<h3 id="folded-cascode-with-current-source">Folded Cascode With Current Source</h3>
+<p><img src="/p/3.-single-stage-amplifier/32.png"
+	width="994"
+	height="740"
+	srcset="/p/3.-single-stage-amplifier/32_hu01a1a458cc84f47a4718229479fbe4df_61949_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/32_hu01a1a458cc84f47a4718229479fbe4df_61949_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="134"
+		data-flex-basis="322px"
+	
+></p>
+<p>$$
+R_{out} = \big[ 1 + (g_{m2} + g_{mb2})r_{o2} \big] (r_{o1} || r_{o3}) + r_{o2}
 $$</p>
 <h1 id="附录">附录</h1>
 <h2 id="triode-region-resistance">Triode Region Resistance</h2>
@@ -1095,13 +1143,20 @@ $$</p>
 &amp;= \frac{\partial V_t}{\partial V_{SB}}
 \end{aligned}
 $$</p>
-<ul>
-<li>在考虑<strong>Body Effect</strong>时, $V_t$是一个随电流变化的参数(一般情况下变化很小，忽略不计)</li>
-</ul>
-<h2 id="g_mbv_bs">$g_{mb}V_{bs}$</h2>
+<ol>
+<li>
+<p>在考虑<strong>Body Effect</strong>时, $V_t$是一个随电流变化的参数(一般情况下变化很小，忽略不计)</p>
+</li>
+<li>
+<p>$g_{mb}V_{bs}$</p>
+</li>
+</ol>
 <ul>
 <li>二极管的反向传输电阻对二极管电流的影响, 其中$g_{mb}$叫做<strong>反向跨导</strong>, 指栅-漏结电容在反向偏置下存储的电荷引起的漏极电流变化的比例，反映了MOSFET的输入特性。</li>
 </ul>
+<h2 id="shielded-property-of-cascode-stage">Shielded Property of Cascode Stage</h2>
+<blockquote>
+</blockquote>
 
 </section>
 
