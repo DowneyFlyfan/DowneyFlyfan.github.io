@@ -218,7 +218,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 R_{on2} &amp;amp;= \frac{1}{g_{m2}} \\
-&amp;amp;= \dfrac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V_b-V_{Tp})}
+&amp;amp;= \frac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V_b-V_{Tp})}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-source-degeneration&#34;&gt;CS Stage With Source Degeneration&lt;/h2&gt;
@@ -463,13 +463,35 @@ $$&lt;/p&gt;
 &lt;p&gt;(b) 电容耦合&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;gain&#34;&gt;Gain&lt;/h2&gt;
+&lt;h2 id=&#34;简化后的-gain&#34;&gt;简化后的 Gain&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
-\because \frac{\partial V_t}{\partial V_{in}} &amp;amp;= \frac{\partial V_t}{\partial V_{SB}} = \eta \\
 \therefore A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}} \\
+&amp;amp;= -k_nV_{OV}(-1-\eta) R_D \\
 &amp;amp;= g_m(1+\eta) R_D
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;普适性的gain&#34;&gt;普适性的Gain&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/29.png&#34;
+	width=&#34;1986&#34;
+	height=&#34;972&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/29_hucb2a68a642bbbc8b9b90c7aa0f09e7ee_134451_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/29_hucb2a68a642bbbc8b9b90c7aa0f09e7ee_134451_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;204&#34;
+		data-flex-basis=&#34;490px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_1  - \frac{V_{out}}{R_D} R_S + V_{in} &amp;amp;=0  \\
+V_{out} &amp;amp;=V_{in} -\frac{V_{out}}{R_D} R_S  + (V_1(g_m + g_{mb}) - \frac{V_{out}}{R_D})r_o \\
+\therefore \frac{V_{out}}{V_{in}} &amp;amp;= \frac{1 + (g_m + g_{mb})r_o }{r_o + (g_m + g_{mb})r_oR_S + R_S +R_D}R_D \\
+if \ R_D &amp;amp;\rightarrow \infin \\
+A_v &amp;amp;= 1 + (g_m + g_{mb}) r_o
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;input-impedence&#34;&gt;Input Impedence&lt;/h2&gt;
@@ -491,8 +513,28 @@ V_1 &amp;amp;= -V_X \\
 V_X + (g_mV_1 + g_{mb}V_{bs} - I_X)r_o &amp;amp;=  I_XR_D \\
 \therefore R_{in} &amp;amp;= \frac{V_X}{I_X} \\
 &amp;amp;= \frac{R_D + r_o}{1 + (g_m + g_{mb})r_o} \\
-&amp;amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}}
+\because (g_m + g_{mb})r_o &amp;amp;\gg 1 \\
+\therefore R_{in }&amp;amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
+if \ R_D &amp;amp;=0 \\
+R_{in} &amp;amp;= \frac{1}{g_m + g_{mb} + \dfrac{1}{r_o}}
 \end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;output-impedence&#34;&gt;Output Impedence&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/30.png&#34;
+	width=&#34;632&#34;
+	height=&#34;810&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/30_hud7017aa1d95e12ba0caffc06e5c1e805_49996_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/30_hud7017aa1d95e12ba0caffc06e5c1e805_49996_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;78&#34;
+		data-flex-basis=&#34;187px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}&lt;/p&gt;
+&lt;p&gt;\end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;cascode-stage-d-s&#34;&gt;Cascode Stage (D-S)&lt;/h1&gt;
 &lt;h2 id=&#34;basic-configuration&#34;&gt;Basic Configuration&lt;/h2&gt;
@@ -660,7 +702,8 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 \eta &amp;amp;= \frac{g_m}{g_{mb}} \\
-&amp;amp;=\dfrac{\partial V_{TH}}{\partial V_{in}}
+&amp;amp;=\dfrac{\partial V_{TH}}{\partial V_{in}} \\
+&amp;amp;= \frac{\partial V_t}{\partial V_{SB}}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;ul&gt;

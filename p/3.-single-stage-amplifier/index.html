@@ -295,8 +295,10 @@
     <li><a href="#common-gate-stage">Common-Gate Stage</a>
       <ol>
         <li><a href="#电路-1">电路</a></li>
-        <li><a href="#gain">Gain</a></li>
+        <li><a href="#简化后的-gain">简化后的 Gain</a></li>
+        <li><a href="#普适性的gain">普适性的Gain</a></li>
         <li><a href="#input-impedence">Input Impedence</a></li>
+        <li><a href="#output-impedence">Output Impedence</a></li>
       </ol>
     </li>
     <li><a href="#cascode-stage-d-s">Cascode Stage (D-S)</a>
@@ -384,7 +386,7 @@
 
 
                 <time class="article-time--reading">
-                    6 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -605,7 +607,7 @@ $$</p>
 <p>$$
 \begin{aligned}
 R_{on2} &amp;= \frac{1}{g_{m2}} \\
-&amp;= \dfrac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V_b-V_{Tp})}
+&amp;= \frac{1}{\mu_p C_{OX}(W/L)<em>2(V</em>{DD} -V_b-V_{Tp})}
 \end{aligned}
 $$</p>
 <h2 id="cs-stage-with-source-degeneration">CS Stage With Source Degeneration</h2>
@@ -850,13 +852,35 @@ $$</p>
 <p>(b) 电容耦合</p>
 </li>
 </ul>
-<h2 id="gain">Gain</h2>
+<h2 id="简化后的-gain">简化后的 Gain</h2>
 <p>$$
 \begin{aligned}
 V_{out} &amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
-\because \frac{\partial V_t}{\partial V_{in}} &amp;= \frac{\partial V_t}{\partial V_{SB}} = \eta \\
 \therefore A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}} \\
+&amp;= -k_nV_{OV}(-1-\eta) R_D \\
 &amp;= g_m(1+\eta) R_D
+\end{aligned}
+$$</p>
+<h2 id="普适性的gain">普适性的Gain</h2>
+<p><img src="/p/3.-single-stage-amplifier/29.png"
+	width="1986"
+	height="972"
+	srcset="/p/3.-single-stage-amplifier/29_hucb2a68a642bbbc8b9b90c7aa0f09e7ee_134451_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/29_hucb2a68a642bbbc8b9b90c7aa0f09e7ee_134451_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="204"
+		data-flex-basis="490px"
+	
+></p>
+<p>$$
+\begin{aligned}
+V_1  - \frac{V_{out}}{R_D} R_S + V_{in} &amp;=0  \\
+V_{out} &amp;=V_{in} -\frac{V_{out}}{R_D} R_S  + (V_1(g_m + g_{mb}) - \frac{V_{out}}{R_D})r_o \\
+\therefore \frac{V_{out}}{V_{in}} &amp;= \frac{1 + (g_m + g_{mb})r_o }{r_o + (g_m + g_{mb})r_oR_S + R_S +R_D}R_D \\
+if \ R_D &amp;\rightarrow \infin \\
+A_v &amp;= 1 + (g_m + g_{mb}) r_o
 \end{aligned}
 $$</p>
 <h2 id="input-impedence">Input Impedence</h2>
@@ -878,8 +902,28 @@ V_1 &amp;= -V_X \\
 V_X + (g_mV_1 + g_{mb}V_{bs} - I_X)r_o &amp;=  I_XR_D \\
 \therefore R_{in} &amp;= \frac{V_X}{I_X} \\
 &amp;= \frac{R_D + r_o}{1 + (g_m + g_{mb})r_o} \\
-&amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}}
+\because (g_m + g_{mb})r_o &amp;\gg 1 \\
+\therefore R_{in }&amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
+if \ R_D &amp;=0 \\
+R_{in} &amp;= \frac{1}{g_m + g_{mb} + \dfrac{1}{r_o}}
 \end{aligned}
+$$</p>
+<h2 id="output-impedence">Output Impedence</h2>
+<p><img src="/p/3.-single-stage-amplifier/30.png"
+	width="632"
+	height="810"
+	srcset="/p/3.-single-stage-amplifier/30_hud7017aa1d95e12ba0caffc06e5c1e805_49996_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/30_hud7017aa1d95e12ba0caffc06e5c1e805_49996_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="78"
+		data-flex-basis="187px"
+	
+></p>
+<p>$$
+\begin{aligned}</p>
+<p>\end{aligned}
 $$</p>
 <h1 id="cascode-stage-d-s">Cascode Stage (D-S)</h1>
 <h2 id="basic-configuration">Basic Configuration</h2>
@@ -1047,7 +1091,8 @@ $$</p>
 <p>$$
 \begin{aligned}
 \eta &amp;= \frac{g_m}{g_{mb}} \\
-&amp;=\dfrac{\partial V_{TH}}{\partial V_{in}}
+&amp;=\dfrac{\partial V_{TH}}{\partial V_{in}} \\
+&amp;= \frac{\partial V_t}{\partial V_{SB}}
 \end{aligned}
 $$</p>
 <ul>

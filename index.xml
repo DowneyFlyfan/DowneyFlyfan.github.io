@@ -3251,7 +3251,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 R_{on2} &amp;amp;= \frac{1}{g_{m2}} \\
-&amp;amp;= \dfrac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V_b-V_{Tp})}
+&amp;amp;= \frac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V_b-V_{Tp})}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-source-degeneration&#34;&gt;CS Stage With Source Degeneration&lt;/h2&gt;
@@ -3496,13 +3496,35 @@ $$&lt;/p&gt;
 &lt;p&gt;(b) 电容耦合&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;gain&#34;&gt;Gain&lt;/h2&gt;
+&lt;h2 id=&#34;简化后的-gain&#34;&gt;简化后的 Gain&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
-\because \frac{\partial V_t}{\partial V_{in}} &amp;amp;= \frac{\partial V_t}{\partial V_{SB}} = \eta \\
 \therefore A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}} \\
+&amp;amp;= -k_nV_{OV}(-1-\eta) R_D \\
 &amp;amp;= g_m(1+\eta) R_D
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;普适性的gain&#34;&gt;普适性的Gain&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/29.png&#34;
+	width=&#34;1986&#34;
+	height=&#34;972&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/29_hucb2a68a642bbbc8b9b90c7aa0f09e7ee_134451_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/29_hucb2a68a642bbbc8b9b90c7aa0f09e7ee_134451_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;204&#34;
+		data-flex-basis=&#34;490px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_1  - \frac{V_{out}}{R_D} R_S + V_{in} &amp;amp;=0  \\
+V_{out} &amp;amp;=V_{in} -\frac{V_{out}}{R_D} R_S  + (V_1(g_m + g_{mb}) - \frac{V_{out}}{R_D})r_o \\
+\therefore \frac{V_{out}}{V_{in}} &amp;amp;= \frac{1 + (g_m + g_{mb})r_o }{r_o + (g_m + g_{mb})r_oR_S + R_S +R_D}R_D \\
+if \ R_D &amp;amp;\rightarrow \infin \\
+A_v &amp;amp;= 1 + (g_m + g_{mb}) r_o
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;input-impedence&#34;&gt;Input Impedence&lt;/h2&gt;
@@ -3524,8 +3546,28 @@ V_1 &amp;amp;= -V_X \\
 V_X + (g_mV_1 + g_{mb}V_{bs} - I_X)r_o &amp;amp;=  I_XR_D \\
 \therefore R_{in} &amp;amp;= \frac{V_X}{I_X} \\
 &amp;amp;= \frac{R_D + r_o}{1 + (g_m + g_{mb})r_o} \\
-&amp;amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}}
+\because (g_m + g_{mb})r_o &amp;amp;\gg 1 \\
+\therefore R_{in }&amp;amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
+if \ R_D &amp;amp;=0 \\
+R_{in} &amp;amp;= \frac{1}{g_m + g_{mb} + \dfrac{1}{r_o}}
 \end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;output-impedence&#34;&gt;Output Impedence&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/30.png&#34;
+	width=&#34;632&#34;
+	height=&#34;810&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/30_hud7017aa1d95e12ba0caffc06e5c1e805_49996_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/30_hud7017aa1d95e12ba0caffc06e5c1e805_49996_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;78&#34;
+		data-flex-basis=&#34;187px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}&lt;/p&gt;
+&lt;p&gt;\end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;cascode-stage-d-s&#34;&gt;Cascode Stage (D-S)&lt;/h1&gt;
 &lt;h2 id=&#34;basic-configuration&#34;&gt;Basic Configuration&lt;/h2&gt;
@@ -3693,7 +3735,8 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 \eta &amp;amp;= \frac{g_m}{g_{mb}} \\
-&amp;amp;=\dfrac{\partial V_{TH}}{\partial V_{in}}
+&amp;amp;=\dfrac{\partial V_{TH}}{\partial V_{in}} \\
+&amp;amp;= \frac{\partial V_t}{\partial V_{SB}}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;ul&gt;
@@ -29389,7 +29432,6 @@ $$&lt;/p&gt;
 &lt;p&gt;求解后设立参数值&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;s 经验总结&lt;/p&gt;
 &lt;h1 id=&#34;训练经验&#34;&gt;训练经验&lt;/h1&gt;
 &lt;h2 id=&#34;第一次训练&#34;&gt;第一次训练&lt;/h2&gt;
 &lt;p&gt;1.建模过程中会出现分段拟合的情况，分段进行建模；&lt;/p&gt;
@@ -29481,25 +29523,37 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;第三次训练&#34;&gt;第三次训练&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;图&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;算法&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;表格&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;参考文献&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;文字&lt;strong&gt;清晰&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;通过&lt;strong&gt;伪代码&lt;/strong&gt;或**自然语言*描述&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;统一风格&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5-15个之间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不要连续给多个图&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;spss软件处理的表格要重新编辑&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;一定要&lt;strong&gt;解释图像&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;图要清晰, 不要连续给多个图&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;算法&lt;/strong&gt;要通过&lt;strong&gt;伪代码&lt;/strong&gt;或&lt;strong&gt;自然语言&lt;/strong&gt;描述, 要编号&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用&lt;strong&gt;流程图&lt;/strong&gt;描述&lt;strong&gt;算法&lt;/strong&gt;时要提前描述&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;明确模型&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;spss表格要重新编辑, 表格形式要符合论文&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;7-8个参考文献&lt;/p&gt;
-&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;非技术性报告要&lt;strong&gt;图文并茂&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -29507,19 +29561,75 @@ $$&lt;/p&gt;
 &lt;p&gt;摘要不需要&lt;strong&gt;公式、图表、符号&lt;/strong&gt;等&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;参考文献不加编号&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;题目不要太泛&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;不用强调用什么语言&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;启发式算法、遗传算法&amp;hellip; 不容易得高分&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;C题要&lt;strong&gt;确定指标&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;c题经验&#34;&gt;C题经验&lt;/h2&gt;
+&lt;h3 id=&#34;概述&#34;&gt;概述&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;建模总思路 + 子任务 + 难点&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;方法合理性 = 模型过检验 + 结果可解释&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;敏感性分析&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;难点&#34;&gt;难点&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;数据丑&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;预测难&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;样本量小&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;数据不够&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;缺失值多&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;维度高&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;右偏严重^[1]&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;定和约束&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;有&lt;strong&gt;定类变量&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;重点&#34;&gt;重点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用&lt;strong&gt;精炼的语言&lt;/strong&gt;写出&lt;strong&gt;难点的解决方案&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;摘要&#34;&gt;摘要&lt;/h3&gt;
+&lt;h3 id=&#34;赛前准备&#34;&gt;赛前准备&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;看往年题，分析思路&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;去&lt;strong&gt;中国大学生在线&lt;/strong&gt;看&lt;strong&gt;对应的&lt;/strong&gt;优秀论文&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </description>
