@@ -3417,7 +3417,6 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;508px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
@@ -3428,31 +3427,53 @@ V_{out} &amp;amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
 \therefore A_v &amp;amp;= \frac{g_m R_S}{1 + (g_m + g_{mb}) R_S}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;小信号等效电路-增益曲线&#34;&gt;小信号等效电路 增益曲线&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/12.png&#34;
-	width=&#34;386&#34;
-	height=&#34;226&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/12_hue9fa49292013660437d5fa4ac8f3836e_4526_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/12_hue9fa49292013660437d5fa4ac8f3836e_4526_1024x0_resize_box_3.png 1024w&#34;
+&lt;h2 id=&#34;输出电阻&#34;&gt;输出电阻&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;只考虑&lt;strong&gt;Body Effect&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/26.png&#34;
+	width=&#34;896&#34;
+	height=&#34;646&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/26_huef38ce08322f679f9da16498b32dab44_46755_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/26_huef38ce08322f679f9da16498b32dab44_46755_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;170&#34;
-		data-flex-basis=&#34;409px&#34;
+		data-flex-grow=&#34;138&#34;
+		data-flex-basis=&#34;332px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/13.png&#34;
-	width=&#34;301&#34;
-	height=&#34;206&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/13_hu9db048e169a0cf96270dcfc1c7c17682_2958_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/13_hu9db048e169a0cf96270dcfc1c7c17682_2958_1024x0_resize_box_3.png 1024w&#34;
+&lt;p&gt;$$
+\begin{aligned}
+V_X &amp;amp;= - V_1  = -V_{bs}\\
+I_X &amp;amp;= g_mV_1  + g_{mb} V_{bs} \\
+\therefore R_{out} &amp;amp;= \frac{V_X}{I_X} \\
+&amp;amp;= \frac{1}{g_m + g_{mb}} \\
+&amp;amp;= \frac{1}{g_m} || \frac{1}{g_{mb}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;source-follower-driving-resistive-load&#34;&gt;Source Follower Driving Resistive Load&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/27.png&#34;
+	width=&#34;1878&#34;
+	height=&#34;798&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/27_hub2302ed494ff6f6046f6e8af1f29e9e9_147972_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/27_hub2302ed494ff6f6046f6e8af1f29e9e9_147972_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;146&#34;
-		data-flex-basis=&#34;350px&#34;
+		data-flex-grow=&#34;235&#34;
+		data-flex-basis=&#34;564px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;考虑了&lt;strong&gt;CLM&lt;/strong&gt;和&lt;strong&gt;Body Effect&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_v &amp;amp;= \frac{\dfrac{1}{g_{mb}} || r_{o1} || r_{o2} || R_L }{\dfrac{1}{g_{mb}} || r_{o1} || r_{o2} || R_L + \dfrac{1}{g_m}}
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;common-gate-stage&#34;&gt;Common-Gate Stage&lt;/h1&gt;
 &lt;h2 id=&#34;电路-1&#34;&gt;电路&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/14.png&#34;
@@ -3475,13 +3496,35 @@ $$&lt;/p&gt;
 &lt;p&gt;(b) 电容耦合&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;分析-1&#34;&gt;分析&lt;/h2&gt;
+&lt;h2 id=&#34;gain&#34;&gt;Gain&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
 \because \frac{\partial V_t}{\partial V_{in}} &amp;amp;= \frac{\partial V_t}{\partial V_{SB}} = \eta \\
 \therefore A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}} \\
 &amp;amp;= g_m(1+\eta) R_D
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;input-impedence&#34;&gt;Input Impedence&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/28.png&#34;
+	width=&#34;1878&#34;
+	height=&#34;730&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/28_hue838fe298714de12ec35e2baa8fb6780_102604_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/28_hue838fe298714de12ec35e2baa8fb6780_102604_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;257&#34;
+		data-flex-basis=&#34;617px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_1 &amp;amp;= -V_X \\
+V_X + (g_mV_1 + g_{mb}V_{bs} - I_X)r_o &amp;amp;=  I_XR_D \\
+\therefore R_{in} &amp;amp;= \frac{V_X}{I_X} \\
+&amp;amp;= \frac{R_D + r_o}{1 + (g_m + g_{mb})r_o} \\
+&amp;amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;cascode-stage-d-s&#34;&gt;Cascode Stage (D-S)&lt;/h1&gt;
@@ -3507,17 +3550,14 @@ $$&lt;/p&gt;
 &lt;p&gt;$M_2$: Cascode Device&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;分析-2&#34;&gt;分析&lt;/h3&gt;
+&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;为了让$M_1$和$M_2$都工作在饱和区，作出以下分析&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_X &amp;amp;\ge  V_{in} - V_{T1} \ (1) \\
-V_b- V_{GS2} &amp;amp;= V_b - V_{G2} + V_{S2} \\
-&amp;amp;= V_b -V_{G2} +V_X \\
-\because V_b &amp;amp;= V_{G2} \\
-\therefore V_X &amp;amp;= V_b - V_{GS2} \ (2) \\\
+V_X &amp;amp;= V_b - V_{GS2} \ (2) \\\
 \\ 结合(1)(2)  \\
 V_b -V_{GS2} &amp;amp;\ge V_{in} -V_{T1} \\
 V_b &amp;amp;\ge V_{in} - V_{T1} + V_{GS2} \ (3)  \\\
@@ -5288,6 +5328,10 @@ $$&lt;/p&gt;
 &lt;/table&gt;
 &lt;h1 id=&#34;机器学习算法&#34;&gt;机器学习算法&lt;/h1&gt;
 &lt;h2 id=&#34;adaboost-adaptive-boosting&#34;&gt;adaboost (adaptive Boosting)&lt;/h2&gt;
+&lt;h3 id=&#34;背景&#34;&gt;背景&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AdaBoost（自适应增强）是一种集成学习方法，它将多个弱分类器组合成一个强分类器。该算法最初由Freund和Schapire于1995年提出。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;原理&#34;&gt;原理&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;组合&lt;strong&gt;多个弱算法&lt;/strong&gt;，形成&lt;strong&gt;强算法&lt;/strong&gt;, 属于&lt;strong&gt;集成学习&lt;/strong&gt;, 更适合于&lt;strong&gt;复杂问题&lt;/strong&gt;，但是容易&lt;strong&gt;Overfit&lt;/strong&gt;&lt;/p&gt;
@@ -5315,7 +5359,8 @@ $$&lt;/p&gt;
 \overline F &amp;amp;= \sum_{i=1}^n \alpha_i f_i
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;优缺点&#34;&gt;优缺点&lt;/h3&gt;
+&lt;h2 id=&#34;lightgbm&#34;&gt;LightGBM&lt;/h2&gt;
+&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
 </description>
         </item>
         <item>
@@ -29438,13 +29483,10 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;第三次训练&#34;&gt;第三次训练&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;分析问题，&lt;strong&gt;写下&lt;/strong&gt;概要&lt;/p&gt;
+&lt;p&gt;图要清晰, 不要连续给多个图&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;图要清晰&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;算法&lt;/strong&gt;要通过&lt;strong&gt;伪代码&lt;/strong&gt;或&lt;strong&gt;自然语言&lt;/strong&gt;描述&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;算法&lt;/strong&gt;要通过&lt;strong&gt;伪代码&lt;/strong&gt;或&lt;strong&gt;自然语言&lt;/strong&gt;描述, 要编号&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;用&lt;strong&gt;流程图&lt;/strong&gt;描述&lt;strong&gt;算法&lt;/strong&gt;时要提前描述&lt;/p&gt;
@@ -29453,10 +29495,7 @@ $$&lt;/p&gt;
 &lt;p&gt;明确模型&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;算法要编号&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;spss表格要重新编辑&lt;/p&gt;
+&lt;p&gt;spss表格要重新编辑, 表格形式要符合论文&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;7-8个参考文献&lt;/p&gt;
@@ -29465,19 +29504,22 @@ $$&lt;/p&gt;
 &lt;p&gt;非技术性报告要&lt;strong&gt;图文并茂&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;摘要不需要&lt;strong&gt;公式、图表&lt;/strong&gt;等&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;不要连续画图&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;非技术性报告&lt;/p&gt;
+&lt;p&gt;摘要不需要&lt;strong&gt;公式、图表、符号&lt;/strong&gt;等&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;参考文献不加编号&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;题目不要太泛&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不用强调用什么语言&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启发式算法、遗传算法&amp;hellip; 不容易得高分&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;C题要&lt;strong&gt;确定指标&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </description>

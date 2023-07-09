@@ -284,14 +284,19 @@
     <li><a href="#source-follower">Source Follower</a>
       <ol>
         <li><a href="#电路-电压特性">电路 电压特性</a></li>
-        <li><a href="#分析">分析</a></li>
-        <li><a href="#小信号等效电路-增益曲线">小信号等效电路 增益曲线</a></li>
+        <li><a href="#输出电阻">输出电阻</a>
+          <ol>
+            <li><a href="#heading"></a></li>
+          </ol>
+        </li>
+        <li><a href="#source-follower-driving-resistive-load">Source Follower Driving Resistive Load</a></li>
       </ol>
     </li>
     <li><a href="#common-gate-stage">Common-Gate Stage</a>
       <ol>
         <li><a href="#电路-1">电路</a></li>
-        <li><a href="#分析-1">分析</a></li>
+        <li><a href="#gain">Gain</a></li>
+        <li><a href="#input-impedence">Input Impedence</a></li>
       </ol>
     </li>
     <li><a href="#cascode-stage-d-s">Cascode Stage (D-S)</a>
@@ -299,7 +304,7 @@
         <li><a href="#basic-configuration">Basic Configuration</a>
           <ol>
             <li><a href="#电路-2">电路</a></li>
-            <li><a href="#分析-2">分析</a></li>
+            <li><a href="#分析">分析</a></li>
             <li><a href="#io-特性">I/O 特性</a></li>
             <li><a href="#cascode-stage-with-current-source-load">Cascode Stage With Current-Source Load</a></li>
           </ol>
@@ -766,7 +771,6 @@ $$</p>
 		data-flex-basis="508px"
 	
 ></p>
-<h2 id="分析">分析</h2>
 <p>$$
 \begin{aligned}
 V_{out} &amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
@@ -777,31 +781,53 @@ V_{out} &amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
 \therefore A_v &amp;= \frac{g_m R_S}{1 + (g_m + g_{mb}) R_S}
 \end{aligned}
 $$</p>
-<h2 id="小信号等效电路-增益曲线">小信号等效电路 增益曲线</h2>
-<p><img src="/p/3.-single-stage-amplifier/12.png"
-	width="386"
-	height="226"
-	srcset="/p/3.-single-stage-amplifier/12_hue9fa49292013660437d5fa4ac8f3836e_4526_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/12_hue9fa49292013660437d5fa4ac8f3836e_4526_1024x0_resize_box_3.png 1024w"
+<h2 id="输出电阻">输出电阻</h2>
+<ul>
+<li>只考虑<strong>Body Effect</strong></li>
+</ul>
+<p><img src="/p/3.-single-stage-amplifier/26.png"
+	width="896"
+	height="646"
+	srcset="/p/3.-single-stage-amplifier/26_huef38ce08322f679f9da16498b32dab44_46755_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/26_huef38ce08322f679f9da16498b32dab44_46755_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="170"
-		data-flex-basis="409px"
+		data-flex-grow="138"
+		data-flex-basis="332px"
 	
 ></p>
-<p><img src="/p/3.-single-stage-amplifier/13.png"
-	width="301"
-	height="206"
-	srcset="/p/3.-single-stage-amplifier/13_hu9db048e169a0cf96270dcfc1c7c17682_2958_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/13_hu9db048e169a0cf96270dcfc1c7c17682_2958_1024x0_resize_box_3.png 1024w"
+<p>$$
+\begin{aligned}
+V_X &amp;= - V_1  = -V_{bs}\\
+I_X &amp;= g_mV_1  + g_{mb} V_{bs} \\
+\therefore R_{out} &amp;= \frac{V_X}{I_X} \\
+&amp;= \frac{1}{g_m + g_{mb}} \\
+&amp;= \frac{1}{g_m} || \frac{1}{g_{mb}}
+\end{aligned}
+$$</p>
+<h3 id="heading"></h3>
+<h2 id="source-follower-driving-resistive-load">Source Follower Driving Resistive Load</h2>
+<p><img src="/p/3.-single-stage-amplifier/27.png"
+	width="1878"
+	height="798"
+	srcset="/p/3.-single-stage-amplifier/27_hub2302ed494ff6f6046f6e8af1f29e9e9_147972_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/27_hub2302ed494ff6f6046f6e8af1f29e9e9_147972_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="146"
-		data-flex-basis="350px"
+		data-flex-grow="235"
+		data-flex-basis="564px"
 	
 ></p>
+<ul>
+<li>考虑了<strong>CLM</strong>和<strong>Body Effect</strong></li>
+</ul>
+<p>$$
+\begin{aligned}
+A_v &amp;= \frac{\dfrac{1}{g_{mb}} || r_{o1} || r_{o2} || R_L }{\dfrac{1}{g_{mb}} || r_{o1} || r_{o2} || R_L + \dfrac{1}{g_m}}
+\end{aligned}
+$$</p>
 <h1 id="common-gate-stage">Common-Gate Stage</h1>
 <h2 id="电路-1">电路</h2>
 <p><img src="/p/3.-single-stage-amplifier/14.png"
@@ -824,13 +850,35 @@ $$</p>
 <p>(b) 电容耦合</p>
 </li>
 </ul>
-<h2 id="分析-1">分析</h2>
+<h2 id="gain">Gain</h2>
 <p>$$
 \begin{aligned}
 V_{out} &amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
 \because \frac{\partial V_t}{\partial V_{in}} &amp;= \frac{\partial V_t}{\partial V_{SB}} = \eta \\
 \therefore A_v &amp;= \frac{\partial V_{out}}{\partial V_{in}} \\
 &amp;= g_m(1+\eta) R_D
+\end{aligned}
+$$</p>
+<h2 id="input-impedence">Input Impedence</h2>
+<p><img src="/p/3.-single-stage-amplifier/28.png"
+	width="1878"
+	height="730"
+	srcset="/p/3.-single-stage-amplifier/28_hue838fe298714de12ec35e2baa8fb6780_102604_480x0_resize_box_3.png 480w, /p/3.-single-stage-amplifier/28_hue838fe298714de12ec35e2baa8fb6780_102604_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="257"
+		data-flex-basis="617px"
+	
+></p>
+<p>$$
+\begin{aligned}
+V_1 &amp;= -V_X \\
+V_X + (g_mV_1 + g_{mb}V_{bs} - I_X)r_o &amp;=  I_XR_D \\
+\therefore R_{in} &amp;= \frac{V_X}{I_X} \\
+&amp;= \frac{R_D + r_o}{1 + (g_m + g_{mb})r_o} \\
+&amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}}
 \end{aligned}
 $$</p>
 <h1 id="cascode-stage-d-s">Cascode Stage (D-S)</h1>
@@ -856,17 +904,14 @@ $$</p>
 <p>$M_2$: Cascode Device</p>
 </li>
 </ul>
-<h3 id="分析-2">分析</h3>
+<h3 id="分析">分析</h3>
 <ul>
 <li>为了让$M_1$和$M_2$都工作在饱和区，作出以下分析</li>
 </ul>
 <p>$$
 \begin{aligned}
 V_X &amp;\ge  V_{in} - V_{T1} \ (1) \\
-V_b- V_{GS2} &amp;= V_b - V_{G2} + V_{S2} \\
-&amp;= V_b -V_{G2} +V_X \\
-\because V_b &amp;= V_{G2} \\
-\therefore V_X &amp;= V_b - V_{GS2} \ (2) \\\
+V_X &amp;= V_b - V_{GS2} \ (2) \\\
 \\ 结合(1)(2)  \\
 V_b -V_{GS2} &amp;\ge V_{in} -V_{T1} \\
 V_b &amp;\ge V_{in} - V_{T1} + V_{GS2} \ (3)  \\\

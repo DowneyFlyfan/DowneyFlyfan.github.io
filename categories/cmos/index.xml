@@ -384,7 +384,6 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;508px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
@@ -395,31 +394,53 @@ V_{out} &amp;amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
 \therefore A_v &amp;amp;= \frac{g_m R_S}{1 + (g_m + g_{mb}) R_S}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;小信号等效电路-增益曲线&#34;&gt;小信号等效电路 增益曲线&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/12.png&#34;
-	width=&#34;386&#34;
-	height=&#34;226&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/12_hue9fa49292013660437d5fa4ac8f3836e_4526_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/12_hue9fa49292013660437d5fa4ac8f3836e_4526_1024x0_resize_box_3.png 1024w&#34;
+&lt;h2 id=&#34;输出电阻&#34;&gt;输出电阻&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;只考虑&lt;strong&gt;Body Effect&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/26.png&#34;
+	width=&#34;896&#34;
+	height=&#34;646&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/26_huef38ce08322f679f9da16498b32dab44_46755_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/26_huef38ce08322f679f9da16498b32dab44_46755_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;170&#34;
-		data-flex-basis=&#34;409px&#34;
+		data-flex-grow=&#34;138&#34;
+		data-flex-basis=&#34;332px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/13.png&#34;
-	width=&#34;301&#34;
-	height=&#34;206&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/13_hu9db048e169a0cf96270dcfc1c7c17682_2958_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/13_hu9db048e169a0cf96270dcfc1c7c17682_2958_1024x0_resize_box_3.png 1024w&#34;
+&lt;p&gt;$$
+\begin{aligned}
+V_X &amp;amp;= - V_1  = -V_{bs}\\
+I_X &amp;amp;= g_mV_1  + g_{mb} V_{bs} \\
+\therefore R_{out} &amp;amp;= \frac{V_X}{I_X} \\
+&amp;amp;= \frac{1}{g_m + g_{mb}} \\
+&amp;amp;= \frac{1}{g_m} || \frac{1}{g_{mb}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;source-follower-driving-resistive-load&#34;&gt;Source Follower Driving Resistive Load&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/27.png&#34;
+	width=&#34;1878&#34;
+	height=&#34;798&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/27_hub2302ed494ff6f6046f6e8af1f29e9e9_147972_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/27_hub2302ed494ff6f6046f6e8af1f29e9e9_147972_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;146&#34;
-		data-flex-basis=&#34;350px&#34;
+		data-flex-grow=&#34;235&#34;
+		data-flex-basis=&#34;564px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;考虑了&lt;strong&gt;CLM&lt;/strong&gt;和&lt;strong&gt;Body Effect&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_v &amp;amp;= \frac{\dfrac{1}{g_{mb}} || r_{o1} || r_{o2} || R_L }{\dfrac{1}{g_{mb}} || r_{o1} || r_{o2} || R_L + \dfrac{1}{g_m}}
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;common-gate-stage&#34;&gt;Common-Gate Stage&lt;/h1&gt;
 &lt;h2 id=&#34;电路-1&#34;&gt;电路&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/14.png&#34;
@@ -442,13 +463,35 @@ $$&lt;/p&gt;
 &lt;p&gt;(b) 电容耦合&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;分析-1&#34;&gt;分析&lt;/h2&gt;
+&lt;h2 id=&#34;gain&#34;&gt;Gain&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
 \because \frac{\partial V_t}{\partial V_{in}} &amp;amp;= \frac{\partial V_t}{\partial V_{SB}} = \eta \\
 \therefore A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}} \\
 &amp;amp;= g_m(1+\eta) R_D
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;input-impedence&#34;&gt;Input Impedence&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/28.png&#34;
+	width=&#34;1878&#34;
+	height=&#34;730&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/28_hue838fe298714de12ec35e2baa8fb6780_102604_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/28_hue838fe298714de12ec35e2baa8fb6780_102604_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;257&#34;
+		data-flex-basis=&#34;617px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_1 &amp;amp;= -V_X \\
+V_X + (g_mV_1 + g_{mb}V_{bs} - I_X)r_o &amp;amp;=  I_XR_D \\
+\therefore R_{in} &amp;amp;= \frac{V_X}{I_X} \\
+&amp;amp;= \frac{R_D + r_o}{1 + (g_m + g_{mb})r_o} \\
+&amp;amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;cascode-stage-d-s&#34;&gt;Cascode Stage (D-S)&lt;/h1&gt;
@@ -474,17 +517,14 @@ $$&lt;/p&gt;
 &lt;p&gt;$M_2$: Cascode Device&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;分析-2&#34;&gt;分析&lt;/h3&gt;
+&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;为了让$M_1$和$M_2$都工作在饱和区，作出以下分析&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_X &amp;amp;\ge  V_{in} - V_{T1} \ (1) \\
-V_b- V_{GS2} &amp;amp;= V_b - V_{G2} + V_{S2} \\
-&amp;amp;= V_b -V_{G2} +V_X \\
-\because V_b &amp;amp;= V_{G2} \\
-\therefore V_X &amp;amp;= V_b - V_{GS2} \ (2) \\\
+V_X &amp;amp;= V_b - V_{GS2} \ (2) \\\
 \\ 结合(1)(2)  \\
 V_b -V_{GS2} &amp;amp;\ge V_{in} -V_{T1} \\
 V_b &amp;amp;\ge V_{in} - V_{T1} + V_{GS2} \ (3)  \\\
