@@ -1091,7 +1091,7 @@ $$&lt;/p&gt;
         <pubDate>Wed, 19 Apr 2023 10:45:40 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/4.-differential-amplifiers/</guid>
-        <description>&lt;h1 id=&#34;single-ended-signal--differential-signal&#34;&gt;Single-Ended Signal &amp;amp; Differential Signal&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;single-ended--differential-signal&#34;&gt;Single-Ended &amp;amp; Differential Signal&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/1.png&#34;
 	width=&#34;2664&#34;
 	height=&#34;756&#34;
@@ -1166,7 +1166,7 @@ V_P &amp;amp;\ge V_{GS3} - V_{TH3} \\
 V_{in,CM} - V_{GS1} &amp;amp;\ge V_{GS3} - V_{TH3} \\
 \therefore V_{in,CM} &amp;amp;\ge V_{GS1} + V_{OV3} \\\
 \\ 为了使M1,M2&amp;amp;工作在饱和区 \\
-V_{DS1} &amp;amp;\ge V_{GS1} - V_{TH1} \\
+V_{D1} &amp;amp;\ge V_{G1} - V_{T1} \\
 \therefore V_{in,CM} &amp;amp;\le V_{out1} + V_{TH1} = V_{DD}- \frac{I_{SS}}{2} R_D + V_{TH1} \\\
 \\ V_{GS1} + (V_{GS3} - V_{TH3} ) &amp;amp;\le V_{in,CM} \le min \Big[ V_{DD}-\frac{I_{SS}}{2}R_D + V_{TH1, V_{DD}} \Big]
 \end{aligned}
@@ -1216,7 +1216,7 @@ V_{GS} - V_t&amp;amp;= \sqrt{\frac{2I}{k_n}} \\
 &amp;amp;= I_{SS}k_n(V_{in1} - V_{in2})^2 - \frac{1}{4}k_n^2(V_{in1} -V_{in2})^4 \\
 \therefore I_{D1} - I_{D2} &amp;amp;= \frac{1}{2}k_n(V_{in1} - V_{in2})\sqrt{\frac{4I_{SS}}{k_n} - (V_{in1} - V_{in2})^2} \\
 \therefore \Delta I_{D} &amp;amp;= \frac{1}{2} k_n\Delta V_{in} \sqrt{\frac{4I_{SS}}{k_n} - \Delta V_{in}^2} \\\
-\\ \frac{\partial \Delta I_D}{\partial \Delta V_{in}} &amp;amp;= \frac{1}{2} k_n \dfrac{\dfrac{4I_{SS}}{k_n} - 2\Delta V_{in}^2}{\sqrt{\dfrac{4I_{SS}}{k_n} - \Delta V_{in}^2}} \\
+\\ A_v &amp;amp;= \frac{\partial \Delta I_D}{\partial \Delta V_{in}} = \frac{1}{2} k_n \dfrac{\dfrac{4I_{SS}}{k_n} - 2\Delta V_{in}^2}{\sqrt{\dfrac{4I_{SS}}{k_n} - \Delta V_{in}^2}} \\
 当\Delta V_{in} &amp;amp;= 0 时: \\
 G_m &amp;amp;= \sqrt{k_nI_{SS}}\\
 |A_v| &amp;amp;= \sqrt{k_nI_{SS}} R_D \\
@@ -1228,6 +1228,12 @@ M_1, M_2 &amp;amp;\ not \ in \ Satuartion \ Region
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;voltage-gain&#34;&gt;Voltage Gain&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;下图中，$M_1$与$M_2$相同，$R_{D1} = R_{D2}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;左电路的等效电路 (CS Stage With &lt;strong&gt;Source Degeneration&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/7.png&#34;
 	width=&#34;1836&#34;
 	height=&#34;1574&#34;
@@ -1240,9 +1246,9 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;279px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;本图中，$M_1$与$M_2$相同，$R_{D1} = R_{D2}$&lt;/li&gt;
-&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;右电路的等效电路 (CG Stage)&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/10.png&#34;
 	width=&#34;1936&#34;
 	height=&#34;776&#34;
@@ -1257,9 +1263,10 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
+R_S &amp;amp;= \frac{1}{g_{m2}}, R_T = \frac{1}{g_{m1}} \\
 \frac{V_X}{V_{in1}} &amp;amp;= -\frac{R_{D1}}{\dfrac{1}{g_{m1}} + \dfrac{1}{g_{m2}}} \\
 \frac{V_Y}{V_{in1}} &amp;amp;= \frac{R_{D2}}{\dfrac{1}{g_{m1}} + \dfrac{1}{g_{m2}}} \\
-A_v &amp;amp;=\frac{V_X - V_Y}{V_{in1} - V_{in2}}  \\
+A_v &amp;amp;=\frac{V_X - V_Y}{V_{in1} - V_{in2}} \\
 &amp;amp;= -g_m R_D
 \end{aligned}
 $$&lt;/p&gt;
@@ -1347,27 +1354,12 @@ CMRR &amp;amp;= \frac{A_{DM}}{A_{CM-DM}} \\
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;all-gains&#34;&gt;All Gains&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;分类&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;相同的MOSFET&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;不同的MOSFET&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$g_m$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$g_m$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{g_{m1} + g_{m2}}{2}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;p&gt;$$
 \begin{aligned}
 A_{DM} &amp;amp;= -g_mR_D \\
 A_{CM} &amp;amp;= \frac{\dfrac{R_D}{2}}{R_{SS} + \dfrac{1}{2g_m}} \\
-A_{CM-DM} &amp;amp;= \dfrac{\Delta g_m R_D}{1 + (g_{m1} + g_{m2})R_{SS}}
+A_{CM-DM} &amp;amp;= \dfrac{\Delta g_m R_D}{1 + (g_{m1} + g_{m2})R_{SS}} \\
+CMRR &amp;amp;= \frac{A_{DM}}{A_{CM-DM}}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;differential-pair-with-mos-loads&#34;&gt;Differential Pair With MOS Loads&lt;/h1&gt;
@@ -1394,25 +1386,30 @@ A_v &amp;amp;= -g_{mN} (r_{oP} || r_{oN})
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;addition-of-current-sources-to-increase-the-voltage-gain&#34;&gt;Addition of current sources to increase the voltage gain&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/12.png&#34;
-	width=&#34;1138&#34;
-	height=&#34;820&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/12_hube2e47587f5a005a4506b68e1634ce44_92168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/12_hube2e47587f5a005a4506b68e1634ce44_92168_1024x0_resize_box_3.png 1024w&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/15.png&#34;
+	width=&#34;1630&#34;
+	height=&#34;1136&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/15_hu81ebfc1ef041ced5bf780bd7b7e36eb9_151398_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-differential-amplifiers/15_hu81ebfc1ef041ced5bf780bd7b7e36eb9_151398_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;138&#34;
-		data-flex-basis=&#34;333px&#34;
+		data-flex-grow=&#34;143&#34;
+		data-flex-basis=&#34;344px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
-\begin{aligned}
-|A_v| &amp;amp;\approx g_{m1} [(g_{m3}r_{o3}r_{o1}) || (g_{m5}r_{o5}r_{o7})]
-\end{aligned}
+|A_v| \approx g_{m1} [(g_{m3}r_{o3}r_{o1}) || (g_{m5}r_{o5}r_{o7})]
 $$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;电压增益可以近似地表示为&lt;strong&gt;晶体管的跨导和输出阻抗的乘积&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;gilbert-cell&#34;&gt;Gilbert Cell&lt;/h2&gt;
-&lt;h3 id=&#34;simple-vgas&#34;&gt;Simple VGAs&lt;/h3&gt;
+&lt;h3 id=&#34;原理&#34;&gt;原理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Differential Gain&lt;/strong&gt; 取决于 &lt;strong&gt;Tail Current&lt;/strong&gt; $I_{SS}$ 和 &lt;strong&gt;Differential Voltage&lt;/strong&gt; $\Delta V$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;simple-vgas-variable-gain-amplifiers&#34;&gt;Simple VGAs (Variable Gain Amplifiers)&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-differential-amplifiers/13.png&#34;
 	width=&#34;2370&#34;
 	height=&#34;834&#34;
@@ -1454,7 +1451,19 @@ $$&lt;/p&gt;
 &lt;li&gt;Make the system more stable, able to resist degredation&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;vga-variable-gain-amplifier&#34;&gt;VGA (Variable-Gain Amplifier)&lt;/h2&gt;
-&lt;h2 id=&#34;什么时候考虑输出电阻dfrac1g_m-&#34;&gt;什么时候考虑输出电阻$\dfrac{1}{g_m}$ ???&lt;/h2&gt;
+&lt;h2 id=&#34;静态电流损耗&#34;&gt;静态电流损耗&lt;/h2&gt;
+&lt;p&gt;静态电流损耗可能会影响电路的性能，并导致功率损耗和热量产生。为了减少静态电流损耗，可以采取以下措施：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;选择$\dfrac{1}{g_m}$和$r_o$较小的 MOSFET。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将$V_G$保持在最小值，以减少电路总电阻。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过使用负反馈电路来控制 MOSFET 的电流，从而减少静态电流损耗。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         
