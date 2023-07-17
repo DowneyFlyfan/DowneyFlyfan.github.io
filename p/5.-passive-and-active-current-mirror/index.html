@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='定义 爬虫是一种自动化程序，通过模拟浏览器行为或直接访问网站的接口，从网页中提取有用信息的程序
-作用 用于从大量网页中收集数据，例如商品价格、股票行情、新闻、社交媒体信息等等
-流程 了解目标网站：在开始爬取之前，需要对目标网站进行了解，包括目标网站的 URL 结构、HTML/CSS/JavaScript 的代码结构等等。
-发送 HTTP 请求：Python 爬虫使用 requests 库向目标网站发送 HTTP 请求，获取网页的 HTML 源码。
-解析 HTML：使用 Beautiful Soup 或 lxml 等库对 HTML 源码进行解析，提取需要的信息，例如标题、摘要、正文、图片链接等等。
-存储数据：将爬取到的数据存储到数据库、文件或者内存中，方便后续的分析和使用。
-定期更新：定期更新爬取的数据，保证数据的及时性和准确性。
-范例 1 2 3 4 5 6 7 8 9 10 11 12 13 from bs4 import BeautifulSoup import requests # 发送 HTTP 请求 url = &amp;#39;http://www.example.com&amp;#39; response = requests.get(url) # 解析 HTML 内容 soup = BeautifulSoup(response.text, &amp;#39;html.parser&amp;#39;) title = soup.'>
-<title>爬虫</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Basic Current Mirrors 电路 $\mu_n, C_{ox},W$ 一致
+$L$可以不同以表示增益
+电流增益 $$ \begin{aligned} I_{out} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)1 (V{GS2} - V_{T2})^2 \\ I_{REF} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)2 (V{GS1} - V_{T2})^2 \\ \therefore I_{out} &amp;amp;= \frac{(W/L)_2}{(W/L)1} \cdot I{REF} \end{aligned} $$
+电压增益(其他电路) $M_2,M_3$ 构成BCM, $M_1$是CS，$R_L$是$R_{out}$ $$ \begin{aligned} \therefore A_v &amp;amp;= g_{m1} \frac{(W/L)_1}{(W/L)_2}R_L \end{aligned} $$
+Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation的影响 设计 为了保证$I_{out}$与$I_{out}$高精度相等，必须使得$V_X = V_Y$,即$V_b - V_{GS3} = V_b - V_{GS1}$ 选择适当的MOSFET使得$\dfrac{(W/L)_3}{(W/L)_0} = \dfrac{(W/L)2}{(W/L)1}$, 这样可以满足$V_X = V_Y$, 从而$I{REF} = I{out}$, 所有MOSFET的$V_{TH}$相等 $V_p$的最小值 $$ \begin{aligned} V_p &amp;amp;\ge V_N - V_{TH} \\ V_p &amp;amp;\ge V_{GS0} &#43; V_{GS1} - V_{TH} \\ V_p &amp;amp;\ge V_{OV1} &#43; V_{OV0} &#43; V_{TH} \end{aligned} $$'>
+<title>5. Passive and Active Current Mirror</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/%E7%88%AC%E8%99%AB/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/5.-passive-and-active-current-mirror/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='爬虫'>
-<meta property='og:description' content='定义 爬虫是一种自动化程序，通过模拟浏览器行为或直接访问网站的接口，从网页中提取有用信息的程序
-作用 用于从大量网页中收集数据，例如商品价格、股票行情、新闻、社交媒体信息等等
-流程 了解目标网站：在开始爬取之前，需要对目标网站进行了解，包括目标网站的 URL 结构、HTML/CSS/JavaScript 的代码结构等等。
-发送 HTTP 请求：Python 爬虫使用 requests 库向目标网站发送 HTTP 请求，获取网页的 HTML 源码。
-解析 HTML：使用 Beautiful Soup 或 lxml 等库对 HTML 源码进行解析，提取需要的信息，例如标题、摘要、正文、图片链接等等。
-存储数据：将爬取到的数据存储到数据库、文件或者内存中，方便后续的分析和使用。
-定期更新：定期更新爬取的数据，保证数据的及时性和准确性。
-范例 1 2 3 4 5 6 7 8 9 10 11 12 13 from bs4 import BeautifulSoup import requests # 发送 HTTP 请求 url = &amp;#39;http://www.example.com&amp;#39; response = requests.get(url) # 解析 HTML 内容 soup = BeautifulSoup(response.text, &amp;#39;html.parser&amp;#39;) title = soup.'>
-<meta property='og:url' content='https://downeyflyfan.com/p/%E7%88%AC%E8%99%AB/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5. Passive and Active Current Mirror'>
+<meta property='og:description' content='Basic Current Mirrors 电路 $\mu_n, C_{ox},W$ 一致
+$L$可以不同以表示增益
+电流增益 $$ \begin{aligned} I_{out} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)1 (V{GS2} - V_{T2})^2 \\ I_{REF} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)2 (V{GS1} - V_{T2})^2 \\ \therefore I_{out} &amp;amp;= \frac{(W/L)_2}{(W/L)1} \cdot I{REF} \end{aligned} $$
+电压增益(其他电路) $M_2,M_3$ 构成BCM, $M_1$是CS，$R_L$是$R_{out}$ $$ \begin{aligned} \therefore A_v &amp;amp;= g_{m1} \frac{(W/L)_1}{(W/L)_2}R_L \end{aligned} $$
+Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation的影响 设计 为了保证$I_{out}$与$I_{out}$高精度相等，必须使得$V_X = V_Y$,即$V_b - V_{GS3} = V_b - V_{GS1}$ 选择适当的MOSFET使得$\dfrac{(W/L)_3}{(W/L)_0} = \dfrac{(W/L)2}{(W/L)1}$, 这样可以满足$V_X = V_Y$, 从而$I{REF} = I{out}$, 所有MOSFET的$V_{TH}$相等 $V_p$的最小值 $$ \begin{aligned} V_p &amp;amp;\ge V_N - V_{TH} \\ V_p &amp;amp;\ge V_{GS0} &#43; V_{GS1} - V_{TH} \\ V_p &amp;amp;\ge V_{OV1} &#43; V_{OV0} &#43; V_{TH} \end{aligned} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/5.-passive-and-active-current-mirror/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-03-17T21:00:26&#43;00:00'/><meta property='article:modified_time' content='2023-03-17T21:00:26&#43;00:00'/>
-<meta name="twitter:title" content="爬虫">
-<meta name="twitter:description" content="定义 爬虫是一种自动化程序，通过模拟浏览器行为或直接访问网站的接口，从网页中提取有用信息的程序
-作用 用于从大量网页中收集数据，例如商品价格、股票行情、新闻、社交媒体信息等等
-流程 了解目标网站：在开始爬取之前，需要对目标网站进行了解，包括目标网站的 URL 结构、HTML/CSS/JavaScript 的代码结构等等。
-发送 HTTP 请求：Python 爬虫使用 requests 库向目标网站发送 HTTP 请求，获取网页的 HTML 源码。
-解析 HTML：使用 Beautiful Soup 或 lxml 等库对 HTML 源码进行解析，提取需要的信息，例如标题、摘要、正文、图片链接等等。
-存储数据：将爬取到的数据存储到数据库、文件或者内存中，方便后续的分析和使用。
-定期更新：定期更新爬取的数据，保证数据的及时性和准确性。
-范例 1 2 3 4 5 6 7 8 9 10 11 12 13 from bs4 import BeautifulSoup import requests # 发送 HTTP 请求 url = &amp;#39;http://www.example.com&amp;#39; response = requests.get(url) # 解析 HTML 内容 soup = BeautifulSoup(response.text, &amp;#39;html.parser&amp;#39;) title = soup."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-07-15T18:37:12&#43;08:00'/><meta property='article:modified_time' content='2023-07-15T18:37:12&#43;08:00'/>
+<meta name="twitter:title" content="5. Passive and Active Current Mirror">
+<meta name="twitter:description" content="Basic Current Mirrors 电路 $\mu_n, C_{ox},W$ 一致
+$L$可以不同以表示增益
+电流增益 $$ \begin{aligned} I_{out} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)1 (V{GS2} - V_{T2})^2 \\ I_{REF} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)2 (V{GS1} - V_{T2})^2 \\ \therefore I_{out} &amp;amp;= \frac{(W/L)_2}{(W/L)1} \cdot I{REF} \end{aligned} $$
+电压增益(其他电路) $M_2,M_3$ 构成BCM, $M_1$是CS，$R_L$是$R_{out}$ $$ \begin{aligned} \therefore A_v &amp;amp;= g_{m1} \frac{(W/L)_1}{(W/L)_2}R_L \end{aligned} $$
+Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation的影响 设计 为了保证$I_{out}$与$I_{out}$高精度相等，必须使得$V_X = V_Y$,即$V_b - V_{GS3} = V_b - V_{GS1}$ 选择适当的MOSFET使得$\dfrac{(W/L)_3}{(W/L)_0} = \dfrac{(W/L)2}{(W/L)1}$, 这样可以满足$V_X = V_Y$, 从而$I{REF} = I{out}$, 所有MOSFET的$V_{TH}$相等 $V_p$的最小值 $$ \begin{aligned} V_p &amp;amp;\ge V_N - V_{TH} \\ V_p &amp;amp;\ge V_{GS0} &#43; V_{GS1} - V_{TH} \\ V_p &amp;amp;\ge V_{OV1} &#43; V_{OV0} &#43; V_{TH} \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -271,27 +262,34 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#定义">定义</a></li>
-    <li><a href="#作用">作用</a></li>
-    <li><a href="#流程">流程</a></li>
-    <li><a href="#范例">范例</a></li>
-    <li><a href="#常用工具">常用工具</a>
+    <li><a href="#basic-current-mirrors">Basic Current Mirrors</a>
       <ol>
-        <li><a href="#beautifulsoup">BeautifulSoup</a>
-          <ol>
-            <li><a href="#参数">参数</a></li>
-            <li><a href="#类">类</a></li>
-          </ol>
-        </li>
-        <li><a href="#css选择器">css选择器</a>
-          <ol>
-            <li><a href="#定义-1">定义</a></li>
-            <li><a href="#分类">分类</a></li>
-          </ol>
-        </li>
+        <li><a href="#电路">电路</a></li>
+        <li><a href="#电流增益">电流增益</a></li>
+        <li><a href="#电压增益其他电路">电压增益(其他电路)</a></li>
       </ol>
     </li>
-    <li><a href="#防反爬虫">防反爬虫</a></li>
+    <li><a href="#cascode-current-mirrors">Cascode Current Mirrors</a>
+      <ol>
+        <li><a href="#目的和设计">目的和设计</a>
+          <ol>
+            <li><a href="#目的">目的</a></li>
+            <li><a href="#设计">设计</a></li>
+          </ol>
+        </li>
+        <li><a href="#源电流的求解">源电流的求解</a></li>
+      </ol>
+    </li>
+    <li><a href="#active-current-mirrors">Active Current Mirrors</a>
+      <ol>
+        <li><a href="#heading"></a></li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#mosfet的参数">MOSFET的参数</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -319,7 +317,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E7%88%AC%E8%99%AB/">爬虫</a>
+            <a href="/p/5.-passive-and-active-current-mirror/">5. Passive and Active Current Mirror</a>
         </h2>
     
         
@@ -341,7 +339,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 17, 2023</time>
+                <time class="article-time--published">Jul 15, 2023</time>
             </div>
         
 
@@ -371,167 +369,145 @@
     <section class="article-content">
     
     
-    <h1 id="定义">定义</h1>
-<blockquote>
-<p>爬虫是一种自动化程序，通过模拟浏览器行为或直接访问网站的接口，从网页中提取有用信息的程序</p>
-</blockquote>
-<h1 id="作用">作用</h1>
-<blockquote>
-<p>用于从大量网页中收集数据，例如商品价格、股票行情、新闻、社交媒体信息等等</p>
-</blockquote>
-<h1 id="流程">流程</h1>
-<ol>
-<li>
-<p>了解目标网站：在开始爬取之前，需要对目标网站进行了解，包括目标网站的 URL 结构、HTML/CSS/JavaScript 的代码结构等等。</p>
-</li>
-<li>
-<p>发送 HTTP 请求：Python 爬虫使用 requests 库向目标网站发送 HTTP 请求，获取网页的 HTML 源码。</p>
-</li>
-<li>
-<p>解析 HTML：使用 Beautiful Soup 或 lxml 等库对 HTML 源码进行解析，提取需要的信息，例如标题、摘要、正文、图片链接等等。</p>
-</li>
-<li>
-<p>存储数据：将爬取到的数据存储到数据库、文件或者内存中，方便后续的分析和使用。</p>
-</li>
-<li>
-<p>定期更新：定期更新爬取的数据，保证数据的及时性和准确性。</p>
-</li>
-</ol>
-<h1 id="范例">范例</h1>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 发送 HTTP 请求</span>
-</span></span><span class="line"><span class="cl"><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.example.com&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 解析 HTML 内容</span>
-</span></span><span class="line"><span class="cl"><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">string</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 输出页面标题</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="常用工具">常用工具</h1>
-<h2 id="beautifulsoup">BeautifulSoup</h2>
-<h3 id="参数">参数</h3>
-<h3 id="类">类</h3>
-<h2 id="css选择器">css选择器</h2>
-<h3 id="定义-1">定义</h3>
-<blockquote>
-<p>用于选择 HTML 或 XML 文档中某个或某些元素的模式</p>
-</blockquote>
-<h3 id="分类">分类</h3>
+    <h1 id="basic-current-mirrors">Basic Current Mirrors</h1>
+<h2 id="电路">电路</h2>
+<p><img src="/p/5.-passive-and-active-current-mirror/1.png"
+	width="648"
+	height="620"
+	srcset="/p/5.-passive-and-active-current-mirror/1_hu189486e8a766185d5f436d0148a0aaff_50732_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/1_hu189486e8a766185d5f436d0148a0aaff_50732_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="104"
+		data-flex-basis="250px"
+	
+></p>
 <ul>
 <li>
-<p>标签选择器：通过元素的标签名进行选择，如 p 选择所有 &lt;p&gt; 元素。</p>
+<p>$\mu_n, C_{ox},W$ 一致</p>
 </li>
 <li>
-<p>类选择器：通过元素的class 属性值进行选择，如 .class-name 选择所有 class 属性值为 class-name 的元素</p>
-</li>
-<li>
-<p>id 选择器：通过元素的 id 属性值进行选择，如 #id-name 选择 id 属性值为 id-name 的元素。</p>
-</li>
-<li>
-<p>属性选择器：通过元素的属性值进行选择，如 [attribute=value] 选择所有具有 attribute 属性，且属性值为 value 的元素。</p>
-</li>
-<li>
-<p>后代选择器：通过元素的父子关系进行选择，如 div p 选择所有 &lt;p&gt; 元素，其父元素为 &lt;div&gt;。</p>
-</li>
-<li>
-<p>子选择器：通过元素的父子关系进行选择，但只选择直接子元素，如 div &gt; p 选择所有 &lt;p&gt; 元素，其父元素为 &lt;div&gt;。</p>
-</li>
-<li>
-<p>通配符选择器：选择所有元素，如 * 选择所有元素。</p>
+<p>$L$可以不同以表示<strong>增益</strong></p>
 </li>
 </ul>
-<h1 id="防反爬虫">防反爬虫</h1>
+<h2 id="电流增益">电流增益</h2>
+<p>$$
+\begin{aligned}
+I_{out} &amp;= \frac{1}{2} \mu_n C_{ox} (W/L)<em>1 (V</em>{GS2} - V_{T2})^2 \\
+I_{REF} &amp;= \frac{1}{2} \mu_n C_{ox} (W/L)<em>2 (V</em>{GS1} - V_{T2})^2 \\
+\therefore I_{out} &amp;= \frac{(W/L)_2}{(W/L)<em>1} \cdot I</em>{REF}
+\end{aligned}
+$$</p>
+<h2 id="电压增益其他电路">电压增益(其他电路)</h2>
+<p><img src="/p/5.-passive-and-active-current-mirror/2.png"
+	width="900"
+	height="756"
+	srcset="/p/5.-passive-and-active-current-mirror/2_hu53a939ae4c5d2eefaaf2139e74c9b07f_63287_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/2_hu53a939ae4c5d2eefaaf2139e74c9b07f_63287_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="119"
+		data-flex-basis="285px"
+	
+></p>
+<ul>
+<li>$M_2,M_3$ 构成BCM, $M_1$是<strong>CS</strong>，$R_L$是$R_{out}$</li>
+</ul>
+<p>$$
+\begin{aligned}
+\therefore A_v &amp;= g_{m1} \frac{(W/L)_1}{(W/L)_2}R_L
+\end{aligned}
+$$</p>
+<h1 id="cascode-current-mirrors">Cascode Current Mirrors</h1>
+<h2 id="目的和设计">目的和设计</h2>
+<h3 id="目的">目的</h3>
+<ul>
+<li>减少<strong>Channel Lengeh Modulation</strong>的影响</li>
+</ul>
+<h3 id="设计">设计</h3>
 <ol>
-<li>
-<p>降低爬虫程序的访问频率，避免短时间内对网站的过多访问。</p>
-</li>
-<li>
-<p>通过设置 User-Agent、Referer、Cookie 等 HTTP 头部信息，模拟浏览器的访问行为，避免被识别为爬虫程序。</p>
-</li>
-<li>
-<p>使用代理 IP，避免单一 IP 大量访问同一个网站而被封禁。</p>
-</li>
-<li>
-<p>避免同时进行大量并发访问，采用异步请求或者分布式爬虫等技术来分散访问压力。</p>
-</li>
-<li>
-<p>遵守网站的 robots.txt 规则，避免访问被禁止的页面和内容。</p>
-</li>
-<li>
-<p>添加延时和随机性</p>
-</li>
+<li>为了保证$I_{out}$与$I_{out}$<strong>高精度</strong>相等，必须使得$V_X = V_Y$,即$V_b - V_{GS3} = V_b - V_{GS1}$</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># 随机生成一个 1-3 秒的延时</span>
-</span></span><span class="line"><span class="cl"><span class="n">delay</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="7">
-<li>使用验证码识别库</li>
+<p><img src="/p/5.-passive-and-active-current-mirror/3.png"
+	width="802"
+	height="728"
+	srcset="/p/5.-passive-and-active-current-mirror/3_huae50cc12516440cb3e33e1fd28f000e5_62658_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/3_huae50cc12516440cb3e33e1fd28f000e5_62658_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="110"
+		data-flex-basis="264px"
+	
+></p>
+<ol start="2">
+<li>选择适当的MOSFET使得$\dfrac{(W/L)_3}{(W/L)_0} = \dfrac{(W/L)<em>2}{(W/L)<em>1}$, 这样可以满足$V_X = V_Y$, 从而$I</em>{REF} = I</em>{out}$,</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pytesseract</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 将验证码图片保存到本地</span>
-</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;captcha.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 使用 pytesseract 对验证码图片进行识别</span>
-</span></span><span class="line"><span class="cl"><span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;captcha.jpg&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">captcha</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<ul>
+<li>所有MOSFET的$V_{TH}$相等</li>
+</ul>
+<p><img src="/p/5.-passive-and-active-current-mirror/4.png"
+	width="646"
+	height="884"
+	srcset="/p/5.-passive-and-active-current-mirror/4_hud1ee1ddcaf565b353d06f3425e012f19_67694_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/4_hud1ee1ddcaf565b353d06f3425e012f19_67694_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="73"
+		data-flex-basis="175px"
+	
+></p>
+<ol start="3">
+<li>$V_p$的最小值</li>
+</ol>
+<p>$$
+\begin{aligned}
+V_p &amp;\ge V_N - V_{TH} \\
+V_p &amp;\ge V_{GS0} + V_{GS1} - V_{TH} \\
+V_p &amp;\ge V_{OV1} + V_{OV0} + V_{TH}
+\end{aligned}
+$$</p>
+<ol start="4">
+<li>结果</li>
+</ol>
+<ul>
+<li>两个<strong>Basic Current Mirror</strong>侧向<strong>拼在一起</strong></li>
+</ul>
+<h2 id="源电流的求解">源电流的求解</h2>
+<p><img src="/p/5.-passive-and-active-current-mirror/5.png"
+	width="684"
+	height="880"
+	srcset="/p/5.-passive-and-active-current-mirror/5_hu10d28ee6583ac3f22024e56bc43f164f_69606_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/5_hu10d28ee6583ac3f22024e56bc43f164f_69606_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="77"
+		data-flex-basis="186px"
+	
+></p>
+<ul>
+<li>$I_{REF}$工作的最小电压为$aV$</li>
+</ul>
+<p>$$
+\begin{aligned}
+V_N &amp;= V_{GS0} + V_{GS1} \\
+&amp;= \sqrt{\frac{2I_{REF}}{k_{n0}}} - \sqrt{\frac{2I_{REF}}{k_{n1}}} + V_{TH1} + V_{TH0} \\
+\because V_{DD} - V_N &amp;= 0.5V \\
+\therefore I_{REF} &amp;= \frac{1}{2}\mu_nC_{ox}\frac{(V_{DD} - V_{TH1} - V_{TH2} - 0.5)^2}{(\sqrt{(L/W)_0} + \sqrt{(L/W)_1})^2}
+\end{aligned}
+$$</p>
+<h1 id="active-current-mirrors">Active Current Mirrors</h1>
+<h2 id="heading"></h2>
+<h1 id="附录">附录</h1>
+<h2 id="mosfet的参数">MOSFET的参数</h2>
+<ul>
+<li>$\mu_n, V_{TH}$ 受<strong>温度</strong>影响</li>
+</ul>
+
 </section>
 
 
@@ -607,19 +583,6 @@
             
                 
 <article class="">
-    <a href="/p/5.-passive-and-active-current-mirror/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">5. Passive and Active Current Mirror</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/%E9%A2%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">
         
         
@@ -652,6 +615,19 @@
 
         <div class="article-details">
             <h2 class="article-title">Deep_Networks</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%9B%9E%E5%BD%92/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">回归</h2>
         </div>
     </a>
 </article>
