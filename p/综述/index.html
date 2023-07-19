@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='回归 线性回归 - 最小二乘法 图示 表格 公式 $$ \begin{aligned} \hat y &amp;amp;= b_0 &#43; b_1 x \\ b_1 &amp;amp;= \frac{\sum (x-\overline x)(y-\overline y)}{\sum (x-\overline x)^2} \\ b_0 &amp;amp;= \overline y - b_1 \overline x \end{aligned} $$
-插值方法比较 插值方法 优点 缺点 多项式插值 1. 简单易懂，容易实现；2. 高阶多项式可以拟合任意函数。 1. 容易出现龙格现象；2. 高阶多项式可能会导致过拟合。 样条插值 1. 拟合效果好，精度高；2. 可以通过控制节点数量和位置来平衡精度和复杂度。 1. 计算量大，运行速度相对较慢；2. 对于非常大的数据集可能会出现问题。 分段线性插值 1. 简单易懂，计算速度快；2. 不需要额外存储节点信息。 1. 只能拟合线性函数，无法处理非线性情况；2. 在节点处可能会出现不连续的情况。 近邻插值（Nearest Neighbor Interpolation） 1、简单快捷,计算速度最快;2、适用于离散化的数据集;3、保留了原始数据特征,不会对峰谷等信息造成影响. 常用于分类问题，在图像处理中可能会导致锯齿状的效果。 双线性插值（Bilinear Interpolation） 1、保留了原始数据特征,不会对峰谷等信息造成影响;2、计算速度较快，可用于实时图像处理. 可能会出现模糊或失真的情况。 双三次插值（Bicubic Interpolation） 1、拟合效果好，精度高；2、相比于双线性插值更加平滑自然.'>
-<title>回归</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Recent Advances in Phase-Sensitive Optical Time Domain Reflectometry (Ф-OTDR) Ф-OTDR Principle 入射光波场 $$ \begin{aligned} E = E_0 e^{-j\omega_s t} \end{aligned} $$
+反射光波场 $$ \begin{aligned} E_R &amp;amp;= \widehat{r}(z) E_0 e^{-\alpha z} e^{(j2\beta z - \omega_s t)} \\ \widehat{r} &amp;amp;= r_ie^{j\phi} \\ &amp;amp;= \sum_{k=1}^{M}a_ke^{h\phi_k} \end{aligned} $$
+$z$: 反射光位置
+$\beta$: 传播常数
+$\widehat{r}(z)$: 包括后向反射和相位延迟的效应
+Rayleigh Distribution $$ \begin{aligned} p(r) &amp;amp;= \begin{cases} \dfrac{r}{\sigma^2}e^{-r^2/2\sigma^2} &amp;amp; r&amp;gt;0 \\ 0 &amp;amp; otherwise \end{cases} \\ p(\phi) &amp;amp;= \begin{cases} \frac{1}{2\pi} &amp;amp; -\pi &amp;lt; \phi \le \pi \\ 0 &amp;amp; otherwise \end{cases} \end{aligned} $$'>
+<title>综述</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/%E7%BB%BC%E8%BF%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='回归'>
-<meta property='og:description' content='回归 线性回归 - 最小二乘法 图示 表格 公式 $$ \begin{aligned} \hat y &amp;amp;= b_0 &#43; b_1 x \\ b_1 &amp;amp;= \frac{\sum (x-\overline x)(y-\overline y)}{\sum (x-\overline x)^2} \\ b_0 &amp;amp;= \overline y - b_1 \overline x \end{aligned} $$
-插值方法比较 插值方法 优点 缺点 多项式插值 1. 简单易懂，容易实现；2. 高阶多项式可以拟合任意函数。 1. 容易出现龙格现象；2. 高阶多项式可能会导致过拟合。 样条插值 1. 拟合效果好，精度高；2. 可以通过控制节点数量和位置来平衡精度和复杂度。 1. 计算量大，运行速度相对较慢；2. 对于非常大的数据集可能会出现问题。 分段线性插值 1. 简单易懂，计算速度快；2. 不需要额外存储节点信息。 1. 只能拟合线性函数，无法处理非线性情况；2. 在节点处可能会出现不连续的情况。 近邻插值（Nearest Neighbor Interpolation） 1、简单快捷,计算速度最快;2、适用于离散化的数据集;3、保留了原始数据特征,不会对峰谷等信息造成影响. 常用于分类问题，在图像处理中可能会导致锯齿状的效果。 双线性插值（Bilinear Interpolation） 1、保留了原始数据特征,不会对峰谷等信息造成影响;2、计算速度较快，可用于实时图像处理. 可能会出现模糊或失真的情况。 双三次插值（Bicubic Interpolation） 1、拟合效果好，精度高；2、相比于双线性插值更加平滑自然.'>
-<meta property='og:url' content='https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='综述'>
+<meta property='og:description' content='Recent Advances in Phase-Sensitive Optical Time Domain Reflectometry (Ф-OTDR) Ф-OTDR Principle 入射光波场 $$ \begin{aligned} E = E_0 e^{-j\omega_s t} \end{aligned} $$
+反射光波场 $$ \begin{aligned} E_R &amp;amp;= \widehat{r}(z) E_0 e^{-\alpha z} e^{(j2\beta z - \omega_s t)} \\ \widehat{r} &amp;amp;= r_ie^{j\phi} \\ &amp;amp;= \sum_{k=1}^{M}a_ke^{h\phi_k} \end{aligned} $$
+$z$: 反射光位置
+$\beta$: 传播常数
+$\widehat{r}(z)$: 包括后向反射和相位延迟的效应
+Rayleigh Distribution $$ \begin{aligned} p(r) &amp;amp;= \begin{cases} \dfrac{r}{\sigma^2}e^{-r^2/2\sigma^2} &amp;amp; r&amp;gt;0 \\ 0 &amp;amp; otherwise \end{cases} \\ p(\phi) &amp;amp;= \begin{cases} \frac{1}{2\pi} &amp;amp; -\pi &amp;lt; \phi \le \pi \\ 0 &amp;amp; otherwise \end{cases} \end{aligned} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/%E7%BB%BC%E8%BF%B0/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-16T16:22:53&#43;08:00'/><meta property='article:modified_time' content='2023-04-16T16:22:53&#43;08:00'/>
-<meta name="twitter:title" content="回归">
-<meta name="twitter:description" content="回归 线性回归 - 最小二乘法 图示 表格 公式 $$ \begin{aligned} \hat y &amp;amp;= b_0 &#43; b_1 x \\ b_1 &amp;amp;= \frac{\sum (x-\overline x)(y-\overline y)}{\sum (x-\overline x)^2} \\ b_0 &amp;amp;= \overline y - b_1 \overline x \end{aligned} $$
-插值方法比较 插值方法 优点 缺点 多项式插值 1. 简单易懂，容易实现；2. 高阶多项式可以拟合任意函数。 1. 容易出现龙格现象；2. 高阶多项式可能会导致过拟合。 样条插值 1. 拟合效果好，精度高；2. 可以通过控制节点数量和位置来平衡精度和复杂度。 1. 计算量大，运行速度相对较慢；2. 对于非常大的数据集可能会出现问题。 分段线性插值 1. 简单易懂，计算速度快；2. 不需要额外存储节点信息。 1. 只能拟合线性函数，无法处理非线性情况；2. 在节点处可能会出现不连续的情况。 近邻插值（Nearest Neighbor Interpolation） 1、简单快捷,计算速度最快;2、适用于离散化的数据集;3、保留了原始数据特征,不会对峰谷等信息造成影响. 常用于分类问题，在图像处理中可能会导致锯齿状的效果。 双线性插值（Bilinear Interpolation） 1、保留了原始数据特征,不会对峰谷等信息造成影响;2、计算速度较快，可用于实时图像处理. 可能会出现模糊或失真的情况。 双三次插值（Bicubic Interpolation） 1、拟合效果好，精度高；2、相比于双线性插值更加平滑自然."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-07-19T11:54:49&#43;08:00'/><meta property='article:modified_time' content='2023-07-19T11:54:49&#43;08:00'/>
+<meta name="twitter:title" content="综述">
+<meta name="twitter:description" content="Recent Advances in Phase-Sensitive Optical Time Domain Reflectometry (Ф-OTDR) Ф-OTDR Principle 入射光波场 $$ \begin{aligned} E = E_0 e^{-j\omega_s t} \end{aligned} $$
+反射光波场 $$ \begin{aligned} E_R &amp;amp;= \widehat{r}(z) E_0 e^{-\alpha z} e^{(j2\beta z - \omega_s t)} \\ \widehat{r} &amp;amp;= r_ie^{j\phi} \\ &amp;amp;= \sum_{k=1}^{M}a_ke^{h\phi_k} \end{aligned} $$
+$z$: 反射光位置
+$\beta$: 传播常数
+$\widehat{r}(z)$: 包括后向反射和相位延迟的效应
+Rayleigh Distribution $$ \begin{aligned} p(r) &amp;amp;= \begin{cases} \dfrac{r}{\sigma^2}e^{-r^2/2\sigma^2} &amp;amp; r&amp;gt;0 \\ 0 &amp;amp; otherwise \end{cases} \\ p(\phi) &amp;amp;= \begin{cases} \frac{1}{2\pi} &amp;amp; -\pi &amp;lt; \phi \le \pi \\ 0 &amp;amp; otherwise \end{cases} \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -253,40 +265,14 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#回归">回归</a>
+    <li><a href="#recent-advances-in-phase-sensitive-optical-time-domain-reflectometry-ф-otdr">Recent Advances in Phase-Sensitive Optical Time Domain Reflectometry (Ф-OTDR)</a>
       <ol>
-        <li><a href="#线性回归---最小二乘法">线性回归 - 最小二乘法</a>
+        <li><a href="#ф-otdr-principle">Ф-OTDR Principle</a></li>
+        <li><a href="#glossary">Glossary</a>
           <ol>
-            <li><a href="#图示">图示</a></li>
-            <li><a href="#表格">表格</a></li>
-            <li><a href="#公式">公式</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#插值方法比较">插值方法比较</a></li>
-    <li><a href="#机器学习算法">机器学习算法</a>
-      <ol>
-        <li><a href="#adaboost-adaptive-boosting">adaboost (adaptive Boosting)</a>
-          <ol>
-            <li><a href="#背景">背景</a></li>
-            <li><a href="#原理">原理</a></li>
-            <li><a href="#步骤">步骤</a></li>
-          </ol>
-        </li>
-        <li><a href="#lihgtbgm">LihgtBGM</a></li>
-      </ol>
-    </li>
-    <li><a href="#决策方法">决策方法</a>
-      <ol>
-        <li><a href="#时间序列分析">时间序列分析</a>
-          <ol>
-            <li><a href="#数据预处理">数据预处理</a></li>
-            <li><a href="#模型选择">模型选择</a></li>
-            <li><a href="#参数估计">参数估计</a></li>
-            <li><a href="#模型诊断">模型诊断</a></li>
-            <li><a href="#预测和应用">预测和应用</a></li>
-            <li><a href="#优势和缺点">优势和缺点</a></li>
+            <li><a href="#distributed-raman-amplificationdra">Distributed Raman Amplification（DRA）</a></li>
+            <li><a href="#hybrid-distributed-amplification-hda">hybrid distributed amplification (HDA)</a></li>
+            <li><a href="#distributed-acoustic-sensing-das">distributed acoustic sensing (DAS)</a></li>
           </ol>
         </li>
       </ol>
@@ -309,8 +295,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E6%95%B0%E6%A8%A1/" style="background-color: #2E8B57; color: #fff;">
-                数模
+            <a href="/categories/%E8%AE%BA%E6%96%87/" style="background-color: #FF4500; color: #fff;">
+                论文
             </a>
         
     </header>
@@ -318,7 +304,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%9B%9E%E5%BD%92/">回归</a>
+            <a href="/p/%E7%BB%BC%E8%BF%B0/">综述</a>
         </h2>
     
         
@@ -340,7 +326,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 16, 2023</time>
+                <time class="article-time--published">Jul 19, 2023</time>
             </div>
         
 
@@ -370,161 +356,68 @@
     <section class="article-content">
     
     
-    <h1 id="回归">回归</h1>
-<h2 id="线性回归---最小二乘法">线性回归 - 最小二乘法</h2>
-<h3 id="图示">图示</h3>
-<p><img src="/p/%E5%9B%9E%E5%BD%92/1.png"
-	width="811"
-	height="726"
-	srcset="/p/%E5%9B%9E%E5%BD%92/1_hu6439d160110e206d06db0dde956b2b42_66875_480x0_resize_box_3.png 480w, /p/%E5%9B%9E%E5%BD%92/1_hu6439d160110e206d06db0dde956b2b42_66875_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="111"
-		data-flex-basis="268px"
-	
-></p>
-<h3 id="表格">表格</h3>
-<p><img src="/p/%E5%9B%9E%E5%BD%92/2.png"
-	width="962"
-	height="322"
-	srcset="/p/%E5%9B%9E%E5%BD%92/2_huec37a4486e4334519861e7a93d43f1d9_96255_480x0_resize_box_3.png 480w, /p/%E5%9B%9E%E5%BD%92/2_huec37a4486e4334519861e7a93d43f1d9_96255_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="298"
-		data-flex-basis="717px"
-	
-></p>
-<h3 id="公式">公式</h3>
-<p>$$
-\begin{aligned}
-\hat y &amp;= b_0 + b_1 x \\
-b_1 &amp;= \frac{\sum (x-\overline x)(y-\overline y)}{\sum (x-\overline x)^2} \\
-b_0 &amp;= \overline y - b_1 \overline x
-\end{aligned}
-$$</p>
-<h1 id="插值方法比较">插值方法比较</h1>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>插值方法</th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>多项式插值</td>
-<td>1. 简单易懂，容易实现；2. 高阶多项式可以拟合任意函数。</td>
-<td>1. 容易出现龙格现象；2. 高阶多项式可能会导致过拟合。</td>
-</tr>
-<tr>
-<td>样条插值</td>
-<td>1. 拟合效果好，精度高；2. 可以通过控制节点数量和位置来平衡精度和复杂度。</td>
-<td>1. 计算量大，运行速度相对较慢；2. 对于非常大的数据集可能会出现问题。</td>
-</tr>
-<tr>
-<td>分段线性插值</td>
-<td>1. 简单易懂，计算速度快；2. 不需要额外存储节点信息。</td>
-<td>1. 只能拟合线性函数，无法处理非线性情况；2. 在节点处可能会出现不连续的情况。</td>
-</tr>
-<tr>
-<td>近邻插值（Nearest Neighbor Interpolation）</td>
-<td>1、简单快捷,计算速度最快;2、适用于离散化的数据集;3、保留了原始数据特征,不会对峰谷等信息造成影响.</td>
-<td>常用于分类问题，在图像处理中可能会导致锯齿状的效果。</td>
-</tr>
-<tr>
-<td>双线性插值（Bilinear Interpolation）</td>
-<td>1、保留了原始数据特征,不会对峰谷等信息造成影响;2、计算速度较快，可用于实时图像处理.</td>
-<td>可能会出现模糊或失真的情况。</td>
-</tr>
-<tr>
-<td>双三次插值（Bicubic Interpolation）</td>
-<td>1、拟合效果好，精度高；2、相比于双线性插值更加平滑自然.</td>
-<td>计算量大，运行速度相对较慢。</td>
-</tr>
-</tbody>
-</table></div>
-<h1 id="机器学习算法">机器学习算法</h1>
-<h2 id="adaboost-adaptive-boosting">adaboost (adaptive Boosting)</h2>
-<h3 id="背景">背景</h3>
-<blockquote>
-<p>AdaBoost（自适应增强）是一种集成学习方法，它将多个弱分类器组合成一个强分类器。该算法最初由Freund和Schapire于1995年提出。</p>
-</blockquote>
-<h3 id="原理">原理</h3>
-<blockquote>
-<p>组合<strong>多个弱算法</strong>，形成<strong>强算法</strong>, 属于<strong>集成学习</strong>, 更适合于<strong>复杂问题</strong>，但是容易<strong>Overfit</strong></p>
-</blockquote>
-<h3 id="步骤">步骤</h3>
+    <h1 id="recent-advances-in-phase-sensitive-optical-time-domain-reflectometry-ф-otdr">Recent Advances in Phase-Sensitive Optical Time Domain Reflectometry (Ф-OTDR)</h1>
+<h2 id="ф-otdr-principle">Ф-OTDR Principle</h2>
 <ol>
-<li>训练样本困难度的初始化和更新</li>
+<li>入射光波场</li>
 </ol>
 <p>$$
 \begin{aligned}
-初始困难度: \omega_i &amp;= \frac{1}{N} \\
-\omega_i^{new} &amp;= \begin{cases}
-\dfrac{1}{2(\varepsilon - 1)} \omega_i^{old
-} &amp; 当前样本被正确分类 \\
-\dfrac{1}{2\varepsilon} \omega_i^{old} &amp; 当前样本被错误分类
+E = E_0 e^{-j\omega_s t}
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>反射光波场</li>
+</ol>
+<p>$$
+\begin{aligned}
+E_R &amp;= \widehat{r}(z) E_0 e^{-\alpha z} e^{(j2\beta z - \omega_s t)} \\
+\widehat{r} &amp;= r_ie^{j\phi} \\
+&amp;= \sum_{k=1}^{M}a_ke^{h\phi_k}
+\end{aligned}
+$$</p>
+<ul>
+<li>
+<p>$z$: 反射光位置</p>
+</li>
+<li>
+<p>$\beta$: 传播常数</p>
+</li>
+<li>
+<p>$\widehat{r}(z)$: 包括<strong>后向反射</strong>和<strong>相位延迟</strong>的效应</p>
+</li>
+</ul>
+<ol start="3">
+<li>Rayleigh Distribution</li>
+</ol>
+<p>$$
+\begin{aligned}
+p(r) &amp;= \begin{cases}
+\dfrac{r}{\sigma^2}e^{-r^2/2\sigma^2} &amp; r&gt;0 \\
+0 &amp; otherwise
+\end{cases} \\
+p(\phi) &amp;= \begin{cases}
+\frac{1}{2\pi} &amp; -\pi &lt; \phi \le \pi \\
+0 &amp; otherwise
 \end{cases}
 \end{aligned}
 $$</p>
-<ol start="2">
-<li>更新每个Weak Learner的权重</li>
-</ol>
-<p>$$
-\begin{aligned}
-\alpha_k &amp;= \frac{1}{2} log(\frac{1-\varepsilon_k}{\varepsilon_k}) \\
-\overline F &amp;= \sum_{i=1}^n \alpha_i f_i
-\end{aligned}
-$$</p>
-<h2 id="lihgtbgm">LihgtBGM</h2>
-<h1 id="决策方法">决策方法</h1>
-<h2 id="时间序列分析">时间序列分析</h2>
-<h3 id="数据预处理">数据预处理</h3>
 <ul>
-<li>对原始时间序列数据进行平滑、去除趋势和季节性等处理，以便更好地识别和分析数据中的模式和趋势。</li>
+<li>$\sigma$: Rayleigh backscattering coefficient</li>
 </ul>
-<h3 id="模型选择">模型选择</h3>
+<h2 id="glossary">Glossary</h2>
+<h3 id="distributed-raman-amplificationdra">Distributed Raman Amplification（DRA）</h3>
 <ul>
-<li>选择适当的时间序列模型来描述数据中的模式和趋势。常用的时间序列模型包括AR（自回归模型）、MA（移动平均模型）、ARMA（自回归移动平均模型）、ARIMA（差分自回归移动平均模型）等。</li>
+<li>光信号通过光纤传播时，会和光纤中的分子振动产生相互作用，从而产生拉曼散射效应。通过控制激光泵浦的功率和波长，可以实现在光纤中产生拉曼增益，从而扩大光信号的功率。</li>
 </ul>
-<ol>
-<li>$ARIMA(p,d,q)$ 模型</li>
-</ol>
-<p>$$
-Y_t&rsquo; = c + \phi_1 Y_{t-1}&rsquo; + \cdots + \phi_p Y_{t-p}&rsquo; + \varepsilon_t + \theta_1 \varepsilon_{t-1} + \cdots + \theta_q \varepsilon_{t-q}
-$$</p>
+<h3 id="hybrid-distributed-amplification-hda">hybrid distributed amplification (HDA)</h3>
 <ul>
-<li>其中，$Y_t&rsquo;$表示经过$d$次差分后的时间序列数据在时间$t$的值，$c$是常数，$\phi_1, &hellip;, \phi_p$和$\theta_1, &hellip;, \theta_q$是ARMA模型中的参数，$\varepsilon_t$是白噪声误差。</li>
-</ul>
-<h3 id="参数估计">参数估计</h3>
-<ul>
-<li>通过最大似然估计、贝叶斯估计等方法，估计时间序列模型中的参数。</li>
-</ul>
-<h3 id="模型诊断">模型诊断</h3>
-<ul>
-<li>检查所选择的模型是否符合数据的统计特征，例如是否存在自相关性、是否存在异方差等。</li>
-</ul>
-<h3 id="预测和应用">预测和应用</h3>
-<h3 id="优势和缺点">优势和缺点</h3>
-<ol>
-<li>优势</li>
-</ol>
-<ul>
-<li>
-<p>$ARMA(p,q)$模型可以用来描述时间序列数据中的自相关和移动平均性质，即当前时刻的值受到前$p$个时刻的值和前$q$个时刻的误差的影响，从而预测未来的值。ARMA模型中的参数$\phi_1, &hellip;, \phi_p$和$\theta_1, &hellip;, \theta_q$可以通过估计时间序列数据中的自相关和偏自相关函数来确定，从而得到最优的模型。</p>
-</li>
-<li>
-<p>$ARIMA(p,d,q)$模型则是在$ARMA(p,q)$模型的基础上增加了差分（Integration）这一步骤，将非平稳时间序列转化为平稳时间序列，从而可以更好地描述时间序列数据中的趋势和季节性，并进行预测。ARIMA模型中的参数$p$、$d$和$q$可以通过观察时间序列数据的趋势和季节性来确定，同时也可以通过估计时间序列数据中的自相关和偏自相关函数来确定。</p>
-</li>
-</ul>
-<ol start="2">
 <li></li>
-</ol>
+</ul>
+<h3 id="distributed-acoustic-sensing-das">distributed acoustic sensing (DAS)</h3>
+<ul>
+<li>对光纤中的光信号进行分析，可以实时、连续地监测光纤所覆盖区域内的声波信号，并将其转换为数字信号进行处理和分析。</li>
+</ul>
 
 </section>
 
@@ -580,80 +473,6 @@ $$</p>
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">Related content</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="">
-    <a href="/p/python%E4%BB%A3%E7%A0%81%E5%82%A8%E5%A4%87/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Python代码储备</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E9%A2%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">预处理方法</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E5%88%86%E7%B1%BB/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">分类</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/deep_networks/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Deep_Networks</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E7%88%AC%E8%99%AB/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">爬虫</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     
