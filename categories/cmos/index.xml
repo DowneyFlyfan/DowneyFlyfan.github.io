@@ -6,7 +6,363 @@
         <description>Recent content in CMOS on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sat, 15 Jul 2023 18:37:12 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/cmos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 04 Aug 2023 17:08:33 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/cmos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cadence教程</title>
+        <link>https://downeyflyfan.com/p/cadence%E6%95%99%E7%A8%8B/</link>
+        <pubDate>Fri, 04 Aug 2023 17:08:33 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/cadence%E6%95%99%E7%A8%8B/</guid>
+        <description>&lt;h1 id=&#34;器件参数调整&#34;&gt;器件参数调整&lt;/h1&gt;
+&lt;h2 id=&#34;mosfet参数设置&#34;&gt;MOSFET参数设置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;AD: 漏极区面积&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AS: 源极区面积&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PD: 漏极周边&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PS: 源极周边&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NR: 沟道掺杂密度&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>15. Phase-Locked Loops</title>
+        <link>https://downeyflyfan.com/p/15.-phase-locked-loops/</link>
+        <pubDate>Thu, 20 Jul 2023 15:18:41 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/15.-phase-locked-loops/</guid>
+        <description>&lt;h1 id=&#34;simple-pll&#34;&gt;Simple PLL&lt;/h1&gt;
+&lt;h2 id=&#34;结构和原理&#34;&gt;结构和原理&lt;/h2&gt;
+&lt;h3 id=&#34;io关系&#34;&gt;I/O关系&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/1.png&#34;
+	width=&#34;2130&#34;
+	height=&#34;598&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/1_hu72121d686215633477d48e5f4a3f0f02_97867_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/1_hu72121d686215633477d48e5f4a3f0f02_97867_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;356&#34;
+		data-flex-basis=&#34;854px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\overline{V_{out}} &amp;amp;= K_{PD}\Delta \phi \\
+Gain &amp;amp;= K_{PD}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$K_{PD}$单位为$V/rad$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;通过xor实现pll&#34;&gt;通过XOR实现PLL&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;电路和时序图&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/2.png&#34;
+	width=&#34;2446&#34;
+	height=&#34;798&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/2_hu1fb1db7455e2f543c159dd5501b232fd_168868_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/2_hu1fb1db7455e2f543c159dd5501b232fd_168868_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;306&#34;
+		data-flex-basis=&#34;735px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;不同&lt;strong&gt;相位差&lt;/strong&gt;下的&lt;strong&gt;时序图&lt;/strong&gt;和&lt;strong&gt;输出电压变化&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/7.png&#34;
+	width=&#34;2220&#34;
+	height=&#34;1462&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/7_hu7e6752b2b71f7a45bbb9007d843a3e22_397695_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/7_hu7e6752b2b71f7a45bbb9007d843a3e22_397695_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;364px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;basic-pll-topology&#34;&gt;Basic PLL Topology&lt;/h2&gt;
+&lt;h3 id=&#34;原理图&#34;&gt;原理图&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/3.png&#34;
+	width=&#34;1592&#34;
+	height=&#34;338&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/3_hu251524a7eb1f7783b57990e283e34b8d_62060_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/3_hu251524a7eb1f7783b57990e283e34b8d_62060_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;471&#34;
+		data-flex-basis=&#34;1130px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Phase Locking&lt;/strong&gt;: Align the &lt;strong&gt;Output Phase of VCO&lt;/strong&gt; and &lt;strong&gt;Phase of the reference&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;strong&gt;LPF&lt;/strong&gt;除去&lt;strong&gt;AC Signal&lt;/strong&gt;，保留&lt;strong&gt;DC signal&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为了定义&lt;strong&gt;Phase Lock Condition&lt;/strong&gt;, 我们需要使得$\phi_{out} - \phi_{in}$ 保持不变, 也就是&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{d\phi_{out}}{dt} - \frac{d\phi_{in}}{\phi_{in}} &amp;amp;= 0 \\
+\omega_{out} &amp;amp;= \omega_{in}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;一个简单的pll&#34;&gt;一个简单的PLL&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/4.png&#34;
+	width=&#34;1592&#34;
+	height=&#34;934&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/4_hu8852373319c64f398bde64141a7afeee_127320_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/4_hu8852373319c64f398bde64141a7afeee_127320_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;409px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;strong&gt;XOR&lt;/strong&gt;作&lt;strong&gt;PD&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;strong&gt;LC&lt;/strong&gt;电路作&lt;strong&gt;LPF&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pll-waveforms-in-locked-condition&#34;&gt;PLL Waveforms in Locked Condition&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Waveforms&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/5.png&#34;
+	width=&#34;1684&#34;
+	height=&#34;970&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/5_hu839d4a2745b4e0868d2c2db88e9fe668_111579_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/5_hu839d4a2745b4e0868d2c2db88e9fe668_111579_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;416px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;计算&lt;strong&gt;Static Phase Error&lt;/strong&gt; $\phi_0$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/6.png&#34;
+	width=&#34;1124&#34;
+	height=&#34;1244&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/6_hufd5ae6429f0d4758ab564ab1f43c1893_110762_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/6_hufd5ae6429f0d4758ab564ab1f43c1893_110762_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;90&#34;
+		data-flex-basis=&#34;216px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\omega_{out} &amp;amp;= \omega_0 + K_{VCO}V_{cont} \\
+\overline{V_{PD}} &amp;amp;= K_{PD} \Delta \phi \\
+\therefore V_1 &amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}} \\
+\therefore \phi_0 &amp;amp;= \frac{V_1}{K_{PD}} \\
+&amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}K_{PD}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;结论&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;为了减小&lt;strong&gt;Phase Error&lt;/strong&gt;,必须&lt;strong&gt;增大&lt;/strong&gt;$K_{VCO}K_{PD}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;输入频率&lt;/strong&gt;会影响&lt;strong&gt;相位误差&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;small-transients-in-locked-condition&#34;&gt;Small Transients in Locked Condition&lt;/h3&gt;
+&lt;h1 id=&#34;charge-pump-pll&#34;&gt;Charge-Pump PLL&lt;/h1&gt;
+&lt;h2 id=&#34;pfd-phasefrequency-detector&#34;&gt;PFD (Phase/Frequency Detector)&lt;/h2&gt;
+&lt;h3 id=&#34;结构图&#34;&gt;结构图&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/8.png&#34;
+	width=&#34;716&#34;
+	height=&#34;906&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/8_hufadc99752c9fd22bd2882beb81d7c23a_63734_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/8_hufadc99752c9fd22bd2882beb81d7c23a_63734_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;79&#34;
+		data-flex-basis=&#34;189px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;门电路&#34;&gt;门电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/9.png&#34;
+	width=&#34;1072&#34;
+	height=&#34;830&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/9_hu4594b582d14e4b151c9eb85da94bef93_135096_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/9_hu4594b582d14e4b151c9eb85da94bef93_135096_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;309px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;效果&#34;&gt;效果&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当频率很低时，就成了一个&lt;strong&gt;PD&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;charge-pump&#34;&gt;Charge Pump&lt;/h2&gt;
+&lt;h3 id=&#34;结构图-1&#34;&gt;结构图&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/10.png&#34;
+	width=&#34;258&#34;
+	height=&#34;1100&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/10_hu25dad9b85bea5cec6b968e553a857b15_41666_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/10_hu25dad9b85bea5cec6b968e553a857b15_41666_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;23&#34;
+		data-flex-basis=&#34;56px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/15.png&#34;
+	width=&#34;1174&#34;
+	height=&#34;756&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/15_hua036993368a3b24386fc8aa24fbf66a2_101109_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/15_hua036993368a3b24386fc8aa24fbf66a2_101109_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;155&#34;
+		data-flex-basis=&#34;372px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;用MOSFET做&lt;strong&gt;电流源&lt;/strong&gt;和&lt;strong&gt;开关&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用一个&lt;strong&gt;CMOS Pass Gate&lt;/strong&gt;来达到与$Q_A$相同的&lt;strong&gt;delay&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;dynamics-of-cppll&#34;&gt;Dynamics of CPPLL&lt;/h2&gt;
+&lt;h3 id=&#34;is-it-a-linear-system&#34;&gt;Is it a Linear System?&lt;/h3&gt;
+&lt;h3 id=&#34;transfer-function-of-pdfcplpf&#34;&gt;Transfer Function of PDF/CP/LPF&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Step Response of &lt;strong&gt;PDF/CP/LPF&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/11.png&#34;
+	width=&#34;1646&#34;
+	height=&#34;1140&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/11_hu2d8bcc91b693cf82d0977b4a3cf54031_138381_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/11_hu2d8bcc91b693cf82d0977b4a3cf54031_138381_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;346px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$I_P$为CP电流&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$C_P$为LPF的电容&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Transfer Function&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_{out}(t) &amp;amp;= \frac{I_P}{2\pi C_P} t \Delta \phi u(t) \\
+\therefore h(t) &amp;amp;= \frac{I_P}{2\pi C_P} u(t) \\
+\therefore H(s) &amp;amp;= \frac{V_{out}(t)}{\Delta \phi}(s) \\
+&amp;amp;= \frac{I_P}{2\pi C_P} \cdot \frac{1}{s}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;simple-cppll&#34;&gt;Simple CPPLL&lt;/h2&gt;
+&lt;h3 id=&#34;原理图-1&#34;&gt;原理图&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/12.png&#34;
+	width=&#34;1762&#34;
+	height=&#34;636&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/12_hud170981836732317705c86caef508fc8_106383_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/12_hud170981836732317705c86caef508fc8_106383_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;277&#34;
+		data-flex-basis=&#34;664px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;电路图&#34;&gt;电路图&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/13.png&#34;
+	width=&#34;1752&#34;
+	height=&#34;1136&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/13_hucd8ffabfe66195200ac109e0a48770fe_161902_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/13_hucd8ffabfe66195200ac109e0a48770fe_161902_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;154&#34;
+		data-flex-basis=&#34;370px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;为了稳定电路，增加了一个$R_P$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{\Phi_{out}}{\Phi_{in}}(s)|&lt;em&gt;{open} &amp;amp;= \frac{I_P}{2\pi} ({\frac{1}{sC_P} + R_P}) \frac{K&lt;/em&gt;{VCO}}{s} \\
+\therefore H(s) &amp;amp;=
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;优化-1&#34;&gt;优化&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/14.png&#34;
+	width=&#34;1844&#34;
+	height=&#34;1136&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/14_hu08823a88e2097f6473200a628dd0f350_172719_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/14_hu08823a88e2097f6473200a628dd0f350_172719_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;162&#34;
+		data-flex-basis=&#34;389px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;增加一个$C_2$以减小&lt;strong&gt;Ripple&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
+&lt;h2 id=&#34;gain-crossover&#34;&gt;Gain Crossover&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;增益（Gain）曲线和相位（Phase）曲线相交的位置&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>5. Passive and Active Current Mirror</title>
         <link>https://downeyflyfan.com/p/5.-passive-and-active-current-mirror/</link>
         <pubDate>Sat, 15 Jul 2023 18:37:12 +0800</pubDate>
@@ -313,14 +669,29 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;778px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对于图(b), 若$A$为增益, 可得出&lt;strong&gt;Miller&amp;rsquo;s Law&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
 Z_1 &amp;amp;= \frac{1}{1-A} Z  \\
-Z_2 &amp;amp;= \frac{1}{1 - \dfrac{1}{A}}Z \\\
-\\ In \ this \ case \\
+Z_2 &amp;amp;= \frac{1}{1 - A^{-1}}Z \\\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;对于图(a)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
 Z_1 &amp;amp;= \frac{1}{s(1 + A)C_F} \\
 \therefore C_{in} &amp;amp;= (1+A)C_F \\
-Method \ II \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;对于图(c)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
 Q_{in} &amp;amp;= C_F(-A\Delta V - \Delta V)  \\
 &amp;amp;= -(1+A)C_F\Delta V \\
 \therefore C_{in} &amp;amp;= (1+A) C_F
@@ -365,8 +736,31 @@ Input \ Impedence \ Z_{in} &amp;amp;= (1+A) C_F \\
 f_p &amp;amp;= \frac{1}{(1+A)R_SC_F}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;cg-stage-with-parasitic-capacitances&#34;&gt;CG Stage With Parasitic Capacitances&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/11.png&#34;
+	width=&#34;674&#34;
+	height=&#34;726&#34;
+	srcset=&#34;https://downeyflyfan.com/p/6.-frequency-response/11_hub2039b5ba16f5d2b9d6662121e4ff1d7_58291_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/6.-frequency-response/11_hub2039b5ba16f5d2b9d6662121e4ff1d7_58291_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;92&#34;
+		data-flex-basis=&#34;222px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\omega_{in} &amp;amp;= [C_S (R_S || \frac{1}{g_{m1} + g_{mb1}})]^{-1} \\
+&amp;amp;= [(C_{GS1} + C_{SB1})(R_S || \frac{1}{g_{m1} + g_{mb1}})]^{-1} \\
+\omega_{out} &amp;amp;= [C_D R_D]^{-1} \\
+&amp;amp;= [(C_{DG} + C_{DB}) R_D]^{-1} \\
+\therefore A_v &amp;amp;= \frac{(g_m + g_{mb})R_D}{1 + (g_m + g_{mb})R_S} \frac{1}{1 + s/\omega_{in}}\frac{1}{1 + s/\omega_{out}}
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;common-source-stage&#34;&gt;Common-Source Stage&lt;/h1&gt;
 &lt;h2 id=&#34;inputoutput-frequency&#34;&gt;Input/Output Frequency&lt;/h2&gt;
+&lt;h3 id=&#34;电路图&#34;&gt;电路图&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/4.png&#34;
 	width=&#34;918&#34;
 	height=&#34;640&#34;
@@ -379,6 +773,10 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;344px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h3 id=&#34;nodes&#34;&gt;Nodes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$C_{GD}$接在了&lt;strong&gt;输入&lt;/strong&gt;和&lt;strong&gt;输出&lt;/strong&gt;之间，因此根据&lt;strong&gt;Miller&amp;rsquo;s Law&lt;/strong&gt;分别计算&lt;strong&gt;输出&lt;/strong&gt;和&lt;strong&gt;输入&lt;/strong&gt;阻抗&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 X \ to \ ground \\
@@ -390,7 +788,7 @@ Z_X &amp;amp;= C_{DB} + (1-A^{-1})C_{GD} \\
 \therefore \omega_{out} &amp;amp;= \frac{1}{R_S(C_{GS} + C_{GD})}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;r_s-is-large&#34;&gt;$R_S$ is large&lt;/h2&gt;
+&lt;h3 id=&#34;r_s-is-large&#34;&gt;$R_S$ is large&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/5.png&#34;
 	width=&#34;750&#34;
 	height=&#34;642&#34;
@@ -423,23 +821,57 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;656px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;KCL方程&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
-KCL: \\
 0 &amp;amp;= V_X sC_{GS} + (V_X - V_{in})/R_S + (V_X - V_{out})sC_{GD} \\
 0 &amp;amp;= V_{out} (\frac{1}{R_D} + C_{DB}) + (V_{out} - V_X)sC_{GD} \\
+解得 \ V_X &amp;amp;= -\frac{V_{out} [s(C_{GD} + C_{DB}) + \dfrac{1}{R_D}]}{g_m - sC_{GD}} \\
 \therefore \ H(s) &amp;amp;= \frac{V_{out}}{V_{in}} \\
 &amp;amp;= \frac{(C_{GD}s - g_m)R_D}{R_SR_D\xi s^2 + [R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})]s + 1} \\
-\xi = C_{GS}C_{GD} + C_{GS}C_{DB} + C_{GD}C_{DB} \\
-Two \ Pole \ Systems: \\
-D &amp;amp;= (1 + \frac{s}{\omega_{p1}})(1 + \frac{s}{\omega_{p2}}) \\
-&amp;amp;= \frac{s^2}{\omega_{p1}\omega_{p2}} + (\frac{1}{\omega_{p1}} + \frac{1}{\omega_{p2}})s + 1 \\
-\omega_{p2} &amp;amp;\gg \omega_{p1} \\
-\therefore coefficient \ of \ s &amp;amp;\approx \frac{1}{\omega_{p1}} \\
-\therefore \omega_{p1} &amp;amp;= \frac{1}{R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})}
+\xi &amp;amp;= C_{GS}C_{GD} + C_{GS}C_{DB} + C_{GD}C_{DB} \\
 \end{aligned}
 $$&lt;/p&gt;
+&lt;h3 id=&#34;two-pole-systems&#34;&gt;Two Pole Systems&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$D$: &lt;strong&gt;demoninator&lt;/strong&gt;，分母&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+D &amp;amp;= (1 + \frac{s}{\omega_{p1}})(1 + \frac{s}{\omega_{p2}}) \\
+&amp;amp;= \frac{s^2}{\omega_{p1}\omega_{p2}} + (\frac{1}{\omega_{p1}} + \frac{1}{\omega_{p2}})s + 1 \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;因为$\omega_{p2} \gg \omega_{p1}$，所以我们可以将s的系数近似看成$\dfrac{1}{\omega_{p1}}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进而根据$s^2$的系数求出$\omega_{p2}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;对于&lt;strong&gt;CS Stage&lt;/strong&gt;, 有以下结论&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\omega_{p1} &amp;amp;= \frac{1}{R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})} \\
+\omega_{p2} &amp;amp;= \frac{1}{\omega_{p1}} \frac{1}{R_S R_D \xi} \\
+&amp;amp;= \frac{R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})}{R_SR_D\xi} \\
+若 C_{GS} &amp;amp;\gg (1+g_m R_D)C_{GD} + R_D(C_{GD} + C_{DB})/R_S \\
+\omega_{p2} &amp;amp;\approx \frac{1}{R_D (C_{GD} + C_{DB})}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;总结&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;the &amp;ldquo;output&amp;rdquo; pole approach is valid only if $C_{GS}$ dominates the response&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;source-followers&#34;&gt;Source Followers&lt;/h1&gt;
+&lt;h2 id=&#34;电路&#34;&gt;电路&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/6.-frequency-response/7.png&#34;
 	width=&#34;1250&#34;
 	height=&#34;510&#34;
@@ -453,15 +885,36 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;transfer-function-and-poles&#34;&gt;Transfer Function and Poles&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;KCL&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
-KCL: \\
 V_1C_{GS}s + g_mV_1 &amp;amp;= V_{out}C_Ls \\
-\therefore V_1 &amp;amp;= \frac{C_Ls}{g_m + C_{GS}s}V_{out} \\
-KVL: \\
-V_{in} &amp;amp;= R_S[V_1C_{GS}s + (V_1 + V_{out})C_{GD}s] + V_1 + V_{out} \\
-\therefore \frac{V_{out}}{V_{in}}(s) &amp;amp;= \frac{g_m + C_{GS}s}{R_S\xi s^2 + (g_mR_SC_{GD} + C_L + C_{GS})s + g_m} \\
-Poles: \\
+\therefore V_1 &amp;amp;= \frac{C_Ls}{g_m + C_{GS}s}V_{out}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;KVL&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+V_{in} &amp;amp;= R_S[V_1C_{GS}s + (V_1 + V_{out})C_{GD}s] + V_1 + V_{out}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Gain&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\therefore \frac{V_{out}}{V_{in}}(s) &amp;amp;= \frac{g_m + C_{GS}s}{R_S\xi s^2 + (g_mR_SC_{GD} + C_L + C_{GS})s + g_m}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Poles&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
 \therefore \omega_{p1} &amp;amp;\approx \frac{g_m}{g_mR_SC_{GD} + C_L + C_{GS}} \\
 &amp;amp;= \frac{1}{R_SC_{GD} + \dfrac{C_L + C_{GS}}{g_m}} \\
 if \ R_S &amp;amp;= 0: \\
@@ -510,7 +963,7 @@ $$&lt;/p&gt;
 \begin{aligned}
 \frac{V_{out}}{V_{in}}(s) &amp;amp;= \frac{(g_m + g_{mb})R_D}{1 + (g_m + g_{mb})R_S} \frac{1}{\Big(1 + \dfrac{C_S}{g_m + g_{mb} + \dfrac{1}{R_S}}s \Big) (1 + R_DC_D s)} \\
 \therefore Z_{in} &amp;amp;\approx \frac{Z_L}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
-Z_L &amp;amp;= R_D || [1/(C_D s)]
+Z_L &amp;amp;= R_D || [1/(s C_D)]
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;cascode-stage&#34;&gt;Cascode Stage&lt;/h1&gt;

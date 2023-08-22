@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Simple PLL 结构和原理 I/O关系 $$ \begin{aligned} \overline{V_{out}} &amp;amp;= K_{PD}\Delta \phi \\ Gain &amp;amp;= K_{PD} \end{aligned} $$
+$K_{PD}$单位为$V/rad$ 通过XOR实现PLL 电路和时序图 不同相位差下的时序图和输出电压变化 Basic PLL Topology 原理图 Phase Locking: Align the Output Phase of VCO and Phase of the reference
+用LPF除去AC Signal，保留DC signal
+为了定义Phase Lock Condition, 我们需要使得$\phi_{out} - \phi_{in}$ 保持不变, 也就是
+$$ \begin{aligned} \frac{d\phi_{out}}{dt} - \frac{d\phi_{in}}{\phi_{in}} &amp;amp;= 0 \\ \omega_{out} &amp;amp;= \omega_{in} \end{aligned} $$
+一个简单的PLL 用XOR作PD
+用LC电路作LPF
+PLL Waveforms in Locked Condition Waveforms 计算Static Phase Error $\phi_0$ $$ \begin{aligned} \omega_{out} &amp;amp;= \omega_0 &#43; K_{VCO}V_{cont} \\ \overline{V_{PD}} &amp;amp;= K_{PD} \Delta \phi \\ \therefore V_1 &amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}} \\ \therefore \phi_0 &amp;amp;= \frac{V_1}{K_{PD}} \\ &amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}K_{PD}} \end{aligned} $$'>
+<title>15. Phase-Locked Loops</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/15.-phase-locked-loops/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='15. Phase-Locked Loops'>
+<meta property='og:description' content='Simple PLL 结构和原理 I/O关系 $$ \begin{aligned} \overline{V_{out}} &amp;amp;= K_{PD}\Delta \phi \\ Gain &amp;amp;= K_{PD} \end{aligned} $$
+$K_{PD}$单位为$V/rad$ 通过XOR实现PLL 电路和时序图 不同相位差下的时序图和输出电压变化 Basic PLL Topology 原理图 Phase Locking: Align the Output Phase of VCO and Phase of the reference
+用LPF除去AC Signal，保留DC signal
+为了定义Phase Lock Condition, 我们需要使得$\phi_{out} - \phi_{in}$ 保持不变, 也就是
+$$ \begin{aligned} \frac{d\phi_{out}}{dt} - \frac{d\phi_{in}}{\phi_{in}} &amp;amp;= 0 \\ \omega_{out} &amp;amp;= \omega_{in} \end{aligned} $$
+一个简单的PLL 用XOR作PD
+用LC电路作LPF
+PLL Waveforms in Locked Condition Waveforms 计算Static Phase Error $\phi_0$ $$ \begin{aligned} \omega_{out} &amp;amp;= \omega_0 &#43; K_{VCO}V_{cont} \\ \overline{V_{PD}} &amp;amp;= K_{PD} \Delta \phi \\ \therefore V_1 &amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}} \\ \therefore \phi_0 &amp;amp;= \frac{V_1}{K_{PD}} \\ &amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}K_{PD}} \end{aligned} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/15.-phase-locked-loops/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-07-20T15:18:41&#43;08:00'/><meta property='article:modified_time' content='2023-07-20T15:18:41&#43;08:00'/>
+<meta name="twitter:title" content="15. Phase-Locked Loops">
+<meta name="twitter:description" content="Simple PLL 结构和原理 I/O关系 $$ \begin{aligned} \overline{V_{out}} &amp;amp;= K_{PD}\Delta \phi \\ Gain &amp;amp;= K_{PD} \end{aligned} $$
+$K_{PD}$单位为$V/rad$ 通过XOR实现PLL 电路和时序图 不同相位差下的时序图和输出电压变化 Basic PLL Topology 原理图 Phase Locking: Align the Output Phase of VCO and Phase of the reference
+用LPF除去AC Signal，保留DC signal
+为了定义Phase Lock Condition, 我们需要使得$\phi_{out} - \phi_{in}$ 保持不变, 也就是
+$$ \begin{aligned} \frac{d\phi_{out}}{dt} - \frac{d\phi_{in}}{\phi_{in}} &amp;amp;= 0 \\ \omega_{out} &amp;amp;= \omega_{in} \end{aligned} $$
+一个简单的PLL 用XOR作PD
+用LC电路作LPF
+PLL Waveforms in Locked Condition Waveforms 计算Static Phase Error $\phi_0$ $$ \begin{aligned} \omega_{out} &amp;amp;= \omega_0 &#43; K_{VCO}V_{cont} \\ \overline{V_{PD}} &amp;amp;= K_{PD} \Delta \phi \\ \therefore V_1 &amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}} \\ \therefore \phi_0 &amp;amp;= \frac{V_1}{K_{PD}} \\ &amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}K_{PD}} \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#simple-pll">Simple PLL</a>
+      <ol>
+        <li><a href="#结构和原理">结构和原理</a>
+          <ol>
+            <li><a href="#io关系">I/O关系</a></li>
+            <li><a href="#通过xor实现pll">通过XOR实现PLL</a></li>
+          </ol>
+        </li>
+        <li><a href="#basic-pll-topology">Basic PLL Topology</a>
+          <ol>
+            <li><a href="#原理图">原理图</a></li>
+            <li><a href="#一个简单的pll">一个简单的PLL</a></li>
+            <li><a href="#pll-waveforms-in-locked-condition">PLL Waveforms in Locked Condition</a></li>
+            <li><a href="#small-transients-in-locked-condition">Small Transients in Locked Condition</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#charge-pump-pll">Charge-Pump PLL</a>
+      <ol>
+        <li><a href="#pfd-phasefrequency-detector">PFD (Phase/Frequency Detector)</a>
+          <ol>
+            <li><a href="#结构图">结构图</a></li>
+            <li><a href="#门电路">门电路</a></li>
+            <li><a href="#效果">效果</a></li>
+          </ol>
+        </li>
+        <li><a href="#charge-pump">Charge Pump</a>
+          <ol>
+            <li><a href="#结构图-1">结构图</a></li>
+            <li><a href="#优化">优化</a></li>
+          </ol>
+        </li>
+        <li><a href="#dynamics-of-cppll">Dynamics of CPPLL</a>
+          <ol>
+            <li><a href="#is-it-a-linear-system">Is it a Linear System?</a></li>
+            <li><a href="#transfer-function-of-pdfcplpf">Transfer Function of PDF/CP/LPF</a></li>
+          </ol>
+        </li>
+        <li><a href="#simple-cppll">Simple CPPLL</a>
+          <ol>
+            <li><a href="#原理图-1">原理图</a></li>
+            <li><a href="#电路图">电路图</a></li>
+            <li><a href="#分析">分析</a></li>
+            <li><a href="#优化-1">优化</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#gain-crossover">Gain Crossover</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/cmos/" style="background-color: #8B0000; color: #fff;">
+                CMOS
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/15.-phase-locked-loops/">15. Phase-Locked Loops</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 20, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="simple-pll">Simple PLL</h1>
+<h2 id="结构和原理">结构和原理</h2>
+<h3 id="io关系">I/O关系</h3>
+<p><img src="/p/15.-phase-locked-loops/1.png"
+	width="2130"
+	height="598"
+	srcset="/p/15.-phase-locked-loops/1_hu72121d686215633477d48e5f4a3f0f02_97867_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/1_hu72121d686215633477d48e5f4a3f0f02_97867_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="356"
+		data-flex-basis="854px"
+	
+></p>
+<p>$$
+\begin{aligned}
+\overline{V_{out}} &amp;= K_{PD}\Delta \phi \\
+Gain &amp;= K_{PD}
+\end{aligned}
+$$</p>
+<ul>
+<li>$K_{PD}$单位为$V/rad$</li>
+</ul>
+<h3 id="通过xor实现pll">通过XOR实现PLL</h3>
+<ol>
+<li>电路和时序图</li>
+</ol>
+<p><img src="/p/15.-phase-locked-loops/2.png"
+	width="2446"
+	height="798"
+	srcset="/p/15.-phase-locked-loops/2_hu1fb1db7455e2f543c159dd5501b232fd_168868_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/2_hu1fb1db7455e2f543c159dd5501b232fd_168868_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="306"
+		data-flex-basis="735px"
+	
+></p>
+<ol start="2">
+<li>不同<strong>相位差</strong>下的<strong>时序图</strong>和<strong>输出电压变化</strong></li>
+</ol>
+<p><img src="/p/15.-phase-locked-loops/7.png"
+	width="2220"
+	height="1462"
+	srcset="/p/15.-phase-locked-loops/7_hu7e6752b2b71f7a45bbb9007d843a3e22_397695_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/7_hu7e6752b2b71f7a45bbb9007d843a3e22_397695_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
+	
+></p>
+<h2 id="basic-pll-topology">Basic PLL Topology</h2>
+<h3 id="原理图">原理图</h3>
+<p><img src="/p/15.-phase-locked-loops/3.png"
+	width="1592"
+	height="338"
+	srcset="/p/15.-phase-locked-loops/3_hu251524a7eb1f7783b57990e283e34b8d_62060_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/3_hu251524a7eb1f7783b57990e283e34b8d_62060_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="471"
+		data-flex-basis="1130px"
+	
+></p>
+<ul>
+<li>
+<p><strong>Phase Locking</strong>: Align the <strong>Output Phase of VCO</strong> and <strong>Phase of the reference</strong></p>
+</li>
+<li>
+<p>用<strong>LPF</strong>除去<strong>AC Signal</strong>，保留<strong>DC signal</strong></p>
+</li>
+<li>
+<p>为了定义<strong>Phase Lock Condition</strong>, 我们需要使得$\phi_{out} - \phi_{in}$ 保持不变, 也就是</p>
+</li>
+</ul>
+<p>$$
+\begin{aligned}
+\frac{d\phi_{out}}{dt} - \frac{d\phi_{in}}{\phi_{in}} &amp;= 0 \\
+\omega_{out} &amp;= \omega_{in}
+\end{aligned}
+$$</p>
+<h3 id="一个简单的pll">一个简单的PLL</h3>
+<p><img src="/p/15.-phase-locked-loops/4.png"
+	width="1592"
+	height="934"
+	srcset="/p/15.-phase-locked-loops/4_hu8852373319c64f398bde64141a7afeee_127320_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/4_hu8852373319c64f398bde64141a7afeee_127320_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="170"
+		data-flex-basis="409px"
+	
+></p>
+<ul>
+<li>
+<p>用<strong>XOR</strong>作<strong>PD</strong></p>
+</li>
+<li>
+<p>用<strong>LC</strong>电路作<strong>LPF</strong></p>
+</li>
+</ul>
+<h3 id="pll-waveforms-in-locked-condition">PLL Waveforms in Locked Condition</h3>
+<ol>
+<li>Waveforms</li>
+</ol>
+<p><img src="/p/15.-phase-locked-loops/5.png"
+	width="1684"
+	height="970"
+	srcset="/p/15.-phase-locked-loops/5_hu839d4a2745b4e0868d2c2db88e9fe668_111579_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/5_hu839d4a2745b4e0868d2c2db88e9fe668_111579_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="416px"
+	
+></p>
+<ol start="2">
+<li>计算<strong>Static Phase Error</strong> $\phi_0$</li>
+</ol>
+<p><img src="/p/15.-phase-locked-loops/6.png"
+	width="1124"
+	height="1244"
+	srcset="/p/15.-phase-locked-loops/6_hufd5ae6429f0d4758ab564ab1f43c1893_110762_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/6_hufd5ae6429f0d4758ab564ab1f43c1893_110762_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="90"
+		data-flex-basis="216px"
+	
+></p>
+<p>$$
+\begin{aligned}
+\omega_{out} &amp;= \omega_0 + K_{VCO}V_{cont} \\
+\overline{V_{PD}} &amp;= K_{PD} \Delta \phi \\
+\therefore V_1 &amp;= \frac{\omega_1 - \omega_0}{K_{VCO}} \\
+\therefore \phi_0 &amp;= \frac{V_1}{K_{PD}} \\
+&amp;= \frac{\omega_1 - \omega_0}{K_{VCO}K_{PD}}
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>结论</li>
+</ol>
+<ul>
+<li>
+<p>为了减小<strong>Phase Error</strong>,必须<strong>增大</strong>$K_{VCO}K_{PD}$</p>
+</li>
+<li>
+<p><strong>输入频率</strong>会影响<strong>相位误差</strong></p>
+</li>
+</ul>
+<h3 id="small-transients-in-locked-condition">Small Transients in Locked Condition</h3>
+<h1 id="charge-pump-pll">Charge-Pump PLL</h1>
+<h2 id="pfd-phasefrequency-detector">PFD (Phase/Frequency Detector)</h2>
+<h3 id="结构图">结构图</h3>
+<p><img src="/p/15.-phase-locked-loops/8.png"
+	width="716"
+	height="906"
+	srcset="/p/15.-phase-locked-loops/8_hufadc99752c9fd22bd2882beb81d7c23a_63734_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/8_hufadc99752c9fd22bd2882beb81d7c23a_63734_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="79"
+		data-flex-basis="189px"
+	
+></p>
+<h3 id="门电路">门电路</h3>
+<p><img src="/p/15.-phase-locked-loops/9.png"
+	width="1072"
+	height="830"
+	srcset="/p/15.-phase-locked-loops/9_hu4594b582d14e4b151c9eb85da94bef93_135096_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/9_hu4594b582d14e4b151c9eb85da94bef93_135096_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="129"
+		data-flex-basis="309px"
+	
+></p>
+<h3 id="效果">效果</h3>
+<ul>
+<li>当频率很低时，就成了一个<strong>PD</strong></li>
+</ul>
+<h2 id="charge-pump">Charge Pump</h2>
+<h3 id="结构图-1">结构图</h3>
+<p><img src="/p/15.-phase-locked-loops/10.png"
+	width="258"
+	height="1100"
+	srcset="/p/15.-phase-locked-loops/10_hu25dad9b85bea5cec6b968e553a857b15_41666_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/10_hu25dad9b85bea5cec6b968e553a857b15_41666_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="23"
+		data-flex-basis="56px"
+	
+></p>
+<h3 id="优化">优化</h3>
+<p><img src="/p/15.-phase-locked-loops/15.png"
+	width="1174"
+	height="756"
+	srcset="/p/15.-phase-locked-loops/15_hua036993368a3b24386fc8aa24fbf66a2_101109_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/15_hua036993368a3b24386fc8aa24fbf66a2_101109_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="372px"
+	
+></p>
+<ul>
+<li>
+<p>用MOSFET做<strong>电流源</strong>和<strong>开关</strong></p>
+</li>
+<li>
+<p>用一个<strong>CMOS Pass Gate</strong>来达到与$Q_A$相同的<strong>delay</strong></p>
+</li>
+</ul>
+<h2 id="dynamics-of-cppll">Dynamics of CPPLL</h2>
+<h3 id="is-it-a-linear-system">Is it a Linear System?</h3>
+<h3 id="transfer-function-of-pdfcplpf">Transfer Function of PDF/CP/LPF</h3>
+<ol>
+<li>Step Response of <strong>PDF/CP/LPF</strong></li>
+</ol>
+<p><img src="/p/15.-phase-locked-loops/11.png"
+	width="1646"
+	height="1140"
+	srcset="/p/15.-phase-locked-loops/11_hu2d8bcc91b693cf82d0977b4a3cf54031_138381_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/11_hu2d8bcc91b693cf82d0977b4a3cf54031_138381_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="346px"
+	
+></p>
+<ul>
+<li>
+<p>$I_P$为CP电流</p>
+</li>
+<li>
+<p>$C_P$为LPF的电容</p>
+</li>
+</ul>
+<ol start="2">
+<li>Transfer Function</li>
+</ol>
+<p>$$
+\begin{aligned}
+V_{out}(t) &amp;= \frac{I_P}{2\pi C_P} t \Delta \phi u(t) \\
+\therefore h(t) &amp;= \frac{I_P}{2\pi C_P} u(t) \\
+\therefore H(s) &amp;= \frac{V_{out}(t)}{\Delta \phi}(s) \\
+&amp;= \frac{I_P}{2\pi C_P} \cdot \frac{1}{s}
+\end{aligned}
+$$</p>
+<h2 id="simple-cppll">Simple CPPLL</h2>
+<h3 id="原理图-1">原理图</h3>
+<p><img src="/p/15.-phase-locked-loops/12.png"
+	width="1762"
+	height="636"
+	srcset="/p/15.-phase-locked-loops/12_hud170981836732317705c86caef508fc8_106383_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/12_hud170981836732317705c86caef508fc8_106383_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="277"
+		data-flex-basis="664px"
+	
+></p>
+<h3 id="电路图">电路图</h3>
+<p><img src="/p/15.-phase-locked-loops/13.png"
+	width="1752"
+	height="1136"
+	srcset="/p/15.-phase-locked-loops/13_hucd8ffabfe66195200ac109e0a48770fe_161902_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/13_hucd8ffabfe66195200ac109e0a48770fe_161902_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="154"
+		data-flex-basis="370px"
+	
+></p>
+<h3 id="分析">分析</h3>
+<ul>
+<li>为了稳定电路，增加了一个$R_P$</li>
+</ul>
+<p>$$
+\begin{aligned}
+\frac{\Phi_{out}}{\Phi_{in}}(s)|<em>{open} &amp;= \frac{I_P}{2\pi} ({\frac{1}{sC_P} + R_P}) \frac{K</em>{VCO}}{s} \\
+\therefore H(s) &amp;=
+\end{aligned}
+$$</p>
+<h3 id="优化-1">优化</h3>
+<p><img src="/p/15.-phase-locked-loops/14.png"
+	width="1844"
+	height="1136"
+	srcset="/p/15.-phase-locked-loops/14_hu08823a88e2097f6473200a628dd0f350_172719_480x0_resize_box_3.png 480w, /p/15.-phase-locked-loops/14_hu08823a88e2097f6473200a628dd0f350_172719_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="162"
+		data-flex-basis="389px"
+	
+></p>
+<ul>
+<li>增加一个$C_2$以减小<strong>Ripple</strong></li>
+</ul>
+<h1 id="附录">附录</h1>
+<h2 id="gain-crossover">Gain Crossover</h2>
+<blockquote>
+<p>增益（Gain）曲线和相位（Phase）曲线相交的位置</p>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/cadence%E6%95%99%E7%A8%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Cadence教程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/5.-passive-and-active-current-mirror/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5. Passive and Active Current Mirror</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/9.-operational-amplifier/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">9. Operational Amplifier</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/6.-frequency-response/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">6. Frequency Response</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/4.-differential-amplifiers/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">4. Differential Amplifiers</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
