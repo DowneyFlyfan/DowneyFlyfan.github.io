@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Signal Power &amp;amp; Energy 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 一个现象 能量与信号强度的平方成正比
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Signal Power &amp;amp; Energy 注: 此处的能量与功率是一个相对值，单位不确定 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 一个现象 能量与信号强度的平方成正比
 对复数信号同样适用
 结论 Continuous Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\ P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\ \end{aligned} $$
 Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x(n)|^2dn \\ P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n &#43; 1} \sum_{-n}^n |x(n)|^2dn \\ \end{aligned} $$
@@ -11,7 +11,7 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
 <link rel='canonical' href='https://downeyflyfan.com/p/1.-%E7%BB%AA%E8%AE%BA/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='1. 绪论'>
-<meta property='og:description' content='Signal Power &amp;amp; Energy 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 一个现象 能量与信号强度的平方成正比
+<meta property='og:description' content='Signal Power &amp;amp; Energy 注: 此处的能量与功率是一个相对值，单位不确定 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 一个现象 能量与信号强度的平方成正比
 对复数信号同样适用
 结论 Continuous Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\ P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\ \end{aligned} $$
 Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x(n)|^2dn \\ P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n &#43; 1} \sum_{-n}^n |x(n)|^2dn \\ \end{aligned} $$
@@ -20,7 +20,7 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-08-22T15:31:32&#43;08:00'/><meta property='article:modified_time' content='2023-08-22T15:31:32&#43;08:00'/>
 <meta name="twitter:title" content="1. 绪论">
-<meta name="twitter:description" content="Signal Power &amp;amp; Energy 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 一个现象 能量与信号强度的平方成正比
+<meta name="twitter:description" content="Signal Power &amp;amp; Energy 注: 此处的能量与功率是一个相对值，单位不确定 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 一个现象 能量与信号强度的平方成正比
 对复数信号同样适用
 结论 Continuous Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\ P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\ \end{aligned} $$
 Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x(n)|^2dn \\ P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n &#43; 1} \sum_{-n}^n |x(n)|^2dn \\ \end{aligned} $$
@@ -310,6 +310,10 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
           <ol>
             <li><a href="#memory">Memory</a></li>
             <li><a href="#invertibility-and-inverse-system">Invertibility and Inverse System</a></li>
+            <li><a href="#causality">Causality</a></li>
+            <li><a href="#stability">Stability</a></li>
+            <li><a href="#time-invirance">Time Invirance</a></li>
+            <li><a href="#linearity">Linearity</a></li>
           </ol>
         </li>
       </ol>
@@ -395,6 +399,9 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
     
     
     <h1 id="signal-power--energy">Signal Power &amp; Energy</h1>
+<ul>
+<li>注: 此处的能量与功率是一个<strong>相对值</strong>，单位不确定</li>
+</ul>
 <h2 id="信号分类">信号分类</h2>
 <div class="table-wrapper"><table>
 <thead>
@@ -687,12 +694,61 @@ $$</p>
 <li><strong>输出</strong>只和<strong>当前输入</strong>有关，叫做<strong>memoryless</strong>, 否则就是<strong>system with memory</strong></li>
 </ul>
 <h3 id="invertibility-and-inverse-system">Invertibility and Inverse System</h3>
+<ol>
+<li>定义</li>
+</ol>
 <ul>
 <li><strong>不同的输入</strong>得到<strong>不同的输出</strong></li>
 </ul>
+<ol start="2">
+<li>图示</li>
+</ol>
+<p><img src="/p/1.-%E7%BB%AA%E8%AE%BA/3.png"
+	width="1676"
+	height="326"
+	srcset="/p/1.-%E7%BB%AA%E8%AE%BA/3_hu3ab772665d52493279253b335b47e683_95675_480x0_resize_box_3.png 480w, /p/1.-%E7%BB%AA%E8%AE%BA/3_hu3ab772665d52493279253b335b47e683_95675_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="514"
+		data-flex-basis="1233px"
+	
+></p>
+<h3 id="causality">Causality</h3>
+<ol>
+<li>定义</li>
+</ol>
+<ul>
+<li>
+<p><strong>输出</strong>仅取决于<strong>当前和过去</strong>的<strong>输入</strong></p>
+</li>
+<li>
+<p>若<strong>未来的输入</strong>可以影响<strong>输出</strong>，就不是<strong>Causality</strong></p>
+</li>
+</ul>
+<h3 id="stability">Stability</h3>
+<ol>
+<li>定义</li>
+</ol>
+<ul>
+<li>
+<p><strong>微小的输入</strong>不会导致<strong>发散</strong>的系统</p>
+</li>
+<li>
+<p>换言之，<strong>Bounded Input</strong> $\rightarrow$ <strong>Bounded Output</strong>, $t \in \mathbb R$</p>
+</li>
+</ul>
+<h3 id="time-invirance">Time Invirance</h3>
+<ul>
+<li>输入与输出之间的关系在时间上保持不变</li>
+</ul>
+<h3 id="linearity">Linearity</h3>
 <p>$$
-\begin{aligned}</p>
-<p>\end{aligned}
+\begin{aligned}
+x[n] &amp;= \sum_{k}a_kx_k[n] \\
+y[n] &amp;= \sum_{k}a_ky_k[n]
+\end{aligned}
 $$</p>
 <h1 id="三角函数知识回忆">三角函数知识回忆</h1>
 <p>$$
