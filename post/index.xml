@@ -1253,11 +1253,11 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>算法与相应Python代码</title>
-        <link>https://downeyflyfan.com/p/%E7%AE%97%E6%B3%95%E4%B8%8E%E7%9B%B8%E5%BA%94python%E4%BB%A3%E7%A0%81/</link>
+        <title>Python代码储备</title>
+        <link>https://downeyflyfan.com/p/python%E4%BB%A3%E7%A0%81%E5%82%A8%E5%A4%87/</link>
         <pubDate>Sun, 16 Jul 2023 15:18:14 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/%E7%AE%97%E6%B3%95%E4%B8%8E%E7%9B%B8%E5%BA%94python%E4%BB%A3%E7%A0%81/</guid>
+        <guid>https://downeyflyfan.com/p/python%E4%BB%A3%E7%A0%81%E5%82%A8%E5%A4%87/</guid>
         <description>&lt;h1 id=&#34;输入--选择&#34;&gt;输入 + 选择&lt;/h1&gt;
 &lt;h2 id=&#34;实现spaceenter输入&#34;&gt;实现&amp;quot;Space+Enter&amp;quot;输入&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1610,6 +1610,110 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;决策树&#34;&gt;决策树&lt;/h2&gt;
+&lt;h1 id=&#34;决策树分类&#34;&gt;决策树分类&lt;/h1&gt;
+&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;假设我们有一个包含 $N$ 个样本的训练集，每个样本包含 $M$ 个特征，用 $X_{i,j}$ 表示第 $i$ 个样本的第 $j$ 个特征的取值，用 $y_i$ 表示第 $i$ 个样本的目标值（或标签）。决策树模型的目标是学习从特征到目标值的映射关系，并用学习到的模型对新的样本进行预测。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;流程&#34;&gt;流程&lt;/h2&gt;
+&lt;h3 id=&#34;计算特征阈值和判断最优特征&#34;&gt;计算特征阈值和判断最优特征&lt;/h3&gt;
+&lt;h4 id=&#34;基尼指数&#34;&gt;基尼指数&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;判断最优特征&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;基尼指数越小表示数据集越纯。&lt;/p&gt;
+&lt;p&gt;对于一个特征 $A$ 和其取值 $a_i$，假设 $D$ 表示当前节点的数据集，$D_i$ 表示特征 $A$ 取值为 $a_i$ 时的子数据集，则基尼指数计算公式为：&lt;/p&gt;
+&lt;p&gt;$$Gini(D,A)=\sum_{i=1}^{k}\frac{|D_i|}{|D|}Gini(D_i)$$&lt;/p&gt;
+&lt;p&gt;其中，$k$ 表示特征 $A$ 的取值数目，$|D_i|$ 表示子数据集 $D_i$ 中样本的数目，$|D|$ 表示当前节点的样本数目，$Gini(D_i)$ 表示子数据集 $D_i$ 的基尼指数，计算公式为：&lt;/p&gt;
+&lt;p&gt;$$Gini(D_i)=1-\sum_{j=1}^{c}p_{ij}^2$$&lt;/p&gt;
+&lt;p&gt;其中，$c$ 表示类别数目，$p_{ij}$ 表示子数据集 $D_i$ 中属于第 $j$ 类的样本占比。&lt;/p&gt;
+&lt;p&gt;基尼指数越小表示使用特征 $A$ 进行划分后，得到的子数据集的纯度越高。因此，决策树算法选择基尼指数最小的特征作为最优特征进行划分。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;特征阈值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;信息增益information-gain&#34;&gt;信息增益（Information gain）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;计算特征阈值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;信息增益是评价特征重要性的一种指标，它表示特征 $x_j$ 对分类的贡献程度。信息增益越大，说明特征的重要性越高。可以通过以下公式计算信息增益：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Gain(D,x_j) &amp;amp;= H(D) - \sum_{i=1}^m \frac{|D_i|}{|D|} H(D_i) \\
+H &amp;amp;= -\sum p(x) \times log_2[p(x)]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中 $H(D)$ 表示数据集 $D$ 的熵，$m$ 表示特征 $x_j$的可能取值个数，$D_i$ 表示数据集 $D$ 在特征 $x_j$ 取值为 $i$ 时对应的子集，$|D_i|$ 表示子集 $D_i$ 的大小，$|D|$ 表示数据集 $D$ 的大小。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;对特征 $x_j$ 的取值进行排序，得到一个有序的列表 $[x_1,x_2,\cdots,x_m]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于相邻的取值 $x_i$ 和 $x_{i+1}$，将它们作为特征阈值 $s$，将数据集划分为两个子集 $D_1={x\in D|x_j\leq s}$ 和 $D_2={x\in D|x_j&amp;gt;s}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算使用特征阈值 $s$ 进行划分的信息增益 $Gain(D,x_j,s)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;根据 $x_j \leq s$ 和 $x_j &amp;gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$ ，然后计算信息增益&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$Gain(D,x_j,s) = H(D) - \frac{|D_1|}{|D|} H(D_1) - \frac{|D_2|}{|D|} H(D_2)$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;重复步骤2和3，直到计算完所有相邻取值的信息增益为止。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择信息增益最大的特征阈值作为最终的特征阈值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;筛选最优特征&lt;/p&gt;
+&lt;p&gt;计算训练集的经验熵（entropy）$H(D)$，表示训练集中样本的不确定性&lt;/p&gt;
+&lt;p&gt;对于每个特征$A$，计算其对训练集的条件熵（conditional entropy）$H(D|A)$，表示在特征$A$已知的条件下，训练集中样本的不确定性，公式为：
+$$H(D|A)=\sum_{i=1}^{|A|} \frac{|D_i|}{|D|} H(D_i)$$
+其中，$|A|$表示特征$A$可能的取值个数，$|D_i|$表示在特征$A$取值为第$i$个值时，训练集中样本的个数，$H(D_i)$表示在特征$A$取值为第$i$个值时，训练集中样本的经验熵。&lt;/p&gt;
+&lt;p&gt;计算信息增益（information gain）$g(D,A)$，表示特征$A$对训练集划分的贡献程度，公式为：
+$$g(D,A)=H(D)-H(D|A)$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择信息增益最大的特征作为当前节点的划分特征，将训练集划分成更加纯净的子集，并递归地重复上述步骤，直到所有子集都变得足够纯或达到预定的停止条件为止，生成一棵完整的决策树。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需要注意的是，信息增益存在一个缺陷，即它倾向于选择可能取值较多的特征，因为这些特征往往可以划分出更多的子集。为了克服这个缺陷，可以使用其他的划分指标，例如基尼不纯度（Gini impurity）或者增益率（gain ratio），来选择最优的特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;信息增益比information-gain-ratio&#34;&gt;信息增益比（Information gain ratio）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;信息增益比是信息增益的一种改进，它考虑了特征取值数目对信息增益的影响。可以通过以下公式计算信息增益比：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$Gain \ ratio \ (D,x_j) = \frac{Gain(D,x_j)}{IV(x_j)}$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中 $IV(x_j)$ 表示特征 $x_j$ 的固有值，表示特征 $x_j$ 取值的多样性，可以通过以下公式计算：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$IV(x_j) = - \sum_{i=1}^m \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在特征 $x_j$ 的阈值为 $s$ 时，可以根据 $x_j \leq s$ 和 $x_j &amp;gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$，然后计算信息增益比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;总结&#34;&gt;总结&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;以上三种方法都可以用于计算特征阈值，其中基尼指数适用于连续和离散特征，而信息增益和信息增益比适用于离散特征。在实际应用中，我们可以根据具体问题选择不同的评价指标来计算特征阈值，并选择最优的阈值来进行样本划分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;结点判定规则&#34;&gt;结点判定规则&lt;/h3&gt;
+&lt;p&gt;假设第 $t$ 个节点的判定规则为 $f_t(x)$，其中 $x$ 表示一个样本的特征向量，$f_t(x)$ 返回一个取值为 $0$ 或 $1$ 的标记，表示该样本应该进入该节点的左子树（$f_t(x)=0$）还是右子树（$f_t(x)=1$）。可以将判定规则表示为：&lt;/p&gt;
+&lt;p&gt;$$f_t(x) = \begin{cases} 0, &amp;amp; \text{if}\ x \in R_{t,\text{left}} \ 1, &amp;amp; \text{otherwise} \end{cases}$$&lt;/p&gt;
+&lt;p&gt;其中 $R_{t,\text{left}}$ 是第 $t$ 个节点左子树的样本所在区域，可以用一个特征阈值组合来表示：&lt;/p&gt;
+&lt;p&gt;$$R_{t,\text{left}} = {x | x_j \leq s_t}$$&lt;/p&gt;
+&lt;p&gt;其中 $x_j$ 表示样本 $x$ 的第 $j$ 个特征的取值，$s_t$ 是第 $t$ 个节点的特征阈值。右子树的样本所在区域可以表示为 $R_{t,\text{right}} = { x | x_j &amp;gt; s_t }$。&lt;/p&gt;
+&lt;h3 id=&#34;树的结构&#34;&gt;树的结构&lt;/h3&gt;
+&lt;p&gt;决策树模型的树的结构可以用一个树形图或者一组规则来表示。假设决策树模型的根节点为 $t=1$，可以用以下的数学公式来表示该模型：&lt;/p&gt;
+&lt;p&gt;$$\hat{y}&lt;em&gt;i = \sum&lt;/em&gt;{t=1}^T c_t \cdot I(x_i \in R_{t})$$&lt;/p&gt;
+&lt;p&gt;其中 $\hat{y}_i$ 表示用决策树模型预测样本 $i$ 的目标值，$T$ 表示树的深度或节点个数，$c_t$ 表示第 $t$ 个节点的预测值，可以是该节点所属的样本的平均值或者分类问题中该节点所属的样本中出现最多的类别值， $I(x_i \in R_t)$ 是一个指示函数，如果样本 $i$ 属于第 $t$ 个节点的子树，取值为 $1$，否则取值为 $0$&lt;/p&gt;
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -1643,7 +1747,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;iloc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;98&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;astype&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;str&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DecisionTreeClassifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;criterion&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;gini&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;splitter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;best&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;max_depth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;max_features&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;min_samples_split&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# splitter 确定分裂方式，criterion确定最优特征&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;DecisionTreeClassifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;criterion&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;gini&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;splitter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;best&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;max_depth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;max_features&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;min_samples_split&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;X&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 将树可视化为图形&lt;/span&gt;
@@ -3042,117 +3146,6 @@ $$&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;代表立即数&#34;&gt;#代表立即数&lt;/h2&gt;
-</description>
-        </item>
-        <item>
-        <title>分类</title>
-        <link>https://downeyflyfan.com/p/%E5%88%86%E7%B1%BB/</link>
-        <pubDate>Sat, 20 May 2023 18:55:44 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E5%88%86%E7%B1%BB/</guid>
-        <description>&lt;h1 id=&#34;决策树分类&#34;&gt;决策树分类&lt;/h1&gt;
-&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;假设我们有一个包含 $N$ 个样本的训练集，每个样本包含 $M$ 个特征，用 $X_{i,j}$ 表示第 $i$ 个样本的第 $j$ 个特征的取值，用 $y_i$ 表示第 $i$ 个样本的目标值（或标签）。决策树模型的目标是学习从特征到目标值的映射关系，并用学习到的模型对新的样本进行预测。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;流程&#34;&gt;流程&lt;/h2&gt;
-&lt;h3 id=&#34;计算特征阈值和判断最优特征&#34;&gt;计算特征阈值和判断最优特征&lt;/h3&gt;
-&lt;h4 id=&#34;基尼指数&#34;&gt;基尼指数&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;判断最优特征&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;基尼指数越小表示数据集越纯。&lt;/p&gt;
-&lt;p&gt;对于一个特征 $A$ 和其取值 $a_i$，假设 $D$ 表示当前节点的数据集，$D_i$ 表示特征 $A$ 取值为 $a_i$ 时的子数据集，则基尼指数计算公式为：&lt;/p&gt;
-&lt;p&gt;$$Gini(D,A)=\sum_{i=1}^{k}\frac{|D_i|}{|D|}Gini(D_i)$$&lt;/p&gt;
-&lt;p&gt;其中，$k$ 表示特征 $A$ 的取值数目，$|D_i|$ 表示子数据集 $D_i$ 中样本的数目，$|D|$ 表示当前节点的样本数目，$Gini(D_i)$ 表示子数据集 $D_i$ 的基尼指数，计算公式为：&lt;/p&gt;
-&lt;p&gt;$$Gini(D_i)=1-\sum_{j=1}^{c}p_{ij}^2$$&lt;/p&gt;
-&lt;p&gt;其中，$c$ 表示类别数目，$p_{ij}$ 表示子数据集 $D_i$ 中属于第 $j$ 类的样本占比。&lt;/p&gt;
-&lt;p&gt;基尼指数越小表示使用特征 $A$ 进行划分后，得到的子数据集的纯度越高。因此，决策树算法选择基尼指数最小的特征作为最优特征进行划分。&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;特征阈值&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;信息增益information-gain&#34;&gt;信息增益（Information gain）&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;计算特征阈值&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信息增益是评价特征重要性的一种指标，它表示特征 $x_j$ 对分类的贡献程度。信息增益越大，说明特征的重要性越高。可以通过以下公式计算信息增益：&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-Gain(D,x_j) &amp;amp;= H(D) - \sum_{i=1}^m \frac{|D_i|}{|D|} H(D_i) \\
-H &amp;amp;= -\sum p(x) \times log_2[p(x)]
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;其中 $H(D)$ 表示数据集 $D$ 的熵，$m$ 表示特征 $x_j$的可能取值个数，$D_i$ 表示数据集 $D$ 在特征 $x_j$ 取值为 $i$ 时对应的子集，$|D_i|$ 表示子集 $D_i$ 的大小，$|D|$ 表示数据集 $D$ 的大小。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;对特征 $x_j$ 的取值进行排序，得到一个有序的列表 $[x_1,x_2,\cdots,x_m]$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;对于相邻的取值 $x_i$ 和 $x_{i+1}$，将它们作为特征阈值 $s$，将数据集划分为两个子集 $D_1={x\in D|x_j\leq s}$ 和 $D_2={x\in D|x_j&amp;gt;s}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;计算使用特征阈值 $s$ 进行划分的信息增益 $Gain(D,x_j,s)$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;根据 $x_j \leq s$ 和 $x_j &amp;gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$ ，然后计算信息增益&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$Gain(D,x_j,s) = H(D) - \frac{|D_1|}{|D|} H(D_1) - \frac{|D_2|}{|D|} H(D_2)$$&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;重复步骤2和3，直到计算完所有相邻取值的信息增益为止。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;选择信息增益最大的特征阈值作为最终的特征阈值。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;筛选最优特征&lt;/p&gt;
-&lt;p&gt;计算训练集的经验熵（entropy）$H(D)$，表示训练集中样本的不确定性&lt;/p&gt;
-&lt;p&gt;对于每个特征$A$，计算其对训练集的条件熵（conditional entropy）$H(D|A)$，表示在特征$A$已知的条件下，训练集中样本的不确定性，公式为：
-$$H(D|A)=\sum_{i=1}^{|A|} \frac{|D_i|}{|D|} H(D_i)$$
-其中，$|A|$表示特征$A$可能的取值个数，$|D_i|$表示在特征$A$取值为第$i$个值时，训练集中样本的个数，$H(D_i)$表示在特征$A$取值为第$i$个值时，训练集中样本的经验熵。&lt;/p&gt;
-&lt;p&gt;计算信息增益（information gain）$g(D,A)$，表示特征$A$对训练集划分的贡献程度，公式为：
-$$g(D,A)=H(D)-H(D|A)$$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;选择信息增益最大的特征作为当前节点的划分特征，将训练集划分成更加纯净的子集，并递归地重复上述步骤，直到所有子集都变得足够纯或达到预定的停止条件为止，生成一棵完整的决策树。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;需要注意的是，信息增益存在一个缺陷，即它倾向于选择可能取值较多的特征，因为这些特征往往可以划分出更多的子集。为了克服这个缺陷，可以使用其他的划分指标，例如基尼不纯度（Gini impurity）或者增益率（gain ratio），来选择最优的特征。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;信息增益比information-gain-ratio&#34;&gt;信息增益比（Information gain ratio）&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;信息增益比是信息增益的一种改进，它考虑了特征取值数目对信息增益的影响。可以通过以下公式计算信息增益比：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$Gain \ ratio \ (D,x_j) = \frac{Gain(D,x_j)}{IV(x_j)}$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;其中 $IV(x_j)$ 表示特征 $x_j$ 的固有值，表示特征 $x_j$ 取值的多样性，可以通过以下公式计算：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$IV(x_j) = - \sum_{i=1}^m \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在特征 $x_j$ 的阈值为 $s$ 时，可以根据 $x_j \leq s$ 和 $x_j &amp;gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$，然后计算信息增益比。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;总结&#34;&gt;总结&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;以上三种方法都可以用于计算特征阈值，其中基尼指数适用于连续和离散特征，而信息增益和信息增益比适用于离散特征。在实际应用中，我们可以根据具体问题选择不同的评价指标来计算特征阈值，并选择最优的阈值来进行样本划分。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;结点判定规则&#34;&gt;结点判定规则&lt;/h3&gt;
-&lt;p&gt;假设第 $t$ 个节点的判定规则为 $f_t(x)$，其中 $x$ 表示一个样本的特征向量，$f_t(x)$ 返回一个取值为 $0$ 或 $1$ 的标记，表示该样本应该进入该节点的左子树（$f_t(x)=0$）还是右子树（$f_t(x)=1$）。可以将判定规则表示为：&lt;/p&gt;
-&lt;p&gt;$$f_t(x) = \begin{cases} 0, &amp;amp; \text{if}\ x \in R_{t,\text{left}} \ 1, &amp;amp; \text{otherwise} \end{cases}$$&lt;/p&gt;
-&lt;p&gt;其中 $R_{t,\text{left}}$ 是第 $t$ 个节点左子树的样本所在区域，可以用一个特征阈值组合来表示：&lt;/p&gt;
-&lt;p&gt;$$R_{t,\text{left}} = {x | x_j \leq s_t}$$&lt;/p&gt;
-&lt;p&gt;其中 $x_j$ 表示样本 $x$ 的第 $j$ 个特征的取值，$s_t$ 是第 $t$ 个节点的特征阈值。右子树的样本所在区域可以表示为 $R_{t,\text{right}} = { x | x_j &amp;gt; s_t }$。&lt;/p&gt;
-&lt;h3 id=&#34;树的结构&#34;&gt;树的结构&lt;/h3&gt;
-&lt;p&gt;决策树模型的树的结构可以用一个树形图或者一组规则来表示。假设决策树模型的根节点为 $t=1$，可以用以下的数学公式来表示该模型：&lt;/p&gt;
-&lt;p&gt;$$\hat{y}&lt;em&gt;i = \sum&lt;/em&gt;{t=1}^T c_t \cdot I(x_i \in R_{t})$$&lt;/p&gt;
-&lt;p&gt;其中 $\hat{y}_i$ 表示用决策树模型预测样本 $i$ 的目标值，$T$ 表示树的深度或节点个数，$c_t$ 表示第 $t$ 个节点的预测值，可以是该节点所属的样本的平均值或者分类问题中该节点所属的样本中出现最多的类别值， $I(x_i \in R_t)$ 是一个指示函数，如果样本 $i$ 属于第 $t$ 个节点的子树，取值为 $1$，否则取值为 $0$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -7131,169 +7124,6 @@ $$&lt;/p&gt;
 &lt;p&gt;回收利用：通过回收利用废旧芯片，可以减少废旧芯片对环境的影响和碳排放量。例如，采用回收利用技术，将废旧芯片回收、分解和再利用，可以减少废旧芯片对环境的影响和碳排放.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>回归</title>
-        <link>https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/</link>
-        <pubDate>Sun, 16 Apr 2023 16:22:53 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/</guid>
-        <description>&lt;h1 id=&#34;回归&#34;&gt;回归&lt;/h1&gt;
-&lt;h2 id=&#34;线性回归---最小二乘法&#34;&gt;线性回归 - 最小二乘法&lt;/h2&gt;
-&lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/1.png&#34;
-	width=&#34;811&#34;
-	height=&#34;726&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/1_hu6439d160110e206d06db0dde956b2b42_66875_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/1_hu6439d160110e206d06db0dde956b2b42_66875_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;111&#34;
-		data-flex-basis=&#34;268px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;表格&#34;&gt;表格&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/2.png&#34;
-	width=&#34;962&#34;
-	height=&#34;322&#34;
-	srcset=&#34;https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/2_huec37a4486e4334519861e7a93d43f1d9_96255_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/%E5%9B%9E%E5%BD%92/2_huec37a4486e4334519861e7a93d43f1d9_96255_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;298&#34;
-		data-flex-basis=&#34;717px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;公式&#34;&gt;公式&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\hat y &amp;amp;= b_0 + b_1 x \\
-b_1 &amp;amp;= \frac{\sum (x-\overline x)(y-\overline y)}{\sum (x-\overline x)^2} \\
-b_0 &amp;amp;= \overline y - b_1 \overline x
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;插值方法比较&#34;&gt;插值方法比较&lt;/h1&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;插值方法&lt;/th&gt;
-&lt;th&gt;优点&lt;/th&gt;
-&lt;th&gt;缺点&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;多项式插值&lt;/td&gt;
-&lt;td&gt;1. 简单易懂，容易实现；2. 高阶多项式可以拟合任意函数。&lt;/td&gt;
-&lt;td&gt;1. 容易出现龙格现象；2. 高阶多项式可能会导致过拟合。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;样条插值&lt;/td&gt;
-&lt;td&gt;1. 拟合效果好，精度高；2. 可以通过控制节点数量和位置来平衡精度和复杂度。&lt;/td&gt;
-&lt;td&gt;1. 计算量大，运行速度相对较慢；2. 对于非常大的数据集可能会出现问题。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;分段线性插值&lt;/td&gt;
-&lt;td&gt;1. 简单易懂，计算速度快；2. 不需要额外存储节点信息。&lt;/td&gt;
-&lt;td&gt;1. 只能拟合线性函数，无法处理非线性情况；2. 在节点处可能会出现不连续的情况。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;近邻插值（Nearest Neighbor Interpolation）&lt;/td&gt;
-&lt;td&gt;1、简单快捷,计算速度最快;2、适用于离散化的数据集;3、保留了原始数据特征,不会对峰谷等信息造成影响.&lt;/td&gt;
-&lt;td&gt;常用于分类问题，在图像处理中可能会导致锯齿状的效果。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;双线性插值（Bilinear Interpolation）&lt;/td&gt;
-&lt;td&gt;1、保留了原始数据特征,不会对峰谷等信息造成影响;2、计算速度较快，可用于实时图像处理.&lt;/td&gt;
-&lt;td&gt;可能会出现模糊或失真的情况。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;双三次插值（Bicubic Interpolation）&lt;/td&gt;
-&lt;td&gt;1、拟合效果好，精度高；2、相比于双线性插值更加平滑自然.&lt;/td&gt;
-&lt;td&gt;计算量大，运行速度相对较慢。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h1 id=&#34;机器学习算法&#34;&gt;机器学习算法&lt;/h1&gt;
-&lt;h2 id=&#34;adaboost-adaptive-boosting&#34;&gt;adaboost (adaptive Boosting)&lt;/h2&gt;
-&lt;h3 id=&#34;背景&#34;&gt;背景&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;AdaBoost（自适应增强）是一种集成学习方法，它将多个弱分类器组合成一个强分类器。该算法最初由Freund和Schapire于1995年提出。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;原理&#34;&gt;原理&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;组合&lt;strong&gt;多个弱算法&lt;/strong&gt;，形成&lt;strong&gt;强算法&lt;/strong&gt;, 属于&lt;strong&gt;集成学习&lt;/strong&gt;, 更适合于&lt;strong&gt;复杂问题&lt;/strong&gt;，但是容易&lt;strong&gt;Overfit&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;步骤&#34;&gt;步骤&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;训练样本困难度的初始化和更新&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-初始困难度: \omega_i &amp;amp;= \frac{1}{N} \\
-\omega_i^{new} &amp;amp;= \begin{cases}
-\dfrac{1}{2(\varepsilon - 1)} \omega_i^{old
-} &amp;amp; 当前样本被正确分类 \\
-\dfrac{1}{2\varepsilon} \omega_i^{old} &amp;amp; 当前样本被错误分类
-\end{cases}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;更新每个Weak Learner的权重&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\alpha_k &amp;amp;= \frac{1}{2} log(\frac{1-\varepsilon_k}{\varepsilon_k}) \\
-\overline F &amp;amp;= \sum_{i=1}^n \alpha_i f_i
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;lihgtbgm&#34;&gt;LihgtBGM&lt;/h2&gt;
-&lt;h1 id=&#34;决策方法&#34;&gt;决策方法&lt;/h1&gt;
-&lt;h2 id=&#34;时间序列分析&#34;&gt;时间序列分析&lt;/h2&gt;
-&lt;h3 id=&#34;数据预处理&#34;&gt;数据预处理&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;对原始时间序列数据进行平滑、去除趋势和季节性等处理，以便更好地识别和分析数据中的模式和趋势。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;模型选择&#34;&gt;模型选择&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;选择适当的时间序列模型来描述数据中的模式和趋势。常用的时间序列模型包括AR（自回归模型）、MA（移动平均模型）、ARMA（自回归移动平均模型）、ARIMA（差分自回归移动平均模型）等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;$ARIMA(p,d,q)$ 模型&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-Y_t&amp;rsquo; = c + \phi_1 Y_{t-1}&amp;rsquo; + \cdots + \phi_p Y_{t-p}&amp;rsquo; + \varepsilon_t + \theta_1 \varepsilon_{t-1} + \cdots + \theta_q \varepsilon_{t-q}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;其中，$Y_t&amp;rsquo;$表示经过$d$次差分后的时间序列数据在时间$t$的值，$c$是常数，$\phi_1, &amp;hellip;, \phi_p$和$\theta_1, &amp;hellip;, \theta_q$是ARMA模型中的参数，$\varepsilon_t$是白噪声误差。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;参数估计&#34;&gt;参数估计&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;通过最大似然估计、贝叶斯估计等方法，估计时间序列模型中的参数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;模型诊断&#34;&gt;模型诊断&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;检查所选择的模型是否符合数据的统计特征，例如是否存在自相关性、是否存在异方差等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;预测和应用&#34;&gt;预测和应用&lt;/h3&gt;
-&lt;h3 id=&#34;优势和缺点&#34;&gt;优势和缺点&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;优势&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;$ARMA(p,q)$模型可以用来描述时间序列数据中的自相关和移动平均性质，即当前时刻的值受到前$p$个时刻的值和前$q$个时刻的误差的影响，从而预测未来的值。ARMA模型中的参数$\phi_1, &amp;hellip;, \phi_p$和$\theta_1, &amp;hellip;, \theta_q$可以通过估计时间序列数据中的自相关和偏自相关函数来确定，从而得到最优的模型。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$ARIMA(p,d,q)$模型则是在$ARMA(p,q)$模型的基础上增加了差分（Integration）这一步骤，将非平稳时间序列转化为平稳时间序列，从而可以更好地描述时间序列数据中的趋势和季节性，并进行预测。ARIMA模型中的参数$p$、$d$和$q$可以通过观察时间序列数据的趋势和季节性来确定，同时也可以通过估计时间序列数据中的自相关和偏自相关函数来确定。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
 </description>
         </item>
         <item>
