@@ -6,7 +6,301 @@
         <description>Recent content in 信号与系统 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Tue, 22 Aug 2023 15:31:32 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 29 Aug 2023 10:16:40 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>2. 线性时不变系统</title>
+        <link>https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/</link>
+        <pubDate>Tue, 29 Aug 2023 10:16:40 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/</guid>
+        <description>&lt;h1 id=&#34;离散时不变系统---卷积和&#34;&gt;离散时不变系统 - 卷积和&lt;/h1&gt;
+&lt;h2 id=&#34;用脉冲表示离散时间信号&#34;&gt;用脉冲表示离散时间信号&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x[n] &amp;amp;= \sum_{k = -\infin}^{\infin} x[k] \delta[n-k] \\
+u[n] &amp;amp;= \sum_{k=0}^{\infin} \delta[n-k]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;离散卷积定义&#34;&gt;离散卷积定义&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y[n] &amp;amp;= \sum_{-\infin}^{\infin}x[k]h[n-k]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;连续时不变系统---卷积积分&#34;&gt;连续时不变系统 - 卷积积分&lt;/h1&gt;
+&lt;h2 id=&#34;用脉冲表示连续时间信号&#34;&gt;用脉冲表示连续时间信号&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x(t) &amp;amp;= \int_{-\infin}^{+\infin} x(\tau) h(t-\tau) d\tau \\
+u(t) &amp;amp;= \int_{-\infin}^{\infin} \delta(t-\tau) d\tau
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;连续卷积定义&#34;&gt;连续卷积定义&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;线性时不变系统lti的性质&#34;&gt;线性时不变系统(LTI)的性质&lt;/h1&gt;
+&lt;h2 id=&#34;卷积的数学表示&#34;&gt;卷积的数学表示&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y[n] &amp;amp;= \sum_{ k =-\infin}^{\infin}x[k]h[n-k] = x[n]*h[n] \\
+y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau = x(t) * h(t) \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;commutative-distributive-associative-交换-分配-结合&#34;&gt;Commutative Distributive Associative (交换 分配 结合)&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x(t)*h(t) &amp;amp;= h(t)&lt;em&gt;x(t) \\
+x(t)&lt;/em&gt;[h_1(t) + h_2(t)] &amp;amp;= x(t)*h_1(t) + x(t) * h_2(t) \\
+x(t) * h_1(t) * h_2(t) &amp;amp;= x(t) * (h_1(t) * h_2(t))
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
+&lt;h3 id=&#34;memoryless-lti-system&#34;&gt;Memoryless LTI System&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y(t) &amp;amp;= Kx(t)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;invertibility&#34;&gt;Invertibility&lt;/h2&gt;
+&lt;h2 id=&#34;causality&#34;&gt;Causality&lt;/h2&gt;
+&lt;h2 id=&#34;stability&#34;&gt;Stability&lt;/h2&gt;
+&lt;h2 id=&#34;unit-step-response-of-a-lti-system&#34;&gt;Unit Step Response of a LTI System&lt;/h2&gt;
+&lt;h1 id=&#34;causal-lti-systems-described-yb-differential-and-difference-equations&#34;&gt;CAUSAL LTI SYSTEMS DESCRIBED YB DIFFERENTIAL AND DIFFERENCE EQUATIONS&lt;/h1&gt;
+&lt;h2 id=&#34;一阶线性常微分方程的通用解法&#34;&gt;一阶线性常微分方程的通用解法&lt;/h2&gt;
+&lt;h3 id=&#34;一般形式&#34;&gt;一般形式&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\sum_{k=0}^N a_k \frac{d^ky}{dt} &amp;amp;= \sum_{k=0}^{M}b_k \frac{d^k x}{dt}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;解法&#34;&gt;解法&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;$N = 0$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y(t) &amp;amp;= \sum_{k=0}^{M}b_k \frac{d^k x}{dt}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;$N \ge 1$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Initial Condition&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y(t_0) &amp;amp;= \frac{dy(t_0)}{dt} = &amp;hellip; = \frac{d^{N-1} y(t_0)}{dt^{N-1}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;一阶线性差分方程&#34;&gt;一阶线性差分方程&lt;/h2&gt;
+&lt;h3 id=&#34;形式-recursive-equations&#34;&gt;形式 (recursive equations)&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\sum_{k=0}^N a_k y[n-k] &amp;amp;= \sum_{k=0}^M b_k x[n-k] \\
+y[n] &amp;amp;= \frac{1}{a_0}(\sum_{k=0}^M b_k x[n-k] - \sum_{k=1}^N a_k y[n-k])
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;解法-1&#34;&gt;解法&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;当 $N=0$， 存在&lt;strong&gt;Finite Impulse Response&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y[n] &amp;amp;= \frac{b_k}{a_0}\sum_{k=0}^{M}x[n-k] \\
+h[n] &amp;amp;= \begin{cases}
+\frac{b_n}{a_0} &amp;amp; 0 \lt n \le M \\
+0 &amp;amp; otherwise
+\end{cases}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Infinite Impulse Response&lt;/strong&gt; Ex.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y[n] &amp;amp;= \frac{1}{2} y[n-1] + K \delta[n] \\
+\therefore y[n] &amp;amp;= 0, n \le -1 \\
+\therefore y[0] &amp;amp;= K \\
+y[1] &amp;amp;= \frac{1}{2}K \\
+y[2] &amp;amp;= (\frac{1}{2})^2K \\
+&amp;hellip; \\
+y[n] &amp;amp;= (\frac{1}{2})^n K
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因此，Impulse Response 是 $h[n] = (\dfrac{1}{2})^n u[n]$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;block-diagram-representations-of-first-order-systems-described-by-differential-and-difference-equations&#34;&gt;Block Diagram Representations of First-Order Systems Described by Differential and Difference Equations&lt;/h2&gt;
+&lt;h3 id=&#34;difference-equations-for-discrete-time&#34;&gt;Difference Equations for Discrete-Time&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y[n] + ay[n-1] &amp;amp;= bx[n] \\
+y[n] &amp;amp;= -ay[n-1] + bx[n]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/1.png&#34;
+	width=&#34;1150&#34;
+	height=&#34;664&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/1_hu18318b747ae43f9e3cebb0626ad539a3_95751_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/1_hu18318b747ae43f9e3cebb0626ad539a3_95751_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;415px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;differential-equations-for-continuous-time&#34;&gt;Differential Equations for Continuous-Time&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Block Diagram I&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{dy(t)}{dx} + a y(t) &amp;amp;= bx(t) \\
+\therefore y(t) &amp;amp;= \frac{1}{a} [bx(t) - \frac{dy(t)}{dt}]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/2.png&#34;
+	width=&#34;1074&#34;
+	height=&#34;762&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/2_huff80b60c32f56ba6d527960767b9c380_104092_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/2_huff80b60c32f56ba6d527960767b9c380_104092_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;338px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Block Diagram II&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+y(t) &amp;amp;= y(t_0) + \int_{-\infin}^{t} [bx(\tau) - ay(\tau)] d\tau
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/3.png&#34;
+	width=&#34;1312&#34;
+	height=&#34;620&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/3_hue8092a656293325333a83b882ccd3bff_87041_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/3_hue8092a656293325333a83b882ccd3bff_87041_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;211&#34;
+		data-flex-basis=&#34;507px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;singularity-functions&#34;&gt;Singularity Functions&lt;/h1&gt;
+&lt;h2 id=&#34;the-unit-impulse-as-an-idealized-short-pulse&#34;&gt;The Unit Impulse as an Idealized Short Pulse&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\delta(t) &amp;amp;= \delta(t)*\delta(t)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;defining-the-unit-impulse-through-convolution&#34;&gt;Defining the Unit Impulse through Convolution&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x(t) &amp;amp;= x(t) * \delta(t) \\
+\therefore if \ x(t) &amp;amp;= 1 \\
+1 &amp;amp;= x(t) = x(t) *\delta(t) \\
+&amp;amp;= \delta(t) * x(t)  \\
+&amp;amp;= \int_{-\infin}^t \delta(\tau) x(t - \tau)d\tau \\
+&amp;amp;= \int_{-\infin}^t \delta(\tau) d \tau
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;unit-doublets-and-other-singularity-functions&#34;&gt;Unit Doublets and other Singularity Functions&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{dx(t)}{dt} &amp;amp;= x(t) *u_1(t) \\
+\frac{d^2x(t)}{dt} &amp;amp;= x(t) * u_2(t) \\
+&amp;hellip; \\
+\therefore u_k(t) &amp;amp;= \underset{k \ times}{u_1(t) * u_1(t) *..*u_1(t)}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;微分方程解法回顾&#34;&gt;微分方程解法回顾&lt;/h1&gt;
+&lt;h2 id=&#34;常系数一阶微分方程&#34;&gt;常系数一阶微分方程&lt;/h2&gt;
+&lt;h3 id=&#34;形式&#34;&gt;形式&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+a \frac{dy(t)}{dx} + b y(x) &amp;amp;= cx \\
+y &amp;amp;= y_h(x) + y_p(x)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;解法-2&#34;&gt;解法&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;$y_h(x)$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Let \ c &amp;amp;= 0 \\
+a\frac{dy(t)}{dt} + by(t) &amp;amp;= 0 \Longrightarrow y_h(x) \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;$y_p(x)$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;将$y_p(x)$设为和$x$相同的形式，再代入解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;一阶微分方程&#34;&gt;一阶微分方程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;形式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{dy}{dx} + P(x) y &amp;amp;= Q(x) \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;解法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}&lt;/p&gt;
+&lt;p&gt;Let \ v&amp;rsquo;(x) &amp;amp;= v(x) P(x) \\
+\Big[\frac{1}{v(x)} dv &amp;amp;= P(x)dx \Longrightarrow v(x) = e^{\int P(x) dx} \Big]\\
+\therefore \frac{dy}{dx} v(x) + P(x)v(x) y &amp;amp;=Q(x) v(x) \\
+y v(x) &amp;amp;= \int Q(x)v(x) - P(x) v(x)  ydx  \\
+yv(x) &amp;amp;= \int Q(x) v(x) dx - \int ydv \\
+y &amp;amp;= \frac{1}{v(x)} \int Q(x) v(x) dx (????)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;常系数二阶微分方程&#34;&gt;常系数二阶微分方程&lt;/h2&gt;
+&lt;h3 id=&#34;形式-1&#34;&gt;形式&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+ay&amp;rsquo;&amp;rsquo; + by&amp;rsquo; + cy &amp;amp;= 0
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;解法-3&#34;&gt;解法&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;换成$ay^2 + by + c = 0$，获得解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;两个实根&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$y = c_1 e^{r_1x} + c_2 e^{r_2 x}$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;一个实根&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$y = c_1 e^{rx} +c_2 x e^{rx}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;两个复数根$r = \alpha \pm i \beta$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$y = e^{\alpha x} (c_1 \cos \beta x + c_2 \sin \beta x)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
         <title>1. 绪论</title>
         <link>https://downeyflyfan.com/p/1.-%E7%BB%AA%E8%AE%BA/</link>
         <pubDate>Tue, 22 Aug 2023 15:31:32 +0800</pubDate>
@@ -14,7 +308,7 @@
         <guid>https://downeyflyfan.com/p/1.-%E7%BB%AA%E8%AE%BA/</guid>
         <description>&lt;h1 id=&#34;signal-power--energy&#34;&gt;Signal Power &amp;amp; Energy&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;注: 此处的能量与功率是一个&lt;strong&gt;相对值&lt;/strong&gt;，单位不确定&lt;/li&gt;
+&lt;li&gt;注: 此处的能量与功率是一个&lt;strong&gt;相对值&lt;/strong&gt;，单位不定&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;信号分类&#34;&gt;信号分类&lt;/h2&gt;
 &lt;table&gt;
@@ -32,9 +326,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;信号能量与功率&#34;&gt;信号能量与功率&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;一个现象&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;一个现象&#34;&gt;一个现象&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;能量与信号强度的平方成正比&lt;/strong&gt;&lt;/p&gt;
@@ -43,21 +335,38 @@
 &lt;p&gt;对&lt;strong&gt;复数信号&lt;/strong&gt;同样适用&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;结论&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
+&lt;h3 id=&#34;基于信号功率大小的分类&#34;&gt;基于信号/功率大小的分类&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Finite Power System&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;能量不是无穷&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Finite Energy System&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P \rightarrow 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Infinite Power System&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P \rightarrow \infin, E \rightarrow \infin$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;结论&#34;&gt;结论&lt;/h3&gt;
+&lt;ol&gt;
 &lt;li&gt;Continuous Signal&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
 E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\
 P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\
 \end{aligned}
 $$&lt;/p&gt;
-&lt;ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Discrete Signal&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
 E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x(n)|^2dn \\

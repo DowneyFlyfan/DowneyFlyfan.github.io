@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Signal Power &amp;amp; Energy 注: 此处的能量与功率是一个相对值，单位不定 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 一个现象 能量与信号强度的平方成正比
-对复数信号同样适用
-基于信号/功率大小的分类 Finite Power System 能量不是无穷 Finite Energy System $P \rightarrow 0$ Infinite Power System $P \rightarrow \infin, E \rightarrow \infin$ 结论 Continuous Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\ P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\ \end{aligned} $$
-Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x(n)|^2dn \\ P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n &#43; 1} \sum_{-n}^n |x(n)|^2dn \\ \end{aligned} $$'>
-<title>1. 绪论</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='离散时不变系统 - 卷积和 用脉冲表示离散时间信号 $$ \begin{aligned} x[n] &amp;amp;= \sum_{k = -\infin}^{\infin} x[k] \delta[n-k] \\ u[n] &amp;amp;= \sum_{k=0}^{\infin} \delta[n-k] \end{aligned} $$
+离散卷积定义 $$ \begin{aligned} y[n] &amp;amp;= \sum_{-\infin}^{\infin}x[k]h[n-k] \end{aligned} $$
+连续时不变系统 - 卷积积分 用脉冲表示连续时间信号 $$ \begin{aligned} x(t) &amp;amp;= \int_{-\infin}^{&#43;\infin} x(\tau) h(t-\tau) d\tau \\ u(t) &amp;amp;= \int_{-\infin}^{\infin} \delta(t-\tau) d\tau \end{aligned} $$
+连续卷积定义 $$ \begin{aligned} y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau \end{aligned} $$
+线性时不变系统(LTI)的性质 卷积的数学表示 $$ \begin{aligned} y[n] &amp;amp;= \sum_{ k =-\infin}^{\infin}x[k]h[n-k] = x[n]*h[n] \\ y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau = x(t) * h(t) \\ \end{aligned} $$'>
+<title>2. 线性时不变系统</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/1.-%E7%BB%AA%E8%AE%BA/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='1. 绪论'>
-<meta property='og:description' content='Signal Power &amp;amp; Energy 注: 此处的能量与功率是一个相对值，单位不定 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 一个现象 能量与信号强度的平方成正比
-对复数信号同样适用
-基于信号/功率大小的分类 Finite Power System 能量不是无穷 Finite Energy System $P \rightarrow 0$ Infinite Power System $P \rightarrow \infin, E \rightarrow \infin$ 结论 Continuous Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\ P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\ \end{aligned} $$
-Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x(n)|^2dn \\ P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n &#43; 1} \sum_{-n}^n |x(n)|^2dn \\ \end{aligned} $$'>
-<meta property='og:url' content='https://downeyflyfan.com/p/1.-%E7%BB%AA%E8%AE%BA/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='2. 线性时不变系统'>
+<meta property='og:description' content='离散时不变系统 - 卷积和 用脉冲表示离散时间信号 $$ \begin{aligned} x[n] &amp;amp;= \sum_{k = -\infin}^{\infin} x[k] \delta[n-k] \\ u[n] &amp;amp;= \sum_{k=0}^{\infin} \delta[n-k] \end{aligned} $$
+离散卷积定义 $$ \begin{aligned} y[n] &amp;amp;= \sum_{-\infin}^{\infin}x[k]h[n-k] \end{aligned} $$
+连续时不变系统 - 卷积积分 用脉冲表示连续时间信号 $$ \begin{aligned} x(t) &amp;amp;= \int_{-\infin}^{&#43;\infin} x(\tau) h(t-\tau) d\tau \\ u(t) &amp;amp;= \int_{-\infin}^{\infin} \delta(t-\tau) d\tau \end{aligned} $$
+连续卷积定义 $$ \begin{aligned} y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau \end{aligned} $$
+线性时不变系统(LTI)的性质 卷积的数学表示 $$ \begin{aligned} y[n] &amp;amp;= \sum_{ k =-\infin}^{\infin}x[k]h[n-k] = x[n]*h[n] \\ y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau = x(t) * h(t) \\ \end{aligned} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-08-22T15:31:32&#43;08:00'/><meta property='article:modified_time' content='2023-08-22T15:31:32&#43;08:00'/>
-<meta name="twitter:title" content="1. 绪论">
-<meta name="twitter:description" content="Signal Power &amp;amp; Energy 注: 此处的能量与功率是一个相对值，单位不定 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 一个现象 能量与信号强度的平方成正比
-对复数信号同样适用
-基于信号/功率大小的分类 Finite Power System 能量不是无穷 Finite Energy System $P \rightarrow 0$ Infinite Power System $P \rightarrow \infin, E \rightarrow \infin$ 结论 Continuous Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\ P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\ \end{aligned} $$
-Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x(n)|^2dn \\ P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n &#43; 1} \sum_{-n}^n |x(n)|^2dn \\ \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-08-29T10:16:40&#43;08:00'/><meta property='article:modified_time' content='2023-08-29T10:16:40&#43;08:00'/>
+<meta name="twitter:title" content="2. 线性时不变系统">
+<meta name="twitter:description" content="离散时不变系统 - 卷积和 用脉冲表示离散时间信号 $$ \begin{aligned} x[n] &amp;amp;= \sum_{k = -\infin}^{\infin} x[k] \delta[n-k] \\ u[n] &amp;amp;= \sum_{k=0}^{\infin} \delta[n-k] \end{aligned} $$
+离散卷积定义 $$ \begin{aligned} y[n] &amp;amp;= \sum_{-\infin}^{\infin}x[k]h[n-k] \end{aligned} $$
+连续时不变系统 - 卷积积分 用脉冲表示连续时间信号 $$ \begin{aligned} x(t) &amp;amp;= \int_{-\infin}^{&#43;\infin} x(\tau) h(t-\tau) d\tau \\ u(t) &amp;amp;= \int_{-\infin}^{\infin} \delta(t-\tau) d\tau \end{aligned} $$
+连续卷积定义 $$ \begin{aligned} y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau \end{aligned} $$
+线性时不变系统(LTI)的性质 卷积的数学表示 $$ \begin{aligned} y[n] &amp;amp;= \sum_{ k =-\infin}^{\infin}x[k]h[n-k] = x[n]*h[n] \\ y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau = x(t) * h(t) \\ \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -259,69 +262,79 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#signal-power--energy">Signal Power &amp; Energy</a>
+    <li><a href="#离散时不变系统---卷积和">离散时不变系统 - 卷积和</a>
       <ol>
-        <li><a href="#信号分类">信号分类</a></li>
-        <li><a href="#信号能量与功率">信号能量与功率</a>
+        <li><a href="#用脉冲表示离散时间信号">用脉冲表示离散时间信号</a></li>
+        <li><a href="#离散卷积定义">离散卷积定义</a></li>
+      </ol>
+    </li>
+    <li><a href="#连续时不变系统---卷积积分">连续时不变系统 - 卷积积分</a>
+      <ol>
+        <li><a href="#用脉冲表示连续时间信号">用脉冲表示连续时间信号</a></li>
+        <li><a href="#连续卷积定义">连续卷积定义</a></li>
+      </ol>
+    </li>
+    <li><a href="#线性时不变系统lti的性质">线性时不变系统(LTI)的性质</a>
+      <ol>
+        <li><a href="#卷积的数学表示">卷积的数学表示</a></li>
+        <li><a href="#commutative-distributive-associative-交换-分配-结合">Commutative Distributive Associative (交换 分配 结合)</a></li>
+        <li><a href="#memory">Memory</a>
           <ol>
-            <li><a href="#一个现象">一个现象</a></li>
-            <li><a href="#基于信号功率大小的分类">基于信号/功率大小的分类</a></li>
-            <li><a href="#结论">结论</a></li>
+            <li><a href="#memoryless-lti-system">Memoryless LTI System</a></li>
+          </ol>
+        </li>
+        <li><a href="#invertibility">Invertibility</a></li>
+        <li><a href="#causality">Causality</a></li>
+        <li><a href="#stability">Stability</a></li>
+        <li><a href="#unit-step-response-of-a-lti-system">Unit Step Response of a LTI System</a></li>
+      </ol>
+    </li>
+    <li><a href="#causal-lti-systems-described-yb-differential-and-difference-equations">CAUSAL LTI SYSTEMS DESCRIBED YB DIFFERENTIAL AND DIFFERENCE EQUATIONS</a>
+      <ol>
+        <li><a href="#一阶线性常微分方程的通用解法">一阶线性常微分方程的通用解法</a>
+          <ol>
+            <li><a href="#一般形式">一般形式</a></li>
+            <li><a href="#解法">解法</a></li>
+          </ol>
+        </li>
+        <li><a href="#一阶线性差分方程">一阶线性差分方程</a>
+          <ol>
+            <li><a href="#形式-recursive-equations">形式 (recursive equations)</a></li>
+            <li><a href="#解法-1">解法</a></li>
+          </ol>
+        </li>
+        <li><a href="#block-diagram-representations-of-first-order-systems-described-by-differential-and-difference-equations">Block Diagram Representations of First-Order Systems Described by Differential and Difference Equations</a>
+          <ol>
+            <li><a href="#difference-equations-for-discrete-time">Difference Equations for Discrete-Time</a></li>
+            <li><a href="#differential-equations-for-continuous-time">Differential Equations for Continuous-Time</a></li>
           </ol>
         </li>
       </ol>
     </li>
-    <li><a href="#独立变量的初级转换">独立变量的初级转换</a>
+    <li><a href="#singularity-functions">Singularity Functions</a>
       <ol>
-        <li><a href="#转换类型">转换类型</a></li>
-        <li><a href="#周期信号-奇偶信号">周期信号 奇偶信号</a></li>
+        <li><a href="#the-unit-impulse-as-an-idealized-short-pulse">The Unit Impulse as an Idealized Short Pulse</a></li>
+        <li><a href="#defining-the-unit-impulse-through-convolution">Defining the Unit Impulse through Convolution</a></li>
+        <li><a href="#unit-doublets-and-other-singularity-functions">Unit Doublets and other Singularity Functions</a></li>
       </ol>
     </li>
-    <li><a href="#指数信号">指数信号</a>
+    <li><a href="#微分方程解法回顾">微分方程解法回顾</a>
       <ol>
-        <li><a href="#连续指数信号">连续指数信号</a>
+        <li><a href="#常系数一阶微分方程">常系数一阶微分方程</a>
           <ol>
-            <li><a href="#指数信号的虚数部分必然是周期信号">指数信号的虚数部分必然是周期信号</a></li>
-            <li><a href="#指数信号虚数部分的ep">指数信号虚数部分的E/P</a></li>
-            <li><a href="#正弦信号的分解">正弦信号的分解</a></li>
-            <li><a href="#harmonically-related-complex-exponentials">harmonically related complex exponentials</a></li>
-            <li><a href="#考虑虚实结合的指数信号">考虑虚实结合的指数信号</a></li>
+            <li><a href="#形式">形式</a></li>
+            <li><a href="#解法-2">解法</a></li>
           </ol>
         </li>
-        <li><a href="#离散指数信号">离散指数信号</a></li>
-      </ol>
-    </li>
-    <li><a href="#unit-impluse--unit-step-functions">Unit Impluse &amp; Unit Step Functions</a>
-      <ol>
-        <li><a href="#discrete-unit-impluse--unit-step-functions">discrete unit impluse &amp; unit step functions</a>
+        <li><a href="#一阶微分方程">一阶微分方程</a></li>
+        <li><a href="#常系数二阶微分方程">常系数二阶微分方程</a>
           <ol>
-            <li><a href="#方程">方程</a></li>
-            <li><a href="#两者关系">两者关系</a></li>
-            <li><a href="#脉冲函数的其他属性">脉冲函数的其他属性</a></li>
-          </ol>
-        </li>
-        <li><a href="#continuous-unit-impluse--unit-step-functions">Continuous unit impluse &amp; unit step functions</a>
-          <ol>
-            <li><a href="#二者关系">二者关系</a></li>
+            <li><a href="#形式-1">形式</a></li>
+            <li><a href="#解法-3">解法</a></li>
           </ol>
         </li>
       </ol>
     </li>
-    <li><a href="#连续与离散时间系统">连续与离散时间系统</a>
-      <ol>
-        <li><a href="#basic-system-properties">Basic System Properties</a>
-          <ol>
-            <li><a href="#memory">Memory</a></li>
-            <li><a href="#invertibility-and-inverse-system">Invertibility and Inverse System</a></li>
-            <li><a href="#causality">Causality</a></li>
-            <li><a href="#stability">Stability</a></li>
-            <li><a href="#time-invirance">Time Invirance</a></li>
-            <li><a href="#linearity">Linearity</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#三角函数知识回忆">三角函数知识回忆</a></li>
   </ol>
 </nav>
         </div>
@@ -349,7 +362,7 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/1.-%E7%BB%AA%E8%AE%BA/">1. 绪论</a>
+            <a href="/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/">2. 线性时不变系统</a>
         </h2>
     
         
@@ -371,7 +384,7 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 22, 2023</time>
+                <time class="article-time--published">Aug 29, 2023</time>
             </div>
         
 
@@ -401,380 +414,292 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
     <section class="article-content">
     
     
-    <h1 id="signal-power--energy">Signal Power &amp; Energy</h1>
-<ul>
-<li>注: 此处的能量与功率是一个<strong>相对值</strong>，单位不定</li>
-</ul>
-<h2 id="信号分类">信号分类</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">Continuous Signal</th>
-<th style="text-align:center">Discrete Signal</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$x(t)$</td>
-<td style="text-align:center">$x(n)$</td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="信号能量与功率">信号能量与功率</h2>
-<h3 id="一个现象">一个现象</h3>
-<ul>
-<li>
-<p><strong>能量与信号强度的平方成正比</strong></p>
-</li>
-<li>
-<p>对<strong>复数信号</strong>同样适用</p>
-</li>
-</ul>
-<h3 id="基于信号功率大小的分类">基于信号/功率大小的分类</h3>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">Finite Power System</th>
-<th style="text-align:center">能量不是无穷</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Finite Energy System</td>
-<td style="text-align:center">$P \rightarrow 0$</td>
-</tr>
-<tr>
-<td style="text-align:center">Infinite Power System</td>
-<td style="text-align:center">$P \rightarrow \infin, E \rightarrow \infin$</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="结论">结论</h3>
+    <h1 id="离散时不变系统---卷积和">离散时不变系统 - 卷积和</h1>
+<h2 id="用脉冲表示离散时间信号">用脉冲表示离散时间信号</h2>
+<p>$$
+\begin{aligned}
+x[n] &amp;= \sum_{k = -\infin}^{\infin} x[k] \delta[n-k] \\
+u[n] &amp;= \sum_{k=0}^{\infin} \delta[n-k]
+\end{aligned}
+$$</p>
+<h2 id="离散卷积定义">离散卷积定义</h2>
+<p>$$
+\begin{aligned}
+y[n] &amp;= \sum_{-\infin}^{\infin}x[k]h[n-k]
+\end{aligned}
+$$</p>
+<h1 id="连续时不变系统---卷积积分">连续时不变系统 - 卷积积分</h1>
+<h2 id="用脉冲表示连续时间信号">用脉冲表示连续时间信号</h2>
+<p>$$
+\begin{aligned}
+x(t) &amp;= \int_{-\infin}^{+\infin} x(\tau) h(t-\tau) d\tau \\
+u(t) &amp;= \int_{-\infin}^{\infin} \delta(t-\tau) d\tau
+\end{aligned}
+$$</p>
+<h2 id="连续卷积定义">连续卷积定义</h2>
+<p>$$
+\begin{aligned}
+y(t) &amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau
+\end{aligned}
+$$</p>
+<h1 id="线性时不变系统lti的性质">线性时不变系统(LTI)的性质</h1>
+<h2 id="卷积的数学表示">卷积的数学表示</h2>
+<p>$$
+\begin{aligned}
+y[n] &amp;= \sum_{ k =-\infin}^{\infin}x[k]h[n-k] = x[n]*h[n] \\
+y(t) &amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau = x(t) * h(t) \\
+\end{aligned}
+$$</p>
+<h2 id="commutative-distributive-associative-交换-分配-结合">Commutative Distributive Associative (交换 分配 结合)</h2>
+<p>$$
+\begin{aligned}
+x(t)*h(t) &amp;= h(t)<em>x(t) \\
+x(t)</em>[h_1(t) + h_2(t)] &amp;= x(t)*h_1(t) + x(t) * h_2(t) \\
+x(t) * h_1(t) * h_2(t) &amp;= x(t) * (h_1(t) * h_2(t))
+\end{aligned}
+$$</p>
+<h2 id="memory">Memory</h2>
+<h3 id="memoryless-lti-system">Memoryless LTI System</h3>
+<p>$$
+\begin{aligned}
+y(t) &amp;= Kx(t)
+\end{aligned}
+$$</p>
+<h2 id="invertibility">Invertibility</h2>
+<h2 id="causality">Causality</h2>
+<h2 id="stability">Stability</h2>
+<h2 id="unit-step-response-of-a-lti-system">Unit Step Response of a LTI System</h2>
+<h1 id="causal-lti-systems-described-yb-differential-and-difference-equations">CAUSAL LTI SYSTEMS DESCRIBED YB DIFFERENTIAL AND DIFFERENCE EQUATIONS</h1>
+<h2 id="一阶线性常微分方程的通用解法">一阶线性常微分方程的通用解法</h2>
+<h3 id="一般形式">一般形式</h3>
+<p>$$
+\begin{aligned}
+\sum_{k=0}^N a_k \frac{d^ky}{dt} &amp;= \sum_{k=0}^{M}b_k \frac{d^k x}{dt}
+\end{aligned}
+$$</p>
+<h3 id="解法">解法</h3>
 <ol>
-<li>Continuous Signal</li>
+<li>$N = 0$</li>
 </ol>
 <p>$$
 \begin{aligned}
-E_{\infin} &amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\
-P_{\infin} &amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\
+y(t) &amp;= \sum_{k=0}^{M}b_k \frac{d^k x}{dt}
 \end{aligned}
 $$</p>
 <ol start="2">
-<li>Discrete Signal</li>
+<li>$N \ge 1$</li>
 </ol>
+<ul>
+<li>Initial Condition</li>
+</ul>
 <p>$$
 \begin{aligned}
-E_{\infin} &amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x(n)|^2dn \\
-P_{\infin} &amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n + 1} \sum_{-n}^n |x(n)|^2dn \\
+y(t_0) &amp;= \frac{dy(t_0)}{dt} = &hellip; = \frac{d^{N-1} y(t_0)}{dt^{N-1}}
 \end{aligned}
 $$</p>
-<h1 id="独立变量的初级转换">独立变量的初级转换</h1>
-<h2 id="转换类型">转换类型</h2>
+<h2 id="一阶线性差分方程">一阶线性差分方程</h2>
+<h3 id="形式-recursive-equations">形式 (recursive equations)</h3>
 <p>$$
 \begin{aligned}
-x(t) \longrightarrow x(\alpha t + \beta)
+\sum_{k=0}^N a_k y[n-k] &amp;= \sum_{k=0}^M b_k x[n-k] \\
+y[n] &amp;= \frac{1}{a_0}(\sum_{k=0}^M b_k x[n-k] - \sum_{k=1}^N a_k y[n-k])
 \end{aligned}
 $$</p>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">time shift</th>
-<th style="text-align:center">在$\beta \neq 0$时平移</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">time reversal</td>
-<td style="text-align:center">在$\alpha &lt;0$时对称</td>
-</tr>
-<tr>
-<td style="text-align:center">time scaling</td>
-<td style="text-align:center">在$|\alpha| &lt; 1$时<strong>stretch</strong>, 在$|\alpha| &gt; 1$时<strong>compress</strong></td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="周期信号-奇偶信号">周期信号 奇偶信号</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">periodic Signals</th>
-<th style="text-align:center">$x(t) = x(t+T)$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Odd &amp; Evene Signals</td>
-<td style="text-align:center"><strong>Even</strong>: $x(t) = x(-t)$, <strong>Odd</strong>: $-x(t) = x(-t)$</td>
-</tr>
-</tbody>
-</table></div>
+<h3 id="解法-1">解法</h3>
 <ol>
-<li><strong>任何信号函数</strong>可以拆分成$O(t) + E(t)$</li>
+<li>当 $N=0$， 存在<strong>Finite Impulse Response</strong></li>
 </ol>
 <p>$$
 \begin{aligned}
-E(x) &amp;= \frac{1}{2}(x(t) + x(-t)) \\
-O(x) &amp;= \frac{1}{2}(x(t) - x(-t)) \\
-x(t) &amp;= E(x) + O(x)
-\end{aligned}
-$$</p>
-<h1 id="指数信号">指数信号</h1>
-<h2 id="连续指数信号">连续指数信号</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">指数</th>
-<th style="text-align:center">$x(t) = Ce^{at}, C, a \in \mathbb C$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">正弦</td>
-<td style="text-align:center">$x(t) = Acos(\omega t + \phi)$</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="指数信号的虚数部分必然是周期信号">指数信号的虚数部分必然是周期信号</h3>
-<p>$$
-\begin{aligned}
-x(t) &amp;= e^{j\omega t} \\
-if \ t &amp;= 0: \\
-x(t) &amp;= 1 \\
-T = 0 \\\
-\\ elif \ t &amp;\neq 0: \\
-x(t) &amp;= e^{j\omega t}  \\
-&amp;= cos(\omega t) + jsin(\omega t) \\
-T &amp;= \frac{2\pi}{\omega}
-\end{aligned}
-$$</p>
-<h3 id="指数信号虚数部分的ep">指数信号虚数部分的E/P</h3>
-<p>$$
-\begin{aligned}
-E &amp; = \int_{-t}^{t}|e^{j\omega t}|^2dt \\
-&amp;= 2t \\
-P &amp;= \frac{E}{2T} \\
-&amp;= 1
-\end{aligned}
-$$</p>
-<h3 id="正弦信号的分解">正弦信号的分解</h3>
-<p>$$
-\begin{aligned}
-Acos(\omega t + \phi) &amp;= \frac{A}{2}[e^{j\omega t}\cdot e^{j\phi} + e^{-j\omega t}\cdot e^{-j\phi}] \\
-&amp;= \mathbb R\lbrace e^{j(\omega t  +\phi)}\rbrace \\
-Asin(\omega t + \phi) &amp;= \frac{A}{2}[e^{j\omega t}\cdot e^{j\phi} - e^{-j\omega t}\cdot e^{-j\phi}] \\
-&amp;= \mathbb I\lbrace e^{j(\omega t  +\phi)}\rbrace \\
-\end{aligned}
-$$</p>
-<h3 id="harmonically-related-complex-exponentials">harmonically related complex exponentials</h3>
-<ul>
-<li>这些信号周期$T_i$的<strong>最大公约数</strong>为$T_0$</li>
-</ul>
-<p>$$
-\begin{aligned}
-T_i &amp;= \frac{2\pi}{\omega_i} \\
-T_0 &amp;= \frac{2\pi}{\omega_0} \\
-T_0 &amp;= k T_i \\
-x(t)_i &amp;= e^{jk\omega t}
-\end{aligned}
-$$</p>
-<h3 id="考虑虚实结合的指数信号">考虑虚实结合的指数信号</h3>
-<p>$$
-\begin{aligned}
-x(t) &amp;= Ce^{at} \\
-C&amp;= |C| e^{j \theta} \\
-a &amp;= r + j \omega \\
-x(t) &amp;= |C|e^{j \theta} e^{(r + j\omega) t} \\
-&amp;= |C|e^{rt} e^{j(\omega t + \theta)}
-\end{aligned}
-$$</p>
-<ul>
-<li>
-<p>当$r = 0$，都是正弦信号</p>
-</li>
-<li>
-<p>当$r \gt 0$, 当$r \lt 0$</p>
-</li>
-</ul>
-<p><img src="/p/1.-%E7%BB%AA%E8%AE%BA/1.png"
-	width="2338"
-	height="1528"
-	srcset="/p/1.-%E7%BB%AA%E8%AE%BA/1_hu85054b4cd267d6cabe2c311735469788_528121_480x0_resize_box_3.png 480w, /p/1.-%E7%BB%AA%E8%AE%BA/1_hu85054b4cd267d6cabe2c311735469788_528121_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="153"
-		data-flex-basis="367px"
-	
-></p>
-<h2 id="离散指数信号">离散指数信号</h2>
-<p>$$
-\begin{aligned}
-x[n] &amp;= C\alpha^n \\
-C &amp;= |C| e^{j\theta} \\
-\alpha &amp;= |\alpha| e^{j\omega} \\
-\therefore x[n] &amp;= |C||\alpha|^n [cos(\omega n + \theta) + jsin(\omega n + \theta)]
-\end{aligned}
-$$</p>
-<ul>
-<li>
-<p>当$\alpha = 1$，都是正弦信号</p>
-</li>
-<li>
-<p>当$\alpha \gt 1$, <strong>Decay</strong></p>
-</li>
-<li>
-<p>当$\alpha \gt 1$, <strong>Grow</strong></p>
-</li>
-</ul>
-<h1 id="unit-impluse--unit-step-functions">Unit Impluse &amp; Unit Step Functions</h1>
-<h2 id="discrete-unit-impluse--unit-step-functions">discrete unit impluse &amp; unit step functions</h2>
-<h3 id="方程">方程</h3>
-<p>$$
-\begin{aligned}
-\delta[n] &amp;= \begin{cases}
-0 &amp;  n \ne 0 \\
-1 &amp; n = 0
-\end{cases} \\
-u[n] &amp;= \begin{cases}
-0 &amp; n \lt 0 \\
-1 &amp; n \ge 0
+y[n] &amp;= \frac{b_k}{a_0}\sum_{k=0}^{M}x[n-k] \\
+h[n] &amp;= \begin{cases}
+\frac{b_n}{a_0} &amp; 0 \lt n \le M \\
+0 &amp; otherwise
 \end{cases}
 \end{aligned}
 $$</p>
-<h3 id="两者关系">两者关系</h3>
-<p>$$
-\begin{aligned}
-\pmb{\delta[n]} &amp;= u[n] - u[n-1] \\
-\therefore u[n] &amp;= \sum_{m=-\infin}^n \delta[m] \\
-Set \ k &amp;=n-m \\
-\pmb{u[n]} &amp;= \sum_{k = \infin}^0\delta[n-k] \\
-&amp;= \sum_{k=0}^\infin \delta[n-k]
-\end{aligned}
-$$</p>
-<h3 id="脉冲函数的其他属性">脉冲函数的其他属性</h3>
-<p>$$
-\begin{aligned}
-x[n]\delta[n] &amp;= x[0]\delta[n] \\
-x[n]\delta[n-n_0] &amp;=x[n_0]\delta[n-n_0]
-\end{aligned}
-$$</p>
-<h2 id="continuous-unit-impluse--unit-step-functions">Continuous unit impluse &amp; unit step functions</h2>
-<h3 id="二者关系">二者关系</h3>
-<ol>
-<li>基本关系</li>
+<ol start="2">
+<li><strong>Infinite Impulse Response</strong> Ex.</li>
 </ol>
 <p>$$
 \begin{aligned}
-\delta_{\Delta}(t) &amp;= \frac{du_{\Delta}(t)}{dt} \\
-&amp;= \frac{1}{\Delta} \\
-\delta(t) &amp;= \underset{\Delta \rightarrow 0}{lim}\delta_{\Delta}(t) \\
-&amp;= \frac{du(t)}{dt} \\
-u(t) &amp;= \int_{-\infin}^t\delta(\tau)d\tau
+y[n] &amp;= \frac{1}{2} y[n-1] + K \delta[n] \\
+\therefore y[n] &amp;= 0, n \le -1 \\
+\therefore y[0] &amp;= K \\
+y[1] &amp;= \frac{1}{2}K \\
+y[2] &amp;= (\frac{1}{2})^2K \\
+&hellip; \\
+y[n] &amp;= (\frac{1}{2})^n K
 \end{aligned}
 $$</p>
-<p><img src="/p/1.-%E7%BB%AA%E8%AE%BA/2.png"
-	width="2190"
-	height="862"
-	srcset="/p/1.-%E7%BB%AA%E8%AE%BA/2_hu020970a95d8d409116fd082dad658f82_236829_480x0_resize_box_3.png 480w, /p/1.-%E7%BB%AA%E8%AE%BA/2_hu020970a95d8d409116fd082dad658f82_236829_1024x0_resize_box_3.png 1024w"
+<ul>
+<li>因此，Impulse Response 是 $h[n] = (\dfrac{1}{2})^n u[n]$</li>
+</ul>
+<h2 id="block-diagram-representations-of-first-order-systems-described-by-differential-and-difference-equations">Block Diagram Representations of First-Order Systems Described by Differential and Difference Equations</h2>
+<h3 id="difference-equations-for-discrete-time">Difference Equations for Discrete-Time</h3>
+<p>$$
+\begin{aligned}
+y[n] + ay[n-1] &amp;= bx[n] \\
+y[n] &amp;= -ay[n-1] + bx[n]
+\end{aligned}
+$$</p>
+<p><img src="/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/1.png"
+	width="1150"
+	height="664"
+	srcset="/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/1_hu18318b747ae43f9e3cebb0626ad539a3_95751_480x0_resize_box_3.png 480w, /p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/1_hu18318b747ae43f9e3cebb0626ad539a3_95751_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="254"
-		data-flex-basis="609px"
+		data-flex-grow="173"
+		data-flex-basis="415px"
 	
 ></p>
-<ol start="2">
-<li>重要属性</li>
-</ol>
-<ul>
-<li>缩放</li>
-</ul>
-<p>$$
-\begin{aligned}
-ku(t) &amp;= \int_{-\infin}^tk\delta(\tau)d\tau
-\end{aligned}
-$$</p>
-<ul>
-<li>令$\sigma = t - \tau$</li>
-</ul>
-<p>$$
-\begin{aligned}
-u(t) &amp;= \int_{\infin}^0\delta(t-\sigma)(-d\sigma) \\
-&amp;= \int_0^\infin \delta(t-\sigma)d\sigma
-\end{aligned}
-$$</p>
-<h1 id="连续与离散时间系统">连续与离散时间系统</h1>
-<h2 id="basic-system-properties">Basic System Properties</h2>
-<h3 id="memory">Memory</h3>
-<ul>
-<li><strong>输出</strong>只和<strong>当前输入</strong>有关，叫做<strong>memoryless</strong>, 否则就是<strong>system with memory</strong></li>
-</ul>
-<h3 id="invertibility-and-inverse-system">Invertibility and Inverse System</h3>
+<h3 id="differential-equations-for-continuous-time">Differential Equations for Continuous-Time</h3>
 <ol>
-<li>定义</li>
+<li>Block Diagram I</li>
 </ol>
-<ul>
-<li><strong>不同的输入</strong>得到<strong>不同的输出</strong></li>
-</ul>
-<ol start="2">
-<li>图示</li>
-</ol>
-<p><img src="/p/1.-%E7%BB%AA%E8%AE%BA/3.png"
-	width="1676"
-	height="326"
-	srcset="/p/1.-%E7%BB%AA%E8%AE%BA/3_hu3ab772665d52493279253b335b47e683_95675_480x0_resize_box_3.png 480w, /p/1.-%E7%BB%AA%E8%AE%BA/3_hu3ab772665d52493279253b335b47e683_95675_1024x0_resize_box_3.png 1024w"
+<p>$$
+\begin{aligned}
+\frac{dy(t)}{dx} + a y(t) &amp;= bx(t) \\
+\therefore y(t) &amp;= \frac{1}{a} [bx(t) - \frac{dy(t)}{dt}]
+\end{aligned}
+$$</p>
+<p><img src="/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/2.png"
+	width="1074"
+	height="762"
+	srcset="/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/2_huff80b60c32f56ba6d527960767b9c380_104092_480x0_resize_box_3.png 480w, /p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/2_huff80b60c32f56ba6d527960767b9c380_104092_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="514"
-		data-flex-basis="1233px"
+		data-flex-grow="140"
+		data-flex-basis="338px"
 	
 ></p>
-<h3 id="causality">Causality</h3>
-<ol>
-<li>定义</li>
+<ol start="2">
+<li>Block Diagram II</li>
 </ol>
-<ul>
-<li>
-<p><strong>输出</strong>仅取决于<strong>当前和过去</strong>的<strong>输入</strong></p>
-</li>
-<li>
-<p>若<strong>未来的输入</strong>可以影响<strong>输出</strong>，就不是<strong>Causality</strong></p>
-</li>
-</ul>
-<h3 id="stability">Stability</h3>
-<ol>
-<li>定义</li>
-</ol>
-<ul>
-<li>
-<p><strong>微小的输入</strong>不会导致<strong>发散</strong>的系统</p>
-</li>
-<li>
-<p>换言之，<strong>Bounded Input</strong> $\rightarrow$ <strong>Bounded Output</strong>, $t \in \mathbb R$</p>
-</li>
-</ul>
-<h3 id="time-invirance">Time Invirance</h3>
-<ul>
-<li>输入与输出之间的关系在时间上保持不变</li>
-</ul>
-<h3 id="linearity">Linearity</h3>
 <p>$$
 \begin{aligned}
-x[n] &amp;= \sum_{k}a_kx_k[n] \\
-y[n] &amp;= \sum_{k}a_ky_k[n]
+y(t) &amp;= y(t_0) + \int_{-\infin}^{t} [bx(\tau) - ay(\tau)] d\tau
 \end{aligned}
 $$</p>
-<h1 id="三角函数知识回忆">三角函数知识回忆</h1>
+<p><img src="/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/3.png"
+	width="1312"
+	height="620"
+	srcset="/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/3_hue8092a656293325333a83b882ccd3bff_87041_480x0_resize_box_3.png 480w, /p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/3_hue8092a656293325333a83b882ccd3bff_87041_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="507px"
+	
+></p>
+<h1 id="singularity-functions">Singularity Functions</h1>
+<h2 id="the-unit-impulse-as-an-idealized-short-pulse">The Unit Impulse as an Idealized Short Pulse</h2>
 <p>$$
 \begin{aligned}
-asinx + bcosx &amp;= \sqrt{a^2 + b^2}sin(x + \phi) \\
-tan \phi &amp;= \frac{sinx}{cosx}
+\delta(t) &amp;= \delta(t)*\delta(t)
 \end{aligned}
 $$</p>
+<h2 id="defining-the-unit-impulse-through-convolution">Defining the Unit Impulse through Convolution</h2>
+<p>$$
+\begin{aligned}
+x(t) &amp;= x(t) * \delta(t) \\
+\therefore if \ x(t) &amp;= 1 \\
+1 &amp;= x(t) = x(t) *\delta(t) \\
+&amp;= \delta(t) * x(t)  \\
+&amp;= \int_{-\infin}^t \delta(\tau) x(t - \tau)d\tau \\
+&amp;= \int_{-\infin}^t \delta(\tau) d \tau
+\end{aligned}
+$$</p>
+<h2 id="unit-doublets-and-other-singularity-functions">Unit Doublets and other Singularity Functions</h2>
+<p>$$
+\begin{aligned}
+\frac{dx(t)}{dt} &amp;= x(t) *u_1(t) \\
+\frac{d^2x(t)}{dt} &amp;= x(t) * u_2(t) \\
+&hellip; \\
+\therefore u_k(t) &amp;= \underset{k \ times}{u_1(t) * u_1(t) *..*u_1(t)}
+\end{aligned}
+$$</p>
+<h1 id="微分方程解法回顾">微分方程解法回顾</h1>
+<h2 id="常系数一阶微分方程">常系数一阶微分方程</h2>
+<h3 id="形式">形式</h3>
+<p>$$
+\begin{aligned}
+a \frac{dy(t)}{dx} + b y(x) &amp;= cx \\
+y &amp;= y_h(x) + y_p(x)
+\end{aligned}
+$$</p>
+<h3 id="解法-2">解法</h3>
+<ol>
+<li>$y_h(x)$</li>
+</ol>
+<p>$$
+\begin{aligned}
+Let \ c &amp;= 0 \\
+a\frac{dy(t)}{dt} + by(t) &amp;= 0 \Longrightarrow y_h(x) \\
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>$y_p(x)$</li>
+</ol>
+<ul>
+<li>将$y_p(x)$设为和$x$相同的形式，再代入解</li>
+</ul>
+<h2 id="一阶微分方程">一阶微分方程</h2>
+<ol>
+<li>形式</li>
+</ol>
+<p>$$
+\begin{aligned}
+\frac{dy}{dx} + P(x) y &amp;= Q(x) \\
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>解法</li>
+</ol>
+<p>$$
+\begin{aligned}</p>
+<p>Let \ v&rsquo;(x) &amp;= v(x) P(x) \\
+\Big[\frac{1}{v(x)} dv &amp;= P(x)dx \Longrightarrow v(x) = e^{\int P(x) dx} \Big]\\
+\therefore \frac{dy}{dx} v(x) + P(x)v(x) y &amp;=Q(x) v(x) \\
+y v(x) &amp;= \int Q(x)v(x) - P(x) v(x)  ydx  \\
+yv(x) &amp;= \int Q(x) v(x) dx - \int ydv \\
+y &amp;= \frac{1}{v(x)} \int Q(x) v(x) dx (????)
+\end{aligned}
+$$</p>
+<h2 id="常系数二阶微分方程">常系数二阶微分方程</h2>
+<h3 id="形式-1">形式</h3>
+<p>$$
+\begin{aligned}
+ay&rsquo;&rsquo; + by&rsquo; + cy &amp;= 0
+\end{aligned}
+$$</p>
+<h3 id="解法-3">解法</h3>
+<ol>
+<li>换成$ay^2 + by + c = 0$，获得解</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">两个实根</th>
+<th style="text-align:center">$y = c_1 e^{r_1x} + c_2 e^{r_2 x}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">一个实根</td>
+<td style="text-align:center">$y = c_1 e^{rx} +c_2 x e^{rx}$</td>
+</tr>
+<tr>
+<td style="text-align:center">两个复数根$r = \alpha \pm i \beta$</td>
+<td style="text-align:center">$y = e^{\alpha x} (c_1 \cos \beta x + c_2 \sin \beta x)$</td>
+</tr>
+</tbody>
+</table></div>
 
 </section>
 
@@ -838,12 +763,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/">
+    <a href="/p/1.-%E7%BB%AA%E8%AE%BA/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">2. 线性时不变系统</h2>
+            <h2 class="article-title">1. 绪论</h2>
         </div>
     </a>
 </article>

@@ -39,9 +39,60 @@
         <pubDate>Thu, 20 Jul 2023 15:18:41 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/15.-phase-locked-loops/</guid>
-        <description>&lt;h1 id=&#34;simple-pll&#34;&gt;Simple PLL&lt;/h1&gt;
-&lt;h2 id=&#34;结构和原理&#34;&gt;结构和原理&lt;/h2&gt;
-&lt;h3 id=&#34;io关系&#34;&gt;I/O关系&lt;/h3&gt;
+        <description>&lt;h1 id=&#34;type-i-pll-topology&#34;&gt;Type I PLL Topology&lt;/h1&gt;
+&lt;h2 id=&#34;原理图&#34;&gt;原理图&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/3.png&#34;
+	width=&#34;1592&#34;
+	height=&#34;338&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/3_hu251524a7eb1f7783b57990e283e34b8d_62060_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/3_hu251524a7eb1f7783b57990e283e34b8d_62060_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;471&#34;
+		data-flex-basis=&#34;1130px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Phase Locking&lt;/strong&gt;: Align the &lt;strong&gt;Output Phase of VCO&lt;/strong&gt; and &lt;strong&gt;Phase of the reference&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;strong&gt;LPF&lt;/strong&gt;除去&lt;strong&gt;AC Signal&lt;/strong&gt;，保留&lt;strong&gt;DC signal&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为了定义&lt;strong&gt;Phase Lock Condition&lt;/strong&gt;, 我们需要使得$\phi_{out} - \phi_{in}$ 保持不变, 也就是&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\frac{d\phi_{out}}{dt} - \frac{d\phi_{in}}{\phi_{in}} &amp;amp;= 0 \\
+\omega_{out} &amp;amp;= \omega_{in}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;一个简单的pll&#34;&gt;一个简单的PLL&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/4.png&#34;
+	width=&#34;1592&#34;
+	height=&#34;934&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/4_hu8852373319c64f398bde64141a7afeee_127320_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/4_hu8852373319c64f398bde64141a7afeee_127320_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;409px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;strong&gt;XOR&lt;/strong&gt;作&lt;strong&gt;PD&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;strong&gt;LC&lt;/strong&gt;电路作&lt;strong&gt;LPF&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;phase-detector&#34;&gt;Phase Detector&lt;/h1&gt;
+&lt;h2 id=&#34;io关系&#34;&gt;I/O关系&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/1.png&#34;
 	width=&#34;2130&#34;
 	height=&#34;598&#34;
@@ -63,7 +114,8 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$K_{PD}$单位为$V/rad$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;通过xor实现pll&#34;&gt;通过XOR实现PLL&lt;/h3&gt;
+&lt;h2 id=&#34;实现方式&#34;&gt;实现方式&lt;/h2&gt;
+&lt;h3 id=&#34;通过xor实现phase-detect&#34;&gt;通过XOR实现Phase Detect&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;电路和时序图&lt;/li&gt;
 &lt;/ol&gt;
@@ -94,113 +146,40 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;364px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;basic-pll-topology&#34;&gt;Basic PLL Topology&lt;/h2&gt;
-&lt;h3 id=&#34;原理图&#34;&gt;原理图&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/3.png&#34;
-	width=&#34;1592&#34;
-	height=&#34;338&#34;
-	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/3_hu251524a7eb1f7783b57990e283e34b8d_62060_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/3_hu251524a7eb1f7783b57990e283e34b8d_62060_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;471&#34;
-		data-flex-basis=&#34;1130px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Phase Locking&lt;/strong&gt;: Align the &lt;strong&gt;Output Phase of VCO&lt;/strong&gt; and &lt;strong&gt;Phase of the reference&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用&lt;strong&gt;LPF&lt;/strong&gt;除去&lt;strong&gt;AC Signal&lt;/strong&gt;，保留&lt;strong&gt;DC signal&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;为了定义&lt;strong&gt;Phase Lock Condition&lt;/strong&gt;, 我们需要使得$\phi_{out} - \phi_{in}$ 保持不变, 也就是&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\frac{d\phi_{out}}{dt} - \frac{d\phi_{in}}{\phi_{in}} &amp;amp;= 0 \\
-\omega_{out} &amp;amp;= \omega_{in}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;一个简单的pll&#34;&gt;一个简单的PLL&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/4.png&#34;
-	width=&#34;1592&#34;
-	height=&#34;934&#34;
-	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/4_hu8852373319c64f398bde64141a7afeee_127320_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/4_hu8852373319c64f398bde64141a7afeee_127320_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;170&#34;
-		data-flex-basis=&#34;409px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;用&lt;strong&gt;XOR&lt;/strong&gt;作&lt;strong&gt;PD&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用&lt;strong&gt;LC&lt;/strong&gt;电路作&lt;strong&gt;LPF&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;pll-waveforms-in-locked-condition&#34;&gt;PLL Waveforms in Locked Condition&lt;/h3&gt;
+&lt;h3 id=&#34;pfd-phasefrequency-detector&#34;&gt;PFD (Phase/Frequency Detector)&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Waveforms&lt;/li&gt;
+&lt;li&gt;操作&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/5.png&#34;
-	width=&#34;1684&#34;
-	height=&#34;970&#34;
-	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/5_hu839d4a2745b4e0868d2c2db88e9fe668_111579_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/5_hu839d4a2745b4e0868d2c2db88e9fe668_111579_1024x0_resize_box_3.png 1024w&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/16.png&#34;
+	width=&#34;2196&#34;
+	height=&#34;1214&#34;
+	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/16_hu4bde4d5fbe536134124d369c6210fa16_128728_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/16_hu4bde4d5fbe536134124d369c6210fa16_128728_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;173&#34;
-		data-flex-basis=&#34;416px&#34;
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;434px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;计算&lt;strong&gt;Static Phase Error&lt;/strong&gt; $\phi_0$&lt;/li&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$Q_A$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$Q_B$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;UP Pulses&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Down Pulses&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;电路图&#34;&gt;电路图&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;总体结构&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/6.png&#34;
-	width=&#34;1124&#34;
-	height=&#34;1244&#34;
-	srcset=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/6_hufd5ae6429f0d4758ab564ab1f43c1893_110762_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/15.-phase-locked-loops/6_hufd5ae6429f0d4758ab564ab1f43c1893_110762_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;90&#34;
-		data-flex-basis=&#34;216px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\omega_{out} &amp;amp;= \omega_0 + K_{VCO}V_{cont} \\
-\overline{V_{PD}} &amp;amp;= K_{PD} \Delta \phi \\
-\therefore V_1 &amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}} \\
-\therefore \phi_0 &amp;amp;= \frac{V_1}{K_{PD}} \\
-&amp;amp;= \frac{\omega_1 - \omega_0}{K_{VCO}K_{PD}}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;结论&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;为了减小&lt;strong&gt;Phase Error&lt;/strong&gt;,必须&lt;strong&gt;增大&lt;/strong&gt;$K_{VCO}K_{PD}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;输入频率&lt;/strong&gt;会影响&lt;strong&gt;相位误差&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;small-transients-in-locked-condition&#34;&gt;Small Transients in Locked Condition&lt;/h3&gt;
-&lt;h1 id=&#34;charge-pump-pll&#34;&gt;Charge-Pump PLL&lt;/h1&gt;
-&lt;h2 id=&#34;pfd-phasefrequency-detector&#34;&gt;PFD (Phase/Frequency Detector)&lt;/h2&gt;
-&lt;h3 id=&#34;结构图&#34;&gt;结构图&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/8.png&#34;
 	width=&#34;716&#34;
 	height=&#34;906&#34;
@@ -213,7 +192,9 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;189px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;门电路&#34;&gt;门电路&lt;/h3&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;门电路&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/9.png&#34;
 	width=&#34;1072&#34;
 	height=&#34;830&#34;
@@ -231,7 +212,7 @@ $$&lt;/p&gt;
 &lt;li&gt;当频率很低时，就成了一个&lt;strong&gt;PD&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;charge-pump&#34;&gt;Charge Pump&lt;/h2&gt;
-&lt;h3 id=&#34;结构图-1&#34;&gt;结构图&lt;/h3&gt;
+&lt;h3 id=&#34;结构图&#34;&gt;结构图&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/10.png&#34;
 	width=&#34;258&#34;
 	height=&#34;1100&#34;
@@ -316,7 +297,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;664px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;电路图&#34;&gt;电路图&lt;/h3&gt;
+&lt;h3 id=&#34;电路图-1&#34;&gt;电路图&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/15.-phase-locked-loops/13.png&#34;
 	width=&#34;1752&#34;
 	height=&#34;1136&#34;
