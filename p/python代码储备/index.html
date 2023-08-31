@@ -301,7 +301,7 @@
     <li><a href="#scipysignal">scipy.signal</a>
       <ol>
         <li><a href="#卷积">卷积</a></li>
-        <li><a href="#heading"></a></li>
+        <li><a href="#采样">采样</a></li>
       </ol>
     </li>
     <li><a href="#指标选择">指标选择</a>
@@ -377,7 +377,7 @@
 
 
                 <time class="article-time--reading">
-                    6 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -936,8 +936,44 @@ $$g(D,A)=H(D)-H(D|A)$$</p>
 </span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="heading"></h2>
-<h1 id="指标选择">指标选择</h1>
+</div><h2 id="采样">采样</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 原始信号</span>
+</span></span><span class="line"><span class="cl"><span class="n">original_signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 伸缩因子</span>
+</span></span><span class="line"><span class="cl"><span class="n">scaling_factor</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 信号伸缩</span>
+</span></span><span class="line"><span class="cl"><span class="n">resampled_signal</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">original_signal</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">original_signal</span><span class="p">)</span> <span class="o">*</span> <span class="n">scaling_factor</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 打印结果</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;原始信号:&#34;</span><span class="p">,</span> <span class="n">original_signal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;伸缩后的信号:&#34;</span><span class="p">,</span> <span class="n">resampled_signal</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="指标选择">指标选择</h1>
 <h2 id="基于熵权法的topsis">基于熵权法的TOPSIS</h2>
 <h3 id="topsis-technique-for-order-preference-by-similarity-to-ideal-solution">TOPSIS (Technique for Order Preference by Similarity to Ideal Solution)</h3>
 <ol>
