@@ -4,15 +4,16 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='概述 建模总思路 &#43; 子任务 &#43; 难点
 方法合理性 = 模型过检验 &#43; 结果可解释
 敏感性分析
-步骤 数据预处理 难点与方案 数据丑 解决方案 样本量小 缺失值多 维度高 右偏严重 定和约束 有定类变量 样本量非常小 正向化 指标的选择!!!(非常重要) 平均值
+步骤 数据预处理(必须!!!) 难点与方案 数据丑 解决方案 样本量小 缺失值多 维度高 右偏严重 定和约束 定类变量 样本量非常小 正向化 要点 补全 &amp;gt; 剔除 $2/3$页作为预处理 指标的选择!!!(非常重要) 平均值
 稳定性
 用方差、标准差衡量 连续性 用ACF(自相关函数)描述，并可视化 频率(根据具体题目而言)
 比例(根据具体题目而言)
+必须要详细
 模型的选择 慎重选择的模型 神经网络，不要选!!
 主成分分析要慎重
 可用的模型列举 回归
 拟合
-TOPSIS
+基于TOPSIS的熵权法
 结果 预测精度要说明
 一定要检验!
 解释模型 数学公式解释
@@ -28,15 +29,16 @@ TOPSIS
 <meta property='og:description' content='概述 建模总思路 &#43; 子任务 &#43; 难点
 方法合理性 = 模型过检验 &#43; 结果可解释
 敏感性分析
-步骤 数据预处理 难点与方案 数据丑 解决方案 样本量小 缺失值多 维度高 右偏严重 定和约束 有定类变量 样本量非常小 正向化 指标的选择!!!(非常重要) 平均值
+步骤 数据预处理(必须!!!) 难点与方案 数据丑 解决方案 样本量小 缺失值多 维度高 右偏严重 定和约束 定类变量 样本量非常小 正向化 要点 补全 &amp;gt; 剔除 $2/3$页作为预处理 指标的选择!!!(非常重要) 平均值
 稳定性
 用方差、标准差衡量 连续性 用ACF(自相关函数)描述，并可视化 频率(根据具体题目而言)
 比例(根据具体题目而言)
+必须要详细
 模型的选择 慎重选择的模型 神经网络，不要选!!
 主成分分析要慎重
 可用的模型列举 回归
 拟合
-TOPSIS
+基于TOPSIS的熵权法
 结果 预测精度要说明
 一定要检验!
 解释模型 数学公式解释
@@ -51,15 +53,16 @@ TOPSIS
 <meta name="twitter:description" content="概述 建模总思路 &#43; 子任务 &#43; 难点
 方法合理性 = 模型过检验 &#43; 结果可解释
 敏感性分析
-步骤 数据预处理 难点与方案 数据丑 解决方案 样本量小 缺失值多 维度高 右偏严重 定和约束 有定类变量 样本量非常小 正向化 指标的选择!!!(非常重要) 平均值
+步骤 数据预处理(必须!!!) 难点与方案 数据丑 解决方案 样本量小 缺失值多 维度高 右偏严重 定和约束 定类变量 样本量非常小 正向化 要点 补全 &amp;gt; 剔除 $2/3$页作为预处理 指标的选择!!!(非常重要) 平均值
 稳定性
 用方差、标准差衡量 连续性 用ACF(自相关函数)描述，并可视化 频率(根据具体题目而言)
 比例(根据具体题目而言)
+必须要详细
 模型的选择 慎重选择的模型 神经网络，不要选!!
 主成分分析要慎重
 可用的模型列举 回归
 拟合
-TOPSIS
+基于TOPSIS的熵权法
 结果 预测精度要说明
 一定要检验!
 解释模型 数学公式解释
@@ -307,9 +310,10 @@ TOPSIS
     <li><a href="#概述">概述</a></li>
     <li><a href="#步骤">步骤</a>
       <ol>
-        <li><a href="#数据预处理">数据预处理</a>
+        <li><a href="#数据预处理必须">数据预处理(必须!!!)</a>
           <ol>
             <li><a href="#难点与方案">难点与方案</a></li>
+            <li><a href="#要点">要点</a></li>
             <li><a href="#指标的选择非常重要">指标的选择!!!(非常重要)</a></li>
           </ol>
         </li>
@@ -336,11 +340,6 @@ TOPSIS
     </li>
     <li><a href="#其他">其他</a></li>
     <li><a href="#赛前准备">赛前准备</a></li>
-    <li><a href="#715后任务">7.15后任务</a>
-      <ol>
-        <li><a href="#每周选两题分析">每周选两题分析</a></li>
-      </ol>
-    </li>
   </ol>
 </nav>
         </div>
@@ -433,7 +432,7 @@ TOPSIS
 </li>
 </ul>
 <h1 id="步骤">步骤</h1>
-<h2 id="数据预处理">数据预处理</h2>
+<h2 id="数据预处理必须">数据预处理(必须!!!)</h2>
 <h3 id="难点与方案">难点与方案</h3>
 <div class="table-wrapper"><table>
 <thead>
@@ -464,12 +463,27 @@ TOPSIS
 <td></td>
 </tr>
 <tr>
-<td style="text-align:center">有<strong>定类变量</strong></td>
+<td style="text-align:center"><strong>定类变量</strong></td>
 <td></td>
 </tr>
 <tr>
 <td style="text-align:center">样本量非常小</td>
 <td style="text-align:center"><strong>正向化</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="要点">要点</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>补全</strong> &gt; <strong>剔除</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$2/3$页作为<strong>预处理</strong></td>
+<td></td>
 </tr>
 </tbody>
 </table></div>
@@ -498,6 +512,9 @@ TOPSIS
 <li>
 <p>比例(根据具体题目而言)</p>
 </li>
+<li>
+<p><strong>必须要详细</strong></p>
+</li>
 </ol>
 <h2 id="模型的选择">模型的选择</h2>
 <h3 id="慎重选择的模型">慎重选择的模型</h3>
@@ -518,7 +535,7 @@ TOPSIS
 <p>拟合</p>
 </li>
 <li>
-<p>TOPSIS</p>
+<p>基于TOPSIS的熵权法</p>
 </li>
 </ul>
 <h3 id="结果">结果</h3>
@@ -553,7 +570,7 @@ TOPSIS
 <p>每段子任务 = <strong>子目的</strong> + 方法 + 数字结果(如果有) + **难点解决 + 评论}</p>
 </li>
 <li>
-<p>优势</p>
+<p>一句话总结 + 优势</p>
 </li>
 </ul>
 <h3 id="细节">细节</h3>
@@ -587,7 +604,7 @@ TOPSIS
 <td style="text-align:center">统一风格</td>
 <td style="text-align:center">5-15个之间</td>
 <td style="text-align:center"><strong>重要公式</strong>要加编号</td>
-<td style="text-align:center">指出是<strong>问题所给附件</strong></td>
+<td style="text-align:center">指出是<strong>题目所给附件</strong></td>
 </tr>
 <tr>
 <td style="text-align:center">不要连续给多个图</td>
@@ -599,7 +616,7 @@ TOPSIS
 </tr>
 <tr>
 <td style="text-align:center">一定要<strong>解释图像</strong></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">算法的介绍和解释一定不能<strong>泛</strong>，要<strong>具体</strong></td>
 <td style="text-align:center">用<strong>三线表</strong></td>
 <td style="text-align:center"></td>
 <td></td>
@@ -619,19 +636,19 @@ TOPSIS
 <p>启发式算法、遗传算法&hellip; 不容易得高分</p>
 </li>
 <li>
-<p>建模过程中会出现分段拟合的情况，分段进行建模；</p>
+<p>建模过程中会出现分段拟合的情况，分段进行建模</p>
 </li>
 <li>
-<p>确定模型后，要将模型的定义和方法再结合题意复述一遍；</p>
+<p>确定模型后，要将模型的定义和方法再结合题意复述一遍</p>
 </li>
 <li>
-<p>模型假设时可以考虑的两个角度：一是对数据的可靠性，二是对其他影响因素忽略不计；</p>
+<p>模型假设时可以考虑的两个角度：一是对数据的可靠性，二是对其他影响因素忽略不计</p>
 </li>
 <li>
-<p>数据预处理时用到的理论也要进行说明；</p>
+<p>数据预处理时用到的理论也要进行说明</p>
 </li>
 <li>
-<p>列表简化数据的表述；</p>
+<p>列表简化数据的表述</p>
 </li>
 </ul>
 <h1 id="赛前准备">赛前准备</h1>
@@ -642,25 +659,6 @@ TOPSIS
 <li>
 <p>去<strong>中国大学生在线</strong>看<strong>对应的</strong>优秀论文</p>
 </li>
-</ul>
-<h1 id="715后任务">7.15后任务</h1>
-<h2 id="每周选两题分析">每周选两题分析</h2>
-<ol>
-<li>内容</li>
-</ol>
-<ul>
-<li>
-<p>建模思路</p>
-</li>
-<li>
-<p>算法思路</p>
-</li>
-</ul>
-<ol start="2">
-<li>思路</li>
-</ol>
-<ul>
-<li>合成一个文件上交</li>
 </ul>
 
 </section>
