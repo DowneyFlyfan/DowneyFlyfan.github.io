@@ -65,6 +65,23 @@ x(t)&lt;/em&gt;[h_1(t) + h_2(t)] &amp;amp;= x(t)*h_1(t) + x(t) * h_2(t) \\
 x(t) * h_1(t) * h_2(t) &amp;amp;= x(t) * (h_1(t) * h_2(t))
 \end{aligned}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;卷积的性质&#34;&gt;卷积的性质&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;通过 Unit Impulse Function &lt;strong&gt;平移&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x(t) * \delta(t-k) &amp;amp;= x(t-k) \\
+\sum_{k=-\infin}^{\infin} x(t) * \delta(t-k) &amp;amp;= \sum_{k=-\infin}^{\infin} x(t-k) \\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;反系统与原系统&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}&lt;/p&gt;
+&lt;p&gt;\end{aligned}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
 &lt;h3 id=&#34;memoryless-lti-system&#34;&gt;Memoryless LTI System&lt;/h3&gt;
 &lt;p&gt;$$
@@ -75,7 +92,29 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;invertibility&#34;&gt;Invertibility&lt;/h2&gt;
 &lt;h2 id=&#34;causality&#34;&gt;Causality&lt;/h2&gt;
 &lt;h2 id=&#34;stability&#34;&gt;Stability&lt;/h2&gt;
-&lt;h2 id=&#34;unit-step-response-of-a-lti-system&#34;&gt;Unit Step Response of a LTI System&lt;/h2&gt;
+&lt;h2 id=&#34;response-of-a-lti-system&#34;&gt;Response of a LTI System&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Unit Step Response&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;其中，$h(t)$为该系统的单位脉冲响应&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+s[n] &amp;amp;= h[n]*u[n] \\
+&amp;amp;= \sum_{\infin}^n h[k] \\
+s(t) &amp;amp;= h(t)*u(t) \\
+&amp;amp;= \int_{-\infin}^t h(\tau) d\tau
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Unit Impulse Response&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+h(t) &amp;amp;= \frac{ds(t)}{dt} = s&amp;rsquo;(t)
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;causal-lti-systems-described-yb-differential-and-difference-equations&#34;&gt;CAUSAL LTI SYSTEMS DESCRIBED YB DIFFERENTIAL AND DIFFERENCE EQUATIONS&lt;/h1&gt;
 &lt;h2 id=&#34;一阶线性常微分方程的通用解法&#34;&gt;一阶线性常微分方程的通用解法&lt;/h2&gt;
 &lt;h3 id=&#34;一般形式&#34;&gt;一般形式&lt;/h3&gt;
@@ -570,7 +609,8 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 x[n]\delta[n] &amp;amp;= x[0]\delta[n] \\
-x[n]\delta[n-n_0] &amp;amp;=x[n_0]\delta[n-n_0]
+x[n]\delta[n-n_0] &amp;amp;=x[n_0]\delta[n-n_0] \\
+\delta(at) &amp;amp;= \frac{1}{|a|}\delta(t)
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;continuous-unit-impluse--unit-step-functions&#34;&gt;Continuous unit impluse &amp;amp; unit step functions&lt;/h2&gt;
@@ -630,7 +670,7 @@ $$&lt;/p&gt;
 &lt;li&gt;定义&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;不同的输入&lt;/strong&gt;得到&lt;strong&gt;不同的输出&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;输入和输出&lt;strong&gt;一一对应&lt;/strong&gt;的系统&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;图示&lt;/li&gt;
@@ -676,12 +716,17 @@ $$&lt;/p&gt;
 &lt;li&gt;输入与输出之间的关系在时间上保持不变&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;linearity&#34;&gt;Linearity&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;满足以下条件的系统是&lt;strong&gt;线性&lt;/strong&gt;的&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;$$
 \begin{aligned}
-x[n] &amp;amp;= \sum_{k}a_kx_k[n] \\
-y[n] &amp;amp;= \sum_{k}a_ky_k[n]
+\sum_k a_k x_k  \longrightarrow \sum_k b_k y_k
 \end{aligned}
 $$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入的&lt;strong&gt;线性组合&lt;/strong&gt;能得到输出的&lt;strong&gt;线性组合&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;三角函数知识回忆&#34;&gt;三角函数知识回忆&lt;/h1&gt;
 &lt;p&gt;$$
 \begin{aligned}

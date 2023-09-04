@@ -278,6 +278,7 @@
       <ol>
         <li><a href="#卷积的数学表示">卷积的数学表示</a></li>
         <li><a href="#commutative-distributive-associative-交换-分配-结合">Commutative Distributive Associative (交换 分配 结合)</a></li>
+        <li><a href="#卷积的性质">卷积的性质</a></li>
         <li><a href="#memory">Memory</a>
           <ol>
             <li><a href="#memoryless-lti-system">Memoryless LTI System</a></li>
@@ -286,7 +287,7 @@
         <li><a href="#invertibility">Invertibility</a></li>
         <li><a href="#causality">Causality</a></li>
         <li><a href="#stability">Stability</a></li>
-        <li><a href="#unit-step-response-of-a-lti-system">Unit Step Response of a LTI System</a></li>
+        <li><a href="#response-of-a-lti-system">Response of a LTI System</a></li>
       </ol>
     </li>
     <li><a href="#causal-lti-systems-described-yb-differential-and-difference-equations">CAUSAL LTI SYSTEMS DESCRIBED YB DIFFERENTIAL AND DIFFERENCE EQUATIONS</a>
@@ -399,7 +400,7 @@
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -458,6 +459,23 @@ x(t)</em>[h_1(t) + h_2(t)] &amp;= x(t)*h_1(t) + x(t) * h_2(t) \\
 x(t) * h_1(t) * h_2(t) &amp;= x(t) * (h_1(t) * h_2(t))
 \end{aligned}
 $$</p>
+<h2 id="卷积的性质">卷积的性质</h2>
+<ol>
+<li>通过 Unit Impulse Function <strong>平移</strong></li>
+</ol>
+<p>$$
+\begin{aligned}
+x(t) * \delta(t-k) &amp;= x(t-k) \\
+\sum_{k=-\infin}^{\infin} x(t) * \delta(t-k) &amp;= \sum_{k=-\infin}^{\infin} x(t-k) \\
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>反系统与原系统</li>
+</ol>
+<p>$$
+\begin{aligned}</p>
+<p>\end{aligned}
+$$</p>
 <h2 id="memory">Memory</h2>
 <h3 id="memoryless-lti-system">Memoryless LTI System</h3>
 <p>$$
@@ -468,7 +486,29 @@ $$</p>
 <h2 id="invertibility">Invertibility</h2>
 <h2 id="causality">Causality</h2>
 <h2 id="stability">Stability</h2>
-<h2 id="unit-step-response-of-a-lti-system">Unit Step Response of a LTI System</h2>
+<h2 id="response-of-a-lti-system">Response of a LTI System</h2>
+<ol>
+<li>Unit Step Response</li>
+</ol>
+<ul>
+<li>其中，$h(t)$为该系统的单位脉冲响应</li>
+</ul>
+<p>$$
+\begin{aligned}
+s[n] &amp;= h[n]*u[n] \\
+&amp;= \sum_{\infin}^n h[k] \\
+s(t) &amp;= h(t)*u(t) \\
+&amp;= \int_{-\infin}^t h(\tau) d\tau
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>Unit Impulse Response</li>
+</ol>
+<p>$$
+\begin{aligned}
+h(t) &amp;= \frac{ds(t)}{dt} = s&rsquo;(t)
+\end{aligned}
+$$</p>
 <h1 id="causal-lti-systems-described-yb-differential-and-difference-equations">CAUSAL LTI SYSTEMS DESCRIBED YB DIFFERENTIAL AND DIFFERENCE EQUATIONS</h1>
 <h2 id="一阶线性常微分方程的通用解法">一阶线性常微分方程的通用解法</h2>
 <h3 id="一般形式">一般形式</h3>
