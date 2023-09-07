@@ -278,6 +278,7 @@
         <li><a href="#调度">调度</a>
           <ol>
             <li><a href="#时间片轮转">时间片(轮转)</a></li>
+            <li><a href="#edf--dynamic-programming--linear-programming">EDF + Dynamic Programming + Linear Programming</a></li>
           </ol>
         </li>
         <li><a href="#srimax滑动平均的改良版">SRIMAX(滑动平均的改良版)</a></li>
@@ -411,7 +412,7 @@
 
 
                 <time class="article-time--reading">
-                    12 minute read
+                    16 minute read
                 </time>
             </div>
         
@@ -783,6 +784,407 @@
 </span></span><span class="line"><span class="cl">        <span class="n">current_time</span> <span class="o">+=</span> <span class="n">time_available</span>
 </span></span><span class="line"><span class="cl">        <span class="n">time_remaining</span> <span class="o">-=</span> <span class="n">time_available</span>
 </span></span><span class="line"><span class="cl">        <span class="n">time_available</span> <span class="o">=</span> <span class="n">time_slice</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="edf--dynamic-programming--linear-programming">EDF + Dynamic Programming + Linear Programming</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pulp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ProductLine</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_workstations</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">orders</span> <span class="o">=</span> <span class="p">[]):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 属性: 产线编号、订单信息、工位数、总时间</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">line_id</span> <span class="o">=</span> <span class="n">line_id</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">orders</span> <span class="o">=</span> <span class="n">orders</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">num_workstations</span> <span class="o">=</span> <span class="n">num_workstations</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">total_time</span> <span class="o">=</span> <span class="n">total_time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">add_orders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">orders_str</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">order</span><span class="p">)</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">orders</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;L</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">line_id</span><span class="si">}</span><span class="s2">, 工位: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">num_workstations</span><span class="si">}</span><span class="s2">, 总耗时: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_time</span><span class="si">}</span><span class="s2">, 订单:</span><span class="se">\n</span><span class="si">{</span><span class="n">orders_str</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Order</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order_id</span><span class="p">,</span> <span class="n">product_name</span><span class="p">,</span> <span class="n">product_number</span><span class="p">,</span> <span class="n">ddl</span><span class="p">,</span> <span class="n">line_id</span><span class="p">,</span> <span class="n">start_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">finish_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">overtime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">total_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">standard_time</span> <span class="o">=</span> <span class="p">[]):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 属性: 订单号 产品名称 产品数目 截止时间 对应产线 开始时间 结束时间 超时时间 总用时 产品标准工时</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">order_id</span> <span class="o">=</span> <span class="n">order_id</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">product_name</span><span class="o">=</span> <span class="n">product_name</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">product_number</span> <span class="o">=</span> <span class="n">product_number</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">standard_time</span> <span class="o">=</span> <span class="n">standard_time</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">ddl</span> <span class="o">=</span> <span class="n">ddl</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">line_id</span> <span class="o">=</span><span class="n">line_id</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">start_time</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">finish_time</span> <span class="o">=</span> <span class="n">finish_time</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">overtime</span> <span class="o">=</span> <span class="n">overtime</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">total_time</span> <span class="o">=</span> <span class="n">total_time</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">add_standard_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">standard_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;订单号: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">order_id</span><span class="si">}</span><span class="s2">, 总用时: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_time</span><span class="si">}</span><span class="s2">, 超时时间:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">overtime</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sheet_name</span> <span class="o">=</span> <span class="s2">&#34;Sheet1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">orders</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;生产订单&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">products</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;产品名称&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">standard_time</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;标准工时&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ddls</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;完工截止时间&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">product_lines</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;产线代码&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 定义字典，合并、存储所有订单</span>
+</span></span><span class="line"><span class="cl">    <span class="n">current_order</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 新订单</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">orders</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">orders</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 添加上一个订单到字典</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_order</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 添加新的订单项</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current_order</span> <span class="o">=</span> <span class="n">orders</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_order</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span><span class="n">order_id</span><span class="o">=</span><span class="n">orders</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">product_name</span><span class="o">=</span><span class="n">products</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">product_number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ddl</span> <span class="o">=</span> <span class="n">ddls</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">line_id</span><span class="o">=</span><span class="n">product_lines</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">start_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">finish_time</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">overtime</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">total_time</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">standard_time</span><span class="o">=</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_order</span><span class="o">.</span><span class="n">add_standard_time</span><span class="p">(</span><span class="n">standard_time</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 合并相同订单的项</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_order</span><span class="o">.</span><span class="n">product_number</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_order</span><span class="o">.</span><span class="n">add_standard_time</span><span class="p">(</span><span class="n">standard_time</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tasks</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">save_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;生产订单&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">order_id</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;开始时间&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">start_time</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;结束时间&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">finish_time</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;超时时间&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">overtime</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">data_out</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&#34;Sheet1&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">min_processing_time</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">num_stations</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">num_stations</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">products</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">num_stations</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_stations</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">products</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_stations</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">min_time</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&#34;inf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                <span class="n">min_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">min_time</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">min_time</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">num_stations</span><span class="p">][</span><span class="n">n</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">Linear_Programming</span><span class="p">(</span><span class="n">num_workers</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">station_number</span><span class="p">):</span> <span class="c1"># 员工数 生产线数 工位分布</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skill_matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/杉树杯/附件/附件4.xlsx&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="s1">&#39;B:M&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 将数据转换为NumPy数组并进行值转换</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skill_matrix</span><span class="p">[</span><span class="n">skill_matrix</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skill_matrix</span><span class="p">[</span><span class="n">skill_matrix</span> <span class="o">==</span> <span class="s1">&#39;O&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.8</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skill_matrix</span><span class="p">[</span><span class="n">skill_matrix</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 构建线性规划模型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prob</span> <span class="o">=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">LpProblem</span><span class="p">(</span><span class="s1">&#39;Product_Allocation&#39;</span><span class="p">,</span> <span class="n">pulp</span><span class="o">.</span><span class="n">LpMaximize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 定义决策变量 - 每个员工被分配到每个工位的binary变量</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assignment</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">vars</span> <span class="o">=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">LpVariable</span><span class="o">.</span><span class="n">dicts</span><span class="p">(</span><span class="s1">&#39;assignment&#39;</span><span class="p">,</span> <span class="n">assignment</span><span class="p">,</span> <span class="n">cat</span><span class="o">=</span><span class="s1">&#39;Binary&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 定义目标函数 - 最大化效率</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prob</span> <span class="o">+=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">lpSum</span><span class="p">([</span><span class="nb">vars</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="o">*</span> <span class="n">skill_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)]),</span> <span class="s1">&#39;Efficiency&#39;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 添加约束条件</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">prob</span> <span class="o">+=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">lpSum</span><span class="p">([</span><span class="nb">vars</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)])</span> <span class="o">&lt;=</span> <span class="mi">1</span>  <span class="c1"># 每个员工只能被分配到一个工位</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">prob</span> <span class="o">+=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">lpSum</span><span class="p">([</span><span class="nb">vars</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">)])</span> <span class="o">&lt;=</span> <span class="n">station_number</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="c1"># 每个工位只能分配一个员工</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 求解模型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prob</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 提取解并存储在矩阵中</span>
+</span></span><span class="line"><span class="cl">    <span class="n">coordination</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">prob</span><span class="o">.</span><span class="n">variables</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">varValue</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 提取坐标</span>
+</span></span><span class="line"><span class="cl">            <span class="n">coord</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;assignment_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">coord</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,_&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">coordination</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># (员工索引，生产线索引) 工作人数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">coordination</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">coordination</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">working_number</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">coordination</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 通过员工分配矩阵计算效率矩阵</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">arrangment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_workers</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">efficiency_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_workers</span><span class="p">,</span><span class="n">line</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">working_number</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">arrangment</span><span class="p">[</span><span class="n">coordination</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]][</span><span class="n">coordination</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">efficiency_matrix</span> <span class="o">=</span> <span class="n">arrangment</span><span class="o">*</span><span class="n">skill_matrix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 根据效率矩阵计算效率 根据员工分配矩阵获得员工分配列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">efficiency</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arrangment_list</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">):</span> <span class="c1"># 遍历员工</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">):</span> <span class="c1"># 遍历生产线</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">efficiency_matrix</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># 若是非零元素</span>
+</span></span><span class="line"><span class="cl">                <span class="n">efficiency</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">efficiency_matrix</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span> <span class="c1"># 加入对应生产线的效率</span>
+</span></span><span class="line"><span class="cl">                <span class="n">arrangment_list</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;PE&#39;</span> <span class="o">+</span> <span class="s2">&#34;</span><span class="si">{:03d}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1"># 加入员工分配列表</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">efficiency</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">efficiency</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 返回效率列表，员工列表</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">efficiency</span><span class="p">,</span> <span class="n">arrangment_list</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">__main__</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 基本参数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_lines</span> <span class="o">=</span> <span class="mi">12</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_workstations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">ProductLine</span><span class="p">(</span><span class="n">line_id</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_workstations</span><span class="o">=</span><span class="n">num_workstations</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">total_time</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">orders</span><span class="o">=</span> <span class="p">[])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_lines</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 读取数据</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tasks</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&#34;~/数模/杉树杯/附件/附件1.xlsx&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 给每个生产线分配订单</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lines</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">line_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">add_orders</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 计算订单的时间信息</span>
+</span></span><span class="line"><span class="cl">    <span class="n">line_total_overtime</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">num_lines</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">order</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">total_time</span>
+</span></span><span class="line"><span class="cl">            <span class="n">order</span><span class="o">.</span><span class="n">total_time</span> <span class="o">=</span> <span class="n">min_processing_time</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">standard_time</span><span class="p">,</span> <span class="n">num_workstations</span><span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">line_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">order</span><span class="o">.</span><span class="n">finish_time</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">start_time</span> <span class="o">+</span> <span class="n">order</span><span class="o">.</span><span class="n">total_time</span>
+</span></span><span class="line"><span class="cl">            <span class="n">line</span><span class="o">.</span><span class="n">total_time</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">finish_time</span>
+</span></span><span class="line"><span class="cl">            <span class="n">order</span><span class="o">.</span><span class="n">overtime</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">finish_time</span> <span class="o">-</span><span class="n">order</span><span class="o">.</span><span class="n">ddl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">line_total_overtime</span><span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">line_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">order</span><span class="o">.</span><span class="n">overtime</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">line</span><span class="o">.</span><span class="n">line_id</span><span class="si">}</span><span class="s2">号生产线的超时时间为</span><span class="si">{</span><span class="n">line_total_overtime</span><span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">line_id</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;第一题的超时时间为: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">line_total_overtime</span><span class="p">)</span><span class="si">}</span><span class="s2"> 分钟&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 存储数据</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_data</span><span class="p">(</span><span class="s2">&#34;第一题分配方案.xlsx&#34;</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">   <span class="n">__main__</span><span class="p">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="srimax滑动平均的改良版">SRIMAX(滑动平均的改良版)</h2>
