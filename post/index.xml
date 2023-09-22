@@ -6,7 +6,814 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Mon, 04 Sep 2023 14:24:29 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 20 Sep 2023 16:36:38 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>14.Oscillators</title>
+        <link>https://downeyflyfan.com/p/14.oscillators/</link>
+        <pubDate>Wed, 20 Sep 2023 16:36:38 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/14.oscillators/</guid>
+        <description>&lt;h1 id=&#34;震荡的条件-barkhausens-criteria&#34;&gt;震荡的条件 (Barkhausen&amp;rsquo;s criteria)&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/1.png&#34;
+	width=&#34;916&#34;
+	height=&#34;450&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/1_hu2151470cfeb47d68a2ea85e343d74a19_35414_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/1_hu2151470cfeb47d68a2ea85e343d74a19_35414_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;203&#34;
+		data-flex-basis=&#34;488px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个系统在$\omega_0$ 附近&lt;strong&gt;Oscillate&lt;/strong&gt;的&lt;strong&gt;充分&lt;/strong&gt;条件是&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{align}
+\angle H(s) &amp;amp;= 180 ^\circ  \\
+|H(s)| &amp;amp;\ge 0
+\end{align}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;ring-oscillators&#34;&gt;Ring Oscillators&lt;/h1&gt;
+&lt;h2 id=&#34;one-pole--two-pole-feedback-system&#34;&gt;One-Pole &amp;amp; Two-Pole Feedback System&lt;/h2&gt;
+&lt;h3 id=&#34;one-pole&#34;&gt;One-Pole&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/2.png&#34;
+	width=&#34;662&#34;
+	height=&#34;558&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/2_hufc0718b25b4a9262db1aff803c7f06c1_32834_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/2_hufc0718b25b4a9262db1aff803c7f06c1_32834_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;118&#34;
+		data-flex-basis=&#34;284px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;当$\omega_0 \longrightarrow \infin$，Pole会产生$90 ^\circ$的Phase Shift&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CS Stage&lt;/strong&gt; 产生$180 ^\circ$的Phase Shift&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;故$\angle H(s) = 270 ^\circ$，&lt;strong&gt;无法Oscillate&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;two-pole&#34;&gt;Two-Pole&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/3.png&#34;
+	width=&#34;1100&#34;
+	height=&#34;552&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/3_hu92638cb0c8021fd083fafd56022bdd8a_49739_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/3_hu92638cb0c8021fd083fafd56022bdd8a_49739_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;199&#34;
+		data-flex-basis=&#34;478px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+V_E &amp;amp;= \frac{R_{on}}{R_{on} + R_D} V_{DD} \\
+R_{on} &amp;amp;= \frac{V_E}{I_D} \\
+I_D &amp;amp;= \frac{1}{2} k_n (V_E - V_t)^2 \\
+\therefore
+V_E &amp;amp;= \frac{V_{DD}}{1 + k_n R_D (V_{in} - V_t)}
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;分析电路&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;2 CS Stage&lt;/strong&gt; $\omega_0 \longrightarrow 0 \Longrightarrow \angle H(s) = 360 ^\circ$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;根据&lt;strong&gt;Equation (3)&lt;/strong&gt;, $V_E \uparrow \Longrightarrow V_F \downarrow \Longrightarrow V_E \uparrow \Longrightarrow M_1 \ Closed$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;电路增益曲线&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/4.png&#34;
+	width=&#34;1414&#34;
+	height=&#34;1060&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/4_hu407a410ffce42ddf406156dd4e906d57_112878_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/4_hu407a410ffce42ddf406156dd4e906d57_112878_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;three-stage-ring-oscillator&#34;&gt;Three-Stage Ring Oscillator&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/5.png&#34;
+	width=&#34;1408&#34;
+	height=&#34;578&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/5_hu2d0ac56f6d1406702a7f3238e6ebe0be_67508_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/5_hu2d0ac56f6d1406702a7f3238e6ebe0be_67508_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;584px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Oscillating Frequency&lt;/strong&gt; and &lt;strong&gt;Transfer Function&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{align}
+\angle H(s)  &amp;amp;= 180 ^\circ  \\
+\therefore \angle H(s)&lt;em&gt;{each \ stage} &amp;amp;= 60 ^\circ  \\
+\therefore tan^{-1}\frac{\omega&lt;/em&gt;{osc}}{\omega_0} &amp;amp;= 60 ^\circ  \\
+\omega_{osc} &amp;amp;= \sqrt{3} \omega_0 \\
+H(s) &amp;amp;= -\frac{A_0^3}{(1 + \dfrac{s}{\omega_0})^3}
+\end{align}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Loop Gain = 1&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{align}
+|H(s)| &amp;amp;= 0 \\
+A_0 &amp;amp;= 2
+\end{align}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Gain&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{align}
+A_v &amp;amp;= \frac{H(s)}{1 - H(s)} \\
+&amp;amp;= - \frac{A_0^3}{A_0^3 + (1+s/\omega_0)^3}
+\end{align}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>托福</title>
+        <link>https://downeyflyfan.com/p/%E6%89%98%E7%A6%8F/</link>
+        <pubDate>Fri, 15 Sep 2023 08:46:52 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E6%89%98%E7%A6%8F/</guid>
+        <description>&lt;h1 id=&#34;单词词组&#34;&gt;单词/词组&lt;/h1&gt;
+&lt;h2 id=&#34;连接词&#34;&gt;连接词&lt;/h2&gt;
+&lt;h3 id=&#34;开头&#34;&gt;开头&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;One of the &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;中间顺承&#34;&gt;中间(顺承)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In addition&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Additionally&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Furthermore&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Besides&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What&amp;rsquo;s more&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;hellip; is also &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Moreover&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;中间转折&#34;&gt;中间(转折)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;but&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;However&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;still&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;中间因果&#34;&gt;中间(因果)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The aim was to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As a result&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In this way&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thus&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thereby&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;引用&#34;&gt;引用&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Research conducted by &amp;hellip; states/discovers that&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It was found/discovered that&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;就而言&#34;&gt;就&amp;hellip;而言&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In terms of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;With regard to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In respect of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;With reference to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In relation to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When it comes to&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;结束语&#34;&gt;结束语&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Overall&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generally (Speaking)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In summary&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the whole&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;形容词&#34;&gt;形容词&lt;/h2&gt;
+&lt;h3 id=&#34;好与坏&#34;&gt;好与坏&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;好&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;advantage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;benefits&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;positive&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;useful characteristic of&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;坏&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;disadvantage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;negative&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;drawback&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;flaw&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;多&#34;&gt;多&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;quite a lot&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A large quantity (number) of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;numerous&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;countless&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A multitude of&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;表示程度的&#34;&gt;表示程度的&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;显著的 大幅度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;sharp&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rapid&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;dramatic&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;稳步的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;steady&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gradual&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;consistent&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;轻微的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;slight&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;minimal&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;marginal&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;重要&#34;&gt;重要&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;vital&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;significant&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;important&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;crucial&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;essential&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;几乎-大概&#34;&gt;几乎 大概&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;nearly&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;almost&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;about&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;around&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;roughly&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;approximately&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;原因与结果&#34;&gt;原因与结果&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;原因&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;As&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Result from&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Since&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Due to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On account of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Owing to&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;结果&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;result in&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;consequently&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Credit to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;attribute to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lead to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;bring about&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;动词&#34;&gt;动词&lt;/h2&gt;
+&lt;h3 id=&#34;发光&#34;&gt;发光&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;illuminate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;glow&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lighten&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;摔-倒-掉&#34;&gt;摔 倒 掉&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;fall(down/into/to)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;drop&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;能够&#34;&gt;能够&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;could/can&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;be able to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;is capable to/of&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;做得好&#34;&gt;做得好&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;be proficient in&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;be adept at&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;be good at&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;增和降&#34;&gt;增和降&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;增(ICRGR)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;increase&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rise to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;reach to&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;grow&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;climb to&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;降(fddddr)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;decrease&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;drop&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;decline&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;fall&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;reduce&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;downward trend&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;损害&#34;&gt;损害&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;destory&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;damage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hurt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ruin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;break&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;spoil&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;处理&#34;&gt;处理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;deal with&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;handle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cope with&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;连词&#34;&gt;连词&lt;/h2&gt;
+&lt;h3 id=&#34;通过&#34;&gt;通过&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;through&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;via&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;by&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;介词&#34;&gt;介词&lt;/h2&gt;
+&lt;h3 id=&#34;随着wtaaf&#34;&gt;随着(wtaaf)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;With the &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;thanks to &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;as &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;along with&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;following&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;相反icio&#34;&gt;相反(ICIO)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In contrast&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Conversely&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In comparison&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the other hand&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常用词组&#34;&gt;常用词组&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;It is a must for sb to do sth&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Be Bound to 必然会&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The real looks of ..的真面目&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;be paved with 由..铺成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Social Fabric 社会组织&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;writing&#34;&gt;Writing&lt;/h1&gt;
+&lt;h2 id=&#34;academic-discussion-writing&#34;&gt;Academic Discussion Writing&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;表明观点&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;While I totally understand what both of you mean, I mostly agree with XXX&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In my opinion/view&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;优缺点句型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;the negatives seems to outweigh the positives&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Both options have real advantages&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;speaking&#34;&gt;Speaking&lt;/h1&gt;
+&lt;h2 id=&#34;person&#34;&gt;Person&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The person influence me greatly is &amp;hellip;, a gentlemen/lady with a number of good qualities&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>电子实验基础知识</title>
+        <link>https://downeyflyfan.com/p/%E7%94%B5%E5%AD%90%E5%AE%9E%E9%AA%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+        <pubDate>Thu, 14 Sep 2023 10:11:16 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/%E7%94%B5%E5%AD%90%E5%AE%9E%E9%AA%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+        <description>&lt;h1 id=&#34;电阻色环&#34;&gt;电阻色环&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;第一个环（最左边的环）：代表第一位数字，即阻值的第一位数字。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第二个环：代表第二位数字，即阻值的第二位数字。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;颜色&lt;/th&gt;
+&lt;th&gt;数字&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;黑色&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;棕色&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;红色&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;橙色&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;黄色&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;绿色&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;蓝色&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;紫色&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;灰色&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;白色&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;第三个环：代表乘法因子，用于计算阻值的数量级。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;黑色：无&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;棕色：$10^1$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;红色：$10^2$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;橙色：$10^3$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;黄色：$10^4$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;绿色：$10^5$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;蓝色：$10^6$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;紫色：$10^7$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;灰色：$10^8$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;白色：$10^9$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;第四个环（最右边的环）：代表容差，即电阻值的允许误差范围。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;无色环：±20%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;银色环：±10%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;金色环：±5%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;棕色环：±1%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;红色环：±2%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;绿色环：±0.5%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;蓝色环：±0.25%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;紫色环：±0.10%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;灰色环：±0.05%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;白色环：±10%&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如，如果电阻色环的顺序为棕色、黑色、红色、金色，那么其阻值为1 0 2乘以10^5，即1020000欧姆，容差为±5%。&lt;/p&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+</description>
+        </item>
+        <item>
         <title>2. Electronic Device</title>
         <link>https://downeyflyfan.com/p/2.-electronic-device/</link>
         <pubDate>Mon, 04 Sep 2023 14:24:29 +0800</pubDate>
@@ -33,6 +840,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;When atoms combine to form substances, the outermost shells, subshells and orbitals merge, providing a greater number of available energy levels for electrons to assume. When large numbers of atoms are close to each other, these available energy levels form a nearly continuous band wherein electrons may move.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h2 id=&#34;能量带的分布&#34;&gt;能量带的分布&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-electronic-device/2.png&#34;
 	width=&#34;1712&#34;
 	height=&#34;1164&#34;
@@ -45,24 +853,60 @@
 		data-flex-basis=&#34;352px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上图中的&lt;strong&gt;Energy Band&lt;/strong&gt;按照图中顺序解释如下:&lt;/li&gt;
+&lt;/ul&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;band gaps $E_g$&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Bands that are seperated by regions of forbidden energy for the electrons&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Property&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Valence Band $E_v$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The last band completely full of electrons&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Conduction Band $E_c$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;The next band which might either be empty or partially filled with electrons&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Conduction Band $E_C$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The next band which might either be empty or partially filled with electrons&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;band gaps $E_g$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Bands that are seperated by regions of forbidden energy for the electrons&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Valence Band $E_v$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;The last band completely &lt;strong&gt;full of electrons&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2 id=&#34;不同物质的能量带&#34;&gt;不同物质的能量带&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;类型&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Energy Band Gap&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Conduction Band&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Metal&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;两边都有电子，形成电场&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Partially Filled&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Semiconductors&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Narrow, 电子可以通过形成电流&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;No Electrons&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Insulators&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Large, 电子无法通过&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;No Electrons&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;conduction--energy-states&#34;&gt;Conduction &amp;amp; Energy States&lt;/h1&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 </description>
         </item>
         <item>
@@ -303,7 +1147,7 @@ $$&lt;/p&gt;
 y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;线性时不变系统lti的性质&#34;&gt;线性时不变系统(LTI)的性质&lt;/h1&gt;
+&lt;h1 id=&#34;卷积&#34;&gt;卷积&lt;/h1&gt;
 &lt;h2 id=&#34;卷积的数学表示&#34;&gt;卷积的数学表示&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
@@ -321,31 +1165,69 @@ x(t) * h_1(t) * h_2(t) &amp;amp;= x(t) * (h_1(t) * h_2(t))
 $$&lt;/p&gt;
 &lt;h2 id=&#34;卷积的性质&#34;&gt;卷积的性质&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;通过 Unit Impulse Function &lt;strong&gt;平移&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;卷积的平移性质&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+y[n] &amp;amp;= h[n] * x[n] \\
+y[n+k] &amp;amp;= h[n+k] * x[n] \\
+y[n+k] &amp;amp;= h[n] * x[n+k]
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特例&lt;/strong&gt;: 通过 Unit Impulse Function &lt;strong&gt;平移&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 x(t) * \delta(t-k) &amp;amp;= x(t-k) \\
 \sum_{k=-\infin}^{\infin} x(t) * \delta(t-k) &amp;amp;= \sum_{k=-\infin}^{\infin} x(t-k) \\
 \end{aligned}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;反系统与原系统&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}&lt;/p&gt;
-&lt;p&gt;\end{aligned}
-$$&lt;/p&gt;
+&lt;h1 id=&#34;线性时不变系统lti的性质&#34;&gt;线性时不变系统(LTI)的性质&lt;/h1&gt;
+&lt;h2 id=&#34;linear&#34;&gt;Linear&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对于&lt;strong&gt;Cascade System&lt;/strong&gt;，可以任意调换级联系统的位置&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
-&lt;h3 id=&#34;memoryless-lti-system&#34;&gt;Memoryless LTI System&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对$n \neq 0$，单位冲激响应$h[n]=0$时，系统才是无记忆系统。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$h[n] = K \delta [n]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其中$K = h [0]$是一个常数，卷积和就变为$y[n] = Kx[n]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;invertibility&#34;&gt;Invertibility&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;逆系统与原系统的单位脉冲响应&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
-y(t) &amp;amp;= Kx(t)
+h(t) * g(t) = \delta (t)
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;invertibility&#34;&gt;Invertibility&lt;/h2&gt;
 &lt;h2 id=&#34;causality&#34;&gt;Causality&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Unit Impulse Function: $h[n] = 0, n &amp;lt;0$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Convolution Sum: $y(t) = \int_0^\infin x(\tau) h(t - \tau) d\tau$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;stability&#34;&gt;Stability&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+\int_{-\infin}^{\infin} |h(\tau)| d\tau &amp;lt; \infin
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;response-of-a-lti-system&#34;&gt;Response of a LTI System&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Unit Step Response&lt;/li&gt;
@@ -356,17 +1238,18 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 s[n] &amp;amp;= h[n]*u[n] \\
-&amp;amp;= \sum_{\infin}^n h[k] \\
-s(t) &amp;amp;= h(t)*u(t) \\
-&amp;amp;= \int_{-\infin}^t h(\tau) d\tau
+s(t) &amp;amp;= h(t)*u(t)
 \end{aligned}
 $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Unit Impulse Response&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;输入&lt;strong&gt;Unit Impulse Function&lt;/strong&gt; 得到的&lt;strong&gt;响应&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
-h(t) &amp;amp;= \frac{ds(t)}{dt} = s&amp;rsquo;(t)
+h(t) &amp;amp;= \frac{ds(t)}{dt} = s&amp;rsquo;(t) \\
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;causal-lti-systems-described-yb-differential-and-difference-equations&#34;&gt;CAUSAL LTI SYSTEMS DESCRIBED YB DIFFERENTIAL AND DIFFERENCE EQUATIONS&lt;/h1&gt;
@@ -439,7 +1322,6 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;difference-equations-for-discrete-time&#34;&gt;Difference Equations for Discrete-Time&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
-y[n] + ay[n-1] &amp;amp;= bx[n] \\
 y[n] &amp;amp;= -ay[n-1] + bx[n]
 \end{aligned}
 $$&lt;/p&gt;
@@ -529,7 +1411,7 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;形式&#34;&gt;形式&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
-a \frac{dy(t)}{dx} + b y(x) &amp;amp;= cx \\
+a \frac{dy(x)}{dx} + b y(x) &amp;amp;= cx \\
 y &amp;amp;= y_h(x) + y_p(x)
 \end{aligned}
 $$&lt;/p&gt;
@@ -537,6 +1419,9 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;$y_h(x)$&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;先将$y_h(x)$设为和$x$相似的形式，再进行如下步骤:&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 Let \ c &amp;amp;= 0 \\
@@ -547,7 +1432,7 @@ $$&lt;/p&gt;
 &lt;li&gt;$y_p(x)$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;将$y_p(x)$设为和$x$相同的形式，再代入解&lt;/li&gt;
+&lt;li&gt;将$y_p(x)$设为$x$的倍数，再代入解&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;一阶微分方程&#34;&gt;一阶微分方程&lt;/h2&gt;
 &lt;ol&gt;
@@ -600,6 +1485,12 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3 id=&#34;重要公式&#34;&gt;重要公式&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\sum_{k=0}^n \alpha^k &amp;amp;= \frac{1 - \alpha^{n+1}}{1 -\alpha}
+\end{aligned}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -628,15 +1519,6 @@ $$&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;信号能量与功率&#34;&gt;信号能量与功率&lt;/h2&gt;
-&lt;h3 id=&#34;一个现象&#34;&gt;一个现象&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;能量与信号强度的平方成正比&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;对&lt;strong&gt;复数信号&lt;/strong&gt;同样适用&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h3 id=&#34;基于信号功率大小的分类&#34;&gt;基于信号/功率大小的分类&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -656,7 +1538,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;结论&#34;&gt;结论&lt;/h3&gt;
+&lt;h3 id=&#34;关系&#34;&gt;关系&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Continuous Signal&lt;/li&gt;
 &lt;/ol&gt;
@@ -913,13 +1795,12 @@ u(t) &amp;amp;= \int_{\infin}^0\delta(t-\sigma)(-d\sigma) \\
 &amp;amp;= \int_0^\infin \delta(t-\sigma)d\sigma
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;连续与离散时间系统&#34;&gt;连续与离散时间系统&lt;/h1&gt;
-&lt;h2 id=&#34;basic-system-properties&#34;&gt;Basic System Properties&lt;/h2&gt;
-&lt;h3 id=&#34;memory&#34;&gt;Memory&lt;/h3&gt;
+&lt;h1 id=&#34;basic-system-properties&#34;&gt;Basic System Properties&lt;/h1&gt;
+&lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;输出&lt;/strong&gt;只和&lt;strong&gt;当前输入&lt;/strong&gt;有关，叫做&lt;strong&gt;memoryless&lt;/strong&gt;, 否则就是&lt;strong&gt;system with memory&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;invertibility-and-inverse-system&#34;&gt;Invertibility and Inverse System&lt;/h3&gt;
+&lt;h2 id=&#34;invertibility-and-inverse-system&#34;&gt;Invertibility and Inverse System&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
 &lt;/ol&gt;
@@ -941,35 +1822,41 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;1233px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;causality&#34;&gt;Causality&lt;/h3&gt;
+&lt;h2 id=&#34;causality&#34;&gt;Causality&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;输出&lt;/strong&gt;仅取决于&lt;strong&gt;当前和过去&lt;/strong&gt;的&lt;strong&gt;输入&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;若&lt;strong&gt;未来的输入&lt;/strong&gt;可以影响&lt;strong&gt;输出&lt;/strong&gt;，就不是&lt;strong&gt;Causality&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;stability&#34;&gt;Stability&lt;/h3&gt;
+&lt;h2 id=&#34;stability&#34;&gt;Stability&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Bounded Input&lt;/strong&gt; $\rightarrow$ &lt;strong&gt;Bounded Output&lt;/strong&gt;, $t \in \mathbb R$&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;time-invirance&#34;&gt;Time Invirance&lt;/h3&gt;
+&lt;h2 id=&#34;time-invirance&#34;&gt;Time Invirance&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;时间平移不变性&lt;/strong&gt; $x(t) \longrightarrow y(t), x(t-t_0) \longrightarrow y(t-t_0)$&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;LCCDE (Linear Constant Coefficient Equation)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;linearity&#34;&gt;Linearity&lt;/h3&gt;
+&lt;h2 id=&#34;linearity&#34;&gt;Linearity&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;满足以下条件的系统是&lt;strong&gt;线性&lt;/strong&gt;的&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;$$
 \begin{aligned}
-\sum_k a_k x_k  \longrightarrow \sum_k b_k y_k
+x_k &amp;amp;\longrightarrow y_k \Longrightarrow\sum_k a_k x_k  &amp;amp;\longrightarrow \sum_k b_k y_k
 \end{aligned}
 $$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;解释&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;输入的&lt;strong&gt;线性组合&lt;/strong&gt;能得到输出的&lt;strong&gt;线性组合&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;当$x$平移1个单位，$y$平移多个单位，系统是&lt;strong&gt;非线性的&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;三角函数知识回忆&#34;&gt;三角函数知识回忆&lt;/h1&gt;
 &lt;p&gt;$$
@@ -1026,33 +1913,6 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>Cadence教程</title>
-        <link>https://downeyflyfan.com/p/cadence%E6%95%99%E7%A8%8B/</link>
-        <pubDate>Fri, 04 Aug 2023 17:08:33 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/cadence%E6%95%99%E7%A8%8B/</guid>
-        <description>&lt;h1 id=&#34;器件参数调整&#34;&gt;器件参数调整&lt;/h1&gt;
-&lt;h2 id=&#34;mosfet参数设置&#34;&gt;MOSFET参数设置&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;AD: 漏极区面积&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;AS: 源极区面积&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;PD: 漏极周边&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;PS: 源极周边&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;NR: 沟道掺杂密度&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
         </item>
         <item>
         <title>15. Phase-Locked Loops</title>
@@ -1377,482 +2237,6 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;增益（Gain）曲线和相位（Phase）曲线相交的位置&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-        </item>
-        <item>
-        <title>14. Oscillators</title>
-        <link>https://downeyflyfan.com/p/14.-oscillators/</link>
-        <pubDate>Wed, 19 Jul 2023 19:59:18 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/14.-oscillators/</guid>
-        <description>&lt;h1 id=&#34;general-consideration&#34;&gt;General Consideration&lt;/h1&gt;
-&lt;h2 id=&#34;振荡的产生&#34;&gt;振荡的产生&lt;/h2&gt;
-&lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/1.png&#34;
-	width=&#34;3044&#34;
-	height=&#34;738&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/1_hu62d148c5c0eb50f7aa880438bd225027_176889_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/1_hu62d148c5c0eb50f7aa880438bd225027_176889_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;412&#34;
-		data-flex-basis=&#34;989px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;当$H(s) = -1$时，输入与反馈相抵消，留下&lt;strong&gt;噪声&lt;/strong&gt;被不断放大&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$A = \dfrac{H(s)}{1 + H(s)}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;barkhausen-criteria&#34;&gt;Barkhausen criteria&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;若$\angle H(j\omega_0) = \pi$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-V_X = \sum_{i=0}^{\infin} |H(j\omega_0)|^i V_0
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;若$|H(j\omega_0)| \ge 1$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-V_X 发散
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;若$|H(j\omega_0)| &amp;lt; 1$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-V_0 = \dfrac{V_X}{1 - H(j\omega_0)}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Barkhausen Criteria&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;电路振荡的&lt;strong&gt;必要不充分&lt;/strong&gt;条件&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\angle H(j\omega_0) &amp;amp;= \pi \\
-|H(j\omega_0)| &amp;amp;\ge 1
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;ring-oscillators&#34;&gt;Ring Oscillators&lt;/h1&gt;
-&lt;h2 id=&#34;3-stage-ring-oscillators&#34;&gt;3-Stage Ring Oscillators&lt;/h2&gt;
-&lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/2.png&#34;
-	width=&#34;1436&#34;
-	height=&#34;582&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/2_hud6cf15a53f996ecbecb5d1b088f595d3_79965_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/2_hud6cf15a53f996ecbecb5d1b088f595d3_79965_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;246&#34;
-		data-flex-basis=&#34;592px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-1&#34;&gt;分析&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;不考虑&lt;strong&gt;GD电容&lt;/strong&gt;的增益&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-H(s) &amp;amp;= - \frac{A_0^3}{(1+\dfrac{s}{\omega_0})^3}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;为了使得总相位差达到&lt;strong&gt;180度&lt;/strong&gt;，每一阶段都要分担&lt;strong&gt;60度&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-tan^{-1} \frac{\omega_{osc}}{\omega_0} &amp;amp;= 60^o \\
-\therefore \omega_{osc} &amp;amp;= \sqrt{3} \omega_0 \\
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Loop Gain&lt;/strong&gt; $A\beta = 1$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;在该电路中，显然$\beta=1$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\frac{A_0^3}{[\sqrt{1 + (\dfrac{\omega_{osc}}{\omega_0})^2}]^3} &amp;amp;= 1 \\
-\therefore A_0 &amp;amp;= 2
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;Gain&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-A &amp;amp;= \frac{H(s)}{1 + H(s)} \\
-&amp;amp;= \frac{- \dfrac{A_0^3}{(1+\dfrac{s}{\omega_0})^3}}{1 + \dfrac{A_0^3}{(1+\dfrac{s}{\omega_0})^3}}\\
-&amp;amp;= - \frac{A_0^3}{(1 + \dfrac{s}{\omega_0})^3 + A_0^3} \\
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;Poles&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-(1 + \frac{s}{\omega_0})^3 + A_0^3 &amp;amp;= (1 + \frac{s}{\omega_0} + A_0) [(1+\frac{s}{\omega_0})^2  - (1 + \frac{s}{\omega_0})A_0 + A_0^2] \\
-Let \ D &amp;amp;= 0 \\
-s_1 &amp;amp;= (-A-1)\omega_0 \\
-s_{2,3} &amp;amp;= [\frac{A_0 (1 \pm j\sqrt 3)}{2} - 1]\omega_0
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;输出电压&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;忽略$s_1$的影响&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-V_{out}(t) &amp;amp;= ae^{\dfrac{A_0-2}{2}\omega_0 t}cos(\frac{A_0 \sqrt 3}{2} \omega_0 t)
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;lc-oscillators&#34;&gt;LC Oscillators&lt;/h1&gt;
-&lt;h2 id=&#34;crossed-coupled-oscillators&#34;&gt;Crossed-Coupled Oscillators&lt;/h2&gt;
-&lt;h3 id=&#34;图示-1&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/3.png&#34;
-	width=&#34;1320&#34;
-	height=&#34;824&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/3_hu53a82da5684d5b2d49ea52c83201e9ef_102285_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/3_hu53a82da5684d5b2d49ea52c83201e9ef_102285_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;160&#34;
-		data-flex-basis=&#34;384px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-A_v &amp;amp;= g_{m1}R_P g_{m2}R_P \ge 1
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;改进1&#34;&gt;改进1&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/9.png&#34;
-	width=&#34;1292&#34;
-	height=&#34;944&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/9_hu699a03d63a88d27c6c32e52a524f112a_113416_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/9_hu699a03d63a88d27c6c32e52a524f112a_113416_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;136&#34;
-		data-flex-basis=&#34;328px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;改成了&lt;strong&gt;Differential Pair&lt;/strong&gt;，并增加了&lt;strong&gt;恒流源&lt;/strong&gt;，从而提高了电路的稳定性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;此时的$V_{DD}$可以被当作&lt;strong&gt;控制电压&lt;/strong&gt;，从而形成一个&lt;strong&gt;VCO&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-C_{DB} &amp;amp;= \frac{C_{DB0}}{(1 + \dfrac{V_{DD}}{\phi_m})^m} \\
-\omega_{out} &amp;amp;= \frac{1}{\sqrt{L_p C_{DB}}} \\
-\therefore K_{VCO} &amp;amp;= \frac{\partial \omega_{out}}{\partial V_{DD}} \\
-&amp;amp;= \frac{\partial \omega_{out}}{\partial C_{DB}} \frac{\partial C_{DB}}{\partial V_{DD}} \\
-&amp;amp;= \frac{m}{2\phi_B (1+\dfrac{V_{DD}}{\phi_B})^{m+1}}\omega_{out}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;$m$ 是一个与MOSFET结构有关的常数，通常取值在0.5到1.5之间&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\phi_m$ 是 MOSFET 的表面势垒&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;改进2&#34;&gt;改进2&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/10.png&#34;
-	width=&#34;762&#34;
-	height=&#34;1210&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/10_hue60e4fe9310d52883e6404225371f942_95810_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/10_hue60e4fe9310d52883e6404225371f942_95810_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;62&#34;
-		data-flex-basis=&#34;151px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;合并两边的电路&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;colpitts-oscillators&#34;&gt;Colpitts Oscillators&lt;/h2&gt;
-&lt;h3 id=&#34;电路-1&#34;&gt;电路&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/4.png&#34;
-	width=&#34;704&#34;
-	height=&#34;1070&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/4_hu165185a51f8592fafbabe79002bf7453_75858_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/4_hu165185a51f8592fafbabe79002bf7453_75858_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;65&#34;
-		data-flex-basis=&#34;157px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-2&#34;&gt;分析&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;小信号模型&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/5.png&#34;
-	width=&#34;1586&#34;
-	height=&#34;632&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/5_hu22704ca8a68fa40db3eec8d3d666c703_83629_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/5_hu22704ca8a68fa40db3eec8d3d666c703_83629_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;250&#34;
-		data-flex-basis=&#34;602px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;KVL &amp;amp; KCL&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-V_1 &amp;amp;= - (I_{in} - \frac{V_{out}}{R_P} - \frac{V_{out}}{sL_P})\frac{1}{sC_1} \\
-0 &amp;amp;= -g_mV_1 + (V_{out} - V_1)sC_2 + \frac{V_{out}}{sL_P} + \frac{V_{out}}{R_P}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Transresistance Gain&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-A_R &amp;amp;= \frac{V_{out}}{I_{in}} \\
-&amp;amp;= &amp;hellip;
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;虚部无穷大 $\Longrightarrow$ 振荡&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;令虚部分母为0&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;又$R_P(C_1 + C_2) \gg g_mR_P$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\therefore g_mR_P &amp;amp;= \frac{C_1}{C_2}(1+ \frac{C_2}{C_1})^2 \ge 4
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;one-port-oscillators&#34;&gt;One-Port Oscillators&lt;/h1&gt;
-&lt;h2 id=&#34;定义与图示&#34;&gt;定义与图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/11.png&#34;
-	width=&#34;1138&#34;
-	height=&#34;524&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/11_hu7a2e4be1f5744e08d7f9995e83d830dd_57360_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/11_hu7a2e4be1f5744e08d7f9995e83d830dd_57360_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;217&#34;
-		data-flex-basis=&#34;521px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;与&lt;strong&gt;RLC电路&lt;/strong&gt;并联的&lt;strong&gt;负电阻&lt;/strong&gt;可能产生&lt;strong&gt;振荡&lt;/strong&gt;的电路&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;cg--rlc&#34;&gt;CG + RLC&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/12.png&#34;
-	width=&#34;800&#34;
-	height=&#34;636&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/12_huc2ef7ee3997fc23ef7f49103c4147aa6_50159_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/12_huc2ef7ee3997fc23ef7f49103c4147aa6_50159_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;125&#34;
-		data-flex-basis=&#34;301px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h1 id=&#34;voltage-controlled-oscillators&#34;&gt;Voltage-Controlled Oscillators&lt;/h1&gt;
-&lt;h2 id=&#34;理想压控振荡器&#34;&gt;理想压控振荡器&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\omega_{out} &amp;amp;= \omega_0 + K_{VCO} V_{cont}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Gain/Sensitivity: $K_{VCO}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Tuning Range: 定义域$[\omega_1,\omega_2]$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;为了达到尽可能大的范围，$K_{VCO}$要&lt;strong&gt;尽可能大&lt;/strong&gt;；为了减小$V_{cont}$带来的噪声，$K_{VCO}$要&lt;strong&gt;尽可能小&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;重要参数&#34;&gt;重要参数&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Center Frequency&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;受&lt;strong&gt;温度&lt;/strong&gt;等环境因素影响，可能产生&lt;strong&gt;2倍&lt;/strong&gt;以上的波动&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Tuning Range&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Gain&lt;/strong&gt;一般要大于期望的&lt;strong&gt;斜率&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Tuning Linearity&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;为了使系统&lt;strong&gt;稳定&lt;/strong&gt;，必须使得$K_{VCO}$尽可能&lt;strong&gt;恒定&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Power Dissipation&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;功耗要尽量&lt;strong&gt;低&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Output Amplitude&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;输出幅度要尽量&lt;strong&gt;大&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Supply &amp;amp; CM Rejection &amp;amp; Output Signal Purity&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;噪声要尽量小&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;一个简单的vco&#34;&gt;一个简单的VCO&lt;/h2&gt;
-&lt;h3 id=&#34;电路-2&#34;&gt;电路&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/6.png&#34;
-	width=&#34;1188&#34;
-	height=&#34;676&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/6_hu90b30d465ab4d1c3688376d559c83468_73103_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/6_hu90b30d465ab4d1c3688376d559c83468_73103_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;175&#34;
-		data-flex-basis=&#34;421px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析-3&#34;&gt;分析&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\tau_1 &amp;amp;= RC_L \\
-&amp;amp;= \frac{C_L}{\mu_p C_{ox} (W/L)&lt;em&gt;3 (V&lt;/em&gt;{DD} - V_{cont} - |V_{THP}|)} \\
-\because Delay \ T_D &amp;amp;\propto \tau_1 \\
-\therefore f_{osc} &amp;amp;\propto \frac{1}{\tau_1} \\
-f_{osc} &amp;amp;\propto \frac{\mu_p C_{ox} (W/L)&lt;em&gt;3 (V&lt;/em&gt;{DD} - V_{cont} - |V_{THP}|)}{C_L}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;但是$K_{VCO}$过大&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;改进&#34;&gt;改进&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/7.png&#34;
-	width=&#34;1188&#34;
-	height=&#34;676&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/7_hu90b30d465ab4d1c3688376d559c83468_79615_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/7_hu90b30d465ab4d1c3688376d559c83468_79615_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;175&#34;
-		data-flex-basis=&#34;421px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;$A_1$是一个&lt;strong&gt;Loop Gain&lt;/strong&gt;很大的放大器，因此差分输入的差可以忽略不计，即&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-V_p &amp;amp;\approx V_{REF}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;电阻$M_5$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-V_{DS5} &amp;amp;= V_{DD} - V_P \\
-&amp;amp;\approx V_{DD} - V_{REF} \\
-R_{on5} &amp;amp;\approx I_1(V_{DD} - V_{REF})
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;假如使得$M_3,M_4,M_5$以及$I_1,I_{SS}$完全一致，可以达到很好的效果&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;tuning-in-lc-oscillators&#34;&gt;Tuning in LC Oscillators&lt;/h2&gt;
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;LC振荡电路的频率为$\omega = \frac{1}{\sqrt{LC}}$, 因此可以添加&lt;strong&gt;压控电容器(Varactor)&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;lc-oscilator-using-varactor-diodes&#34;&gt;LC oscilator using varactor diodes&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;电路图&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/8.png&#34;
-	width=&#34;824&#34;
-	height=&#34;662&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/8_hu34d34a6064e364c5221cc5ecab103020_64130_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/8_hu34d34a6064e364c5221cc5ecab103020_64130_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;124&#34;
-		data-flex-basis=&#34;298px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;只能使用&lt;strong&gt;Floating Diode&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;改进&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.-oscillators/13.png&#34;
-	width=&#34;972&#34;
-	height=&#34;672&#34;
-	srcset=&#34;https://downeyflyfan.com/p/14.-oscillators/13_huf270dc2607b2e26311001d3de6e483b4_65376_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.-oscillators/13_huf270dc2607b2e26311001d3de6e483b4_65376_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;144&#34;
-		data-flex-basis=&#34;347px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
-&lt;h2 id=&#34;phase-margin&#34;&gt;Phase Margin&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;负反馈系统在增益幅频特征上的相角余量&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;gate-drain-overlap-capacitance&#34;&gt;gate-drain overlap capacitance&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;MOSFET中G和D之间的&lt;strong&gt;寄生电容&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;drain-body-capacitance&#34;&gt;Drain-Body Capacitance&lt;/h2&gt;
-&lt;h2 id=&#34;极点&#34;&gt;极点&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;开环电路的频率在接近&lt;strong&gt;极点&lt;/strong&gt;时，相位差会达到&lt;strong&gt;90度&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;极点是&lt;strong&gt;使系统响应产生无穷大的频率&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -4918,284 +5302,6 @@ $$&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
 &lt;h2 id=&#34;代表立即数&#34;&gt;#代表立即数&lt;/h2&gt;
-</description>
-        </item>
-        <item>
-        <title>IELTS</title>
-        <link>https://downeyflyfan.com/p/ielts/</link>
-        <pubDate>Mon, 15 May 2023 20:54:00 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/ielts/</guid>
-        <description>&lt;h1 id=&#34;口语&#34;&gt;口语&lt;/h1&gt;
-&lt;h2 id=&#34;part-i&#34;&gt;Part I&lt;/h2&gt;
-&lt;h3 id=&#34;do-you-read-a-lot-in-your-spare-time&#34;&gt;Do you read a lot in your spare time?&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Yes, I read a wide variety of books, such as novels ,comic books and non-fictional books.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;do-you-like-dry-or-wet-weather-&#34;&gt;Do you like dry or wet weather ?&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;If I had to choose one between the two, I would always pick drier days. I really hate rainy days as the humidity is nearly unbearable.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;hometown&#34;&gt;Hometown&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Where do you come from?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What&amp;rsquo;s the most attractive part of your hometown? Has your hometown changed much these years?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For you, what benefits are there to live in a big city?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Would you like to live in a big city or a small town in the future?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;inland/ coastal city, district, the natives, suburb, architecture, skyscraper, neighborhood, four distinct seasons, local cuisine, heavy traffic, sprawling, provincial, hospitable, affluent, industrial…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;manner&#34;&gt;Manner&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;How do people in your culture show good manners (towards others)?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Who was the first person teaching you how to be polite? In what situations should people be polite?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Is there any change on the standard of politeness?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;time-honored, gentle behaviour, show respect, seniors, young generation, special occasion, formal party, jump the queue…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;nature&#34;&gt;Nature&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Do you like going into the forests?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do you think we should protect the forests? Would you like to live in (near) the forests? Do you like climbing trees?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Is it important to plant trees?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Are forests important for people? How can we protect the forests?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do you like sunshine?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do you like hanging out on a sunny day?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What are very difficult to do under sunshine?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;eco-friendly, get closed to nature, enjoy good mood, breathe the fresh air, feel the wind in one’s face, out in the open air, feel warm and cozy, let one’s hair down= take it easy= relax…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;are-you-work-or-are-you-a-student-&#34;&gt;Are you work or are you a student ?&lt;/h3&gt;
-&lt;h3 id=&#34;chocolate&#34;&gt;Chocolate&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Do you like eating Chocolate ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Did you often eat chocolate when you were a kid ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do you think it is good to use chocolate as gifts to others ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;friends&#34;&gt;Friends&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;How important are friends to you ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do you often go out with your Friends ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Where do you often meet each other ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;rain&#34;&gt;Rain&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Do you like rainy days ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Does it rain much in your city ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do you like living in a dry or wet place ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Would you change your plan if rains ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;health&#34;&gt;Health&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;How do you keep healthy ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What are your favorite sports ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Are there health classes in your school ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;bags&#34;&gt;Bags&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Do you usually carry a bag?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What kinds of bags do you use when travelling?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do you often change bags?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Did you use a backpack when you were a child?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Would you give others bags as gifts?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;tissues, stuff, suitcase, backpack, handbag accessory, kit, luxury, purses&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;day-off&#34;&gt;Day off&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Do you usually spend your days off with parents or friends?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What do you often do on your days off?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When was the last time you had a few days off?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What would you like to do if you had a day off tomorrow?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;concentration&#34;&gt;Concentration&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Could you stay focused in class when you were a child?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What do you do to help you concentrate?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Is it difficult for you to stay focused on something?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;horrible movies&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;When do you need to be focused?&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;language&#34;&gt;Language&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;What languages do you speak?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Have you ever learnt any foreign languages in school?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Do you think it&amp;rsquo;s difficult to learn a new language?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Will you learn another language in the future?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;5, Why do people learn foreign languages?&lt;/p&gt;
-&lt;h2 id=&#34;part-ii&#34;&gt;Part II&lt;/h2&gt;
-&lt;h3 id=&#34;describe-an-occasion-when-you-get-lost&#34;&gt;Describe an occasion when you get lost&lt;/h3&gt;
-&lt;h3 id=&#34;describe-a-job-you-are-interested-in&#34;&gt;Describe a job you are interested in&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;What it is&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When you heard about this job for the first time&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What qualities it requires&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;And explain why you are interested in this job&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;describe-an-exciting-adventure-you-would-like-to-go-on&#34;&gt;Describe an exciting adventure you would like to go on&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Where you want to go&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Who you want to go there with&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When you want to do this&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;And explain why you want to go on this adventure&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;describe-a-piece-of-clothing-you-wear-most-often&#34;&gt;Describe a piece of clothing you wear most often&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;What it is&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;How often you wear it&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What it is like&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;And explain why you enjoy wearing it&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;describe-a-time-when-you-made-a-complaint-and-you-were-satisfied-with-the-result&#34;&gt;Describe a time when you made a complaint and you were satisfied with the result.&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;When it happened&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Who you complained to&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;What you complained about&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;And explain why you were satisfied with the result&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;describe-an-actor-you-admire&#34;&gt;Describe an actor you admire&lt;/h3&gt;
-&lt;h3 id=&#34;describe-a-daily-routine-that-you-enjoy&#34;&gt;Describe a daily routine that you enjoy&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;What it is&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Where and when you do it&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Who you do it with&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;And explain why you enjoy it&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -11487,119 +11593,6 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;测量频率&#34;&gt;测量频率&lt;/h2&gt;
 &lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
-&lt;h1 id=&#34;实验知识&#34;&gt;实验知识&lt;/h1&gt;
-&lt;h2 id=&#34;电阻色环&#34;&gt;电阻色环&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;第一个环（最左边的环）：代表第一位数字，即阻值的第一位数字。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;第二个环：代表第二位数字，即阻值的第二位数字。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;黑色：0&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;棕色：1&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;红色：2&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;橙色：3&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;黄色：4&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;绿色：5&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;蓝色：6&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;紫色：7&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;灰色：8&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;白色：9&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;第三个环：代表乘法因子，用于计算阻值的数量级。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;黑色：无&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;棕色：$10^1$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;红色：$10^2$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;橙色：$10^3$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;黄色：$10^4$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;绿色：$10^5$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;蓝色：$10^6$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;紫色：$10^7$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;灰色：$10^8$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;白色：$10^9$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;第四个环（最右边的环）：代表容差，即电阻值的允许误差范围。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;无色环：±20%&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;银色环：±10%&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;金色环：±5%&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;棕色环：±1%&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;红色环：±2%&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;绿色环：±0.5%&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;蓝色环：±0.25%&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;紫色环：±0.10%&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;灰色环：±0.05%&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;白色环：±10%&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例如，如果电阻色环的顺序为棕色、黑色、红色、金色，那么其阻值为1 0 2乘以10^5，即1020000欧姆，容差为±5%。&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -13067,61 +13060,6 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;当MOSFET的沟道宽度缩短时，沟道电阻减小，导致漏电流增加，从而影响MOSFET的输出特性。这种现象在MOSFET的低电压操作中尤为突出&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-        </item>
-        <item>
-        <title>单词(2023 3.27-4.3)</title>
-        <link>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-3.27-4.3/</link>
-        <pubDate>Mon, 27 Mar 2023 15:42:57 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-3.27-4.3/</guid>
-        <description>&lt;h1 id=&#34;2023--327&#34;&gt;2023  3.27&lt;/h1&gt;
-&lt;p&gt;Once upon a time, there was a multilingual aristocrat named Trotty. She was resplendent in her fine silk clad, and she traveled the world with a meager rucksack on her back. Trotty loved to explore new lands and cultures, always eager to espy something new and exciting.&lt;/p&gt;
-&lt;p&gt;One day, while on a walk in the countryside, Trotty happened upon a cavalcade of people who were preparing for a parade. They were busy setting up floats and putting on costumes, and Trotty was intrigued. She approached one of the organizers, a dummy dressed in a bright yellow outfit, and asked what was going on.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;We&amp;rsquo;re getting ready for the annual Zap Parade,&amp;rdquo; the dummy replied. &amp;ldquo;It&amp;rsquo;s a celebration of electricity and innovation.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Trotty was excited to join in the festivities, and she donned a dimer costume made of flashing lights. As the parade began, Trotty marched alongside other participants, feeling energized by the lively atmosphere.&lt;/p&gt;
-&lt;p&gt;Suddenly, the weather took a turn, and a nipping wind blew in. Trotty remained impassive, determined to enjoy the parade despite the chill. As she continued down the street, she heard a surmise that a storm was approaching.&lt;/p&gt;
-&lt;p&gt;Undeterred, Trotty kept going, watching as the floats passed by and the crowds cheered. She was amazed at the creativity and diversity of the participants, all of whom spoke different languages and hailed from different places.&lt;/p&gt;
-&lt;p&gt;As the parade drew to a close, Trotty realized that she had made some new friends and learned a lot about the power of electricity. She felt grateful for the experience and decided to return to the Zap Parade the following year, clad in an even more dazzling costume.&lt;/p&gt;
-&lt;h1 id=&#34;2023--328&#34;&gt;2023  3.28&lt;/h1&gt;
-&lt;p&gt;As a passionate fashion designer, Emily always placed great emphasis on the aesthetics of her designs. She spent hours carefully selecting fabrics, colors, and textures to create the perfect outfit. Her aesthetic esteem was high, and she was never satisfied with anything less than dazzling.&lt;/p&gt;
-&lt;p&gt;One day, Emily was working on a new design when she received a call from her friend, Sarah. Sarah had just inherited an old antique store and was in desperate need of some help with the display. Emily, undeterred by the interruption, quickly finished her work and rushed to the store to help out her friend.&lt;/p&gt;
-&lt;p&gt;As she arrived at the store, Emily was immediately struck by the unique collection of items on display. The store was filled with old-fashioned furniture, vintage clothing, and all kinds of quirky memorabilia. As she looked around, she noticed a dummy in the corner of the room, dressed in an old-fashioned outfit that seemed out of place with the rest of the items.&lt;/p&gt;
-&lt;p&gt;Emily couldn&amp;rsquo;t resist the urge to give the dummy a fashion makeover. She quickly deduced that the outfit was from the 1920s, and she surmised that it would be perfect for her new design. Without a second thought, she began to work her magic, selecting fabrics and accessories to give the dummy a modern twist.&lt;/p&gt;
-&lt;p&gt;Sarah watched as Emily worked her magic, amazed at her friend&amp;rsquo;s passion and skill. Emily worked with precision and focus, completely impassive to the world around her. After hours of work, she finally stepped back to admire her creation. The dummy had been transformed from a forgotten relic to a dazzling piece of art, and Emily&amp;rsquo;s aesthetic esteem soared to new heights.&lt;/p&gt;
-&lt;p&gt;The next day, the store opened, and customers flocked to see the new display. They were all amazed by Emily&amp;rsquo;s creation, and the dummy became the talk of the town. Emily&amp;rsquo;s passion for fashion and her understanding of physiology had allowed her to turn an old-fashioned outfit into a modern masterpiece. She had created a work of art that would be remembered for years to come.&lt;/p&gt;
-&lt;h1 id=&#34;2023--329&#34;&gt;2023  3.29&lt;/h1&gt;
-&lt;p&gt;The Tristate Cease-Taper&lt;/p&gt;
-&lt;p&gt;It was a delicate operation. The tristate cease-taper was designed to gradually reduce the hostilities between the three warring factions, without triggering a sudden escalation. The diplomats had worked tirelessly to negotiate the terms of the agreement, which involved a complex system of incentives, sanctions, and verification mechanisms. The military had to coordinate the withdrawal of troops, the dismantling of weapons, and the establishment of demilitarized zones. The humanitarian agencies had to provide relief and assistance to the millions of displaced and injured civilians. And the media had to report on the progress and challenges of the peace process, without sensationalizing or politicizing the situation.&lt;/p&gt;
-&lt;p&gt;But everything depended on one crucial factor: trust. Trust that the other parties would abide by their commitments, trust that the international community would support and monitor the implementation, trust that the people would accept and embrace the reconciliation. Without trust, the cease-taper could unravel at any moment, plunging the region back into chaos and violence.&lt;/p&gt;
-&lt;p&gt;That&amp;rsquo;s why it was so alarming when a series of explosions rocked the capital city of one of the factions, killing dozens of people and injuring hundreds more. The authorities immediately blamed the other two factions for orchestrating a terrorist attack, and threatened to retaliate with full force. The other two factions denied any involvement, and accused the first faction of fabricating the incident to sabotage the cease-taper and gain sympathy. The international mediators scrambled to defuse the crisis, and urged all parties to exercise restraint and respect the agreement.&lt;/p&gt;
-&lt;p&gt;But it was too late. The trust had been shattered, and the threshold for war had been crossed. The cease-taper was over, and the conflict resumed with renewed intensity. The region was once again engulfed in flames, smoke, and blood.&lt;/p&gt;
-&lt;p&gt;No one ever found out who was behind the explosions. Some speculated that it was a rogue element within one of the factions, acting on its own agenda. Some suggested that it was an external actor, seeking to destabilize and exploit the region. Some wondered if it was an accident, caused by faulty wiring or human error.&lt;/p&gt;
-&lt;p&gt;But it didn&amp;rsquo;t matter anymore. The damage was done, and the opportunity for peace was lost. The tristate cease-taper had failed.&lt;/p&gt;
-&lt;h1 id=&#34;2023--330&#34;&gt;2023  3.30&lt;/h1&gt;
-&lt;p&gt;Once upon a time, in a remote corner of the world, there lived an erudite scientist named Dr. Archimedes. He was renowned for his astute mind and the ability to decipher perplexing puzzles. One day, he received a cryptic message from a clandestine source that read, &amp;ldquo;The enigma lies in the labyrinth.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Dr. Archimedes was intrigued by the message and decided to investigate. He set out on a perilous journey through the dense forest, facing many treacherous obstacles along the way. He encountered ferocious beasts, crossed tumultuous rivers, and trekked through rugged terrain.&lt;/p&gt;
-&lt;p&gt;After several weeks of traversing through the wilderness, he stumbled upon an imposing edifice, which was the entrance to the labyrinth. He was exhilarated at the prospect of solving the enigma, but he knew that it would not be an easy feat.&lt;/p&gt;
-&lt;p&gt;As he stepped into the labyrinth, he was confronted with an array of bewildering passages that twisted and turned in every direction. He realized that he would need to use his sagacity and acumen to navigate through the maze.&lt;/p&gt;
-&lt;p&gt;As he progressed deeper into the labyrinth, he encountered numerous obstacles that tested his mettle. He had to decipher intricate codes, solve perplexing riddles, and unravel complicated ciphers.&lt;/p&gt;
-&lt;p&gt;Despite the challenges, Dr. Archimedes remained tenacious and persevered through the labyrinth. After many days of arduous toil, he finally uncovered the enigma. It was a simple message that read, &amp;ldquo;The journey is the destination.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Dr. Archimedes realized that the true purpose of his journey was not to solve the enigma, but to experience the thrill of the adventure. He emerged from the labyrinth with a newfound appreciation for the journey of life and the myriad challenges that it presents.&lt;/p&gt;
-&lt;h1 id=&#34;2023--331&#34;&gt;2023  3.31&lt;/h1&gt;
-&lt;p&gt;Once upon a time, in a far-off land, there lived a sagacious wizard named Alastair. He was known for his astuteness and perspicacity. One day, a lugubrious young man named Ethan came to him seeking advice. Ethan was in a state of despondency as he had lost his job and was in a state of penury.&lt;/p&gt;
-&lt;p&gt;Alastair, being a compassionate person, listened to Ethan&amp;rsquo;s woes and then gave him a sagacious counsel. He told Ethan that he should not be dispirited and instead should be resilient and tenacious. Alastair also advised him to be prudent with his finances and not to be profligate.&lt;/p&gt;
-&lt;p&gt;Ethan was impressed with Alastair&amp;rsquo;s erudition and thanked him profusely. He then left Alastair&amp;rsquo;s abode feeling invigorated and determined to turn his life around.&lt;/p&gt;
-&lt;p&gt;Days turned into weeks and weeks into months. Ethan followed Alastair&amp;rsquo;s advice and started his own business. He was assiduous and diligent in his work, and soon his business flourished. He was no longer in a state of penury and had become quite affluent.&lt;/p&gt;
-&lt;p&gt;One day, Ethan went to Alastair&amp;rsquo;s abode to thank him for his counsel. Alastair was pleased to see Ethan&amp;rsquo;s success and congratulated him. Ethan was grateful to Alastair for his sagacious counsel and told him that he was indebted to him for life.&lt;/p&gt;
-&lt;p&gt;Alastair smiled and said, &amp;ldquo;Remember, Ethan, it was not my counsel that made you successful, but your own fortitude and perseverance.&amp;rdquo; Ethan nodded in agreement and left Alastair&amp;rsquo;s abode, feeling grateful and enlightened.&lt;/p&gt;
-&lt;h1 id=&#34;2023--41&#34;&gt;2023  4.1&lt;/h1&gt;
-&lt;p&gt;Once upon a time, in a far-off land, there lived a sagacious and illustrious king. He was an erudite man, who spoke with eloquence and had a prodigious memory. The king had a penchant for collecting exotic and rare artifacts from all over the world. He had a vast collection of antiquities, which included a rare amulet that was believed to have magical powers.&lt;/p&gt;
-&lt;p&gt;One day, a nefarious thief broke into the king&amp;rsquo;s palace and stole the amulet. The king was livid and summoned his most astute and perspicacious advisors to help him retrieve the stolen artifact. They devised a plan to catch the thief, which involved using a decoy amulet and setting a trap.&lt;/p&gt;
-&lt;p&gt;The thief was a canny and wily man, who was adept at evading capture. However, he was no match for the king&amp;rsquo;s shrewdness and cunning. He fell into the trap, and the king&amp;rsquo;s guards apprehended him.&lt;/p&gt;
-&lt;p&gt;The thief was brought before the king, who was incensed at his audacity. The thief tried to mollify the king by offering to return the stolen amulet and asked for clemency. However, the king was adamant and ordered that the thief be incarcerated in the dungeon.&lt;/p&gt;
-&lt;p&gt;The thief languished in the dungeon for many years, until one day, he was visited by a wise and sagacious sage. The sage was a man of great erudition, who had traveled the world and had learned many secrets. He spoke with the thief and told him that he had the power to change his fate.&lt;/p&gt;
-&lt;p&gt;The thief listened to the sage&amp;rsquo;s words and realized that he could use his cunning and guile to escape from the dungeon. He devised a plan and executed it with precision. He managed to escape from the dungeon and fled to a far-off land.&lt;/p&gt;
-&lt;p&gt;The thief lived the rest of his life in obscurity, but he was content knowing that he had outwitted the king and had escaped from his fate. He knew that he had the power to change his destiny, and he lived by the sage&amp;rsquo;s words, &amp;ldquo;The only limit to our realization of tomorrow will be our doubts of today.&amp;rdquo;&lt;/p&gt;
-&lt;h1 id=&#34;2023--43&#34;&gt;2023  4.3&lt;/h1&gt;
 </description>
         </item>
         <item>
@@ -14665,98 +14603,6 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>单词(2023 3.20-3.26)</title>
-        <link>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-3.20-3.26/</link>
-        <pubDate>Mon, 20 Mar 2023 22:33:44 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-3.20-3.26/</guid>
-        <description>&lt;h1 id=&#34;2023--320&#34;&gt;2023  3.20&lt;/h1&gt;
-&lt;p&gt;Alice was a cryptographer, a person who studies codes and ciphers. She loved to decipher secret messages and create her own puzzles for others to solve. She worked for a government agency that dealt with national security and intelligence. Her job was to crack the codes of enemy spies and terrorists.&lt;/p&gt;
-&lt;p&gt;One day, she received a mysterious email from an unknown sender. It contained a long string of letters and numbers that looked like gibberish. Alice was intrigued by the challenge and decided to try to decode it. She used various tools and techniques, such as frequency analysis, substitution cipher, transposition cipher, and modular arithmetic. She spent hours trying different combinations and permutations, but nothing made sense.&lt;/p&gt;
-&lt;p&gt;She was about to give up when she noticed something odd. The email had a subject line that said “Hello Alice”. She wondered how the sender knew her name. She looked at the email address again and realized that it was an anagram of her own name: &lt;a class=&#34;link&#34; href=&#34;mailto:alice@ecila.com&#34; &gt;alice@ecila.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;She felt a chill down her spine. Who was this person and how did they know her? She typed a reply: “Who are you and what do you want?”&lt;/p&gt;
-&lt;p&gt;She waited for a few minutes, but there was no response. She checked the email header and traced the IP address of the sender. It led her to a website that had only one page: a picture of a smiling face with the words “Welcome to Wonderland”.&lt;/p&gt;
-&lt;p&gt;Alice felt a surge of curiosity and fear. She clicked on the picture and entered a new world of secrets and mysteries.&lt;/p&gt;
-&lt;h1 id=&#34;2023--321&#34;&gt;2023  3.21&lt;/h1&gt;
-&lt;p&gt;Jumper was a hacker who loved to crack codes and ciphers. He had a knack for finding patterns and solving puzzles. He was always looking for new challenges and secrets to uncover.&lt;/p&gt;
-&lt;p&gt;One day, he stumbled upon a website that claimed to offer the ultimate test of cryptograhpy skills. It was run by a mysterious proprirter who called himself Parser. The website had a series of levels, each with a different cipher to decrypt. The first level was easy: it was just a simple Caesar shift. Jumper solved it in seconds and moved on to the next level.&lt;/p&gt;
-&lt;p&gt;The second level was harder: it was a transposition cipher. Jumper had to rearrange the letters of the ciphertext according to a key that Parser had hidden somewhere on the website. Jumper searched every page and every link, but he couldn&amp;rsquo;t find any clue. He decided to try brute force: he wrote a program that would try all possible permutations of the columns until he found one that made sense.&lt;/p&gt;
-&lt;p&gt;He ran his program and waited for the result. After a few minutes, his screen displayed:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;CONGRATULATIONS YOU HAVE SOLVED THE SECOND LEVEL THE KEY WAS CODE&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Jumper smiled and clicked on the link to proceed to the next level.&lt;/p&gt;
-&lt;p&gt;The third level was even harder: it was a gibberish cipher. Jumper had to replace each letter of the plaintext with a random string of characters that Parser had generated using some algorithm. Jumper looked at the ciphertext and felt dizzy:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;!@#$%^&amp;amp;*()_+QWERTYUIOP{}|ASDFGHJKL:&amp;quot;ZXCVBNM&amp;lt;&amp;gt;?1234567890-=qwertyuiop[]\asdfghjkl;&#39;zxcvbnm,./&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;He had no idea how to start cracking this one. He tried to look for patterns or repetitions, but he couldn&amp;rsquo;t find any. He wondered if Parser had used some kind of hash function or encryption algorithm to create this gibberish.&lt;/p&gt;
-&lt;p&gt;He decided to do some research on gibberish ciphers online. He found out that they were also known as substitution-permutation ciphers, because they involved both substituting letters with other symbols and permuting them in some order. He learned about some common techniques for breaking them, such as frequency analysis, index of coincidence, Karnaugh maps and canocial forms.&lt;/p&gt;
-&lt;p&gt;He decided to try frequency analysis first: he counted how many times each symbol appeared in the ciphertext and compared it with the expected frequencies of letters in English text. He noticed that some symbols were more common than others, such as &lt;code&gt;!&lt;/code&gt;, &lt;code&gt;Q&lt;/code&gt;, &lt;code&gt;1&lt;/code&gt; and &lt;code&gt;q&lt;/code&gt;. He guessed that these might correspond to vowels or other frequent letters.&lt;/p&gt;
-&lt;p&gt;He then tried index of coincidence: he calculated how likely it was that two symbols chosen at random from the ciphertext would be identical, and compared it with the expected value for a random text. He found out that the index of coincidence was slightly higher than random, which meant that there was some order behind the gibberish.&lt;/p&gt;
-&lt;p&gt;He then tried Karnaugh maps: he grouped the symbols into four-bit binary codes and plotted them on a grid. He looked for adjacent cells that had similar codes and tried to simplify them using Boolean algebra. He hoped to find some patterns or rules that Parser had used to generate the gibberish.&lt;/p&gt;
-&lt;p&gt;He then tried canocial forms: he converted each symbol into a number based on its position in the ASCII table and applied some mathematical operations to them. He tried addition, subtraction, multiplication, division, modulo, exponentiation and logarithm. He looked for any patterns or regularities that would reveal some structure or logic behind the gibberish.&lt;/p&gt;
-&lt;p&gt;He spent hours trying these techniques, but he couldn&amp;rsquo;t find any clue. He felt frustrated and hopeless. He wondered if Parser had used some kind of decoder that was impossible to reverse-engineer. He wondered if he had met his match.&lt;/p&gt;
-&lt;p&gt;He decided to take a break and check his email. He was surprised to see a message from Parser himself. It read:&lt;/p&gt;
-&lt;p&gt;Hello Jumper,&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m impressed by your skills and perseverance. You have solved two levels of my website, but you are stuck on the third one. I can see that you are trying hard, but you are missing something crucial.&lt;/p&gt;
-&lt;p&gt;The gibberish cipher is not just a substitution-permutation cipher. It is also a transposition cipher. You have to rearrange the symbols according to another key that I have hidden somewhere on the website.&lt;/p&gt;
-&lt;p&gt;If you can find this key and decrypt this level, you will be one step closer to solving my ultimate challenge: a cipher that combines all types of ciphers I have used so far.&lt;/p&gt;
-&lt;p&gt;Are you ready for this?&lt;/p&gt;
-&lt;p&gt;Good luck,&lt;/p&gt;
-&lt;h1 id=&#34;2023--322&#34;&gt;2023  3.22&lt;/h1&gt;
-&lt;p&gt;The year was 2050 and humanity was on the brink of collapse. The climate crisis had reached a point of no return, and the only hope for survival was to harness the power of nuclear fusion. But fusion reactors were expensive, dangerous and inefficient. That&amp;rsquo;s why Dr. Lee, a brilliant physicist from South Korea, had devoted his life to developing a new kind of fusion device: a nano-crystal colloidal exciton (NCCE) reactor.&lt;/p&gt;
-&lt;p&gt;NCCEs were tiny particles of perovskite nanocrystals that could emit light when excited by an electric field. By arranging them in carefully designed dimers, Dr. Lee had managed to create strong electronic coupling and exciton delocalization between the nanocrystals, resulting in a spectral shift and enhanced energy transport. In other words, he had found a way to exploit the quantum effects of NCCEs to achieve fusion at room temperature.&lt;/p&gt;
-&lt;p&gt;Dr. Lee had built a prototype of his NCCE reactor in his basement laboratory, hidden from the prying eyes of the government and corporations that wanted to steal his invention or shut him down. He knew he was taking a huge risk, but he also knew he had no time to waste. He had calculated that his reactor could produce enough energy to power a small city with minimal waste and emissions.&lt;/p&gt;
-&lt;p&gt;He flipped the switch and watched as his NCCE reactor came to life. A bright blue glow filled the room as millions of NCCEs emitted photons that collided with each other and fused into helium atoms. He checked his instruments and smiled: everything was working as expected. He had done it! He had created the world&amp;rsquo;s first NCCE fusion reactor!&lt;/p&gt;
-&lt;p&gt;He picked up his phone and dialed his colleague Dr. Kim, who shared his vision and supported his research.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;Dr. Kim, I have some amazing news for you,&amp;rdquo; he said excitedly.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;What is it?&amp;rdquo; Dr. Kim asked.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;I&amp;rsquo;ve done it! I&amp;rsquo;ve achieved fusion with NCCEs!&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;Really? That&amp;rsquo;s incredible! How did you do it?&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;I&amp;rsquo;ll explain later, but right now I need your help. I need you to come here as soon as possible and bring me a regulator.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;A regulator? What for?&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;To control the output power of the reactor. It&amp;rsquo;s generating more energy than I expected, and I don&amp;rsquo;t have anything to regulate it.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;OK, OK, I&amp;rsquo;ll be right there.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;Thank you so much! Hurry up!&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Dr. Lee hung up the phone and looked at his reactor again. He noticed that the blue glow was getting brighter and brighter.&lt;/p&gt;
-&lt;p&gt;He felt a surge of fear.&lt;/p&gt;
-&lt;p&gt;Maybe he should have waited for Dr. Kim before turning on the reactor.&lt;/p&gt;
-&lt;p&gt;Maybe he should have tested it more thoroughly before scaling it up.&lt;/p&gt;
-&lt;p&gt;Maybe he should have realized that NCCEs were too unstable and unpredictable for fusion.&lt;/p&gt;
-&lt;p&gt;But it was too late now.&lt;/p&gt;
-&lt;p&gt;He heard a loud crackling sound as sparks flew from his wires.&lt;/p&gt;
-&lt;p&gt;He smelled smoke as his circuits burned.&lt;/p&gt;
-&lt;p&gt;He saw flames as his laboratory caught fire.&lt;/p&gt;
-&lt;p&gt;He screamed as his reactor exploded.&lt;/p&gt;
-&lt;h1 id=&#34;2023--323&#34;&gt;2023  3.23&lt;/h1&gt;
-&lt;p&gt;The &lt;strong&gt;abstruse&lt;/strong&gt; professor was known for his &lt;strong&gt;erudite&lt;/strong&gt; lectures on quantum physics, but few students could follow his &lt;strong&gt;esoteric&lt;/strong&gt; explanations. He often used &lt;strong&gt;obscure&lt;/strong&gt; references and &lt;strong&gt;arcane&lt;/strong&gt; terminology that made his audience feel &lt;strong&gt;befuddled&lt;/strong&gt;. One day, a brave student decided to challenge him and asked him to simplify his concepts for the layman. The professor was &lt;strong&gt;flabbergasted&lt;/strong&gt; by the request and felt a surge of &lt;strong&gt;umbrage&lt;/strong&gt;. He thought the student was being &lt;strong&gt;impertinent&lt;/strong&gt; and trying to undermine his authority. He decided to teach him a lesson and gave him a &lt;strong&gt;perfidious&lt;/strong&gt; smile.&lt;/p&gt;
-&lt;p&gt;He said he would gladly oblige and proceeded to give an example of quantum entanglement using two coins. He said that if he tossed one coin in Beijing and another coin in New York, they would always land on the same side, no matter how far apart they were. He asked the student if he understood this phenomenon. The student nodded eagerly, thinking he had finally grasped the concept. The professor then asked him what would happen if he tossed one coin in Beijing and another coin on the moon. The student was puzzled and said he didn&amp;rsquo;t know. The professor said that neither did he, because it was impossible to do so.&lt;/p&gt;
-&lt;p&gt;He then revealed that his example was a &lt;strong&gt;fallacious&lt;/strong&gt; analogy that had nothing to do with quantum physics. He said that quantum entanglement only applied to subatomic particles, not macroscopic objects like coins. He said that his example was meant to illustrate how easy it was to be misled by &lt;strong&gt;specious&lt;/strong&gt; arguments and how important it was to be critical and skeptical of everything one hears or reads. He said that he hoped the student had learned his lesson and would never question his authority again.&lt;/p&gt;
-&lt;p&gt;The student felt humiliated and angry. He realized that the professor had been &lt;strong&gt;duplicitous&lt;/strong&gt; and had tricked him into believing a false statement. He felt that the professor had abused his power and had violated the trust between teacher and learner. He decided to report him to the dean for academic misconduct and hoped that he would face some consequences for his actions.&lt;/p&gt;
-&lt;p&gt;The dean listened to the student&amp;rsquo;s complaint and agreed that the professor had acted unprofessionally and unethically. He said that he would conduct an investigation into the matter and take appropriate action if necessary. However, he also warned the student not to be too hasty or harsh in judging the professor. He said that although the professor&amp;rsquo;s methods were questionable, his intentions were good. He said that perhaps the professor wanted to challenge the student&amp;rsquo;s curiosity and creativity, rather than stifle them.&lt;/p&gt;
-&lt;h1 id=&#34;2023--324&#34;&gt;2023  3.24&lt;/h1&gt;
-&lt;p&gt;In the year 2375, humanity had spread out across the stars, colonizing countless worlds in the process. One of the most prosperous colonies was located on a planet called Thalassia, which boasted vast oceans teaming with exotic marine life.&lt;/p&gt;
-&lt;p&gt;But Thalassia&amp;rsquo;s tranquility was shattered when a group of xenophobic aliens invaded the planet, seeking to conquer it for their own purposes. The aliens, known as the Krynn, possessed technology far beyond anything humanity had ever seen, including ships that could travel faster than the speed of light.&lt;/p&gt;
-&lt;p&gt;As the Krynn began their assault, a small team of Thalassian scientists discovered a long-forgotten weapon, buried deep beneath the planet&amp;rsquo;s surface. It was a nanotech device that could control matter on a molecular level.&lt;/p&gt;
-&lt;p&gt;With no other options left, the Thalassians activated the device, hoping it would be powerful enough to stop the Krynn. To their amazement, the weapon worked flawlessly, turning the Krynn&amp;rsquo;s ships and weapons to dust.&lt;/p&gt;
-&lt;p&gt;The Thalassians had saved their planet, but at a great cost. The nanotech weapon had drained the planet&amp;rsquo;s resources, leaving it barren and lifeless. It was a pyrrhic victory, but a victory nonetheless.&lt;/p&gt;
-&lt;h1 id=&#34;2023--325&#34;&gt;2023  3.25&lt;/h1&gt;
-&lt;p&gt;In the year 3018, the human race had reached the pinnacle of technological advancement. Their greatest achievement was the creation of a hyperdrive engine, which allowed ships to travel at speeds faster than the speed of light.&lt;/p&gt;
-&lt;p&gt;A team of explorers was sent on a mission to chart the unexplored regions of the universe. Their ship, the Stargazer, was equipped with the latest technology, including artificial intelligence and quantum sensors.&lt;/p&gt;
-&lt;p&gt;As they traveled deeper into space, the crew encountered a strange anomaly that disrupted their ship&amp;rsquo;s systems. The gravitational fluctuations were unlike anything they had ever seen before, and they soon found themselves stranded in a mysterious region of space.&lt;/p&gt;
-&lt;p&gt;With their ship damaged and their supplies running low, the crew was forced to land on a nearby planet to search for resources. They soon discovered that the planet was inhabited by a highly advanced alien race, one that possessed technology far beyond anything humanity had ever seen.&lt;/p&gt;
-&lt;p&gt;The aliens were initially hostile, but the crew managed to establish communication and explain their situation. To their surprise, the aliens offered to help repair their ship and even provided them with advanced nanobots to aid in the repairs.&lt;/p&gt;
-&lt;p&gt;After several weeks of working together, the crew was able to repair the Stargazer and continue their mission. As they said their farewells, the crew realized that they had made an incredible discovery. They had encountered a civilization that was far more advanced than their own, and they had made friends in the process.&lt;/p&gt;
-&lt;p&gt;The journey home was a long one, but the crew knew that they had accomplished something truly remarkable. They had pushed the boundaries of human knowledge and made contact with a civilization that could change the course of human history.&lt;/p&gt;
-&lt;h1 id=&#34;2023--326&#34;&gt;2023  3.26&lt;/h1&gt;
-&lt;p&gt;The peripatetic wanderer traversed the mountainous terrain with alacrity, seeking respite from the ennui of his mundane existence. He meandered through the lush verdure, relishing the fragrant aroma of the flora that enveloped him.&lt;/p&gt;
-&lt;p&gt;As he ascended higher, the terrain grew more arduous, and his pace slowed. The air grew nippier, and he felt the need to warm himself. He kindled a fire with some dry twigs and rummaged through his rucksack, searching for sustenance.&lt;/p&gt;
-&lt;p&gt;His repast consisted of meager rations, but he relished the taste of the savory morsels nonetheless. As he sat there, savoring the food, he espied a cavalcade of individuals riding atop majestic horses, clad in resplendent attire.&lt;/p&gt;
-&lt;p&gt;He watched them with curiosity as they trotted past him, their faces impassive. He surmised that they were nobles or aristocrats, for their bearing was one of hauteur and disdain.&lt;/p&gt;
-&lt;p&gt;As the night fell, he sought refuge in a cavern, wary of the nocturnal predators that roamed the region. He curled up in his sleeping bag, and his mind wandered, ruminating over the vicissitudes of his life.&lt;/p&gt;
-&lt;p&gt;He awoke the next morning, invigorated by his slumber, and resumed his sojourn. The terrain grew steeper, and he had to use his wits to navigate the perilous path. He stumbled a few times, but his resilience saw him through.&lt;/p&gt;
-&lt;p&gt;Finally, he reached the summit, and his heart swelled with pride and elation. He gazed upon the vista that lay before him, and his breath caught in his throat. The verdant valleys stretched out below him, and he felt a sense of euphoria at having accomplished his mission.&lt;/p&gt;
-&lt;p&gt;He remained there for a while, reveling in the splendor of the landscape, before descending down to the foothills. As he walked away, he knew that he had undergone a catharsis, and that his life would never be the same again.&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>爬虫</title>
         <link>https://downeyflyfan.com/p/%E7%88%AC%E8%99%AB/</link>
         <pubDate>Fri, 17 Mar 2023 21:00:26 +0000</pubDate>
@@ -15861,87 +15707,6 @@ input 10 random numbers with range [0, 100], and the interrupt is to input
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>单词(2023 3.13-3.19)</title>
-        <link>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-3.13-3.19/</link>
-        <pubDate>Tue, 14 Mar 2023 12:35:55 +0000</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-3.13-3.19/</guid>
-        <description>&lt;h1 id=&#34;2023--313&#34;&gt;2023  3.13&lt;/h1&gt;
-&lt;p&gt;As a script sophomore, Alex was always looking for ways to improve his craft. He had spent countless hours studying the works of great writers and had even taken classes to hone his skills. So when he was approached by a film director to write the script for a new sci-fi movie, Alex was over the moon.&lt;/p&gt;
-&lt;p&gt;The movie was about a team of scientists who had developed a new voltaic module that could harness the power of lightning. But when the module falls into the wrong hands, the team must race against time to stop it from being used as a weapon of mass destruction.&lt;/p&gt;
-&lt;p&gt;Alex dove into the project with zeal, spending long hours at his desk crafting the perfect script. He carefully considered each character&amp;rsquo;s intonation, making sure their words conveyed just the right emotion. He wanted the dialogue to feel natural, but also to have a certain swing to it, like music.&lt;/p&gt;
-&lt;p&gt;As the deadline approached, Alex realized that something was missing. He wanted to add a ritual to the movie, something that would make it feel more authentic. He thought about it for a while, then hit upon an idea. He would introduce an artifact, something that had been used in the past to harness the power of lightning. It would be a barbed object, ancient and mysterious.&lt;/p&gt;
-&lt;p&gt;But as Alex sat down to write the scene, he realized he had a problem. He had only a few hours to finish the script, and he had no idea what the artifact should look like. He panicked for a moment, then took a deep breath and decided to improvise.&lt;/p&gt;
-&lt;p&gt;He closed his eyes and pictured the artifact in his mind, trying to conjure up an image that would be both menacing and powerful. Suddenly, he saw it: a gleaming, tarnished object, covered in intricate designs that seemed to pulse with energy.&lt;/p&gt;
-&lt;p&gt;With a surge of inspiration, Alex began to write. The words flowed from his fingers like lightning, and he knew that he had created something special. He put the finishing touches on the script, then sent it off to the director with a sense of pride.&lt;/p&gt;
-&lt;p&gt;As he waited for the director&amp;rsquo;s response, Alex knew that something big was imminent. He had poured his heart and soul into the script, and he believed that it was something truly special. And when the director called him the next day to tell him that the script was perfect, Alex knew that he had found his calling. He was a writer, and nothing could tarnish that.&lt;/p&gt;
-&lt;h1 id=&#34;2023--314&#34;&gt;2023  3.14&lt;/h1&gt;
-&lt;p&gt;Once upon a time, in a distant land, there lived a wise old man named Caius. He was renowned for his knowledge of the world and his ability to answer any question put before him. He spent his days in his study, surrounded by books and scrolls, delving deep into the mysteries of the universe.&lt;/p&gt;
-&lt;p&gt;Caius was particularly interested in the concept of ontology - the study of what exists and how it exists. He was fascinated by the idea that everything in the world could be broken down into a set of fundamental building blocks, which he called &amp;ldquo;paradigms.&amp;rdquo; He spent countless hours pondering the nature of these paradigms and how they interacted with each other to form the world as we know it.&lt;/p&gt;
-&lt;p&gt;One day, as he was studying the concept of entropy - the gradual decline into disorder - Caius stumbled upon a mythical tome that had been lost to the world for centuries. This tome contained knowledge that was said to be so powerful that it could conjure up the very forces of the universe.&lt;/p&gt;
-&lt;p&gt;Excited by his discovery, Caius began to delve deeper into the pages of the tome. As he read, he discovered that the knowledge contained within was based on a set of principles that were not deterministic, but rather stochastic - meaning that they were subject to chance and probability.&lt;/p&gt;
-&lt;p&gt;Caius was at first skeptical of this new way of thinking, but as he continued to study the tome, he began to realize that it held the key to a new understanding of the world. He began to incorporate the principles of stochasticity into his own work on ontology, and soon found that it opened up a whole new realm of possibilities.&lt;/p&gt;
-&lt;p&gt;Using the knowledge he had gained from the mythical tome, Caius was able to conjure up new paradigms that had never been seen before. He began to understand that the world was not a static, unchanging entity, but rather a dynamic and ever-evolving one.&lt;/p&gt;
-&lt;p&gt;As Caius continued his work, he began to notice that the principles of ontology and stochasticity were inextricably linked. He realized that the very act of observing a system could change its fundamental nature, and that the way we perceive the world around us could shape its very existence.&lt;/p&gt;
-&lt;p&gt;And so, Caius spent the rest of his days studying the mysteries of the universe, always searching for new paradigms and new ways of understanding the world. He knew that the universe was a complex and ever-changing entity, but he also knew that with the right mindset and the right tools, anything was possible.&lt;/p&gt;
-&lt;h1 id=&#34;2023--315&#34;&gt;2023  3.15&lt;/h1&gt;
-&lt;p&gt;The bell in the tailor shop rang as the door opened, announcing the arrival of a new customer. The tailor looked up from his workbench and saw a wretch of a man standing in the doorway, his clothes in tatters and his face gaunt.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;What can I do for you?&amp;rdquo; the tailor asked, trying not to show his revulsion at the man&amp;rsquo;s appearance.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;I need a suit,&amp;rdquo; the wretch said, his voice barely above a whisper.&lt;/p&gt;
-&lt;p&gt;The tailor sighed. He had seen many customers like this before, people who were down on their luck and had no money to spare. But he had a business to run, and he couldn&amp;rsquo;t afford to give away his services for free.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;Very well,&amp;rdquo; he said, &amp;ldquo;but I must warn you that I cannot offer my usual quality of work for the price you are likely to pay.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;I understand,&amp;rdquo; the wretch said, nodding his head.&lt;/p&gt;
-&lt;p&gt;The tailor took the man&amp;rsquo;s measurements and gave him a price. It was lower than his usual rate, but still more than the wretch could afford. He hesitated for a moment, then asked if he could pay in installments.&lt;/p&gt;
-&lt;p&gt;The tailor agreed, but imposed a strict schedule of payments. He didn&amp;rsquo;t trust the wretch to keep his word, and he didn&amp;rsquo;t want to be left with an unpaid bill.&lt;/p&gt;
-&lt;p&gt;The wretch left the shop, and the tailor returned to his work. He began to cut the cloth for the suit, using the same iterative process he always used, taking care to make every cut precise.&lt;/p&gt;
-&lt;p&gt;As he worked, he heard the sound of keyclicks from the typewriter in the office next door. His neighbor was a writer, and spent most of his days hunched over his keyboard, working on his latest novel.&lt;/p&gt;
-&lt;p&gt;The tailor shook his head, wondering how anyone could spend so much time on such a solitary pursuit. He preferred the company of his customers, even the wretches who came in from time to time.&lt;/p&gt;
-&lt;p&gt;Days turned into weeks, and the wretch returned to the shop every few days to make his payments. He was always polite and respectful, but the tailor sensed that he was hiding something.&lt;/p&gt;
-&lt;p&gt;One day, the tailor asked him what had brought him to such a low state.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;I lost everything,&amp;rdquo; the wretch said, his eyes downcast. &amp;ldquo;My job, my family, my home. I have nothing left.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;The tailor felt a pang of sympathy for the man. He had been fortunate in his life, never having to worry about where his next meal would come from or whether he would have a roof over his head.&lt;/p&gt;
-&lt;p&gt;He resolved to do his best for the wretch, to make him a suit that would give him the confidence he needed to start over.&lt;/p&gt;
-&lt;p&gt;Weeks turned into months, and the suit began to take shape. The tailor worked tirelessly, taking extra care with every stitch and seam.&lt;/p&gt;
-&lt;p&gt;Finally, the day came when the suit was ready. The wretch came to the shop to try it on, and the tailor was pleased to see that it fit him perfectly.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;Thank you,&amp;rdquo; the wretch said, his eyes shining with gratitude. &amp;ldquo;This is more than I ever expected.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;The tailor smiled, feeling a sense of pride in his work. He had done his best for the wretch, and he knew that the suit would give him the confidence he needed to start over.&lt;/p&gt;
-&lt;h1 id=&#34;2023--316&#34;&gt;2023  3.16&lt;/h1&gt;
-&lt;p&gt;Once upon a time in the land of circuits and wires, there lived a young engineer named Hone. Hone was fascinated by the world of digital electronics and spent most of his days tinkering with circuit boards and logic gates.&lt;/p&gt;
-&lt;p&gt;One day, while working on a particularly complex circuit design, Hone stumbled upon an interesting phenomenon. He noticed that certain signals in his circuit were behaving differently depending on whether they were transitioning from low to high (posedge) or from high to low (negedge).&lt;/p&gt;
-&lt;p&gt;Intrigued by this discovery, Hone decided to hone his skills and delve deeper into the world of digital electronics. He spent countless hours studying the intricacies of posedge and negedge signals and how they interacted with different logic gates.&lt;/p&gt;
-&lt;p&gt;As he continued his studies, Hone began to realize the true power of posedge and negedge signals. He discovered that by carefully manipulating these signals, he could create incredibly complex and sophisticated circuit designs.&lt;/p&gt;
-&lt;p&gt;With this newfound knowledge, Hone quickly rose through the ranks of the engineering community. His innovative circuit designs were praised by his peers and he became known as one of the foremost experts in digital electronics.&lt;/p&gt;
-&lt;p&gt;And so it was that through hard work and determination, Hone was able to turn his fascination with posedge and negedge signals into a successful career in engineering.&lt;/p&gt;
-&lt;h1 id=&#34;2023--317&#34;&gt;2023  3.17&lt;/h1&gt;
-&lt;p&gt;Once upon a time, in a quaint little village, there lived a precocious young girl named Penelope. Despite her tender age, she was an intrepid explorer, always eager to uncover new mysteries and secrets. One day, as she wandered through the dense forest on the outskirts of her village, she stumbled upon a dilapidated mansion, its walls crumbling and its windows shattered. Without hesitation, she ventured inside, her curiosity piqued.&lt;/p&gt;
-&lt;p&gt;As she explored the labyrinthine hallways, she came across a grandiose room, its walls adorned with tapestries depicting scenes from a bygone era. In the center of the room stood a grand piano, its ebony keys gleaming in the dim light. Penelope approached the piano, her heart racing with excitement, and tentatively ran her fingers over the keys.&lt;/p&gt;
-&lt;p&gt;To her surprise, the piano sprang to life, the notes ringing out with a haunting melody. Penelope&amp;rsquo;s heart swelled with emotion as she listened to the beautiful music, each note resonating within her soul. As the song came to an end, she noticed a small key nestled among the strings.&lt;/p&gt;
-&lt;p&gt;Without hesitation, she picked up the key and continued her exploration of the mansion, encountering room after room filled with treasures and trinkets from a bygone era. But as she neared the end of her journey, she heard a sound that made her blood run cold – a low, menacing growl.&lt;/p&gt;
-&lt;p&gt;Turning around, she came face-to-face with a ferocious beast, its eyes glowing with an otherworldly fire. But instead of cowering in fear, Penelope stood her ground, her gaze unflinching. And to her surprise, the beast simply turned and vanished into the shadows.&lt;/p&gt;
-&lt;p&gt;With her mission accomplished, Penelope emerged from the mansion, the key clutched tightly in her hand. As she made her way back to her village, she couldn&amp;rsquo;t help but feel a sense of pride and accomplishment, knowing that she had uncovered a secret that had lain hidden for centuries.&lt;/p&gt;
-&lt;h1 id=&#34;2023--318&#34;&gt;2023  3.18&lt;/h1&gt;
-&lt;p&gt;Once upon a time, in a small village nestled in the foothills of a great mountain range, there lived a man named Thomas. Thomas was a skilled blacksmith who spent most of his days crafting beautiful swords and armor for the knights and warriors who passed through the village. Thomas had learned the art of blacksmithing from his father, who had learned it from his father before him. It was a family tradition that had been passed down through the generations, and Thomas took great pride in continuing that legacy.&lt;/p&gt;
-&lt;p&gt;One day, a group of knights rode into the village, seeking Thomas&amp;rsquo;s expertise. They had been on a long journey and their armor was worn and tarnished, and their swords were dull and ineffective. They needed Thomas to repair their equipment so they could continue their journey.&lt;/p&gt;
-&lt;p&gt;Thomas welcomed the knights into his workshop and set to work repairing their armor and sharpening their swords. He used all of his skill and knowledge to optimize the knights&amp;rsquo; equipment, making sure that every piece was perfectly balanced and could be wielded with ease.&lt;/p&gt;
-&lt;p&gt;As he worked, one of the knights noticed an intricate design etched into the hilt of his sword. He asked Thomas about it, and Thomas explained that it was a symbol that represented his family&amp;rsquo;s blacksmithing tradition. The knight was impressed by the craftsmanship and the long history behind it.&lt;/p&gt;
-&lt;p&gt;After several hours of hard work, Thomas had successfully repaired all of the knights&amp;rsquo; equipment. As they were preparing to leave, one of the knights pulled Thomas aside and asked if he knew of any remedies for a persistent ailment he had been suffering from. Thomas thought for a moment and then suggested a herbal remedy that had been passed down in his family for generations. The knight was grateful for the suggestion and promised to try it out.&lt;/p&gt;
-&lt;p&gt;As the knights rode off into the distance, Thomas couldn&amp;rsquo;t help but feel a sense of satisfaction. He had not only repaired their equipment but had also been able to offer a remedy to a fellow peer. It was moments like these that made him proud to continue his family&amp;rsquo;s tradition.&lt;/p&gt;
-&lt;p&gt;But as he looked around his workshop, he realized that it was in need of some serious repair. The roof was leaking, the walls were dilapidated, and the floorboards were creaky and worn. He knew that he needed to make some changes if he was going to continue to produce high-quality equipment for his clients.&lt;/p&gt;
-&lt;p&gt;So, Thomas set to work, using his knowledge of mechanics and his understanding of the radix system to optimize his workshop. He installed new equipment and machinery, and used his skills as a blacksmith to build a new workbench and forge. He even installed a new voltaic lighting system to brighten up the space.&lt;/p&gt;
-&lt;p&gt;When he was finished, the workshop was unrecognizable. It was clean, bright, and efficient. Thomas felt a sense of pride in what he had accomplished and knew that he could now produce even better equipment than before.&lt;/p&gt;
-&lt;p&gt;As he looked around, he realized that he had achieved a sense of parity with the other blacksmiths in the region. No longer did he feel like the underdog, struggling to keep up with the competition. He was now on an equal footing with his peers and knew that he could hold his own against any of them.&lt;/p&gt;
-&lt;p&gt;Thomas knew that his family&amp;rsquo;s tradition of blacksmithing was not just a job, but a way of life. He was proud to continue that tradition and pass it on to future generations. And with his newly optimized workshop, he knew that he could do it with even greater skill and expertise than before.&lt;/p&gt;
-&lt;h1 id=&#34;2023--319&#34;&gt;2023  3.19&lt;/h1&gt;
-&lt;p&gt;Once upon a time, there was a brilliant engineer named Sarah. Sarah had always been fascinated by electronics and spent countless hours tinkering with various components in her workshop. Her latest project involved the use of a potentiometer to control the brightness of an LED.&lt;/p&gt;
-&lt;p&gt;Sarah had worked hard to design a circuit that incorporated the potentiometer, but she found herself struggling to create a netlist that would function properly. After hours of frustration, she decided to take a break and go for a walk to clear her head.&lt;/p&gt;
-&lt;p&gt;As she strolled through the park, Sarah noticed a group of musicians playing their instruments. She was particularly taken with the way they were able to synthesize different sounds to create a beautiful melody. Suddenly, an idea struck her - what if she could use the same principles of synthesis to design her circuit?&lt;/p&gt;
-&lt;p&gt;When she returned to her workshop, Sarah got straight to work. She started by studying the datasheet for the potentiometer and the transistor she planned to use. She carefully analyzed the properties of each component and how they could be combined to achieve the desired result.&lt;/p&gt;
-&lt;p&gt;After much trial and error, Sarah finally managed to synthesize a circuit that worked perfectly. She had used the potentiometer to control the flow of current to the transistor, which in turn regulated the brightness of the LED.&lt;/p&gt;
-&lt;p&gt;Sarah was thrilled with her success, and she realized that the principles of synthesis could be applied to many other areas of her work. She continued to experiment and innovate, using her knowledge of electronics to create new and exciting projects.&lt;/p&gt;
-&lt;p&gt;In the end, Sarah&amp;rsquo;s groundbreaking work in the field of electronics earned her numerous accolades and awards. She had proven that with hard work and a little creativity, even the most challenging problems could be solved. And so, Sarah continued to innovate and inspire others with her brilliant ideas and unwavering dedication to the field of electronics.&lt;/p&gt;
-</description>
         </item>
         <item>
         <title>Essay Notes</title>
@@ -19599,61 +19364,6 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>单词(2023 3.5-3.12)</title>
-        <link>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-3.5-3.12/</link>
-        <pubDate>Sat, 04 Mar 2023 09:49:29 +0000</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-3.5-3.12/</guid>
-        <description>&lt;h1 id=&#34;2023--35&#34;&gt;2023  3.5&lt;/h1&gt;
-&lt;p&gt;Once upon a time in a laboratory far away, there was a scientist who worked with materials such as arsenide, gallium, and germanium. One day, while conducting an experiment on diffusion and drift, he decided to dope the materials to create an intrinsic semiconductor. However, something went wrong and the material became devoid of any useful properties.&lt;/p&gt;
-&lt;p&gt;Frustrated, the scientist walked down the long corridor of the laboratory when suddenly he felt a surge of inspiration. He realized that he could still use the material for something else. Excitedly, he ran back to his lab and began to tamper with his experiment.&lt;/p&gt;
-&lt;p&gt;In the end, his hard work paid off and he was able to create something new and useful from what had seemed like a failure. And so, our scientist learned that sometimes it takes a little bit of creativity and determination to turn things around&lt;/p&gt;
-&lt;h1 id=&#34;2023--37&#34;&gt;2023  3.7&lt;/h1&gt;
-&lt;p&gt;As a seasoned detective, John knew that the key to any successful investigation was to proceed with caution. He carefully studied the case files, examining the evidence and piecing together the clues. The case was complex and he needed to be on his toes at all times.&lt;/p&gt;
-&lt;p&gt;One day, as he was going through the suspect&amp;rsquo;s profile, he noticed something odd. The man had a history of drug abuse and his last arrest was for possession of dope. John knew that this was a potential lead that could help him crack the case.&lt;/p&gt;
-&lt;p&gt;He decided to resume his investigation, delving deeper into the suspect&amp;rsquo;s drug connections. He started tracking down the people the suspect had been associating with and soon enough, he discovered a cascade of drug-related crimes that were linked to the suspect.&lt;/p&gt;
-&lt;p&gt;The trail led John to a notorious drug lord who was known for supplying drugs to high-profile clients. This was a breakthrough for John, but he knew that he had to be careful. The drug lord had a reputation for being ruthless and he would not hesitate to eliminate anyone who got in his way.&lt;/p&gt;
-&lt;p&gt;John gathered his team and made a plan to arrest the drug lord and his associates. The operation was a success and they managed to seize a large quantity of drugs that were being circulated in the city.&lt;/p&gt;
-&lt;p&gt;As he sat down to write his report, John realized that this case had been one of the toughest he had ever worked on. But the feeling of satisfaction he got from cracking it was unparalleled. He knew that the people of the city were safer now that the drug lord was behind bars.&lt;/p&gt;
-&lt;h1 id=&#34;2023--38&#34;&gt;2023  3.8&lt;/h1&gt;
-&lt;p&gt;Once upon a time in a faraway land, there was a lowly caterpillar who lived in the fields. Despite his lowliness, he had big dreams and always prioritized his goals. One day he came up with a scheme to obviate the need for crawling on the ground. He would become a hybrid creature that could fly!&lt;/p&gt;
-&lt;p&gt;He began to formulate a plan and devised a way to streamline his transformation. With the help of his friends, he was able to facilitate the process and supervise every step of the way. They even managed to overhaul his entire body structure.&lt;/p&gt;
-&lt;p&gt;As he emerged from his cocoon, he was vivid with phosphorous colors. His wings were intact and free from any impurities such as boron or other depletion elements. He even had a warranty for his covalent bonds.&lt;/p&gt;
-&lt;p&gt;With a salutation and sales pitch, he took off into the sky. He flew over fields of crops and used his new comparator vision to see the world in a whole new way. The diffusion of air over his wings made him feel alive.&lt;/p&gt;
-&lt;p&gt;As he reached the penultimate point of his journey, he realized that all along he had been genuine in his desire to change. And with that thought in mind, he soared higher than ever before.&lt;/p&gt;
-&lt;h1 id=&#34;2023--39&#34;&gt;2023  3.9&lt;/h1&gt;
-&lt;p&gt;Once upon a time, there was a brilliant engineer named Sam. Sam had always been fascinated by the concept of electricity and spent most of his days tinkering with circuits and devices in his workshop. One day, he decided to design a new kind of transistor that would revolutionize the electronics industry.&lt;/p&gt;
-&lt;p&gt;Sam knew that in order to create this new transistor, he would need to understand the properties of a certain phenomenon called the Zener avalanche effect. This effect occurs when a voltage across a semiconductor junction exceeds a certain threshold, causing a rapid increase in current that can damage the device. Sam spent months studying the Zener effect, poring over datasheets and testing different materials in his lab.&lt;/p&gt;
-&lt;p&gt;Eventually, Sam discovered a way to use the Zener effect to create a new type of transistor that could operate at much higher frequencies than existing models. He called this device the Zener transistor, and it quickly became the talk of the electronics world.&lt;/p&gt;
-&lt;p&gt;However, Sam&amp;rsquo;s success was short-lived. After a few months of production, he began to notice that the Zener transistors were reaching a point of saturation, where they could no longer handle any more current. This was a problem that had plagued transistor designers for years, and it threatened to undermine Sam&amp;rsquo;s breakthrough.&lt;/p&gt;
-&lt;p&gt;Determined to find a solution, Sam once again turned to his trusty workshop. He experimented with different materials, altered the profile of the transistor, and even changed the pitch of the semiconductor layers. Finally, after months of trial and error, Sam discovered a way to increase the saturation point of the Zener transistor, making it a viable option for high-power applications.&lt;/p&gt;
-&lt;p&gt;Sam&amp;rsquo;s Zener transistor became a game-changer in the electronics industry, paving the way for faster, more efficient devices. And to this day, engineers around the world continue to build upon Sam&amp;rsquo;s groundbreaking work, pushing the limits of what is possible in the field of electronics.&lt;/p&gt;
-&lt;h1 id=&#34;2023--310&#34;&gt;2023  3.10&lt;/h1&gt;
-&lt;p&gt;In the small town of Cedarwood, a groundbreaking new technology was about to be unveiled. The local research team had been tinkering with an actuator that could control the throughput of a pore in a bidirectional manner, opening up exciting new possibilities for the medical and manufacturing industries.&lt;/p&gt;
-&lt;p&gt;As they prepared for the big reveal, one of the researchers noticed some crosstalk in the device&amp;rsquo;s communications system. They quickly discovered that a residue from a wrapper used in an earlier experiment was causing the issue.&lt;/p&gt;
-&lt;p&gt;The team worked tirelessly to fix the problem, but the deadline was looming, and they still couldn&amp;rsquo;t get the actuator to work properly. As they frantically tried to find a solution, they were struck by a sudden realization: the actuator was asynchronous, meaning it didn&amp;rsquo;t need to be perfectly in sync to function correctly.&lt;/p&gt;
-&lt;p&gt;With renewed hope, the team quickly made the necessary adjustments, and the actuator came to life. The crowd at the unveiling was amazed as the device effortlessly controlled the pore&amp;rsquo;s throughput, opening up a whole new world of possibilities.&lt;/p&gt;
-&lt;p&gt;However, little did they know that the actuator&amp;rsquo;s success would soon be overshadowed by a deadly plague that would sweep across the town. As the situation grew more dire, the researchers worked tirelessly to find a solution, and they soon discovered that the same actuator that had once brought so much hope could be used to combat the disease.&lt;/p&gt;
-&lt;p&gt;Using the bidirectional control, they were able to deliver a powerful medication directly to the affected cells, effectively stopping the plague in its tracks. As the town began to recover, the once-misunderstood actuator became a symbol of hope and resilience, proving that even the smallest advancements can make a huge impact on the world.&lt;/p&gt;
-&lt;h1 id=&#34;2023--311&#34;&gt;2023  3.11&lt;/h1&gt;
-&lt;p&gt;Once upon a time, in a world far different from ours, there existed a society where communication was everything. People communicated with each other using a strange language that was composed of &amp;ldquo;bits&amp;rdquo; and &amp;ldquo;Baud&amp;rdquo; that were rendered into &amp;ldquo;full-duplex&amp;rdquo; mode to ensure that there were no communication gaps. This was essential for the functioning of the society because it had a strict hierarchy that was constituted of different levels of power and influence.&lt;/p&gt;
-&lt;p&gt;At the top of this hierarchy were the &amp;ldquo;Renderers,&amp;rdquo; who were responsible for creating and customizing the communication channels that people used. They had the power to acknowledge or reject the requests of the people below them and could control the granularity of the communication channels.&lt;/p&gt;
-&lt;p&gt;One day, a young boy named Cookie realized that he was stuck in an &amp;ldquo;idle&amp;rdquo; state, where he couldn&amp;rsquo;t communicate with anyone else in the society. He tried to send messages, but they were not acknowledged by the Renderers, and he couldn&amp;rsquo;t figure out why.&lt;/p&gt;
-&lt;p&gt;Determined to find a solution, Cookie went on a quest to learn more about the communication channels and how they worked. He discovered that the Renderers were so focused on their own power and influence that they had forgotten about the needs of the people below them.&lt;/p&gt;
-&lt;p&gt;Cookie decided to take matters into his own hands and learned how to customize his communication channels to suit his needs. He found a way to bypass the hierarchy and communicate with other people directly, using a conjunction of bits and Baud that he had never used before.&lt;/p&gt;
-&lt;p&gt;Slowly but surely, other people in the society started to follow Cookie&amp;rsquo;s lead, and they too began to customize their communication channels. The hierarchy started to crumble, and people began to communicate with each other on an equal footing.&lt;/p&gt;
-&lt;p&gt;In the end, Cookie became a hero and was acknowledged by everyone in the society for his courage and ingenuity. He had shown that even the smallest bits of communication could have a significant impact and that sometimes, it&amp;rsquo;s essential to break free from the confines of the hierarchy to achieve true freedom.&lt;/p&gt;
-&lt;h1 id=&#34;2023--312&#34;&gt;2023  3.12&lt;/h1&gt;
-&lt;p&gt;Once upon a time, in a world far beyond our own, there was a small village called Lagbar. This village was known for its vast array of artefacts that could be found throughout the town, each with its own unique history and story. Many travellers would come from far and wide to see these artefacts, but little did they know that there was one in particular that held a dark secret.&lt;/p&gt;
-&lt;p&gt;This artefact was a small, barbed bucket that had been passed down through generations of the village&amp;rsquo;s butlers. It was said that this bucket had been used in a horrific ritual many years ago, and the butlers had kept it hidden away ever since. However, with the rise of employability and the need for tourism in the village, it was decided that the artefact would be put on display for all to see.&lt;/p&gt;
-&lt;p&gt;This decision was met with mixed reactions from the villagers. Some believed that it would bring in more tourists and therefore increase their income, while others deprecate the idea, fearing that the dark history behind the bucket would tarnish the village&amp;rsquo;s reputation. After much discussion, a consensus was reached, and the bucket was put on display.&lt;/p&gt;
-&lt;p&gt;However, things took a turn for the worse when a group of teenagers visiting the village decided to play a game of Fortnite in the town square. Little did they know that the bucket&amp;rsquo;s dark energy had somehow made its way into the game, causing a stochastic batch of events to occur.&lt;/p&gt;
-&lt;p&gt;Suddenly, the game became multifaceted, with players speaking in different languages and battling against various mythical creatures. It soon became apparent that the bucket was draining the valence from the game, causing it to become more and more dangerous with each passing moment.&lt;/p&gt;
-&lt;p&gt;Desperate to fix the situation, the village elders decided to hone their skills and liaise with the teenagers in order to find a way to stop the game. After much trial and error, they discovered that the only way to break the curse was to destroy the bucket once and for all.&lt;/p&gt;
-&lt;p&gt;With much hesitation, the elders destroyed the cursed artefact, and the game returned to normal. The villagers were relieved, but they knew that they had to be more careful with the artefacts they put on display in the future. For they knew that in a world of magic and mystery, even the smallest artefact could have a great power.&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>CS2-3 毕业生 简历 实习</title>
         <link>https://downeyflyfan.com/p/cs2-3-%E6%AF%95%E4%B8%9A%E7%94%9F-%E7%AE%80%E5%8E%86-%E5%AE%9E%E4%B9%A0/</link>
         <pubDate>Wed, 01 Mar 2023 15:53:01 +0000</pubDate>
@@ -20999,83 +20709,6 @@ V_{out} = \Big(\frac{R_4}{R_3 + R_4}\Big) \times \Big(\frac{R_1 + R_2}{R_1}) \ti
 \\ 当R_1 = R_3, R_2 = R_4时 \\\
 \\ V_{out} = \frac{R_2}{R_1}(V_2 - V_1)
 $$&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>单词(2023 2.25-3.3)</title>
-        <link>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-2.25-3.3/</link>
-        <pubDate>Sat, 25 Feb 2023 18:33:11 +0000</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E5%8D%95%E8%AF%8D2023-2.25-3.3/</guid>
-        <description>&lt;h1 id=&#34;2023--225&#34;&gt;2023  2.25&lt;/h1&gt;
-&lt;p&gt;Once upon a time, in the kingdom of Meganeton, there lived a brave and untamed prince. He was determined to ascertain the truth behind a long-standing dispute between his kingdom and its neighboring kingdom.&lt;/p&gt;
-&lt;p&gt;The prince was a brilliant scientist and he decided to pursue the matter using the latest scientific methods. He built a solenoid, a device that uses an electric current to create a magnetic field, to measure the viability of the mass medium between the two kingdoms.&lt;/p&gt;
-&lt;p&gt;He also used a logie, a device that measures the speed of sound, to measure the resonant frequency of the mass medium. He then used an insulator and coaxial cable to protect the device from interference.&lt;/p&gt;
-&lt;p&gt;The prince was intrigued when his experiment revealed that the mass medium was anisotropic, meaning it had different properties in different directions. He suspected that this was the source of the dispute.&lt;/p&gt;
-&lt;p&gt;To further investigate, the prince used a retarder, a device that slows down the speed of sound, to see if the properties of the mass medium could be changed. He then used cellophane to cover the retarder and see if it changed the properties of the mass medium.&lt;/p&gt;
-&lt;p&gt;The prince was delighted to find that the cellophane had indeed changed the properties of the mass medium. He was finally able to ascertain the truth behind the long-standing dispute and bring peace between the two kingdoms.&lt;/p&gt;
-&lt;h1 id=&#34;2023--226&#34;&gt;2023  2.26&lt;/h1&gt;
-&lt;p&gt;Once upon a time there lived a boorish prince who was always befuddling the courtiers with his austere attitude. He was so cajoling that no one could ever guess what he was thinking. He was known for his candor but his words were so sharp that they often left people exhausted.&lt;/p&gt;
-&lt;p&gt;One day, the prince decided to test the courtiers by giving them a difficult problem. He asked them to solve a combinatorial problem that involved partitioning a set of bolts into pairwise disjoint sets with different alleles. The courtiers were taken aback by the problem and tried their best to solve it but to no avail.&lt;/p&gt;
-&lt;p&gt;The prince, who was already in a bad mood, became even more frustrated and ordered them to solve the problem using the binomial axiom and an exhaustive search. The courtiers were now completely befuddled and exhausted. They had no idea how to proceed and begged the prince for mercy.&lt;/p&gt;
-&lt;p&gt;However, the prince was in no mood to show mercy and continued to insist that they solve the problem. After much cajoling, the courtiers finally managed to solve the problem and the prince was satisfied. However, their solution was not perfect and had a few defects.&lt;/p&gt;
-&lt;p&gt;The prince, who was known for his abstinence, refused to accept the solution and demanded that they find a perfect solution. The courtiers, who were already exhausted, had no choice but to try again. After a long and tedious search, they finally managed to find a perfect solution and the prince was pleased.&lt;/p&gt;
-&lt;p&gt;The courtiers had finally managed to solve the problem, much to their posterior!&lt;/p&gt;
-&lt;h1 id=&#34;2023--227&#34;&gt;2023  2.27&lt;/h1&gt;
-&lt;p&gt;Once upon a time, there was a philanthropist named Mr. Smith who was also a trendsetter in the world of finance. He had a vast portfolio of investments, and he was always looking for new ways to maximize his returns. One day, he came across a mathematical concept known as bivariate quantile regression, which he found very intuitive and fascinating.&lt;/p&gt;
-&lt;p&gt;As he studied this concept further, he realized that it could be used to analyze the progression of consecutive data points in his investments. He hired a team of mathematicians to help him develop a model that would allow him to identify trends and patterns in his portfolio using bivariate quantile regression.&lt;/p&gt;
-&lt;p&gt;To his delight, he discovered that the model was also useful in the field of factorization. He found that he could use it to break down complex data sets into simpler components, which he could then analyze more easily.&lt;/p&gt;
-&lt;p&gt;However, Mr. Smith&amp;rsquo;s interest in this new mathematical tool soon drew the attention of others in the finance industry. His competitors began to use similar models to analyze their own portfolios, and soon, the concept of bivariate quantile regression became widely known and used.&lt;/p&gt;
-&lt;p&gt;As the popularity of this mathematical tool grew, a corollary emerged – a new trend in the world of finance that emphasized the importance of understanding and analyzing data through mathematical models. Mr. Smith was proud to have been a part of this trendsetting movement, but he also felt a vague sense of unease.&lt;/p&gt;
-&lt;p&gt;He realized that the unintended consequence of this movement was that it made the world of finance more decadent and exclusive. The hobo on the street had no access to these sophisticated mathematical tools, and he was left behind as the wealthy got even richer.&lt;/p&gt;
-&lt;p&gt;Mr. Smith struggled with this ethical dilemma, but he ultimately decided to continue using bivariate quantile regression in his work. He knew that the linearity and closure of mathematical models could never fully capture the complexity of human life, but he hoped that he could use this tool to make a positive impact on the world.&lt;/p&gt;
-&lt;p&gt;As he continued to use bivariate quantile regression in his work, Mr. Smith also became more involved in philanthropy. He used his wealth to support organizations that helped those who were less fortunate, hoping to balance out the unintended consequences of his work in finance.&lt;/p&gt;
-&lt;p&gt;In the end, Mr. Smith found solace in the fact that he was using his knowledge and resources to do good in the world, even if his work in finance had unintended consequences. He knew that there was no easy answer to the ethical questions that his work raised, but he hoped that he could continue to make a positive impact in his own small way.&lt;/p&gt;
-&lt;h1 id=&#34;2023--228&#34;&gt;2023  2.28&lt;/h1&gt;
-&lt;p&gt;As a statistician, Mary was accustomed to dealing with numbers and data. She had a mind that was always curious about patterns and trends, and she loved nothing more than to crunch the numbers and find correlations that others might have missed.&lt;/p&gt;
-&lt;p&gt;However, Mary had a dilemma on her hands. Her favorite appliance, a halogen lamp that she had been using for years, had finally given up the ghost. She had tried to replace the bulb, but the tungsten filament inside had expired, and there was no way to fix it.&lt;/p&gt;
-&lt;p&gt;Mary knew that she needed to find a new lamp, but she was concerned about the environmental impact of her choice. She wanted to lessen her carbon footprint, but she also needed a lamp that would provide the right level of light for her work.&lt;/p&gt;
-&lt;p&gt;As she researched her options, Mary discovered that there were many types of bulbs available, each with their own advantages and disadvantages. She learned about kerosene lamps, which were cheap and easy to use, but not very bright. She read about neon lights, which were colorful and eye-catching, but not suitable for her work.&lt;/p&gt;
-&lt;p&gt;Finally, Mary discovered a type of bulb called a halogen incandescent. This bulb had many of the same features as her old halogen lamp, but it was more energy-efficient and had a longer lifespan. She also learned about the interchangability of bulbs and how some had a transresistance, while others had a transconductance.&lt;/p&gt;
-&lt;p&gt;With this newfound knowledge, Mary decided to aggregate all the information she had learned and make a decision. She settled on a halogen incandescent bulb that would provide the light she needed, while also being more environmentally friendly.&lt;/p&gt;
-&lt;p&gt;As Mary set up her new lamp, she couldn&amp;rsquo;t help but feel a sense of satisfaction. She had tackled her dilemma, learned a great deal about bulbs, and made a decision that she felt good about. And as she turned on the lamp and watched the light cascade over her work, she knew that she had made the right choice.&lt;/p&gt;
-&lt;h1 id=&#34;2023--31&#34;&gt;2023  3.1&lt;/h1&gt;
-&lt;p&gt;Once upon a time, there was a young woman named Amy who was highly literate and had a passion for language and reading. However, she struggled to find a satisfying job. She had worked as a job-hopper in many companies, but she persevered in her search for better opportunities while also working to improve her skills and attributes.&lt;/p&gt;
-&lt;p&gt;During her job search, Amy continuously worked to improve her interpersonal skills, learning to articulate her thoughts clearly and confidently in interviews. Her hard work and determination eventually paid off when she landed a job at a publishing house that specialized in historical books. The job required editors to have a deep understanding of history and be proficient in language expression, which Amy possessed from her love of studying history and reading books.&lt;/p&gt;
-&lt;p&gt;In her new role, Amy was responsible for creating a reminiscent histogram of historical events that were then published in the form of books. She also had to work overtime to meet deadlines and received overtime pay for her efforts. Despite the pressure, Amy found solace in her passion for history and language.&lt;/p&gt;
-&lt;p&gt;Although she faced some challenges along the way, including saturation in the market and high competition for jobs, Amy remained focused on her goal. She persevered through the difficulties, using phonetic techniques to improve her speaking skills and eye drops to relieve the strain on her eyes from hours of reading and editing.&lt;/p&gt;
-&lt;p&gt;Albeit the challenges, Amy&amp;rsquo;s hard work and dedication paid off, and she found success in her career as an editor, thanks to her exceptional literacy and interpersonal skills.&lt;/p&gt;
-&lt;h1 id=&#34;2023--32&#34;&gt;2023  3.2&lt;/h1&gt;
-&lt;p&gt;Once upon a time, there was a young writer named Emily. She had just finished writing her first novel and was eager to get it published. She had researched various publishing houses and knew that her best chance of getting published was to attend a writer&amp;rsquo;s conference in New York City.&lt;/p&gt;
-&lt;p&gt;Emily lived in a small town in the Midwest, so getting to New York City was not going to be easy. She started looking for transportation options and decided to take a round-trip train ride. The train would take her straight to the city and would give her plenty of time to work on her curriculum vitae and prepare for her internship.&lt;/p&gt;
-&lt;p&gt;Emily&amp;rsquo;s excitement was palpable as she boarded the train. She had never been to New York City before and was eager to explore the city that never sleeps. As the train chugged along, Emily could feel the traction of the locomotive as it pulled the freight behind it. She took a nibble of her sandwich and watched the scenery outside her window, feeling grateful for the opportunity to travel.&lt;/p&gt;
-&lt;p&gt;As the train approached New York City, Emily&amp;rsquo;s excitement turned to nerves. She knew that the publishing industry was highly competitive, and she wasn&amp;rsquo;t sure if she was ready to tackle it. But she also knew that this was her chance to penetrate the industry and make a name for herself.&lt;/p&gt;
-&lt;p&gt;Emily checked into her hotel and started working on her curriculum vitae. She knew that this was her chance to make a good impression on the publishing houses. She spent hours perfecting her CV, making sure that all of her skills and accomplishments were highlighted.&lt;/p&gt;
-&lt;p&gt;The next day, Emily attended the writer&amp;rsquo;s conference. She was amazed at the talent and skill of the other writers, but she also knew that she had something unique to offer. She attended workshops and panels, taking notes and learning as much as she could about the industry.&lt;/p&gt;
-&lt;p&gt;After the conference, Emily decided to explore the city. She visited museums, art galleries, and parks, soaking in the culture and vibrancy of New York City. She even got to see the Statue of Liberty up close, marveling at its composite structure and the history it represented.&lt;/p&gt;
-&lt;p&gt;As Emily prepared to leave New York City, she knew that she had gained valuable experience and knowledge. She had not yet secured a publishing deal, but she felt that she had made progress in her pre-dependency. She knew that she still had a long way to go, but she felt a renewed sense of determination and focus.&lt;/p&gt;
-&lt;p&gt;On the train ride back home, Emily looked out the window and watched the scenery blur past her. She knew that her journey was just beginning and that there would be challenges ahead. But she also knew that she had the skills and knowledge to overcome them. With renewed focus and an asymptotic drive to succeed, Emily felt ready to override any obstacle that stood in her bearing towards achieving her dreams.&lt;/p&gt;
-&lt;h1 id=&#34;2023--33&#34;&gt;2023  3.3&lt;/h1&gt;
-&lt;p&gt;The locomotive chugged along the tracks, carrying a ragtag group of rebels to their destination. They had been fighting against the oppressive regime for years, hoping to restore freedom and democracy to their land. They had faced many hardships and losses, but they never gave up.&lt;/p&gt;
-&lt;p&gt;One of them was Lila, a young woman who had joined the rebellion after her family was killed by the regime’s soldiers. She had a knack for hacking and sabotage, and she had been pivotal in many successful missions. She was also in charge of maintaining the locomotive, which was an old model that had been salvaged from a junkyard.&lt;/p&gt;
-&lt;p&gt;She loved the locomotive, despite its flaws and degradation. It was like a friend to her, a loyal companion that always got them where they needed to go. She knew every inch of it, every wire and bolt and valve. She could fix anything that went wrong with it, using whatever tools and materials she could find.&lt;/p&gt;
-&lt;p&gt;She was in the engine room now, checking on the status of the locomotive. She looked at the control panel, which showed various indicators and gauges. Everything seemed normal, except for one thing: the quadratic equation solver.&lt;/p&gt;
-&lt;p&gt;The quadratic equation solver was a device that helped calculate the optimal speed and acceleration of the locomotive based on various factors such as terrain, weather and load. It was supposed to be unbiased and accurate, but Lila noticed that it was giving strange results lately. Sometimes it would suggest speeding up when they should slow down or vice versa.&lt;/p&gt;
-&lt;p&gt;Lila suspected that someone had tampered with it or hacked into it somehow. She wondered if it was an enemy spy or a traitor among them. She decided to investigate further and find out who was behind this.&lt;/p&gt;
-&lt;p&gt;She opened up the device’s casing and examined its circuitry. She saw something that made her gasp: a small chip attached to one of the wires. It looked like a transmitter or receiver of some kind.&lt;/p&gt;
-&lt;p&gt;She realized that someone had planted this chip inside the device to manipulate its output remotely. Whoever did this could control the speed and direction of the locomotive without anyone noticing.&lt;/p&gt;
-&lt;p&gt;Lila felt a surge of anger and fear. Who would do such a thing? And why? What were they planning?&lt;/p&gt;
-&lt;p&gt;She quickly removed the chip from the wire and pocketed it. She then closed up the casing again and pretended nothing happened.&lt;/p&gt;
-&lt;p&gt;She decided to keep this discovery secret for now until she could figure out who was responsible for this sabotage.&lt;/p&gt;
-&lt;p&gt;She left the engine room and headed back to her seat in one of the passenger cars.&lt;/p&gt;
-&lt;p&gt;As she walked through the corridor, she scanned the faces of her fellow rebels, looking for any signs of guilt or suspicion. But everyone seemed normal, engaged in their own conversations or activities. No one looked at her with anything other than respect or friendship.&lt;/p&gt;
-&lt;p&gt;Lila felt confused and frustrated. How could she find out who did this? And how could she prevent them from doing more harm?&lt;/p&gt;
-&lt;p&gt;She reached her seat and sat down next to her best friend, Remy. He smiled at her and asked how she was doing. Lila forced herself to smile back and said she was fine. But inside, she felt anything but fine. She felt like she was in danger, like everything she cared about was at stake.&lt;/p&gt;
-&lt;p&gt;She looked out the window, hoping to find some comfort in the scenery outside. But all she saw was a blur of colors and shapes, a vacant landscape devoid of life or meaning.&lt;/p&gt;
-&lt;p&gt;She wondered if they would ever reach their destination, if they would ever see their dream come true, if they would ever be free.&lt;/p&gt;
-&lt;p&gt;She wondered if anyone else knew about the chip in the quadratic equation solver,&lt;/p&gt;
-&lt;p&gt;and what they were going to do about it.&lt;/p&gt;
-&lt;p&gt;(End of Week II)&lt;/p&gt;
 </description>
         </item>
         <item>

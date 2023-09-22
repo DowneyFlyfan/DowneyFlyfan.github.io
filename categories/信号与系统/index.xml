@@ -49,7 +49,7 @@ $$&lt;/p&gt;
 y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;线性时不变系统lti的性质&#34;&gt;线性时不变系统(LTI)的性质&lt;/h1&gt;
+&lt;h1 id=&#34;卷积&#34;&gt;卷积&lt;/h1&gt;
 &lt;h2 id=&#34;卷积的数学表示&#34;&gt;卷积的数学表示&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
@@ -67,31 +67,69 @@ x(t) * h_1(t) * h_2(t) &amp;amp;= x(t) * (h_1(t) * h_2(t))
 $$&lt;/p&gt;
 &lt;h2 id=&#34;卷积的性质&#34;&gt;卷积的性质&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;通过 Unit Impulse Function &lt;strong&gt;平移&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;卷积的平移性质&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+y[n] &amp;amp;= h[n] * x[n] \\
+y[n+k] &amp;amp;= h[n+k] * x[n] \\
+y[n+k] &amp;amp;= h[n] * x[n+k]
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特例&lt;/strong&gt;: 通过 Unit Impulse Function &lt;strong&gt;平移&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 x(t) * \delta(t-k) &amp;amp;= x(t-k) \\
 \sum_{k=-\infin}^{\infin} x(t) * \delta(t-k) &amp;amp;= \sum_{k=-\infin}^{\infin} x(t-k) \\
 \end{aligned}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;反系统与原系统&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}&lt;/p&gt;
-&lt;p&gt;\end{aligned}
-$$&lt;/p&gt;
+&lt;h1 id=&#34;线性时不变系统lti的性质&#34;&gt;线性时不变系统(LTI)的性质&lt;/h1&gt;
+&lt;h2 id=&#34;linear&#34;&gt;Linear&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对于&lt;strong&gt;Cascade System&lt;/strong&gt;，可以任意调换级联系统的位置&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
-&lt;h3 id=&#34;memoryless-lti-system&#34;&gt;Memoryless LTI System&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对$n \neq 0$，单位冲激响应$h[n]=0$时，系统才是无记忆系统。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$h[n] = K \delta [n]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其中$K = h [0]$是一个常数，卷积和就变为$y[n] = Kx[n]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;invertibility&#34;&gt;Invertibility&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;逆系统与原系统的单位脉冲响应&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
-y(t) &amp;amp;= Kx(t)
+h(t) * g(t) = \delta (t)
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;invertibility&#34;&gt;Invertibility&lt;/h2&gt;
 &lt;h2 id=&#34;causality&#34;&gt;Causality&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Unit Impulse Function: $h[n] = 0, n &amp;lt;0$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Convolution Sum: $y(t) = \int_0^\infin x(\tau) h(t - \tau) d\tau$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;stability&#34;&gt;Stability&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+\int_{-\infin}^{\infin} |h(\tau)| d\tau &amp;lt; \infin
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;response-of-a-lti-system&#34;&gt;Response of a LTI System&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Unit Step Response&lt;/li&gt;
@@ -102,17 +140,18 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 s[n] &amp;amp;= h[n]*u[n] \\
-&amp;amp;= \sum_{\infin}^n h[k] \\
-s(t) &amp;amp;= h(t)*u(t) \\
-&amp;amp;= \int_{-\infin}^t h(\tau) d\tau
+s(t) &amp;amp;= h(t)*u(t)
 \end{aligned}
 $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Unit Impulse Response&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;输入&lt;strong&gt;Unit Impulse Function&lt;/strong&gt; 得到的&lt;strong&gt;响应&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
-h(t) &amp;amp;= \frac{ds(t)}{dt} = s&amp;rsquo;(t)
+h(t) &amp;amp;= \frac{ds(t)}{dt} = s&amp;rsquo;(t) \\
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;causal-lti-systems-described-yb-differential-and-difference-equations&#34;&gt;CAUSAL LTI SYSTEMS DESCRIBED YB DIFFERENTIAL AND DIFFERENCE EQUATIONS&lt;/h1&gt;
@@ -185,7 +224,6 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;difference-equations-for-discrete-time&#34;&gt;Difference Equations for Discrete-Time&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
-y[n] + ay[n-1] &amp;amp;= bx[n] \\
 y[n] &amp;amp;= -ay[n-1] + bx[n]
 \end{aligned}
 $$&lt;/p&gt;
@@ -275,7 +313,7 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;形式&#34;&gt;形式&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
-a \frac{dy(t)}{dx} + b y(x) &amp;amp;= cx \\
+a \frac{dy(x)}{dx} + b y(x) &amp;amp;= cx \\
 y &amp;amp;= y_h(x) + y_p(x)
 \end{aligned}
 $$&lt;/p&gt;
@@ -283,6 +321,9 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;$y_h(x)$&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;先将$y_h(x)$设为和$x$相似的形式，再进行如下步骤:&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 Let \ c &amp;amp;= 0 \\
@@ -293,7 +334,7 @@ $$&lt;/p&gt;
 &lt;li&gt;$y_p(x)$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;将$y_p(x)$设为和$x$相同的形式，再代入解&lt;/li&gt;
+&lt;li&gt;将$y_p(x)$设为$x$的倍数，再代入解&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;一阶微分方程&#34;&gt;一阶微分方程&lt;/h2&gt;
 &lt;ol&gt;
@@ -346,6 +387,12 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3 id=&#34;重要公式&#34;&gt;重要公式&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\sum_{k=0}^n \alpha^k &amp;amp;= \frac{1 - \alpha^{n+1}}{1 -\alpha}
+\end{aligned}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -374,15 +421,6 @@ $$&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;信号能量与功率&#34;&gt;信号能量与功率&lt;/h2&gt;
-&lt;h3 id=&#34;一个现象&#34;&gt;一个现象&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;能量与信号强度的平方成正比&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;对&lt;strong&gt;复数信号&lt;/strong&gt;同样适用&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h3 id=&#34;基于信号功率大小的分类&#34;&gt;基于信号/功率大小的分类&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -402,7 +440,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;结论&#34;&gt;结论&lt;/h3&gt;
+&lt;h3 id=&#34;关系&#34;&gt;关系&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Continuous Signal&lt;/li&gt;
 &lt;/ol&gt;
@@ -659,13 +697,12 @@ u(t) &amp;amp;= \int_{\infin}^0\delta(t-\sigma)(-d\sigma) \\
 &amp;amp;= \int_0^\infin \delta(t-\sigma)d\sigma
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;连续与离散时间系统&#34;&gt;连续与离散时间系统&lt;/h1&gt;
-&lt;h2 id=&#34;basic-system-properties&#34;&gt;Basic System Properties&lt;/h2&gt;
-&lt;h3 id=&#34;memory&#34;&gt;Memory&lt;/h3&gt;
+&lt;h1 id=&#34;basic-system-properties&#34;&gt;Basic System Properties&lt;/h1&gt;
+&lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;输出&lt;/strong&gt;只和&lt;strong&gt;当前输入&lt;/strong&gt;有关，叫做&lt;strong&gt;memoryless&lt;/strong&gt;, 否则就是&lt;strong&gt;system with memory&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;invertibility-and-inverse-system&#34;&gt;Invertibility and Inverse System&lt;/h3&gt;
+&lt;h2 id=&#34;invertibility-and-inverse-system&#34;&gt;Invertibility and Inverse System&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;定义&lt;/li&gt;
 &lt;/ol&gt;
@@ -687,35 +724,41 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;1233px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;causality&#34;&gt;Causality&lt;/h3&gt;
+&lt;h2 id=&#34;causality&#34;&gt;Causality&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;输出&lt;/strong&gt;仅取决于&lt;strong&gt;当前和过去&lt;/strong&gt;的&lt;strong&gt;输入&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;若&lt;strong&gt;未来的输入&lt;/strong&gt;可以影响&lt;strong&gt;输出&lt;/strong&gt;，就不是&lt;strong&gt;Causality&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;stability&#34;&gt;Stability&lt;/h3&gt;
+&lt;h2 id=&#34;stability&#34;&gt;Stability&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Bounded Input&lt;/strong&gt; $\rightarrow$ &lt;strong&gt;Bounded Output&lt;/strong&gt;, $t \in \mathbb R$&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;time-invirance&#34;&gt;Time Invirance&lt;/h3&gt;
+&lt;h2 id=&#34;time-invirance&#34;&gt;Time Invirance&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;时间平移不变性&lt;/strong&gt; $x(t) \longrightarrow y(t), x(t-t_0) \longrightarrow y(t-t_0)$&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;LCCDE (Linear Constant Coefficient Equation)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;linearity&#34;&gt;Linearity&lt;/h3&gt;
+&lt;h2 id=&#34;linearity&#34;&gt;Linearity&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;满足以下条件的系统是&lt;strong&gt;线性&lt;/strong&gt;的&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;$$
 \begin{aligned}
-\sum_k a_k x_k  \longrightarrow \sum_k b_k y_k
+x_k &amp;amp;\longrightarrow y_k \Longrightarrow\sum_k a_k x_k  &amp;amp;\longrightarrow \sum_k b_k y_k
 \end{aligned}
 $$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;解释&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;输入的&lt;strong&gt;线性组合&lt;/strong&gt;能得到输出的&lt;strong&gt;线性组合&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;当$x$平移1个单位，$y$平移多个单位，系统是&lt;strong&gt;非线性的&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;三角函数知识回忆&#34;&gt;三角函数知识回忆&lt;/h1&gt;
 &lt;p&gt;$$

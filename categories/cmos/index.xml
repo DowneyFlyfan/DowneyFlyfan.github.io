@@ -6,31 +6,153 @@
         <description>Recent content in CMOS on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Fri, 04 Aug 2023 17:08:33 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/cmos/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Cadence教程</title>
-        <link>https://downeyflyfan.com/p/cadence%E6%95%99%E7%A8%8B/</link>
-        <pubDate>Fri, 04 Aug 2023 17:08:33 +0800</pubDate>
+        <lastBuildDate>Wed, 20 Sep 2023 16:36:38 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/cmos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>14.Oscillators</title>
+        <link>https://downeyflyfan.com/p/14.oscillators/</link>
+        <pubDate>Wed, 20 Sep 2023 16:36:38 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/cadence%E6%95%99%E7%A8%8B/</guid>
-        <description>&lt;h1 id=&#34;器件参数调整&#34;&gt;器件参数调整&lt;/h1&gt;
-&lt;h2 id=&#34;mosfet参数设置&#34;&gt;MOSFET参数设置&lt;/h2&gt;
+        <guid>https://downeyflyfan.com/p/14.oscillators/</guid>
+        <description>&lt;h1 id=&#34;震荡的条件-barkhausens-criteria&#34;&gt;震荡的条件 (Barkhausen&amp;rsquo;s criteria)&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/1.png&#34;
+	width=&#34;916&#34;
+	height=&#34;450&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/1_hu2151470cfeb47d68a2ea85e343d74a19_35414_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/1_hu2151470cfeb47d68a2ea85e343d74a19_35414_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;203&#34;
+		data-flex-basis=&#34;488px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个系统在$\omega_0$ 附近&lt;strong&gt;Oscillate&lt;/strong&gt;的&lt;strong&gt;充分&lt;/strong&gt;条件是&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{align}
+\angle H(s) &amp;amp;= 180 ^\circ  \\
+|H(s)| &amp;amp;\ge 0
+\end{align}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;ring-oscillators&#34;&gt;Ring Oscillators&lt;/h1&gt;
+&lt;h2 id=&#34;one-pole--two-pole-feedback-system&#34;&gt;One-Pole &amp;amp; Two-Pole Feedback System&lt;/h2&gt;
+&lt;h3 id=&#34;one-pole&#34;&gt;One-Pole&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/2.png&#34;
+	width=&#34;662&#34;
+	height=&#34;558&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/2_hufc0718b25b4a9262db1aff803c7f06c1_32834_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/2_hufc0718b25b4a9262db1aff803c7f06c1_32834_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;118&#34;
+		data-flex-basis=&#34;284px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;AD: 漏极区面积&lt;/p&gt;
+&lt;p&gt;当$\omega_0 \longrightarrow \infin$，Pole会产生$90 ^\circ$的Phase Shift&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;AS: 源极区面积&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CS Stage&lt;/strong&gt; 产生$180 ^\circ$的Phase Shift&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;PD: 漏极周边&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;PS: 源极周边&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;NR: 沟道掺杂密度&lt;/p&gt;
+&lt;p&gt;故$\angle H(s) = 270 ^\circ$，&lt;strong&gt;无法Oscillate&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;two-pole&#34;&gt;Two-Pole&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/3.png&#34;
+	width=&#34;1100&#34;
+	height=&#34;552&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/3_hu92638cb0c8021fd083fafd56022bdd8a_49739_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/3_hu92638cb0c8021fd083fafd56022bdd8a_49739_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;199&#34;
+		data-flex-basis=&#34;478px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+V_E &amp;amp;= \frac{R_{on}}{R_{on} + R_D} V_{DD} \\
+R_{on} &amp;amp;= \frac{V_E}{I_D} \\
+I_D &amp;amp;= \frac{1}{2} k_n (V_E - V_t)^2 \\
+\therefore
+V_E &amp;amp;= \frac{V_{DD}}{1 + k_n R_D (V_{in} - V_t)}
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;分析电路&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;2 CS Stage&lt;/strong&gt; $\omega_0 \longrightarrow 0 \Longrightarrow \angle H(s) = 360 ^\circ$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;根据&lt;strong&gt;Equation (3)&lt;/strong&gt;, $V_E \uparrow \Longrightarrow V_F \downarrow \Longrightarrow V_E \uparrow \Longrightarrow M_1 \ Closed$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;电路增益曲线&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/4.png&#34;
+	width=&#34;1414&#34;
+	height=&#34;1060&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/4_hu407a410ffce42ddf406156dd4e906d57_112878_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/4_hu407a410ffce42ddf406156dd4e906d57_112878_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;three-stage-ring-oscillator&#34;&gt;Three-Stage Ring Oscillator&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/14.oscillators/5.png&#34;
+	width=&#34;1408&#34;
+	height=&#34;578&#34;
+	srcset=&#34;https://downeyflyfan.com/p/14.oscillators/5_hu2d0ac56f6d1406702a7f3238e6ebe0be_67508_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/14.oscillators/5_hu2d0ac56f6d1406702a7f3238e6ebe0be_67508_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;584px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Oscillating Frequency&lt;/strong&gt; and &lt;strong&gt;Transfer Function&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{align}
+\angle H(s)  &amp;amp;= 180 ^\circ  \\
+\therefore \angle H(s)&lt;em&gt;{each \ stage} &amp;amp;= 60 ^\circ  \\
+\therefore tan^{-1}\frac{\omega&lt;/em&gt;{osc}}{\omega_0} &amp;amp;= 60 ^\circ  \\
+\omega_{osc} &amp;amp;= \sqrt{3} \omega_0 \\
+H(s) &amp;amp;= -\frac{A_0^3}{(1 + \dfrac{s}{\omega_0})^3}
+\end{align}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Loop Gain = 1&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{align}
+|H(s)| &amp;amp;= 0 \\
+A_0 &amp;amp;= 2
+\end{align}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Gain&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{align}
+A_v &amp;amp;= \frac{H(s)}{1 - H(s)} \\
+&amp;amp;= - \frac{A_0^3}{A_0^3 + (1+s/\omega_0)^3}
+\end{align}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
