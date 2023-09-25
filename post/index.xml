@@ -1110,7 +1110,194 @@ $$&lt;/p&gt;
         <pubDate>Thu, 31 Aug 2023 10:40:58 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/</guid>
-        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;lti-对于复指数信号的响应&#34;&gt;LTI 对于复指数信号的响应&lt;/h1&gt;
+&lt;h2 id=&#34;信号分解为复指数信号&#34;&gt;信号分解为复指数信号&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{align}
+e^{st} &amp;amp;\longrightarrow H(s) e^{st} \\
+z^n &amp;amp;\longrightarrow H(z) z^n
+\end{align}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;幅度因子-特征函数&#34;&gt;幅度因子 特征函数&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;$H(z) / H(s)$ 被称为&lt;strong&gt;幅度因子&lt;/strong&gt;，也是系统的&lt;strong&gt;特征值&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{align}
+H(s_k) &amp;amp;= \int_{ - \infin  }^{  \infin } h(\tau) e^{-s_k \tau} d\tau \\
+H(z_k) &amp;amp;= \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
+\end{align}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当$s$和$z$为一般复数时，$H$为&lt;strong&gt;系统函数&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;叠加性质&#34;&gt;叠加性质&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+if \ x(t) &amp;amp;= \sum_{i}^n a_i e^{s_it} \\
+y(t) &amp;amp;= \sum_{i}^n a_iH(s_i) e^{s_it} \\
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+if \ x[n] &amp;amp;= \sum_k a_k z_k^n \\
+y[n] &amp;amp;= \sum_{k}a_kH(s_k)z_k^n
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;连续时间周期信号的傅立叶级数表示&#34;&gt;连续时间周期信号的傅立叶级数表示&lt;/h1&gt;
+&lt;h2 id=&#34;成谱波关系的复指数信号的线性组合&#34;&gt;成谱波关系的复指数信号的线性组合&lt;/h2&gt;
+&lt;h3 id=&#34;一般周期信号的傅立叶级数表示&#34;&gt;一般周期信号的傅立叶级数表示&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{align}
+x(t) &amp;amp;= \sum_{k = -\infin}^{ \infin} a_ke^{j k \omega &lt;em&gt;0 t} = \sum&lt;/em&gt;{k = -\infin}^{ \infin} a_ke^{j k \dfrac{2\pi}{T} t}
+\end{align}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$k = \pm N$这两项叫做&lt;strong&gt;N次谐波分量&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;实信号的傅立叶级数表示&#34;&gt;实信号的傅立叶级数表示&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;实信号的傅立叶级数满足$a_k = a_{-k}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+x(t) &amp;amp;= a_0 + \sum_{k=1}^{ \infin} \Big[ a_k e^{j k \omega _0 t} + a_k e^{-jk \omega &lt;em&gt;0 t} \Big] \\
+&amp;amp;= a_0 + 2 \sum&lt;/em&gt;{k=1}^{ \infin} \mathbb R \lbrace a_ke^{j k \omega_0 t} \rbrace \\
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;现在，让, $a_k = A_k e^{j\theta_k}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+x(t) &amp;amp;= a_0 + 2 \sum_{k = 1}^{ \infin} A_k cos(k \omega _0 t  + \theta_k)
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;让$a_k = B_k + jC_k$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+x(t) &amp;amp;= a_0 + 2 \sum_{k=1}^{ \infin} \Big[ B_k cos ( k\omega_0 t ) -j C_k sin(k \omega_0 t) \Big]
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;连续时间周期信号傅里叶级数表示的确定&#34;&gt;连续时间周期信号傅里叶级数表示的确定&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+a_k &amp;amp;= \frac{1}{T} \int_{T} e^{-jk \omega &lt;em&gt;0 t} x(t) dt = \frac{1}{T} \int&lt;/em&gt;{T} e^{-jk \dfrac{2\pi}{T} t} x(t) dt
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中, $a_0 = \dfrac{1}{T} \int_{T} x(t) dt$, 表示为&lt;strong&gt;直流分量&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;傅立叶级数的收敛---diriheli-condition&#34;&gt;傅立叶级数的收敛 - Diriheli Condition&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;函数必须在&lt;strong&gt;任意时间内绝对可积&lt;/strong&gt;, 即&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{align}
+\int_T |x(t)| &amp;lt; \infin
+\end{align}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;在&lt;strong&gt;任意时间&lt;/strong&gt;内，函数的&lt;strong&gt;最大值和最小值必须是有限的&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在&lt;strong&gt;任意时间&lt;/strong&gt;内，函数必须有&lt;strong&gt;有限个不连续点&lt;/strong&gt;， 且这些点的值必须是&lt;strong&gt;有限值&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;连续时间周期信号傅立叶级数性质&#34;&gt;连续时间周期信号傅立叶级数性质&lt;/h1&gt;
+&lt;h2 id=&#34;paswals-theorem&#34;&gt;Paswal&amp;rsquo;s Theorem&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;周期信号的平均功率 = 各个谐波信号的平均功率之和&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/1.png&#34;
+	width=&#34;1382&#34;
+	height=&#34;1432&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/1_hu0e929b3daf9f669eaf3937801a8930cd_374100_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/1_hu0e929b3daf9f669eaf3937801a8930cd_374100_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;96&#34;
+		data-flex-basis=&#34;231px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/2.png&#34;
+	width=&#34;1384&#34;
+	height=&#34;518&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/2_hu8dd31ec7fa102be02ec6acaa8b628304_160816_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/2_hu8dd31ec7fa102be02ec6acaa8b628304_160816_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;267&#34;
+		data-flex-basis=&#34;641px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;离散时间信号的傅立叶级数表示&#34;&gt;离散时间信号的傅立叶级数表示&lt;/h1&gt;
+&lt;h2 id=&#34;谐波信号&#34;&gt;谐波信号&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+x[n] &amp;amp;= \sum_{ k=(N) }^{  }a_k e^{jk \omega_0 n} = \sum_{ k=(N) }^{  }a_k e^{jk \dfrac{ 2\pi }{ N } n}
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;周期信号&#34;&gt;周期信号&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{align}
+x[n] &amp;amp;= \sum_{ k=(N) }^{  }a_k e^{jk \omega_0 n} = \sum_{ k=(N) }^{  }a_k e^{jk \dfrac{ 2\pi }{ N } n} \\
+a_k &amp;amp;= \frac{ 1 }{  N} \sum_{ k = (N) }^{  } x[n] e^{-j k \omega_0 n}
+\end{align}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;性质&#34;&gt;性质&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/3.png&#34;
+	width=&#34;1788&#34;
+	height=&#34;1726&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/3_hu095f1e326f5c8785fb656ffb400375e7_712058_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/3_hu095f1e326f5c8785fb656ffb400375e7_712058_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;103&#34;
+		data-flex-basis=&#34;248px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;系统的频率响应&#34;&gt;系统的频率响应&lt;/h1&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+H(j \omega) &amp;amp;=  \int_{ - \infin  }^{  \infin }  h( \tau) e^{-j \omega \tau} d \tau \\
+H[e^{j \omega}] &amp;amp;= \sum_{ k = - \infin  }^{ \infin  } h[n] e^{-j \omega n} \\
+y(t) &amp;amp;= \sum_{ k =- \infin  }^{  \infin } a_k H(j k\omega_0) e^{jk \omega_0 t} \\
+y[n] &amp;amp;= \sum_{ k = - \infin  }^{  \infin } a_k h[e^{jk \dfrac{ 2\pi }{  N} n}] e^{j k \dfrac{ 2\pi }{ N  } n}
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;滤波&#34;&gt;滤波&lt;/h1&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;数学知识补充&#34;&gt;数学知识补充&lt;/h1&gt;
+&lt;h2 id=&#34;欧拉公式变形&#34;&gt;欧拉公式变形&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{align}
+sinx &amp;amp;= \frac{ e^{jx}  + e^{-jx}}{ 2j} \\
+cosx &amp;amp;= \frac{ e^{jx}  - e^{-jx}}{ 2}
+\end{align}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
