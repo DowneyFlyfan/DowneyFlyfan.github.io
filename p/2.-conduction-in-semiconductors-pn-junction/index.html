@@ -2,23 +2,23 @@
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Carrier Motion in Semiconductors Drift Carriers move under Electric Field Difussion Carriers move due to Carrier Gradient or Temperature Gradient Recombination-generation Drift 载流子在电场中移动情况 受力分析 $$ \begin{equation} \begin{aligned} F &amp;amp;= m_na = qE \\ m_n:&amp;amp; \ effective \ electron \ mass \\ \end{aligned} \end{equation} $$
-加速度 $$ \begin{align} \therefore a_p &amp;amp;= \frac{ qE }{ m_n } \\ a_n &amp;amp;= \frac{ -q E }{ m_n } \end{align} $$
-速度 $$ \begin{align} v_d &amp;amp;= \mu E \end{align} $$'>
+加速度 和 速度 $$ \begin{align} \therefore a_p &amp;amp;= \frac{ qE }{ m_n } \\ a_n &amp;amp;= \frac{ -q E }{ m_n } \end{align} $$
+$$ \begin{equation} \begin{aligned} \frac{ dv }{ dt } &amp;amp;= \frac{ qE }{ m } \\ v &amp;amp;= \int_{ }^{ } \frac{ q }{ m } dt E \\ v &amp;amp;= \mu E \end{aligned} \end{equation} $$'>
 <title>2. Conduction In Semiconductors, pn Junction</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/2.-conduction-in-semiconductors-pn-junction/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='2. Conduction In Semiconductors, pn Junction'>
 <meta property='og:description' content='Carrier Motion in Semiconductors Drift Carriers move under Electric Field Difussion Carriers move due to Carrier Gradient or Temperature Gradient Recombination-generation Drift 载流子在电场中移动情况 受力分析 $$ \begin{equation} \begin{aligned} F &amp;amp;= m_na = qE \\ m_n:&amp;amp; \ effective \ electron \ mass \\ \end{aligned} \end{equation} $$
-加速度 $$ \begin{align} \therefore a_p &amp;amp;= \frac{ qE }{ m_n } \\ a_n &amp;amp;= \frac{ -q E }{ m_n } \end{align} $$
-速度 $$ \begin{align} v_d &amp;amp;= \mu E \end{align} $$'>
+加速度 和 速度 $$ \begin{align} \therefore a_p &amp;amp;= \frac{ qE }{ m_n } \\ a_n &amp;amp;= \frac{ -q E }{ m_n } \end{align} $$
+$$ \begin{equation} \begin{aligned} \frac{ dv }{ dt } &amp;amp;= \frac{ qE }{ m } \\ v &amp;amp;= \int_{ }^{ } \frac{ q }{ m } dt E \\ v &amp;amp;= \mu E \end{aligned} \end{equation} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/2.-conduction-in-semiconductors-pn-junction/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-10-04T12:36:36&#43;08:00'/><meta property='article:modified_time' content='2023-10-04T12:36:36&#43;08:00'/>
 <meta name="twitter:title" content="2. Conduction In Semiconductors, pn Junction">
 <meta name="twitter:description" content="Carrier Motion in Semiconductors Drift Carriers move under Electric Field Difussion Carriers move due to Carrier Gradient or Temperature Gradient Recombination-generation Drift 载流子在电场中移动情况 受力分析 $$ \begin{equation} \begin{aligned} F &amp;amp;= m_na = qE \\ m_n:&amp;amp; \ effective \ electron \ mass \\ \end{aligned} \end{equation} $$
-加速度 $$ \begin{align} \therefore a_p &amp;amp;= \frac{ qE }{ m_n } \\ a_n &amp;amp;= \frac{ -q E }{ m_n } \end{align} $$
-速度 $$ \begin{align} v_d &amp;amp;= \mu E \end{align} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+加速度 和 速度 $$ \begin{align} \therefore a_p &amp;amp;= \frac{ qE }{ m_n } \\ a_n &amp;amp;= \frac{ -q E }{ m_n } \end{align} $$
+$$ \begin{equation} \begin{aligned} \frac{ dv }{ dt } &amp;amp;= \frac{ qE }{ m } \\ v &amp;amp;= \int_{ }^{ } \frac{ q }{ m } dt E \\ v &amp;amp;= \mu E \end{aligned} \end{equation} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -273,7 +273,18 @@
         </li>
         <li><a href="#recombination-generation">Recombination-Generation</a>
           <ol>
-            <li><a href="#heading"></a></li>
+            <li><a href="#最简单的类型-band-to-band-recombination">最简单的类型 Band-to-band Recombination</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#pn-junction">pn Junction</a>
+      <ol>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#结构">结构</a>
+          <ol>
+            <li><a href="#metallurgical-junction">Metallurgical Junction</a></li>
+            <li><a href="#各种重要公式">各种重要公式</a></li>
           </ol>
         </li>
       </ol>
@@ -390,7 +401,7 @@ m_n:&amp; \ effective \ electron \ mass \\
 \end{equation}
 $$</p>
 <ol start="2">
-<li>加速度</li>
+<li>加速度 和 速度</li>
 </ol>
 <p>$$
 \begin{align}
@@ -398,22 +409,29 @@ $$</p>
 a_n &amp;= \frac{ -q E }{ m_n  }
 \end{align}
 $$</p>
-<ol start="3">
-<li>速度</li>
-</ol>
 <p>$$
-\begin{align}
-v_d &amp;= \mu E
-\end{align}
+\begin{equation}
+\begin{aligned}
+\frac{ dv }{ dt } &amp;= \frac{ qE }{ m } \\
+v &amp;= \int_{  }^{  } \frac{ q }{ m  } dt  E  \\
+v &amp;= \mu E
+\end{aligned}
+\end{equation}
 $$</p>
-<ul>
-<li>
-<p>$\mu$: 不同物质、不同载流子的<strong>electron mobility</strong>不相同</p>
-</li>
-<li>
-<p>$v_d$: Drift Velocity: 电子在电场中运动的<strong>平均速度</strong></p>
-</li>
-</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">$\mu$</th>
+<th style="text-align:center">不同物质、不同载流子的<strong>electron mobility</strong>不相同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$v_d$</td>
+<td style="text-align:center">Drift Velocity: 电子在电场中运动的<strong>平均速度</strong></td>
+</tr>
+</tbody>
+</table></div>
 <h3 id="drift-current-density">Drift Current Density</h3>
 <ul>
 <li>单位时间穿过单位横截面的<strong>电荷量</strong></li>
@@ -470,7 +488,91 @@ J_q &amp;= pq\mu_pE_x - q D_p \frac{ dp }{ dx  } \\
 \end{align}
 $$</p>
 <h2 id="recombination-generation">Recombination-Generation</h2>
-<h3 id="heading"></h3>
+<h3 id="最简单的类型-band-to-band-recombination">最简单的类型 Band-to-band Recombination</h3>
+<ol>
+<li>过程</li>
+</ol>
+<ul>
+<li>$e^-$Diffusion $\Longrightarrow$ 从<strong>CB</strong>跃迁到<strong>VB</strong></li>
+</ul>
+<ol start="2">
+<li>结果</li>
+</ol>
+<ul>
+<li>在GaA、InP等物质中产生<strong>photon</strong>，在Si、Ge等物质中产生<strong>heat</strong></li>
+</ul>
+<ol start="3">
+<li>Diffusion Length</li>
+</ol>
+<p>$$
+\begin{align}
+L_p &amp;= \sqrt{ D_p \tau_p } \\
+L_n &amp;= \sqrt{ D_n \tau_n }
+\end{align}
+$$</p>
+<ul>
+<li>$\tau_p$: electron recombination lifetime</li>
+</ul>
+<h1 id="pn-junction">pn Junction</h1>
+<h2 id="定义">定义</h2>
+<blockquote>
+<p>An <strong>Interface/ Boundary</strong> between 2 Semiconductor material types.</p>
+</blockquote>
+<h2 id="结构">结构</h2>
+<h3 id="metallurgical-junction">Metallurgical Junction</h3>
+<p><img src="/p/2.-conduction-in-semiconductors-pn-junction/1.png"
+	width="3000"
+	height="792"
+	srcset="/p/2.-conduction-in-semiconductors-pn-junction/1_hu649f02dd0d8cfe3f132cee61b7dfe888_326405_480x0_resize_box_3.png 480w, /p/2.-conduction-in-semiconductors-pn-junction/1_hu649f02dd0d8cfe3f132cee61b7dfe888_326405_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="378"
+		data-flex-basis="909px"
+	
+></p>
+<ol>
+<li>
+<p>depletion region (Space charge layer) 就在<strong>M Junction</strong>两侧</p>
+</li>
+<li>
+<p>相关的电场形成，促使<strong>Carrier</strong>返回原处</p>
+</li>
+</ol>
+<p><img src="/p/2.-conduction-in-semiconductors-pn-junction/2.png"
+	width="1580"
+	height="602"
+	srcset="/p/2.-conduction-in-semiconductors-pn-junction/2_hu92f7396441db4377810fbc16185f7c65_112206_480x0_resize_box_3.png 480w, /p/2.-conduction-in-semiconductors-pn-junction/2_hu92f7396441db4377810fbc16185f7c65_112206_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="262"
+		data-flex-basis="629px"
+	
+></p>
+<ol start="3">
+<li>
+<p>两股力量抵消，直至<strong>equilibrium</strong></p>
+</li>
+<li>
+<p>Depletion widths</p>
+</li>
+</ol>
+<p>$$
+\begin{align}
+N_a W_p &amp;= N_d W_n
+\end{align}
+$$</p>
+<h3 id="各种重要公式">各种重要公式</h3>
+<p>$$
+\begin{align}
+V_0 &amp;= \frac{ kT }{ e } ln \Big(\frac{ N_a N_d }{ n_i^2 }\Big) \\
+W_0 &amp;= \Big[ \frac{ 2 \varepsilon (N_a + N_d) V_0 }{ e N_a N_d  } \Big]^{1/2} \\
+W_0 &amp;=  \Big[ \frac{ 2 \varepsilon V_0 }{ e N_d } \Big]^{1/2} ( N_a \gg N_d )
+\end{align}
+$$</p>
 
 </section>
 

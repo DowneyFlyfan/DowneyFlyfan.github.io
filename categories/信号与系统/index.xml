@@ -6,7 +6,51 @@
         <description>Recent content in 信号与系统 on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Thu, 31 Aug 2023 10:40:58 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 08 Oct 2023 15:50:17 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>4.连续时间傅立叶变换</title>
+        <link>https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</link>
+        <pubDate>Sun, 08 Oct 2023 15:50:17 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid>
+        <description>&lt;h1 id=&#34;非周期信号的表示---连续时间傅立叶变换&#34;&gt;非周期信号的表示 - 连续时间傅立叶变换&lt;/h1&gt;
+&lt;h2 id=&#34;非周期信号的傅立叶表示&#34;&gt;非周期信号的傅立叶表示&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;傅立叶级数求解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+\widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\
+\widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\
+if \ T &amp;amp;\longrightarrow  \infin  \\
+a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;傅立叶表示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+X(j \omega) &amp;amp;= T a_k  \\
+&amp;amp;= \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+a_k &amp;amp;= \frac{ 1 }{ T  } X(j k \omega) \\
+\therefore \widehat { x(t) }{ ~ } &amp;amp;= \sum_{ k }^{  } a_k e^{jk \omega t} \\
+&amp;amp;= \frac{ 1 }{ 2\pi  } \sum_{ k = - \infin  }^{ \infin } X(j \omega_0 t) e^{jk \omega_0 t} \omega_0 \\
+\therefore x(t) &amp;amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>3. 周期信号的傅里叶级数表示</title>
         <link>https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/</link>
         <pubDate>Thu, 31 Aug 2023 10:40:58 +0800</pubDate>
@@ -21,13 +65,18 @@ z^n &amp;amp;\longrightarrow H(z) z^n
 \end{align}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;幅度因子-特征函数&#34;&gt;幅度因子 特征函数&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;$H(z) / H(s)$ 被称为&lt;strong&gt;幅度因子&lt;/strong&gt;，也是系统的&lt;strong&gt;特征值&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$H(z) / H(s)$ 被称为&lt;strong&gt;幅度因子&lt;/strong&gt;，也是系统的&lt;strong&gt;特征值&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当输入$x(t) = e^{st}, x[n] = z^n$时&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{align}
-H(s_k) &amp;amp;= \int_{ - \infin  }^{  \infin } h(\tau) e^{-s_k \tau} d\tau \\
-H(z_k) &amp;amp;= \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
+H(s) &amp;amp;= \int_{ - \infin  }^{  \infin } h(\tau) e^{-s \tau} d\tau \\
+H(z) &amp;amp;= \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
 \end{align}
 $$&lt;/p&gt;
 &lt;ul&gt;
@@ -63,7 +112,7 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;实信号的傅立叶级数表示&#34;&gt;实信号的傅立叶级数表示&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;实信号的傅立叶级数满足$a_k = a_{-k}$&lt;/li&gt;
+&lt;li&gt;实信号的傅立叶级数满足$a_k = a_{-k}^*$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \begin{equation}
@@ -659,8 +708,8 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
-E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x(n)|^2dn \\
-P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n + 1} \sum_{-n}^n |x(n)|^2dn \\
+E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x[n]|^2dn \\
+P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n + 1} \sum_{-n}^n |x[n]|^2dn \\
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;独立变量的初级转换&#34;&gt;独立变量的初级转换&lt;/h1&gt;
@@ -680,7 +729,7 @@ $$&lt;/p&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;time reversal&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;在$\alpha &amp;lt;0$时对称&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在$\alpha &amp;lt;0$时翻转&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;time scaling&lt;/td&gt;
@@ -703,9 +752,9 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;任何信号函数&lt;/strong&gt;可以拆分成$O(t) + E(t)$&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
 E(x) &amp;amp;= \frac{1}{2}(x(t) + x(-t)) \\
@@ -782,14 +831,14 @@ x(t) &amp;amp;= |C|e^{j \theta} e^{(r + j\omega) t} \\
 &amp;amp;= |C|e^{rt} e^{j(\omega t + \theta)}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;ul&gt;
+&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;当$r = 0$，都是正弦信号&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;当$r \gt 0$, 当$r \lt 0$&lt;/p&gt;
+&lt;p&gt;当$r \gt 0, r \lt 0$时&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/1.-%E7%BB%AA%E8%AE%BA/1.png&#34;
 	width=&#34;2338&#34;
 	height=&#34;1528&#34;

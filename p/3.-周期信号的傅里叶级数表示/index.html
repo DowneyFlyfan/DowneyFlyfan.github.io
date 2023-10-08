@@ -2,7 +2,9 @@
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='LTI 对于复指数信号的响应 信号分解为复指数信号 $$ \begin{align} e^{st} &amp;amp;\longrightarrow H(s) e^{st} \\ z^n &amp;amp;\longrightarrow H(z) z^n \end{align} $$
-幅度因子 特征函数 $H(z) / H(s)$ 被称为幅度因子，也是系统的特征值 $$ \begin{align} H(s_k) &amp;amp;= \int_{ - \infin }^{ \infin } h(\tau) e^{-s_k \tau} d\tau \\ H(z_k) &amp;amp;= \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{align} $$
+幅度因子 特征函数 $H(z) / H(s)$ 被称为幅度因子，也是系统的特征值
+当输入$x(t) = e^{st}, x[n] = z^n$时
+$$ \begin{align} H(s) &amp;amp;= \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ H(z) &amp;amp;= \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{align} $$
 当$s$和$z$为一般复数时，$H$为系统函数 叠加性质 $$ \begin{equation} \begin{aligned} if \ x(t) &amp;amp;= \sum_{i}^n a_i e^{s_it} \\ y(t) &amp;amp;= \sum_{i}^n a_iH(s_i) e^{s_it} \\ \end{aligned} \end{equation} $$'>
 <title>3. 周期信号的傅里叶级数表示</title>
 
@@ -10,14 +12,18 @@
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='3. 周期信号的傅里叶级数表示'>
 <meta property='og:description' content='LTI 对于复指数信号的响应 信号分解为复指数信号 $$ \begin{align} e^{st} &amp;amp;\longrightarrow H(s) e^{st} \\ z^n &amp;amp;\longrightarrow H(z) z^n \end{align} $$
-幅度因子 特征函数 $H(z) / H(s)$ 被称为幅度因子，也是系统的特征值 $$ \begin{align} H(s_k) &amp;amp;= \int_{ - \infin }^{ \infin } h(\tau) e^{-s_k \tau} d\tau \\ H(z_k) &amp;amp;= \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{align} $$
+幅度因子 特征函数 $H(z) / H(s)$ 被称为幅度因子，也是系统的特征值
+当输入$x(t) = e^{st}, x[n] = z^n$时
+$$ \begin{align} H(s) &amp;amp;= \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ H(z) &amp;amp;= \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{align} $$
 当$s$和$z$为一般复数时，$H$为系统函数 叠加性质 $$ \begin{equation} \begin{aligned} if \ x(t) &amp;amp;= \sum_{i}^n a_i e^{s_it} \\ y(t) &amp;amp;= \sum_{i}^n a_iH(s_i) e^{s_it} \\ \end{aligned} \end{equation} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-08-31T10:40:58&#43;08:00'/><meta property='article:modified_time' content='2023-08-31T10:40:58&#43;08:00'/>
 <meta name="twitter:title" content="3. 周期信号的傅里叶级数表示">
 <meta name="twitter:description" content="LTI 对于复指数信号的响应 信号分解为复指数信号 $$ \begin{align} e^{st} &amp;amp;\longrightarrow H(s) e^{st} \\ z^n &amp;amp;\longrightarrow H(z) z^n \end{align} $$
-幅度因子 特征函数 $H(z) / H(s)$ 被称为幅度因子，也是系统的特征值 $$ \begin{align} H(s_k) &amp;amp;= \int_{ - \infin }^{ \infin } h(\tau) e^{-s_k \tau} d\tau \\ H(z_k) &amp;amp;= \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{align} $$
+幅度因子 特征函数 $H(z) / H(s)$ 被称为幅度因子，也是系统的特征值
+当输入$x(t) = e^{st}, x[n] = z^n$时
+$$ \begin{align} H(s) &amp;amp;= \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ H(z) &amp;amp;= \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{align} $$
 当$s$和$z$为一般复数时，$H$为系统函数 叠加性质 $$ \begin{equation} \begin{aligned} if \ x(t) &amp;amp;= \sum_{i}^n a_i e^{s_it} \\ y(t) &amp;amp;= \sum_{i}^n a_iH(s_i) e^{s_it} \\ \end{aligned} \end{equation} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
@@ -387,13 +393,18 @@ z^n &amp;\longrightarrow H(z) z^n
 \end{align}
 $$</p>
 <h2 id="幅度因子-特征函数">幅度因子 特征函数</h2>
-<ul>
-<li>$H(z) / H(s)$ 被称为<strong>幅度因子</strong>，也是系统的<strong>特征值</strong></li>
-</ul>
+<ol>
+<li>
+<p>$H(z) / H(s)$ 被称为<strong>幅度因子</strong>，也是系统的<strong>特征值</strong></p>
+</li>
+<li>
+<p>当输入$x(t) = e^{st}, x[n] = z^n$时</p>
+</li>
+</ol>
 <p>$$
 \begin{align}
-H(s_k) &amp;= \int_{ - \infin  }^{  \infin } h(\tau) e^{-s_k \tau} d\tau \\
-H(z_k) &amp;= \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
+H(s) &amp;= \int_{ - \infin  }^{  \infin } h(\tau) e^{-s \tau} d\tau \\
+H(z) &amp;= \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
 \end{align}
 $$</p>
 <ul>
@@ -429,7 +440,7 @@ $$</p>
 </ul>
 <h3 id="实信号的傅立叶级数表示">实信号的傅立叶级数表示</h3>
 <ol>
-<li>实信号的傅立叶级数满足$a_k = a_{-k}$</li>
+<li>实信号的傅立叶级数满足$a_k = a_{-k}^*$</li>
 </ol>
 <p>$$
 \begin{equation}
@@ -635,6 +646,19 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">4.连续时间傅立叶变换</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">
