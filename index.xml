@@ -1798,14 +1798,24 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;641px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;若x (t)为实偶函数，那么它的傅里叶级数系数也为实偶函数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;若x (t)为实奇函数，那么它的傅里叶级数系数为纯虚奇函数&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$x(t)$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$a_k$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;实偶函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;实偶函数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;实奇函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;纯虚奇函数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h1 id=&#34;离散时间信号的傅立叶级数表示&#34;&gt;离散时间信号的傅立叶级数表示&lt;/h1&gt;
 &lt;h2 id=&#34;谐波信号&#34;&gt;谐波信号&lt;/h2&gt;
 &lt;p&gt;$$
@@ -7920,6 +7930,9 @@ A_v &amp;amp;= -g_{mN} (\frac{1}{g_{mP}} || r_{oP} || r_{oN}) \\
 \end{aligned}
 \end{equation}
 $$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tradeoff among output voltage swing, voltage gain and CM input range&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;current-source-loads&#34;&gt;Current-Source Loads&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{equation}
@@ -8135,7 +8148,7 @@ $$&lt;/p&gt;
         <guid>https://downeyflyfan.com/p/3.-single-stage-amplifier/</guid>
         <description>&lt;h1 id=&#34;cs-stage&#34;&gt;CS Stage&lt;/h1&gt;
 &lt;h2 id=&#34;cs-stage-with-resistive-load&#34;&gt;CS Stage With Resistive Load&lt;/h2&gt;
-&lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
+&lt;h3 id=&#34;电路图和小信号模型&#34;&gt;电路图和小信号模型&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/2.png&#34;
 	width=&#34;964&#34;
 	height=&#34;777&#34;
@@ -8148,7 +8161,13 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;297px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;分析a和v_out&#34;&gt;分析$A$和$V_{out}$&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$\pmb{V_{in} = V_{GS}}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;输入-输出关系-增益&#34;&gt;输入-输出关系 增益&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;$V_{out} - V_{in}$&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 V_{in} = V_{GS}, V_{out} = V_{DS} \\\
 \\ V_{out} =
@@ -8163,10 +8182,18 @@ V_{DD} - \frac{1}{2}[2(V_{in} - V_t)V_{out}- V_{out}^2] R_D &amp;amp; Triode \ R
 V_{out} &amp;amp;= \frac{R_{on}}{R_{on} + R_D}V_{DD} \\
 &amp;amp;= \frac{V_{DD}}{1 + k_n R_D(V_{in} -V_t)}  \\
 ( R_{on} &amp;amp;= \frac{V_{out}}{i_D},i_D = k_nR_D(V_{in}-V_t)V_{out} )  \\\
-\\ Saturation \ Gain:  \\
-A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;增益&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+A_v &amp;amp;= \frac{ \partial V_{out} }{ \partial V_{in}} \\
 &amp;amp;= -g_m R_D
 \end{aligned}
+\end{equation}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;important-relations&#34;&gt;Important Relations&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/18.png&#34;
@@ -8181,39 +8208,32 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;579px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;gain-in-channel-length-modulation&#34;&gt;Gain in Channel Length Modulation&lt;/h3&gt;
+&lt;h3 id=&#34;gain-considering-channel-length-modulation&#34;&gt;Gain Considering Channel Length Modulation&lt;/h3&gt;
 &lt;p&gt;$$
-V_{out} = V_{DD} - \frac{1}{2}k_n(V_{in} - V_t)^2 (1 + \lambda V_{out})R_D \\\
-\\ \begin{aligned}
-A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
+\begin{aligned}
+V_{out} &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_{in} - V_t)^2 (1 + \lambda V_{out})R_D \\
+\therefore A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}}\\
 &amp;amp;= - R_Dk_n (V_{in} - V_t)(1 + \lambda V_{out})- \frac{1}{2}k_n R_D(V_{in} - V_t)^2 \lambda\frac{\partial V_{out}}{\partial V_{in}} \\
 &amp;amp;= -R_D g_m - I_DR_D \lambda A_v  (近似) \\
 &amp;amp;= -\frac{g_m R_D}{1 + R_D \lambda I_D} \\
 &amp;amp;= -g_m \frac{r_0R_D}{r_0 + R_D}
-\end{aligned}$$&lt;/p&gt;
-&lt;h2 id=&#34;cs-stage-with-diode-connected-load&#34;&gt;CS Stage With Diode-Connected Load&lt;/h2&gt;
-&lt;h3 id=&#34;电路--电阻粗略计算&#34;&gt;电路 + 电阻粗略计算&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/3.png&#34;
-	width=&#34;809&#34;
-	height=&#34;316&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/3_huab5b33b05b85ead937a0fce9ac8efe5e_11377_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-single-stage-amplifier/3_huab5b33b05b85ead937a0fce9ac8efe5e_11377_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;256&#34;
-		data-flex-basis=&#34;614px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-V_1 &amp;amp;= V_X \\
-I_X &amp;amp;= \frac{V_X}{r_0} + g_mV_X \\
-Z_{in} &amp;amp;=\frac{V_X}{I_X}  \\
-&amp;amp;\approx \frac{1}{g_m}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;电阻精确测量&#34;&gt;电阻精确测量&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{equation}
+A_v = -g_m\frac{ r_o R_D}{ r_0 + R_D }
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;其中，$\lambda I_D = \dfrac{ 1 }{ r_0 }$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;效果就是&lt;strong&gt;并联&lt;/strong&gt;$r_0$和$R_D$作为&lt;strong&gt;输出电阻&lt;/strong&gt;，$1/g_m$是&lt;strong&gt;输入电阻&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;cs-stage-with-diode-connected-load&#34;&gt;CS Stage With Diode-Connected Load&lt;/h2&gt;
+&lt;h3 id=&#34;输入阻抗&#34;&gt;输入阻抗&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/4.png&#34;
 	width=&#34;728&#34;
 	height=&#34;380&#34;
@@ -8228,16 +8248,15 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-Impedence: (\frac{1}{g_m} || r_0) &amp;amp;\approx \frac{1}{g_m} \\
 V_1 &amp;amp;= V_{bs} = -V_X \\\
-I_X &amp;amp;=\frac{V_X}{r_0} + (g_m + g_{mb})V_X \\
+\\ I_X &amp;amp;=\frac{V_X}{r_0} + (g_m + g_{mb})V_X \\
 \frac{V_X}{I_X} &amp;amp;=  \frac{1}{g_m+g_{mb}+r_0^{-1}} \\
 &amp;amp;= \frac{1}{g_m + g_{mb}} || r_0 \\
 &amp;amp; \approx \frac{1}{g_m +g_{mb}} \\
 Z_{in} &amp;amp;\approx \frac{1}{g_m + g_{mb}}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;gain&#34;&gt;Gain&lt;/h3&gt;
+&lt;h3 id=&#34;增益&#34;&gt;增益&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/5.png&#34;
 	width=&#34;526&#34;
 	height=&#34;668&#34;
@@ -8257,12 +8276,21 @@ $$&lt;/p&gt;
 \begin{aligned}
 A_v &amp;amp;= -g_{m1} \frac{1}{g_{m2} + g_{mb2}} \\
 &amp;amp;= -\frac{g_{m1}}{g_{m2}}\frac{1}{1 + \eta}  \\
-\Big( \eta&amp;amp;=\frac{g_{mb2}}{g_{m2}} = \frac{\partial V_{TH}}{\partial V_{out}} \Big) \\
 \because I_{D1} &amp;amp;= I_{D2} \\
-\therefore A_v &amp;amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta} \\
-&amp;amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta}
+\therefore A_v &amp;amp;= \frac{\sqrt{2k_nI_{D1}}}{\sqrt{2k_nI_{D2}}}\frac{1}{1+\eta}
 \end{aligned}
 $$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+A_v &amp;amp;= -\sqrt{\frac{(W/L)_1}{(W/L)_2}}\frac{1}{1+\eta} \\
+&amp;amp;\approx  - \sqrt{ \frac{ (W/L)_1 }{ (W/L)_2 } }
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中，$\pmb{\eta=\dfrac{g_{mb2}}{g_{m2}} = \dfrac{\partial V_{TH}}{\partial V_{out}}}$&lt;/li&gt;
+&lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Method II&lt;/li&gt;
 &lt;/ol&gt;
@@ -8308,8 +8336,13 @@ $$&lt;/p&gt;
 \end{aligned}
 $$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;在考虑现实因素的情况下，$A_v = -g_{m1} (\frac{1}{g_{m2}} || r_{o1} || r_{o2})$&lt;/li&gt;
+&lt;li&gt;在考虑现实因素的情况下&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;$$
+\begin{equation}
+A_v = -g_{mn} (\frac{1}{g_{mp}} || r_{on} || r_{op})
+\end{equation}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-current-source-load&#34;&gt;CS Stage With Current-Source Load&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/6.png&#34;
 	width=&#34;176&#34;
@@ -8323,11 +8356,17 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;188px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h3 id=&#34;gain&#34;&gt;Gain&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{aligned}
-A_v &amp;amp;= -g_m(r_{o1} || r_{o2}) \\
-Intrinsic \ Gain: \ g_mr_o &amp;amp;= \sqrt{2(\frac{W}{L})\mu_nC_{OX}I_D} \frac{1}{\lambda I_D}
-\end{aligned}
+\begin{equation}
+A_v = -g_m(r_{o1} || r_{o2})
+\end{equation}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;intrinsic-gain&#34;&gt;Intrinsic Gain&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{equation}
+g_mr_o = \sqrt{2(\frac{W}{L})\mu_nC_{OX}I_D} \frac{1}{\lambda I_D}
+\end{equation}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-triode-load&#34;&gt;CS Stage With Triode Load&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/7.png&#34;
@@ -8343,10 +8382,12 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
+\begin{equation}
 \begin{aligned}
 R_{on2} &amp;amp;= \frac{1}{g_{m2}} \\
 &amp;amp;= \frac{1}{\mu_p C_{OX}(W/L)&lt;em&gt;2(V&lt;/em&gt;{DD} -V_b-V_{Tp})}
 \end{aligned}
+\end{equation}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;cs-stage-with-source-degeneration&#34;&gt;CS Stage With Source Degeneration&lt;/h2&gt;
 &lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
@@ -8362,7 +8403,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;485px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;简化分析&#34;&gt;简化分析&lt;/h3&gt;
+&lt;h3 id=&#34;简化分析-gain&#34;&gt;简化分析 Gain&lt;/h3&gt;
 &lt;p&gt;$$
 设I_D = f(V_{GS})  \\\
 \\ \begin{aligned}
@@ -8372,17 +8413,23 @@ G_m &amp;amp;= \frac{\partial I_D}{\partial V_{in}} \\
 &amp;amp;= g_m (1-R_S\frac{\partial I_D}{\partial V_{in}}) \\
 &amp;amp;= g_m(1 -R_SG_m)
 \\ \therefore G_m &amp;amp;= \frac{g_m}{1+g_mR_S} \\
-&amp;amp;= \frac{1}{\dfrac{1}{g_m} + R_S} \\\
-\\ \therefore A_v &amp;amp;= -G_m R_D  \\
-&amp;amp;= -\frac{g_mR_D}{1 + g_mR_S}
+&amp;amp;= \frac{1}{\dfrac{1}{g_m} + R_S}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;具体分析&#34;&gt;具体分析&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+A_v &amp;amp;= -G_m R_D  \\
+&amp;amp;= -\frac{g_mR_D}{1 + g_mR_S}
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;具体分析-gain&#34;&gt;具体分析 Gain&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;考虑了&lt;strong&gt;Channel Length Modulation&lt;/strong&gt;和&lt;strong&gt;Body Effect&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol&gt;
-&lt;li&gt;电路&lt;/li&gt;
+&lt;li&gt;小信号模型&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/9.png&#34;
 	width=&#34;613&#34;
@@ -8496,7 +8543,7 @@ A_v &amp;amp;= -g_m r_o
 \end{aligned}
 $$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;这种情况下，$R_S$&lt;strong&gt;不起作用了&lt;/strong&gt;，通过$R_S$的小电流为0&lt;/li&gt;
+&lt;li&gt;这种情况下，通过$R_S$的$AC$电流为&lt;strong&gt;0&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;source-follower&#34;&gt;Source Follower&lt;/h1&gt;
 &lt;h2 id=&#34;电路-电压特性&#34;&gt;电路 电压特性&lt;/h2&gt;
@@ -8512,6 +8559,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;508px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h2 id=&#34;gain-1&#34;&gt;Gain&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;只考虑&lt;strong&gt;Body Effect&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -8521,9 +8569,13 @@ V_{out} &amp;amp;= \frac{1}{2}k_n(V_{in} -V_{out} -V_t) ^2 R_S \\
 \frac{\partial V_{out}}{\partial V_{in}} &amp;amp;= k_n(V_{in}- V_{out} -V_t) (1 - \frac{\partial V_{out}}{\partial V_{in}} - \frac{\partial V_t}{\partial V_{in}}) R_S \\
 \because \frac{\partial V_t}{\partial V_{in}} &amp;amp;= \eta \frac{\partial V_{out}}{\partial V_{in}} \\
 \therefore \frac{\partial V_{out}}{\partial V_{in}} &amp;amp;= \frac{k_nV_{OV}R_S}{1+k_nV_{OV}R_S(1  +\eta)} \\
-\because g_m &amp;amp;= k_nV_{OV} \\
-\therefore A_v &amp;amp;= \frac{g_m R_S}{1 + (g_m + g_{mb}) R_S}
+\because g_m &amp;amp;= k_nV_{OV}
 \end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+A_v = \frac{g_m R_S}{1 + (g_m + g_{mb}) R_S}
+\end{equation}
 $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;若不考虑&lt;strong&gt;Body Effect&lt;/strong&gt;，$A_v = \dfrac{1}{\dfrac{1}{g_m} + R_S} R_S$, 和&lt;strong&gt;CS Degeneration&lt;/strong&gt;十分相似&lt;/li&gt;
@@ -8590,22 +8642,28 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;(a) 直接耦合&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(a)&lt;/strong&gt; 直接耦合&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;(b) 电容耦合&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(b)&lt;/strong&gt; 电容耦合&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;简化后的-gain&#34;&gt;简化后的 Gain&lt;/h2&gt;
+&lt;h2 id=&#34;gain-2&#34;&gt;Gain&lt;/h2&gt;
+&lt;h3 id=&#34;简化后的-gain&#34;&gt;简化后的 Gain&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_{out} &amp;amp;= V_{DD} - \frac{1}{2}k_n(V_b -V_{in} -V_t)^2R_D \\
 \therefore A_v &amp;amp;= \frac{\partial V_{out}}{\partial V_{in}} \\
 &amp;amp;= -k_nV_{OV}(-1-\eta) R_D \\
-&amp;amp;= g_m(1+\eta) R_D
+&amp;amp;= g_m R_D ( 1 + \eta)
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;普适性的gain&#34;&gt;普适性的Gain&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+A_v = g_m R_D
+\end{equation}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;普适性的gain&#34;&gt;普适性的Gain&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/29.png&#34;
 	width=&#34;1986&#34;
 	height=&#34;972&#34;
@@ -8621,13 +8679,24 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 V_1  - \frac{V_{out}}{R_D} R_S + V_{in} &amp;amp;=0  \\
-V_{out} &amp;amp;=V_{in} -\frac{V_{out}}{R_D} R_S  + (V_1(g_m + g_{mb}) - \frac{V_{out}}{R_D})r_o \\
-\therefore A_v &amp;amp;=\frac{V_{out}}{V_{in}} = \frac{1 + (g_m + g_{mb})r_o }{r_o + (g_m + g_{mb})r_oR_S + R_S +R_D}R_D \\
-if \ R_D &amp;amp;\rightarrow \infin \\
-A_v &amp;amp;= 1 + (g_m + g_{mb}) r_o
+V_{out} &amp;amp;=V_{in} -\frac{V_{out}}{R_D} R_S  + (V_1(g_m + g_{mb}) - \frac{V_{out}}{R_D})r_o
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;input-impedence&#34;&gt;Input Impedence&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+A_v =\frac{V_{out}}{V_{in}} = \frac{1 + (g_m + g_{mb})r_o }{r_o + (g_m + g_{mb})r_oR_S + R_S +R_D}R_D
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若 $R_D \rightarrow \infin$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{equation}
+A_v = 1 + (g_m + g_{mb}) r_o
+\end{equation}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;impedence&#34;&gt;Impedence&lt;/h2&gt;
+&lt;h3 id=&#34;input-impedence&#34;&gt;Input Impedence&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/28.png&#34;
 	width=&#34;1878&#34;
 	height=&#34;730&#34;
@@ -8645,14 +8714,26 @@ $$&lt;/p&gt;
 V_1 &amp;amp;= -V_X \\
 V_X + (g_mV_1 + g_{mb}V_{bs} - I_X)r_o &amp;amp;=  I_XR_D \\
 \therefore R_{in} &amp;amp;= \frac{V_X}{I_X} \\
-&amp;amp;= \frac{R_D + r_o}{1 + (g_m + g_{mb})r_o} \\
-\because (g_m + g_{mb})r_o &amp;amp;\gg 1 \\
-\therefore R_{in }&amp;amp;\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
-if \ R_D &amp;amp;=0 \\
-R_{in} &amp;amp;= \frac{1}{g_m + g_{mb} + \dfrac{1}{r_o}}
+&amp;amp;= \frac{R_D + r_o}{1 + (g_m + g_{mb})r_o}
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;output-impedence&#34;&gt;Output Impedence&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因为&lt;/strong&gt;$(g_m + g_{mb})r_o \gg 1$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{equation}
+R_{in }\approx \frac{R_D}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若$R_D = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{equation}
+R_{in} = \frac{1}{g_m + g_{mb} + \dfrac{1}{r_o}}
+\end{equation}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;output-impedence&#34;&gt;Output Impedence&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/30.png&#34;
 	width=&#34;632&#34;
 	height=&#34;810&#34;
@@ -8666,9 +8747,9 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
-\begin{aligned}
-R_{out} &amp;amp;= \big[ (1 + (g_m + g_{mb})r_o)R_S + r_o \big] || R_D
-\end{aligned}
+\begin{equation}
+R_{out} = \big[ (1 + (g_m + g_{mb})r_o)R_S + r_o \big] || R_D
+\end{equation}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;cascode-stage&#34;&gt;Cascode Stage&lt;/h1&gt;
 &lt;h2 id=&#34;basic-configuration&#34;&gt;Basic Configuration&lt;/h2&gt;
@@ -8696,23 +8777,37 @@ $$&lt;/p&gt;
 &lt;p&gt;$M_2$: Cascode Device&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;output-voltage-range&#34;&gt;Output Voltage Range&lt;/h3&gt;
+&lt;h3 id=&#34;voltage-range&#34;&gt;Voltage Range&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;为了让$M_1$和$M_2$都工作在饱和区，作出以下分析&lt;/li&gt;
+&lt;li&gt;为了让$M_1$工作在&lt;strong&gt;Saturation Region&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
-V_X &amp;amp;\ge  V_{in} - V_{T1} \ (1) \\
-V_X &amp;amp;= V_b - V_{GS2} \ (2) \\\
-\\ 结合(1)(2)  \\
+V_X &amp;amp;\ge  V_{in} - V_{T1} \\
+V_X &amp;amp;= V_b - V_{GS2}
 V_b -V_{GS2} &amp;amp;\ge V_{in} -V_{T1} \\
-V_b &amp;amp;\ge V_{in} - V_{T1} + V_{GS2} \ (3)  \\\
+V_b &amp;amp;\ge V_{in} - V_{T1} + V_{GS2}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为了让$M_2$工作在&lt;strong&gt;Saturation Region&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
 \\ V_{out} - V_{S2} &amp;amp;\ge V_b - V_{S2} - V_{T2} \\
 V_{out} &amp;amp;\ge V_b - V_{T2} (4)\\
-\therefore 结合(3)(4) \\
 V_{out} &amp;amp;\ge (V_{in} - V_{T1}+ V_{GS2} -V_{T2}) \\
-\therefore V_{out \ min} &amp;amp;= V_{OV1} + V_{OV2}
 \end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+V_{b \ min} = V_{in} - V_{TH1} + V_{GS2}
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+V_{out \ min} = V_{OV1} + V_{OV2}
+\end{equation}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;io-特性&#34;&gt;I/O 特性&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/16.png&#34;
@@ -8743,10 +8838,21 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 I_{D2} &amp;amp;= I_{D1} \frac{R_p}{\dfrac{1}{g_m + g_{mb}} + R_p} \\
-&amp;amp;= I_{D1} \frac{(g_m + g_{mb})R_p}{1 + (g_m + g_{mb})R_p} \\
-\therefore A_v &amp;amp;= -g_mR_D\frac{(g_m + g_{mb})R_p}{1 + (g_m + g_{mb})R_p} \\
-R_{out} &amp;amp;= [1 + (g_{m2} + g_{mb2})r_{o2}]r_{o1} + r_{o2}
+&amp;amp;= g_{m1} V_{in} \frac{(g_m + g_{mb})R_p}{1 + (g_m + g_{mb})R_p}
 \end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+\begin{aligned}
+A_v &amp;amp;= -\frac{ I_{D2} }{ I_{D1} } \\
+&amp;amp;=-g_mR_D\frac{(g_m + g_{mb})R_p}{1 + (g_m + g_{mb})R_p}
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+R_{out} = [1 + (g_{m2} + g_{mb2})r_{o2}]r_{o1} + r_{o2}
+\end{equation}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;cascode-stage-with-current-source-load&#34;&gt;Cascode Stage With Current-Source Load&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/21.png&#34;
@@ -8805,14 +8911,20 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;547px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于(b)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
-For \ (b) \\
 I_{D2} &amp;amp;= I_1 - \frac{1}{2}k_p(V_{DD} - V_{in1} - |V_{tp}|)^2 \\
 I_{D2} &amp;amp; \downarrow \ \Rightarrow I_{D2} = 0 \\
-I_1 &amp;amp;= \frac{1}{2}k_p(V_{DD} - V_{in1} - |V_{tp}|)^2 \\
-\therefore V_{in1} &amp;amp;= V_{DD} - |V_{tp}| -\sqrt{\frac{2I_{1}}{k_p}}
+I_1 &amp;amp;= \frac{1}{2}k_p(V_{DD} - V_{in1} - |V_{tp}|)^2
 \end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+V_{in1} = V_{DD} - |V_{tp}| -\sqrt{\frac{2I_{1}}{k_p}}
+\end{equation}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;folded-cascode-with-current-source&#34;&gt;Folded Cascode With Current Source&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-single-stage-amplifier/32.png&#34;
@@ -8828,13 +8940,11 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;$$
+\begin{equation}
 R_{out} = \big[ 1 + (g_{m2} + g_{mb2})r_{o2} \big] (r_{o1} || r_{o3}) + r_{o2}
+\end{equation}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
-&lt;h2 id=&#34;triode-region-resistance&#34;&gt;Triode Region Resistance&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;We can approximate $R_{DS}$ as being equal to its maximum value, which is equal to $\dfrac{V_D}{I_D}$. This gives us an equivalent resistance of $R_{on} = \dfrac{V_D}{I_D}$.&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;h2 id=&#34;mosfet的电阻&#34;&gt;MOSFET的电阻&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -8842,22 +8952,26 @@ $$&lt;/p&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;输出电阻&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;反向输出电阻&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Triode Region Resistance&lt;/strong&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;符号&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\frac{1}{g_m}$ 或 $r_{ds}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{1}{g_m}$ 或 $r_{ds}$&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$r_o$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$R_{on} = \dfrac{ V_{DS} }{ I_D }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;适用情况&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;考虑CLM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;进入&lt;strong&gt;Triode Region&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;不适用情况&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;高频电路&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -8875,11 +8989,9 @@ $$&lt;/p&gt;
 &lt;p&gt;the voltage at the body terminal (which is usually connected to the source) affects the threshold voltage of the device. This occurs because of the depletion region that forms between the body and channel regions. When a voltage is applied to the body, it changes the width of this depletion region, which alters the effective thickness of the oxide layer between gate and channel.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;$$
-\begin{aligned}
-\eta &amp;amp;= \frac{g_m}{g_{mb}} \\
-&amp;amp;=\dfrac{\partial V_{TH}}{\partial V_{in}} \\
-&amp;amp;= \frac{\partial V_t}{\partial V_{SB}}
-\end{aligned}
+\begin{equation}
+\eta = \frac{g_m}{g_{mb}} =\dfrac{\partial V_{TH}}{\partial V_{in}} = \frac{\partial V_t}{\partial V_{SB}}
+\end{equation}
 $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -8892,9 +9004,6 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;二极管的反向传输电阻对二极管电流的影响, 其中$g_{mb}$叫做&lt;strong&gt;反向跨导&lt;/strong&gt;, 指栅-漏结电容在反向偏置下存储的电荷引起的漏极电流变化的比例，反映了MOSFET的输入特性。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;shielded-property-of-cascode-stage&#34;&gt;Shielded Property of Cascode Stage&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;/blockquote&gt;
 </description>
         </item>
         <item>
