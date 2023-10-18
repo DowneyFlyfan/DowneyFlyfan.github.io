@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Simple Feedback Circuit Relative Gain Error G Actual Gain A Ideal Gain $$ \begin{aligned} RGE &amp;amp;= \frac{G - A}{A} \times 100% \\ &amp;amp;= \frac{\dfrac{A}{1 &#43; A\beta} - \dfrac{1}{\beta}}{\dfrac{1}{\beta}} \times 100% \\ &amp;amp;= - \frac{1}{1 &#43; A\beta} \end{aligned} $$
-Small Signal Bandwidth The time required to reach 1% of its final value $$ \begin{aligned} H(s) &amp;amp;= \frac{V_{out}}{V_{in}} \\ &amp;amp;= \frac{A(s)}{1 &#43; A(s)\beta} \\ &amp;amp;= \frac{\dfrac{A_0}{1 &#43; \dfrac{s}{\omega_0}}}{1 &#43; \dfrac{A_0}{1 &#43; \dfrac{s}{\omega_0}}\beta} \\ &amp;amp;=\frac{A_0}{1 &#43; \dfrac{s}{\omega_0} &#43; A_0\beta} \\ &amp;amp;= \frac{\dfrac{A_0}{1 &#43; A_0 \beta}}{1 &#43; \dfrac{s}{(1 &#43; A_0\beta)\omega_0}} \\ \therefore \tau &amp;amp;= \frac{1}{(1&#43;A_0\beta)\omega_0} \\because \beta &amp;amp;= \frac{R_2}{R_1 &#43; R_2} (In \ this \ case) \\ Also, \ A_0\beta &amp;amp;\gg 1 \\ \therefore \tau &amp;amp;\approx (1&#43;\frac{R_1}{R_2})\frac{1}{A_0\omega_0} \\ Step \ Response: \\ V_{in} &amp;amp;= au(t) \\ V_{out} &amp;amp;= a(1 &#43; \frac{R_1}{R_2}) (1 - e^{-\frac{t}{\tau}})u(t) \\ V_F &amp;amp;= a(1 &#43; \frac{R_1}{R_2}) \\ \therefore let \ 1 - e^{-\frac{t}{\tau}} &amp;amp;=0.'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Introduction Properties of Ideal Amplifier $CMRR = \infin$ $Band \ Width = \infin$ $R_{in} = \infin$ $R_{out} = 0$ $\eta = 1$ 没有温飘 First-Order Op-Amp Fundamental Circuit Structure 电路结构图 增益 $$ \begin{equation} A_v \approx g_{mN} (r_{oP} || r_{oN}) \end{equation} $$
+Telescope Cascode Op Amp 电路图 增益 $$ \begin{equation} A_v \approx g_{mN} [ (g_{mN} r_{oN}^2)|| (g_{mP} r_{oP}^2)] \end{equation} $$
+Output Swing To saturate $M_2, M_4$ $$ \begin{aligned} V_{out} &amp;amp;\ge V_b- V_{TH4} \\ V_X &amp;amp;\ge V_{out} - V_{TH2} \end{aligned} $$'>
 <title>9. Operational Amplifier</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/9.-operational-amplifier/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='9. Operational Amplifier'>
-<meta property='og:description' content='Simple Feedback Circuit Relative Gain Error G Actual Gain A Ideal Gain $$ \begin{aligned} RGE &amp;amp;= \frac{G - A}{A} \times 100% \\ &amp;amp;= \frac{\dfrac{A}{1 &#43; A\beta} - \dfrac{1}{\beta}}{\dfrac{1}{\beta}} \times 100% \\ &amp;amp;= - \frac{1}{1 &#43; A\beta} \end{aligned} $$
-Small Signal Bandwidth The time required to reach 1% of its final value $$ \begin{aligned} H(s) &amp;amp;= \frac{V_{out}}{V_{in}} \\ &amp;amp;= \frac{A(s)}{1 &#43; A(s)\beta} \\ &amp;amp;= \frac{\dfrac{A_0}{1 &#43; \dfrac{s}{\omega_0}}}{1 &#43; \dfrac{A_0}{1 &#43; \dfrac{s}{\omega_0}}\beta} \\ &amp;amp;=\frac{A_0}{1 &#43; \dfrac{s}{\omega_0} &#43; A_0\beta} \\ &amp;amp;= \frac{\dfrac{A_0}{1 &#43; A_0 \beta}}{1 &#43; \dfrac{s}{(1 &#43; A_0\beta)\omega_0}} \\ \therefore \tau &amp;amp;= \frac{1}{(1&#43;A_0\beta)\omega_0} \\because \beta &amp;amp;= \frac{R_2}{R_1 &#43; R_2} (In \ this \ case) \\ Also, \ A_0\beta &amp;amp;\gg 1 \\ \therefore \tau &amp;amp;\approx (1&#43;\frac{R_1}{R_2})\frac{1}{A_0\omega_0} \\ Step \ Response: \\ V_{in} &amp;amp;= au(t) \\ V_{out} &amp;amp;= a(1 &#43; \frac{R_1}{R_2}) (1 - e^{-\frac{t}{\tau}})u(t) \\ V_F &amp;amp;= a(1 &#43; \frac{R_1}{R_2}) \\ \therefore let \ 1 - e^{-\frac{t}{\tau}} &amp;amp;=0.'>
+<meta property='og:description' content='Introduction Properties of Ideal Amplifier $CMRR = \infin$ $Band \ Width = \infin$ $R_{in} = \infin$ $R_{out} = 0$ $\eta = 1$ 没有温飘 First-Order Op-Amp Fundamental Circuit Structure 电路结构图 增益 $$ \begin{equation} A_v \approx g_{mN} (r_{oP} || r_{oN}) \end{equation} $$
+Telescope Cascode Op Amp 电路图 增益 $$ \begin{equation} A_v \approx g_{mN} [ (g_{mN} r_{oN}^2)|| (g_{mP} r_{oP}^2)] \end{equation} $$
+Output Swing To saturate $M_2, M_4$ $$ \begin{aligned} V_{out} &amp;amp;\ge V_b- V_{TH4} \\ V_X &amp;amp;\ge V_{out} - V_{TH2} \end{aligned} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/9.-operational-amplifier/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-05-14T10:07:33&#43;08:00'/><meta property='article:modified_time' content='2023-05-14T10:07:33&#43;08:00'/>
 <meta name="twitter:title" content="9. Operational Amplifier">
-<meta name="twitter:description" content="Simple Feedback Circuit Relative Gain Error G Actual Gain A Ideal Gain $$ \begin{aligned} RGE &amp;amp;= \frac{G - A}{A} \times 100% \\ &amp;amp;= \frac{\dfrac{A}{1 &#43; A\beta} - \dfrac{1}{\beta}}{\dfrac{1}{\beta}} \times 100% \\ &amp;amp;= - \frac{1}{1 &#43; A\beta} \end{aligned} $$
-Small Signal Bandwidth The time required to reach 1% of its final value $$ \begin{aligned} H(s) &amp;amp;= \frac{V_{out}}{V_{in}} \\ &amp;amp;= \frac{A(s)}{1 &#43; A(s)\beta} \\ &amp;amp;= \frac{\dfrac{A_0}{1 &#43; \dfrac{s}{\omega_0}}}{1 &#43; \dfrac{A_0}{1 &#43; \dfrac{s}{\omega_0}}\beta} \\ &amp;amp;=\frac{A_0}{1 &#43; \dfrac{s}{\omega_0} &#43; A_0\beta} \\ &amp;amp;= \frac{\dfrac{A_0}{1 &#43; A_0 \beta}}{1 &#43; \dfrac{s}{(1 &#43; A_0\beta)\omega_0}} \\ \therefore \tau &amp;amp;= \frac{1}{(1&#43;A_0\beta)\omega_0} \\because \beta &amp;amp;= \frac{R_2}{R_1 &#43; R_2} (In \ this \ case) \\ Also, \ A_0\beta &amp;amp;\gg 1 \\ \therefore \tau &amp;amp;\approx (1&#43;\frac{R_1}{R_2})\frac{1}{A_0\omega_0} \\ Step \ Response: \\ V_{in} &amp;amp;= au(t) \\ V_{out} &amp;amp;= a(1 &#43; \frac{R_1}{R_2}) (1 - e^{-\frac{t}{\tau}})u(t) \\ V_F &amp;amp;= a(1 &#43; \frac{R_1}{R_2}) \\ \therefore let \ 1 - e^{-\frac{t}{\tau}} &amp;amp;=0."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Introduction Properties of Ideal Amplifier $CMRR = \infin$ $Band \ Width = \infin$ $R_{in} = \infin$ $R_{out} = 0$ $\eta = 1$ 没有温飘 First-Order Op-Amp Fundamental Circuit Structure 电路结构图 增益 $$ \begin{equation} A_v \approx g_{mN} (r_{oP} || r_{oN}) \end{equation} $$
+Telescope Cascode Op Amp 电路图 增益 $$ \begin{equation} A_v \approx g_{mN} [ (g_{mN} r_{oN}^2)|| (g_{mP} r_{oP}^2)] \end{equation} $$
+Output Swing To saturate $M_2, M_4$ $$ \begin{aligned} V_{out} &amp;amp;\ge V_b- V_{TH4} \\ V_X &amp;amp;\ge V_{out} - V_{TH2} \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -253,10 +256,37 @@ Small Signal Bandwidth The time required to reach 1% of its final value $$ \begi
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#simple-feedback-circuit">Simple Feedback Circuit</a>
+    <li><a href="#introduction">Introduction</a>
       <ol>
-        <li><a href="#relative-gain-error">Relative Gain Error</a></li>
-        <li><a href="#small-signal-bandwidth">Small Signal Bandwidth</a></li>
+        <li><a href="#properties-of-ideal-amplifier">Properties of Ideal Amplifier</a></li>
+      </ol>
+    </li>
+    <li><a href="#first-order-op-amp">First-Order Op-Amp</a>
+      <ol>
+        <li><a href="#fundamental-circuit-structure">Fundamental Circuit Structure</a>
+          <ol>
+            <li><a href="#电路结构图">电路结构图</a></li>
+            <li><a href="#增益">增益</a></li>
+          </ol>
+        </li>
+        <li><a href="#telescope-cascode-op-amp">Telescope Cascode Op Amp</a>
+          <ol>
+            <li><a href="#电路图">电路图</a></li>
+            <li><a href="#增益-1">增益</a></li>
+            <li><a href="#output-swing">Output Swing</a></li>
+          </ol>
+        </li>
+        <li><a href="#folded-cascode-op-amp">Folded Cascode Op Amp</a>
+          <ol>
+            <li><a href="#电路结构">电路结构</a></li>
+            <li><a href="#进阶版">进阶版</a></li>
+          </ol>
+        </li>
+        <li><a href="#second-order-op-amp">Second-Order Op-Amp</a>
+          <ol>
+            <li><a href="#基本电路结构">基本电路结构</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -338,63 +368,213 @@ Small Signal Bandwidth The time required to reach 1% of its final value $$ \begi
     <section class="article-content">
     
     
-    <h1 id="simple-feedback-circuit">Simple Feedback Circuit</h1>
-<p><img src="/p/9.-operational-amplifier/1.png"
-	width="694"
-	height="534"
-	srcset="/p/9.-operational-amplifier/1_hu47c161500cfac074ff812f6edce2c01b_40953_480x0_resize_box_3.png 480w, /p/9.-operational-amplifier/1_hu47c161500cfac074ff812f6edce2c01b_40953_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="129"
-		data-flex-basis="311px"
-	
-></p>
-<h2 id="relative-gain-error">Relative Gain Error</h2>
+    <h1 id="introduction">Introduction</h1>
+<h2 id="properties-of-ideal-amplifier">Properties of Ideal Amplifier</h2>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th style="text-align:center">G</th>
-<th style="text-align:center">Actual Gain</th>
+<th style="text-align:center">$CMRR =  \infin$</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">A</td>
-<td style="text-align:center">Ideal Gain</td>
+<td style="text-align:center">$Band \ Width = \infin$</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">$R_{in} = \infin$</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">$R_{out} = 0$</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">$\eta = 1$</td>
+<td style="text-align:center">没有温飘</td>
 </tr>
 </tbody>
 </table></div>
+<h1 id="first-order-op-amp">First-Order Op-Amp</h1>
+<h2 id="fundamental-circuit-structure">Fundamental Circuit Structure</h2>
+<h3 id="电路结构图">电路结构图</h3>
+<p><img src="/p/9.-operational-amplifier/1.png"
+	width="1258"
+	height="426"
+	srcset="/p/9.-operational-amplifier/1_hu6fba19df725ac982054068ddfe8f0ede_49685_480x0_resize_box_3.png 480w, /p/9.-operational-amplifier/1_hu6fba19df725ac982054068ddfe8f0ede_49685_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="295"
+		data-flex-basis="708px"
+	
+></p>
+<p><img src="/p/9.-operational-amplifier/2.png"
+	width="844"
+	height="728"
+	srcset="/p/9.-operational-amplifier/2_hu23e76efd5954748078cbfe207d069098_73061_480x0_resize_box_3.png 480w, /p/9.-operational-amplifier/2_hu23e76efd5954748078cbfe207d069098_73061_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="115"
+		data-flex-basis="278px"
+	
+></p>
+<h3 id="增益">增益</h3>
 <p>$$
-\begin{aligned}
-RGE &amp;= \frac{G - A}{A} \times 100% \\
-&amp;= \frac{\dfrac{A}{1 + A\beta} - \dfrac{1}{\beta}}{\dfrac{1}{\beta}} \times 100% \\
-&amp;= - \frac{1}{1 + A\beta}
-\end{aligned}
+\begin{equation}
+A_v \approx g_{mN} (r_{oP} || r_{oN})
+\end{equation}
 $$</p>
-<h2 id="small-signal-bandwidth">Small Signal Bandwidth</h2>
+<h2 id="telescope-cascode-op-amp">Telescope Cascode Op Amp</h2>
+<h3 id="电路图">电路图</h3>
+<p><img src="/p/9.-operational-amplifier/3.png"
+	width="2154"
+	height="1196"
+	srcset="/p/9.-operational-amplifier/3_huc81bed7285e5d33ac1b171003aeff79a_262011_480x0_resize_box_3.png 480w, /p/9.-operational-amplifier/3_huc81bed7285e5d33ac1b171003aeff79a_262011_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="432px"
+	
+></p>
+<h3 id="增益-1">增益</h3>
+<p>$$
+\begin{equation}
+A_v \approx g_{mN} [ (g_{mN} r_{oN}^2)|| (g_{mP} r_{oP}^2)]
+\end{equation}
+$$</p>
+<h3 id="output-swing">Output Swing</h3>
+<p><img src="/p/9.-operational-amplifier/4.png"
+	width="984"
+	height="1206"
+	srcset="/p/9.-operational-amplifier/4_hu65804033dcab703a712844a51d3c066c_113132_480x0_resize_box_3.png 480w, /p/9.-operational-amplifier/4_hu65804033dcab703a712844a51d3c066c_113132_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="81"
+		data-flex-basis="195px"
+	
+></p>
 <ul>
-<li>The time required to reach <strong>1%</strong> of its final value</li>
+<li>To saturate $M_2, M_4$</li>
 </ul>
 <p>$$
 \begin{aligned}
-H(s) &amp;= \frac{V_{out}}{V_{in}}  \\
-&amp;= \frac{A(s)}{1 + A(s)\beta} \\
-&amp;= \frac{\dfrac{A_0}{1 + \dfrac{s}{\omega_0}}}{1 + \dfrac{A_0}{1 + \dfrac{s}{\omega_0}}\beta} \\
-&amp;=\frac{A_0}{1 + \dfrac{s}{\omega_0} + A_0\beta} \\
-&amp;= \frac{\dfrac{A_0}{1 + A_0 \beta}}{1 + \dfrac{s}{(1 + A_0\beta)\omega_0}} \\
-\therefore \tau &amp;= \frac{1}{(1+A_0\beta)\omega_0} \\because \beta &amp;= \frac{R_2}{R_1 + R_2} (In \ this \ case) \\
-Also, \ A_0\beta &amp;\gg 1 \\
-\therefore \tau &amp;\approx (1+\frac{R_1}{R_2})\frac{1}{A_0\omega_0} \\
-Step \ Response: \\
-V_{in} &amp;= au(t) \\
-V_{out} &amp;= a(1 + \frac{R_1}{R_2}) (1 - e^{-\frac{t}{\tau}})u(t) \\
-V_F &amp;= a(1 + \frac{R_1}{R_2}) \\
-\therefore let \ 1 - e^{-\frac{t}{\tau}} &amp;=0.01 \\
-t &amp;= 4.6 \tau
+V_{out} &amp;\ge V_b- V_{TH4} \\
+V_X &amp;\ge V_{out} - V_{TH2}
 \end{aligned}
 $$</p>
+<p>$$
+\begin{equation}
+V_b - V_{TH4} \le V_{out} \le V_b - V_{GS4} + V_{TH2}
+\end{equation}
+$$</p>
+<ul>
+<li>Poles $\uparrow$</li>
+</ul>
+<h2 id="folded-cascode-op-amp">Folded Cascode Op Amp</h2>
+<h3 id="电路结构">电路结构</h3>
+<p><img src="/p/9.-operational-amplifier/5.png"
+	width="2430"
+	height="1092"
+	srcset="/p/9.-operational-amplifier/5_hu1460ceb1755c719888d60abca71fba98_251779_480x0_resize_box_3.png 480w, /p/9.-operational-amplifier/5_hu1460ceb1755c719888d60abca71fba98_251779_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="222"
+		data-flex-basis="534px"
+	
+></p>
+<p>$$
+\begin{aligned}
+I_{SS1} &amp;= I_{SS} + \frac{ I_{D3} }{ 2 }
+\end{aligned}
+$$</p>
+<h3 id="进阶版">进阶版</h3>
+<ol>
+<li>电路图 增益</li>
+</ol>
+<p><img src="/p/9.-operational-amplifier/6.png"
+	width="1284"
+	height="1184"
+	srcset="/p/9.-operational-amplifier/6_hu35c7dccc6c0f8c83143cd80816108b65_155828_480x0_resize_box_3.png 480w, /p/9.-operational-amplifier/6_hu35c7dccc6c0f8c83143cd80816108b65_155828_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="108"
+		data-flex-basis="260px"
+	
+></p>
+<p>$$
+\begin{equation}
+A_v \approx g_{m1} \lbrace [(g_{m3} + g_{mb3})r_{o3} (r_{o1} || r_{o5})] || [(g_{m7} + g_{mb7}) r_{o7} r_{o9} ] \rbrace
+\end{equation}
+$$</p>
+<ol start="2">
+<li>特点</li>
+</ol>
+<ul>
+<li>
+<p>增益相比<strong>Telescope Cascode Op Amp 小了 2 - 3 倍</strong></p>
+</li>
+<li>
+<p>由于增加了$C_{GD5}$和$C_{DB5}$，极点更加靠近原点</p>
+</li>
+<li>
+<p>使用<strong>NMOS</strong>作为输入器件</p>
+</li>
+<li>
+<p>折叠点<strong>X</strong>对应的极点更低，由$\dfrac{ 1}{ g_{m3} + g_{mb3} } \downarrow$和 总电容($\uparrow$) 决定</p>
+</li>
+</ul>
+<h2 id="second-order-op-amp">Second-Order Op-Amp</h2>
+<h3 id="基本电路结构">基本电路结构</h3>
+<p><img src="/p/9.-operational-amplifier/7.png"
+	width="1192"
+	height="340"
+	srcset="/p/9.-operational-amplifier/7_hu54cecb21840a99dd84b364c3a7f128e8_66050_480x0_resize_box_3.png 480w, /p/9.-operational-amplifier/7_hu54cecb21840a99dd84b364c3a7f128e8_66050_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="350"
+		data-flex-basis="841px"
+	
+></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">高增益</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">需要<strong>频率补偿</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>$A_v = A_{v1} \cdot A_{v2}$</p>
+<p><img src="/p/9.-operational-amplifier/8.png"
+	width="2552"
+	height="870"
+	srcset="/p/9.-operational-amplifier/8_hu7e98bfa4c0b3ab7843628e4a28d8fc07_250388_480x0_resize_box_3.png 480w, /p/9.-operational-amplifier/8_hu7e98bfa4c0b3ab7843628e4a28d8fc07_250388_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="293"
+		data-flex-basis="704px"
+	
+></p>
 
 </section>
 
@@ -458,6 +638,32 @@ $$</p>
             
                 
 <article class="">
+    <a href="/p/8.-feedback/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">8. Feedback</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/1-2.basic_device/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1-2.Basic_Device</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/%E4%B8%8D%E6%87%82%E5%B0%B1%E9%97%AE/">
         
         
@@ -471,12 +677,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/14.oscillators/">
+    <a href="/p/14.-oscillators/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">14.Oscillators</h2>
+            <h2 class="article-title">14. Oscillators</h2>
         </div>
     </a>
 </article>
@@ -490,32 +696,6 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">15. Phase-Locked Loops</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/5.-passive-and-active-current-mirror/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">5. Passive and Active Current Mirror</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/6.-frequency-response/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">6. Frequency Response</h2>
         </div>
     </a>
 </article>

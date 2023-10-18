@@ -375,7 +375,7 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -624,21 +624,30 @@ u[n] &amp;= \begin{cases}
 $$</p>
 <h3 id="两者关系">两者关系</h3>
 <p>$$
-\begin{aligned}
-\pmb{\delta[n]} &amp;= u[n] - u[n-1] \\
-\therefore u[n] &amp;= \sum_{m=-\infin}^n \delta[m] \\
-Set \ k &amp;=n-m \\
-\pmb{u[n]} &amp;= \sum_{k = \infin}^0\delta[n-k] \\
-&amp;= \sum_{k=0}^\infin \delta[n-k]
-\end{aligned}
+\begin{equation}
+\delta [n] = u[n] - u[n-1]
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+u[n] = \sum_{ k = 0}^{ n} \delta [n - k]
+\end{equation}
 $$</p>
 <h3 id="脉冲函数的其他属性">脉冲函数的其他属性</h3>
 <p>$$
-\begin{aligned}
-x[n]\delta[n] &amp;= x[0]\delta[n] \\
-x[n]\delta[n-n_0] &amp;=x[n_0]\delta[n-n_0] \\
-\delta(at) &amp;= \frac{1}{|a|}\delta(t)
-\end{aligned}
+\begin{equation}
+x[n]\delta[n] = x[0]\delta[n]
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+x[n] \delta [n- n_0] = x[n_0] \delta [n - n_0]
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+\delta ( \alpha t) = \frac{ 1 }{ | \alpha| } \delta (t)
+\end{equation}
 $$</p>
 <h2 id="continuous-unit-impluse--unit-step-functions">Continuous unit impluse &amp; unit step functions</h2>
 <h3 id="二者关系">二者关系</h3>
@@ -646,13 +655,25 @@ $$</p>
 <li>基本关系</li>
 </ol>
 <p>$$
+\begin{equation}
+\delta (t) = \frac{ du(t) }{ dt }
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+u(t) = \int_{ - \infin  }^{ t } \delta (\tau) d\tau
+\end{equation}
+$$</p>
+<ul>
+<li>令$\sigma = t - \tau$</li>
+</ul>
+<p>$$
+\begin{equation}
 \begin{aligned}
-\delta_{\Delta}(t) &amp;= \frac{du_{\Delta}(t)}{dt} \\
-&amp;= \frac{1}{\Delta} \\
-\delta(t) &amp;= \underset{\Delta \rightarrow 0}{lim}\delta_{\Delta}(t) \\
-&amp;= \frac{du(t)}{dt} \\
-u(t) &amp;= \int_{-\infin}^t\delta(\tau)d\tau
+u(t) &amp;= \int_{\infin}^0\delta(t-\sigma)(-d\sigma) \\
+&amp;= \int_0^\infin \delta(t-\sigma)d\sigma
 \end{aligned}
+\end{equation}
 $$</p>
 <p><img src="/p/1.-%E7%BB%AA%E8%AE%BA/2.png"
 	width="2190"
@@ -673,18 +694,9 @@ $$</p>
 <li>缩放</li>
 </ul>
 <p>$$
-\begin{aligned}
-ku(t) &amp;= \int_{-\infin}^tk\delta(\tau)d\tau
-\end{aligned}
-$$</p>
-<ul>
-<li>令$\sigma = t - \tau$</li>
-</ul>
-<p>$$
-\begin{aligned}
-u(t) &amp;= \int_{\infin}^0\delta(t-\sigma)(-d\sigma) \\
-&amp;= \int_0^\infin \delta(t-\sigma)d\sigma
-\end{aligned}
+\begin{equation}
+ku(t) = \int_{-\infin}^tk\delta(\tau)d\tau
+\end{equation}
 $$</p>
 <h1 id="basic-system-properties">Basic System Properties</h1>
 <h2 id="memory">Memory</h2>

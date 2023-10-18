@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='非周期信号的表示 - 连续时间傅立叶变换 非周期信号的傅立叶表示 傅立叶级数求解 $$ \begin{equation} \begin{aligned} \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\ \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\ if \ T &amp;amp;\longrightarrow \infin \\ a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\ \end{aligned} \end{equation} $$'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='非周期信号的表示 - 连续时间傅立叶变换 非周期信号的傅立叶表示 傅立叶级数求解 $$ \begin{aligned} \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\ \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\ if \ T &amp;amp;\longrightarrow \infin \\ a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\ \end{aligned} $$'>
 <title>4.连续时间傅立叶变换</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4.连续时间傅立叶变换'>
-<meta property='og:description' content='非周期信号的表示 - 连续时间傅立叶变换 非周期信号的傅立叶表示 傅立叶级数求解 $$ \begin{equation} \begin{aligned} \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\ \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\ if \ T &amp;amp;\longrightarrow \infin \\ a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\ \end{aligned} \end{equation} $$'>
+<meta property='og:description' content='非周期信号的表示 - 连续时间傅立叶变换 非周期信号的傅立叶表示 傅立叶级数求解 $$ \begin{aligned} \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\ \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\ if \ T &amp;amp;\longrightarrow \infin \\ a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\ \end{aligned} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-10-08T15:50:17&#43;08:00'/><meta property='article:modified_time' content='2023-10-08T15:50:17&#43;08:00'/>
 <meta name="twitter:title" content="4.连续时间傅立叶变换">
-<meta name="twitter:description" content="非周期信号的表示 - 连续时间傅立叶变换 非周期信号的傅立叶表示 傅立叶级数求解 $$ \begin{equation} \begin{aligned} \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\ \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\ if \ T &amp;amp;\longrightarrow \infin \\ a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\ \end{aligned} \end{equation} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="非周期信号的表示 - 连续时间傅立叶变换 非周期信号的傅立叶表示 傅立叶级数求解 $$ \begin{aligned} \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\ \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\ if \ T &amp;amp;\longrightarrow \infin \\ a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\ \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -252,7 +252,24 @@
   <ol>
     <li><a href="#非周期信号的表示---连续时间傅立叶变换">非周期信号的表示 - 连续时间傅立叶变换</a>
       <ol>
-        <li><a href="#非周期信号的傅立叶表示">非周期信号的傅立叶表示</a></li>
+        <li><a href="#非周期信号的傅立叶表示">非周期信号的傅立叶表示</a>
+          <ol>
+            <li><a href="#傅立叶级数求解">傅立叶级数求解</a></li>
+            <li><a href="#fs-representation">FS Representation</a></li>
+          </ol>
+        </li>
+        <li><a href="#relations-between-c-t-fs--d-t-fs">Relations between C-T FS &amp; D-T FS</a></li>
+      </ol>
+    </li>
+    <li><a href="#ft-of-periodic-signals">FT of Periodic Signals</a>
+      <ol>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#properties">Properties</a></li>
+      </ol>
+    </li>
+    <li><a href="#appendix">Appendix</a>
+      <ol>
+        <li><a href="#sampling-function--sinc-function">Sampling Function &amp; Sinc Function</a></li>
       </ol>
     </li>
   </ol>
@@ -319,7 +336,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -336,22 +353,16 @@
     
     <h1 id="非周期信号的表示---连续时间傅立叶变换">非周期信号的表示 - 连续时间傅立叶变换</h1>
 <h2 id="非周期信号的傅立叶表示">非周期信号的傅立叶表示</h2>
-<ol>
-<li>傅立叶级数求解</li>
-</ol>
+<h3 id="傅立叶级数求解">傅立叶级数求解</h3>
 <p>$$
-\begin{equation}
 \begin{aligned}
 \widehat {x}{ ~ } (t) &amp;= x(t) \ in \ T \\
 \widehat { a_k }{~} &amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\
 if \ T &amp;\longrightarrow  \infin  \\
 a_k &amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\
 \end{aligned}
-\end{equation}
 $$</p>
-<ol start="2">
-<li>傅立叶表示</li>
-</ol>
+<h3 id="fs-representation">FS Representation</h3>
 <p>$$
 \begin{equation}
 \begin{aligned}
@@ -361,14 +372,53 @@ X(j \omega) &amp;= T a_k  \\
 \end{equation}
 $$</p>
 <p>$$
-\begin{equation}
 \begin{aligned}
 a_k &amp;= \frac{ 1 }{ T  } X(j k \omega) \\
 \therefore \widehat { x(t) }{ ~ } &amp;= \sum_{ k }^{  } a_k e^{jk \omega t} \\
-&amp;= \frac{ 1 }{ 2\pi  } \sum_{ k = - \infin  }^{ \infin } X(j \omega_0 t) e^{jk \omega_0 t} \omega_0 \\
-\therefore x(t) &amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega
+&amp;= \frac{ 1 }{ 2\pi  } \sum_{ k = - \infin  }^{ \infin } X(j \omega_0 t) e^{jk \omega_0 t} \omega_0
 \end{aligned}
+$$</p>
+<p>$$
+\begin{equation}
+x(t) = \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega
 \end{equation}
+$$</p>
+<h2 id="relations-between-c-t-fs--d-t-fs">Relations between C-T FS &amp; D-T FS</h2>
+<p>$$
+\begin{aligned}
+\widehat { x(t) } &amp;\longleftrightarrow a_k \\
+x(t)  &amp; \longleftrightarrow X(j \omega) \\
+X(j \omega) &amp;= Ta_k |_{ \omega = k \omega_0} \\
+&amp;= \frac{ 2 \pi }{ \omega } a_k
+\end{aligned}
+$$</p>
+<p>$$
+\begin{equation}
+X(j \omega) d \omega = 2\pi a_k
+\end{equation}
+$$</p>
+<h1 id="ft-of-periodic-signals">FT of Periodic Signals</h1>
+<h2 id="definition">Definition</h2>
+<p>$$
+\begin{aligned}
+X(j \omega) &amp;= 2 \pi \delta ( \omega - \omega_0) \\
+x(t) &amp;= \int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
+&amp;=
+\end{aligned}
+$$</p>
+<p>$$
+\begin{equation}
+X(j \omega) = \sum_{ k = - \infin }^{ \infin  } 2 \pi a_k \delta ( \omega - k \omega_0)
+\end{equation}
+$$</p>
+<h2 id="properties">Properties</h2>
+<h1 id="appendix">Appendix</h1>
+<h2 id="sampling-function--sinc-function">Sampling Function &amp; Sinc Function</h2>
+<p>$$
+\begin{aligned}
+Sinc ( \theta) &amp;= \frac{ sin(\pi \theta) }{ \pi \theta }  \\
+Sa( \phi) &amp;= \frac{ sin(\phi) }{ \phi}
+\end{aligned}
 $$</p>
 
 </section>

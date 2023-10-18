@@ -2,29 +2,32 @@
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Basic Current Mirrors 电路 $\mu_n, C_{ox},W$ 一致
-$L$可以不同以表示增益
-电流增益 $$ \begin{aligned} I_{out} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)1 (V{GS2} - V_{T2})^2 \\ I_{REF} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)2 (V{GS1} - V_{T2})^2 \\ \therefore I_{out} &amp;amp;= \frac{(W/L)_2}{(W/L)1} \cdot I{REF} \end{aligned} $$
-电压增益(其他电路) $M_2,M_3$ 构成BCM, $M_1$是CS，$R_L$是$R_{out}$ $$ A_v = g_{m1} \frac{(W/L)_1}{(W/L)_2}R_L $$
-Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation的影响 设计 为了保证$I_{out}$与$I_{out}$高精度相等，必须使得$V_X = V_Y$,即$V_b - V_{GS3} = V_b - V_{GS1}$ 选择适当的MOSFET使得$\dfrac{(W/L)_3}{(W/L)_0} = \dfrac{(W/L)2}{(W/L)1}$, 这样可以满足$V_X = V_Y$, 从而$I{REF} = I{out}$, 所有MOSFET的$V_{TH}$相等 $V_p$的最小值 $$ \begin{aligned} V_p &amp;amp;\ge V_N - V_{TH} \\ V_p &amp;amp;\ge V_{GS0} &#43; V_{GS1} - V_{TH} \\ V_p &amp;amp;\ge V_{OV1} &#43; V_{OV0} &#43; V_{TH} \end{aligned} $$'>
+$L$可以不同以提供增益
+Current $$ \begin{aligned} I_{out} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)1 (V{GS2} - V_{T2})^2 \\ I_{REF} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)2 (V{GS1} - V_{T2})^2 \end{aligned} $$
+$$ \begin{equation} I_{out} = \frac{(W/L)_2}{(W/L)1} \cdot I{REF} \end{equation} $$
+Voltage Gain(应用) $M_2,M_3$ 构成BCM, $M_1$是CS，$R_L$是$R_{out}$ $$ |A_v| = g_{m1} \frac{(W/L)_3}{(W/L)_2}R_L $$
+Cascode Current Mirrors 出发点 若考虑CLM $$ \begin{aligned} I_{out} &amp;amp;= I_{REF} \cdot \frac{(W/L)2}{(W/L)1} \cdot \frac{ 1 &#43; \lambda V{DS1} }{ 1 &#43; \lambda V{DS2} } \end{aligned} $$'>
 <title>5. Passive and Active Current Mirror</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/5.-passive-and-active-current-mirror/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5. Passive and Active Current Mirror'>
 <meta property='og:description' content='Basic Current Mirrors 电路 $\mu_n, C_{ox},W$ 一致
-$L$可以不同以表示增益
-电流增益 $$ \begin{aligned} I_{out} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)1 (V{GS2} - V_{T2})^2 \\ I_{REF} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)2 (V{GS1} - V_{T2})^2 \\ \therefore I_{out} &amp;amp;= \frac{(W/L)_2}{(W/L)1} \cdot I{REF} \end{aligned} $$
-电压增益(其他电路) $M_2,M_3$ 构成BCM, $M_1$是CS，$R_L$是$R_{out}$ $$ A_v = g_{m1} \frac{(W/L)_1}{(W/L)_2}R_L $$
-Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation的影响 设计 为了保证$I_{out}$与$I_{out}$高精度相等，必须使得$V_X = V_Y$,即$V_b - V_{GS3} = V_b - V_{GS1}$ 选择适当的MOSFET使得$\dfrac{(W/L)_3}{(W/L)_0} = \dfrac{(W/L)2}{(W/L)1}$, 这样可以满足$V_X = V_Y$, 从而$I{REF} = I{out}$, 所有MOSFET的$V_{TH}$相等 $V_p$的最小值 $$ \begin{aligned} V_p &amp;amp;\ge V_N - V_{TH} \\ V_p &amp;amp;\ge V_{GS0} &#43; V_{GS1} - V_{TH} \\ V_p &amp;amp;\ge V_{OV1} &#43; V_{OV0} &#43; V_{TH} \end{aligned} $$'>
+$L$可以不同以提供增益
+Current $$ \begin{aligned} I_{out} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)1 (V{GS2} - V_{T2})^2 \\ I_{REF} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)2 (V{GS1} - V_{T2})^2 \end{aligned} $$
+$$ \begin{equation} I_{out} = \frac{(W/L)_2}{(W/L)1} \cdot I{REF} \end{equation} $$
+Voltage Gain(应用) $M_2,M_3$ 构成BCM, $M_1$是CS，$R_L$是$R_{out}$ $$ |A_v| = g_{m1} \frac{(W/L)_3}{(W/L)_2}R_L $$
+Cascode Current Mirrors 出发点 若考虑CLM $$ \begin{aligned} I_{out} &amp;amp;= I_{REF} \cdot \frac{(W/L)2}{(W/L)1} \cdot \frac{ 1 &#43; \lambda V{DS1} }{ 1 &#43; \lambda V{DS2} } \end{aligned} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/5.-passive-and-active-current-mirror/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-07-15T18:37:12&#43;08:00'/><meta property='article:modified_time' content='2023-07-15T18:37:12&#43;08:00'/>
 <meta name="twitter:title" content="5. Passive and Active Current Mirror">
 <meta name="twitter:description" content="Basic Current Mirrors 电路 $\mu_n, C_{ox},W$ 一致
-$L$可以不同以表示增益
-电流增益 $$ \begin{aligned} I_{out} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)1 (V{GS2} - V_{T2})^2 \\ I_{REF} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)2 (V{GS1} - V_{T2})^2 \\ \therefore I_{out} &amp;amp;= \frac{(W/L)_2}{(W/L)1} \cdot I{REF} \end{aligned} $$
-电压增益(其他电路) $M_2,M_3$ 构成BCM, $M_1$是CS，$R_L$是$R_{out}$ $$ A_v = g_{m1} \frac{(W/L)_1}{(W/L)_2}R_L $$
-Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation的影响 设计 为了保证$I_{out}$与$I_{out}$高精度相等，必须使得$V_X = V_Y$,即$V_b - V_{GS3} = V_b - V_{GS1}$ 选择适当的MOSFET使得$\dfrac{(W/L)_3}{(W/L)_0} = \dfrac{(W/L)2}{(W/L)1}$, 这样可以满足$V_X = V_Y$, 从而$I{REF} = I{out}$, 所有MOSFET的$V_{TH}$相等 $V_p$的最小值 $$ \begin{aligned} V_p &amp;amp;\ge V_N - V_{TH} \\ V_p &amp;amp;\ge V_{GS0} &#43; V_{GS1} - V_{TH} \\ V_p &amp;amp;\ge V_{OV1} &#43; V_{OV0} &#43; V_{TH} \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+$L$可以不同以提供增益
+Current $$ \begin{aligned} I_{out} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)1 (V{GS2} - V_{T2})^2 \\ I_{REF} &amp;amp;= \frac{1}{2} \mu_n C_{ox} (W/L)2 (V{GS1} - V_{T2})^2 \end{aligned} $$
+$$ \begin{equation} I_{out} = \frac{(W/L)_2}{(W/L)1} \cdot I{REF} \end{equation} $$
+Voltage Gain(应用) $M_2,M_3$ 构成BCM, $M_1$是CS，$R_L$是$R_{out}$ $$ |A_v| = g_{m1} \frac{(W/L)_3}{(W/L)_2}R_L $$
+Cascode Current Mirrors 出发点 若考虑CLM $$ \begin{aligned} I_{out} &amp;amp;= I_{REF} \cdot \frac{(W/L)2}{(W/L)1} \cdot \frac{ 1 &#43; \lambda V{DS1} }{ 1 &#43; \lambda V{DS2} } \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -265,19 +268,27 @@ Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation�
     <li><a href="#basic-current-mirrors">Basic Current Mirrors</a>
       <ol>
         <li><a href="#电路">电路</a></li>
-        <li><a href="#电流增益">电流增益</a></li>
-        <li><a href="#电压增益其他电路">电压增益(其他电路)</a></li>
+        <li><a href="#current">Current</a></li>
+        <li><a href="#voltage-gain应用">Voltage Gain(应用)</a></li>
       </ol>
     </li>
     <li><a href="#cascode-current-mirrors">Cascode Current Mirrors</a>
       <ol>
-        <li><a href="#目的和设计">目的和设计</a>
+        <li><a href="#出发点">出发点</a></li>
+        <li><a href="#cascode-current-mirror">Cascode Current Mirror</a>
           <ol>
-            <li><a href="#目的">目的</a></li>
-            <li><a href="#设计">设计</a></li>
+            <li><a href="#v_p-min">$V_{p, min}$</a></li>
+            <li><a href="#选择适当的mosfet">选择适当的MOSFET</a></li>
           </ol>
         </li>
-        <li><a href="#源电流的求解">源电流的求解</a></li>
+        <li><a href="#low-voltage-cascode">Low Voltage Cascode</a>
+          <ol>
+            <li><a href="#电路图">电路图</a></li>
+            <li><a href="#v_b范围">$V_b$范围</a></li>
+            <li><a href="#改良">改良</a></li>
+          </ol>
+        </li>
+        <li><a href="#题解">题解</a></li>
       </ol>
     </li>
     <li><a href="#active-current-mirrors">Active Current Mirrors</a>
@@ -288,12 +299,30 @@ Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation�
             <li><a href="#method-ii">Method II</a></li>
           </ol>
         </li>
-        <li><a href="#large-signal-analysis">Large-Signal Analysis</a></li>
+        <li><a href="#large-signal-analysis">Large Signal Analysis</a>
+          <ol>
+            <li><a href="#实例解析">实例解析</a></li>
+          </ol>
+        </li>
+        <li><a href="#small-signal-analysis">Small Signal Analysis</a>
+          <ol>
+            <li><a href="#电路图-1">电路图</a></li>
+            <li><a href="#voltage-gain-1">Voltage Gain</a></li>
+          </ol>
+        </li>
+        <li><a href="#common-mode-property">Common Mode Property</a>
+          <ol>
+            <li><a href="#电路图-2">电路图</a></li>
+            <li><a href="#gain">Gain</a></li>
+            <li><a href="#cmmr">CMMR</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#附录">附录</a>
       <ol>
-        <li><a href="#mosfet的参数">MOSFET的参数</a></li>
+        <li><a href="#mosfet参数">MOSFET参数</a></li>
+        <li><a href="#headroom-voltage">Headroom Voltage</a></li>
       </ol>
     </li>
   </ol>
@@ -360,7 +389,7 @@ Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation�
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -394,18 +423,22 @@ Cascode Current Mirrors 目的和设计 目的 减少Channel Lengeh Modulation�
 <p>$\mu_n, C_{ox},W$ 一致</p>
 </li>
 <li>
-<p>$L$可以不同以表示<strong>增益</strong></p>
+<p>$L$可以不同以提供<strong>增益</strong></p>
 </li>
 </ul>
-<h2 id="电流增益">电流增益</h2>
+<h2 id="current">Current</h2>
 <p>$$
 \begin{aligned}
 I_{out} &amp;= \frac{1}{2} \mu_n C_{ox} (W/L)<em>1 (V</em>{GS2} - V_{T2})^2 \\
-I_{REF} &amp;= \frac{1}{2} \mu_n C_{ox} (W/L)<em>2 (V</em>{GS1} - V_{T2})^2 \\
-\therefore I_{out} &amp;= \frac{(W/L)_2}{(W/L)<em>1} \cdot I</em>{REF}
+I_{REF} &amp;= \frac{1}{2} \mu_n C_{ox} (W/L)<em>2 (V</em>{GS1} - V_{T2})^2
 \end{aligned}
 $$</p>
-<h2 id="电压增益其他电路">电压增益(其他电路)</h2>
+<p>$$
+\begin{equation}
+I_{out} = \frac{(W/L)_2}{(W/L)<em>1} \cdot I</em>{REF}
+\end{equation}
+$$</p>
+<h2 id="voltage-gain应用">Voltage Gain(应用)</h2>
 <p><img src="/p/5.-passive-and-active-current-mirror/2.png"
 	width="900"
 	height="756"
@@ -422,36 +455,22 @@ $$</p>
 <li>$M_2,M_3$ 构成BCM, $M_1$是<strong>CS</strong>，$R_L$是$R_{out}$</li>
 </ul>
 <p>$$
-A_v = g_{m1} \frac{(W/L)_1}{(W/L)_2}R_L
+|A_v| = g_{m1} \frac{(W/L)_3}{(W/L)_2}R_L
 $$</p>
 <h1 id="cascode-current-mirrors">Cascode Current Mirrors</h1>
-<h2 id="目的和设计">目的和设计</h2>
-<h3 id="目的">目的</h3>
+<h2 id="出发点">出发点</h2>
 <ul>
-<li>减少<strong>Channel Lengeh Modulation</strong>的影响</li>
+<li>若考虑<strong>CLM</strong></li>
 </ul>
-<h3 id="设计">设计</h3>
-<ol>
-<li>为了保证$I_{out}$与$I_{out}$<strong>高精度</strong>相等，必须使得$V_X = V_Y$,即$V_b - V_{GS3} = V_b - V_{GS1}$</li>
-</ol>
-<p><img src="/p/5.-passive-and-active-current-mirror/3.png"
-	width="802"
-	height="728"
-	srcset="/p/5.-passive-and-active-current-mirror/3_huae50cc12516440cb3e33e1fd28f000e5_62658_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/3_huae50cc12516440cb3e33e1fd28f000e5_62658_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="110"
-		data-flex-basis="264px"
-	
-></p>
-<ol start="2">
-<li>选择适当的MOSFET使得$\dfrac{(W/L)_3}{(W/L)_0} = \dfrac{(W/L)<em>2}{(W/L)<em>1}$, 这样可以满足$V_X = V_Y$, 从而$I</em>{REF} = I</em>{out}$,</li>
-</ol>
+<p>$$
+\begin{aligned}
+I_{out} &amp;= I_{REF} \cdot \frac{(W/L)<em>2}{(W/L)<em>1} \cdot \frac{ 1 + \lambda V</em>{DS1} }{ 1 + \lambda V</em>{DS2} }
+\end{aligned}
+$$</p>
 <ul>
-<li>所有MOSFET的$V_{TH}$相等</li>
+<li>为了消除<strong>CLM</strong>的影响，必须使得$V_{DS1} = V_{DS2}$，即$V_X = V_Y$</li>
 </ul>
+<h2 id="cascode-current-mirror">Cascode Current Mirror</h2>
 <p><img src="/p/5.-passive-and-active-current-mirror/4.png"
 	width="646"
 	height="884"
@@ -464,9 +483,10 @@ $$</p>
 		data-flex-basis="175px"
 	
 ></p>
-<ol start="3">
-<li>$V_p$的最小值</li>
-</ol>
+<h3 id="v_p-min">$V_{p, min}$</h3>
+<ul>
+<li>为了让$M_3$工作在<strong>Saturation Region</strong></li>
+</ul>
 <p>$$
 \begin{aligned}
 V_p &amp;\ge V_N - V_{TH} \\
@@ -474,13 +494,92 @@ V_p &amp;\ge V_{GS0} + V_{GS1} - V_{TH} \\
 V_p &amp;\ge V_{OV1} + V_{OV0} + V_{TH}
 \end{aligned}
 $$</p>
-<ol start="4">
-<li>结果</li>
-</ol>
+<p>$$
+\begin{equation}
+V_{p,min} = V_{OV1} + V_{OV0} + V_{TH}
+\end{equation}
+$$</p>
+<h3 id="选择适当的mosfet">选择适当的MOSFET</h3>
 <ul>
-<li>两个<strong>Basic Current Mirror</strong>侧向<strong>拼在一起</strong></li>
+<li>使得$\dfrac{(W/L)_3}{(W/L)_0} = \dfrac{(W/L)<em>2}{(W/L)<em>1}$, 这样可以满足$V_X = V_Y$, 从而$I</em>{REF} = I</em>{out}$,</li>
 </ul>
-<h2 id="源电流的求解">源电流的求解</h2>
+<h2 id="low-voltage-cascode">Low Voltage Cascode</h2>
+<h3 id="电路图">电路图</h3>
+<p><img src="/p/5.-passive-and-active-current-mirror/8.png"
+	width="1804"
+	height="988"
+	srcset="/p/5.-passive-and-active-current-mirror/8_hu79cf7904d4e1b747e3e1e5526c4128c5_115268_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/8_hu79cf7904d4e1b747e3e1e5526c4128c5_115268_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="438px"
+	
+></p>
+<ol>
+<li>
+<p>(a)中实际上是<strong>Cascode Stage Shorted</strong></p>
+</li>
+<li>
+<p>(b)即是<strong>Low Voltage Cascode</strong></p>
+</li>
+</ol>
+<h3 id="v_b范围">$V_b$范围</h3>
+<ol>
+<li>为了让$M_1, M_2$工作在<strong>Saturation Region</strong></li>
+</ol>
+<p>$$
+\begin{aligned}
+V_X &amp;\ge V_b - V_{TH2} \\
+V_{GS1} &amp;\ge V_b - V_{TH2} \\\
+\\ V_A &amp;\ge V_{GS1} - V_{TH1} \\
+V_{b} - V_{GS1} &amp;\ge V_{GS1} - V_{TH1}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{equation}
+V_{GS2} + (V_{GS1} - V_{TH1}) \le V_b \le V_{GS1}+ V_{TH2}
+\end{equation}
+$$</p>
+<ol start="2">
+<li>进一步处理<strong>不等式</strong></li>
+</ol>
+<p>$$
+\begin{equation}
+V_{GS2} \le V_{TH1} + V_{TH2}
+\end{equation}
+$$</p>
+<h3 id="改良">改良</h3>
+<p><img src="/p/5.-passive-and-active-current-mirror/9.png"
+	width="918"
+	height="958"
+	srcset="/p/5.-passive-and-active-current-mirror/9_hu6c7108a7e953f1c2780f9f7f198f8dba_73375_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/9_hu6c7108a7e953f1c2780f9f7f198f8dba_73375_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="95"
+		data-flex-basis="229px"
+	
+></p>
+<ul>
+<li>$M_S$ is biased such that $V_{GS s} \approx V_{TH3}$</li>
+</ul>
+<p>$$
+\begin{aligned}
+V_{N&rsquo;} &amp;\approx V_N - V_{TH3} \\
+\therefore V_B &amp;\approx V_{N&rsquo;} - V_{GS3} \\
+&amp;= V_{GS0} + V_{GS1} - V_{TH3} - V_{GS3} \\
+&amp;= V_{GS1} - V_{TH3}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{equation}
+V_B \approx V_{GS1} - V_{TH3}
+\end{equation}
+$$</p>
+<h2 id="题解">题解</h2>
 <p><img src="/p/5.-passive-and-active-current-mirror/5.png"
 	width="684"
 	height="880"
@@ -494,7 +593,7 @@ $$</p>
 	
 ></p>
 <ul>
-<li>$I_{REF}$工作的最小电压为$aV$</li>
+<li>$I_{REF}$工作的最小电压为$0.5V$</li>
 </ul>
 <p>$$
 \begin{aligned}
@@ -508,20 +607,20 @@ $$</p>
 <h2 id="voltage-gain">Voltage Gain</h2>
 <h3 id="method-i">Method I</h3>
 <p><img src="/p/5.-passive-and-active-current-mirror/6.png"
-	width="1906"
-	height="1806"
-	srcset="/p/5.-passive-and-active-current-mirror/6_huab47f25fcf108e766eb4187ebf84487a_232704_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/6_huab47f25fcf108e766eb4187ebf84487a_232704_1024x0_resize_box_3.png 1024w"
+	width="1188"
+	height="1328"
+	srcset="/p/5.-passive-and-active-current-mirror/6_hu408c3e264731e4bc960bac2528a6b261_125612_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/6_hu408c3e264731e4bc960bac2528a6b261_125612_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="105"
-		data-flex-basis="253px"
+		data-flex-grow="89"
+		data-flex-basis="214px"
 	
 ></p>
-<ul>
-<li>For (b)</li>
-</ul>
+<ol>
+<li>Caculate $G_m$ from (b)</li>
+</ol>
 <p>$$
 \begin{aligned}
 |A_v| &amp;= G_m R_{out} \\
@@ -530,9 +629,9 @@ G_m &amp;= \frac{I_{out}}{V_{in}} \\
 &amp;= \frac{1}{2}g_{m1}
 \end{aligned}
 $$</p>
-<ul>
-<li>For (c), A <strong>CS Stage with Source Degeneration</strong></li>
-</ul>
+<ol start="2">
+<li>Caculate <strong>Gain</strong> from (c)</li>
+</ol>
 <p>$$
 \begin{aligned}
 R_2 &amp;= 2r_{o2} + \frac{1}{g_{m1}} \\
@@ -540,6 +639,19 @@ R_2 &amp;= 2r_{o2} + \frac{1}{g_{m1}} \\
 \therefore R_{out} &amp;\approx 2r_{o2} || r_{o4} \\
 \therefore |A_v| &amp;\approx \frac{g_{m1}}{2} (2r_{o2} || r_{o4})
 \end{aligned}
+$$</p>
+<p>$$
+\begin{equation}
+|A_v| \approx \frac{g_{m1}}{2} (2r_{o2} || r_{o4})
+\end{equation}
+$$</p>
+<ul>
+<li><strong>if</strong> $r_{04} \longrightarrow \infin$</li>
+</ul>
+<p>$$
+\begin{equation}
+|A_v| = g_{m1} r_{02}
+\end{equation}
 $$</p>
 <h3 id="method-ii">Method II</h3>
 <p><img src="/p/5.-passive-and-active-current-mirror/7.png"
@@ -568,12 +680,190 @@ R_{eq} &amp;= \frac{1}{g_{m2}} + \frac{r_{o4}}{g_{m2}r_{o2}} \\
 \therefore |A_v| &amp;= \frac{g_{m2}}{2} [(2r_{o2}) || r_{o4}]
 \end{aligned}
 $$</p>
-<h2 id="large-signal-analysis">Large-Signal Analysis</h2>
+<h2 id="large-signal-analysis">Large Signal Analysis</h2>
+<h3 id="实例解析">实例解析</h3>
+<p><img src="/p/5.-passive-and-active-current-mirror/10.png"
+	width="2020"
+	height="906"
+	srcset="/p/5.-passive-and-active-current-mirror/10_hu64692456be2b30f739e93a60f04f1250_115168_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/10_hu64692456be2b30f739e93a60f04f1250_115168_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="222"
+		data-flex-basis="535px"
+	
+></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">$V_{DD}$</th>
+<th style="text-align:center">$M_1$</th>
+<th style="text-align:center">$M_2$</th>
+<th style="text-align:center">$M_3$</th>
+<th style="text-align:center">$M_4$</th>
+<th style="text-align:center">$M_5$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$[V_{GS4} + 1.5V - V_{TH2}, 3V$]</td>
+<td style="text-align:center">All <strong>Saturation</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">$[X, V_{GS4} + 1.5V - V_{TH2}]$</td>
+<td style="text-align:center">Triode</td>
+<td style="text-align:center">Triode</td>
+<td style="text-align:center">Triode</td>
+<td style="text-align:center">Triode</td>
+<td style="text-align:center"><strong>Saturation</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">$[0,X]$</td>
+<td style="text-align:center">All <strong>Triode</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="small-signal-analysis">Small Signal Analysis</h2>
+<h3 id="电路图-1">电路图</h3>
+<p><img src="/p/5.-passive-and-active-current-mirror/11.png"
+	width="1006"
+	height="890"
+	srcset="/p/5.-passive-and-active-current-mirror/11_hub2c5e9e4b4744e44ed8f257ed973cb9c_78039_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/11_hub2c5e9e4b4744e44ed8f257ed973cb9c_78039_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="271px"
+	
+></p>
+<h3 id="voltage-gain-1">Voltage Gain</h3>
+<ol>
+<li>Method I</li>
+</ol>
+<ul>
+<li>计算$G_m$</li>
+</ul>
+<p><img src="/p/5.-passive-and-active-current-mirror/12.png"
+	width="2162"
+	height="972"
+	srcset="/p/5.-passive-and-active-current-mirror/12_hu205c67943b85d159d040349639ebfbc1_151897_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/12_hu205c67943b85d159d040349639ebfbc1_151897_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="222"
+		data-flex-basis="533px"
+	
+></p>
+<p>$$
+\begin{aligned}
+I_{D1} &amp;= |I_{D3}| = |I_{D4}| \\
+&amp;= \frac{ g_{m 1,2} V_{in}}{ 2 } \\
+I_{D2} &amp;= - \frac{ g_{m2} V_{in} }{ 2 } \\
+\therefore I_{out} &amp;= g_{m1,2} V_{in} \\
+\therefore G_m &amp;= g_{m1,2}
+\end{aligned}
+$$</p>
+<ul>
+<li>计算$R_{out}$</li>
+</ul>
+<p><img src="/p/5.-passive-and-active-current-mirror/13.png"
+	width="1994"
+	height="888"
+	srcset="/p/5.-passive-and-active-current-mirror/13_huf2b6afc6c4e887b17c19bceaec5c2cc6_141897_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/13_huf2b6afc6c4e887b17c19bceaec5c2cc6_141897_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="224"
+		data-flex-basis="538px"
+	
+></p>
+<p>$$
+\begin{aligned}
+I_X &amp;= 2 \frac{ V_X }{ 2r_{o1,2} + \dfrac{ 1 }{ g_{m3} } || r_{o3}} + \frac{ V_X }{ r_{04} }
+\end{aligned}
+$$</p>
+<p>if $2r_{o1,2} \gg \dfrac{ 1 }{ g_{m3}} || r_{03}$</p>
+<p>$$
+\begin{aligned}
+R_{out} &amp;= r_{o1,2} || r_{o4}
+\end{aligned}
+$$</p>
+<ul>
+<li>Gain</li>
+</ul>
+<p>$$
+\begin{equation}
+|A_v| = g_{m1,2} (r_{o2} || r_{o4})
+\end{equation}
+$$</p>
+<h2 id="common-mode-property">Common Mode Property</h2>
+<h3 id="电路图-2">电路图</h3>
+<p><img src="/p/5.-passive-and-active-current-mirror/14.png"
+	width="990"
+	height="864"
+	srcset="/p/5.-passive-and-active-current-mirror/14_hu18827d6840128511436eb23015caf845_60317_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/14_hu18827d6840128511436eb23015caf845_60317_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="275px"
+	
+></p>
+<h3 id="gain">Gain</h3>
+<p><img src="/p/5.-passive-and-active-current-mirror/15.png"
+	width="1736"
+	height="1094"
+	srcset="/p/5.-passive-and-active-current-mirror/15_hu95a2fb0905852be53a5db92157691871_154631_480x0_resize_box_3.png 480w, /p/5.-passive-and-active-current-mirror/15_hu95a2fb0905852be53a5db92157691871_154631_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="380px"
+	
+></p>
+<ul>
+<li>注意，$r_{o3,4} \gg \dfrac{ 1 }{ g_{m3,4} }$</li>
+</ul>
+<p>$$
+\begin{equation}
+\begin{aligned}
+A_{CM} &amp;\approx \frac{ - \dfrac{ 1 }{ 2g_{m3,4}} || \dfrac{ r_{o3,4} }{ 2 } }{\dfrac{ 1 }{ 2g_{m1,2}} + R_{SS}} \\
+&amp;= \frac{ -1  }{ 1 + 2g_{m1,2} R_{SS} } \cdot \frac{ g_{m1,2} }{ g_{m3,4} }
+\end{aligned}
+\end{equation}
+$$</p>
+<h3 id="cmmr">CMMR</h3>
+<p>$$
+\begin{equation}
+\begin{aligned}
+CMMR &amp;= | \frac{ A_{DM} }{ A_{CM}} | \\
+&amp;= g_{m3,4} (r_{o1} || r_{o2}) ( 1 + g_{m1,2})
+\end{aligned}
+\end{equation}
+$$</p>
 <h1 id="附录">附录</h1>
-<h2 id="mosfet的参数">MOSFET的参数</h2>
+<h2 id="mosfet参数">MOSFET参数</h2>
 <ul>
 <li>$\mu_n, V_{TH}$ 受<strong>温度</strong>影响</li>
 </ul>
+<h2 id="headroom-voltage">Headroom Voltage</h2>
+<blockquote>
+<p>余量电压是指在电路设计中，为了确保电器或电子设备正常工作，需要提供的超过最低电压要求的额外电压。它表示电路中电源电压与电器或电子设备所需电压之间的差值。</p>
+</blockquote>
 
 </section>
 
@@ -637,6 +927,32 @@ $$</p>
             
                 
 <article class="">
+    <a href="/p/8.-feedback/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">8. Feedback</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/1-2.basic_device/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1-2.Basic_Device</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/%E4%B8%8D%E6%87%82%E5%B0%B1%E9%97%AE/">
         
         
@@ -650,12 +966,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/14.oscillators/">
+    <a href="/p/14.-oscillators/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">14.Oscillators</h2>
+            <h2 class="article-title">14. Oscillators</h2>
         </div>
     </a>
 </article>
@@ -669,32 +985,6 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">15. Phase-Locked Loops</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/9.-operational-amplifier/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">9. Operational Amplifier</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/6.-frequency-response/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">6. Frequency Response</h2>
         </div>
     </a>
 </article>

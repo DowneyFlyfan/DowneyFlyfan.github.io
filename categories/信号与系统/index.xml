@@ -14,22 +14,16 @@
         <guid>https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid>
         <description>&lt;h1 id=&#34;非周期信号的表示---连续时间傅立叶变换&#34;&gt;非周期信号的表示 - 连续时间傅立叶变换&lt;/h1&gt;
 &lt;h2 id=&#34;非周期信号的傅立叶表示&#34;&gt;非周期信号的傅立叶表示&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;傅立叶级数求解&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;傅立叶级数求解&#34;&gt;傅立叶级数求解&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{equation}
 \begin{aligned}
 \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\
 \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\
 if \ T &amp;amp;\longrightarrow  \infin  \\
 a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\
 \end{aligned}
-\end{equation}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;傅立叶表示&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;fs-representation&#34;&gt;FS Representation&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{equation}
 \begin{aligned}
@@ -39,14 +33,53 @@ X(j \omega) &amp;amp;= T a_k  \\
 \end{equation}
 $$&lt;/p&gt;
 &lt;p&gt;$$
-\begin{equation}
 \begin{aligned}
 a_k &amp;amp;= \frac{ 1 }{ T  } X(j k \omega) \\
 \therefore \widehat { x(t) }{ ~ } &amp;amp;= \sum_{ k }^{  } a_k e^{jk \omega t} \\
-&amp;amp;= \frac{ 1 }{ 2\pi  } \sum_{ k = - \infin  }^{ \infin } X(j \omega_0 t) e^{jk \omega_0 t} \omega_0 \\
-\therefore x(t) &amp;amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega
+&amp;amp;= \frac{ 1 }{ 2\pi  } \sum_{ k = - \infin  }^{ \infin } X(j \omega_0 t) e^{jk \omega_0 t} \omega_0
 \end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+x(t) = \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega
 \end{equation}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;relations-between-c-t-fs--d-t-fs&#34;&gt;Relations between C-T FS &amp;amp; D-T FS&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\widehat { x(t) } &amp;amp;\longleftrightarrow a_k \\
+x(t)  &amp;amp; \longleftrightarrow X(j \omega) \\
+X(j \omega) &amp;amp;= Ta_k |_{ \omega = k \omega_0} \\
+&amp;amp;= \frac{ 2 \pi }{ \omega } a_k
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+X(j \omega) d \omega = 2\pi a_k
+\end{equation}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;ft-of-periodic-signals&#34;&gt;FT of Periodic Signals&lt;/h1&gt;
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+X(j \omega) &amp;amp;= 2 \pi \delta ( \omega - \omega_0) \\
+x(t) &amp;amp;= \int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
+&amp;amp;=
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+X(j \omega) = \sum_{ k = - \infin }^{ \infin  } 2 \pi a_k \delta ( \omega - k \omega_0)
+\end{equation}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;properties&#34;&gt;Properties&lt;/h2&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;h2 id=&#34;sampling-function--sinc-function&#34;&gt;Sampling Function &amp;amp; Sinc Function&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+Sinc ( \theta) &amp;amp;= \frac{ sin(\pi \theta) }{ \pi \theta }  \\
+Sa( \phi) &amp;amp;= \frac{ sin(\phi) }{ \phi}
+\end{aligned}
 $$&lt;/p&gt;
 </description>
         </item>
@@ -153,7 +186,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;其中, $a_0 = \dfrac{1}{T} \int_{T} x(t) dt$, 表示为&lt;strong&gt;直流分量&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;傅立叶级数的收敛---diriheli-condition&#34;&gt;傅立叶级数的收敛 - Diriheli Condition&lt;/h1&gt;
+&lt;h1 id=&#34;fs-convergence---diriheli-condition&#34;&gt;FS Convergence - Diriheli Condition&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;函数必须在&lt;strong&gt;任意时间内绝对可积&lt;/strong&gt;, 即&lt;/li&gt;
 &lt;/ol&gt;
@@ -898,21 +931,30 @@ u[n] &amp;amp;= \begin{cases}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;两者关系&#34;&gt;两者关系&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{aligned}
-\pmb{\delta[n]} &amp;amp;= u[n] - u[n-1] \\
-\therefore u[n] &amp;amp;= \sum_{m=-\infin}^n \delta[m] \\
-Set \ k &amp;amp;=n-m \\
-\pmb{u[n]} &amp;amp;= \sum_{k = \infin}^0\delta[n-k] \\
-&amp;amp;= \sum_{k=0}^\infin \delta[n-k]
-\end{aligned}
+\begin{equation}
+\delta [n] = u[n] - u[n-1]
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+u[n] = \sum_{ k = 0}^{ n} \delta [n - k]
+\end{equation}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;脉冲函数的其他属性&#34;&gt;脉冲函数的其他属性&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{aligned}
-x[n]\delta[n] &amp;amp;= x[0]\delta[n] \\
-x[n]\delta[n-n_0] &amp;amp;=x[n_0]\delta[n-n_0] \\
-\delta(at) &amp;amp;= \frac{1}{|a|}\delta(t)
-\end{aligned}
+\begin{equation}
+x[n]\delta[n] = x[0]\delta[n]
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+x[n] \delta [n- n_0] = x[n_0] \delta [n - n_0]
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+\delta ( \alpha t) = \frac{ 1 }{ | \alpha| } \delta (t)
+\end{equation}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;continuous-unit-impluse--unit-step-functions&#34;&gt;Continuous unit impluse &amp;amp; unit step functions&lt;/h2&gt;
 &lt;h3 id=&#34;二者关系&#34;&gt;二者关系&lt;/h3&gt;
@@ -920,13 +962,25 @@ $$&lt;/p&gt;
 &lt;li&gt;基本关系&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
+\begin{equation}
+\delta (t) = \frac{ du(t) }{ dt }
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+u(t) = \int_{ - \infin  }^{ t } \delta (\tau) d\tau
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;令$\sigma = t - \tau$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{equation}
 \begin{aligned}
-\delta_{\Delta}(t) &amp;amp;= \frac{du_{\Delta}(t)}{dt} \\
-&amp;amp;= \frac{1}{\Delta} \\
-\delta(t) &amp;amp;= \underset{\Delta \rightarrow 0}{lim}\delta_{\Delta}(t) \\
-&amp;amp;= \frac{du(t)}{dt} \\
-u(t) &amp;amp;= \int_{-\infin}^t\delta(\tau)d\tau
+u(t) &amp;amp;= \int_{\infin}^0\delta(t-\sigma)(-d\sigma) \\
+&amp;amp;= \int_0^\infin \delta(t-\sigma)d\sigma
 \end{aligned}
+\end{equation}
 $$&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/1.-%E7%BB%AA%E8%AE%BA/2.png&#34;
 	width=&#34;2190&#34;
@@ -947,18 +1001,9 @@ $$&lt;/p&gt;
 &lt;li&gt;缩放&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
-\begin{aligned}
-ku(t) &amp;amp;= \int_{-\infin}^tk\delta(\tau)d\tau
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;令$\sigma = t - \tau$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-u(t) &amp;amp;= \int_{\infin}^0\delta(t-\sigma)(-d\sigma) \\
-&amp;amp;= \int_0^\infin \delta(t-\sigma)d\sigma
-\end{aligned}
+\begin{equation}
+ku(t) = \int_{-\infin}^tk\delta(\tau)d\tau
+\end{equation}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;basic-system-properties&#34;&gt;Basic System Properties&lt;/h1&gt;
 &lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
