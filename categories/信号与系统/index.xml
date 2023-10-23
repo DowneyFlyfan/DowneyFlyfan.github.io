@@ -161,7 +161,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;当$s$和$z$为一般复数时，$H$为&lt;strong&gt;系统函数&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;transfer-function-and-fs&#34;&gt;Transfer Function and FS&lt;/h3&gt;
+&lt;h3 id=&#34;transfer-function-and-fs-叠加性质&#34;&gt;Transfer Function and FS (叠加性质)&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{equation}
 y(t) = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x(t)
@@ -170,23 +170,6 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{equation}
 y[n] = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x[n]
-\end{equation}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;叠加性质&#34;&gt;叠加性质&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{equation}
-\begin{aligned}
-if \ x(t) &amp;amp;= \sum_{i}^n a_i e^{s_it} \\
-y(t) &amp;amp;= \sum_{i}^n a_iH(s_i) e^{s_it} \\
-\end{aligned}
-\end{equation}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-\begin{aligned}
-if \ x[n] &amp;amp;= \sum_k a_k z_k^n \\
-y[n] &amp;amp;= \sum_{k}a_kH(s_k)z_k^n
-\end{aligned}
 \end{equation}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;连续时间周期信号的傅立叶级数表示&#34;&gt;连续时间周期信号的傅立叶级数表示&lt;/h1&gt;
@@ -205,12 +188,10 @@ $$&lt;/p&gt;
 &lt;li&gt;实信号的傅立叶级数满足$a_k = a_{-k}^*$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
-\begin{equation}
 \begin{aligned}
 x(t) &amp;amp;= a_0 + \sum_{k=1}^{ \infin} \Big[ a_k e^{j k \omega _0 t} + a_k e^{-jk \omega &lt;em&gt;0 t} \Big] \\
 &amp;amp;= a_0 + 2 \sum&lt;/em&gt;{k=1}^{ \infin} \mathbb R \lbrace a_ke^{j k \omega_0 t} \rbrace \\
 \end{aligned}
-\end{equation}
 $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;现在，让, $a_k = A_k e^{j\theta_k}$&lt;/li&gt;
@@ -235,9 +216,7 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;连续时间周期信号傅里叶级数表示的确定&#34;&gt;连续时间周期信号傅里叶级数表示的确定&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{equation}
-\begin{aligned}
-a_k &amp;amp;= \frac{1}{T} \int_{T} e^{-jk \omega &lt;em&gt;0 t} x(t) dt = \frac{1}{T} \int&lt;/em&gt;{T} e^{-jk \dfrac{2\pi}{T} t} x(t) dt \\&lt;/p&gt;
-&lt;p&gt;\end{aligned}
+a_k = \frac{1}{T} \int_{T} e^{-jk \omega &lt;em&gt;0 t} x(t) dt = \frac{1}{T} \int&lt;/em&gt;{T} e^{-jk \dfrac{2\pi}{T} t} x(t) dt
 \end{equation}
 $$&lt;/p&gt;
 &lt;ul&gt;
@@ -248,9 +227,9 @@ $$&lt;/p&gt;
 &lt;li&gt;函数必须在&lt;strong&gt;任意时间内绝对可积&lt;/strong&gt;, 即&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
-\begin{align}
+\begin{equation}
 \int_T |x(t)| &amp;lt; \infin
-\end{align}
+\end{equation}
 $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;

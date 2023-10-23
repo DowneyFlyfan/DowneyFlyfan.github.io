@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='LTI 对于复指数信号的响应 Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
 $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equation} $$
-当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$'>
+当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$'>
 <title>3. 周期信号的傅里叶级数表示</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/'>
@@ -11,14 +11,14 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='3. 周期信号的傅里叶级数表示'>
 <meta property='og:description' content='LTI 对于复指数信号的响应 Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
 $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equation} $$
-当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$'>
+当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-08-31T10:40:58&#43;08:00'/><meta property='article:modified_time' content='2023-08-31T10:40:58&#43;08:00'/>
 <meta name="twitter:title" content="3. 周期信号的傅里叶级数表示">
 <meta name="twitter:description" content="LTI 对于复指数信号的响应 Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
 $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equation} $$
-当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -261,10 +261,9 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
         <li><a href="#transfer-function-hz--hs">Transfer Function $H(z) / H(s)$</a>
           <ol>
             <li><a href="#computation">Computation</a></li>
-            <li><a href="#transfer-function-and-fs">Transfer Function and FS</a></li>
+            <li><a href="#transfer-function-and-fs-叠加性质">Transfer Function and FS (叠加性质)</a></li>
           </ol>
         </li>
-        <li><a href="#叠加性质">叠加性质</a></li>
       </ol>
     </li>
     <li><a href="#连续时间周期信号的傅立叶级数表示">连续时间周期信号的傅立叶级数表示</a>
@@ -402,7 +401,7 @@ $$</p>
 <ul>
 <li>当$s$和$z$为一般复数时，$H$为<strong>系统函数</strong></li>
 </ul>
-<h3 id="transfer-function-and-fs">Transfer Function and FS</h3>
+<h3 id="transfer-function-and-fs-叠加性质">Transfer Function and FS (叠加性质)</h3>
 <p>$$
 \begin{equation}
 y(t) = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x(t)
@@ -411,23 +410,6 @@ $$</p>
 <p>$$
 \begin{equation}
 y[n] = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x[n]
-\end{equation}
-$$</p>
-<h2 id="叠加性质">叠加性质</h2>
-<p>$$
-\begin{equation}
-\begin{aligned}
-if \ x(t) &amp;= \sum_{i}^n a_i e^{s_it} \\
-y(t) &amp;= \sum_{i}^n a_iH(s_i) e^{s_it} \\
-\end{aligned}
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-\begin{aligned}
-if \ x[n] &amp;= \sum_k a_k z_k^n \\
-y[n] &amp;= \sum_{k}a_kH(s_k)z_k^n
-\end{aligned}
 \end{equation}
 $$</p>
 <h1 id="连续时间周期信号的傅立叶级数表示">连续时间周期信号的傅立叶级数表示</h1>
@@ -446,12 +428,10 @@ $$</p>
 <li>实信号的傅立叶级数满足$a_k = a_{-k}^*$</li>
 </ol>
 <p>$$
-\begin{equation}
 \begin{aligned}
 x(t) &amp;= a_0 + \sum_{k=1}^{ \infin} \Big[ a_k e^{j k \omega _0 t} + a_k e^{-jk \omega <em>0 t} \Big] \\
 &amp;= a_0 + 2 \sum</em>{k=1}^{ \infin} \mathbb R \lbrace a_ke^{j k \omega_0 t} \rbrace \\
 \end{aligned}
-\end{equation}
 $$</p>
 <ul>
 <li>现在，让, $a_k = A_k e^{j\theta_k}$</li>
@@ -476,9 +456,7 @@ $$</p>
 <h2 id="连续时间周期信号傅里叶级数表示的确定">连续时间周期信号傅里叶级数表示的确定</h2>
 <p>$$
 \begin{equation}
-\begin{aligned}
-a_k &amp;= \frac{1}{T} \int_{T} e^{-jk \omega <em>0 t} x(t) dt = \frac{1}{T} \int</em>{T} e^{-jk \dfrac{2\pi}{T} t} x(t) dt \\</p>
-<p>\end{aligned}
+a_k = \frac{1}{T} \int_{T} e^{-jk \omega <em>0 t} x(t) dt = \frac{1}{T} \int</em>{T} e^{-jk \dfrac{2\pi}{T} t} x(t) dt
 \end{equation}
 $$</p>
 <ul>
@@ -489,9 +467,9 @@ $$</p>
 <li>函数必须在<strong>任意时间内绝对可积</strong>, 即</li>
 </ol>
 <p>$$
-\begin{align}
+\begin{equation}
 \int_T |x(t)| &lt; \infin
-\end{align}
+\end{equation}
 $$</p>
 <ol start="2">
 <li>
