@@ -6,7 +6,101 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Mon, 16 Oct 2023 16:27:22 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 19 Oct 2023 13:57:41 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>EMX操作</title>
+        <link>https://downeyflyfan.com/p/emx%E6%93%8D%E4%BD%9C/</link>
+        <pubDate>Thu, 19 Oct 2023 13:57:41 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/emx%E6%93%8D%E4%BD%9C/</guid>
+        <description>&lt;h1 id=&#34;process-files&#34;&gt;Process Files&lt;/h1&gt;
+&lt;h2 id=&#34;layers-conductors-and-vias&#34;&gt;Layers, conductors and vias&lt;/h2&gt;
+&lt;h3 id=&#34;layer&#34;&gt;Layer&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;用法与解释&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;height&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;dielectric constant&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;magnetic permeability(&lt;strong&gt;default 1&lt;/strong&gt;)&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;conductivity(&lt;strong&gt;default 0&lt;/strong&gt;)&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;magnetic loss tangent&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;layer&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;10&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;3.9&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;1.2e-4&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;单位&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;microns, angstroms($0.1nm$), kiloangstroms($0.1 \mu m$)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S /m \ \Omega - cm$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;layer 10 3.9 1.2e-4 ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# height dielectric constant magnetic permeability(1) conductivity(0)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;取名&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;layer 0.3 7.2 name passivation
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;assume&lt;/code&gt;语句&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;assume&lt;/code&gt;给整个内容设定单位&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;conductor&#34;&gt;conductor&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;conductor 1um 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bias 0.03 um
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;color purple
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;internal bottom
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# an amount by which the outer edges of the conductor are “grown”
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# display mesh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# internal connections for this conductor should go on the bottom surface
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;geometric-operations&#34;&gt;Geometric Operations&lt;/h2&gt;
+&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
+</description>
+        </item>
+        <item>
         <title>1. Supervised Learning</title>
         <link>https://downeyflyfan.com/p/1.-supervised-learning/</link>
         <pubDate>Mon, 16 Oct 2023 16:27:22 +0800</pubDate>
@@ -317,17 +411,6 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>不懂就问</title>
-        <link>https://downeyflyfan.com/p/%E4%B8%8D%E6%87%82%E5%B0%B1%E9%97%AE/</link>
-        <pubDate>Mon, 09 Oct 2023 16:46:48 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/%E4%B8%8D%E6%87%82%E5%B0%B1%E9%97%AE/</guid>
-        <description>&lt;h1 id=&#34;为什么cs-stage-会反相-&#34;&gt;为什么CS Stage 会反相 ?&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;/blockquote&gt;
-</description>
-        </item>
-        <item>
         <title>4.连续时间傅立叶变换</title>
         <link>https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</link>
         <pubDate>Sun, 08 Oct 2023 15:50:17 +0800</pubDate>
@@ -384,8 +467,16 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 X(j \omega) &amp;amp;= 2 \pi \delta ( \omega - \omega_0) \\
-x(t) &amp;amp;= \int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
-&amp;amp;=
+x(t) &amp;amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
+&amp;amp;= e^{ j \omega_0 t}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Let $X(j \omega) = \sum_{ k = -\infin  }^{ \infin } 2 \pi a_k \delta ( \omega - k \omega_0)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x(t) &amp;amp;=  \int_{ - \infin  }^{ \infin  } a_k e^{j k \omega t}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;$$
@@ -394,12 +485,57 @@ X(j \omega) = \sum_{ k = - \infin }^{ \infin  } 2 \pi a_k \delta ( \omega - k \o
 \end{equation}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;properties&#34;&gt;Properties&lt;/h2&gt;
+&lt;h3 id=&#34;ft-properties&#34;&gt;FT Properties&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;$x(t)$ Real&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x(t) &amp;amp;= x_e(t) + x_o(t) \\
+X(j \omega) &amp;amp;= X_R(j \omega) + j X_I ( j \omega)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+x_e(t) \longleftrightarrow X_R(j \omega) = X_e(j \omega)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+x_o(t) \longleftrightarrow X_I(j \omega) = X_o(j \omega)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/1.png&#34;
+	width=&#34;1846&#34;
+	height=&#34;1836&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/1_hu0243d71320b394238811fb383849f957_1037904_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/1_hu0243d71320b394238811fb383849f957_1037904_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;241px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;fundamental-ft--fs&#34;&gt;Fundamental FT &amp;amp; FS&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/2.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1786&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;107&#34;
+		data-flex-basis=&#34;258px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;sampling-function--sinc-function&#34;&gt;Sampling Function &amp;amp; Sinc Function&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
-Sinc ( \theta) &amp;amp;= \frac{ sin(\pi \theta) }{ \pi \theta }  \\
-Sa( \phi) &amp;amp;= \frac{ sin(\phi) }{ \phi}
+Sa( \phi) &amp;amp;= \frac{ sin(\phi) }{ \phi} \\
+Sinc ( \theta) &amp;amp;= \frac{ sin(\pi \theta) }{ \pi \theta }
 \end{aligned}
 $$&lt;/p&gt;
 </description>
@@ -1998,31 +2134,35 @@ $$&lt;/p&gt;
         
         <guid>https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/</guid>
         <description>&lt;h1 id=&#34;lti-对于复指数信号的响应&#34;&gt;LTI 对于复指数信号的响应&lt;/h1&gt;
-&lt;h2 id=&#34;信号分解为复指数信号&#34;&gt;信号分解为复指数信号&lt;/h2&gt;
+&lt;h2 id=&#34;transfer-function-hz--hs&#34;&gt;Transfer Function $H(z) / H(s)$&lt;/h2&gt;
+&lt;h3 id=&#34;computation&#34;&gt;Computation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当输入$x(t) = e^{st}, x[n] = z^n$时&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
-\begin{align}
-e^{st} &amp;amp;\longrightarrow H(s) e^{st} \\
-z^n &amp;amp;\longrightarrow H(z) z^n
-\end{align}
+\begin{equation}
+H(s) = \int_{ - \infin  }^{  \infin } h(\tau) e^{-s \tau} d\tau \\
+\end{equation}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;幅度因子-特征函数&#34;&gt;幅度因子 特征函数&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;$H(z) / H(s)$ 被称为&lt;strong&gt;幅度因子&lt;/strong&gt;，也是系统的&lt;strong&gt;特征值&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;当输入$x(t) = e^{st}, x[n] = z^n$时&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;p&gt;$$
-\begin{align}
-H(s) &amp;amp;= \int_{ - \infin  }^{  \infin } h(\tau) e^{-s \tau} d\tau \\
-H(z) &amp;amp;= \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
-\end{align}
+\begin{equation}
+H(z) = \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
+\end{equation}
 $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;当$s$和$z$为一般复数时，$H$为&lt;strong&gt;系统函数&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;transfer-function-and-fs&#34;&gt;Transfer Function and FS&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{equation}
+y(t) = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x(t)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+y[n] = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x[n]
+\end{equation}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;叠加性质&#34;&gt;叠加性质&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{equation}
@@ -2116,7 +2256,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;周期信号的平均功率 = 各个谐波信号的平均功率之和&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;性质总结&#34;&gt;性质总结&lt;/h2&gt;
+&lt;h2 id=&#34;变换性质&#34;&gt;变换性质&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/1.png&#34;
 	width=&#34;1382&#34;
 	height=&#34;1432&#34;
@@ -2159,6 +2299,31 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h1 id=&#34;fs-of-some-important-functions&#34;&gt;FS of Some Important Functions&lt;/h1&gt;
+&lt;h2 id=&#34;square-wave&#34;&gt;Square Wave&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/5.png&#34;
+	width=&#34;1536&#34;
+	height=&#34;492&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/5_hu20edcbbb635238eb2a3a697c669e917a_86520_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/5_hu20edcbbb635238eb2a3a697c669e917a_86520_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;312&#34;
+		data-flex-basis=&#34;749px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+a_k = \frac{ sin( k \omega_0 T_1) }{ k \pi }
+\end{equation}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;impulse-train&#34;&gt;Impulse Train&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+x(t) = \sum_{ k = - \infin }^{ \infin } \delta (t-kT) \overset{ FS }{ \longleftrightarrow  } a_k = \frac{ 1 }{T  }
+\end{equation}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;离散时间信号的傅立叶级数表示&#34;&gt;离散时间信号的傅立叶级数表示&lt;/h1&gt;
 &lt;h2 id=&#34;谐波信号&#34;&gt;谐波信号&lt;/h2&gt;
 &lt;p&gt;$$
@@ -2199,16 +2364,20 @@ y[n] &amp;amp;= \sum_{ k = - \infin  }^{  \infin } a_k h[e^{jk \dfrac{ 2\pi }{  
 \end{aligned}
 \end{equation}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;滤波&#34;&gt;滤波&lt;/h1&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
-&lt;h1 id=&#34;数学知识补充&#34;&gt;数学知识补充&lt;/h1&gt;
-&lt;h2 id=&#34;欧拉公式变形&#34;&gt;欧拉公式变形&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{align}
-sinx &amp;amp;= \frac{ e^{jx}  + e^{-jx}}{ 2j} \\
-cosx &amp;amp;= \frac{ e^{jx}  - e^{-jx}}{ 2}
-\end{align}
-$$&lt;/p&gt;
+&lt;h1 id=&#34;异或&#34;&gt;异或&lt;/h1&gt;
+&lt;h2 id=&#34;lti-system&#34;&gt;LTI System&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/4.png&#34;
+	width=&#34;1620&#34;
+	height=&#34;1244&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/4_hu5d2ec7eb2ca79d50a35a3c01557e9841_373234_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/4_hu5d2ec7eb2ca79d50a35a3c01557e9841_373234_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;130&#34;
+		data-flex-basis=&#34;312px&#34;
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -2246,14 +2415,15 @@ y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;卷积&#34;&gt;卷积&lt;/h1&gt;
-&lt;h2 id=&#34;卷积的数学表示&#34;&gt;卷积的数学表示&lt;/h2&gt;
+&lt;h2 id=&#34;数学表示&#34;&gt;数学表示&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{aligned}
 y[n] &amp;amp;= \sum_{ k =-\infin}^{\infin}x[k]h[n-k] = x[n]*h[n] \\
 y(t) &amp;amp;= \int_{-\infin}^{\infin} x(\tau)h(t-\tau) d\tau = x(t) * h(t) \\
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;commutative-distributive-associative-交换-分配-结合&#34;&gt;Commutative Distributive Associative (交换 分配 结合)&lt;/h2&gt;
+&lt;h2 id=&#34;性质&#34;&gt;性质&lt;/h2&gt;
+&lt;h3 id=&#34;commutative-distributive-associative-交换-分配-结合&#34;&gt;Commutative Distributive Associative (交换 分配 结合)&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
 x(t)*h(t) &amp;amp;= h(t)&lt;em&gt;x(t) \\
@@ -2261,33 +2431,41 @@ x(t)&lt;/em&gt;[h_1(t) + h_2(t)] &amp;amp;= x(t)*h_1(t) + x(t) * h_2(t) \\
 x(t) * h_1(t) * h_2(t) &amp;amp;= x(t) * (h_1(t) * h_2(t))
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;卷积的性质&#34;&gt;卷积的性质&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;卷积的平移性质&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{equation}
-\begin{aligned}
-y[n] &amp;amp;= h[n] * x[n] \\
-y[n+k] &amp;amp;= h[n+k] * x[n] \\
-y[n+k] &amp;amp;= h[n] * x[n+k]
-\end{aligned}
-\end{equation}
-$$&lt;/p&gt;
+&lt;h3 id=&#34;其他性质&#34;&gt;其他性质&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;特例&lt;/strong&gt;: 通过 Unit Impulse Function &lt;strong&gt;平移&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;若$y(t) = x(t) * h(t)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
-\begin{aligned}
-x(t) * \delta(t-k) &amp;amp;= x(t-k) \\
-\sum_{k=-\infin}^{\infin} x(t) * \delta(t-k) &amp;amp;= \sum_{k=-\infin}^{\infin} x(t-k) \\
-\end{aligned}
+\begin{equation}
+y(t-k) = x(t-k) * h(t)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+y&amp;rsquo;(t) = x&amp;rsquo;(t) * h(t)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+y(-t) = x(-t) * h(-t)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+y(kt) \neq x(kt) * h(t)
+\end{equation}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;线性时不变系统lti的性质&#34;&gt;线性时不变系统(LTI)的性质&lt;/h1&gt;
 &lt;h2 id=&#34;linear&#34;&gt;Linear&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;对于&lt;strong&gt;Cascade System&lt;/strong&gt;，可以任意调换级联系统的位置&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x_3(t) &amp;amp;= Ax_1(t) + Bx_2(t) \\
+y_3(t) &amp;amp;= Ay_1(t) + By_2(t)
+\end{aligned}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -2305,9 +2483,9 @@ $$&lt;/p&gt;
 &lt;li&gt;逆系统与原系统的单位脉冲响应&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
-\begin{aligned}
+\begin{equation}
 h(t) * g(t) = \delta (t)
-\end{aligned}
+\end{equation}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;causality&#34;&gt;Causality&lt;/h2&gt;
 &lt;ol&gt;
@@ -2321,44 +2499,45 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;stability&#34;&gt;Stability&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{equation}
-\begin{aligned}
 \int_{-\infin}^{\infin} |h(\tau)| d\tau &amp;lt; \infin
-\end{aligned}
 \end{equation}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;response-of-a-lti-system&#34;&gt;Response of a LTI System&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Unit Step Response&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{equation}
+\sum_{ n = - \infin  }^{ \infin  } |h[n]| \lt \infin
+\end{equation}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;response-of-a-lti-system&#34;&gt;Response of a LTI System&lt;/h1&gt;
+&lt;h2 id=&#34;unit-impulse-response&#34;&gt;Unit Impulse Response&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入为$\delta (t)$时的输出$h(t)$&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;其中，$h(t)$为该系统的单位脉冲响应&lt;/li&gt;
+&lt;li&gt;Cascaded System UIR&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
-\begin{aligned}
-s[n] &amp;amp;= h[n]*u[n] \\
-s(t) &amp;amp;= h(t)*u(t)
-\end{aligned}
+\begin{equation}
+h(n) = h_1(n)*h_2(n)
+\end{equation}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Unit Impulse Response&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;输入&lt;strong&gt;Unit Impulse Function&lt;/strong&gt; 得到的&lt;strong&gt;响应&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&#34;unit-step-response&#34;&gt;Unit Step Response&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入为$u(t)$时的输出$s(t)$&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;$$
-\begin{aligned}
-h(t) &amp;amp;= \frac{ds(t)}{dt} = s&amp;rsquo;(t) \\
-\end{aligned}
+\begin{equation}
+s[n] = u[n] * h[n] = \sum_{ k = - \infin }^{ n } h[k]
+\end{equation}
 $$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Cascade System&lt;/strong&gt; has a UIR that&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;$$
-\begin{align}
-h(n) &amp;amp;= h_1(n)*h_2(n)
-\end{align}
+\begin{equation}
+s(t) = u(t) * h(t) = \int_{ - \infin  }^{ t } h(\tau) d \tau
+\end{equation}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;causal-lti-systems-described-yb-differential-and-difference-equations&#34;&gt;CAUSAL LTI SYSTEMS DESCRIBED YB DIFFERENTIAL AND DIFFERENCE EQUATIONS&lt;/h1&gt;
+&lt;h1 id=&#34;casual-lti-system-described-by-lccde&#34;&gt;Casual LTI System Described by LCCDE&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Linear Constant-Coefficient Differential and Difference Equation&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;一阶线性常微分方程的通用解法&#34;&gt;一阶线性常微分方程的通用解法&lt;/h2&gt;
 &lt;h3 id=&#34;一般形式&#34;&gt;一般形式&lt;/h3&gt;
 &lt;p&gt;$$
@@ -2862,6 +3041,11 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{equation}
 \delta ( \alpha t) = \frac{ 1 }{ | \alpha| } \delta (t)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+x[n] * \delta [n] = x[n]
 \end{equation}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;continuous-unit-impluse--unit-step-functions&#34;&gt;Continuous unit impluse &amp;amp; unit step functions&lt;/h2&gt;

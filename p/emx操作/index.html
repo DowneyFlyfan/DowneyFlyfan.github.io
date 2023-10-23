@@ -1,30 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='General Considerations Miller&amp;rsquo;s Law $$ \begin{aligned} Z &amp;amp;= Z_1 &#43; Z_2 \\ \frac{ V_X }{ Z_1 } &amp;amp;= \frac{ V_Y }{ Z_2 } = \frac{ V_X - V_Y }{ Z} \end{aligned} $$
-$$ \begin{align} Z_1 &amp;amp;= \frac{ Z }{ 1 - A_v } \\ Z_2 &amp;amp;= \frac{ Z }{ 1- \dfrac{ 1 }{ A_v }} \end{align} $$
-$A_v = \dfrac{ V_{out} }{ V_{in} }$
-注意: $Z$和main signal path之间的关系很重要
-Association of Poles with Nodes General Case $$ \begin{aligned} H(s) &amp;amp;= \frac{V_{out}}{V_{in}}(s) \\ &amp;amp;= \frac{A_1}{1 &#43; sR_SC_{in}} \frac{A_2}{1 &#43; sR_1 C_N}\frac{1}{1 &#43; sR_2C_P} \end{aligned} $$'>
-<title>6. Frequency Response</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Process Files Layers, conductors and vias Layer 用法与解释 函数 height dielectric constant magnetic permeability(default 1) conductivity(default 0) magnetic loss tangent layer 10 3.9 1.2e-4 单位 microns, angstroms($0.1nm$), kiloangstroms($0.1 \mu m$) $S /m \ \Omega - cm$ 1 2 layer 10 3.9 1.2e-4 ... # height dielectric constant magnetic permeability(1) conductivity(0) 取名 1 layer 0.3 7.2 name passivation assume语句 assume给整个内容设定单位 conductor 1 2 3 4 5 6 7 conductor 1um bias 0.'>
+<title>EMX操作</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/6.-frequency-response/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/emx%E6%93%8D%E4%BD%9C/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='6. Frequency Response'>
-<meta property='og:description' content='General Considerations Miller&amp;rsquo;s Law $$ \begin{aligned} Z &amp;amp;= Z_1 &#43; Z_2 \\ \frac{ V_X }{ Z_1 } &amp;amp;= \frac{ V_Y }{ Z_2 } = \frac{ V_X - V_Y }{ Z} \end{aligned} $$
-$$ \begin{align} Z_1 &amp;amp;= \frac{ Z }{ 1 - A_v } \\ Z_2 &amp;amp;= \frac{ Z }{ 1- \dfrac{ 1 }{ A_v }} \end{align} $$
-$A_v = \dfrac{ V_{out} }{ V_{in} }$
-注意: $Z$和main signal path之间的关系很重要
-Association of Poles with Nodes General Case $$ \begin{aligned} H(s) &amp;amp;= \frac{V_{out}}{V_{in}}(s) \\ &amp;amp;= \frac{A_1}{1 &#43; sR_SC_{in}} \frac{A_2}{1 &#43; sR_1 C_N}\frac{1}{1 &#43; sR_2C_P} \end{aligned} $$'>
-<meta property='og:url' content='https://downeyflyfan.com/p/6.-frequency-response/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='EMX操作'>
+<meta property='og:description' content='Process Files Layers, conductors and vias Layer 用法与解释 函数 height dielectric constant magnetic permeability(default 1) conductivity(default 0) magnetic loss tangent layer 10 3.9 1.2e-4 单位 microns, angstroms($0.1nm$), kiloangstroms($0.1 \mu m$) $S /m \ \Omega - cm$ 1 2 layer 10 3.9 1.2e-4 ... # height dielectric constant magnetic permeability(1) conductivity(0) 取名 1 layer 0.3 7.2 name passivation assume语句 assume给整个内容设定单位 conductor 1 2 3 4 5 6 7 conductor 1um bias 0.'>
+<meta property='og:url' content='https://downeyflyfan.com/p/emx%E6%93%8D%E4%BD%9C/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-05-10T13:44:17&#43;08:00'/><meta property='article:modified_time' content='2023-05-10T13:44:17&#43;08:00'/>
-<meta name="twitter:title" content="6. Frequency Response">
-<meta name="twitter:description" content="General Considerations Miller&amp;rsquo;s Law $$ \begin{aligned} Z &amp;amp;= Z_1 &#43; Z_2 \\ \frac{ V_X }{ Z_1 } &amp;amp;= \frac{ V_Y }{ Z_2 } = \frac{ V_X - V_Y }{ Z} \end{aligned} $$
-$$ \begin{align} Z_1 &amp;amp;= \frac{ Z }{ 1 - A_v } \\ Z_2 &amp;amp;= \frac{ Z }{ 1- \dfrac{ 1 }{ A_v }} \end{align} $$
-$A_v = \dfrac{ V_{out} }{ V_{in} }$
-注意: $Z$和main signal path之间的关系很重要
-Association of Poles with Nodes General Case $$ \begin{aligned} H(s) &amp;amp;= \frac{V_{out}}{V_{in}}(s) \\ &amp;amp;= \frac{A_1}{1 &#43; sR_SC_{in}} \frac{A_2}{1 &#43; sR_1 C_N}\frac{1}{1 &#43; sR_2C_P} \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-10-19T13:57:41&#43;08:00'/><meta property='article:modified_time' content='2023-10-19T13:57:41&#43;08:00'/>
+<meta name="twitter:title" content="EMX操作">
+<meta name="twitter:description" content="Process Files Layers, conductors and vias Layer 用法与解释 函数 height dielectric constant magnetic permeability(default 1) conductivity(default 0) magnetic loss tangent layer 10 3.9 1.2e-4 单位 microns, angstroms($0.1nm$), kiloangstroms($0.1 \mu m$) $S /m \ \Omega - cm$ 1 2 layer 10 3.9 1.2e-4 ... # height dielectric constant magnetic permeability(1) conductivity(0) 取名 1 layer 0.3 7.2 name passivation assume语句 assume给整个内容设定单位 conductor 1 2 3 4 5 6 7 conductor 1um bias 0."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -262,48 +250,19 @@ Association of Poles with Nodes General Case $$ \begin{aligned} H(s) &amp;amp;= 
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#general-considerations">General Considerations</a>
+    <li><a href="#process-files">Process Files</a>
       <ol>
-        <li><a href="#millers-law">Miller&rsquo;s Law</a></li>
-        <li><a href="#association-of-poles-with-nodes">Association of Poles with Nodes</a>
+        <li><a href="#layers-conductors-and-vias">Layers, conductors and vias</a>
           <ol>
-            <li><a href="#general-case">General Case</a></li>
-            <li><a href="#input-example">Input Example</a></li>
+            <li><a href="#layer">Layer</a></li>
+            <li><a href="#conductor">conductor</a></li>
           </ol>
         </li>
-        <li><a href="#cg-stage-with-parasitic-capacitances">CG Stage With Parasitic Capacitances</a></li>
-      </ol>
-    </li>
-    <li><a href="#common-source-stage">Common-Source Stage</a>
-      <ol>
-        <li><a href="#high-frequency-model-of-cs-stage">High-frequency Model of CS Stage</a>
+        <li><a href="#geometric-operations">Geometric Operations</a>
           <ol>
-            <li><a href="#电路图">电路图</a></li>
-            <li><a href="#gain">Gain</a></li>
-            <li><a href="#exact-transfer-function">Exact Transfer Function</a></li>
-            <li><a href="#two-pole-systems">Two Pole Systems</a></li>
-            <li><a href="#summary-of-approximation-of-resistance">Summary of Approximation of Resistance</a></li>
+            <li><a href="#heading"></a></li>
           </ol>
         </li>
-      </ol>
-    </li>
-    <li><a href="#source-followers">Source Followers</a>
-      <ol>
-        <li><a href="#ciurcuit--small-signal-model">Ciurcuit &amp; Small Signal Model</a></li>
-        <li><a href="#transfer-function-and-poles">Transfer Function and Poles</a></li>
-        <li><a href="#impedence">Impedence</a>
-          <ol>
-            <li><a href="#input-impedence">Input Impedence</a></li>
-            <li><a href="#output-impedence">Output Impedence</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#common-gate-stage">Common-Gate Stage</a></li>
-    <li><a href="#cascode-stage">Cascode Stage</a></li>
-    <li><a href="#appendix">Appendix</a>
-      <ol>
-        <li><a href="#poles-and-zeros">Poles and Zeros</a></li>
       </ol>
     </li>
   </ol>
@@ -333,7 +292,7 @@ Association of Poles with Nodes General Case $$ \begin{aligned} H(s) &amp;amp;= 
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/6.-frequency-response/">6. Frequency Response</a>
+            <a href="/p/emx%E6%93%8D%E4%BD%9C/">EMX操作</a>
         </h2>
     
         
@@ -355,7 +314,7 @@ Association of Poles with Nodes General Case $$ \begin{aligned} H(s) &amp;amp;= 
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 10, 2023</time>
+                <time class="article-time--published">Oct 19, 2023</time>
             </div>
         
 
@@ -370,7 +329,7 @@ Association of Poles with Nodes General Case $$ \begin{aligned} H(s) &amp;amp;= 
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -385,422 +344,92 @@ Association of Poles with Nodes General Case $$ \begin{aligned} H(s) &amp;amp;= 
     <section class="article-content">
     
     
-    <h1 id="general-considerations">General Considerations</h1>
-<h2 id="millers-law">Miller&rsquo;s Law</h2>
-<p><img src="/p/6.-frequency-response/1.png"
-	width="2324"
-	height="716"
-	srcset="/p/6.-frequency-response/1_hud8728b819905a001ac63431a0c22a482_114652_480x0_resize_box_3.png 480w, /p/6.-frequency-response/1_hud8728b819905a001ac63431a0c22a482_114652_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="324"
-		data-flex-basis="778px"
-	
-></p>
-<p>$$
-\begin{aligned}
-Z &amp;= Z_1 + Z_2 \\
-\frac{ V_X }{  Z_1 } &amp;= \frac{ V_Y }{ Z_2  } = \frac{ V_X - V_Y }{  Z}
-\end{aligned}
-$$</p>
-<p>$$
-\begin{align}
-Z_1 &amp;= \frac{ Z }{ 1 - A_v  } \\
-Z_2 &amp;= \frac{ Z }{ 1-  \dfrac{ 1 }{ A_v }}
-\end{align}
-$$</p>
-<ul>
-<li>
-<p>$A_v = \dfrac{ V_{out} }{ V_{in} }$</p>
-</li>
-<li>
-<p><strong>注意</strong>: $Z$和<strong>main signal path</strong>之间的关系很重要</p>
-</li>
-</ul>
-<h2 id="association-of-poles-with-nodes">Association of Poles with Nodes</h2>
-<h3 id="general-case">General Case</h3>
-<p><img src="/p/6.-frequency-response/2.png"
-	width="2324"
-	height="716"
-	srcset="/p/6.-frequency-response/2_hud8728b819905a001ac63431a0c22a482_133930_480x0_resize_box_3.png 480w, /p/6.-frequency-response/2_hud8728b819905a001ac63431a0c22a482_133930_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="324"
-		data-flex-basis="778px"
-	
-></p>
-<p>$$
-\begin{aligned}
-H(s) &amp;= \frac{V_{out}}{V_{in}}(s) \\
-&amp;= \frac{A_1}{1 + sR_SC_{in}} \frac{A_2}{1 + sR_1 C_N}\frac{1}{1 + sR_2C_P}
-\end{aligned}
-$$</p>
-<h3 id="input-example">Input Example</h3>
-<p><img src="/p/6.-frequency-response/3.png"
-	width="1172"
-	height="686"
-	srcset="/p/6.-frequency-response/3_hube17b7b07764fcfa6e3751c70bdb1c91_64511_480x0_resize_box_3.png 480w, /p/6.-frequency-response/3_hube17b7b07764fcfa6e3751c70bdb1c91_64511_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="170"
-		data-flex-basis="410px"
-	
-></p>
-<p>$$
-\begin{aligned}
-Input \ Impedence \ Z_{in} &amp;= (1+A) C_F \\
-f_p &amp;= \frac{1}{(1+A)R_SC_F}
-\end{aligned}
-$$</p>
-<h2 id="cg-stage-with-parasitic-capacitances">CG Stage With Parasitic Capacitances</h2>
-<p><img src="/p/6.-frequency-response/11.png"
-	width="674"
-	height="726"
-	srcset="/p/6.-frequency-response/11_hub2039b5ba16f5d2b9d6662121e4ff1d7_58291_480x0_resize_box_3.png 480w, /p/6.-frequency-response/11_hub2039b5ba16f5d2b9d6662121e4ff1d7_58291_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="92"
-		data-flex-basis="222px"
-	
-></p>
-<ul>
-<li>Neglecting <strong>CLM</strong></li>
-</ul>
-<p>$$
-\begin{aligned}
-\omega_{in} &amp;= [C_S (R_S || \frac{1}{g_{m1} + g_{mb1}})]^{-1} \\
-&amp;= [(C_{GS1} + C_{SB1})(R_S || \frac{1}{g_{m1} + g_{mb1}})]^{-1} \\
-\omega_{out} &amp;= [C_D R_D]^{-1} \\
-&amp;= [(C_{DG} + C_{DB}) R_D]^{-1} \\
-\therefore A_v &amp;= \frac{(g_m + g_{mb})R_D}{1 + (g_m + g_{mb})R_S} \frac{1}{1 + s/\omega_{in}}\frac{1}{1 + s/\omega_{out}}
-\end{aligned}
-$$</p>
-<h1 id="common-source-stage">Common-Source Stage</h1>
-<h2 id="high-frequency-model-of-cs-stage">High-frequency Model of CS Stage</h2>
-<h3 id="电路图">电路图</h3>
-<p><img src="/p/6.-frequency-response/4.png"
-	width="918"
-	height="640"
-	srcset="/p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_480x0_resize_box_3.png 480w, /p/6.-frequency-response/4_hu983cfc745e84eac105e2da0426da4e2c_58765_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="143"
-		data-flex-basis="344px"
-	
-></p>
-<h3 id="gain">Gain</h3>
-<ul>
-<li>$C_{GD}$接在了<strong>输入</strong>和<strong>输出</strong>之间，因此根据<strong>Miller&rsquo;s Law</strong>分别计算<strong>输出</strong>和<strong>输入</strong>阻抗</li>
-</ul>
+    <h1 id="process-files">Process Files</h1>
+<h2 id="layers-conductors-and-vias">Layers, conductors and vias</h2>
+<h3 id="layer">Layer</h3>
 <ol>
-<li>X to Ground</li>
+<li>用法与解释</li>
 </ol>
-<p>$$
-\begin{aligned}
-Z_X &amp;= C_{GS} + (1-A)C_{GD} \\
-\omega_{in} &amp;= \frac{1}{R_S [C_{GS} + (1 + g_mR_D)C_{GD}]}
-\end{aligned}
-$$</p>
-<ol start="2">
-<li>$V_{out}$ to Ground</li>
-</ol>
-<p>$$
-\begin{aligned}
-Z_X &amp;= C_{DB} + (1-A^{-1})C_{GD} \\
-&amp;\approx C_{DB} + C_{GD} \\
-\therefore \omega_{out} &amp;= \frac{1}{R_S(C_{GS} + C_{GD})}
-\end{aligned}
-$$</p>
-<ol start="3">
-<li>when $R_S$ is large</li>
-</ol>
-<p><img src="/p/6.-frequency-response/5.png"
-	width="750"
-	height="642"
-	srcset="/p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_480x0_resize_box_3.png 480w, /p/6.-frequency-response/5_hud5b671f3cbd87ae1326d79e5852f9bd9_47710_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="116"
-		data-flex-basis="280px"
-	
-></p>
-<p>$$
-\begin{aligned}
-Z_X &amp;= \frac{1}{sC_{eq}} || (  \frac{C_{GD} + C_{GS}}{C_{GD}} \frac{1}{g_m})  (???) \\
-\therefore \omega_{out} &amp;= \frac{1}{\Big[ R_D  || \Big(\dfrac{C_{GD} + C_{GS}}{C_{GD}} \dfrac{1}{g_m}\Big) \Big] (C_{eq} + C_{DB})} \\
-\therefore \frac{V_{out}}{V_{in}}(s) &amp;= -\frac{g_mR_D}{(1 + \dfrac{s}{\omega_{in}}) (1 + \dfrac{s}{\omega_{out}})}
-\end{aligned}
-$$</p>
-<h3 id="exact-transfer-function">Exact Transfer Function</h3>
-<ol>
-<li>High-Frequency Small Signal Equivalent Circuit</li>
-</ol>
-<p><img src="/p/6.-frequency-response/6.png"
-	width="1400"
-	height="512"
-	srcset="/p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_480x0_resize_box_3.png 480w, /p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="273"
-		data-flex-basis="656px"
-	
-></p>
-<ol start="2">
-<li><strong>KCL方程</strong></li>
-</ol>
-<p>$$
-\begin{aligned}
-0 &amp;= (V_{out} - V_X) sC_{GD} + V_{out} ( \frac{ 1 }{ R_D } + sC_{DB}) + g_mV_X\\
-V_{X} &amp;= \frac{ 1 }{ 1 + s R_S C_{GS} } V_{in}
-\end{aligned}
-$$</p>
-<p>$$
-\begin{equation}
-\begin{aligned}
-\therefore \ H(s) &amp;= \frac{V_{out}}{V_{in}} \\
-&amp;= \frac{(C_{GD}s - g_m)R_D}{R_SR_D\xi s^2 + [R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})]s + 1} \\
-\xi &amp;= C_{GS}C_{GD} + C_{GS}C_{DB} + C_{GD}C_{DB}
-\end{aligned}
-\end{equation}
-$$</p>
-<h3 id="two-pole-systems">Two Pole Systems</h3>
-<ul>
-<li>$D$: <strong>demoninator</strong>，分母</li>
-</ul>
-<p>$$
-\begin{equation}
-\begin{aligned}
-D &amp;= (1 + \frac{s}{\omega_{p1}})(1 + \frac{s}{\omega_{p2}}) \\
-&amp;= \frac{s^2}{\omega_{p1}\omega_{p2}} + (\frac{1}{\omega_{p1}} + \frac{1}{\omega_{p2}})s + 1 \\
-\end{aligned}
-\end{equation}
-$$</p>
-<ul>
-<li>
-<p>如果$\omega_{p2} \gg \omega_{p1}$，所以我们可以将s的系数近似看成$\dfrac{1}{\omega_{p1}}$</p>
-</li>
-<li>
-<p>进而根据$s^2$的系数求出$\omega_{p2}$</p>
-</li>
-</ul>
-<ol start="3">
-<li>对于<strong>CS Stage</strong>, 有以下结论</li>
-</ol>
-<p>$$
-\begin{equation}
-\omega_{p1} = \frac{1}{R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})}
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-\begin{aligned}
-\omega_{p2} &amp;= \frac{1}{\omega_{p1}} \frac{1}{R_S R_D \xi} \\
-&amp;= \frac{R_S(1+g_mR_D)C_{GD} + R_SC_{GS} + R_D(C_{GD} + C_{DB})}{R_SR_D\xi}
-\end{aligned}
-\end{equation}
-$$</p>
-<ul>
-<li>若 $C_{GS} \gg (1+g_m R_D)C_{GD} + R_D(C_{GD} + C_{DB})/R_S$</li>
-</ul>
-<p>$$
-\begin{aligned}
-\omega_{p2} &amp;\approx \frac{1}{R_D (C_{GD} + C_{DB})}
-\end{aligned}
-$$</p>
-<ul>
-<li><strong>与估算得到的结果相同</strong></li>
-</ul>
-<h3 id="summary-of-approximation-of-resistance">Summary of Approximation of Resistance</h3>
-<ol>
-<li>一级估计</li>
-</ol>
-<p>$$
-\begin{aligned}
-Z_{in} &amp;= \frac{ 1 }{ s[C_{GS} + (1 +g_m R_D) C_{GD}] }
-\end{aligned}
-$$</p>
-<ol start="2">
-<li>高频估计(考虑输出结点的影响)</li>
-</ol>
-<p><img src="/p/6.-frequency-response/6.png"
-	width="1400"
-	height="512"
-	srcset="/p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_480x0_resize_box_3.png 480w, /p/6.-frequency-response/6_hu7ee376d381c59e7e136c4c1bb2f3f054_71203_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="273"
-		data-flex-basis="656px"
-	
-></p>
-<p>$$
-\begin{aligned}
-Z_{in} &amp;= \frac{ 1 }{ s C_{GS} } || \frac{ 1 + s R_D({C_{GD}  +C_{DB}})}{ sC_{GD} ( 1 + g_m R_D + s R_D C_{DB})}
-\end{aligned}
-$$</p>
-<h1 id="source-followers">Source Followers</h1>
-<h2 id="ciurcuit--small-signal-model">Ciurcuit &amp; Small Signal Model</h2>
-<p><img src="/p/6.-frequency-response/7.png"
-	width="1250"
-	height="510"
-	srcset="/p/6.-frequency-response/7_huc115fb711a5d3ed0132595c475f43b98_71040_480x0_resize_box_3.png 480w, /p/6.-frequency-response/7_huc115fb711a5d3ed0132595c475f43b98_71040_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="245"
-		data-flex-basis="588px"
-	
-></p>
-<h2 id="transfer-function-and-poles">Transfer Function and Poles</h2>
-<ol>
-<li>KCL</li>
-</ol>
-<p>$$
-\begin{aligned}
-V_1C_{GS}s + g_mV_1 &amp;= V_{out}C_Ls \\
-\therefore V_1 &amp;= \frac{C_Ls}{g_m + C_{GS}s}V_{out}
-\end{aligned}
-$$</p>
-<ol start="2">
-<li>KVL</li>
-</ol>
-<p>$$
-\begin{aligned}
-V_{in} &amp;= R_S[V_1C_{GS}s + (V_1 + V_{out})C_{GD}s] + V_1 + V_{out}
-\end{aligned}
-$$</p>
-<ol start="3">
-<li>Gain</li>
-</ol>
-<p>$$
-\begin{equation}
-\frac{V_{out}}{V_{in}}(s) = \frac{g_m + C_{GS}s}{R_S\xi s^2 + (g_mR_SC_{GD} + C_L + C_{GS})s + g_m}
-\end{equation}
-$$</p>
-<ol start="4">
-<li>Poles &amp; Zeros</li>
-</ol>
-<p>$$
-\begin{aligned}
-\therefore \omega_{p1} &amp;\approx \frac{g_m}{g_mR_SC_{GD} + C_L + C_{GS}} \\
-&amp;= \frac{1}{R_SC_{GD} + \dfrac{C_L + C_{GS}}{g_m}}
-\end{aligned}
-$$</p>
-<ul>
-<li>如果 $R_S = 0$</li>
-</ul>
-<p>$$
-\begin{aligned}
-\omega_{p1} &amp;= \frac{g_m}{C_L + C_{GS}}
-\end{aligned}
-$$</p>
-<ul>
-<li>Zeros</li>
-</ul>
-<p>$$
-\begin{equation}
-\omega_z = -\frac{ g_m }{ C_{GS}}
-\end{equation}
-$$</p>
-<h2 id="impedence">Impedence</h2>
-<h3 id="input-impedence">Input Impedence</h3>
-<p><img src="/p/6.-frequency-response/8.png"
-	width="606"
-	height="410"
-	srcset="/p/6.-frequency-response/8_hu010e2f6847d9d0f2ddf87a7dd35e58ab_29342_480x0_resize_box_3.png 480w, /p/6.-frequency-response/8_hu010e2f6847d9d0f2ddf87a7dd35e58ab_29342_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="147"
-		data-flex-basis="354px"
-	
-></p>
-<ul>
-<li>$C_{GD}$ <strong>shunts</strong> the input, neglected.</li>
-</ul>
-<p>$$
-\begin{aligned}
-V_X &amp;= \frac{I_X}{C_{GS}s} + (I_X + \frac{g_m I_X}{C_{GS}s}) (\frac{1}{g_{mb}} || \frac{1}{C_Ls}) \\
-Z_{in} &amp;= \frac{1}{C_{GS}s} + (1 + \frac{g_m}{C_{GS}s})\frac{1}{g_{mb} + C_L s} \\
-Low \ Frequency: \\
-g_{mb} &amp;\gg |C_Ls| \\
-\therefore Z_{in} &amp;\approx \frac{1}{C_{GS}s}(1 + \frac{g_m}{g_{mb}}) + \frac{1}{g_{mb}}
-\end{aligned}
-$$</p>
-<h3 id="output-impedence">Output Impedence</h3>
-<h1 id="common-gate-stage">Common-Gate Stage</h1>
-<p><img src="/p/6.-frequency-response/9.png"
-	width="636"
-	height="636"
-	srcset="/p/6.-frequency-response/9_hu7c655d5ff7e36edc51637b9deb28f0d3_46669_480x0_resize_box_3.png 480w, /p/6.-frequency-response/9_hu7c655d5ff7e36edc51637b9deb28f0d3_46669_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="100"
-		data-flex-basis="240px"
-	
-></p>
-<p>$$
-\begin{aligned}
-\frac{V_{out}}{V_{in}}(s) &amp;= \frac{(g_m + g_{mb})R_D}{1 + (g_m + g_{mb})R_S} \frac{1}{\Big(1 + \dfrac{C_S}{g_m + g_{mb} + \dfrac{1}{R_S}}s \Big) (1 + R_DC_D s)} \\
-\therefore Z_{in} &amp;\approx \frac{Z_L}{(g_m + g_{mb})r_o} + \frac{1}{g_m + g_{mb}} \\
-Z_L &amp;= R_D || [1/(s C_D)]
-\end{aligned}
-$$</p>
-<h1 id="cascode-stage">Cascode Stage</h1>
-<p><img src="/p/6.-frequency-response/10.png"
-	width="1004"
-	height="994"
-	srcset="/p/6.-frequency-response/10_hud9f19130b36c8e9787455d1bc9ee1e1e_95879_480x0_resize_box_3.png 480w, /p/6.-frequency-response/10_hud9f19130b36c8e9787455d1bc9ee1e1e_95879_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="101"
-		data-flex-basis="242px"
-	
-></p>
-<p>$$
-\begin{aligned}
-\omega_{p,A} &amp;= \frac{1}{R_S \Big[C_{GS1} + \Big( 1 + \dfrac{g_{m1}}{g_{m2} + g_{mb2}})C_{GD1}]} (???)\\
-\omega_{p,X} &amp;= \frac{g_{m2} + g_{mb2}}{2C_{GD1} + C_{DB1} + C_{SB1} + C_{GS2}} \\
-\omega_{p,Y} &amp;= \frac{1}{R_D(C_{DB2} + C_L + C_{GD2})}
-\end{aligned}
-$$</p>
-<h1 id="appendix">Appendix</h1>
-<h2 id="poles-and-zeros">Poles and Zeros</h2>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th style="text-align:center">Poles</th>
-<th style="text-align:center">Zeros</th>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">height</th>
+<th style="text-align:center">dielectric constant</th>
+<th style="text-align:center">magnetic permeability(<strong>default 1</strong>)</th>
+<th style="text-align:center">conductivity(<strong>default 0</strong>)</th>
+<th style="text-align:center">magnetic loss tangent</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">使得增益无穷大(<strong>分母为0的点</strong>)</td>
-<td style="text-align:center">使得增益为0的点(<strong>分子为0的点</strong>)</td>
+<td style="text-align:center"><code>layer</code></td>
+<td style="text-align:center"><code>10</code></td>
+<td style="text-align:center"><code>3.9</code></td>
+<td style="text-align:center"><code>1.2e-4</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">单位</td>
+<td style="text-align:center">microns, angstroms($0.1nm$), kiloangstroms($0.1 \mu m$)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">$S /m \ \Omega - cm$</td>
+<td></td>
 </tr>
 </tbody>
 </table></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">layer 10 3.9 1.2e-4 ...
+</span></span><span class="line"><span class="cl"># height dielectric constant magnetic permeability(1) conductivity(0)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>取名</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">layer 0.3 7.2 name passivation
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li><code>assume</code>语句</li>
+</ol>
+<ul>
+<li><code>assume</code>给整个内容设定单位</li>
+</ul>
+<h3 id="conductor">conductor</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">conductor 1um 
+</span></span><span class="line"><span class="cl">bias 0.03 um
+</span></span><span class="line"><span class="cl">color purple
+</span></span><span class="line"><span class="cl">internal bottom
+</span></span><span class="line"><span class="cl"># an amount by which the outer edges of the conductor are “grown”
+</span></span><span class="line"><span class="cl"># display mesh
+</span></span><span class="line"><span class="cl"># internal connections for this conductor should go on the bottom surface
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="geometric-operations">Geometric Operations</h2>
+<h3 id="heading"></h3>
 
 </section>
 
@@ -864,19 +493,6 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/emx%E6%93%8D%E4%BD%9C/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">EMX操作</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/8.-feedback/">
         
         
@@ -922,6 +538,19 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">15. Phase-Locked Loops</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/5.-passive-and-active-current-mirror/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5. Passive and Active Current Mirror</h2>
         </div>
     </a>
 </article>
