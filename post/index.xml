@@ -2132,43 +2132,45 @@ $$&lt;/p&gt;
         <description>&lt;h1 id=&#34;lti-对于复指数信号的响应&#34;&gt;LTI 对于复指数信号的响应&lt;/h1&gt;
 &lt;h2 id=&#34;响应&#34;&gt;响应&lt;/h2&gt;
 &lt;p&gt;$$
-\begin{equation}
-e^{st} \longrightarrow H(s) e^{st}
-\end{equation}
+\begin{gather}
+\begin{aligned}
+e^{st} &amp;amp;\longrightarrow H(s) e^{st} \\
+z^n &amp;amp;\longrightarrow H(z) z^n
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-z^n \longrightarrow H(z) z^n
-\end{equation}
-$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;复指数函数是LTI系统的特征函数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当系统输入为 $e^{st}$时，响应应具有$Ae^{st}$的形式&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;transfer-function-hz--hs&#34;&gt;Transfer Function $H(z) / H(s)$&lt;/h2&gt;
 &lt;h3 id=&#34;computation&#34;&gt;Computation&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;当输入$x(t) = e^{st}, x[n] = z^n$时&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
-\begin{equation}
-H(s) = \int_{ - \infin  }^{  \infin } h(\tau) e^{-s \tau} d\tau \\
-\end{equation}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-H(z) = \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
-\end{equation}
+\begin{gather}
+\begin{aligned}
+H(s) &amp;amp;= \int_{ - \infin  }^{  \infin } h(\tau) e^{-s \tau} d\tau \\
+H(z) &amp;amp;= \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;当$s$和$z$为一般复数时，$H$为&lt;strong&gt;系统函数&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;transfer-function-and-fs-叠加性质&#34;&gt;Transfer Function and FS (叠加性质)&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{equation}
-y(t) = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x(t)
-\end{equation}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-y[n] = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x[n]
-\end{equation}
+\begin{gather}
+\begin{aligned}
+y(t) &amp;amp;= [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x(t) \\
+y[n] &amp;amp;= [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x[n]
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;连续时间周期信号的傅立叶级数表示&#34;&gt;连续时间周期信号的傅立叶级数表示&lt;/h1&gt;
 &lt;h2 id=&#34;成谱波关系的复指数信号的线性组合&#34;&gt;成谱波关系的复指数信号的线性组合&lt;/h2&gt;
@@ -2238,6 +2240,11 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;周期信号的平均功率 = 各个谐波信号的平均功率之和&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;$$
+\begin{equation}
+\underset{ T \longrightarrow \infin  }{lim}\frac{ 1 }{ T }\int_{ T }^{  } |x(t)|^2 dt = \int_{ T }^{  } |a_k|^2 dt
+\end{equation}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;变换性质&#34;&gt;变换性质&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/1.png&#34;
 	width=&#34;1382&#34;
@@ -2307,9 +2314,13 @@ x(t) = \sum_{ k = - \infin }^{ \infin } \delta (t-kT) \overset{ FS }{ \longleftr
 \end{equation}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;others&#34;&gt;Others&lt;/h2&gt;
+&lt;h3 id=&#34;constant-function&#34;&gt;Constant Function&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{equation}
-x[n] = (-1)^n = e^{j \pi n}
+x(t) = C \overset{ FS }{ \longleftrightarrow  } a_k = \begin{cases}
+0 &amp;amp; k \neq 0 \\
+C &amp;amp; k = 0
+\end{cases}
 \end{equation}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;离散时间信号的傅立叶级数表示&#34;&gt;离散时间信号的傅立叶级数表示&lt;/h1&gt;
@@ -3130,6 +3141,9 @@ x_k &amp;amp;\longrightarrow y_k \Longrightarrow\sum_k a_k x_k  &amp;amp;\longri
 $$&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;trigonometric-formula&#34;&gt;Trigonometric Formula&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;合并&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -3138,11 +3152,26 @@ tan \phi &amp;amp;= \dfrac{sinx}{cosx}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;三角函数的复指数表达&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+cos(x) &amp;amp;= \frac{ e^{jx} + e^{-jx}}{ 2 } \\
+sin(x) &amp;amp;= \frac{ e^{jx} - e^{-jx}}{ 2j }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;plural-formula&#34;&gt;Plural Formula&lt;/h2&gt;
 &lt;p&gt;$$
-\begin{equation}
-(-1)^n = e^{j \pi n}
-\end{equation}
+\begin{gather}
+\begin{aligned}
+1 &amp;amp;= e^{j 2 \pi n} \\
+(-1)^n &amp;amp;= e^{j \pi n} \\
+j^n &amp;amp;= e^{j \dfrac{ \pi }{ 2 } n}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 </description>
         </item>

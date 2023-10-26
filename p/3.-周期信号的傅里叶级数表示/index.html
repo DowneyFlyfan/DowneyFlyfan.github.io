@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='LTI 对于复指数信号的响应 响应 $$ \begin{equation} e^{st} \longrightarrow H(s) e^{st} \end{equation} $$
-$$ \begin{equation} z^n \longrightarrow H(z) z^n \end{equation} $$
-Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
-$$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equation} $$
-当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='LTI 对于复指数信号的响应 响应 $$ \begin{gather} \begin{aligned} e^{st} &amp;amp;\longrightarrow H(s) e^{st} \\ z^n &amp;amp;\longrightarrow H(z) z^n \end{aligned} \end{gather} $$
+复指数函数是LTI系统的特征函数
+当系统输入为 $e^{st}$时，响应应具有$Ae^{st}$的形式
+Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{gather} \begin{aligned} H(s) &amp;amp;= \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ H(z) &amp;amp;= \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{aligned} \end{gather} $$
+当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{gather} \begin{aligned} y(t) &amp;amp;= [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \\ y[n] &amp;amp;= [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x[n] \end{aligned} \end{gather} $$'>
 <title>3. 周期信号的傅里叶级数表示</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='3. 周期信号的傅里叶级数表示'>
-<meta property='og:description' content='LTI 对于复指数信号的响应 响应 $$ \begin{equation} e^{st} \longrightarrow H(s) e^{st} \end{equation} $$
-$$ \begin{equation} z^n \longrightarrow H(z) z^n \end{equation} $$
-Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
-$$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equation} $$
-当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$'>
+<meta property='og:description' content='LTI 对于复指数信号的响应 响应 $$ \begin{gather} \begin{aligned} e^{st} &amp;amp;\longrightarrow H(s) e^{st} \\ z^n &amp;amp;\longrightarrow H(z) z^n \end{aligned} \end{gather} $$
+复指数函数是LTI系统的特征函数
+当系统输入为 $e^{st}$时，响应应具有$Ae^{st}$的形式
+Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{gather} \begin{aligned} H(s) &amp;amp;= \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ H(z) &amp;amp;= \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{aligned} \end{gather} $$
+当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{gather} \begin{aligned} y(t) &amp;amp;= [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \\ y[n] &amp;amp;= [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x[n] \end{aligned} \end{gather} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-08-31T10:40:58&#43;08:00'/><meta property='article:modified_time' content='2023-08-31T10:40:58&#43;08:00'/>
 <meta name="twitter:title" content="3. 周期信号的傅里叶级数表示">
-<meta name="twitter:description" content="LTI 对于复指数信号的响应 响应 $$ \begin{equation} e^{st} \longrightarrow H(s) e^{st} \end{equation} $$
-$$ \begin{equation} z^n \longrightarrow H(z) z^n \end{equation} $$
-Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
-$$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equation} $$
-当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="LTI 对于复指数信号的响应 响应 $$ \begin{gather} \begin{aligned} e^{st} &amp;amp;\longrightarrow H(s) e^{st} \\ z^n &amp;amp;\longrightarrow H(z) z^n \end{aligned} \end{gather} $$
+复指数函数是LTI系统的特征函数
+当系统输入为 $e^{st}$时，响应应具有$Ae^{st}$的形式
+Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{gather} \begin{aligned} H(s) &amp;amp;= \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ H(z) &amp;amp;= \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{aligned} \end{gather} $$
+当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{gather} \begin{aligned} y(t) &amp;amp;= [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \\ y[n] &amp;amp;= [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x[n] \end{aligned} \end{gather} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -295,7 +295,11 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
       <ol>
         <li><a href="#square-wave">Square Wave</a></li>
         <li><a href="#impulse-train">Impulse Train</a></li>
-        <li><a href="#others">Others</a></li>
+        <li><a href="#others">Others</a>
+          <ol>
+            <li><a href="#constant-function">Constant Function</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#离散时间信号的傅立叶级数表示">离散时间信号的傅立叶级数表示</a>
@@ -392,43 +396,45 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
     <h1 id="lti-对于复指数信号的响应">LTI 对于复指数信号的响应</h1>
 <h2 id="响应">响应</h2>
 <p>$$
-\begin{equation}
-e^{st} \longrightarrow H(s) e^{st}
-\end{equation}
+\begin{gather}
+\begin{aligned}
+e^{st} &amp;\longrightarrow H(s) e^{st} \\
+z^n &amp;\longrightarrow H(z) z^n
+\end{aligned}
+\end{gather}
 $$</p>
-<p>$$
-\begin{equation}
-z^n \longrightarrow H(z) z^n
-\end{equation}
-$$</p>
+<ol>
+<li>
+<p>复指数函数是LTI系统的特征函数</p>
+</li>
+<li>
+<p>当系统输入为 $e^{st}$时，响应应具有$Ae^{st}$的形式</p>
+</li>
+</ol>
 <h2 id="transfer-function-hz--hs">Transfer Function $H(z) / H(s)$</h2>
 <h3 id="computation">Computation</h3>
 <ul>
 <li>当输入$x(t) = e^{st}, x[n] = z^n$时</li>
 </ul>
 <p>$$
-\begin{equation}
-H(s) = \int_{ - \infin  }^{  \infin } h(\tau) e^{-s \tau} d\tau \\
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-H(z) = \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
-\end{equation}
+\begin{gather}
+\begin{aligned}
+H(s) &amp;= \int_{ - \infin  }^{  \infin } h(\tau) e^{-s \tau} d\tau \\
+H(z) &amp;= \sum_{ k = - \infin  }^{  \infin } h[k] z^{-k}
+\end{aligned}
+\end{gather}
 $$</p>
 <ul>
 <li>当$s$和$z$为一般复数时，$H$为<strong>系统函数</strong></li>
 </ul>
 <h3 id="transfer-function-and-fs-叠加性质">Transfer Function and FS (叠加性质)</h3>
 <p>$$
-\begin{equation}
-y(t) = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x(t)
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-y[n] = [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x[n]
-\end{equation}
+\begin{gather}
+\begin{aligned}
+y(t) &amp;= [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x(t) \\
+y[n] &amp;= [\sum_{ k = - \infin }^{ \infin  } a_k H( jk \omega_0)] x[n]
+\end{aligned}
+\end{gather}
 $$</p>
 <h1 id="连续时间周期信号的傅立叶级数表示">连续时间周期信号的傅立叶级数表示</h1>
 <h2 id="成谱波关系的复指数信号的线性组合">成谱波关系的复指数信号的线性组合</h2>
@@ -498,6 +504,11 @@ $$</p>
 <ul>
 <li>周期信号的平均功率 = 各个谐波信号的平均功率之和</li>
 </ul>
+<p>$$
+\begin{equation}
+\underset{ T \longrightarrow \infin  }{lim}\frac{ 1 }{ T }\int_{ T }^{  } |x(t)|^2 dt = \int_{ T }^{  } |a_k|^2 dt
+\end{equation}
+$$</p>
 <h2 id="变换性质">变换性质</h2>
 <p><img src="/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/1.png"
 	width="1382"
@@ -567,9 +578,13 @@ x(t) = \sum_{ k = - \infin }^{ \infin } \delta (t-kT) \overset{ FS }{ \longleftr
 \end{equation}
 $$</p>
 <h2 id="others">Others</h2>
+<h3 id="constant-function">Constant Function</h3>
 <p>$$
 \begin{equation}
-x[n] = (-1)^n = e^{j \pi n}
+x(t) = C \overset{ FS }{ \longleftrightarrow  } a_k = \begin{cases}
+0 &amp; k \neq 0 \\
+C &amp; k = 0
+\end{cases}
 \end{equation}
 $$</p>
 <h1 id="离散时间信号的傅立叶级数表示">离散时间信号的傅立叶级数表示</h1>
