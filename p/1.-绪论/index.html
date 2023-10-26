@@ -310,7 +310,12 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
         <li><a href="#linearity">Linearity</a></li>
       </ol>
     </li>
-    <li><a href="#三角函数知识回忆">三角函数知识回忆</a></li>
+    <li><a href="#appendix">Appendix</a>
+      <ol>
+        <li><a href="#trigonometric-formula">Trigonometric Formula</a></li>
+        <li><a href="#plural-formula">Plural Formula</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -477,7 +482,7 @@ $$</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th style="text-align:center">periodic Signals</th>
+<th style="text-align:center">periodic Signals(重要的周期信号求解方法)</th>
 <th style="text-align:center">$x(t) = x(t+T)$</th>
 </tr>
 </thead>
@@ -704,6 +709,9 @@ ku(t) = \int_{-\infin}^tk\delta(\tau)d\tau
 \end{equation}
 $$</p>
 <h1 id="basic-system-properties">Basic System Properties</h1>
+<blockquote>
+<p>注意: 对于一个系统，输入和输出的时间分别指的是$y(t)$和$x(t)$当中的$t$</p>
+</blockquote>
 <h2 id="memory">Memory</h2>
 <blockquote>
 <p><strong>输出</strong>只和<strong>当前输入</strong>有关，叫做<strong>memoryless</strong>, 否则就是<strong>system with memory</strong></p>
@@ -713,7 +721,7 @@ $$</p>
 <li>定义</li>
 </ol>
 <blockquote>
-<p><strong>不同的输入</strong> $\longrightarrow$ <strong>不同的输出</strong></p>
+<p>$x$和$y$一一对应</p>
 </blockquote>
 <ol start="2">
 <li>图示</li>
@@ -741,6 +749,9 @@ $$</p>
 <blockquote>
 <p><strong>Bounded Input</strong> $\rightarrow$ <strong>Bounded Output</strong>, $t \in \mathbb R$</p>
 </blockquote>
+<ul>
+<li>特别注意，$\delta (t)$ <strong>Not Bounded</strong>(无界)</li>
+</ul>
 <h2 id="time-invirance">Time Invirance</h2>
 <blockquote>
 <p><strong>时间平移不变性</strong> $x(t) \longrightarrow y(t), x(t-t_0) \longrightarrow y(t-t_0)$</p>
@@ -749,9 +760,6 @@ $$</p>
 <li>LCCDE (Linear Constant Coefficient Equation)</li>
 </ul>
 <h2 id="linearity">Linearity</h2>
-<ol>
-<li>定义</li>
-</ol>
 <blockquote>
 <p>满足以下条件的系统是<strong>线性</strong>的</p>
 </blockquote>
@@ -760,18 +768,21 @@ $$</p>
 x_k &amp;\longrightarrow y_k \Longrightarrow\sum_k a_k x_k  &amp;\longrightarrow \sum_k b_k y_k
 \end{aligned}
 $$</p>
-<ol start="2">
-<li>解释</li>
-</ol>
-<ul>
-<li>当$x$平移1个单位，$y$平移多个单位，系统是<strong>非线性的</strong></li>
-</ul>
-<h1 id="三角函数知识回忆">三角函数知识回忆</h1>
+<h1 id="appendix">Appendix</h1>
+<h2 id="trigonometric-formula">Trigonometric Formula</h2>
 <p>$$
+\begin{gather}
 \begin{aligned}
 asinx + bcosx &amp;= \sqrt{a^2 + b^2}sin(x + \phi) \\
-tan \phi &amp;= \frac{sinx}{cosx}
+tan \phi &amp;= \dfrac{sinx}{cosx}
 \end{aligned}
+\end{gather}
+$$</p>
+<h2 id="plural-formula">Plural Formula</h2>
+<p>$$
+\begin{equation}
+(-1)^n = e^{j \pi n}
+\end{equation}
 $$</p>
 
 </section>

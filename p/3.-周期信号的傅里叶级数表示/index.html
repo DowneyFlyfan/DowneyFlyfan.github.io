@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='LTI 对于复指数信号的响应 Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='LTI 对于复指数信号的响应 响应 $$ \begin{equation} e^{st} \longrightarrow H(s) e^{st} \end{equation} $$
+$$ \begin{equation} z^n \longrightarrow H(z) z^n \end{equation} $$
+Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
 $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equation} $$
 当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$'>
 <title>3. 周期信号的傅里叶级数表示</title>
@@ -9,14 +11,18 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
 <link rel='canonical' href='https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='3. 周期信号的傅里叶级数表示'>
-<meta property='og:description' content='LTI 对于复指数信号的响应 Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
+<meta property='og:description' content='LTI 对于复指数信号的响应 响应 $$ \begin{equation} e^{st} \longrightarrow H(s) e^{st} \end{equation} $$
+$$ \begin{equation} z^n \longrightarrow H(z) z^n \end{equation} $$
+Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
 $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equation} $$
 当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-08-31T10:40:58&#43;08:00'/><meta property='article:modified_time' content='2023-08-31T10:40:58&#43;08:00'/>
 <meta name="twitter:title" content="3. 周期信号的傅里叶级数表示">
-<meta name="twitter:description" content="LTI 对于复指数信号的响应 Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
+<meta name="twitter:description" content="LTI 对于复指数信号的响应 响应 $$ \begin{equation} e^{st} \longrightarrow H(s) e^{st} \end{equation} $$
+$$ \begin{equation} z^n \longrightarrow H(z) z^n \end{equation} $$
+Transfer Function $H(z) / H(s)$ Computation 当输入$x(t) = e^{st}, x[n] = z^n$时 $$ \begin{equation} H(s) = \int_{ - \infin }^{ \infin } h(\tau) e^{-s \tau} d\tau \\ \end{equation} $$
 $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equation} $$
 当$s$和$z$为一般复数时，$H$为系统函数 Transfer Function and FS (叠加性质) $$ \begin{equation} y(t) = [\sum_{ k = - \infin }^{ \infin } a_k H( jk \omega_0)] x(t) \end{equation} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
@@ -258,6 +264,7 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
   <ol>
     <li><a href="#lti-对于复指数信号的响应">LTI 对于复指数信号的响应</a>
       <ol>
+        <li><a href="#响应">响应</a></li>
         <li><a href="#transfer-function-hz--hs">Transfer Function $H(z) / H(s)$</a>
           <ol>
             <li><a href="#computation">Computation</a></li>
@@ -275,9 +282,9 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
           </ol>
         </li>
         <li><a href="#连续时间周期信号傅里叶级数表示的确定">连续时间周期信号傅里叶级数表示的确定</a></li>
+        <li><a href="#fs-convergence---diriheli-condition">FS Convergence - Diriheli Condition</a></li>
       </ol>
     </li>
-    <li><a href="#fs-convergence---diriheli-condition">FS Convergence - Diriheli Condition</a></li>
     <li><a href="#连续时间周期信号傅立叶级数性质">连续时间周期信号傅立叶级数性质</a>
       <ol>
         <li><a href="#paswals-theorem">Paswal&rsquo;s Theorem</a></li>
@@ -288,6 +295,7 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
       <ol>
         <li><a href="#square-wave">Square Wave</a></li>
         <li><a href="#impulse-train">Impulse Train</a></li>
+        <li><a href="#others">Others</a></li>
       </ol>
     </li>
     <li><a href="#离散时间信号的傅立叶级数表示">离散时间信号的傅立叶级数表示</a>
@@ -297,10 +305,9 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
         <li><a href="#性质">性质</a></li>
       </ol>
     </li>
-    <li><a href="#系统的频率响应">系统的频率响应</a></li>
-    <li><a href="#异或">异或</a>
+    <li><a href="#filter">Filter</a>
       <ol>
-        <li><a href="#lti-system">LTI System</a></li>
+        <li><a href="#transfer-function-decomposition">Transfer Function Decomposition</a></li>
       </ol>
     </li>
   </ol>
@@ -383,6 +390,17 @@ $$ \begin{equation} H(z) = \sum_{ k = - \infin }^{ \infin } h[k] z^{-k} \end{equ
     
     
     <h1 id="lti-对于复指数信号的响应">LTI 对于复指数信号的响应</h1>
+<h2 id="响应">响应</h2>
+<p>$$
+\begin{equation}
+e^{st} \longrightarrow H(s) e^{st}
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+z^n \longrightarrow H(z) z^n
+\end{equation}
+$$</p>
 <h2 id="transfer-function-hz--hs">Transfer Function $H(z) / H(s)$</h2>
 <h3 id="computation">Computation</h3>
 <ul>
@@ -458,7 +476,7 @@ $$</p>
 <ul>
 <li>其中, $a_0 = \dfrac{1}{T} \int_{T} x(t) dt$, 表示为<strong>直流分量</strong></li>
 </ul>
-<h1 id="fs-convergence---diriheli-condition">FS Convergence - Diriheli Condition</h1>
+<h2 id="fs-convergence---diriheli-condition">FS Convergence - Diriheli Condition</h2>
 <ol>
 <li>函数必须在<strong>任意时间内绝对可积</strong>, 即</li>
 </ol>
@@ -548,6 +566,12 @@ $$</p>
 x(t) = \sum_{ k = - \infin }^{ \infin } \delta (t-kT) \overset{ FS }{ \longleftrightarrow  } a_k = \frac{ 1 }{T  }
 \end{equation}
 $$</p>
+<h2 id="others">Others</h2>
+<p>$$
+\begin{equation}
+x[n] = (-1)^n = e^{j \pi n}
+\end{equation}
+$$</p>
 <h1 id="离散时间信号的傅立叶级数表示">离散时间信号的傅立叶级数表示</h1>
 <h2 id="谐波信号">谐波信号</h2>
 <p>$$
@@ -577,31 +601,16 @@ $$</p>
 		data-flex-basis="248px"
 	
 ></p>
-<h1 id="系统的频率响应">系统的频率响应</h1>
+<h1 id="filter">Filter</h1>
+<h2 id="transfer-function-decomposition">Transfer Function Decomposition</h2>
+<ul>
+<li>For a <strong>Cascode System</strong></li>
+</ul>
 <p>$$
 \begin{equation}
-\begin{aligned}
-H(j \omega) &amp;=  \int_{ - \infin  }^{  \infin }  h( \tau) e^{-j \omega \tau} d \tau \\
-H[e^{j \omega}] &amp;= \sum_{ k = - \infin  }^{ \infin  } h[n] e^{-j \omega n} \\
-y(t) &amp;= \sum_{ k =- \infin  }^{  \infin } a_k H(j k\omega_0) e^{jk \omega_0 t} \\
-y[n] &amp;= \sum_{ k = - \infin  }^{  \infin } a_k h[e^{jk \dfrac{ 2\pi }{  N} n}] e^{j k \dfrac{ 2\pi }{ N  } n}
-\end{aligned}
+H(j \omega) = H_1(j \omega) H_2(j \omega) H_3 (j \omega)  = |H_1(j \omega) H_2(j \omega) H_3 (j \omega)| \cdot e^{j ( \angle H_1(j \omega) + \angle H_2 (j \omega) + H_3 (j \omega))}
 \end{equation}
 $$</p>
-<h1 id="异或">异或</h1>
-<h2 id="lti-system">LTI System</h2>
-<p><img src="/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/4.png"
-	width="1620"
-	height="1244"
-	srcset="/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/4_hu5d2ec7eb2ca79d50a35a3c01557e9841_373234_480x0_resize_box_3.png 480w, /p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/4_hu5d2ec7eb2ca79d50a35a3c01557e9841_373234_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="130"
-		data-flex-basis="312px"
-	
-></p>
 
 </section>
 

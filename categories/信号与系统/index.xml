@@ -143,6 +143,17 @@ $$&lt;/p&gt;
         
         <guid>https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/</guid>
         <description>&lt;h1 id=&#34;lti-对于复指数信号的响应&#34;&gt;LTI 对于复指数信号的响应&lt;/h1&gt;
+&lt;h2 id=&#34;响应&#34;&gt;响应&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+e^{st} \longrightarrow H(s) e^{st}
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+z^n \longrightarrow H(z) z^n
+\end{equation}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;transfer-function-hz--hs&#34;&gt;Transfer Function $H(z) / H(s)$&lt;/h2&gt;
 &lt;h3 id=&#34;computation&#34;&gt;Computation&lt;/h3&gt;
 &lt;ul&gt;
@@ -218,7 +229,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;其中, $a_0 = \dfrac{1}{T} \int_{T} x(t) dt$, 表示为&lt;strong&gt;直流分量&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;fs-convergence---diriheli-condition&#34;&gt;FS Convergence - Diriheli Condition&lt;/h1&gt;
+&lt;h2 id=&#34;fs-convergence---diriheli-condition&#34;&gt;FS Convergence - Diriheli Condition&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;函数必须在&lt;strong&gt;任意时间内绝对可积&lt;/strong&gt;, 即&lt;/li&gt;
 &lt;/ol&gt;
@@ -308,6 +319,12 @@ $$&lt;/p&gt;
 x(t) = \sum_{ k = - \infin }^{ \infin } \delta (t-kT) \overset{ FS }{ \longleftrightarrow  } a_k = \frac{ 1 }{T  }
 \end{equation}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;others&#34;&gt;Others&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+x[n] = (-1)^n = e^{j \pi n}
+\end{equation}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;离散时间信号的傅立叶级数表示&#34;&gt;离散时间信号的傅立叶级数表示&lt;/h1&gt;
 &lt;h2 id=&#34;谐波信号&#34;&gt;谐波信号&lt;/h2&gt;
 &lt;p&gt;$$
@@ -337,31 +354,16 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;248px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h1 id=&#34;系统的频率响应&#34;&gt;系统的频率响应&lt;/h1&gt;
+&lt;h1 id=&#34;filter&#34;&gt;Filter&lt;/h1&gt;
+&lt;h2 id=&#34;transfer-function-decomposition&#34;&gt;Transfer Function Decomposition&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;For a &lt;strong&gt;Cascode System&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{equation}
-\begin{aligned}
-H(j \omega) &amp;amp;=  \int_{ - \infin  }^{  \infin }  h( \tau) e^{-j \omega \tau} d \tau \\
-H[e^{j \omega}] &amp;amp;= \sum_{ k = - \infin  }^{ \infin  } h[n] e^{-j \omega n} \\
-y(t) &amp;amp;= \sum_{ k =- \infin  }^{  \infin } a_k H(j k\omega_0) e^{jk \omega_0 t} \\
-y[n] &amp;amp;= \sum_{ k = - \infin  }^{  \infin } a_k h[e^{jk \dfrac{ 2\pi }{  N} n}] e^{j k \dfrac{ 2\pi }{ N  } n}
-\end{aligned}
+H(j \omega) = H_1(j \omega) H_2(j \omega) H_3 (j \omega)  = |H_1(j \omega) H_2(j \omega) H_3 (j \omega)| \cdot e^{j ( \angle H_1(j \omega) + \angle H_2 (j \omega) + H_3 (j \omega))}
 \end{equation}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;异或&#34;&gt;异或&lt;/h1&gt;
-&lt;h2 id=&#34;lti-system&#34;&gt;LTI System&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/4.png&#34;
-	width=&#34;1620&#34;
-	height=&#34;1244&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/4_hu5d2ec7eb2ca79d50a35a3c01557e9841_373234_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/4_hu5d2ec7eb2ca79d50a35a3c01557e9841_373234_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;130&#34;
-		data-flex-basis=&#34;312px&#34;
-	
-&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -409,11 +411,19 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;性质&#34;&gt;性质&lt;/h2&gt;
 &lt;h3 id=&#34;commutative-distributive-associative-交换-分配-结合&#34;&gt;Commutative Distributive Associative (交换 分配 结合)&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{aligned}
-x(t)*h(t) &amp;amp;= h(t)&lt;em&gt;x(t) \\
-x(t)&lt;/em&gt;[h_1(t) + h_2(t)] &amp;amp;= x(t)*h_1(t) + x(t) * h_2(t) \\
-x(t) * h_1(t) * h_2(t) &amp;amp;= x(t) * (h_1(t) * h_2(t))
-\end{aligned}
+\begin{equation}
+x(t)*h(t) = h(t)*x(t)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+x(t)*[h_1(t) + h_2(t)] = x(t)*h_1(t) + x(t) * h_2(t)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+x(t) * h_1(t) * h_2(t) = x(t) * (h_1(t) * h_2(t))
+\end{equation}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;其他性质&#34;&gt;其他性质&lt;/h3&gt;
 &lt;ul&gt;
@@ -440,57 +450,47 @@ y(kt) \neq x(kt) * h(t)
 \end{equation}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;线性时不变系统lti的性质&#34;&gt;线性时不变系统(LTI)的性质&lt;/h1&gt;
-&lt;h2 id=&#34;linear&#34;&gt;Linear&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;对于&lt;strong&gt;Cascade System&lt;/strong&gt;，可以任意调换级联系统的位置&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-x_3(t) &amp;amp;= Ax_1(t) + Bx_2(t) \\
-y_3(t) &amp;amp;= Ay_1(t) + By_2(t)
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;对$n \neq 0$，单位冲激响应$h[n]=0$时，系统才是无记忆系统。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$h[n] = K \delta [n]$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;其中$K = h [0]$是一个常数，卷积和就变为$y[n] = Kx[n]$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;invertibility&#34;&gt;Invertibility&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;逆系统与原系统的单位脉冲响应&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{equation}
-h(t) * g(t) = \delta (t)
-\end{equation}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;causality&#34;&gt;Causality&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Unit Impulse Function: $h[n] = 0, n &amp;lt;0$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Convolution Sum: $y(t) = \int_0^\infin x(\tau) h(t - \tau) d\tau$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;stability&#34;&gt;Stability&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{equation}
-\int_{-\infin}^{\infin} |h(\tau)| d\tau &amp;lt; \infin
-\end{equation}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-\sum_{ n = - \infin  }^{ \infin  } |h[n]| \lt \infin
-\end{equation}
-$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;性质&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;需要满足的方程&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;其他特征&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Linear&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$x_3(t) = Ax_1(t) + Bx_2(t) \Longleftrightarrow y_3(t) = Ay_1(t) + By_2(t)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Cascode System的先后位置不重要&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Time-Inviriant&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$y(t-t_0) = y_1(t) \Longleftrightarrow x_(t-t_0) = x_1(t)$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;MemoryLess&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$h[n] = 0, n \neq 0$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$h[n] = K \delta [n], n =0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Invertibility&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$h[n] * g[n] = \delta [n]$,分别为&lt;strong&gt;原、逆系统的UIR&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Casuality&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$h[n] = 0, n &amp;lt; 0$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$y[n] = \sum_{ k =0 }^{ \infin  } x[n] h[n-k]$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Stability&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\int_{ - \infin  }^{ \infin  } h( \tau) d \tau &amp;lt; 0$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h1 id=&#34;response-of-a-lti-system&#34;&gt;Response of a LTI System&lt;/h1&gt;
 &lt;h2 id=&#34;unit-impulse-response&#34;&gt;Unit Impulse Response&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -855,7 +855,7 @@ $$&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;periodic Signals&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;periodic Signals(重要的周期信号求解方法)&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;$x(t) = x(t+T)$&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
@@ -1082,6 +1082,9 @@ ku(t) = \int_{-\infin}^tk\delta(\tau)d\tau
 \end{equation}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;basic-system-properties&#34;&gt;Basic System Properties&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意: 对于一个系统，输入和输出的时间分别指的是$y(t)$和$x(t)$当中的$t$&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;输出&lt;/strong&gt;只和&lt;strong&gt;当前输入&lt;/strong&gt;有关，叫做&lt;strong&gt;memoryless&lt;/strong&gt;, 否则就是&lt;strong&gt;system with memory&lt;/strong&gt;&lt;/p&gt;
@@ -1091,7 +1094,7 @@ $$&lt;/p&gt;
 &lt;li&gt;定义&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;不同的输入&lt;/strong&gt; $\longrightarrow$ &lt;strong&gt;不同的输出&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$x$和$y$一一对应&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;图示&lt;/li&gt;
@@ -1119,6 +1122,9 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Bounded Input&lt;/strong&gt; $\rightarrow$ &lt;strong&gt;Bounded Output&lt;/strong&gt;, $t \in \mathbb R$&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;特别注意，$\delta (t)$ &lt;strong&gt;Not Bounded&lt;/strong&gt;(无界)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;time-invirance&#34;&gt;Time Invirance&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;时间平移不变性&lt;/strong&gt; $x(t) \longrightarrow y(t), x(t-t_0) \longrightarrow y(t-t_0)$&lt;/p&gt;
@@ -1127,9 +1133,6 @@ $$&lt;/p&gt;
 &lt;li&gt;LCCDE (Linear Constant Coefficient Equation)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;linearity&#34;&gt;Linearity&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;定义&lt;/li&gt;
-&lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;满足以下条件的系统是&lt;strong&gt;线性&lt;/strong&gt;的&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1138,18 +1141,21 @@ $$&lt;/p&gt;
 x_k &amp;amp;\longrightarrow y_k \Longrightarrow\sum_k a_k x_k  &amp;amp;\longrightarrow \sum_k b_k y_k
 \end{aligned}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;解释&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;当$x$平移1个单位，$y$平移多个单位，系统是&lt;strong&gt;非线性的&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;三角函数知识回忆&#34;&gt;三角函数知识回忆&lt;/h1&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;h2 id=&#34;trigonometric-formula&#34;&gt;Trigonometric Formula&lt;/h2&gt;
 &lt;p&gt;$$
+\begin{gather}
 \begin{aligned}
 asinx + bcosx &amp;amp;= \sqrt{a^2 + b^2}sin(x + \phi) \\
-tan \phi &amp;amp;= \frac{sinx}{cosx}
+tan \phi &amp;amp;= \dfrac{sinx}{cosx}
 \end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;plural-formula&#34;&gt;Plural Formula&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+(-1)^n = e^{j \pi n}
+\end{equation}
 $$&lt;/p&gt;
 </description>
         </item>
