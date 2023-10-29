@@ -422,19 +422,13 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;性质&#34;&gt;性质&lt;/h2&gt;
 &lt;h3 id=&#34;commutative-distributive-associative-交换-分配-结合&#34;&gt;Commutative Distributive Associative (交换 分配 结合)&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{equation}
-x(t)*h(t) = h(t)*x(t)
-\end{equation}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-x(t)*[h_1(t) + h_2(t)] = x(t)*h_1(t) + x(t) * h_2(t)
-\end{equation}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-x(t) * h_1(t) * h_2(t) = x(t) * (h_1(t) * h_2(t))
-\end{equation}
+\begin{gather}
+\begin{aligned}
+x(t)*h(t) &amp;amp;= h(t)&lt;em&gt;x(t) \\
+x(t)&lt;/em&gt;[h_1(t) + h_2(t)] &amp;amp;= x(t)*h_1(t) + x(t) * h_2(t) \\
+x(t) * h_1(t) * h_2(t) &amp;amp;= x(t) * (h_1(t) * h_2(t))
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;其他性质&#34;&gt;其他性质&lt;/h3&gt;
 &lt;ul&gt;
@@ -458,6 +452,11 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{equation}
 y(kt) \neq x(kt) * h(t)
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+x(t) * u(t) = \int_{ - \infin  }^{ t } x( \tau) d \tau
 \end{equation}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;线性时不变系统lti的性质&#34;&gt;线性时不变系统(LTI)的性质&lt;/h1&gt;
@@ -660,22 +659,13 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;singularity-functions&#34;&gt;Singularity Functions&lt;/h1&gt;
-&lt;h2 id=&#34;the-unit-impulse-as-an-idealized-short-pulse&#34;&gt;The Unit Impulse as an Idealized Short Pulse&lt;/h2&gt;
 &lt;p&gt;$$
-\begin{aligned}
-\delta(t) &amp;amp;= \delta(t)*\delta(t)
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;defining-the-unit-impulse-through-convolution&#34;&gt;Defining the Unit Impulse through Convolution&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}
-x(t) &amp;amp;= x(t) * \delta(t) \\
-\therefore if \ x(t) &amp;amp;= 1 \\
-1 &amp;amp;= x(t) = x(t) *\delta(t) \\
-&amp;amp;= \delta(t) * x(t)  \\
-&amp;amp;= \int_{-\infin}^t \delta(\tau) x(t - \tau)d\tau \\
-&amp;amp;= \int_{-\infin}^t \delta(\tau) d \tau
-\end{aligned}
+\begin{equation}
+u_k(t) = \begin{cases}
+\dfrac{ d^k \delta (t) }{ dt^k } &amp;amp; k &amp;gt; 0 \\
+\int_{ - \infin  }^{ t } u_{k+1} ( \tau) d \tau &amp;amp; k \le 0
+\end{cases}
+\end{equation}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;unit-doublets-and-other-singularity-functions&#34;&gt;Unit Doublets and other Singularity Functions&lt;/h2&gt;
 &lt;p&gt;$$

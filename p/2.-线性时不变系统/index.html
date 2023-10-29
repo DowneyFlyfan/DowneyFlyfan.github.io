@@ -316,8 +316,6 @@
     </li>
     <li><a href="#singularity-functions">Singularity Functions</a>
       <ol>
-        <li><a href="#the-unit-impulse-as-an-idealized-short-pulse">The Unit Impulse as an Idealized Short Pulse</a></li>
-        <li><a href="#defining-the-unit-impulse-through-convolution">Defining the Unit Impulse through Convolution</a></li>
         <li><a href="#unit-doublets-and-other-singularity-functions">Unit Doublets and other Singularity Functions</a></li>
       </ol>
     </li>
@@ -457,19 +455,13 @@ $$</p>
 <h2 id="性质">性质</h2>
 <h3 id="commutative-distributive-associative-交换-分配-结合">Commutative Distributive Associative (交换 分配 结合)</h3>
 <p>$$
-\begin{equation}
-x(t)*h(t) = h(t)*x(t)
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-x(t)*[h_1(t) + h_2(t)] = x(t)*h_1(t) + x(t) * h_2(t)
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-x(t) * h_1(t) * h_2(t) = x(t) * (h_1(t) * h_2(t))
-\end{equation}
+\begin{gather}
+\begin{aligned}
+x(t)*h(t) &amp;= h(t)<em>x(t) \\
+x(t)</em>[h_1(t) + h_2(t)] &amp;= x(t)*h_1(t) + x(t) * h_2(t) \\
+x(t) * h_1(t) * h_2(t) &amp;= x(t) * (h_1(t) * h_2(t))
+\end{aligned}
+\end{gather}
 $$</p>
 <h3 id="其他性质">其他性质</h3>
 <ul>
@@ -493,6 +485,11 @@ $$</p>
 <p>$$
 \begin{equation}
 y(kt) \neq x(kt) * h(t)
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+x(t) * u(t) = \int_{ - \infin  }^{ t } x( \tau) d \tau
 \end{equation}
 $$</p>
 <h1 id="线性时不变系统lti的性质">线性时不变系统(LTI)的性质</h1>
@@ -695,22 +692,13 @@ $$</p>
 	
 ></p>
 <h1 id="singularity-functions">Singularity Functions</h1>
-<h2 id="the-unit-impulse-as-an-idealized-short-pulse">The Unit Impulse as an Idealized Short Pulse</h2>
 <p>$$
-\begin{aligned}
-\delta(t) &amp;= \delta(t)*\delta(t)
-\end{aligned}
-$$</p>
-<h2 id="defining-the-unit-impulse-through-convolution">Defining the Unit Impulse through Convolution</h2>
-<p>$$
-\begin{aligned}
-x(t) &amp;= x(t) * \delta(t) \\
-\therefore if \ x(t) &amp;= 1 \\
-1 &amp;= x(t) = x(t) *\delta(t) \\
-&amp;= \delta(t) * x(t)  \\
-&amp;= \int_{-\infin}^t \delta(\tau) x(t - \tau)d\tau \\
-&amp;= \int_{-\infin}^t \delta(\tau) d \tau
-\end{aligned}
+\begin{equation}
+u_k(t) = \begin{cases}
+\dfrac{ d^k \delta (t) }{ dt^k } &amp; k &gt; 0 \\
+\int_{ - \infin  }^{ t } u_{k+1} ( \tau) d \tau &amp; k \le 0
+\end{cases}
+\end{equation}
 $$</p>
 <h2 id="unit-doublets-and-other-singularity-functions">Unit Doublets and other Singularity Functions</h2>
 <p>$$

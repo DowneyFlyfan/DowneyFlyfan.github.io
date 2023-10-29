@@ -1,39 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Virtuoso使用方法 字体调整 1 2 hiSetFont(&amp;#34;ciw&amp;#34; ?size 20) # 修改text文字大小 hiSetFont(&amp;#34;label&amp;#34; ?size 20) # 修改Toolbar文字大小 Appendix 人工传输线 传输特性：人工传输线具有特定的传输特性，如传输速度、带宽、传输损耗、传输延迟和噪声等。这些特性直接影响信号的传输质量和可靠性。
-阻抗匹配：为了最大限度地减少信号反射和传输损耗，人工传输线需要与连接的设备之间的阻抗进行匹配。阻抗不匹配会导致信号反射和信号失真。
-传输模式：人工传输线可以支持不同的传输模式，如单端传输和差分传输。差分传输常用于抑制噪声和提高信号抗干扰能力。
-传输介质：人工传输线可以采用不同的传输介质，包括金属导线（如铜线）、光纤和空气介质等。每种介质都有其特定的传输特性和应用领域。
-传输线理论：人工传输线的行为可以通过传输线理论进行建模和分析。传输线理论考虑了电磁波在传输线上的传播、反射、折射和衰减等现象，以帮助设计和优化传输线的性能。
-Academic Words 名称 定义 ATL(Active Transistor Level) 分为4个等级，等级越高，晶体管的参数越详细 PAE(Power Added Efficiency) 输出和输入之间的功率转化效率(%) Stack Distributed Power Amplifier Refactoring Logic/Layout/Time-Sequence/Power Consumption Refactoring Process Corner 工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化 PCH Positive Channel MOSFET(UCB发明的PMOS工艺) NCH Negative Channel MOSFET(UCB发明的NMOS工艺) 师兄的项目 2-18GHz 硅基功率放大器 Peaking inductor $C_{GS}$, $C_L$ Intra-Stack Coupling 低功耗抗干扰FSK 调制调解器 当前目标 S参数
-Layout
-小尺寸差分电桥'>
-<title>EDA</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Doherty Amplifier A Doherty amplifier is a type of radio frequency (RF) power amplifier that uses two amplifier elements connected in parallel, a &amp;ldquo;carrier&amp;rdquo; amplifier and a &amp;ldquo;peaking&amp;rdquo; amplifier. It operates by having the carrier amplifier handle lower input power levels efficiently on its own. As the input power increases, the peaking amplifier activates and works together with the carrier amp for higher efficiency at higher power levels. The Doherty design can achieve significantly higher efficiency compared to a standard single element power amplifier, especially when operating with a varying amplitude modulation signal.'>
+<title>A2 Amplifiers</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/eda/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/a2-amplifiers/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='EDA'>
-<meta property='og:description' content='Virtuoso使用方法 字体调整 1 2 hiSetFont(&amp;#34;ciw&amp;#34; ?size 20) # 修改text文字大小 hiSetFont(&amp;#34;label&amp;#34; ?size 20) # 修改Toolbar文字大小 Appendix 人工传输线 传输特性：人工传输线具有特定的传输特性，如传输速度、带宽、传输损耗、传输延迟和噪声等。这些特性直接影响信号的传输质量和可靠性。
-阻抗匹配：为了最大限度地减少信号反射和传输损耗，人工传输线需要与连接的设备之间的阻抗进行匹配。阻抗不匹配会导致信号反射和信号失真。
-传输模式：人工传输线可以支持不同的传输模式，如单端传输和差分传输。差分传输常用于抑制噪声和提高信号抗干扰能力。
-传输介质：人工传输线可以采用不同的传输介质，包括金属导线（如铜线）、光纤和空气介质等。每种介质都有其特定的传输特性和应用领域。
-传输线理论：人工传输线的行为可以通过传输线理论进行建模和分析。传输线理论考虑了电磁波在传输线上的传播、反射、折射和衰减等现象，以帮助设计和优化传输线的性能。
-Academic Words 名称 定义 ATL(Active Transistor Level) 分为4个等级，等级越高，晶体管的参数越详细 PAE(Power Added Efficiency) 输出和输入之间的功率转化效率(%) Stack Distributed Power Amplifier Refactoring Logic/Layout/Time-Sequence/Power Consumption Refactoring Process Corner 工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化 PCH Positive Channel MOSFET(UCB发明的PMOS工艺) NCH Negative Channel MOSFET(UCB发明的NMOS工艺) 师兄的项目 2-18GHz 硅基功率放大器 Peaking inductor $C_{GS}$, $C_L$ Intra-Stack Coupling 低功耗抗干扰FSK 调制调解器 当前目标 S参数
-Layout
-小尺寸差分电桥'>
-<meta property='og:url' content='https://downeyflyfan.com/p/eda/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='A2 Amplifiers'>
+<meta property='og:description' content='Doherty Amplifier A Doherty amplifier is a type of radio frequency (RF) power amplifier that uses two amplifier elements connected in parallel, a &amp;ldquo;carrier&amp;rdquo; amplifier and a &amp;ldquo;peaking&amp;rdquo; amplifier. It operates by having the carrier amplifier handle lower input power levels efficiently on its own. As the input power increases, the peaking amplifier activates and works together with the carrier amp for higher efficiency at higher power levels. The Doherty design can achieve significantly higher efficiency compared to a standard single element power amplifier, especially when operating with a varying amplitude modulation signal.'>
+<meta property='og:url' content='https://downeyflyfan.com/p/a2-amplifiers/'>
 <meta property='og:site_name' content='飞璠博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-10-23T17:10:01&#43;08:00'/><meta property='article:modified_time' content='2023-10-23T17:10:01&#43;08:00'/>
-<meta name="twitter:title" content="EDA">
-<meta name="twitter:description" content="Virtuoso使用方法 字体调整 1 2 hiSetFont(&amp;#34;ciw&amp;#34; ?size 20) # 修改text文字大小 hiSetFont(&amp;#34;label&amp;#34; ?size 20) # 修改Toolbar文字大小 Appendix 人工传输线 传输特性：人工传输线具有特定的传输特性，如传输速度、带宽、传输损耗、传输延迟和噪声等。这些特性直接影响信号的传输质量和可靠性。
-阻抗匹配：为了最大限度地减少信号反射和传输损耗，人工传输线需要与连接的设备之间的阻抗进行匹配。阻抗不匹配会导致信号反射和信号失真。
-传输模式：人工传输线可以支持不同的传输模式，如单端传输和差分传输。差分传输常用于抑制噪声和提高信号抗干扰能力。
-传输介质：人工传输线可以采用不同的传输介质，包括金属导线（如铜线）、光纤和空气介质等。每种介质都有其特定的传输特性和应用领域。
-传输线理论：人工传输线的行为可以通过传输线理论进行建模和分析。传输线理论考虑了电磁波在传输线上的传播、反射、折射和衰减等现象，以帮助设计和优化传输线的性能。
-Academic Words 名称 定义 ATL(Active Transistor Level) 分为4个等级，等级越高，晶体管的参数越详细 PAE(Power Added Efficiency) 输出和输入之间的功率转化效率(%) Stack Distributed Power Amplifier Refactoring Logic/Layout/Time-Sequence/Power Consumption Refactoring Process Corner 工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化 PCH Positive Channel MOSFET(UCB发明的PMOS工艺) NCH Negative Channel MOSFET(UCB发明的NMOS工艺) 师兄的项目 2-18GHz 硅基功率放大器 Peaking inductor $C_{GS}$, $C_L$ Intra-Stack Coupling 低功耗抗干扰FSK 调制调解器 当前目标 S参数
-Layout
-小尺寸差分电桥"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-10-28T22:09:35&#43;08:00'/><meta property='article:modified_time' content='2023-10-28T22:09:35&#43;08:00'/>
+<meta name="twitter:title" content="A2 Amplifiers">
+<meta name="twitter:description" content="Doherty Amplifier A Doherty amplifier is a type of radio frequency (RF) power amplifier that uses two amplifier elements connected in parallel, a &amp;ldquo;carrier&amp;rdquo; amplifier and a &amp;ldquo;peaking&amp;rdquo; amplifier. It operates by having the carrier amplifier handle lower input power levels efficiently on its own. As the input power increases, the peaking amplifier activates and works together with the carrier amp for higher efficiency at higher power levels. The Doherty design can achieve significantly higher efficiency compared to a standard single element power amplifier, especially when operating with a varying amplitude modulation signal."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -271,24 +250,7 @@ Layout
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#virtuoso使用方法">Virtuoso使用方法</a>
-      <ol>
-        <li><a href="#字体调整">字体调整</a></li>
-      </ol>
-    </li>
-    <li><a href="#appendix">Appendix</a>
-      <ol>
-        <li><a href="#人工传输线">人工传输线</a></li>
-        <li><a href="#academic-words">Academic Words</a></li>
-        <li><a href="#师兄的项目">师兄的项目</a>
-          <ol>
-            <li><a href="#2-18ghz-硅基功率放大器">2-18GHz 硅基功率放大器</a></li>
-            <li><a href="#低功耗抗干扰fsk-调制调解器">低功耗抗干扰FSK 调制调解器</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#当前目标">当前目标</a></li>
+    <li><a href="#doherty-amplifier">Doherty Amplifier</a></li>
   </ol>
 </nav>
         </div>
@@ -316,7 +278,7 @@ Layout
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/eda/">EDA</a>
+            <a href="/p/a2-amplifiers/">A2 Amplifiers</a>
         </h2>
     
         
@@ -338,7 +300,7 @@ Layout
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Oct 23, 2023</time>
+                <time class="article-time--published">Oct 28, 2023</time>
             </div>
         
 
@@ -368,100 +330,15 @@ Layout
     <section class="article-content">
     
     
-    <h1 id="virtuoso使用方法">Virtuoso使用方法</h1>
-<h2 id="字体调整">字体调整</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hiSetFont(&#34;ciw&#34; ?size 20) # 修改text文字大小
-</span></span><span class="line"><span class="cl">hiSetFont(&#34;label&#34; ?size 20) # 修改Toolbar文字大小
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="appendix">Appendix</h1>
-<h2 id="人工传输线">人工传输线</h2>
-<ul>
-<li>
-<p>传输特性：人工传输线具有特定的传输特性，如传输速度、带宽、传输损耗、传输延迟和噪声等。这些特性直接影响信号的传输质量和可靠性。</p>
-</li>
-<li>
-<p>阻抗匹配：为了最大限度地减少信号反射和传输损耗，人工传输线需要与连接的设备之间的阻抗进行匹配。阻抗不匹配会导致信号反射和信号失真。</p>
-</li>
-<li>
-<p>传输模式：人工传输线可以支持不同的传输模式，如单端传输和差分传输。差分传输常用于抑制噪声和提高信号抗干扰能力。</p>
-</li>
-<li>
-<p>传输介质：人工传输线可以采用不同的传输介质，包括金属导线（如铜线）、光纤和空气介质等。每种介质都有其特定的传输特性和应用领域。</p>
-</li>
-<li>
-<p>传输线理论：人工传输线的行为可以通过传输线理论进行建模和分析。传输线理论考虑了电磁波在传输线上的传播、反射、折射和衰减等现象，以帮助设计和优化传输线的性能。</p>
-</li>
-</ul>
-<h2 id="academic-words">Academic Words</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">定义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">ATL(Active Transistor Level)</td>
-<td style="text-align:center">分为4个等级，等级越高，晶体管的参数越详细</td>
-</tr>
-<tr>
-<td style="text-align:center">PAE(Power Added Efficiency)</td>
-<td style="text-align:center">输出和输入之间的<strong>功率转化效率(%)</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">Stack Distributed Power Amplifier</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">Refactoring</td>
-<td style="text-align:center">Logic/Layout/Time-Sequence/Power Consumption Refactoring</td>
-</tr>
-<tr>
-<td style="text-align:center">Process Corner</td>
-<td style="text-align:center">工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化</td>
-</tr>
-<tr>
-<td style="text-align:center">PCH</td>
-<td style="text-align:center">Positive Channel MOSFET(UCB发明的PMOS工艺)</td>
-</tr>
-<tr>
-<td style="text-align:center">NCH</td>
-<td style="text-align:center">Negative Channel MOSFET(UCB发明的NMOS工艺)</td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="师兄的项目">师兄的项目</h2>
-<h3 id="2-18ghz-硅基功率放大器">2-18GHz 硅基功率放大器</h3>
-<ol>
-<li>Peaking inductor</li>
-</ol>
-<ul>
-<li>$C_{GS}$, $C_L$</li>
-</ul>
-<ol start="2">
-<li>Intra-Stack Coupling</li>
-</ol>
-<h3 id="低功耗抗干扰fsk-调制调解器">低功耗抗干扰FSK 调制调解器</h3>
-<h1 id="当前目标">当前目标</h1>
-<ol>
-<li>
-<p>S参数</p>
-</li>
-<li>
-<p>Layout</p>
-</li>
-<li>
-<p>小尺寸差分电桥</p>
-</li>
-</ol>
+    <h1 id="doherty-amplifier">Doherty Amplifier</h1>
+<p>A Doherty amplifier is a type of radio frequency (RF) power amplifier that uses two amplifier elements connected in parallel, a &ldquo;carrier&rdquo; amplifier and a &ldquo;peaking&rdquo; amplifier.
+It operates by having the carrier amplifier handle lower input power levels efficiently on its own. As the input power increases, the peaking amplifier activates and works together with the carrier amp for higher efficiency at higher power levels.
+The Doherty design can achieve significantly higher efficiency compared to a standard single element power amplifier, especially when operating with a varying amplitude modulation signal. This makes it useful for modern wireless communication systems.
+It was invented in 1936 by William H. Doherty when he was working at Bell Telephone Laboratories. The original design used vacuum tubes.
+Modern Doherty amplifiers utilize transistors, often LDMOS or GaN devices. Advanced designs may use digital pre-distortion to improve linearity.
+Applications include cellular base station transmitters, broadcast transmitters, radar systems and satellite communication systems where high power efficiency is required.
+Key performance metrics are efficiency, gain, linearity, bandwidth and thermal handling capability. Typical efficiencies range from 30-70% depending on frequency and power level.
+Let me know if you need any clarification or have additional questions!</p>
 
 </section>
 
@@ -538,12 +415,12 @@ Layout
             
                 
 <article class="">
-    <a href="/p/a2-amplifiers/">
+    <a href="/p/a1-bridge/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">A2 Amplifiers</h2>
+            <h2 class="article-title">A1 Bridge</h2>
         </div>
     </a>
 </article>
@@ -551,12 +428,12 @@ Layout
             
                 
 <article class="">
-    <a href="/p/a1-bridge/">
+    <a href="/p/eda/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">A1 Bridge</h2>
+            <h2 class="article-title">EDA</h2>
         </div>
     </a>
 </article>
