@@ -6,7 +6,16 @@
         <description>Recent content in Posts on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 29 Oct 2023 10:52:19 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 30 Oct 2023 10:13:41 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>5. 离散时间傅立叶变换</title>
+        <link>https://downeyflyfan.com/p/5.-%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</link>
+        <pubDate>Mon, 30 Oct 2023 10:13:41 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/5.-%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid>
+        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+</description>
+        </item>
+        <item>
         <title>A3 E Devices</title>
         <link>https://downeyflyfan.com/p/a3-e-devices/</link>
         <pubDate>Sun, 29 Oct 2023 10:52:19 +0800</pubDate>
@@ -39,15 +48,14 @@
         <pubDate>Sat, 28 Oct 2023 22:09:35 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/a2-amplifiers/</guid>
-        <description>&lt;h1 id=&#34;doherty-amplifier&#34;&gt;Doherty Amplifier&lt;/h1&gt;
-&lt;p&gt;A Doherty amplifier is a type of radio frequency (RF) power amplifier that uses two amplifier elements connected in parallel, a &amp;ldquo;carrier&amp;rdquo; amplifier and a &amp;ldquo;peaking&amp;rdquo; amplifier.
-It operates by having the carrier amplifier handle lower input power levels efficiently on its own. As the input power increases, the peaking amplifier activates and works together with the carrier amp for higher efficiency at higher power levels.
-The Doherty design can achieve significantly higher efficiency compared to a standard single element power amplifier, especially when operating with a varying amplitude modulation signal. This makes it useful for modern wireless communication systems.
-It was invented in 1936 by William H. Doherty when he was working at Bell Telephone Laboratories. The original design used vacuum tubes.
-Modern Doherty amplifiers utilize transistors, often LDMOS or GaN devices. Advanced designs may use digital pre-distortion to improve linearity.
-Applications include cellular base station transmitters, broadcast transmitters, radar systems and satellite communication systems where high power efficiency is required.
-Key performance metrics are efficiency, gain, linearity, bandwidth and thermal handling capability. Typical efficiencies range from 30-70% depending on frequency and power level.
-Let me know if you need any clarification or have additional questions!&lt;/p&gt;
+        <description>&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;h2 id=&#34;doherty-amplifier-bell-lab&#34;&gt;Doherty Amplifier (Bell Lab)&lt;/h2&gt;
+&lt;p&gt;A Doherty amplifier is a type of &lt;strong&gt;RFPA&lt;/strong&gt; that uses two amplifier elements connected in parallel, a &amp;ldquo;carrier&amp;rdquo; amplifier and a &amp;ldquo;peaking&amp;rdquo; amplifier.&lt;/p&gt;
+&lt;p&gt;It operates by having the carrier amplifier handle lower input power levels efficiently on its own. As the input power increases, the peaking amplifier activates and works together with the carrier amp for higher efficiency at higher power levels.&lt;/p&gt;
+&lt;p&gt;The Doherty design can achieve significantly higher efficiency compared to a standard single element power amplifier, especially when operating with a varying amplitude modulation signal. This makes it useful for modern wireless communication systems.&lt;/p&gt;
+&lt;p&gt;Modern Doherty amplifiers utilize transistors, often LDMOS or GaN devices. Advanced designs may use digital pre-distortion to improve linearity.&lt;/p&gt;
+&lt;p&gt;Applications include cellular base station transmitters, broadcast transmitters, radar systems and satellite communication systems where high power efficiency is required.&lt;/p&gt;
+&lt;p&gt;Key performance metrics are efficiency, gain, linearity, bandwidth and thermal handling capability. Typical efficiencies range from 30-70% depending on frequency and power level.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -672,29 +680,38 @@ $$&lt;/p&gt;
         <pubDate>Sun, 08 Oct 2023 15:50:17 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid>
-        <description>&lt;h1 id=&#34;非周期信号的表示---连续时间傅立叶变换&#34;&gt;非周期信号的表示 - 连续时间傅立叶变换&lt;/h1&gt;
-&lt;h2 id=&#34;非周期信号的傅立叶表示&#34;&gt;非周期信号的傅立叶表示&lt;/h2&gt;
-&lt;h3 id=&#34;傅立叶级数求解&#34;&gt;傅立叶级数求解&lt;/h3&gt;
+        <description>&lt;h1 id=&#34;representation-of-aperiodic-signals---continuous-time-fourier-transform&#34;&gt;Representation of Aperiodic Signals - Continuous-Time Fourier Transform&lt;/h1&gt;
+&lt;h2 id=&#34;傅立叶级数求解&#34;&gt;傅立叶级数求解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在&lt;strong&gt;一个周期&lt;/strong&gt;内的函数&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{aligned}
-\widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\
-\widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\
-if \ T &amp;amp;\longrightarrow  \infin  \\
-a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\
+\widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;fs-representation&#34;&gt;FS Representation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当$T \longrightarrow \infin$，信号其实就是&lt;strong&gt;非周期信号&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
-\begin{equation}
 \begin{aligned}
-X(j \omega) &amp;amp;= T a_k  \\
-&amp;amp;= \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt
+a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt
 \end{aligned}
-\end{equation}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;fourier-transform-of-aperiodic-signals&#34;&gt;Fourier Transform of Aperiodic Signals&lt;/h2&gt;
+&lt;h3 id=&#34;ft&#34;&gt;FT&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gathered}
+\begin{align}
+x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;amp;= T a_k = \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt \\
+X(j \omega) &amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)}
+\end{align}
+\end{gathered}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;ft-of-aperiodic-signals&#34;&gt;FT of Aperiodic Signals&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{aligned}
-a_k &amp;amp;= \frac{ 1 }{ T  } X(j k \omega) \\
+a_k &amp;amp;= \frac{ 1 }{ T  } X(j k \omega_0) \\
 \therefore \widehat { x(t) }{ ~ } &amp;amp;= \sum_{ k }^{  } a_k e^{jk \omega t} \\
 &amp;amp;= \frac{ 1 }{ 2\pi  } \sum_{ k = - \infin  }^{ \infin } X(j \omega_0 t) e^{jk \omega_0 t} \omega_0
 \end{aligned}
@@ -704,46 +721,16 @@ $$&lt;/p&gt;
 x(t) = \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega
 \end{equation}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;relations-between-c-t-fs--d-t-fs&#34;&gt;Relations between C-T FS &amp;amp; D-T FS&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\widehat { x(t) } &amp;amp;\longleftrightarrow a_k \\
-x(t)  &amp;amp; \longleftrightarrow X(j \omega) \\
-X(j \omega) &amp;amp;= Ta_k |_{ \omega = k \omega_0} \\
-&amp;amp;= \frac{ 2 \pi }{ \omega } a_k
-\end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-X(j \omega) d \omega = 2\pi a_k
-\end{equation}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;ft-of-periodic-signals&#34;&gt;FT of Periodic Signals&lt;/h1&gt;
-&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{aligned}
-X(j \omega) &amp;amp;= 2 \pi \delta ( \omega - \omega_0) \\
-x(t) &amp;amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
-&amp;amp;= e^{ j \omega_0 t}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Let $X(j \omega) = \sum_{ k = -\infin  }^{ \infin } 2 \pi a_k \delta ( \omega - k \omega_0)$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{aligned}
-x(t) &amp;amp;=  \int_{ - \infin  }^{ \infin  } a_k e^{j k \omega t}
-\end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-X(j \omega) = \sum_{ k = - \infin }^{ \infin  } 2 \pi a_k \delta ( \omega - k \omega_0)
-\end{equation}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;properties&#34;&gt;Properties&lt;/h2&gt;
-&lt;h3 id=&#34;ft-properties&#34;&gt;FT Properties&lt;/h3&gt;
+&lt;h3 id=&#34;存在ft的条件---dirichlet-conditions&#34;&gt;存在FT的条件 - Dirichlet Conditions&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;$x(t)$ Real&lt;/li&gt;
+&lt;li&gt;反例&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$x(t) = e^t u(t)$ 没有&lt;strong&gt;FT&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;properties-of-ft&#34;&gt;Properties of FT&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;If $x(t)$ is Real&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
@@ -752,15 +739,32 @@ X(j \omega) &amp;amp;= X_R(j \omega) + j X_I ( j \omega)
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;$$
-\begin{equation}
-x_e(t) \longleftrightarrow X_R(j \omega) = X_e(j \omega)
-\end{equation}
+\begin{gathered}
+\begin{align}
+x_e(t) &amp;amp;\overset{ F }{  \longleftrightarrow } X_R(j \omega) = X_e(j \omega) \\
+x_o(t) &amp;amp;\overset{ F }{  \longleftrightarrow } X_I(j \omega) = X_o(j \omega)
+\end{align}
+\end{gathered}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;FT的反向求法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+f(t) = 1 &amp;amp;\overset{ F }{ \longleftrightarrow  } X(j \omega) = 2 \pi \delta (\omega) \\
+FT^{-1} [ 2 \pi \delta ( \omega)] &amp;amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} d \omega = 1
+\end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;$$
-\begin{equation}
-x_o(t) \longleftrightarrow X_I(j \omega) = X_o(j \omega)
-\end{equation}
+\begin{gathered}
+\begin{align}
+\delta ( \omega) &amp;amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin }^{ \infin } e^{-j \omega t} d \omega
+\end{align}
+\end{gathered}
 $$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;转换性质&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/1.png&#34;
 	width=&#34;1846&#34;
 	height=&#34;1836&#34;
@@ -773,7 +777,43 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;241px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;fundamental-ft--fs&#34;&gt;Fundamental FT &amp;amp; FS&lt;/h3&gt;
+&lt;h3 id=&#34;sinc--sa-functions&#34;&gt;Sinc &amp;amp; Sa Functions&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gathered}
+\begin{align}
+sinc( \theta) &amp;amp;= \frac{ sin(\pi \theta) }{ \theta}  \overset{ F }{ \longleftrightarrow } X(j \omega) = 2T_1 sinc( \frac{ \omega T_1 }{ \pi }) \\
+sa( \phi) &amp;amp;= \frac{ sin( \phi) }{  \phi} \overset{ F }{ \longleftrightarrow  } X(j \omega) = 2 T_1 sa( \omega T_1)
+\end{align}
+\end{gathered}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;ft-of-periodic-signals&#34;&gt;FT of Periodic Signals&lt;/h1&gt;
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;假设$X(j \omega) = 2 \pi \delta ( \omega - \omega_0)$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x(t) &amp;amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
+&amp;amp;= e^{ j \omega_0 t}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;再假设 $X(j \omega) = \sum_{ k = -\infin  }^{ \infin } 2 \pi a_k \delta ( \omega - k \omega_0)$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x(t) &amp;amp;=  \int_{ - \infin  }^{ \infin  } a_k e^{j k \omega t}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;因此，&lt;strong&gt;周期信号的傅立叶转换&lt;/strong&gt;为&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{equation}
+X(j \omega) = \sum_{ k = - \infin }^{ \infin  } 2 \pi a_k \delta ( \omega - k \omega_0)
+\end{equation}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;fundamental-ft--fs&#34;&gt;Fundamental FT &amp;amp; FS&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/2.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1786&#34;
@@ -787,12 +827,14 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
-&lt;h2 id=&#34;sampling-function--sinc-function&#34;&gt;Sampling Function &amp;amp; Sinc Function&lt;/h2&gt;
+&lt;h2 id=&#34;partial-fraction-expansions&#34;&gt;Partial-Fraction Expansions&lt;/h2&gt;
 &lt;p&gt;$$
+\begin{gather}
 \begin{aligned}
-Sa( \phi) &amp;amp;= \frac{ sin(\phi) }{ \phi} \\
-Sinc ( \theta) &amp;amp;= \frac{ sin(\pi \theta) }{ \pi \theta }
+Y(j \omega) &amp;amp;= \frac{ A }{ a + j \omega } + \frac{ B }{b + j \omega} \\
+&amp;amp;= \frac{ C }{ (a+ j \omega) ( b + j \omega)}
 \end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 </description>
         </item>

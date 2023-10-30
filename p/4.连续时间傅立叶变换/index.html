@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='非周期信号的表示 - 连续时间傅立叶变换 非周期信号的傅立叶表示 傅立叶级数求解 $$ \begin{aligned} \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\ \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\ if \ T &amp;amp;\longrightarrow \infin \\ a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\ \end{aligned} $$'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Representation of Aperiodic Signals - Continuous-Time Fourier Transform 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$'>
 <title>4.连续时间傅立叶变换</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4.连续时间傅立叶变换'>
-<meta property='og:description' content='非周期信号的表示 - 连续时间傅立叶变换 非周期信号的傅立叶表示 傅立叶级数求解 $$ \begin{aligned} \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\ \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\ if \ T &amp;amp;\longrightarrow \infin \\ a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\ \end{aligned} $$'>
+<meta property='og:description' content='Representation of Aperiodic Signals - Continuous-Time Fourier Transform 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-10-08T15:50:17&#43;08:00'/><meta property='article:modified_time' content='2023-10-08T15:50:17&#43;08:00'/>
 <meta name="twitter:title" content="4.连续时间傅立叶变换">
-<meta name="twitter:description" content="非周期信号的表示 - 连续时间傅立叶变换 非周期信号的傅立叶表示 傅立叶级数求解 $$ \begin{aligned} \widehat {x}{ ~ } (t) &amp;amp;= x(t) \ in \ T \\ \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\ if \ T &amp;amp;\longrightarrow \infin \\ a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\ \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Representation of Aperiodic Signals - Continuous-Time Fourier Transform 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -250,31 +253,29 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#非周期信号的表示---连续时间傅立叶变换">非周期信号的表示 - 连续时间傅立叶变换</a>
+    <li><a href="#representation-of-aperiodic-signals---continuous-time-fourier-transform">Representation of Aperiodic Signals - Continuous-Time Fourier Transform</a>
       <ol>
-        <li><a href="#非周期信号的傅立叶表示">非周期信号的傅立叶表示</a>
+        <li><a href="#傅立叶级数求解">傅立叶级数求解</a></li>
+        <li><a href="#fourier-transform-of-aperiodic-signals">Fourier Transform of Aperiodic Signals</a>
           <ol>
-            <li><a href="#傅立叶级数求解">傅立叶级数求解</a></li>
-            <li><a href="#fs-representation">FS Representation</a></li>
+            <li><a href="#ft">FT</a></li>
+            <li><a href="#ft-of-aperiodic-signals">FT of Aperiodic Signals</a></li>
+            <li><a href="#存在ft的条件---dirichlet-conditions">存在FT的条件 - Dirichlet Conditions</a></li>
+            <li><a href="#properties-of-ft">Properties of FT</a></li>
+            <li><a href="#sinc--sa-functions">Sinc &amp; Sa Functions</a></li>
           </ol>
         </li>
-        <li><a href="#relations-between-c-t-fs--d-t-fs">Relations between C-T FS &amp; D-T FS</a></li>
       </ol>
     </li>
     <li><a href="#ft-of-periodic-signals">FT of Periodic Signals</a>
       <ol>
         <li><a href="#definition">Definition</a></li>
-        <li><a href="#properties">Properties</a>
-          <ol>
-            <li><a href="#ft-properties">FT Properties</a></li>
-            <li><a href="#fundamental-ft--fs">Fundamental FT &amp; FS</a></li>
-          </ol>
-        </li>
+        <li><a href="#fundamental-ft--fs">Fundamental FT &amp; FS</a></li>
       </ol>
     </li>
     <li><a href="#appendix">Appendix</a>
       <ol>
-        <li><a href="#sampling-function--sinc-function">Sampling Function &amp; Sinc Function</a></li>
+        <li><a href="#partial-fraction-expansions">Partial-Fraction Expansions</a></li>
       </ol>
     </li>
   </ol>
@@ -341,7 +342,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -356,29 +357,38 @@
     <section class="article-content">
     
     
-    <h1 id="非周期信号的表示---连续时间傅立叶变换">非周期信号的表示 - 连续时间傅立叶变换</h1>
-<h2 id="非周期信号的傅立叶表示">非周期信号的傅立叶表示</h2>
-<h3 id="傅立叶级数求解">傅立叶级数求解</h3>
+    <h1 id="representation-of-aperiodic-signals---continuous-time-fourier-transform">Representation of Aperiodic Signals - Continuous-Time Fourier Transform</h1>
+<h2 id="傅立叶级数求解">傅立叶级数求解</h2>
+<ul>
+<li>假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在<strong>一个周期</strong>内的函数</li>
+</ul>
 <p>$$
 \begin{aligned}
-\widehat {x}{ ~ } (t) &amp;= x(t) \ in \ T \\
-\widehat { a_k }{~} &amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \\
-if \ T &amp;\longrightarrow  \infin  \\
-a_k &amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \\
+\widehat { a_k }{~} &amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt
 \end{aligned}
 $$</p>
-<h3 id="fs-representation">FS Representation</h3>
+<ul>
+<li>当$T \longrightarrow \infin$，信号其实就是<strong>非周期信号</strong></li>
+</ul>
 <p>$$
-\begin{equation}
 \begin{aligned}
-X(j \omega) &amp;= T a_k  \\
-&amp;= \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt
+a_k &amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt
 \end{aligned}
-\end{equation}
 $$</p>
+<h2 id="fourier-transform-of-aperiodic-signals">Fourier Transform of Aperiodic Signals</h2>
+<h3 id="ft">FT</h3>
+<p>$$
+\begin{gathered}
+\begin{align}
+x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;= T a_k = \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt \\
+X(j \omega) &amp;= |H(j \omega)| e^{ j\angle H(j \omega)}
+\end{align}
+\end{gathered}
+$$</p>
+<h3 id="ft-of-aperiodic-signals">FT of Aperiodic Signals</h3>
 <p>$$
 \begin{aligned}
-a_k &amp;= \frac{ 1 }{ T  } X(j k \omega) \\
+a_k &amp;= \frac{ 1 }{ T  } X(j k \omega_0) \\
 \therefore \widehat { x(t) }{ ~ } &amp;= \sum_{ k }^{  } a_k e^{jk \omega t} \\
 &amp;= \frac{ 1 }{ 2\pi  } \sum_{ k = - \infin  }^{ \infin } X(j \omega_0 t) e^{jk \omega_0 t} \omega_0
 \end{aligned}
@@ -388,46 +398,16 @@ $$</p>
 x(t) = \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega
 \end{equation}
 $$</p>
-<h2 id="relations-between-c-t-fs--d-t-fs">Relations between C-T FS &amp; D-T FS</h2>
-<p>$$
-\begin{aligned}
-\widehat { x(t) } &amp;\longleftrightarrow a_k \\
-x(t)  &amp; \longleftrightarrow X(j \omega) \\
-X(j \omega) &amp;= Ta_k |_{ \omega = k \omega_0} \\
-&amp;= \frac{ 2 \pi }{ \omega } a_k
-\end{aligned}
-$$</p>
-<p>$$
-\begin{equation}
-X(j \omega) d \omega = 2\pi a_k
-\end{equation}
-$$</p>
-<h1 id="ft-of-periodic-signals">FT of Periodic Signals</h1>
-<h2 id="definition">Definition</h2>
-<p>$$
-\begin{aligned}
-X(j \omega) &amp;= 2 \pi \delta ( \omega - \omega_0) \\
-x(t) &amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
-&amp;= e^{ j \omega_0 t}
-\end{aligned}
-$$</p>
-<ul>
-<li>Let $X(j \omega) = \sum_{ k = -\infin  }^{ \infin } 2 \pi a_k \delta ( \omega - k \omega_0)$</li>
-</ul>
-<p>$$
-\begin{aligned}
-x(t) &amp;=  \int_{ - \infin  }^{ \infin  } a_k e^{j k \omega t}
-\end{aligned}
-$$</p>
-<p>$$
-\begin{equation}
-X(j \omega) = \sum_{ k = - \infin }^{ \infin  } 2 \pi a_k \delta ( \omega - k \omega_0)
-\end{equation}
-$$</p>
-<h2 id="properties">Properties</h2>
-<h3 id="ft-properties">FT Properties</h3>
+<h3 id="存在ft的条件---dirichlet-conditions">存在FT的条件 - Dirichlet Conditions</h3>
 <ol>
-<li>$x(t)$ Real</li>
+<li>反例</li>
+</ol>
+<ul>
+<li>$x(t) = e^t u(t)$ 没有<strong>FT</strong></li>
+</ul>
+<h3 id="properties-of-ft">Properties of FT</h3>
+<ol>
+<li>If $x(t)$ is Real</li>
 </ol>
 <p>$$
 \begin{aligned}
@@ -436,15 +416,32 @@ X(j \omega) &amp;= X_R(j \omega) + j X_I ( j \omega)
 \end{aligned}
 $$</p>
 <p>$$
-\begin{equation}
-x_e(t) \longleftrightarrow X_R(j \omega) = X_e(j \omega)
-\end{equation}
+\begin{gathered}
+\begin{align}
+x_e(t) &amp;\overset{ F }{  \longleftrightarrow } X_R(j \omega) = X_e(j \omega) \\
+x_o(t) &amp;\overset{ F }{  \longleftrightarrow } X_I(j \omega) = X_o(j \omega)
+\end{align}
+\end{gathered}
+$$</p>
+<ol start="2">
+<li>FT的反向求法</li>
+</ol>
+<p>$$
+\begin{aligned}
+f(t) = 1 &amp;\overset{ F }{ \longleftrightarrow  } X(j \omega) = 2 \pi \delta (\omega) \\
+FT^{-1} [ 2 \pi \delta ( \omega)] &amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} d \omega = 1
+\end{aligned}
 $$</p>
 <p>$$
-\begin{equation}
-x_o(t) \longleftrightarrow X_I(j \omega) = X_o(j \omega)
-\end{equation}
+\begin{gathered}
+\begin{align}
+\delta ( \omega) &amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin }^{ \infin } e^{-j \omega t} d \omega
+\end{align}
+\end{gathered}
 $$</p>
+<ol start="3">
+<li>转换性质</li>
+</ol>
 <p><img src="/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/1.png"
 	width="1846"
 	height="1836"
@@ -457,7 +454,43 @@ $$</p>
 		data-flex-basis="241px"
 	
 ></p>
-<h3 id="fundamental-ft--fs">Fundamental FT &amp; FS</h3>
+<h3 id="sinc--sa-functions">Sinc &amp; Sa Functions</h3>
+<p>$$
+\begin{gathered}
+\begin{align}
+sinc( \theta) &amp;= \frac{ sin(\pi \theta) }{ \theta}  \overset{ F }{ \longleftrightarrow } X(j \omega) = 2T_1 sinc( \frac{ \omega T_1 }{ \pi }) \\
+sa( \phi) &amp;= \frac{ sin( \phi) }{  \phi} \overset{ F }{ \longleftrightarrow  } X(j \omega) = 2 T_1 sa( \omega T_1)
+\end{align}
+\end{gathered}
+$$</p>
+<h1 id="ft-of-periodic-signals">FT of Periodic Signals</h1>
+<h2 id="definition">Definition</h2>
+<ol>
+<li>假设$X(j \omega) = 2 \pi \delta ( \omega - \omega_0)$</li>
+</ol>
+<p>$$
+\begin{aligned}
+x(t) &amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
+&amp;= e^{ j \omega_0 t}
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>再假设 $X(j \omega) = \sum_{ k = -\infin  }^{ \infin } 2 \pi a_k \delta ( \omega - k \omega_0)$</li>
+</ol>
+<p>$$
+\begin{aligned}
+x(t) &amp;=  \int_{ - \infin  }^{ \infin  } a_k e^{j k \omega t}
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>因此，<strong>周期信号的傅立叶转换</strong>为</li>
+</ol>
+<p>$$
+\begin{equation}
+X(j \omega) = \sum_{ k = - \infin }^{ \infin  } 2 \pi a_k \delta ( \omega - k \omega_0)
+\end{equation}
+$$</p>
+<h2 id="fundamental-ft--fs">Fundamental FT &amp; FS</h2>
 <p><img src="/p/4.%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/2.png"
 	width="1920"
 	height="1786"
@@ -471,12 +504,14 @@ $$</p>
 	
 ></p>
 <h1 id="appendix">Appendix</h1>
-<h2 id="sampling-function--sinc-function">Sampling Function &amp; Sinc Function</h2>
+<h2 id="partial-fraction-expansions">Partial-Fraction Expansions</h2>
 <p>$$
+\begin{gather}
 \begin{aligned}
-Sa( \phi) &amp;= \frac{ sin(\phi) }{ \phi} \\
-Sinc ( \theta) &amp;= \frac{ sin(\pi \theta) }{ \pi \theta }
+Y(j \omega) &amp;= \frac{ A }{ a + j \omega } + \frac{ B }{b + j \omega} \\
+&amp;= \frac{ C }{ (a+ j \omega) ( b + j \omega)}
 \end{aligned}
+\end{gather}
 $$</p>
 
 </section>
@@ -538,6 +573,19 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/5.-%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5. 离散时间傅立叶变换</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">
