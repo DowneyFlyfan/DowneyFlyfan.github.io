@@ -273,9 +273,20 @@
         <li><a href="#fundamental-ft--fs">Fundamental FT &amp; FS</a></li>
       </ol>
     </li>
+    <li><a href="#system-characterized-by-lccde">System Characterized by LCCDE</a>
+      <ol>
+        <li><a href="#frequency-response">Frequency Response</a></li>
+      </ol>
+    </li>
     <li><a href="#appendix">Appendix</a>
       <ol>
-        <li><a href="#partial-fraction-expansions">Partial-Fraction Expansions</a></li>
+        <li><a href="#partial-fraction-expansions">Partial-Fraction Expansions</a>
+          <ol>
+            <li><a href="#method-i">Method I</a></li>
+            <li><a href="#method-ii">Method II</a></li>
+          </ol>
+        </li>
+        <li><a href="#plural-modulus">Plural Modulus</a></li>
       </ol>
     </li>
   </ol>
@@ -342,7 +353,7 @@
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -503,8 +514,23 @@ $$</p>
 		data-flex-basis="258px"
 	
 ></p>
+<h1 id="system-characterized-by-lccde">System Characterized by LCCDE</h1>
+<h2 id="frequency-response">Frequency Response</h2>
+<p>$$
+\begin{aligned}
+\sum_{ k = 0 }^{ K} a_k \frac{ d^ky}{  dt^k} &amp;= \sum_{ k = 0}^{ M} b_k \frac{ d^kx}{  dt^k} \\
+\sum_{ k = 0 }^{K} a_k \cdot F \lbrace \frac{ d^k y }{  dt^k} \rbrace &amp;= \sum_{ k =0 }^{ M} b_k \cdot F \lbrace \frac{ d^k x }{ dt^k } \rbrace \\
+Y(j \omega) \sum_{ k = 0 }^{K} a_k (j \omega)^k &amp;=X(j \omega) \sum_{ k = 0 }^{ M} b_k (j \omega)^k
+\end{aligned}
+$$</p>
+<p>$$
+\begin{equation}
+H(j \omega) = \frac{ Y(j \omega) }{ X(j \omega) } = \frac{ \sum_{ k = 0 }^{  M}b_k ( j \omega)^k }{\sum_{ k = 0 }^{ K }a_k ( j \omega)^k}
+\end{equation}
+$$</p>
 <h1 id="appendix">Appendix</h1>
 <h2 id="partial-fraction-expansions">Partial-Fraction Expansions</h2>
+<h3 id="method-i">Method I</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -512,6 +538,37 @@ Y(j \omega) &amp;= \frac{ A }{ a + j \omega } + \frac{ B }{b + j \omega} \\
 &amp;= \frac{ C }{ (a+ j \omega) ( b + j \omega)}
 \end{aligned}
 \end{gather}
+$$</p>
+<h3 id="method-ii">Method II</h3>
+<ol>
+<li>Type I</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+G(v) &amp;= \frac{ A_1 }{ v -p_1 }+ \frac{ A_2 }{v -p_2} + \frac{ A_3 }{ v - p_3 } = \frac{ b_2 v^2 + b_1v + b_0  }{ (v-p_1)(v-p_2)(v-p_3) } \\
+A_1 &amp;= \frac{ b^2 v + b_1 v + b_0 }{ (p_1 - p_2)(p_1 - p_3) }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Type II</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+G(v) &amp;= \frac{ A_1 }{ v - p_1 } + \frac{ A_2 }{ (v - p_1)^2} + \frac{ A_3 }{ v - p_2} = \frac{ b_2 v^2 + b_1 v + b_0}{ (v-p_1)^2(v-p_2) }\\
+A_1 &amp;= \frac{ d }{ dv } \Big\lbrace G(v) \cdot (v-p_1)^2 \Big\rbrace , v = p_1\\
+A_2 &amp;= G(v) \cdot (v-p_1)^2 , v = p_1\\
+A_3 &amp;= G(v) \cdot (v-p_2), v = p_2
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="plural-modulus">Plural Modulus</h2>
+<p>$$
+\begin{equation}
+|\frac{ A }{ B + jC }| = \frac{ |A| }{ \sqrt{ B^2 + C^2} }
+\end{equation}
 $$</p>
 
 </section>

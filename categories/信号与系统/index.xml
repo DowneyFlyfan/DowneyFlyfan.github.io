@@ -167,8 +167,23 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;258px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h1 id=&#34;system-characterized-by-lccde&#34;&gt;System Characterized by LCCDE&lt;/h1&gt;
+&lt;h2 id=&#34;frequency-response&#34;&gt;Frequency Response&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\sum_{ k = 0 }^{ K} a_k \frac{ d^ky}{  dt^k} &amp;amp;= \sum_{ k = 0}^{ M} b_k \frac{ d^kx}{  dt^k} \\
+\sum_{ k = 0 }^{K} a_k \cdot F \lbrace \frac{ d^k y }{  dt^k} \rbrace &amp;amp;= \sum_{ k =0 }^{ M} b_k \cdot F \lbrace \frac{ d^k x }{ dt^k } \rbrace \\
+Y(j \omega) \sum_{ k = 0 }^{K} a_k (j \omega)^k &amp;amp;=X(j \omega) \sum_{ k = 0 }^{ M} b_k (j \omega)^k
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+H(j \omega) = \frac{ Y(j \omega) }{ X(j \omega) } = \frac{ \sum_{ k = 0 }^{  M}b_k ( j \omega)^k }{\sum_{ k = 0 }^{ K }a_k ( j \omega)^k}
+\end{equation}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;partial-fraction-expansions&#34;&gt;Partial-Fraction Expansions&lt;/h2&gt;
+&lt;h3 id=&#34;method-i&#34;&gt;Method I&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -176,6 +191,37 @@ Y(j \omega) &amp;amp;= \frac{ A }{ a + j \omega } + \frac{ B }{b + j \omega} \\
 &amp;amp;= \frac{ C }{ (a+ j \omega) ( b + j \omega)}
 \end{aligned}
 \end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;method-ii&#34;&gt;Method II&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Type I&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+G(v) &amp;amp;= \frac{ A_1 }{ v -p_1 }+ \frac{ A_2 }{v -p_2} + \frac{ A_3 }{ v - p_3 } = \frac{ b_2 v^2 + b_1v + b_0  }{ (v-p_1)(v-p_2)(v-p_3) } \\
+A_1 &amp;amp;= \frac{ b^2 v + b_1 v + b_0 }{ (p_1 - p_2)(p_1 - p_3) }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Type II&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+G(v) &amp;amp;= \frac{ A_1 }{ v - p_1 } + \frac{ A_2 }{ (v - p_1)^2} + \frac{ A_3 }{ v - p_2} = \frac{ b_2 v^2 + b_1 v + b_0}{ (v-p_1)^2(v-p_2) }\\
+A_1 &amp;amp;= \frac{ d }{ dv } \Big\lbrace G(v) \cdot (v-p_1)^2 \Big\rbrace , v = p_1\\
+A_2 &amp;amp;= G(v) \cdot (v-p_1)^2 , v = p_1\\
+A_3 &amp;amp;= G(v) \cdot (v-p_2), v = p_2
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;plural-modulus&#34;&gt;Plural Modulus&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{equation}
+|\frac{ A }{ B + jC }| = \frac{ |A| }{ \sqrt{ B^2 + C^2} }
+\end{equation}
 $$&lt;/p&gt;
 </description>
         </item>
