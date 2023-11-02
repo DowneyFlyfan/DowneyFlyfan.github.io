@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Bipolar Junction Transistor Structure &amp;amp; Operation Structure Operations $$ \begin{equation} I_E = I_B &#43; I_C \end{equation} $$
+作为放大器时，$I_B$是输入,$I_C$是输出 I-V Relations &amp;amp; Current Gain I-V $$ \begin{gather} \begin{aligned} I_C &amp;amp;= A_E q \frac{ D_B n_{iB}^2 }{W_B N_B}(e^{qV_{BE}/kT} - 1) \\ I_B &amp;amp;= A_E q \frac{ D_E n_{iE}^2 }{W_E N_E}(e^{qV_{BE}/kT} - 1) \end{aligned} \end{gather} $$
+Current Gain $$ \begin{gather} \begin{aligned} \beta_F &amp;amp;= \frac{ I_C }{ I_B } = \frac{ D_B n_{iB}^2 W_E N_E }{ D_E n_{iE}^2 W_B N_B} \\ \alpha_F &amp;amp;= \frac{ I_C }{ I_E } \\ &amp;amp;= \frac{ \beta_F }{ 1 &#43; \beta_F } \end{aligned} \end{gather} $$'>
+<title>3. BJT JFET</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/3.-bjt-jfet/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='3. BJT JFET'>
+<meta property='og:description' content='Bipolar Junction Transistor Structure &amp;amp; Operation Structure Operations $$ \begin{equation} I_E = I_B &#43; I_C \end{equation} $$
+作为放大器时，$I_B$是输入,$I_C$是输出 I-V Relations &amp;amp; Current Gain I-V $$ \begin{gather} \begin{aligned} I_C &amp;amp;= A_E q \frac{ D_B n_{iB}^2 }{W_B N_B}(e^{qV_{BE}/kT} - 1) \\ I_B &amp;amp;= A_E q \frac{ D_E n_{iE}^2 }{W_E N_E}(e^{qV_{BE}/kT} - 1) \end{aligned} \end{gather} $$
+Current Gain $$ \begin{gather} \begin{aligned} \beta_F &amp;amp;= \frac{ I_C }{ I_B } = \frac{ D_B n_{iB}^2 W_E N_E }{ D_E n_{iE}^2 W_B N_B} \\ \alpha_F &amp;amp;= \frac{ I_C }{ I_E } \\ &amp;amp;= \frac{ \beta_F }{ 1 &#43; \beta_F } \end{aligned} \end{gather} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/3.-bjt-jfet/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-11-01T15:48:57&#43;08:00'/><meta property='article:modified_time' content='2023-11-01T15:48:57&#43;08:00'/>
+<meta name="twitter:title" content="3. BJT JFET">
+<meta name="twitter:description" content="Bipolar Junction Transistor Structure &amp;amp; Operation Structure Operations $$ \begin{equation} I_E = I_B &#43; I_C \end{equation} $$
+作为放大器时，$I_B$是输入,$I_C$是输出 I-V Relations &amp;amp; Current Gain I-V $$ \begin{gather} \begin{aligned} I_C &amp;amp;= A_E q \frac{ D_B n_{iB}^2 }{W_B N_B}(e^{qV_{BE}/kT} - 1) \\ I_B &amp;amp;= A_E q \frac{ D_E n_{iE}^2 }{W_E N_E}(e^{qV_{BE}/kT} - 1) \end{aligned} \end{gather} $$
+Current Gain $$ \begin{gather} \begin{aligned} \beta_F &amp;amp;= \frac{ I_C }{ I_B } = \frac{ D_B n_{iB}^2 W_E N_E }{ D_E n_{iE}^2 W_B N_B} \\ \alpha_F &amp;amp;= \frac{ I_C }{ I_E } \\ &amp;amp;= \frac{ \beta_F }{ 1 &#43; \beta_F } \end{aligned} \end{gather} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#bipolar-junction-transistor">Bipolar Junction Transistor</a>
+      <ol>
+        <li><a href="#structure--operation">Structure &amp; Operation</a>
+          <ol>
+            <li><a href="#structure">Structure</a></li>
+            <li><a href="#operations">Operations</a></li>
+          </ol>
+        </li>
+        <li><a href="#i-v-relations--current-gain">I-V Relations &amp; Current Gain</a>
+          <ol>
+            <li><a href="#i-v">I-V</a></li>
+            <li><a href="#current-gain">Current Gain</a></li>
+            <li><a href="#base-with-modulation">Base-With Modulation</a></li>
+          </ol>
+        </li>
+        <li><a href="#ebers-moll-models">Ebers-Moll Models</a>
+          <ol>
+            <li><a href="#电路">电路</a></li>
+            <li><a href="#分析">分析</a></li>
+          </ol>
+        </li>
+        <li><a href="#properties">Properties</a>
+          <ol>
+            <li><a href="#transit-time--charge-storage">Transit Time &amp; Charge Storage</a></li>
+            <li><a href="#emitter-to-collector-transit-time-and-kirk-effect">Emitter-to-Collector Transit Time and Kirk Effect</a></li>
+            <li><a href="#small-signal-model">Small-Signal Model</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#junction-fet-transistor-jfet">Junction FET Transistor (JFET)</a>
+      <ol>
+        <li><a href="#heading"></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/cmos/" style="background-color: #8B0000; color: #fff;">
+                CMOS
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/3.-bjt-jfet/">3. BJT JFET</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 01, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="bipolar-junction-transistor">Bipolar Junction Transistor</h1>
+<h2 id="structure--operation">Structure &amp; Operation</h2>
+<h3 id="structure">Structure</h3>
+<p><img src="/p/3.-bjt-jfet/1.png"
+	width="1536"
+	height="1356"
+	srcset="/p/3.-bjt-jfet/1_hucee0d9f34b8cf233737c94ba72b9afab_513127_480x0_resize_box_3.png 480w, /p/3.-bjt-jfet/1_hucee0d9f34b8cf233737c94ba72b9afab_513127_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="271px"
+	
+></p>
+<h3 id="operations">Operations</h3>
+<p><img src="/p/3.-bjt-jfet/3.png"
+	width="2772"
+	height="1428"
+	srcset="/p/3.-bjt-jfet/3_hu60551416d512372751767535933f80ff_450201_480x0_resize_box_3.png 480w, /p/3.-bjt-jfet/3_hu60551416d512372751767535933f80ff_450201_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="465px"
+	
+></p>
+<p>$$
+\begin{equation}
+I_E = I_B + I_C
+\end{equation}
+$$</p>
+<ul>
+<li>作为放大器时，$I_B$是输入,$I_C$是输出</li>
+</ul>
+<h2 id="i-v-relations--current-gain">I-V Relations &amp; Current Gain</h2>
+<h3 id="i-v">I-V</h3>
+<p><img src="/p/3.-bjt-jfet/2.png"
+	width="1032"
+	height="760"
+	srcset="/p/3.-bjt-jfet/2_hu8cfef8309abbe9a7fb8e1a7c8dd7288c_39965_480x0_resize_box_3.png 480w, /p/3.-bjt-jfet/2_hu8cfef8309abbe9a7fb8e1a7c8dd7288c_39965_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="325px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+I_C &amp;= A_E q \frac{ D_B n_{iB}^2 }{W_B N_B}(e^{qV_{BE}/kT} - 1) \\
+I_B &amp;= A_E q \frac{ D_E n_{iE}^2 }{W_E N_E}(e^{qV_{BE}/kT} - 1)
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="current-gain">Current Gain</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\beta_F &amp;= \frac{ I_C }{ I_B } =  \frac{ D_B n_{iB}^2 W_E N_E }{ D_E n_{iE}^2 W_B N_B} \\
+\alpha_F &amp;= \frac{ I_C }{ I_E } \\
+&amp;= \frac{ \beta_F }{ 1 + \beta_F }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="base-with-modulation">Base-With Modulation</h3>
+<p>$$
+\begin{equation}
+r_o = \Big( \frac{ \partial I_C }{ \partial V_{CE} } \Big)^{-1} = \frac{ V_A }{ I_C }
+\end{equation}
+$$</p>
+<ul>
+<li><strong>Large</strong> $V_C(r_o)$ is desirable for a <strong>Large Voltage Gain</strong></li>
+</ul>
+<h2 id="ebers-moll-models">Ebers-Moll Models</h2>
+<h3 id="电路">电路</h3>
+<p><img src="/p/3.-bjt-jfet/4.png"
+	width="1306"
+	height="580"
+	srcset="/p/3.-bjt-jfet/4_hu164b2f9a95bb839cae238bcb7dd536e6_49938_480x0_resize_box_3.png 480w, /p/3.-bjt-jfet/4_hu164b2f9a95bb839cae238bcb7dd536e6_49938_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="225"
+		data-flex-basis="540px"
+	
+></p>
+<h3 id="分析">分析</h3>
+<ol>
+<li>仅当$V_{BE}$存在时</li>
+</ol>
+<p>$$
+\begin{aligned}
+I_C &amp;= I_S(e^{qV_{BE}/ kT} - 1)  \approx I_S e^{V_{BE}/V_T} \\
+I_B &amp;= \frac{ I_C }{ \beta_F } \\
+V_T &amp;= \frac{ kT }{ q } \approx 25 mV
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>仅当$V_{BC}$存在时</li>
+</ol>
+<p>$$
+\begin{aligned}
+I_E &amp;= I_S(e^{qV_{BE}/ kT} - 1) \\
+I_B &amp;= \frac{ I_E }{ \beta_R } \\
+I_C &amp;= -I_E - I_B
+\end{aligned}
+$$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\beta_F, \beta_R$</td>
+<td style="text-align:center"><strong>Forward/Reverse Currrent Gain</strong>, $\beta_R$<strong>远小于1</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">$I_S$</td>
+<td style="text-align:center">饱和电流</td>
+</tr>
+<tr>
+<td style="text-align:center">$T$</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<ol start="3">
+<li>一般情况下，两种电压都存在</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+I_C &amp;= I_S(e^{qV_{BE}/ kT} - 1) - I_S( 1 + \frac{ 1 }{ \beta_R })( e^{q V_{BC}/kT}- 1) \\
+I_B &amp;= \frac{ I_S }{ \beta_F }(e^{qV_{BE}/ kT} - 1) + \frac{ I_S }{ \beta_R }( e^{q V_{BC}/kT}- 1) \\
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="properties">Properties</h2>
+<h3 id="transit-time--charge-storage">Transit Time &amp; Charge Storage</h3>
+<ol>
+<li>Definition</li>
+</ol>
+<p>$$
+\begin{equation}
+\tau = \frac{ Q_F }{ I_C }
+\end{equation}
+$$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$Q_F$</td>
+<td style="text-align:center">Excess Hole charge</td>
+</tr>
+<tr>
+<td style="text-align:center">$\tau$</td>
+<td style="text-align:center">决定了BJT的<strong>频率上限</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ol start="2">
+<li>Base Charge Storage</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Q_{FB} &amp;= \frac{ qA_E n&rsquo;(0) W_B}{ 2 } \\
+\tau_{FB} &amp;= \frac{ W_B^2 }{ 2D_B }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="emitter-to-collector-transit-time-and-kirk-effect">Emitter-to-Collector Transit Time and Kirk Effect</h3>
+<ol>
+<li>Reducing Transit Time</li>
+</ol>
+<blockquote>
+<p>To reduce the total transit time, emitter and depletion layers must be thin, too.</p>
+</blockquote>
+<ol start="2">
+<li>Kirk Effect</li>
+</ol>
+<blockquote>
+<p>Kirk effect or base widening: At high IC the base widens into the collector. Wider base means larger tF .</p>
+</blockquote>
+<h3 id="small-signal-model">Small-Signal Model</h3>
+<p><img src="/p/3.-bjt-jfet/5.png"
+	width="1466"
+	height="674"
+	srcset="/p/3.-bjt-jfet/5_hua9d720388b43e5bc97783ac41ade25aa_63551_480x0_resize_box_3.png 480w, /p/3.-bjt-jfet/5_hua9d720388b43e5bc97783ac41ade25aa_63551_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="217"
+		data-flex-basis="522px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+g_m &amp;= \frac{ d I_C }{ dV_{BE} } \\
+&amp;= \frac{ d }{ d V_{BE} } (I_S e^{q V_{BE}/kT}) \\
+&amp;= I_C \cdot \frac{ q }{ kT }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>特别地，当$T = 300K$时，$g_m = \dfrac{ I_C }{ 26 mV }$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\frac{ 1 }{ r_{\pi} } &amp;= \frac{ dI_B }{ dV_{BE} } = \frac{ 1 }{ \beta_F } \frac{ dI_C }{ dV_{BE} } = \frac{ g_m }{ \beta_F } \\
+\therefore r_{\pi} &amp;= \frac{ \beta_F }{ g_m }
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+C_{\pi-Charge-Storage} &amp;= \frac{ dQ_F }{ dV_{BE} } = \frac{ d }{ dV_{BE}} ( \tau I_C) = g_m \tau_F \\
+C_{\pi} &amp;= g_m \tau_F + C_{dBE}
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>$C_{dBE}$为<strong>Depletion Capacitance</strong></li>
+</ul>
+<h1 id="junction-fet-transistor-jfet">Junction FET Transistor (JFET)</h1>
+<h2 id="heading"></h2>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/a3-e-devices/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">A3 E Devices</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/a2-amplifiers/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">A2 Amplifiers</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/a1-bridge/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">A1 Bridge</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/eda/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">EDA</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/8.-feedback/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">8. Feedback</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -6,7 +6,258 @@
         <description>Recent content in CMOS on 飞璠博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 29 Oct 2023 10:52:19 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/cmos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 01 Nov 2023 15:48:57 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/cmos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>3. BJT JFET</title>
+        <link>https://downeyflyfan.com/p/3.-bjt-jfet/</link>
+        <pubDate>Wed, 01 Nov 2023 15:48:57 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/3.-bjt-jfet/</guid>
+        <description>&lt;h1 id=&#34;bipolar-junction-transistor&#34;&gt;Bipolar Junction Transistor&lt;/h1&gt;
+&lt;h2 id=&#34;structure--operation&#34;&gt;Structure &amp;amp; Operation&lt;/h2&gt;
+&lt;h3 id=&#34;structure&#34;&gt;Structure&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/1.png&#34;
+	width=&#34;1536&#34;
+	height=&#34;1356&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/1_hucee0d9f34b8cf233737c94ba72b9afab_513127_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-bjt-jfet/1_hucee0d9f34b8cf233737c94ba72b9afab_513127_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;113&#34;
+		data-flex-basis=&#34;271px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;operations&#34;&gt;Operations&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/3.png&#34;
+	width=&#34;2772&#34;
+	height=&#34;1428&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/3_hu60551416d512372751767535933f80ff_450201_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-bjt-jfet/3_hu60551416d512372751767535933f80ff_450201_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;194&#34;
+		data-flex-basis=&#34;465px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+I_E = I_B + I_C
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作为放大器时，$I_B$是输入,$I_C$是输出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;i-v-relations--current-gain&#34;&gt;I-V Relations &amp;amp; Current Gain&lt;/h2&gt;
+&lt;h3 id=&#34;i-v&#34;&gt;I-V&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/2.png&#34;
+	width=&#34;1032&#34;
+	height=&#34;760&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/2_hu8cfef8309abbe9a7fb8e1a7c8dd7288c_39965_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-bjt-jfet/2_hu8cfef8309abbe9a7fb8e1a7c8dd7288c_39965_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;325px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_C &amp;amp;= A_E q \frac{ D_B n_{iB}^2 }{W_B N_B}(e^{qV_{BE}/kT} - 1) \\
+I_B &amp;amp;= A_E q \frac{ D_E n_{iE}^2 }{W_E N_E}(e^{qV_{BE}/kT} - 1)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;current-gain&#34;&gt;Current Gain&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\beta_F &amp;amp;= \frac{ I_C }{ I_B } =  \frac{ D_B n_{iB}^2 W_E N_E }{ D_E n_{iE}^2 W_B N_B} \\
+\alpha_F &amp;amp;= \frac{ I_C }{ I_E } \\
+&amp;amp;= \frac{ \beta_F }{ 1 + \beta_F }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;base-with-modulation&#34;&gt;Base-With Modulation&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{equation}
+r_o = \Big( \frac{ \partial I_C }{ \partial V_{CE} } \Big)^{-1} = \frac{ V_A }{ I_C }
+\end{equation}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Large&lt;/strong&gt; $V_C(r_o)$ is desirable for a &lt;strong&gt;Large Voltage Gain&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ebers-moll-models&#34;&gt;Ebers-Moll Models&lt;/h2&gt;
+&lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/4.png&#34;
+	width=&#34;1306&#34;
+	height=&#34;580&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/4_hu164b2f9a95bb839cae238bcb7dd536e6_49938_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-bjt-jfet/4_hu164b2f9a95bb839cae238bcb7dd536e6_49938_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;225&#34;
+		data-flex-basis=&#34;540px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;仅当$V_{BE}$存在时&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+I_C &amp;amp;= I_S(e^{qV_{BE}/ kT} - 1)  \approx I_S e^{V_{BE}/V_T} \\
+I_B &amp;amp;= \frac{ I_C }{ \beta_F } \\
+V_T &amp;amp;= \frac{ kT }{ q } \approx 25 mV
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;仅当$V_{BC}$存在时&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+I_E &amp;amp;= I_S(e^{qV_{BE}/ kT} - 1) \\
+I_B &amp;amp;= \frac{ I_E }{ \beta_R } \\
+I_C &amp;amp;= -I_E - I_B
+\end{aligned}
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\beta_F, \beta_R$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Forward/Reverse Currrent Gain&lt;/strong&gt;, $\beta_R$&lt;strong&gt;远小于1&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I_S$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;饱和电流&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$T$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;一般情况下，两种电压都存在&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_C &amp;amp;= I_S(e^{qV_{BE}/ kT} - 1) - I_S( 1 + \frac{ 1 }{ \beta_R })( e^{q V_{BC}/kT}- 1) \\
+I_B &amp;amp;= \frac{ I_S }{ \beta_F }(e^{qV_{BE}/ kT} - 1) + \frac{ I_S }{ \beta_R }( e^{q V_{BC}/kT}- 1) \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;properties&#34;&gt;Properties&lt;/h2&gt;
+&lt;h3 id=&#34;transit-time--charge-storage&#34;&gt;Transit Time &amp;amp; Charge Storage&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{equation}
+\tau = \frac{ Q_F }{ I_C }
+\end{equation}
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Q_F$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Excess Hole charge&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\tau$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;决定了BJT的&lt;strong&gt;频率上限&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Base Charge Storage&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Q_{FB} &amp;amp;= \frac{ qA_E n&amp;rsquo;(0) W_B}{ 2 } \\
+\tau_{FB} &amp;amp;= \frac{ W_B^2 }{ 2D_B }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;emitter-to-collector-transit-time-and-kirk-effect&#34;&gt;Emitter-to-Collector Transit Time and Kirk Effect&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Reducing Transit Time&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To reduce the total transit time, emitter and depletion layers must be thin, too.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Kirk Effect&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Kirk effect or base widening: At high IC the base widens into the collector. Wider base means larger tF .&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;small-signal-model&#34;&gt;Small-Signal Model&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/5.png&#34;
+	width=&#34;1466&#34;
+	height=&#34;674&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-bjt-jfet/5_hua9d720388b43e5bc97783ac41ade25aa_63551_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-bjt-jfet/5_hua9d720388b43e5bc97783ac41ade25aa_63551_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;217&#34;
+		data-flex-basis=&#34;522px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+g_m &amp;amp;= \frac{ d I_C }{ dV_{BE} } \\
+&amp;amp;= \frac{ d }{ d V_{BE} } (I_S e^{q V_{BE}/kT}) \\
+&amp;amp;= I_C \cdot \frac{ q }{ kT }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;特别地，当$T = 300K$时，$g_m = \dfrac{ I_C }{ 26 mV }$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\frac{ 1 }{ r_{\pi} } &amp;amp;= \frac{ dI_B }{ dV_{BE} } = \frac{ 1 }{ \beta_F } \frac{ dI_C }{ dV_{BE} } = \frac{ g_m }{ \beta_F } \\
+\therefore r_{\pi} &amp;amp;= \frac{ \beta_F }{ g_m }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C_{\pi-Charge-Storage} &amp;amp;= \frac{ dQ_F }{ dV_{BE} } = \frac{ d }{ dV_{BE}} ( \tau I_C) = g_m \tau_F \\
+C_{\pi} &amp;amp;= g_m \tau_F + C_{dBE}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$C_{dBE}$为&lt;strong&gt;Depletion Capacitance&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;junction-fet-transistor-jfet&#34;&gt;Junction FET Transistor (JFET)&lt;/h1&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+</description>
+        </item>
+        <item>
         <title>A3 E Devices</title>
         <link>https://downeyflyfan.com/p/a3-e-devices/</link>
         <pubDate>Sun, 29 Oct 2023 10:52:19 +0800</pubDate>
@@ -271,9 +522,11 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hiSetFont(&amp;#34;label&amp;#34; ?size 20) # 修改Toolbar文字大小
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h1 id=&#34;candence-virtuoso-layout&#34;&gt;Candence Virtuoso Layout&lt;/h1&gt;
-&lt;h2 id=&#34;layers&#34;&gt;Layers&lt;/h2&gt;
-&lt;h3 id=&#34;总述&#34;&gt;总述&lt;/h3&gt;
+&lt;/div&gt;&lt;h2 id=&#34;candence-virtuoso-layout&#34;&gt;Candence Virtuoso Layout&lt;/h2&gt;
+&lt;h3 id=&#34;layers&#34;&gt;Layers&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;总述&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;|名称|意义|&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -303,9 +556,15 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Geometry&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;辅助形状或标记&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;transistor-layers&#34;&gt;Transistor Layers&lt;/h3&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Transistor Layers&lt;/li&gt;
+&lt;/ol&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -320,7 +579,9 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;po&#34;&gt;PO&lt;/h3&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;PO&lt;/li&gt;
+&lt;/ol&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -422,7 +683,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;DRC&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Desgin Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Design Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;BGR&lt;/td&gt;
@@ -432,9 +693,20 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Baseband/RF&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;包含原始信息的&lt;strong&gt;低频信号&lt;/strong&gt;和经过调制的&lt;strong&gt;高频载波&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CMN/CLN/CRN&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CMOS Mobile Normal, CMOS Logic Normal，CMOS Radio Frequency Normal，三种台积电工艺&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PDK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Process Design Kit, 设计套件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;GDSII&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Graphic Data System II，IC的实际版图信息&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 &lt;h1 id=&#34;当前目标&#34;&gt;当前目标&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;

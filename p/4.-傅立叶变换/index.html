@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Representation of Aperiodic Signals - Continuous-Time Fourier Transform 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$'>
+<title>4. 傅立叶变换</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4. 傅立叶变换'>
+<meta property='og:description' content='Representation of Aperiodic Signals - Continuous-Time Fourier Transform 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/'>
+<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-10-08T15:50:17&#43;08:00'/><meta property='article:modified_time' content='2023-10-08T15:50:17&#43;08:00'/>
+<meta name="twitter:title" content="4. 傅立叶变换">
+<meta name="twitter:description" content="Representation of Aperiodic Signals - Continuous-Time Fourier Transform 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h2 class="site-description">记录我的学习</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#representation-of-aperiodic-signals---continuous-time-fourier-transform">Representation of Aperiodic Signals - Continuous-Time Fourier Transform</a>
+      <ol>
+        <li><a href="#傅立叶级数求解">傅立叶级数求解</a></li>
+        <li><a href="#fourier-transform-of-aperiodic-signals">Fourier Transform of Aperiodic Signals</a>
+          <ol>
+            <li><a href="#ft">FT</a></li>
+            <li><a href="#ft-of-aperiodic-signals">FT of Aperiodic Signals</a></li>
+            <li><a href="#存在ft的条件---dirichlet-conditions">存在FT的条件 - Dirichlet Conditions</a></li>
+            <li><a href="#properties-of-ft">Properties of FT</a></li>
+            <li><a href="#sinc--sa-functions">Sinc &amp; Sa Functions</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#ft-of-periodic-signals">FT of Periodic Signals</a>
+      <ol>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#fundamental-ft--fs">Fundamental FT &amp; FS</a></li>
+      </ol>
+    </li>
+    <li><a href="#system-characterized-by-lccde">System Characterized by LCCDE</a>
+      <ol>
+        <li><a href="#frequency-response">Frequency Response</a></li>
+      </ol>
+    </li>
+    <li><a href="#appendix">Appendix</a>
+      <ol>
+        <li><a href="#partial-fraction-expansions">Partial-Fraction Expansions</a>
+          <ol>
+            <li><a href="#method-i">Method I</a></li>
+            <li><a href="#method-ii">Method II</a></li>
+          </ol>
+        </li>
+        <li><a href="#plural-modulus">Plural Modulus</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" style="background-color: #FF6600; color: #fff;">
+                信号与系统
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/">4. 傅立叶变换</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 08, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="representation-of-aperiodic-signals---continuous-time-fourier-transform">Representation of Aperiodic Signals - Continuous-Time Fourier Transform</h1>
+<h2 id="傅立叶级数求解">傅立叶级数求解</h2>
+<ul>
+<li>假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在<strong>一个周期</strong>内的函数</li>
+</ul>
+<p>$$
+\begin{aligned}
+\widehat { a_k }{~} &amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt
+\end{aligned}
+$$</p>
+<ul>
+<li>当$T \longrightarrow \infin$，信号其实就是<strong>非周期信号</strong></li>
+</ul>
+<p>$$
+\begin{aligned}
+a_k &amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt
+\end{aligned}
+$$</p>
+<h2 id="fourier-transform-of-aperiodic-signals">Fourier Transform of Aperiodic Signals</h2>
+<h3 id="ft">FT</h3>
+<p>$$
+\begin{gathered}
+\begin{align}
+x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;= T a_k = \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt \\
+&amp;= \sum_{ n = - \infin }^{ \infin  } x[n] e^{-j \omega n} \\
+X(j \omega) &amp;= |H(j \omega)| e^{ j\angle H(j \omega)}
+\end{align}
+\end{gathered}
+$$</p>
+<h3 id="ft-of-aperiodic-signals">FT of Aperiodic Signals</h3>
+<p>$$
+\begin{aligned}
+a_k &amp;= \frac{ 1 }{ T  } X(j k \omega_0) \\
+\therefore \widehat { x(t) }{ ~ } &amp;= \sum_{ k }^{  } a_k e^{jk \omega t} \\
+&amp;= \frac{ 1 }{ 2\pi  } \sum_{ k = - \infin  }^{ \infin } X(j \omega_0 t) e^{jk \omega_0 t} \omega_0
+\end{aligned}
+$$</p>
+<p>$$
+\begin{gathered}
+\begin{align}
+x(t) &amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega \\
+x[n] &amp;=  \frac{ 1 }{ 2\pi } \int_{ - \infin  }^{ \infin  } X(j \omega) e^{j \omega n} d \omega
+\end{align}
+\end{gathered}
+$$</p>
+<h3 id="存在ft的条件---dirichlet-conditions">存在FT的条件 - Dirichlet Conditions</h3>
+<ol>
+<li>C-T</li>
+</ol>
+<ul>
+<li>反例: $x(t) = e^t u(t)$ 没有<strong>FT</strong></li>
+</ul>
+<ol start="2">
+<li>D-T</li>
+</ol>
+<ul>
+<li>以下条件满足其一即可</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\int_{ - \infin  }^{  \infin } |x(t)| dt \le \infin  \\
+\int_{ - \infin  }^{  \infin } |x(t)|^2 dt \le \infin
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="properties-of-ft">Properties of FT</h3>
+<ol>
+<li>C-T</li>
+</ol>
+<ul>
+<li>If $x(t)$ is Real</li>
+</ul>
+<p>$$
+\begin{aligned}
+x(t) &amp;= x_e(t) + x_o(t) \\
+X(j \omega) &amp;= X_R(j \omega) + j X_I ( j \omega)
+\end{aligned}
+$$</p>
+<p>$$
+\begin{gathered}
+\begin{align}
+x_e(t) &amp;\overset{ F }{  \longleftrightarrow } X_R(j \omega) = X_e(j \omega) \\
+x_o(t) &amp;\overset{ F }{  \longleftrightarrow } X_I(j \omega) = X_o(j \omega)
+\end{align}
+\end{gathered}
+$$</p>
+<ul>
+<li>FT的反向求法</li>
+</ul>
+<p>$$
+\begin{aligned}
+f(t) = 1 &amp;\overset{ F }{ \longleftrightarrow  } X(j \omega) = 2 \pi \delta (\omega) \\
+FT^{-1} [ 2 \pi \delta ( \omega)] &amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} d \omega = 1
+\end{aligned}
+$$</p>
+<p>$$
+\begin{gathered}
+\begin{align}
+\delta ( \omega) &amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin }^{ \infin } e^{-j \omega t} d \omega
+\end{align}
+\end{gathered}
+$$</p>
+<ul>
+<li>其他性质</li>
+</ul>
+<p><img src="/p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/1.png"
+	width="1846"
+	height="1836"
+	srcset="/p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/1_hu0243d71320b394238811fb383849f957_1037904_480x0_resize_box_3.png 480w, /p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/1_hu0243d71320b394238811fb383849f957_1037904_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="241px"
+	
+></p>
+<ol start="2">
+<li>D-T</li>
+</ol>
+<ul>
+<li>Periodicity</li>
+</ul>
+<p>$$
+\begin{equation}
+X(e^{j \omega + 2 \pi}) = X(e^{j \omega})
+\end{equation}
+$$</p>
+<ul>
+<li>Duality</li>
+</ul>
+<h3 id="sinc--sa-functions">Sinc &amp; Sa Functions</h3>
+<p>$$
+\begin{gathered}
+\begin{align}
+sinc( \theta) &amp;= \frac{ sin(\pi \theta) }{ \theta}  \overset{ F }{ \longleftrightarrow } X(j \omega) = 2T_1 sinc( \frac{ \omega T_1 }{ \pi }) \\
+sa( \phi) &amp;= \frac{ sin( \phi) }{  \phi} \overset{ F }{ \longleftrightarrow  } X(j \omega) = 2 T_1 sa( \omega T_1)
+\end{align}
+\end{gathered}
+$$</p>
+<h1 id="ft-of-periodic-signals">FT of Periodic Signals</h1>
+<h2 id="definition">Definition</h2>
+<ol>
+<li>假设$X(j \omega) = 2 \pi \delta ( \omega - \omega_0)$</li>
+</ol>
+<p>$$
+\begin{aligned}
+x(t) &amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
+&amp;= e^{ j \omega_0 t}
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>再假设 $X(j \omega) = \sum_{ k = -\infin  }^{ \infin } 2 \pi a_k \delta ( \omega - k \omega_0)$</li>
+</ol>
+<p>$$
+\begin{aligned}
+x(t) &amp;=  \int_{ - \infin  }^{ \infin  } a_k e^{j k \omega t}
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>因此，<strong>周期信号的傅立叶转换</strong>为</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+X(j \omega) &amp;= \sum_{ k = - \infin }^{ \infin  } 2 \pi a_k \delta ( \omega - k \omega_0) \\
+X(e^{j \omega}) &amp;= \sum_{ k= - \infin }^{ \infin } 2 \pi a_k  \delta ( \omega - k \frac{ 2 \pi }{ N })
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="fundamental-ft--fs">Fundamental FT &amp; FS</h2>
+<p><img src="/p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/2.png"
+	width="1920"
+	height="1786"
+	srcset="/p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_480x0_resize_box_3.png 480w, /p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="107"
+		data-flex-basis="258px"
+	
+></p>
+<h1 id="system-characterized-by-lccde">System Characterized by LCCDE</h1>
+<h2 id="frequency-response">Frequency Response</h2>
+<p>$$
+\begin{aligned}
+\sum_{ k = 0 }^{ K} a_k \frac{ d^ky}{  dt^k} &amp;= \sum_{ k = 0}^{ M} b_k \frac{ d^kx}{  dt^k} \\
+\sum_{ k = 0 }^{K} a_k \cdot F \lbrace \frac{ d^k y }{  dt^k} \rbrace &amp;= \sum_{ k =0 }^{ M} b_k \cdot F \lbrace \frac{ d^k x }{ dt^k } \rbrace \\
+Y(j \omega) \sum_{ k = 0 }^{K} a_k (j \omega)^k &amp;=X(j \omega) \sum_{ k = 0 }^{ M} b_k (j \omega)^k
+\end{aligned}
+$$</p>
+<p>$$
+\begin{equation}
+H(j \omega) = \frac{ Y(j \omega) }{ X(j \omega) } = \frac{ \sum_{ k = 0 }^{  M}b_k ( j \omega)^k }{\sum_{ k = 0 }^{ K }a_k ( j \omega)^k}
+\end{equation}
+$$</p>
+<h1 id="appendix">Appendix</h1>
+<h2 id="partial-fraction-expansions">Partial-Fraction Expansions</h2>
+<h3 id="method-i">Method I</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Y(j \omega) &amp;= \frac{ A }{ a + j \omega } + \frac{ B }{b + j \omega} \\
+&amp;= \frac{ C }{ (a+ j \omega) ( b + j \omega)}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="method-ii">Method II</h3>
+<ol>
+<li>Type I</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+G(v) &amp;= \frac{ A_1 }{ v -p_1 }+ \frac{ A_2 }{v -p_2} + \frac{ A_3 }{ v - p_3 } = \frac{ b_2 v^2 + b_1v + b_0  }{ (v-p_1)(v-p_2)(v-p_3) } \\
+A_1 &amp;= \frac{ b^2 v + b_1 v + b_0 }{ (p_1 - p_2)(p_1 - p_3) }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Type II</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+G(v) &amp;= \frac{ A_1 }{ v - p_1 } + \frac{ A_2 }{ (v - p_1)^2} + \frac{ A_3 }{ v - p_2} = \frac{ b_2 v^2 + b_1 v + b_0}{ (v-p_1)^2(v-p_2) }\\
+A_1 &amp;= \frac{ d }{ dv } \Big\lbrace G(v) \cdot (v-p_1)^2 \Big\rbrace , v = p_1\\
+A_2 &amp;= G(v) \cdot (v-p_1)^2 , v = p_1\\
+A_3 &amp;= G(v) \cdot (v-p_2), v = p_2
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="plural-modulus">Plural Modulus</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+|\frac{ A }{ B + jC }| &amp;= \frac{ |A| }{ \sqrt{ B^2 + C^2} } \\
+|\frac{ 1 }{ 1 + a \cdot e^{j \omega} }| &amp;=  \frac{ 1 }{ 1 + a }
+\end{aligned}
+\end{gather}
+$$</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/3.-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3. 周期信号的傅里叶级数表示</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2.-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2. 线性时不变系统</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/1.-%E7%BB%AA%E8%AE%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1. 绪论</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 飞璠博客
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
