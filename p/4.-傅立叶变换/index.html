@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Representation of Aperiodic Signals - Continuous-Time Fourier Transform 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
-当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Representation of Aperiodic Signals 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$
+Fourier Transform of Aperiodic Signals FT $$ \begin{gathered} \begin{align} x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;amp;= T a_k = \int_{ - \infin }^{ \infin } x(t) e^{-j \omega t} dt \\ &amp;amp;= \sum_{ n = - \infin }^{ \infin } x[n] e^{-j \omega n} \\ X(j \omega) &amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)} \end{align} \end{gathered} $$'>
 <title>4. 傅立叶变换</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4. 傅立叶变换'>
-<meta property='og:description' content='Representation of Aperiodic Signals - Continuous-Time Fourier Transform 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
-当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$'>
+<meta property='og:description' content='Representation of Aperiodic Signals 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$
+Fourier Transform of Aperiodic Signals FT $$ \begin{gathered} \begin{align} x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;amp;= T a_k = \int_{ - \infin }^{ \infin } x(t) e^{-j \omega t} dt \\ &amp;amp;= \sum_{ n = - \infin }^{ \infin } x[n] e^{-j \omega n} \\ X(j \omega) &amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)} \end{align} \end{gathered} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/4.-%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/'>
 <meta property='og:site_name' content='飞璠博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-10-08T15:50:17&#43;08:00'/><meta property='article:modified_time' content='2023-10-08T15:50:17&#43;08:00'/>
 <meta name="twitter:title" content="4. 傅立叶变换">
-<meta name="twitter:description" content="Representation of Aperiodic Signals - Continuous-Time Fourier Transform 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
-当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Representation of Aperiodic Signals 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$
+Fourier Transform of Aperiodic Signals FT $$ \begin{gathered} \begin{align} x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;amp;= T a_k = \int_{ - \infin }^{ \infin } x(t) e^{-j \omega t} dt \\ &amp;amp;= \sum_{ n = - \infin }^{ \infin } x[n] e^{-j \omega n} \\ X(j \omega) &amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)} \end{align} \end{gathered} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -253,7 +256,7 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#representation-of-aperiodic-signals---continuous-time-fourier-transform">Representation of Aperiodic Signals - Continuous-Time Fourier Transform</a>
+    <li><a href="#representation-of-aperiodic-signals">Representation of Aperiodic Signals</a>
       <ol>
         <li><a href="#傅立叶级数求解">傅立叶级数求解</a></li>
         <li><a href="#fourier-transform-of-aperiodic-signals">Fourier Transform of Aperiodic Signals</a>
@@ -368,7 +371,7 @@
     <section class="article-content">
     
     
-    <h1 id="representation-of-aperiodic-signals---continuous-time-fourier-transform">Representation of Aperiodic Signals - Continuous-Time Fourier Transform</h1>
+    <h1 id="representation-of-aperiodic-signals">Representation of Aperiodic Signals</h1>
 <h2 id="傅立叶级数求解">傅立叶级数求解</h2>
 <ul>
 <li>假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在<strong>一个周期</strong>内的函数</li>
