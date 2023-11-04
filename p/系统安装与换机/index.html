@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='系统安装与换机'>
 <meta property='og:description' content='文件备份 开机分区的安装 新建boot分区 1 fidsk -l 挂载分区 挂载根目录分区与开机分区 1 2 3 # 一定要先挂载目录分区!!! mount /dev/nvme0n1p6 /mnt mount /dev/nvme0n1p8 /mnt/boot 生成文件系统自动挂载分区(可删除先前的) 1 genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab 安装内核 1 2 arch-chroot /mnt pacman -S base linux linux-firmware 安装引导 安装徽码 1 pacman -S intel-ucode 安装引导 1 2 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Arch --recheck grub-mkconfig -o /boot/grub/grub.cfg 退出并重启 1 2 3 $ exit $ umount -R /mnt $ reboot 安装必要软件 pacman 添加pacman的库 在/etc/pacman.conf中添加以下内容 1 2 [multilib] Include = /etc/pacman.'>
 <meta property='og:url' content='https://downeyflyfan.com/p/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8D%A2%E6%9C%BA/'>
-<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:site_name' content='Flyfan Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-05-05T10:03:14&#43;08:00'/><meta property='article:modified_time' content='2023-05-05T10:03:14&#43;08:00'/>
 <meta name="twitter:title" content="系统安装与换机">
 <meta name="twitter:description" content="文件备份 开机分区的安装 新建boot分区 1 fidsk -l 挂载分区 挂载根目录分区与开机分区 1 2 3 # 一定要先挂载目录分区!!! mount /dev/nvme0n1p6 /mnt mount /dev/nvme0n1p8 /mnt/boot 生成文件系统自动挂载分区(可删除先前的) 1 genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab 安装内核 1 2 arch-chroot /mnt pacman -S base linux linux-firmware 安装引导 安装徽码 1 pacman -S intel-ucode 安装引导 1 2 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Arch --recheck grub-mkconfig -o /boot/grub/grub.cfg 退出并重启 1 2 3 $ exit $ umount -R /mnt $ reboot 安装必要软件 pacman 添加pacman的库 在/etc/pacman.conf中添加以下内容 1 2 [multilib] Include = /etc/pacman."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -70,7 +70,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h1 class="site-name"><a href="/">Flyfan Blog</a></h1>
             <h2 class="site-description">记录我的学习</h2>
         </div>
     </header><ol class="social-menu">
@@ -783,7 +783,7 @@
         
             2022 - 
         
-        2023 飞璠博客
+        2023 Flyfan Blog
     </section>
     
     <section class="powerby">

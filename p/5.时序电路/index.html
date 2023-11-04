@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='5.时序电路'>
 <meta property='og:description' content='Bistable Element 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) - SR 锁存器 与非门 或非门 Gated SR Latch / S Latch With Enable (NAND) D Latch (NAND) 效果:输出端保持稳定 Gated D Latch 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule 总结 NAND NOR 输入为$11$是不稳定的 输入为00是不稳定的 Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 module clock_divider #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 ( input clock_in, // 50MHz Input Clock output reg clock ); reg [24:0] count; always @ (posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 1; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变'>
 <meta property='og:url' content='https://downeyflyfan.com/p/5.%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF/'>
-<meta property='og:site_name' content='飞璠博客'>
+<meta property='og:site_name' content='Flyfan Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-04-04T10:06:42&#43;08:00'/><meta property='article:modified_time' content='2023-04-04T10:06:42&#43;08:00'/>
 <meta name="twitter:title" content="5.时序电路">
 <meta name="twitter:description" content="Bistable Element 串联两个Inverter达到保持input和output都不变的效果 SR Latch (Set Reset) - SR 锁存器 与非门 或非门 Gated SR Latch / S Latch With Enable (NAND) D Latch (NAND) 效果:输出端保持稳定 Gated D Latch 2 NAND 4 NAND Verilog Code 1 2 3 4 5 6 7 8 9 10 11 module D_Latch_With_Enable( input E, input D, output reg Q ); always @(E or D) begin if (E) Q &amp;lt;= D; end endmodule 总结 NAND NOR 输入为$11$是不稳定的 输入为00是不稳定的 Clock Divider 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 module clock_divider #(parameter [24:0] half = 25&amp;#39;d6250000) // 指定时钟分频的周期 ( input clock_in, // 50MHz Input Clock output reg clock ); reg [24:0] count; always @ (posedge clock_in) begin if (count == half) begin count &amp;lt;= 1&amp;#39;d0; clock = ~clock; end else count &amp;lt;= count &#43; 1; end endmodule D Flip-Flop 定义 当时钟输入端接收到一个时钟信号时，将数据输入端的状态存储下来，并在下一个时钟信号到来前保持不变"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -70,7 +70,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">飞璠博客</a></h1>
+            <h1 class="site-name"><a href="/">Flyfan Blog</a></h1>
             <h2 class="site-description">记录我的学习</h2>
         </div>
     </header><ol class="social-menu">
@@ -1750,7 +1750,7 @@ $$</p>
         
             2022 - 
         
-        2023 飞璠博客
+        2023 Flyfan Blog
     </section>
     
     <section class="powerby">
