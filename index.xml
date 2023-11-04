@@ -421,44 +421,22 @@ $$&lt;/p&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$S_{11}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;输入端口的反射系数$\rho_{12}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输入端口的反射系数$\rho_{11} = \dfrac{ P_{输入端口反射} }{ P_{输入入射} }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$S_{12}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;输入到输出端口的传播系数$\tau_{12}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输入到输出端口的传播系数$\tau_{12} = \dfrac{ P_{输入到输出} }{ P_{输入入射} }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$S_{21}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;输出到输入端口的反向传播系数$\tau_{21}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出到输入端口的反向传播系数$\tau_{21} = \dfrac{ P_{输出到输入} }{ P_{输出入射} }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$S_{22}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;输出端口的反射系数$\rho_{21}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出端口的反射系数$\rho_{22} = \dfrac{ P_{输出端口反射} }{ P_{输出入射} }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\rho_{12} &amp;amp;= \frac{ P_{输入端口反射} }{ P_{输入入射} } \\
-\rho_{21} &amp;amp;= \frac{ P_{输出端口反射} }{ P_{输出入射} } \\
-Ktau_{21} &amp;amp;= \frac{ P_{输出到输入} }{ P_{输出入射} } \\
-\tau_{12} &amp;amp;= \frac{ P_{输入到输出} }{ P_{输入入射} } \\
-\rho &amp;amp;\in (0,1) \\
-\tau &amp;amp;\in (0, \infin)
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;$\rho$越小，&lt;strong&gt;阻抗匹配效果&lt;/strong&gt;越好&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\tau$反映&lt;strong&gt;信号耦合效应&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;coupled-transmission-line&#34;&gt;Coupled Transmission Line&lt;/h2&gt;
-&lt;h3 id=&#34;characteristic--input-impedance&#34;&gt;Characteristic &amp;amp; Input Impedance&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -468,7 +446,27 @@ $$&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;反射系数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\rho$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$(0,1)$, 越小，阻抗匹配效果越好&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\tau$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$(0, \infin )$, 反映&lt;strong&gt;信号耦合效应&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;coupled-transmission-line&#34;&gt;Coupled Transmission Line&lt;/h2&gt;
+&lt;h3 id=&#34;characteristic-input-impedance-impedance-control&#34;&gt;Characteristic, Input Impedance, Impedance Control&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reflected Coefficient&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\Gamma_L = \dfrac{ Z_L - Z_0 }{ Z_L + Z_0 }$, $V_{(-)} = \Gamma V_{(+)}, I_{(-)} = - \Gamma I_{(+)}$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -478,6 +476,14 @@ $$&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$V_{(-)}, I_{(-)}$&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Reflected Propogation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{ii}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Characteristic Impedance of &lt;strong&gt;Line&lt;/strong&gt; $i$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{ij}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Impedance due to &lt;strong&gt;Coupling&lt;/strong&gt; between &lt;strong&gt;Line&lt;/strong&gt; $i,j$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -544,6 +550,78 @@ $$&lt;/p&gt;
 \gamma &amp;amp;= j \beta \\
 Z_{in}(l) &amp;amp;= Z_0 \frac{ Z_L + j Z_0 tanh( \beta l) }{ Z_0 + j Z_L tanh( \beta l) } \\
 \beta &amp;amp;= \frac{ 2 \pi }{ \lambda}, wave \ number
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;impedance-control--evenodd-mode-impedance&#34;&gt;Impedance Control &amp;amp; Even/Odd Mode Impedance&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Impedance Control&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/7.png&#34;
+	width=&#34;1054&#34;
+	height=&#34;304&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-bridge/7_hu2862b04218837f34d8cebdc8761c43ac_26190_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-bridge/7_hu2862b04218837f34d8cebdc8761c43ac_26190_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;346&#34;
+		data-flex-basis=&#34;832px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+I_1  \ I_2
+\end{bmatrix} &amp;amp;= \begin{bmatrix}
+Z_{11} \ Z_{12} \\
+Z_{12} \ Z_{22}
+\end{bmatrix}^{-1} \begin{bmatrix}
+V_1 \ V_2
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Even/Odd Mode Impedance&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Even&lt;/strong&gt; Mode Impedance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Impedance of &lt;strong&gt;one indivudual line&lt;/strong&gt; under &lt;strong&gt;Common Mode&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Odd&lt;/strong&gt; Mode Impedance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Impedance of &lt;strong&gt;one indivudual line&lt;/strong&gt; under &lt;strong&gt;Differential Mode&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_e &amp;amp;= Z_{11} + Z_{12} = \frac{ V_1 + V_2 }{ I_1 } \\
+Z_o &amp;amp;= Z_{11} - Z_{12} = \frac{ V_1  - V_2 }{ I_1 } \\
+Z_{diff} &amp;amp;= 2 Z_o \\
+Z_{common} &amp;amp;= \frac{ 1 }{2} Z_e
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Voltage&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{common} &amp;amp;= \frac{ 1 }{ 2 } (V_1 + V_2) \\
+V_{diff} &amp;amp;= V_1 - V_2
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -710,9 +788,6 @@ $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Tapered Transmission Line&lt;/li&gt;
 &lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;triogonometric-function-formula&#34;&gt;Triogonometric Function Formula&lt;/h2&gt;
 &lt;p&gt;$$
