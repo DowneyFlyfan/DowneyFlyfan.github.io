@@ -276,7 +276,12 @@
         </li>
       </ol>
     </li>
-    <li><a href="#appendix">Appendix</a></li>
+    <li><a href="#appendix">Appendix</a>
+      <ol>
+        <li><a href="#triogonometric-function-formula">Triogonometric Function Formula</a></li>
+        <li><a href="#time--frequency-domain">Time , Frequency Domain</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -341,7 +346,7 @@
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -509,6 +514,28 @@ $$</p>
 </ul>
 <h2 id="coupled-transmission-line">Coupled Transmission Line</h2>
 <h3 id="characteristic--input-impedance">Characteristic &amp; Input Impedance</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">反射系数</td>
+<td style="text-align:center">$\Gamma_L = \dfrac{ Z_L - Z_0 }{ Z_L + Z_0 }$, $V_{(-)} = \Gamma V_{(+)}, I_{(-)} = - \Gamma I_{(+)}$</td>
+</tr>
+<tr>
+<td style="text-align:center">$V_{(+)}, I_{(+)}$</td>
+<td style="text-align:center">Forward Propogation</td>
+</tr>
+<tr>
+<td style="text-align:center">$V_{(-)}, I_{(-)}$</td>
+<td style="text-align:center">Reflected Propogation</td>
+</tr>
+</tbody>
+</table></div>
 <ol>
 <li>Characteristic Impedance</li>
 </ol>
@@ -527,8 +554,8 @@ $$</p>
 <p>$$
 \begin{gather}
 \begin{aligned}
-Z_0 &amp;= \frac{ V_X }{ I_X } \\
-Z_0 &amp;= \sqrt{ \frac{ R + j \omega L }{ G + j \omega C } }
+Z_0 &amp;= \frac{ V_{(+)} (l) }{ I_{(+)} (l) } \\
+&amp;= \sqrt{ \frac{ R + j \omega L }{ G + j \omega C } }
 \end{aligned}
 \end{gather}
 $$</p>
@@ -557,9 +584,9 @@ $$</p>
 \begin{gather}
 \begin{aligned}
 Z_{in}(l) &amp;= \frac{ V(l) }{ I(l) }  \\
+&amp;= \frac{ V_{(+)} e^{ -\gamma x} + V_{(-)}e^{ \gamma x}}{ I_{(+)} e^{- \gamma x} + I_{(-)} e^{ \gamma x}} \\
 &amp;= Z_0 \frac{ 1 + \Gamma_L e^{-2 \gamma l} }{ 1 - \Gamma_L e^{-2 \gamma l}}\\
-&amp;= Z_0 \frac{ Z_L + Z_0 tanh( \gamma l) }{ Z_0 + Z_L tanh( \gamma l) } \\
-\Gamma_L &amp;= \frac{ Z_L - Z_0 }{ Z_L + Z_0 }
+&amp;= Z_0 \frac{ Z_L + Z_0 tanh( \gamma l) }{ Z_0 + Z_L tanh( \gamma l) }
 \end{aligned}
 \end{gather}
 $$</p>
@@ -570,7 +597,7 @@ $$</p>
 \begin{gather}
 \begin{aligned}
 \gamma &amp;= j \beta \\
-Z_{in}(l) &amp;= Z_0 \frac{ Z_L + Z_0 tanh( j \beta l) }{ Z_0 + Z_L tanh( j \beta l) } \\
+Z_{in}(l) &amp;= Z_0 \frac{ Z_L + j Z_0 tanh( \beta l) }{ Z_0 + j Z_L tanh( \beta l) } \\
 \beta &amp;= \frac{ 2 \pi }{ \lambda}, wave \ number
 \end{aligned}
 \end{gather}
@@ -606,7 +633,7 @@ $$</p>
 \mathbb { Im }( \gamma) &amp;= \beta = (a^2 + b^2)^{1/4}sin( \phi) \\
 a &amp;= RG - \omega^2 LC = \omega^2 LC \Big[ ( \frac{ R }{ \omega L}) ( \frac{ G }{ \omega C }) - 1) \Big] \\
 b &amp;= \omega C R + \omega L G = \omega^2 LC ( \frac{ R }{ \omega L } + \frac{ G }{ \omega C }) \\
-\phi &amp;= \frac{ 1 }{ 2 } atan2 (b,a) \\
+\phi &amp;= tan^{-1}( \frac{ b }{ a }) \\
 L, C, \omega &amp;\neq 0
 \end{aligned}
 \end{gather}
@@ -631,7 +658,13 @@ $$</p>
 \begin{gather}
 \begin{aligned}
 \mathbb { Re } ( \gamma) &amp; \approx \frac{ 1 }{ 2 } \sqrt{ LC } \Big( \frac{ R }{ L } + \frac{ G }{ C } \Big) \\
-\mathbb { Im } ( \gamma) &amp; \approx  \omega \sqrt{ LC } \\
+\mathbb { Im } ( \gamma) &amp; \approx  \omega \sqrt{ LC }
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
 V_{out}(x,t) &amp;\approx V_{in}(t - \sqrt{ LC } x) e^{ - \dfrac{ 1 }{ 2 } \sqrt{ LC } \Big( \dfrac{ R }{ L } + \dfrac{ G }{ C } \Big)x}
 \end{aligned}
 \end{gather}
@@ -707,7 +740,36 @@ $$</p>
 <ol>
 <li>Stepped Transmission Line</li>
 </ol>
+<p><img src="/p/a1-bridge/6.png"
+	width="1064"
+	height="368"
+	srcset="/p/a1-bridge/6_hue74c05f47ace7505f61aa857282da4ee_193153_480x0_resize_box_3.png 480w, /p/a1-bridge/6_hue74c05f47ace7505f61aa857282da4ee_193153_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="289"
+		data-flex-basis="693px"
+	
+></p>
+<ul>
+<li>In <strong>Idealized Case</strong></li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{0,i+1} &amp;= Z_{0,i} \frac{ Z_{i} + Z_{0,1} tan(j \beta_i l_i) }{ Z_{0,i} + Z_i tan(j \beta_i l_i)}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Tapered Transmission Line</li>
+</ol>
+<ul>
+<li></li>
+</ul>
 <h1 id="appendix">Appendix</h1>
+<h2 id="triogonometric-function-formula">Triogonometric Function Formula</h2>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -718,6 +780,14 @@ tan^{-1}( \frac{ y }{ x }) + \pi &amp; x&lt;0, y \ge 0 \\
 tan^{-1}( \frac{ y }{ x }) - \pi &amp; x&lt;0, y &lt; 0 \\
 Error &amp; x=0, y=0
 \end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="time--frequency-domain">Time , Frequency Domain</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+t \longleftrightarrow e^{-j \omega t}
 \end{aligned}
 \end{gather}
 $$</p>
