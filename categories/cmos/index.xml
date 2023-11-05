@@ -155,7 +155,72 @@
 		data-flex-basis=&#34;412px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h2 id=&#34;broadband-microstrip-line-directional-coupler-with-high-directivity-and-small-size&#34;&gt;Broadband Microstrip Line Directional Coupler with High Directivity and Small Size&lt;/h2&gt;
+&lt;h3 id=&#34;schematic&#34;&gt;Schematic&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/11.png&#34;
+	width=&#34;1358&#34;
+	height=&#34;552&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-bridge/11_hu372b69e8288dd3767b9fc8c599d76322_392241_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-bridge/11_hu372b69e8288dd3767b9fc8c599d76322_392241_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;246&#34;
+		data-flex-basis=&#34;590px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;coupling-factor-isolation-in-idealized-case&#34;&gt;Coupling Factor, Isolation in Idealized Case&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In Idealized Case, $C_0 = C_1 \ll 1, T_0 = 1, \Gamma = 0, I_0 = I_1$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$L_0$通常表示输入端到第一段传输线的长度, 相对很短&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C_{total} &amp;amp;= C_0 + T_0 e^{-j \beta l_1} \cdot C_1 e^{-j \beta l_2} T_0 \\
+&amp;amp;\approx C_0 (1 + e^{- j \beta (l_1 + l_2)}) \\
+&amp;amp;\approx C_0 (1 + e^{- j \beta (l_1 + l_2 + 2l_0)}) \\
+&amp;amp;= C_0 (2 cos^2( \frac{ x }{ 2 }) - 2j sin( \frac{ x }{ 2 } ) cos( \frac{ x }{ 2 })), x = \beta(l_1 + l_2 + 2l_0) \\
+&amp;amp;= 2C_0 \cdot cos( \frac{ l_1 + l_2 + 2l_0}{ 2 }) e^{-j \beta \dfrac{ l_1 + l_2 + 2l_0 }{ 2 }}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_{total} &amp;amp;= I_0 e^{-j \beta L_2} T_0 + I_1 e^{-j \beta L_1} T_1 \\
+&amp;amp;= I_0 (e^{- j \beta L_1} + e^{-j \beta L_2})
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;transmission-line&#34;&gt;Transmission Line&lt;/h1&gt;
+&lt;h2 id=&#34;electric-length--normalized-frequency&#34;&gt;Electric Length &amp;amp; Normalized Frequency&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Electric Length&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\theta = l \cdot \beta = \dfrac{ 2\pi l}{ \lambda }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Normalized Frequency&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$f_N = \dfrac{ \theta }{ \lambda } = \dfrac{ 2 \pi }{ \lambda^2 } l \propto l$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;常见频率波长转换&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$2.4GHz \longleftrightarrow \lambda= 12.5cm \ 5GHz \longleftrightarrow  \lambda = 6cm \ 10GHz \longleftrightarrow  \lambda = 3cm$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;s参数&#34;&gt;S参数&lt;/h2&gt;
 &lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -222,6 +287,10 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Reflected Coefficient&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\Gamma_L = \dfrac{ Z_L - Z_0 }{ Z_L + Z_0 }$, $V_{(-)} = \Gamma V_{(+)}, I_{(-)} = - \Gamma I_{(+)}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Forward Coefficient $T$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$V_{(+)}, I_{(+)}$&lt;/td&gt;
@@ -542,8 +611,137 @@ $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Tapered Transmission Line&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;directional-coupler&#34;&gt;Directional Coupler&lt;/h2&gt;
+&lt;h3 id=&#34;schematic-1&#34;&gt;Schematic&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/10.png&#34;
+	width=&#34;3214&#34;
+	height=&#34;1590&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-bridge/10_hu608ad56feeb36a2206dcb59e2c68cb53_1800561_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-bridge/10_hu608ad56feeb36a2206dcb59e2c68cb53_1800561_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;202&#34;
+		data-flex-basis=&#34;485px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_1$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Input Power $P_{in}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_2$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Forward Power $P_f$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_3$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reflected Power $P_r$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_4$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Coupled Power $P_c$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;factors&#34;&gt;Factors&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Coupling Factor&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$C = 10 \cdot lg( \dfrac{ P_i }{ P_c })$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Directivity&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$D = 10  \cdot lg( \dfrac{ P_f }{ P_r})$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Isolation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I = 10 \cdot lg( \dfrac{ P_i }{ P_r })$，隔离&lt;strong&gt;输入与反射&lt;/strong&gt;，&lt;strong&gt;输出与耦合&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;s-parameter-analysis-in-idealized-case&#34;&gt;S Parameter Analysis In Idealized Case&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Idealized Case&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;4 Ports are Matched&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{11} = S_{22} = S_{33} = S_{44} = 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;It follows the property of &lt;strong&gt;symmetry&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{ij} = S_{ji}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;1 &amp;amp; 3, 2 &amp;amp; 4&lt;/strong&gt; are isolated&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{13} = S_{31} = S_{24} = S_{42} = 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Equal Forward Power&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{12} = S_{34} = P$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Equal Coupled Power&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{14} = S_{23} = Q$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Lossless&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$[S] \cdot [S]^* = I$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;对应端口阻抗相同&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{ij} = Z_{ji}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;S Matrix&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= \begin{bmatrix}
+0 &amp;amp; P &amp;amp; 0 &amp;amp; Q \\
+P &amp;amp; 0 &amp;amp; Q &amp;amp; 0 \\
+0 &amp;amp; Q &amp;amp; 0 &amp;amp; P \\
+Q &amp;amp; 0 &amp;amp; P &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\because [S] \cdot [S]^* &amp;amp;= I \\
+\therefore P^2 + Q^2 &amp;amp;= 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;triogonometric-function-formula&#34;&gt;Triogonometric Function Formula&lt;/h2&gt;
+&lt;h3 id=&#34;rare-functions&#34;&gt;Rare Functions&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -554,6 +752,25 @@ tan^{-1}( \frac{ y }{ x }) + \pi &amp;amp; x&amp;lt;0, y \ge 0 \\
 tan^{-1}( \frac{ y }{ x }) - \pi &amp;amp; x&amp;lt;0, y &amp;lt; 0 \\
 Error &amp;amp; x=0, y=0
 \end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;common-formulas&#34;&gt;Common Formulas&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+sin(2x) &amp;amp;= 2sin(x) cos(x) \\
+cos(2x) &amp;amp;= cos^2(x) - sin^2(x) \\
+&amp;amp;= 2cos^2(x) - 1 \\
+&amp;amp;= 1  -2 sin^2(x)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+sin^2(x) &amp;amp;= \frac{ 1-cos(2x) }{ 2 } \\
+cos^2(x) &amp;amp;= \frac{ 1 + cos(2x) }{ 2 }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -675,6 +892,29 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3 id=&#34;generation&#34;&gt;Generation&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PR Boundary&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Placement Region Boundary, 限定布局区域，起到保护作用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Floorplan&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;芯片各个模块和组件的排布位置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;ade&#34;&gt;ADE&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -780,10 +1020,6 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Graphic Data System II，IC的实际版图信息&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Passband&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;通频带, 一个系统允许传输的频率范围&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;isolation zero(零点)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;传输函数零点&lt;/td&gt;
 &lt;/tr&gt;
@@ -824,12 +1060,8 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;处理传感器输出信号，&lt;strong&gt;改善信号质量&lt;/strong&gt;的电路&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Multisection Tech&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;将宽带匹配网络或耦合网络分成多个相连的狭带段。每个段只需要提供部分的匹配或耦合带宽。段数越多,整体网络的带宽越宽。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;4-terminal 2-ports&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Z_{12} = Z_{21}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Solid Line&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;连续不间断的线条&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -837,9 +1069,6 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;S参数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Layout&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;小尺寸差分电桥&lt;/p&gt;
