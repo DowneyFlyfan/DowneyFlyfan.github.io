@@ -406,72 +406,31 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;412px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;broadband-microstrip-line-directional-coupler-with-high-directivity-and-small-size&#34;&gt;Broadband Microstrip Line Directional Coupler with High Directivity and Small Size&lt;/h2&gt;
-&lt;h3 id=&#34;schematic&#34;&gt;Schematic&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/11.png&#34;
-	width=&#34;1358&#34;
-	height=&#34;552&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-bridge/11_hu372b69e8288dd3767b9fc8c599d76322_392241_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-bridge/11_hu372b69e8288dd3767b9fc8c599d76322_392241_1024x0_resize_box_3.png 1024w&#34;
+&lt;h1 id=&#34;rf-network&#34;&gt;RF Network&lt;/h1&gt;
+&lt;h2 id=&#34;2-ports-network&#34;&gt;2-Ports Network&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/13.png&#34;
+	width=&#34;1214&#34;
+	height=&#34;414&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-bridge/13_hu2ef49677ef4df4e3bf82d5be6b68a970_229607_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-bridge/13_hu2ef49677ef4df4e3bf82d5be6b68a970_229607_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;246&#34;
-		data-flex-basis=&#34;590px&#34;
+		data-flex-grow=&#34;293&#34;
+		data-flex-basis=&#34;703px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;coupling-factor-isolation-in-idealized-case&#34;&gt;Coupling Factor, Isolation in Idealized Case&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;In Idealized Case, $C_0 = C_1 \ll 1, T_0 = 1, \Gamma = 0, I_0 = I_1$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$L_0$通常表示输入端到第一段传输线的长度, 相对很短&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&#34;normalized-voltage&#34;&gt;Normalized Voltage&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-C_{total} &amp;amp;= C_0 + T_0 e^{-j \beta l_1} \cdot C_1 e^{-j \beta l_2} T_0 \\
-&amp;amp;\approx C_0 (1 + e^{- j \beta (l_1 + l_2)}) \\
-&amp;amp;\approx C_0 (1 + e^{- j \beta (l_1 + l_2 + 2l_0)}) \\
-&amp;amp;= C_0 (2 cos^2( \frac{ x }{ 2 }) - 2j sin( \frac{ x }{ 2 } ) cos( \frac{ x }{ 2 })), x = \beta(l_1 + l_2 + 2l_0) \\
-&amp;amp;= 2C_0 \cdot cos( \frac{ l_1 + l_2 + 2l_0}{ 2 }) e^{-j \beta \dfrac{ l_1 + l_2 + 2l_0 }{ 2 }}
+a_1 &amp;amp;= \frac{ V_{1}^+ }{ \sqrt{ Z_{01} } } \\
+b_1 &amp;amp;= \frac{ V_{1}^- }{ \sqrt{ Z_{01} } } \\
+a_2 &amp;amp;= \frac{ V_{2}^+ }{ \sqrt{ Z_{02} } } \\
+b_2 &amp;amp;= \frac{ V_{2}^- }{ \sqrt{ Z_{02} } }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-I_{total} &amp;amp;= I_0 e^{-j \beta L_2} T_0 + I_1 e^{-j \beta L_1} T_1 \\
-&amp;amp;= I_0 (e^{- j \beta L_1} + e^{-j \beta L_2})
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;transmission-line&#34;&gt;Transmission Line&lt;/h1&gt;
-&lt;h2 id=&#34;electric-length--normalized-frequency&#34;&gt;Electric Length &amp;amp; Normalized Frequency&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Electric Length&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\theta = l \cdot \beta = \dfrac{ 2\pi l}{ \lambda }$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Normalized Frequency&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$f_N = \dfrac{ \theta }{ \lambda } = \dfrac{ 2 \pi }{ \lambda^2 } l \propto l$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;常见频率波长转换&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$2.4GHz \longleftrightarrow \lambda= 12.5cm \ 5GHz \longleftrightarrow  \lambda = 6cm \ 10GHz \longleftrightarrow  \lambda = 3cm$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;h2 id=&#34;s参数&#34;&gt;S参数&lt;/h2&gt;
 &lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -525,8 +484,8 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;480px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;coupled-transmission-line&#34;&gt;Coupled Transmission Line&lt;/h2&gt;
-&lt;h3 id=&#34;characteristic-input-impedance-impedance-control&#34;&gt;Characteristic, Input Impedance, Impedance Control&lt;/h3&gt;
+&lt;h1 id=&#34;transmission-line&#34;&gt;Transmission Line&lt;/h1&gt;
+&lt;h2 id=&#34;electric-length--distributed-parameters&#34;&gt;Electric Length &amp;amp; Distributed Parameters&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -536,98 +495,130 @@ $$&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Reflected Coefficient&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\Gamma_L = \dfrac{ Z_L - Z_0 }{ Z_L + Z_0 }$, $V_{(-)} = \Gamma V_{(+)}, I_{(-)} = - \Gamma I_{(+)}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Electric Length&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\theta = l \cdot \beta = \dfrac{ 2\pi l}{ \lambda }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Forward Coefficient $T$&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Phase Velocity&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$v_p = f \lambda = \dfrac{ \omega }{ \beta }, f = \sqrt{ \varepsilon_r f}$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$V_{(+)}, I_{(+)}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Forward Propogation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Normalized Frequency&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$f_N = \dfrac{ \theta }{ \lambda } = \dfrac{ 2 \pi }{ \lambda^2 } l \propto l$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$V_{(-)}, I_{(-)}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Reflected Propogation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Z_{ii}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Characteristic Impedance of &lt;strong&gt;Line&lt;/strong&gt; $i$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Z_{ij}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Impedance due to &lt;strong&gt;Coupling&lt;/strong&gt; between &lt;strong&gt;Line&lt;/strong&gt; $i,j$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;常见频率波长转换&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$2.4GHz \longleftrightarrow \lambda= 12.5cm \ 5GHz \longleftrightarrow  \lambda = 6cm \ 10GHz \longleftrightarrow  \lambda = 3cm$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;ol&gt;
-&lt;li&gt;Characteristic Impedance&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/5.png&#34;
-	width=&#34;970&#34;
-	height=&#34;372&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-bridge/5_hub6fd65a9404346261a932eb5716bba6f_41176_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-bridge/5_hub6fd65a9404346261a932eb5716bba6f_41176_1024x0_resize_box_3.png 1024w&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/12.png&#34;
+	width=&#34;1588&#34;
+	height=&#34;650&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-bridge/12_hue20630f99e53a3d6839ba01fdfcf2fd1_409091_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-bridge/12_hue20630f99e53a3d6839ba01fdfcf2fd1_409091_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;260&#34;
-		data-flex-basis=&#34;625px&#34;
+		data-flex-grow=&#34;244&#34;
+		data-flex-basis=&#34;586px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h2 id=&#34;impedance--reflected-coefficient&#34;&gt;Impedance &amp;amp; Reflected Coefficient&lt;/h2&gt;
+&lt;h3 id=&#34;characteristic-impedance&#34;&gt;Characteristic Impedance&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
 Z_0 &amp;amp;= \frac{ V_{(+)} (l) }{ I_{(+)} (l) } \\
-&amp;amp;= \sqrt{ \frac{ R + j \omega L }{ G + j \omega C } }
+&amp;amp;= \sqrt{ \frac{ R + j \omega L }{ G + j \omega C } } \\
+&amp;amp;= \frac{ |V_{max}| }{ |I_{max}| }  \\
+&amp;amp;= \frac{ |V_{min}| }{ |I_{min}| }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;当$Z_L = Z_0$时，Transmission Line is &lt;strong&gt;Matched&lt;/strong&gt;, 此时，$P_{Backward}$&lt;strong&gt;最小&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Input Impedance&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;General Case&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/4.png&#34;
-	width=&#34;1086&#34;
-	height=&#34;632&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-bridge/4_hu0aeb327a8180a29e7ef7f56346c07ea8_353598_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-bridge/4_hu0aeb327a8180a29e7ef7f56346c07ea8_353598_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;171&#34;
-		data-flex-basis=&#34;412px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;h3 id=&#34;reflected-coefficient&#34;&gt;Reflected Coefficient&lt;/h3&gt;
+&lt;h4 id=&#34;reflected-coefficient-formula&#34;&gt;Reflected Coefficient Formula&lt;/h4&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-Z_{in}(l) &amp;amp;= \frac{ V(l) }{ I(l) }  \\
-&amp;amp;= \frac{ V_{(+)} e^{ -\gamma x} + V_{(-)}e^{ \gamma x}}{ I_{(+)} e^{- \gamma x} + I_{(-)} e^{ \gamma x}} \\
-&amp;amp;= Z_0 \frac{ 1 + \Gamma_L e^{-2 \gamma l} }{ 1 - \Gamma_L e^{-2 \gamma l}}\\
-&amp;amp;= Z_0 \frac{ Z_L + Z_0 tanh( \gamma l) }{ Z_0 + Z_L tanh( \gamma l) }
+\Gamma (x&amp;rsquo;) &amp;amp;= \frac{ V^-(x&amp;rsquo;) }{ V^+ (x&amp;rsquo;) } = - \frac{ I^- (x&amp;rsquo;) }{ I^+ (x&amp;rsquo;) } \\
+&amp;amp;= \frac{ V_2 ^- e^{ -j \beta x&amp;rsquo;} }{  V_2 ^+ e^{ j \beta x&amp;rsquo;}} \\
+&amp;amp;= \Gamma_L e^{-j 2 \beta x&amp;rsquo;} \\
+&amp;amp;= |\Gamma_L| e^{j ( \phi_L - 2 \beta x&amp;rsquo;)}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Idealized Case&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;上式说明，任意一点的反射波的&lt;strong&gt;模值相等&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$T = \dfrac{ 2 \pi }{ 2 \beta } = \dfrac{ \lambda }{ 2 }$&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h4 id=&#34;reflected-coefficient-at-terminal&#34;&gt;Reflected Coefficient at Terminal&lt;/h4&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\gamma &amp;amp;= j \beta \\
-Z_{in}(l) &amp;amp;= Z_0 \frac{ Z_L + j Z_0 tanh( \beta l) }{ Z_0 + j Z_L tanh( \beta l) } \\
-\beta &amp;amp;= \frac{ 2 \pi }{ \lambda}, wave \ number
+\Gamma_L &amp;amp;=  \frac{ V_2^- }{ V_2^+ } \\
+&amp;amp;= \frac{ V_2 - I_2 Z_0 }{ V_2 + I_2 Z_0 } \\
+&amp;amp;= \frac{ Z_L - Z_0}{ Z_L + Z_0 } \\
+&amp;amp;= | \Gamma_L | e^{j \phi_L}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;impedance-control--evenodd-mode-impedance&#34;&gt;Impedance Control &amp;amp; Even/Odd Mode Impedance&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Total Reflected&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_L = Z_0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Partially Reflected&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_L \neq Z_0, 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Impedance Match&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_L = 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;vswr-voltage-standing-wave-ratio--traveling-wave-coefficient&#34;&gt;VSWR (Voltage Standing Wave Ratio) &amp;amp; Traveling Wave Coefficient&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+VSWR &amp;amp;= \rho = \frac{ |V_{max} }{ |V_{min}| } \\
+&amp;amp;= \frac{ 1 + | \Gamma_L| }{ 1 - | \Gamma_L| } \\
+K &amp;amp;= \frac{ 1 }{ \rho} = \frac{ |V_{min}| }{ |V_{max}|} \\
+&amp;amp;= \frac{ 1 -| \Gamma_L| }{ 1 + | \Gamma_L | }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;input-impedance&#34;&gt;Input Impedance&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in}(x&amp;rsquo;) &amp;amp;= \frac{ V(x&amp;rsquo;) }{ I(x&amp;rsquo;) }  \\
+&amp;amp;= Z_0 \frac{ 1 + \Gamma (x&amp;rsquo;) e^{-j 2 \beta x&amp;rsquo;}}{1 - \Gamma (x&amp;rsquo;) e^{-j 2 \beta x&amp;rsquo;}} \\
+&amp;amp;= Z_0 \frac{ Z_L + j Z_0 tan( \beta x&amp;rsquo;) }{ Z_L - j Z_0 tan( \beta x&amp;rsquo;) }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in}(0) &amp;amp;= Z_0 \frac{ 1 + \Gamma_L }{ 1 - \Gamma_L } = Z_L \\
+Z_{in}(l) &amp;amp;= Z_0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;impedance-control--evenodd-mode-impedance&#34;&gt;Impedance Control &amp;amp; Even/Odd Mode Impedance&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Impedance Control&lt;/li&gt;
 &lt;/ol&gt;
@@ -699,33 +690,26 @@ V_{diff} &amp;amp;= V_1 - V_2
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;telegraphers-equation&#34;&gt;Telegrapher&amp;rsquo;s equation&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Line Voltage - Current Relation&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;telegraphers-equation&#34;&gt;Telegrapher&amp;rsquo;s equation&lt;/h2&gt;
+&lt;h3 id=&#34;telegraphers-equation-1&#34;&gt;Telegrapher&amp;rsquo;s Equation&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\frac{ \partial V(x) }{ \partial x } = - (R + j \omega L) I(x) \\
-\frac{ \partial  I(x) }{ \partial x } = - (G + j \omega C) V(x)
+\frac{ \partial V(x,t) }{ \partial x } = - (R + j \omega L) I(x) \\
+\frac{ \partial  I(x,t) }{ \partial x } = - (G + j \omega C) V(x)
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Propogation Constant in &lt;strong&gt;General Case&lt;/strong&gt;&lt;/li&gt;
+&lt;h3 id=&#34;wave-equation-for-a-homogeneous-transmission-line&#34;&gt;Wave Equation for a homogeneous Transmission Line&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Equation&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\frac{ \partial^2 V }{ \partial x^2 } &amp;amp;= (R + j \omega L )(G + j \omega C) V
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Suppose $V = V_0 e^{- \gamma x}$&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\gamma &amp;amp;= \sqrt{(R + j \omega L)(G + j \omega C)} \\
+\frac{ \partial^2 V }{ \partial x^2 } - \gamma^2 V &amp;amp;= 0 \\
+\frac{ \partial^2 I }{ \partial x^2 } - \gamma^2 I &amp;amp;= 0 \\
+\gamma &amp;amp;= \sqrt{ (R + j \omega L)(G + j \omega C) } = \alpha + j \beta \\
 \mathbb { Re } ( \gamma) &amp;amp;= \alpha = (a^2 + b^2)^{1/4} cos( \phi)  \\
 \mathbb { Im }( \gamma) &amp;amp;= \beta = (a^2 + b^2)^{1/4}sin( \phi) \\
 a &amp;amp;= RG - \omega^2 LC = \omega^2 LC \Big[ ( \frac{ R }{ \omega L}) ( \frac{ G }{ \omega C }) - 1) \Big] \\
@@ -735,135 +719,137 @@ L, C, \omega &amp;amp;\neq 0
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Solution in General Case&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\frac{ \partial^2 V }{ \partial x^2 } &amp;amp;= \gamma^2 V \\
-\frac{ \partial^2 I }{ \partial x^2 } &amp;amp;= \gamma^2 I
+V(x) &amp;amp;= A_1 e^{- \gamma x} + A_2 e^{ \gamma x} \\
+I(x) &amp;amp;= \frac{ 1 }{ Z_0 }(A_1 e^{- \gamma x} - A_2 e^{ \gamma x}) \\
+Z_0 &amp;amp;= \sqrt{ \dfrac{ R + j \omega L }{ G + j \omega C } }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Propogation Constant in &lt;strong&gt;Idealized Case&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Solution in &lt;strong&gt;Idealized Case&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-\frac{ R }{ \omega L} \ll 1, \frac{ G }{ \omega C } \ll 1
-\end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\mathbb { Re } ( \gamma) &amp;amp; \approx \frac{ 1 }{ 2 } \sqrt{ LC } \Big( \frac{ R }{ L } + \frac{ G }{ C } \Big) \\
-\mathbb { Im } ( \gamma) &amp;amp; \approx  \omega \sqrt{ LC }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-V_{out}(x,t) &amp;amp;\approx V_{in}(t - \sqrt{ LC } x) e^{ - \dfrac{ 1 }{ 2 } \sqrt{ LC } \Big( \dfrac{ R }{ L } + \dfrac{ G }{ C } \Big)x}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\frac{ \partial^2 V }{ \partial x^2 } &amp;amp;= - \omega^2 LC \cdot V \\
-\frac{ \partial^2 I }{ \partial x^2 } &amp;amp;= - \omega^2 LC \cdot I \\
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;losses-types--special-case-of-lossless-transmission-line&#34;&gt;Losses Types &amp;amp; Special Case of Lossless Transmission Line&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Losses Types&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Resistive/Ohmic Loss&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;因为传输线的电阻而损失的能量&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Dielectric Loss&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;高频&lt;/strong&gt;下，传输线的绝缘部分吸收电场能量产生热能&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;能量损失单位&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$dB/m$, $3dB$损失等于一半的能量&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Lossless Transmission Line&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Half Wavelength&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\beta l = n \pi \Longrightarrow l = \dfrac{ n }{ 2 } \lambda$, 此时, $Z_{in} = Z_L$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Quarter Wavelength&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$l = (\dfrac{ 1 }{ 4 } + n) \lambda$此时，$Z_{in} = \dfrac{ Z_0^2 }{ Z_L }$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Matched Load&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;当$Z_0 = Z_L, Z_{in} = Z_0 = Z_L$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Short&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;当$Z_L=0, Z{in} = Z_0 \cdot tanh(j \beta l)$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Open&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;当$Z_L = \infin , Z_{in} = - Z_0 \cdot coth(j \beta l)$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;types&#34;&gt;Types&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Stepped Transmission Line&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/6.png&#34;
-	width=&#34;1064&#34;
-	height=&#34;368&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-bridge/6_hue74c05f47ace7505f61aa857282da4ee_193153_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-bridge/6_hue74c05f47ace7505f61aa857282da4ee_193153_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;289&#34;
-		data-flex-basis=&#34;693px&#34;
-	
-&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;In &lt;strong&gt;Idealized Case&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;$R, G = 0$, 通常都认为是&lt;strong&gt;无损耗线&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-Z_{0,i+1} &amp;amp;= Z_{0,i} \frac{ Z_{i} + Z_{0,1} tan(j \beta_i l_i) }{ Z_{0,i} + Z_i tan(j \beta_i l_i)}
+V(x) &amp;amp;= A_1 e^{- j \beta x}  +A_2 e^{j \beta x} \\
+I(x) &amp;amp;= \frac{ 1 }{ Z_0 } (A_1 e^{- j \beta x} - A_2 e^{j \beta x}) \\
+Z_0 &amp;amp;= \sqrt{ \dfrac{ L }{ C } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;incident--reflected-traveling-wave&#34;&gt;Incident &amp;amp; Reflected Traveling Wave&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+v(x,t) &amp;amp;= \mathbb{ Re } \Big\lbrace V(x) e^{j \omega t} \Big\rbrace \\
+&amp;amp;= A_1 e^{j( \omega t - \beta x) } + A_2 e^{j ( \omega t + \beta x)} \\
+&amp;amp;= A_1 cos( \omega t - \beta x) + A_2 cos ( \omega t + \beta x) \\
+&amp;amp;= A_1 cos[ \beta( \frac{ \omega }{ \beta }t - x )] + A_2 cos[ \beta( \frac{ \omega }{ \beta }t + x )] \\
+&amp;amp;= A_1 cos[ \beta(x -v_p t)]+ A_2 cos [ \beta(x + v_p t)] \\
+I(x,t) &amp;amp;= \frac{ 1 }{ Z_0 } \Big\lbrace A_1 cos[ \beta(x -v_p t)] - A_2 cos [ \beta(x + v_p t)] \Big\rbrace
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;前者在$x_+$方向移动，为入射横波&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;后者在$x_-$方向移动，为反射横波&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;boundary-conditions&#34;&gt;Boundary Conditions&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;End Ports&lt;/strong&gt;: $V_2, I_2$ are known&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;将$V(x) = V_2, I_X = I_2, x = l$带入方程(10)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+A_1 &amp;amp;= \frac{ V_2 + I_2 Z_0 }{ 2 } e^{j \beta l} \\
+A_2 &amp;amp;= \frac{ V_2 - I_2 Z_0 }{ 2 } e^{-j \beta l}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V(x&amp;rsquo;) &amp;amp;=  \frac{ V_2 + I_2 Z_0 }{ 2 } e^{- j \beta x&amp;rsquo;} + \frac{ V_2 - I_2 Z_0 }{ 2 } e^{ j \beta x&amp;rsquo;} \\
+&amp;amp;= V_2 cos ( \beta x&amp;rsquo;) + j I_2 Z_0 sin( \beta x&amp;rsquo;) \\
+&amp;amp;= V_2 ^+ e^{ j \beta x&amp;rsquo;} ( 1 + \Gamma_L e^{- j 2 \beta x&amp;rsquo;}) \\
+x&amp;rsquo; &amp;amp;= x - l
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I(x&amp;rsquo;) &amp;amp;=  \frac{ V_2 + I_2 Z_0 }{ 2Z_0 } e^{- j \beta x&amp;rsquo;} - \frac{ V_2 - I_2 Z_0 }{ 2Z_0 } e^{ j \beta x&amp;rsquo;} \\
+&amp;amp;= I_2 cos ( \beta x&amp;rsquo;) - j \frac{ V_2 }{ Z_0 } sin( \beta x&amp;rsquo;) \\
+&amp;amp;= I_2 ^+ e^{j \beta x&amp;rsquo;} ( 1 - \Gamma_L e^{-j 2 \beta x&amp;rsquo;}) \\
+x&amp;rsquo; &amp;amp;= x - l
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Tapered Transmission Line&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Beginning Ports&lt;/strong&gt;: $V_1, I_1$ are known&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;将$V(0) = V_1, I(0) = I_1, x =  0$代入得到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+A_1 &amp;amp;= \frac{ V_1 + I_1 Z_0 }{ 2 } \\
+A_2 &amp;amp;= \frac{ V_1 - I_1 Z_0 }{ 2 } \\
+V(x) &amp;amp;= V_1 cos( \beta x) + j I_1 Z_0 sin ( \beta x) \\
+I(x) &amp;amp;= I_1 cos( \beta x) - j \frac{ V_1 }{ Z_0 } sin ( \beta z)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;lossless-condition-analysis&#34;&gt;Lossless Condition Analysis&lt;/h2&gt;
+&lt;h3 id=&#34;lossless-condition&#34;&gt;Lossless Condition&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\alpha &amp;amp;= 0, \beta = \omega \sqrt{ LC } , \gamma = j \beta, Z_0 = \sqrt{ \dfrac{ L }{ C } } \\
+\Gamma &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;tranveling-wave-condition&#34;&gt;Tranveling Wave Condition&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma &amp;amp;= 0 \longrightarrow V^-(x&amp;rsquo;) = 0 \longrightarrow Z_L = Z_0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;电压和电流振幅不变&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;电压电流同相&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$Z_{in} = Z_0 = Z_L$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;directional-coupler&#34;&gt;Directional Coupler&lt;/h2&gt;
-&lt;h3 id=&#34;schematic-1&#34;&gt;Schematic&lt;/h3&gt;
+&lt;h3 id=&#34;schematic&#34;&gt;Schematic&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-bridge/10.png&#34;
 	width=&#34;3214&#34;
 	height=&#34;1590&#34;
@@ -1638,11 +1624,11 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>4-5. FT</title>
-        <link>https://downeyflyfan.com/p/4-5.-ft/</link>
+        <title>4-6. FT, Time/Frequency Domain Characteristic</title>
+        <link>https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/</link>
         <pubDate>Sun, 08 Oct 2023 15:50:17 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/4-5.-ft/</guid>
+        <guid>https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/</guid>
         <description>&lt;h1 id=&#34;representation-of-aperiodic-signals&#34;&gt;Representation of Aperiodic Signals&lt;/h1&gt;
 &lt;h2 id=&#34;傅立叶级数求解&#34;&gt;傅立叶级数求解&lt;/h2&gt;
 &lt;ul&gt;
@@ -1664,13 +1650,13 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;fourier-transform-of-aperiodic-signals&#34;&gt;Fourier Transform of Aperiodic Signals&lt;/h2&gt;
 &lt;h3 id=&#34;ft&#34;&gt;FT&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{gathered}
-\begin{align}
+\begin{gather}
+\begin{aligned}
 x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;amp;= T a_k = \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt \\
 &amp;amp;= \sum_{ n = - \infin }^{ \infin  } x[n] e^{-j \omega n} \\
-X(j \omega) &amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)}
-\end{align}
-\end{gathered}
+&amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;ft-of-aperiodic-signals&#34;&gt;FT of Aperiodic Signals&lt;/h3&gt;
 &lt;p&gt;$$
@@ -1681,12 +1667,12 @@ a_k &amp;amp;= \frac{ 1 }{ T  } X(j k \omega_0) \\
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;$$
-\begin{gathered}
-\begin{align}
+\begin{gather}
+\begin{aligned}
 x(t) &amp;amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega \\
 x[n] &amp;amp;=  \frac{ 1 }{ 2\pi } \int_{ - \infin  }^{ \infin  } X(j \omega) e^{j \omega n} d \omega
-\end{align}
-\end{gathered}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;存在ft的条件---dirichlet-conditions&#34;&gt;存在FT的条件 - Dirichlet Conditions&lt;/h3&gt;
 &lt;ol&gt;
@@ -1717,18 +1703,14 @@ $$&lt;/p&gt;
 &lt;li&gt;If $x(t)$ is Real&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
+\begin{gather}
 \begin{aligned}
 x(t) &amp;amp;= x_e(t) + x_o(t) \\
-X(j \omega) &amp;amp;= X_R(j \omega) + j X_I ( j \omega)
-\end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gathered}
-\begin{align}
+X(j \omega) &amp;amp;= X_R(j \omega) + j X_I ( j \omega) \\
 x_e(t) &amp;amp;\overset{ F }{  \longleftrightarrow } X_R(j \omega) = X_e(j \omega) \\
 x_o(t) &amp;amp;\overset{ F }{  \longleftrightarrow } X_I(j \omega) = X_o(j \omega)
-\end{align}
-\end{gathered}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;FT的反向求法&lt;/li&gt;
@@ -1740,19 +1722,19 @@ FT^{-1} [ 2 \pi \delta ( \omega)] &amp;amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin 
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;$$
-\begin{gathered}
-\begin{align}
+\begin{gather}
+\begin{aligned}
 \delta ( \omega) &amp;amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin }^{ \infin } e^{-j \omega t} d \omega
-\end{align}
-\end{gathered}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;其他性质&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-5.-ft/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/1.png&#34;
 	width=&#34;1846&#34;
 	height=&#34;1836&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4-5.-ft/1_hu0243d71320b394238811fb383849f957_1037904_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-5.-ft/1_hu0243d71320b394238811fb383849f957_1037904_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/1_hu0243d71320b394238811fb383849f957_1037904_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/1_hu0243d71320b394238811fb383849f957_1037904_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1775,6 +1757,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Duality&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;$X(e^{j \omega}) \longleftrightarrow x[n]$&lt;/p&gt;
 &lt;h3 id=&#34;sinc--sa-functions&#34;&gt;Sinc &amp;amp; Sa Functions&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gathered}
@@ -1815,10 +1798,10 @@ X(e^{j \omega}) &amp;amp;= \sum_{ k= - \infin }^{ \infin } 2 \pi a_k  \delta ( \
 \end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;fundamental-ft--fs&#34;&gt;Fundamental FT &amp;amp; FS&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-5.-ft/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/2.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1786&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4-5.-ft/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-5.-ft/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1841,9 +1824,55 @@ $$&lt;/p&gt;
 H(j \omega) = \frac{ Y(j \omega) }{ X(j \omega) } = \frac{ \sum_{ k = 0 }^{  M}b_k ( j \omega)^k }{\sum_{ k = 0 }^{ K }a_k ( j \omega)^k}
 \end{equation}
 $$&lt;/p&gt;
+&lt;h1 id=&#34;timefrequency-domain-characteristic&#34;&gt;Time/Frequency Domain Characteristic&lt;/h1&gt;
+&lt;h2 id=&#34;magnitude-phase-logarithm-bode-plots&#34;&gt;Magnitude, Phase, Logarithm, Bode Plots&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Y(j \omega) &amp;amp;= |X(j \omega) H(j \omega)| \\
+\angle  Y(j \omega) &amp;amp;= \angle X(j \omega) + \angle H(j \omega) \\
+lg|Y(j \omega)| &amp;amp;= lg|H(j \omega)|  + lg|X(j \omega)|
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;通常，&lt;strong&gt;Phase&lt;/strong&gt;包含更多的信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bode Plots: $20 lg \Big[ H(j \omega)| \Big] - \omega$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;phase-shifting--group-delay&#34;&gt;Phase Shifting &amp;amp; Group Delay&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Linear Phase&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\angle H(j \omega) = k \omega$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Non-Linear Phase&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\angle H(j \omega)$ is &lt;strong&gt;Non-Linear&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\angle H(j \omega) &amp;amp;= \omega \cdot t \\
+\tau( \omega) &amp;amp;= - \frac{ d  \Big\lbrace  \angle H(j \omega) \Big\rbrace}{ d \omega }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;partial-fraction-expansions&#34;&gt;Partial-Fraction Expansions&lt;/h2&gt;
-&lt;h3 id=&#34;method-i&#34;&gt;Method I&lt;/h3&gt;
+&lt;h3 id=&#34;case-i&#34;&gt;Case I&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -1852,10 +1881,7 @@ Y(j \omega) &amp;amp;= \frac{ A }{ a + j \omega } + \frac{ B }{b + j \omega} \\
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;method-ii&#34;&gt;Method II&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Type I&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;case-ii&#34;&gt;Case II&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -1864,9 +1890,7 @@ A_1 &amp;amp;= \frac{ b^2 v + b_1 v + b_0 }{ (p_1 - p_2)(p_1 - p_3) }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Type II&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;case-iii&#34;&gt;Case III&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}

@@ -7,11 +7,11 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <lastBuildDate>Sun, 08 Oct 2023 15:50:17 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/signal-system/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>4-5. FT</title>
-        <link>https://downeyflyfan.com/p/4-5.-ft/</link>
+        <title>4-6. FT, Time/Frequency Domain Characteristic</title>
+        <link>https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/</link>
         <pubDate>Sun, 08 Oct 2023 15:50:17 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/4-5.-ft/</guid>
+        <guid>https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/</guid>
         <description>&lt;h1 id=&#34;representation-of-aperiodic-signals&#34;&gt;Representation of Aperiodic Signals&lt;/h1&gt;
 &lt;h2 id=&#34;傅立叶级数求解&#34;&gt;傅立叶级数求解&lt;/h2&gt;
 &lt;ul&gt;
@@ -33,13 +33,13 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;fourier-transform-of-aperiodic-signals&#34;&gt;Fourier Transform of Aperiodic Signals&lt;/h2&gt;
 &lt;h3 id=&#34;ft&#34;&gt;FT&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{gathered}
-\begin{align}
+\begin{gather}
+\begin{aligned}
 x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;amp;= T a_k = \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt \\
 &amp;amp;= \sum_{ n = - \infin }^{ \infin  } x[n] e^{-j \omega n} \\
-X(j \omega) &amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)}
-\end{align}
-\end{gathered}
+&amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;ft-of-aperiodic-signals&#34;&gt;FT of Aperiodic Signals&lt;/h3&gt;
 &lt;p&gt;$$
@@ -50,12 +50,12 @@ a_k &amp;amp;= \frac{ 1 }{ T  } X(j k \omega_0) \\
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;$$
-\begin{gathered}
-\begin{align}
+\begin{gather}
+\begin{aligned}
 x(t) &amp;amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega \\
 x[n] &amp;amp;=  \frac{ 1 }{ 2\pi } \int_{ - \infin  }^{ \infin  } X(j \omega) e^{j \omega n} d \omega
-\end{align}
-\end{gathered}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;存在ft的条件---dirichlet-conditions&#34;&gt;存在FT的条件 - Dirichlet Conditions&lt;/h3&gt;
 &lt;ol&gt;
@@ -86,18 +86,14 @@ $$&lt;/p&gt;
 &lt;li&gt;If $x(t)$ is Real&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
+\begin{gather}
 \begin{aligned}
 x(t) &amp;amp;= x_e(t) + x_o(t) \\
-X(j \omega) &amp;amp;= X_R(j \omega) + j X_I ( j \omega)
-\end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gathered}
-\begin{align}
+X(j \omega) &amp;amp;= X_R(j \omega) + j X_I ( j \omega) \\
 x_e(t) &amp;amp;\overset{ F }{  \longleftrightarrow } X_R(j \omega) = X_e(j \omega) \\
 x_o(t) &amp;amp;\overset{ F }{  \longleftrightarrow } X_I(j \omega) = X_o(j \omega)
-\end{align}
-\end{gathered}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;FT的反向求法&lt;/li&gt;
@@ -109,19 +105,19 @@ FT^{-1} [ 2 \pi \delta ( \omega)] &amp;amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin 
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;$$
-\begin{gathered}
-\begin{align}
+\begin{gather}
+\begin{aligned}
 \delta ( \omega) &amp;amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin }^{ \infin } e^{-j \omega t} d \omega
-\end{align}
-\end{gathered}
+\end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;其他性质&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-5.-ft/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/1.png&#34;
 	width=&#34;1846&#34;
 	height=&#34;1836&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4-5.-ft/1_hu0243d71320b394238811fb383849f957_1037904_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-5.-ft/1_hu0243d71320b394238811fb383849f957_1037904_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/1_hu0243d71320b394238811fb383849f957_1037904_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/1_hu0243d71320b394238811fb383849f957_1037904_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -144,6 +140,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Duality&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;$X(e^{j \omega}) \longleftrightarrow x[n]$&lt;/p&gt;
 &lt;h3 id=&#34;sinc--sa-functions&#34;&gt;Sinc &amp;amp; Sa Functions&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gathered}
@@ -184,10 +181,10 @@ X(e^{j \omega}) &amp;amp;= \sum_{ k= - \infin }^{ \infin } 2 \pi a_k  \delta ( \
 \end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;fundamental-ft--fs&#34;&gt;Fundamental FT &amp;amp; FS&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-5.-ft/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/2.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1786&#34;
-	srcset=&#34;https://downeyflyfan.com/p/4-5.-ft/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-5.-ft/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -210,9 +207,55 @@ $$&lt;/p&gt;
 H(j \omega) = \frac{ Y(j \omega) }{ X(j \omega) } = \frac{ \sum_{ k = 0 }^{  M}b_k ( j \omega)^k }{\sum_{ k = 0 }^{ K }a_k ( j \omega)^k}
 \end{equation}
 $$&lt;/p&gt;
+&lt;h1 id=&#34;timefrequency-domain-characteristic&#34;&gt;Time/Frequency Domain Characteristic&lt;/h1&gt;
+&lt;h2 id=&#34;magnitude-phase-logarithm-bode-plots&#34;&gt;Magnitude, Phase, Logarithm, Bode Plots&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Y(j \omega) &amp;amp;= |X(j \omega) H(j \omega)| \\
+\angle  Y(j \omega) &amp;amp;= \angle X(j \omega) + \angle H(j \omega) \\
+lg|Y(j \omega)| &amp;amp;= lg|H(j \omega)|  + lg|X(j \omega)|
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;通常，&lt;strong&gt;Phase&lt;/strong&gt;包含更多的信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bode Plots: $20 lg \Big[ H(j \omega)| \Big] - \omega$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;phase-shifting--group-delay&#34;&gt;Phase Shifting &amp;amp; Group Delay&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Linear Phase&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\angle H(j \omega) = k \omega$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Non-Linear Phase&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\angle H(j \omega)$ is &lt;strong&gt;Non-Linear&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\angle H(j \omega) &amp;amp;= \omega \cdot t \\
+\tau( \omega) &amp;amp;= - \frac{ d  \Big\lbrace  \angle H(j \omega) \Big\rbrace}{ d \omega }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;partial-fraction-expansions&#34;&gt;Partial-Fraction Expansions&lt;/h2&gt;
-&lt;h3 id=&#34;method-i&#34;&gt;Method I&lt;/h3&gt;
+&lt;h3 id=&#34;case-i&#34;&gt;Case I&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -221,10 +264,7 @@ Y(j \omega) &amp;amp;= \frac{ A }{ a + j \omega } + \frac{ B }{b + j \omega} \\
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;method-ii&#34;&gt;Method II&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Type I&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;case-ii&#34;&gt;Case II&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -233,9 +273,7 @@ A_1 &amp;amp;= \frac{ b^2 v + b_1 v + b_0 }{ (p_1 - p_2)(p_1 - p_3) }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Type II&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;case-iii&#34;&gt;Case III&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}

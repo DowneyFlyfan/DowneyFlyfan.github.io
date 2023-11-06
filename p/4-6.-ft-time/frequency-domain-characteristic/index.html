@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Signal Power &amp;amp; Energy 注: 此处的能量与功率是一个相对值，单位不定 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 基于信号/功率大小的分类 Finite Power System 能量不是无穷 Finite Energy System $P \rightarrow 0$ Infinite Power System $P \rightarrow \infin, E \rightarrow \infin$ 关系 Continuous Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\ P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\ \end{aligned} $$
-Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x[n]|^2dn \\ P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n &#43; 1} \sum_{-n}^n |x[n]|^2dn \\ \end{aligned} $$'>
-<title>1. Introduction</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Representation of Aperiodic Signals 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$
+Fourier Transform of Aperiodic Signals FT $$ \begin{gather} \begin{aligned} x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;amp;= T a_k = \int_{ - \infin }^{ \infin } x(t) e^{-j \omega t} dt \\ &amp;amp;= \sum_{ n = - \infin }^{ \infin } x[n] e^{-j \omega n} \\ &amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)} \end{aligned} \end{gather} $$'>
+<title>4-6. FT, Time/Frequency Domain Characteristic</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/1.-introduction/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='1. Introduction'>
-<meta property='og:description' content='Signal Power &amp;amp; Energy 注: 此处的能量与功率是一个相对值，单位不定 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 基于信号/功率大小的分类 Finite Power System 能量不是无穷 Finite Energy System $P \rightarrow 0$ Infinite Power System $P \rightarrow \infin, E \rightarrow \infin$ 关系 Continuous Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\ P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\ \end{aligned} $$
-Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x[n]|^2dn \\ P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n &#43; 1} \sum_{-n}^n |x[n]|^2dn \\ \end{aligned} $$'>
-<meta property='og:url' content='https://downeyflyfan.com/p/1.-introduction/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4-6. FT, Time/Frequency Domain Characteristic'>
+<meta property='og:description' content='Representation of Aperiodic Signals 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$
+Fourier Transform of Aperiodic Signals FT $$ \begin{gather} \begin{aligned} x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;amp;= T a_k = \int_{ - \infin }^{ \infin } x(t) e^{-j \omega t} dt \\ &amp;amp;= \sum_{ n = - \infin }^{ \infin } x[n] e^{-j \omega n} \\ &amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)} \end{aligned} \end{gather} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/'>
 <meta property='og:site_name' content='Flyfan Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-08-22T15:31:32&#43;08:00'/><meta property='article:modified_time' content='2023-08-22T15:31:32&#43;08:00'/>
-<meta name="twitter:title" content="1. Introduction">
-<meta name="twitter:description" content="Signal Power &amp;amp; Energy 注: 此处的能量与功率是一个相对值，单位不定 信号分类 Continuous Signal Discrete Signal $x(t)$ $x(n)$ 信号能量与功率 基于信号/功率大小的分类 Finite Power System 能量不是无穷 Finite Energy System $P \rightarrow 0$ Infinite Power System $P \rightarrow \infin, E \rightarrow \infin$ 关系 Continuous Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\ P_{\infin} &amp;amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\ \end{aligned} $$
-Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x[n]|^2dn \\ P_{\infin} &amp;amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n &#43; 1} \sum_{-n}^n |x[n]|^2dn \\ \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-10-08T15:50:17&#43;08:00'/><meta property='article:modified_time' content='2023-10-08T15:50:17&#43;08:00'/>
+<meta name="twitter:title" content="4-6. FT, Time/Frequency Domain Characteristic">
+<meta name="twitter:description" content="Representation of Aperiodic Signals 傅立叶级数求解 假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在一个周期内的函数 $$ \begin{aligned} \widehat { a_k }{~} &amp;amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt \end{aligned} $$
+当$T \longrightarrow \infin$，信号其实就是非周期信号 $$ \begin{aligned} a_k &amp;amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt \end{aligned} $$
+Fourier Transform of Aperiodic Signals FT $$ \begin{gather} \begin{aligned} x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;amp;= T a_k = \int_{ - \infin }^{ \infin } x(t) e^{-j \omega t} dt \\ &amp;amp;= \sum_{ n = - \infin }^{ \infin } x[n] e^{-j \omega n} \\ &amp;amp;= |H(j \omega)| e^{ j\angle H(j \omega)} \end{aligned} \end{gather} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -253,67 +256,47 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#signal-power--energy">Signal Power &amp; Energy</a>
+    <li><a href="#representation-of-aperiodic-signals">Representation of Aperiodic Signals</a>
       <ol>
-        <li><a href="#信号分类">信号分类</a></li>
-        <li><a href="#信号能量与功率">信号能量与功率</a>
+        <li><a href="#傅立叶级数求解">傅立叶级数求解</a></li>
+        <li><a href="#fourier-transform-of-aperiodic-signals">Fourier Transform of Aperiodic Signals</a>
           <ol>
-            <li><a href="#基于信号功率大小的分类">基于信号/功率大小的分类</a></li>
-            <li><a href="#关系">关系</a></li>
+            <li><a href="#ft">FT</a></li>
+            <li><a href="#ft-of-aperiodic-signals">FT of Aperiodic Signals</a></li>
+            <li><a href="#存在ft的条件---dirichlet-conditions">存在FT的条件 - Dirichlet Conditions</a></li>
+            <li><a href="#properties-of-ft">Properties of FT</a></li>
+            <li><a href="#sinc--sa-functions">Sinc &amp; Sa Functions</a></li>
           </ol>
         </li>
       </ol>
     </li>
-    <li><a href="#独立变量的初级转换">独立变量的初级转换</a>
+    <li><a href="#ft-of-periodic-signals">FT of Periodic Signals</a>
       <ol>
-        <li><a href="#转换类型">转换类型</a></li>
-        <li><a href="#周期信号-奇偶信号">周期信号 奇偶信号</a></li>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#fundamental-ft--fs">Fundamental FT &amp; FS</a></li>
       </ol>
     </li>
-    <li><a href="#指数信号">指数信号</a>
+    <li><a href="#system-characterized-by-lccde">System Characterized by LCCDE</a>
       <ol>
-        <li><a href="#连续指数信号">连续指数信号</a>
-          <ol>
-            <li><a href="#指数信号的虚数部分必然是周期信号">指数信号的虚数部分必然是周期信号</a></li>
-            <li><a href="#指数信号虚数部分的ep">指数信号虚数部分的E/P</a></li>
-            <li><a href="#正弦信号的分解">正弦信号的分解</a></li>
-            <li><a href="#harmonically-related-complex-exponentials">harmonically related complex exponentials</a></li>
-            <li><a href="#考虑虚实结合的指数信号">考虑虚实结合的指数信号</a></li>
-          </ol>
-        </li>
-        <li><a href="#离散指数信号">离散指数信号</a></li>
+        <li><a href="#frequency-response">Frequency Response</a></li>
       </ol>
     </li>
-    <li><a href="#unit-impluse--unit-step-functions">Unit Impluse &amp; Unit Step Functions</a>
+    <li><a href="#timefrequency-domain-characteristic">Time/Frequency Domain Characteristic</a>
       <ol>
-        <li><a href="#discrete-unit-impluse--unit-step-functions">discrete unit impluse &amp; unit step functions</a>
-          <ol>
-            <li><a href="#方程">方程</a></li>
-            <li><a href="#两者关系">两者关系</a></li>
-            <li><a href="#脉冲函数的其他属性">脉冲函数的其他属性</a></li>
-          </ol>
-        </li>
-        <li><a href="#continuous-unit-impluse--unit-step-functions">Continuous unit impluse &amp; unit step functions</a>
-          <ol>
-            <li><a href="#二者关系">二者关系</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#basic-system-properties">Basic System Properties</a>
-      <ol>
-        <li><a href="#memory">Memory</a></li>
-        <li><a href="#invertibility-and-inverse-system">Invertibility and Inverse System</a></li>
-        <li><a href="#causality">Causality</a></li>
-        <li><a href="#stability">Stability</a></li>
-        <li><a href="#time-invirance">Time Invirance</a></li>
-        <li><a href="#linearity">Linearity</a></li>
+        <li><a href="#magnitude-phase-logarithm-bode-plots">Magnitude, Phase, Logarithm, Bode Plots</a></li>
+        <li><a href="#phase-shifting--group-delay">Phase Shifting &amp; Group Delay</a></li>
       </ol>
     </li>
     <li><a href="#appendix">Appendix</a>
       <ol>
-        <li><a href="#trigonometric-formula">Trigonometric Formula</a></li>
-        <li><a href="#plural-formula">Plural Formula</a></li>
+        <li><a href="#partial-fraction-expansions">Partial-Fraction Expansions</a>
+          <ol>
+            <li><a href="#case-i">Case I</a></li>
+            <li><a href="#case-ii">Case II</a></li>
+            <li><a href="#case-iii">Case III</a></li>
+          </ol>
+        </li>
+        <li><a href="#plural-modulus">Plural Modulus</a></li>
       </ol>
     </li>
   </ol>
@@ -343,7 +326,7 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/1.-introduction/">1. Introduction</a>
+            <a href="/p/4-6.-ft-time/frequency-domain-characteristic/">4-6. FT, Time/Frequency Domain Characteristic</a>
         </h2>
     
         
@@ -365,7 +348,7 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 22, 2023</time>
+                <time class="article-time--published">Oct 08, 2023</time>
             </div>
         
 
@@ -380,7 +363,7 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -395,410 +378,284 @@ Discrete Signal $$ \begin{aligned} E_{\infin} &amp;amp; \equiv \underset{n \righ
     <section class="article-content">
     
     
-    <h1 id="signal-power--energy">Signal Power &amp; Energy</h1>
+    <h1 id="representation-of-aperiodic-signals">Representation of Aperiodic Signals</h1>
+<h2 id="傅立叶级数求解">傅立叶级数求解</h2>
 <ul>
-<li>注: 此处的能量与功率是一个<strong>相对值</strong>，单位不定</li>
+<li>假设$\widehat {x}{ ~ } (t)$ 代表$x(t)$ 在<strong>一个周期</strong>内的函数</li>
 </ul>
-<h2 id="信号分类">信号分类</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">Continuous Signal</th>
-<th style="text-align:center">Discrete Signal</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$x(t)$</td>
-<td style="text-align:center">$x(n)$</td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="信号能量与功率">信号能量与功率</h2>
-<h3 id="基于信号功率大小的分类">基于信号/功率大小的分类</h3>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">Finite Power System</th>
-<th style="text-align:center">能量不是无穷</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Finite Energy System</td>
-<td style="text-align:center">$P \rightarrow 0$</td>
-</tr>
-<tr>
-<td style="text-align:center">Infinite Power System</td>
-<td style="text-align:center">$P \rightarrow \infin, E \rightarrow \infin$</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="关系">关系</h3>
-<ol>
-<li>Continuous Signal</li>
-</ol>
 <p>$$
 \begin{aligned}
-E_{\infin} &amp; \equiv \underset{t \rightarrow \infin}{lim}\int_{-t}^{t}|x(t)|^2dt \\
-P_{\infin} &amp; \equiv \underset{t \rightarrow \infin}{lim}\frac{1}{2t} \int_{-t}^{t}|x(t)|^2dt \\
+\widehat { a_k }{~} &amp;= \frac{ 1 }{ T } \int_{ - T/2 }^{ T / 2} x(t) e^{-jk \omega t} dt
 \end{aligned}
 $$</p>
+<ul>
+<li>当$T \longrightarrow \infin$，信号其实就是<strong>非周期信号</strong></li>
+</ul>
+<p>$$
+\begin{aligned}
+a_k &amp;= \widehat { a_k }{~} = \frac{ 1 }{ T } \int_{- \infin }^{ \infin } x(t) e^{-jk \omega t}dt
+\end{aligned}
+$$</p>
+<h2 id="fourier-transform-of-aperiodic-signals">Fourier Transform of Aperiodic Signals</h2>
+<h3 id="ft">FT</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+x(t) \overset{ F }{ \longleftrightarrow }X(j \omega) &amp;= T a_k = \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt \\
+&amp;= \sum_{ n = - \infin }^{ \infin  } x[n] e^{-j \omega n} \\
+&amp;= |H(j \omega)| e^{ j\angle H(j \omega)}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="ft-of-aperiodic-signals">FT of Aperiodic Signals</h3>
+<p>$$
+\begin{aligned}
+a_k &amp;= \frac{ 1 }{ T  } X(j k \omega_0) \\
+\therefore \widehat { x(t) }{ ~ } &amp;= \sum_{ k }^{  } a_k e^{jk \omega t} \\
+&amp;= \frac{ 1 }{ 2\pi  } \sum_{ k = - \infin  }^{ \infin } X(j \omega_0 t) e^{jk \omega_0 t} \omega_0
+\end{aligned}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+x(t) &amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{  \infin } X(j \omega) e^{j \omega t} d \omega \\
+x[n] &amp;=  \frac{ 1 }{ 2\pi } \int_{ - \infin  }^{ \infin  } X(j \omega) e^{j \omega n} d \omega
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="存在ft的条件---dirichlet-conditions">存在FT的条件 - Dirichlet Conditions</h3>
+<ol>
+<li>C-T</li>
+</ol>
+<ul>
+<li>反例: $x(t) = e^t u(t)$ 没有<strong>FT</strong></li>
+</ul>
 <ol start="2">
-<li>Discrete Signal</li>
+<li>D-T</li>
 </ol>
-<p>$$
-\begin{aligned}
-E_{\infin} &amp; \equiv \underset{n \rightarrow \infin}{lim} \sum_{-n}^n|x[n]|^2dn \\
-P_{\infin} &amp; \equiv \underset{n \rightarrow \infin}{lim}\frac{1}{2n + 1} \sum_{-n}^n |x[n]|^2dn \\
-\end{aligned}
-$$</p>
-<h1 id="独立变量的初级转换">独立变量的初级转换</h1>
-<h2 id="转换类型">转换类型</h2>
-<p>$$
-\begin{aligned}
-x(t) \longrightarrow x(\alpha t + \beta)
-\end{aligned}
-$$</p>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">time shift</th>
-<th style="text-align:center">在$\beta \neq 0$时平移</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">time reversal</td>
-<td style="text-align:center">在$\alpha &lt;0$时翻转</td>
-</tr>
-<tr>
-<td style="text-align:center">time scaling</td>
-<td style="text-align:center">在$|\alpha| &lt; 1$时<strong>stretch</strong>, 在$|\alpha| &gt; 1$时<strong>compress</strong></td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="周期信号-奇偶信号">周期信号 奇偶信号</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">periodic Signals(重要的周期信号求解方法)</th>
-<th style="text-align:center">$x(t) = x(t+T)$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Odd &amp; Evene Signals</td>
-<td style="text-align:center"><strong>Even</strong>: $x(t) = x(-t)$, <strong>Odd</strong>: $-x(t) = x(-t)$</td>
-</tr>
-</tbody>
-</table></div>
 <ul>
-<li><strong>任何信号函数</strong>可以拆分成$O(t) + E(t)$</li>
+<li>以下条件满足其一即可</li>
 </ul>
 <p>$$
+\begin{gather}
 \begin{aligned}
-E(x) &amp;= \frac{1}{2}(x(t) + x(-t)) \\
-O(x) &amp;= \frac{1}{2}(x(t) - x(-t)) \\
-x(t) &amp;= E(x) + O(x)
+\int_{ - \infin  }^{  \infin } |x(t)| dt \le \infin  \\
+\int_{ - \infin  }^{  \infin } |x(t)|^2 dt \le \infin
 \end{aligned}
+\end{gather}
 $$</p>
-<h1 id="指数信号">指数信号</h1>
-<h2 id="连续指数信号">连续指数信号</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">指数</th>
-<th style="text-align:center">$x(t) = Ce^{at}, C, a \in \mathbb C$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">正弦</td>
-<td style="text-align:center">$x(t) = Acos(\omega t + \phi)$</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="指数信号的虚数部分必然是周期信号">指数信号的虚数部分必然是周期信号</h3>
-<p>$$
-\begin{aligned}
-x(t) &amp;= e^{j\omega t} \\
-if \ t &amp;= 0: \\
-x(t) &amp;= 1 \\
-T = 0 \\\
-\\ elif \ t &amp;\neq 0: \\
-x(t) &amp;= e^{j\omega t}  \\
-&amp;= cos(\omega t) + jsin(\omega t) \\
-T &amp;= \frac{2\pi}{\omega}
-\end{aligned}
-$$</p>
-<h3 id="指数信号虚数部分的ep">指数信号虚数部分的E/P</h3>
-<p>$$
-\begin{aligned}
-E &amp; = \int_{-t}^{t}|e^{j\omega t}|^2dt \\
-&amp;= 2t \\
-P &amp;= \frac{E}{2T} \\
-&amp;= 1
-\end{aligned}
-$$</p>
-<h3 id="正弦信号的分解">正弦信号的分解</h3>
-<p>$$
-\begin{aligned}
-Acos(\omega t + \phi) &amp;= \frac{A}{2}[e^{j\omega t}\cdot e^{j\phi} + e^{-j\omega t}\cdot e^{-j\phi}] \\
-&amp;= \mathbb R\lbrace e^{j(\omega t  +\phi)}\rbrace \\
-Asin(\omega t + \phi) &amp;= \frac{A}{2}[e^{j\omega t}\cdot e^{j\phi} - e^{-j\omega t}\cdot e^{-j\phi}] \\
-&amp;= \mathbb I\lbrace e^{j(\omega t  +\phi)}\rbrace \\
-\end{aligned}
-$$</p>
-<h3 id="harmonically-related-complex-exponentials">harmonically related complex exponentials</h3>
-<ul>
-<li>这些信号周期$T_i$的<strong>最大公约数</strong>为$T_0$</li>
-</ul>
-<p>$$
-\begin{aligned}
-T_i &amp;= \frac{2\pi}{\omega_i} \\
-T_0 &amp;= \frac{2\pi}{\omega_0} \\
-T_0 &amp;= k T_i \\
-x(t)_i &amp;= e^{jk\omega t}
-\end{aligned}
-$$</p>
-<h3 id="考虑虚实结合的指数信号">考虑虚实结合的指数信号</h3>
-<p>$$
-\begin{aligned}
-x(t) &amp;= Ce^{at} \\
-C&amp;= |C| e^{j \theta} \\
-a &amp;= r + j \omega \\
-x(t) &amp;= |C|e^{j \theta} e^{(r + j\omega) t} \\
-&amp;= |C|e^{rt} e^{j(\omega t + \theta)}
-\end{aligned}
-$$</p>
+<h3 id="properties-of-ft">Properties of FT</h3>
 <ol>
-<li>
-<p>当$r = 0$，都是正弦信号</p>
-</li>
-<li>
-<p>当$r \gt 0, r \lt 0$时</p>
-</li>
+<li>C-T</li>
 </ol>
-<p><img src="/p/1.-introduction/1.png"
-	width="2338"
-	height="1528"
-	srcset="/p/1.-introduction/1_hu85054b4cd267d6cabe2c311735469788_528121_480x0_resize_box_3.png 480w, /p/1.-introduction/1_hu85054b4cd267d6cabe2c311735469788_528121_1024x0_resize_box_3.png 1024w"
+<ul>
+<li>If $x(t)$ is Real</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+x(t) &amp;= x_e(t) + x_o(t) \\
+X(j \omega) &amp;= X_R(j \omega) + j X_I ( j \omega) \\
+x_e(t) &amp;\overset{ F }{  \longleftrightarrow } X_R(j \omega) = X_e(j \omega) \\
+x_o(t) &amp;\overset{ F }{  \longleftrightarrow } X_I(j \omega) = X_o(j \omega)
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>FT的反向求法</li>
+</ul>
+<p>$$
+\begin{aligned}
+f(t) = 1 &amp;\overset{ F }{ \longleftrightarrow  } X(j \omega) = 2 \pi \delta (\omega) \\
+FT^{-1} [ 2 \pi \delta ( \omega)] &amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} d \omega = 1
+\end{aligned}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\delta ( \omega) &amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin }^{ \infin } e^{-j \omega t} d \omega
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>其他性质</li>
+</ul>
+<p><img src="/p/4-6.-ft-time/frequency-domain-characteristic/1.png"
+	width="1846"
+	height="1836"
+	srcset="/p/4-6.-ft-time/frequency-domain-characteristic/1_hu0243d71320b394238811fb383849f957_1037904_480x0_resize_box_3.png 480w, /p/4-6.-ft-time/frequency-domain-characteristic/1_hu0243d71320b394238811fb383849f957_1037904_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="153"
-		data-flex-basis="367px"
+		data-flex-grow="100"
+		data-flex-basis="241px"
 	
 ></p>
-<h2 id="离散指数信号">离散指数信号</h2>
+<ol start="2">
+<li>D-T</li>
+</ol>
+<ul>
+<li>Periodicity</li>
+</ul>
 <p>$$
-\begin{aligned}
-x[n] &amp;= C\alpha^n \\
-C &amp;= |C| e^{j\theta} \\
-\alpha &amp;= |\alpha| e^{j\omega} \\
-\therefore x[n] &amp;= |C||\alpha|^n [cos(\omega n + \theta) + jsin(\omega n + \theta)]
-\end{aligned}
+\begin{equation}
+X[e^{j (\omega + 2 \pi)}] = X(e^{j \omega})
+\end{equation}
 $$</p>
 <ul>
-<li>
-<p>当$\alpha = 1$，都是正弦信号</p>
-</li>
-<li>
-<p>当$\alpha \gt 1$, <strong>Decay</strong></p>
-</li>
-<li>
-<p>当$\alpha \gt 1$, <strong>Grow</strong></p>
-</li>
+<li>Duality</li>
 </ul>
-<h1 id="unit-impluse--unit-step-functions">Unit Impluse &amp; Unit Step Functions</h1>
-<h2 id="discrete-unit-impluse--unit-step-functions">discrete unit impluse &amp; unit step functions</h2>
-<h3 id="方程">方程</h3>
+<p>$X(e^{j \omega}) \longleftrightarrow x[n]$</p>
+<h3 id="sinc--sa-functions">Sinc &amp; Sa Functions</h3>
 <p>$$
-\begin{aligned}
-\delta[n] &amp;= \begin{cases}
-0 &amp;  n \ne 0 \\
-1 &amp; n = 0
-\end{cases} \\
-u[n] &amp;= \begin{cases}
-0 &amp; n \lt 0 \\
-1 &amp; n \ge 0
-\end{cases}
-\end{aligned}
+\begin{gathered}
+\begin{align}
+sinc( \theta) &amp;= \frac{ sin(\pi \theta) }{ \theta}  \overset{ F }{ \longleftrightarrow } X(j \omega) = 2T_1 sinc( \frac{ \omega T_1 }{ \pi }) \\
+sa( \phi) &amp;= \frac{ sin( \phi) }{  \phi} \overset{ F }{ \longleftrightarrow  } X(j \omega) = 2 T_1 sa( \omega T_1)
+\end{align}
+\end{gathered}
 $$</p>
-<h3 id="两者关系">两者关系</h3>
-<p>$$
-\begin{equation}
-\delta [n] = u[n] - u[n-1]
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-u[n] = \sum_{ k = 0}^{ n} \delta [n - k]
-\end{equation}
-$$</p>
-<h3 id="脉冲函数的其他属性">脉冲函数的其他属性</h3>
-<p>$$
-\begin{equation}
-x[n]\delta[n] = x[0]\delta[n]
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-x[n] \delta [n- n_0] = x[n_0] \delta [n - n_0]
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-\delta ( \alpha t) = \frac{ 1 }{ | \alpha| } \delta (t)
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-x[n] * \delta [n] = x[n]
-\end{equation}
-$$</p>
-<h2 id="continuous-unit-impluse--unit-step-functions">Continuous unit impluse &amp; unit step functions</h2>
-<h3 id="二者关系">二者关系</h3>
+<h1 id="ft-of-periodic-signals">FT of Periodic Signals</h1>
+<h2 id="definition">Definition</h2>
 <ol>
-<li>基本关系</li>
+<li>假设$X(j \omega) = 2 \pi \delta ( \omega - \omega_0)$</li>
 </ol>
 <p>$$
-\begin{equation}
-\delta (t) = \frac{ du(t) }{ dt }
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-u(t) = \int_{ - \infin  }^{ t } \delta (\tau) d\tau
-\end{equation}
-$$</p>
-<ul>
-<li>令$\sigma = t - \tau$</li>
-</ul>
-<p>$$
-\begin{equation}
 \begin{aligned}
-u(t) &amp;= \int_{\infin}^0\delta(t-\sigma)(-d\sigma) \\
-&amp;= \int_0^\infin \delta(t-\sigma)d\sigma
+x(t) &amp;= \frac{ 1 }{ 2 \pi }\int_{ - \infin  }^{ \infin } X(j \omega) e^{j \omega t} \\
+&amp;= e^{ j \omega_0 t}
 \end{aligned}
-\end{equation}
 $$</p>
-<p><img src="/p/1.-introduction/2.png"
-	width="2190"
-	height="862"
-	srcset="/p/1.-introduction/2_hu020970a95d8d409116fd082dad658f82_236829_480x0_resize_box_3.png 480w, /p/1.-introduction/2_hu020970a95d8d409116fd082dad658f82_236829_1024x0_resize_box_3.png 1024w"
+<ol start="2">
+<li>再假设 $X(j \omega) = \sum_{ k = -\infin  }^{ \infin } 2 \pi a_k \delta ( \omega - k \omega_0)$</li>
+</ol>
+<p>$$
+\begin{aligned}
+x(t) &amp;=  \int_{ - \infin  }^{ \infin  } a_k e^{j k \omega t}
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>因此，<strong>周期信号的傅立叶转换</strong>为</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+X(j \omega) &amp;= \sum_{ k = - \infin }^{ \infin  } 2 \pi a_k \delta ( \omega - k \omega_0) \\
+X(e^{j \omega}) &amp;= \sum_{ k= - \infin }^{ \infin } 2 \pi a_k  \delta ( \omega - k \frac{ 2 \pi }{ N })
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="fundamental-ft--fs">Fundamental FT &amp; FS</h2>
+<p><img src="/p/4-6.-ft-time/frequency-domain-characteristic/2.png"
+	width="1920"
+	height="1786"
+	srcset="/p/4-6.-ft-time/frequency-domain-characteristic/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_480x0_resize_box_3.png 480w, /p/4-6.-ft-time/frequency-domain-characteristic/2_hu903a9f4b5484e98a30a8ad0b01b53e8a_973168_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="254"
-		data-flex-basis="609px"
+		data-flex-grow="107"
+		data-flex-basis="258px"
 	
 ></p>
-<ol start="2">
-<li>重要属性</li>
-</ol>
-<ul>
-<li>缩放</li>
-</ul>
-<p>$$
-\begin{equation}
-ku(t) = \int_{-\infin}^tk\delta(\tau)d\tau
-\end{equation}
-$$</p>
-<h1 id="basic-system-properties">Basic System Properties</h1>
-<blockquote>
-<p>注意: 对于一个系统，输入和输出的时间分别指的是$y(t)$和$x(t)$当中的$t$</p>
-</blockquote>
-<h2 id="memory">Memory</h2>
-<blockquote>
-<p><strong>输出</strong>只和<strong>当前输入</strong>有关，叫做<strong>memoryless</strong>, 否则就是<strong>system with memory</strong></p>
-</blockquote>
-<h2 id="invertibility-and-inverse-system">Invertibility and Inverse System</h2>
-<ol>
-<li>定义</li>
-</ol>
-<blockquote>
-<p>$x$和$y$一一对应</p>
-</blockquote>
-<ol start="2">
-<li>图示</li>
-</ol>
-<p><img src="/p/1.-introduction/3.png"
-	width="1676"
-	height="326"
-	srcset="/p/1.-introduction/3_hu3ab772665d52493279253b335b47e683_95675_480x0_resize_box_3.png 480w, /p/1.-introduction/3_hu3ab772665d52493279253b335b47e683_95675_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="514"
-		data-flex-basis="1233px"
-	
-></p>
-<h2 id="causality">Causality</h2>
-<blockquote>
-<p><strong>输出</strong>仅取决于<strong>当前和过去</strong>的<strong>输入</strong></p>
-</blockquote>
-<ul>
-<li>若<strong>未来的输入</strong>可以影响<strong>输出</strong>，就不是<strong>Causality</strong></li>
-</ul>
-<h2 id="stability">Stability</h2>
-<blockquote>
-<p><strong>Bounded Input</strong> $\rightarrow$ <strong>Bounded Output</strong>, $t \in \mathbb R$</p>
-</blockquote>
-<ul>
-<li>特别注意，$\delta (t)$ <strong>Not Bounded</strong>(无界)</li>
-</ul>
-<h2 id="time-invirance">Time Invirance</h2>
-<blockquote>
-<p><strong>时间平移不变性</strong> $x(t) \longrightarrow y(t), x(t-t_0) \longrightarrow y(t-t_0)$</p>
-</blockquote>
-<ul>
-<li>LCCDE (Linear Constant Coefficient Equation)</li>
-</ul>
-<h2 id="linearity">Linearity</h2>
-<blockquote>
-<p>满足以下条件的系统是<strong>线性</strong>的</p>
-</blockquote>
+<h1 id="system-characterized-by-lccde">System Characterized by LCCDE</h1>
+<h2 id="frequency-response">Frequency Response</h2>
 <p>$$
 \begin{aligned}
-x_k &amp;\longrightarrow y_k \Longrightarrow\sum_k a_k x_k  &amp;\longrightarrow \sum_k b_k y_k
+\sum_{ k = 0 }^{ K} a_k \frac{ d^ky}{  dt^k} &amp;= \sum_{ k = 0}^{ M} b_k \frac{ d^kx}{  dt^k} \\
+\sum_{ k = 0 }^{K} a_k \cdot F \lbrace \frac{ d^k y }{  dt^k} \rbrace &amp;= \sum_{ k =0 }^{ M} b_k \cdot F \lbrace \frac{ d^k x }{ dt^k } \rbrace \\
+Y(j \omega) \sum_{ k = 0 }^{K} a_k (j \omega)^k &amp;=X(j \omega) \sum_{ k = 0 }^{ M} b_k (j \omega)^k
 \end{aligned}
+$$</p>
+<p>$$
+\begin{equation}
+H(j \omega) = \frac{ Y(j \omega) }{ X(j \omega) } = \frac{ \sum_{ k = 0 }^{  M}b_k ( j \omega)^k }{\sum_{ k = 0 }^{ K }a_k ( j \omega)^k}
+\end{equation}
+$$</p>
+<h1 id="timefrequency-domain-characteristic">Time/Frequency Domain Characteristic</h1>
+<h2 id="magnitude-phase-logarithm-bode-plots">Magnitude, Phase, Logarithm, Bode Plots</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Y(j \omega) &amp;= |X(j \omega) H(j \omega)| \\
+\angle  Y(j \omega) &amp;= \angle X(j \omega) + \angle H(j \omega) \\
+lg|Y(j \omega)| &amp;= lg|H(j \omega)|  + lg|X(j \omega)|
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>
+<p>通常，<strong>Phase</strong>包含更多的信息</p>
+</li>
+<li>
+<p>Bode Plots: $20 lg \Big[ H(j \omega)| \Big] - \omega$</p>
+</li>
+</ul>
+<h2 id="phase-shifting--group-delay">Phase Shifting &amp; Group Delay</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Linear Phase</td>
+<td style="text-align:center">$\angle H(j \omega) = k \omega$</td>
+</tr>
+<tr>
+<td style="text-align:center">Non-Linear Phase</td>
+<td style="text-align:center">$\angle H(j \omega)$ is <strong>Non-Linear</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\angle H(j \omega) &amp;= \omega \cdot t \\
+\tau( \omega) &amp;= - \frac{ d  \Big\lbrace  \angle H(j \omega) \Big\rbrace}{ d \omega }
+\end{aligned}
+\end{gather}
 $$</p>
 <h1 id="appendix">Appendix</h1>
-<h2 id="trigonometric-formula">Trigonometric Formula</h2>
-<ol>
-<li>合并</li>
-</ol>
+<h2 id="partial-fraction-expansions">Partial-Fraction Expansions</h2>
+<h3 id="case-i">Case I</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
-asinx + bcosx &amp;= \sqrt{a^2 + b^2}sin(x + \phi) \\
-tan \phi &amp;= \dfrac{sinx}{cosx}
+Y(j \omega) &amp;= \frac{ A }{ a + j \omega } + \frac{ B }{b + j \omega} \\
+&amp;= \frac{ C }{ (a+ j \omega) ( b + j \omega)}
 \end{aligned}
 \end{gather}
 $$</p>
-<ol start="2">
-<li>三角函数的复指数表达</li>
-</ol>
+<h3 id="case-ii">Case II</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
-cos(x) &amp;= \frac{ e^{jx} + e^{-jx}}{ 2 } \\
-sin(x) &amp;= \frac{ e^{jx} - e^{-jx}}{ 2j }
+G(v) &amp;= \frac{ A_1 }{ v -p_1 }+ \frac{ A_2 }{v -p_2} + \frac{ A_3 }{ v - p_3 } = \frac{ b_2 v^2 + b_1v + b_0  }{ (v-p_1)(v-p_2)(v-p_3) } \\
+A_1 &amp;= \frac{ b^2 v + b_1 v + b_0 }{ (p_1 - p_2)(p_1 - p_3) }
 \end{aligned}
 \end{gather}
 $$</p>
-<h2 id="plural-formula">Plural Formula</h2>
+<h3 id="case-iii">Case III</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
-1 &amp;= e^{j 2 \pi n} \\
-(-1)^n &amp;= e^{j \pi n} \\
-j^n &amp;= e^{j \dfrac{ \pi }{ 2 } n}
+G(v) &amp;= \frac{ A_1 }{ v - p_1 } + \frac{ A_2 }{ (v - p_1)^2} + \frac{ A_3 }{ v - p_2} = \frac{ b_2 v^2 + b_1 v + b_0}{ (v-p_1)^2(v-p_2) }\\
+A_1 &amp;= \frac{ d }{ dv } \Big\lbrace G(v) \cdot (v-p_1)^2 \Big\rbrace , v = p_1\\
+A_2 &amp;= G(v) \cdot (v-p_1)^2 , v = p_1\\
+A_3 &amp;= G(v) \cdot (v-p_2), v = p_2
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="plural-modulus">Plural Modulus</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+|\frac{ A }{ B + jC }| &amp;= \frac{ |A| }{ \sqrt{ B^2 + C^2} } \\
+|\frac{ 1 }{ 1 + a \cdot e^{j \omega} }| &amp;=  \frac{ 1 }{ 1 + a }
 \end{aligned}
 \end{gather}
 $$</p>
@@ -865,19 +722,6 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/4-6.-ft-time/frequency-domain-characteristic/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">4-6. FT, Time/Frequency Domain Characteristic</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/3.-fs-of-periodic-signals/">
         
         
@@ -897,6 +741,19 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">2. LTI System</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/1.-introduction/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1. Introduction</h2>
         </div>
     </a>
 </article>
