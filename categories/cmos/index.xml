@@ -114,6 +114,7 @@
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;transmission-line&#34;&gt;Transmission Line&lt;/h1&gt;
 &lt;h2 id=&#34;electric-length--distributed-parameters&#34;&gt;Electric Length &amp;amp; Distributed Parameters&lt;/h2&gt;
+&lt;h3 id=&#34;basic-cnocepts&#34;&gt;Basic Cnocepts&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -124,7 +125,7 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Electric Length&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\theta = l \cdot \beta = \dfrac{ 2\pi l}{ \lambda }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\theta = \dfrac{ l }{ \lambda }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Phase Velocity&lt;/td&gt;
@@ -140,6 +141,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3 id=&#34;distributed-parameters&#34;&gt;Distributed Parameters&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/12.png&#34;
 	width=&#34;1588&#34;
 	height=&#34;650&#34;
@@ -760,9 +762,7 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;$\pi$型网络&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h4 id=&#34;pi型网络&#34;&gt;$\pi$型网络&lt;/h4&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/21.png&#34;
 	width=&#34;1072&#34;
 	height=&#34;402&#34;
@@ -785,16 +785,27 @@ Y_A + Y_B + \dfrac{ Y_A Y_B }{ Y_C } &amp;amp; 1 + \dfrac{ Y_A }{ Y_C }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;Uniform Transmission Line&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h4 id=&#34;uniform-transmission-line&#34;&gt;Uniform Transmission Line&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;包含了$\dfrac{ \lambda }{ 4 }, \dfrac{ \lambda }{ 2 }$传输线的$T$矩阵&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-[ABCD] &amp;amp;= \begin{bmatrix}
+[ABCD] &amp;amp;= \begin{cases}
+\begin{bmatrix}
 cos( \beta l) &amp;amp; jZ_0 sin( \beta l)\\
 j \dfrac{ 1 }{ Z_0 } sin( \beta l) &amp;amp; cos( \beta l)
-\end{bmatrix}
+\end{bmatrix} &amp;amp; General \\
+\begin{bmatrix}
+0 &amp;amp; j Z_0 \\
+\dfrac{ j }{ Z_0 } &amp;amp; 0 &amp;amp; \theta = \dfrac{ \lambda }{ 4 }
+\end{bmatrix} &amp;amp; \theta = \dfrac{ \lambda }{ 4 } \\
+\begin{bmatrix}
+-1 &amp;amp; 0 \\
+0 &amp;amp; -1
+\end{bmatrix} &amp;amp; \theta = \dfrac{ \lambda }{ 2 }
+\end{cases}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -1214,6 +1225,7 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;低功耗抗干扰fsk-调制调解器&#34;&gt;低功耗抗干扰FSK 调制调解器&lt;/h3&gt;
 &lt;h3 id=&#34;谐波抑制器&#34;&gt;谐波抑制器&lt;/h3&gt;
+&lt;h3 id=&#34;前馈线性化&#34;&gt;前馈线性化&lt;/h3&gt;
 &lt;h2 id=&#34;short-academic-phrases&#34;&gt;Short Academic Phrases&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1284,10 +1296,6 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;可以实现功率合成/分配，隔离&amp;hellip;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Phase Velocity&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;表示波前在介质中的传播速度$v_p = \dfrac{ 1 }{ \sqrt{ \mu \varepsilon } }$, $\mu$: 介质的磁导率, $\varepsilon$: 介电常数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;FBW(Fractional Bandwidth)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;带宽相对于中心频率的比率: $\dfrac{ \omega_{B}}{ \omega_{C} } \times 100%$&lt;/td&gt;
 &lt;/tr&gt;
@@ -1296,16 +1304,12 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;传输线的电长度为90度,即电长度为信号波长λ的1/4。在线性的传输线中,λ/4长度会产生一个电压和电流的逆变换。可以用作为匹配网络,将阻抗从一个值变换到另一个值。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Electrical Length&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\theta = L \cdot \beta$，物理长度$L$，传播常数$\beta = \dfrac{ 2 \pi }{ \lambda }$, $\lambda$为波长&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Signal Condition Circuit&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;处理传感器输出信号，&lt;strong&gt;改善信号质量&lt;/strong&gt;的电路&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Solid Line&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;连续不间断的线条&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;IMD3&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Integral Model Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
