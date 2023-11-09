@@ -6,7 +6,61 @@
         <description>Recent content in Signal &amp; System on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 08 Oct 2023 15:50:17 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/signal-system/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 08 Nov 2023 11:10:57 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/signal-system/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>7 Sampling</title>
+        <link>https://downeyflyfan.com/p/7-sampling/</link>
+        <pubDate>Wed, 08 Nov 2023 11:10:57 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/7-sampling/</guid>
+        <description>&lt;h1 id=&#34;nyquist-sampling-theorem&#34;&gt;Nyquist Sampling Theorem&lt;/h1&gt;
+&lt;h2 id=&#34;impulse-train-sampling&#34;&gt;Impulse Train Sampling&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+x_p(t) &amp;amp;= x(t) p(t) \\
+p(t) &amp;amp;= \sum_{ n = - \infin }^{ \infin  } \delta (t - n T) \\
+X_P(j \omega) &amp;amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{ \infin  } X( j \omega) P ( j ( \omega - \theta)) d \theta \\
+&amp;amp;= \frac{ 1 }{ T } \sum_{ n = - \infin  }^{  \infin } X(j ( \omega - k \omega_s)) \\
+\omega_s &amp;amp;=  \frac{ 2 \pi }{ T}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;nyquist-sampling-theorem-1&#34;&gt;Nyquist Sampling Theorem&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果$X(j \omega ) = 0, \omega &amp;gt; | \omega_M |$, 那么对于$\omega_s &amp;gt; 2 | \omega_M|$, $x(t)$ 就唯一的由其样本$x(nT)$ 所确定, $2 \omega_M$ 被称作&lt;strong&gt;Nyquist Rate&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;interpolation&#34;&gt;Interpolation&lt;/h1&gt;
+&lt;h2 id=&#34;zero-order-hold&#34;&gt;Zero-Order Hold&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下次采样之前保持住上次采样结果&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;linear-interpolation-one-order-interpolation&#34;&gt;Linear Interpolation (One-Order Interpolation)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;将相邻采样点用直线连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+x_r(t) &amp;amp;= \sum_{ n = - \infin }^{ \infin  } x(n T) \delta (t - nT) \\
+&amp;amp;= \sum_{ n = - \infin }^{ \infin  } x(nT) \frac{ \omega_c T }{ \pi } \frac{ sin ( \omega_c (t - nT)) }{  \omega_c (t - n T)} \ \ \ LPF
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;high-order-hold&#34;&gt;High-Order Hold&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$\omega_c &amp;lt; 2\omega_M$, 信号重叠，发生 Under-Sampling&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;reconstruction-filter&#34;&gt;Reconstruction Filter&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+h(t) &amp;amp;= h_o(t) * h_r(t)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>4-6. FT, Time/Frequency Domain Characteristic</title>
         <link>https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/</link>
         <pubDate>Sun, 08 Oct 2023 15:50:17 +0800</pubDate>
@@ -241,7 +295,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Non-Linear Phase&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\angle H(j \omega)$ is &lt;strong&gt;Non-Linear&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\angle H(j \omega) \approx- \phi - \omega \alpha$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -253,6 +307,48 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;filters&#34;&gt;Filters&lt;/h2&gt;
+&lt;h3 id=&#34;lpf&#34;&gt;LPF&lt;/h3&gt;
+&lt;h4 id=&#34;introduction&#34;&gt;Introduction&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+H(j \omega) &amp;amp;= \begin{cases}
+1 &amp;amp; \omega &amp;lt; | \omega_0 | \\
+0 &amp;amp; \omega &amp;gt; | \omega_0 |
+\end{cases} \\
+h(t) &amp;amp;= \frac{ sin( \omega_c t) }{  \pi t}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$Casulaity \longleftrightarrow Real-Time$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/3.png&#34;
+	width=&#34;2002&#34;
+	height=&#34;1104&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/3_hu922e62dcd00841bdbd93f3d4dbc610a9_611665_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/3_hu922e62dcd00841bdbd93f3d4dbc610a9_611665_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;181&#34;
+		data-flex-basis=&#34;435px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;butterworth--elliptic-lpw&#34;&gt;Butterworth &amp;amp; Elliptic LPW&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/5.png&#34;
+	width=&#34;1986&#34;
+	height=&#34;1508&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/5_hud93902d8cd4579429f85528f1b0d4127_575544_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4-6.-ft-time/frequency-domain-characteristic/5_hud93902d8cd4579429f85528f1b0d4127_575544_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;131&#34;
+		data-flex-basis=&#34;316px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;partial-fraction-expansions&#34;&gt;Partial-Fraction Expansions&lt;/h2&gt;
 &lt;h3 id=&#34;case-i&#34;&gt;Case I&lt;/h3&gt;

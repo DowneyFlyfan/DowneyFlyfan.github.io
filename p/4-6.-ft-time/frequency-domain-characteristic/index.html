@@ -285,6 +285,16 @@ Fourier Transform of Aperiodic Signals FT $$ \begin{gather} \begin{aligned} x(t)
       <ol>
         <li><a href="#magnitude-phase-logarithm-bode-plots">Magnitude, Phase, Logarithm, Bode Plots</a></li>
         <li><a href="#phase-shifting--group-delay">Phase Shifting &amp; Group Delay</a></li>
+        <li><a href="#filters">Filters</a>
+          <ol>
+            <li><a href="#lpf">LPF</a>
+              <ol>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#butterworth--elliptic-lpw">Butterworth &amp; Elliptic LPW</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#appendix">Appendix</a>
@@ -363,7 +373,7 @@ Fourier Transform of Aperiodic Signals FT $$ \begin{gather} \begin{aligned} x(t)
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -607,7 +617,7 @@ $$</p>
 </tr>
 <tr>
 <td style="text-align:center">Non-Linear Phase</td>
-<td style="text-align:center">$\angle H(j \omega)$ is <strong>Non-Linear</strong></td>
+<td style="text-align:center">$\angle H(j \omega) \approx- \phi - \omega \alpha$</td>
 </tr>
 </tbody>
 </table></div>
@@ -619,6 +629,48 @@ $$</p>
 \end{aligned}
 \end{gather}
 $$</p>
+<h2 id="filters">Filters</h2>
+<h3 id="lpf">LPF</h3>
+<h4 id="introduction">Introduction</h4>
+<p>$$
+\begin{gather}
+\begin{aligned}
+H(j \omega) &amp;= \begin{cases}
+1 &amp; \omega &lt; | \omega_0 | \\
+0 &amp; \omega &gt; | \omega_0 |
+\end{cases} \\
+h(t) &amp;= \frac{ sin( \omega_c t) }{  \pi t}
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>$Casulaity \longleftrightarrow Real-Time$</li>
+</ul>
+<p><img src="/p/4-6.-ft-time/frequency-domain-characteristic/3.png"
+	width="2002"
+	height="1104"
+	srcset="/p/4-6.-ft-time/frequency-domain-characteristic/3_hu922e62dcd00841bdbd93f3d4dbc610a9_611665_480x0_resize_box_3.png 480w, /p/4-6.-ft-time/frequency-domain-characteristic/3_hu922e62dcd00841bdbd93f3d4dbc610a9_611665_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="181"
+		data-flex-basis="435px"
+	
+></p>
+<h4 id="butterworth--elliptic-lpw">Butterworth &amp; Elliptic LPW</h4>
+<p><img src="/p/4-6.-ft-time/frequency-domain-characteristic/5.png"
+	width="1986"
+	height="1508"
+	srcset="/p/4-6.-ft-time/frequency-domain-characteristic/5_hud93902d8cd4579429f85528f1b0d4127_575544_480x0_resize_box_3.png 480w, /p/4-6.-ft-time/frequency-domain-characteristic/5_hud93902d8cd4579429f85528f1b0d4127_575544_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="131"
+		data-flex-basis="316px"
+	
+></p>
 <h1 id="appendix">Appendix</h1>
 <h2 id="partial-fraction-expansions">Partial-Fraction Expansions</h2>
 <h3 id="case-i">Case I</h3>
@@ -719,6 +771,19 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/7-sampling/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">7 Sampling</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">

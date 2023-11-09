@@ -6,7 +6,287 @@
         <description>Recent content in CMOS on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Thu, 26 Oct 2023 19:35:25 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/cmos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 08 Nov 2023 09:30:33 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/cmos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>A2 Layout</title>
+        <link>https://downeyflyfan.com/p/a2-layout/</link>
+        <pubDate>Wed, 08 Nov 2023 09:30:33 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/a2-layout/</guid>
+        <description>&lt;h1 id=&#34;layers-in-tsmc65nm&#34;&gt;Layers in TSMC65nm&lt;/h1&gt;
+&lt;h2 id=&#34;metal-structure&#34;&gt;Metal Structure&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/7.png&#34;
+	width=&#34;1278&#34;
+	height=&#34;1648&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a2-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;77&#34;
+		data-flex-basis=&#34;186px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Purpose&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;解释&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Ivs&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;模拟芯片当前区域的当前消耗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pin&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;分析引脚处的电压&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;drw(drawing)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;绘制布局的物理层&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;dm&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;两个布图形状之间的最小距离&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BSW&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BackSide Windowing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Backside Deposition&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;landscape&#34;&gt;Landscape&lt;/h1&gt;
+&lt;h2 id=&#34;ui&#34;&gt;UI&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ALL Visable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;NV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;None Visable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AS&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;All Select&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;NS&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;None Select&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;版图图层和物理图层的关系&#34;&gt;版图图层和物理图层的关系&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/6.png&#34;
+	width=&#34;1588&#34;
+	height=&#34;596&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a2-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;266&#34;
+		data-flex-basis=&#34;639px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PMOS&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;必须画一个&lt;strong&gt;NWell&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$N^+/ P^+$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Active + n/p select (选择性参杂)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Gate-Oxide&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不显示&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Poly&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在Gate-Oxid上方, 在有源区上方的&lt;strong&gt;Poly&lt;/strong&gt;才是栅极&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;介质层(Contact)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;金属层通过contact和晶体管连接才形成相应的极&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Metal&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;与&lt;strong&gt;Source、GND&lt;/strong&gt;连接的线&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;components-in-tsmc65nm&#34;&gt;Components in TSMC65nm&lt;/h1&gt;
+&lt;h2 id=&#34;resistance&#34;&gt;Resistance&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rm&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;标准电阻&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rm&amp;hellip;a&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;用于高密度互连的电阻&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rm&amp;hellip;z&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;大电阻&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;on-chip-capacitor&#34;&gt;On-Chip Capacitor&lt;/h1&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It stores energy in &lt;strong&gt;electric field&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Overlapping Area&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;d&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Separation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;electric constant&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\varepsilon_0 = 8.854 \times 106{-12} F m^{-1}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;dielectric constant&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\varepsilon_r$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C &amp;amp;= \varepsilon_0 \varepsilon_r \frac{ A }{ d }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;category&#34;&gt;Category&lt;/h2&gt;
+&lt;h3 id=&#34;mim-metal-insulator-metal&#34;&gt;MiM (Metal-Insulator-Metal)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/1.png&#34;
+	width=&#34;1328&#34;
+	height=&#34;876&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a2-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;363px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;加上&lt;strong&gt;Contact&lt;/strong&gt;, 目的是减小$d$, 增加电容大小&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;mom-metal-oxide-metal&#34;&gt;MoM (Metal-Oxide-Metal)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/2.png&#34;
+	width=&#34;1708&#34;
+	height=&#34;1382&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a2-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;123&#34;
+		data-flex-basis=&#34;296px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;通过给不同的金属加上正负电，产生电容&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;氧化物可能附着在&lt;strong&gt;上层/下层金属&lt;/strong&gt;，也有可能作为一个独立的介电层&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不容易建模和预测&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pip-poly-insulator-poly&#34;&gt;PiP (Poly-Insulator-Poly)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/3.png&#34;
+	width=&#34;1556&#34;
+	height=&#34;1332&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a2-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;280px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mos-mosfet-capacitor&#34;&gt;MOS (MOSFET Capacitor)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/4.png&#34;
+	width=&#34;2178&#34;
+	height=&#34;1150&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a2-layout/4_huf762809b9932922faa71ba7c70325c30_767557_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/4_huf762809b9932922faa71ba7c70325c30_767557_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;189&#34;
+		data-flex-basis=&#34;454px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$C_{ox} - V_{dc}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/5.png&#34;
+	width=&#34;1166&#34;
+	height=&#34;988&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a2-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;118&#34;
+		data-flex-basis=&#34;283px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Varactor&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>A1 Coupler</title>
         <link>https://downeyflyfan.com/p/a1-coupler/</link>
         <pubDate>Thu, 26 Oct 2023 19:35:25 +0800</pubDate>
@@ -113,7 +393,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;transmission-line&#34;&gt;Transmission Line&lt;/h1&gt;
-&lt;h2 id=&#34;electric-length--distributed-parameters&#34;&gt;Electric Length &amp;amp; Distributed Parameters&lt;/h2&gt;
+&lt;h2 id=&#34;distributed-parameters--microstrip-lines&#34;&gt;Distributed Parameters &amp;amp; MicroStrip Lines&lt;/h2&gt;
 &lt;h3 id=&#34;basic-cnocepts&#34;&gt;Basic Cnocepts&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -130,6 +410,10 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Phase Velocity&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$v_p = f \lambda = \dfrac{ \omega }{ \beta }, f = \sqrt{ \varepsilon_r f}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Phase Shift&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\phi = 2 \pi \dfrac{ l }{ \lambda }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Normalized Frequency&lt;/td&gt;
@@ -154,6 +438,75 @@
 		data-flex-basis=&#34;586px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h3 id=&#34;microstrip-line&#34;&gt;MicroStrip Line&lt;/h3&gt;
+&lt;h4 id=&#34;effective-dielectric-constant--characteristic-impedance&#34;&gt;Effective Dielectric Constant &amp;amp; Characteristic Impedance&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/15.png&#34;
+	width=&#34;1528&#34;
+	height=&#34;684&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/15_hu3330977cecae1271f1201095cffac587_234153_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/15_hu3330977cecae1271f1201095cffac587_234153_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;223&#34;
+		data-flex-basis=&#34;536px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(a)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;全部填充空气&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(b)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;介质r&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(c)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;真实物理结构&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(d)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;等效介质re&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\varepsilon_{re} &amp;amp;= \begin{cases}
+\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r - 1 }{ 2 } \Big[ (2 + \dfrac{ 12 }{ W })^{-1/2} + 0.041 (1 - \dfrac{ W }{ h })^2 \Big] &amp;amp; W \le h \\
+\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r -1 }{ 2 } ( 1 + 12 \dfrac{ h }{ W })^{-1/2} &amp;amp; W \ge h
+\end{cases} \\
+Z_0 &amp;amp;=  \begin{cases}
+\dfrac{ 60 }{ \sqrt{ \varepsilon_{re} } } ln \Big( \dfrac{ 8h }{ W } + \dfrac{ W }{ 4h } \Big) &amp;amp; W \le h \\
+\dfrac{ 120 \pi }{ \sqrt{ \varepsilon_{re} } \Big[ \dfrac{ W }{ h } + 1.393 + 0.667 ln \Big( \dfrac{ W }{ h } + 1.444 \Big) \Big]} &amp;amp; W \ge h
+\end{cases} \\
+\frac{ W}{ h } &amp;amp;= \begin{cases}
+\dfrac{ 8 e^{A} }{ e^{2A} - 2} &amp;amp; \dfrac{ W }{  h} \le 2 \\
+\dfrac{ 2 }{ \pi } \Big\lbrace B - 1 -ln (2B -1) + \dfrac{ \varepsilon_r -1 }{ 2 \varepsilon_r } \Big[ ln(B - 1) + 0.39 - \dfrac{ 0.61 }{ \varepsilon_r } \Big]\Big\rbrace &amp;amp; \dfrac{ W }{ h } \ge 2
+\end{cases} \\
+A &amp;amp;= \frac{ Z_0 }{ 60 } \sqrt{ \frac{ \varepsilon_r + 1 }{ 2 } } + \frac{ \varepsilon_r - 1 }{ \varepsilon_r + 1 } \Big( 0.23 + \frac{ 0.11 }{ \varepsilon_r } \Big) \\
+B &amp;amp;= \frac{ 377 \pi }{ 2 Z_0 \sqrt{ \varepsilon_r } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;phase-velocity--wave-length&#34;&gt;Phase Velocity &amp;amp; Wave Length&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+v_p &amp;amp;= \frac{ c }{ \sqrt{ \varepsilon_{re} } } \\
+\lambda_p &amp;amp;= \frac{ \lambda }{ \sqrt{ \varepsilon_{re} } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;impedance--reflected-coefficient&#34;&gt;Impedance &amp;amp; Reflected Coefficient&lt;/h2&gt;
 &lt;h3 id=&#34;characteristic-impedance&#34;&gt;Characteristic Impedance&lt;/h3&gt;
 &lt;p&gt;$$
@@ -507,20 +860,63 @@ $$&lt;/p&gt;
 &lt;p&gt;$Z_{in} = Z_0 = Z_L$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;microstrip-line&#34;&gt;MicroStrip Line&lt;/h2&gt;
-&lt;h3 id=&#34;effective-dielectric-constant--characteristic-impedance&#34;&gt;Effective Dielectric Constant &amp;amp; Characteristic Impedance&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/15.png&#34;
-	width=&#34;1528&#34;
-	height=&#34;684&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/15_hu3330977cecae1271f1201095cffac587_234153_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/15_hu3330977cecae1271f1201095cffac587_234153_1024x0_resize_box_3.png 1024w&#34;
+&lt;h1 id=&#34;rf-network&#34;&gt;RF Network&lt;/h1&gt;
+&lt;h2 id=&#34;evenodd-mode&#34;&gt;Even/Odd Mode&lt;/h2&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/21.png&#34;
+	width=&#34;1072&#34;
+	height=&#34;402&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/21_hu9c46945a293ab3c271e0758486409af7_120556_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/21_hu9c46945a293ab3c271e0758486409af7_120556_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;223&#34;
-		data-flex-basis=&#34;536px&#34;
+		data-flex-grow=&#34;266&#34;
+		data-flex-basis=&#34;640px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/22.png&#34;
+	width=&#34;1400&#34;
+	height=&#34;378&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/22_hu53050d1d9150fa6f95f1d5c2feb5fa02_371576_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/22_hu53050d1d9150fa6f95f1d5c2feb5fa02_371576_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;370&#34;
+		data-flex-basis=&#34;888px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;项目&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Even Mode&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Odd Mode&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电流&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I_1 = I_2$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I_1 = - I_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\varepsilon_{re}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;更大&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;更小&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;驱动&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;共模驱动&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;差分驱动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;最终的参数应该是$\dfrac{ Z_e + Z_o }{ 2 }$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;impedance&#34;&gt;Impedance&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -530,53 +926,37 @@ $$&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(a)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;全部填充空气&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{diff}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;差分信号沿着差分对传播时受到的阻抗，是每条信号线与返回路径之间阻抗之和。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(b)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;介质r&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(c)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;真实物理结构&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(d)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;等效介质re&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{common}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;共模信号沿传输线传播时收到的阻抗。共模信号是两条信号线的电压平均值，纯共模信号就是差分信号为0时的信号。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\varepsilon_{re} &amp;amp;= \begin{cases}
-\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r - 1 }{ 2 } \Big[ (2 + \dfrac{ 12 }{ W })^{-1/2} + 0.041 (1 - \dfrac{ W }{ h })^2 \Big] &amp;amp; W \le h \\
-\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r -1 }{ 2 } ( 1 + 12 \dfrac{ h }{ W })^{-1/2} &amp;amp; W \ge h
+Z_{diff} &amp;amp;= \begin{cases}
+2 Z_0 &amp;amp; C = 0 \\
+2 Z_o &amp;amp; C \neq 0
 \end{cases} \\
-Z_0 &amp;amp;=  \begin{cases}
-\dfrac{ 60 }{ \sqrt{ \varepsilon_{re} } } ln \Big( \dfrac{ 8h }{ W } + \dfrac{ W }{ 4h } \Big) &amp;amp; W \le h \\
-\dfrac{ 120 \pi }{ \sqrt{ \varepsilon_{re} } \Big[ \dfrac{ W }{ h } + 1.393 + 0.667 ln \Big( \dfrac{ W }{ h } + 1.444 \Big) \Big]} &amp;amp; W \ge h
-\end{cases} \\
-\frac{ W}{ h } &amp;amp;= \begin{cases}
-\dfrac{ 8 e^{A} }{ e^{2A} - 2} &amp;amp; \dfrac{ W }{  h} \le 2 \\
-\dfrac{ 2 }{ \pi } \Big\lbrace B - 1 -ln (2B -1) + \dfrac{ \varepsilon_r -1 }{ 2 \varepsilon_r } \Big[ ln(B - 1) + 0.39 - \dfrac{ 0.61 }{ \varepsilon_r } \Big]\Big\rbrace &amp;amp; \dfrac{ W }{ h } \ge 2
-\end{cases} \\
-A &amp;amp;= \frac{ Z_0 }{ 60 } \sqrt{ \frac{ \varepsilon_r + 1 }{ 2 } } + \frac{ \varepsilon_r - 1 }{ \varepsilon_r + 1 } \Big( 0.23 + \frac{ 0.11 }{ \varepsilon_r } \Big) \\
-B &amp;amp;= \frac{ 377 \pi }{ 2 Z_0 \sqrt{ \varepsilon_r } }
+Z_{common} &amp;amp;= \frac{ 1}{ 2 } Z_e
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;phase-velocity--wave-length&#34;&gt;Phase Velocity &amp;amp; Wave Length&lt;/h3&gt;
+&lt;h3 id=&#34;voltage-component&#34;&gt;Voltage Component&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-v_p &amp;amp;= \frac{ c }{ \sqrt{ \varepsilon_{re} } } \\
-\lambda_p &amp;amp;= \frac{ \lambda }{ \sqrt{ \varepsilon_{re} } }
+V_o &amp;amp;= V_{diff} = V_1 - V_2 \\
+V_e &amp;amp;= V_{common} = \frac{ V_1 + V_2 }{ 2 } \\
+V_1 &amp;amp;= V_e + \frac{ V_o }{ 2 } \\
+V_2 &amp;amp;= V_e - \frac{ V_o }{ 2 }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;rf-network&#34;&gt;RF Network&lt;/h1&gt;
 &lt;h2 id=&#34;2-ports-network&#34;&gt;2-Ports Network&lt;/h2&gt;
 &lt;h3 id=&#34;low-frequency&#34;&gt;Low Frequency&lt;/h3&gt;
 &lt;h4 id=&#34;impedance--admittace-parameters&#34;&gt;Impedance &amp;amp; Admittace Parameters&lt;/h4&gt;
@@ -1029,14 +1409,21 @@ cos^2(x) &amp;amp;= \frac{ 1 + cos(2x) }{ 2 }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;time--frequency-domain&#34;&gt;Time , Frequency Domain&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-t \longleftrightarrow e^{-j \omega t}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
+&lt;h2 id=&#34;reactance&#34;&gt;Reactance&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;情况&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$X_{eq}$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$L || C$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{ \omega L}{ 1 - \omega^2 L C}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         <item>
@@ -1057,120 +1444,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hiSetFont(&amp;#34;label&amp;#34; ?size 20) # 修改Toolbar文字大小为20
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;layout&#34;&gt;Layout&lt;/h2&gt;
-&lt;h3 id=&#34;layers&#34;&gt;Layers&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;总述&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;|名称|意义|&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Metal Layer&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;金属互连层，连接Transistors和其他元件&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Transistors Layer&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;有很多层&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Contact layers&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;不同层之间的接触&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PO&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;定义&lt;strong&gt;Power&lt;/strong&gt;和&lt;strong&gt;GND&lt;/strong&gt;的布线，提供&lt;strong&gt;电源&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Routing&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;信号的布线&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Geometry&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;辅助形状或标记&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Transistor Layers&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;AP&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Active Layer, 晶体管多层栅极层&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;PO&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Purpose&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;解释&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Ivs&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;模拟芯片当前区域的当前消耗&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Pin&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;分析引脚处的电压&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;drw(drawing)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;绘制布局的物理层&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;dm&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;两个布图形状之间的最小距离&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;prob&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;布图违反&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;generation&#34;&gt;Generation&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PR Boundary&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Placement Region Boundary, 限定布局区域，起到保护作用&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Floorplan&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;芯片各个模块和组件的排布位置&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;ade&#34;&gt;ADE&lt;/h2&gt;
+&lt;/div&gt;&lt;h2 id=&#34;ade&#34;&gt;ADE&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1260,6 +1534,14 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Design Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PEX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Parasitic Extraction, 提取寄生参数，功能更强大&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;RCX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Resistance Capacitance Extraction, 是&lt;strong&gt;Mentor&lt;/strong&gt;的另一款寄生参数提取工具&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;BGR&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Bandgap Reference, 带隙基准电压源,输出电压&lt;strong&gt;精度高&lt;/strong&gt;，且&lt;strong&gt;稳定&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -1280,22 +1562,6 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;传输函数零点&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Impedance Match&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;通过阻抗匹配，&lt;strong&gt;提高增益，减小噪声&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Microstrip Parallel Coupled Lines&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;微带平行耦合线，通过耦合传递能量&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Even/Odd Mode&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;偶模电流方向相同，电场方向相反,电场紧密耦合，实现耦合；奇模电流方向相反，电场方向相同, 磁场紧密耦合，实现隔离&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;耦合&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;可以实现功率合成/分配，隔离&amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;FBW(Fractional Bandwidth)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;带宽相对于中心频率的比率: $\dfrac{ \omega_{B}}{ \omega_{C} } \times 100%$&lt;/td&gt;
 &lt;/tr&gt;
@@ -1311,16 +1577,35 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;IMD3&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Integral Model Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FETX Pulse&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Negative Far End CrossTalk Pulse，测试数字通信系统的测试信号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Center Frequency&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;宽带中心，增益最大，两侧增益衰减&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;TCC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Thermal Cutoff Current, 不同温度条件下的最大电流&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;VCC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Voltage at Common Collector, 电源电压&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;VEE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;负电源电压&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Relative Impedance Bandwidth&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;工作频率范围&lt;/strong&gt;相对于中心频率的百分比&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id=&#34;当前目标&#34;&gt;当前目标&lt;/h1&gt;
+&lt;h1 id=&#34;当前目标--问题&#34;&gt;当前目标 &amp;amp; 问题&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;S参数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;小尺寸差分电桥&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;小尺寸差分电桥&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         </item>
