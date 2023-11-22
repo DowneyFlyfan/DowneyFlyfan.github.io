@@ -6,13 +6,14 @@
         <description>Recent content in Posts on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Fri, 10 Nov 2023 13:56:56 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>A3 HFSS</title>
-        <link>https://downeyflyfan.com/p/a3-hfss/</link>
-        <pubDate>Fri, 10 Nov 2023 13:56:56 +0800</pubDate>
+        <lastBuildDate>Mon, 20 Nov 2023 21:24:58 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>A2 Coupler Practice</title>
+        <link>https://downeyflyfan.com/p/a2-coupler-practice/</link>
+        <pubDate>Mon, 20 Nov 2023 21:24:58 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/a3-hfss/</guid>
-        <description>&lt;h1 id=&#34;材料&#34;&gt;材料&lt;/h1&gt;
+        <guid>https://downeyflyfan.com/p/a2-coupler-practice/</guid>
+        <description>&lt;h1 id=&#34;coupler-and-its-quality&#34;&gt;Coupler and Its Quality&lt;/h1&gt;
+&lt;h2 id=&#34;和s参数工作频率的关系&#34;&gt;和S参数、工作频率的关系&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -22,16 +23,40 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;FR4&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;一种材料规格, 材料经过燃烧可以自行熄灭&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;参数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;对S参数的影响&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;air&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;耦合间隙&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;间隙越小,耦合越强, $S_{31}$越大&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;耦合器臂长度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;影响相位,从而影响S参数的幅度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;耦合器臂宽度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$R = \dfrac{ \pho l }{ S }$, 与特征阻抗成反比，影响&lt;strong&gt;阻抗匹配&lt;/strong&gt;和&lt;strong&gt;正反向传输系数&lt;/strong&gt;($S_{11}, S_{22}, S_{21}, S_{12}$)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;耦合器臂形状&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;影响电磁场分布,从而影响耦合强度和S参数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;耦合器对称性&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;非对称会引入突变,改变S参数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;耦合器终端负载&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;影响阻抗匹配,从而影响S11和S22&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;交叉臂长度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;长的交叉臂&lt;strong&gt;自感&lt;/strong&gt;和&lt;strong&gt;互感&lt;/strong&gt;较大，$\omega = \dfrac{ 1 }{ LC }$, 所以工作频率会降低, 在$0.1 \lambda - 0.25 \lambda$之间最好&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id=&#34;boundary&#34;&gt;Boundary&lt;/h1&gt;
+&lt;h2 id=&#34;s参数的优劣评价&#34;&gt;S参数的优劣评价&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -41,57 +66,86 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Perfect E&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;理想电场 (电场垂直于物体表面)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{11}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;如果$S_{11}$幅度较大(低于$-10dB$),表示输入阻抗偏离$50 \Omega$,匹配程度差。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Perfect H&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;理想磁场 (磁场与物体表面相切)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;传输$S_{21}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$-3dB$就是一半，比较好&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Finite Conductivity&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;有耗电场, 表面电场不垂直&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;耦合$S_{31}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;有些半耦合的就是$-3dB$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Absorbing Boundary Conductivity (ABC)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;系统在辐射边界处吸收了电磁波&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;隔离$S_{41}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在$-20dB$以下为好&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id=&#34;port&#34;&gt;Port&lt;/h1&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Wave Port&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;外部端口，在截面处计算特征阻抗&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;lumped port&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;内部端口，相当于测试系统内阻&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in} &amp;amp;= Z_0 \frac{ 1 + S_{11} }{ 1 - S_{11} }\\
+Z_0 &amp;amp;= 50 \Omega
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>7 Sampling</title>
-        <link>https://downeyflyfan.com/p/7-sampling/</link>
+        <title>ESD要点</title>
+        <link>https://downeyflyfan.com/p/esd%E8%A6%81%E7%82%B9/</link>
+        <pubDate>Mon, 13 Nov 2023 20:59:15 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/esd%E8%A6%81%E7%82%B9/</guid>
+        <description>&lt;h1 id=&#34;biasing--offset-current&#34;&gt;Biasing / Offset Current&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Biasing Current&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;为了设置晶体管的工作点而加入的直流偏置电流&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Offset Current&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;由于器件参数不匹配引起的误差偏置电流&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_B &amp;amp;= \frac{ I_B(+) + I_B(-) }{ 2 } \\
+I_{os} &amp;amp;= I_B(+) - I_B(-)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在阻抗匹配时可以忽略$I_B$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+</description>
+        </item>
+        <item>
+        <title>7-8. Sampling &amp; Communication System</title>
+        <link>https://downeyflyfan.com/p/7-8.-sampling-communication-system/</link>
         <pubDate>Wed, 08 Nov 2023 11:10:57 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/7-sampling/</guid>
+        <guid>https://downeyflyfan.com/p/7-8.-sampling-communication-system/</guid>
         <description>&lt;h1 id=&#34;nyquist-sampling-theorem&#34;&gt;Nyquist Sampling Theorem&lt;/h1&gt;
 &lt;h2 id=&#34;impulse-train-sampling&#34;&gt;Impulse Train Sampling&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-x_p(t) &amp;amp;= x(t) p(t) \\
 p(t) &amp;amp;= \sum_{ n = - \infin }^{ \infin  } \delta (t - n T) \\
+x_p(t) &amp;amp;= x(t) p(t) \\
+&amp;amp;= \sum_{ n = - \infin }^{ \infin } x(nT) \delta (t - n T) \\
 X_P(j \omega) &amp;amp;= \frac{ 1 }{ 2 \pi } \int_{ - \infin  }^{ \infin  } X( j \omega) P ( j ( \omega - \theta)) d \theta \\
 &amp;amp;= \frac{ 1 }{ T } \sum_{ n = - \infin  }^{  \infin } X(j ( \omega - k \omega_s)) \\
 \omega_s &amp;amp;=  \frac{ 2 \pi }{ T}
@@ -107,15 +161,18 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;下次采样之前保持住上次采样结果&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;linear-interpolation-one-order-interpolation&#34;&gt;Linear Interpolation (One-Order Interpolation)&lt;/h2&gt;
+&lt;h2 id=&#34;linear-interpolation-one-order-hold&#34;&gt;Linear Interpolation (One-Order Hold)&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将相邻采样点用直线连接&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;将相邻采样点用直线连接&lt;/li&gt;
+&lt;li&gt;对于&lt;strong&gt;LPF&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
 x_r(t) &amp;amp;= \sum_{ n = - \infin }^{ \infin  } x(n T) \delta (t - nT) \\
-&amp;amp;= \sum_{ n = - \infin }^{ \infin  } x(nT) \frac{ \omega_c T }{ \pi } \frac{ sin ( \omega_c (t - nT)) }{  \omega_c (t - n T)} \ \ \ LPF
+&amp;amp;= \sum_{ n = - \infin }^{ \infin  } x(nT) \frac{ \omega_c T }{ \pi } \frac{ sin ( \omega_c (t - nT)) }{  \omega_c (t - n T)}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -123,28 +180,205 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;$\omega_c &amp;lt; 2\omega_M$, 信号重叠，发生 Under-Sampling&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;reconstruction-filter&#34;&gt;Reconstruction Filter&lt;/h2&gt;
+&lt;h1 id=&#34;reconstruction-filter&#34;&gt;Reconstruction Filter&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7-8.-sampling-communication-system/2.png&#34;
+	width=&#34;2412&#34;
+	height=&#34;724&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7-8.-sampling-communication-system/2_hu6dbdfb0a794999969059628eed32add9_237421_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7-8.-sampling-communication-system/2_hu6dbdfb0a794999969059628eed32add9_237421_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;333&#34;
+		data-flex-basis=&#34;799px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-h(t) &amp;amp;= h_o(t) * h_r(t)
+h(t) &amp;amp;= h_o(t) * h_r(t) \overset{ FT }{ \longleftrightarrow  } H_o(j \omega) H_r(j \omega) = H(j \omega)
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;h1 id=&#34;d-t-processs-for-c-t-signals&#34;&gt;D-T Processs for C-T Signals&lt;/h1&gt;
+&lt;h2 id=&#34;method&#34;&gt;Method&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7-8.-sampling-communication-system/1.png&#34;
+	width=&#34;1650&#34;
+	height=&#34;386&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7-8.-sampling-communication-system/1_hucd89f53f4a63a7d1eca1fdf2b66054c0_241527_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7-8.-sampling-communication-system/1_hucd89f53f4a63a7d1eca1fdf2b66054c0_241527_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;427&#34;
+		data-flex-basis=&#34;1025px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;间隔从$T$变成$n$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+x_d[n] &amp;amp;= x_c(t)* p(nT) \\
+&amp;amp;= x_c(nT)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;几个傅立叶变换的关系&#34;&gt;几个傅立叶变换的关系&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x_c(t) &amp;amp;\overset{ FT }{ \longleftrightarrow  } X_c(j \omega) \\
+y_c(t) &amp;amp;\overset{ FT }{ \longleftrightarrow  } Y_c(j \omega) \\
+x_d[n] &amp;amp;\overset{ FT }{ \longleftrightarrow  } X_d(e^{j \Omega}) \\
+y_d[n] &amp;amp;\overset{ FT }{ \longleftrightarrow  } Y_d(e^{j \Omega})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+x_p(t) &amp;amp;= \sum_{ n = - \infin }^{ \infin } x_c(nT) \delta (t - nT) \overset{ FT }{ \longleftrightarrow  } X_p (j \omega)= \sum_{ n = - \infin }^{ \infin   } x_c(nT) e^{- j \omega nT} \\
+X_d(e^{j \Omega}) &amp;amp;= \sum_{ n = - \infin }^{ \infin } x_d[n] e^{- j \Omega n} = \sum_{ - \infin  }^{ \infin  } x_c(n T) e^{-j \Omega n} \\
+&amp;amp;= X_p(j \frac{ \Omega }{ T }) \\
+&amp;amp;= \frac{ 1 }{ T } \sum_{ k = - \infin }^{ \infin } X_c(j \frac{ \Omega - 2 \pi k }{ T })
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;filtering&#34;&gt;Filtering&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7-8.-sampling-communication-system/3.png&#34;
+	width=&#34;2706&#34;
+	height=&#34;574&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7-8.-sampling-communication-system/3_hu0c1891409d752b37832cde0aa73edb6c_344192_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7-8.-sampling-communication-system/3_hu0c1891409d752b37832cde0aa73edb6c_344192_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;471&#34;
+		data-flex-basis=&#34;1131px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;complex-expotential--sinusoidal-modulation&#34;&gt;Complex Expotential &amp;amp; Sinusoidal Modulation&lt;/h1&gt;
+&lt;h2 id=&#34;complex-expotential-modulation&#34;&gt;Complex Expotential Modulation&lt;/h2&gt;
+&lt;h3 id=&#34;modulation--fourier-transfer&#34;&gt;Modulation &amp;amp; Fourier Transfer&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+c(t) &amp;amp;= e^{j( \omega_c t + \theta_c)} \\
+y(t) &amp;amp;= x(t) c(t)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Y(j \omega) &amp;amp;= \frac{ 1 }{ 2\pi } \int_{ - \infin  }^{ \infin  } X(j \theta) C(j( \theta - \omega)) d \theta \\
+C(j \omega) &amp;amp;= 2\pi \delta ( \omega - \omega_c) \\
+Y(j \omega) &amp;amp;= X(j \omega - j \omega_c)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;modulation--demodulation&#34;&gt;Modulation &amp;amp; Demodulation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;如果 $\theta_c = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+y(t) &amp;amp;= x(t) e^{j \omega_c t} \\
+x(t) &amp;amp;= y(t) e^{-j \omega_c t}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;sinusoidal-modulation&#34;&gt;Sinusoidal Modulation&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+c(t) &amp;amp;= cos( \omega_c t + \theta_c) \\
+c(j \omega) &amp;amp;=  \pi [ \delta ( \omega - \omega_c) + \delta ( \omega + \omega_c)] \\
+Y(j \omega) &amp;amp;= \frac{ 1 }{ 2 } [ X(j \omega - j \omega_c) + X(j \omega + j \omega_c)] \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;sinusoidal-amplitude-demodulation&#34;&gt;Sinusoidal Amplitude Demodulation&lt;/h1&gt;
+&lt;h2 id=&#34;sync-demodulation&#34;&gt;Sync Demodulation&lt;/h2&gt;
+&lt;h3 id=&#34;in-phase&#34;&gt;In Phase&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+y(t) &amp;amp;= x(t) cos( \omega_c t) \\
+w(t) &amp;amp;= y(t) cos(- \omega_c t) \\
+&amp;amp;= x(t) cos^2( \omega_c t) \\
+&amp;amp;= \frac{ 1 }{ 2 } x(t) + \frac{ 1 }{ 2 } x(t)cos(2 \omega_c t)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;out-of-phase&#34;&gt;Out of Phase&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;For Complex Signals&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+y(t) &amp;amp;= e^{j ( \omega_c t+ \theta_c)} x(t) \\
+w(t) &amp;amp;= e^{-j ( \omega_c t + \phi_c)} y(t) \\
+&amp;amp;= e^{j ( \theta_c - \phi_c)} x(t)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;For Sinusoidal Signals&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+w(t) &amp;amp;= cos( \omega_c t + \theta_c) cos( \omega_c t + \phi_c) x(t) \\
+&amp;amp;= \frac{ 1 }{ 2 } cos( \theta_c - \phi_c) x(t) + \frac{ 1 }{2  } cos( 2 \omega_c t + \phi_c + \theta_c)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;async&#34;&gt;Async&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7-8.-sampling-communication-system/4.png&#34;
+	width=&#34;1198&#34;
+	height=&#34;576&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7-8.-sampling-communication-system/4_hu95fb702fcde7d1fa6f41dfee7c12db6c_277447_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7-8.-sampling-communication-system/4_hu95fb702fcde7d1fa6f41dfee7c12db6c_277447_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;499px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$x(t)$总是正的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+y(t) &amp;amp;=  x(t) + A \\
+|x(t)| &amp;amp;\le K \\
+A &amp;amp;\ge  K \\
+m &amp;amp;= \frac{ K }{A}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$m$越大，信号质量越好&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
-        <title>A2 Layout</title>
-        <link>https://downeyflyfan.com/p/a2-layout/</link>
+        <title>A3 Layout</title>
+        <link>https://downeyflyfan.com/p/a3-layout/</link>
         <pubDate>Wed, 08 Nov 2023 09:30:33 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/a2-layout/</guid>
+        <guid>https://downeyflyfan.com/p/a3-layout/</guid>
         <description>&lt;h1 id=&#34;layers-in-tsmc65nm&#34;&gt;Layers in TSMC65nm&lt;/h1&gt;
 &lt;h2 id=&#34;metal-structure&#34;&gt;Metal Structure&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/7.png&#34;
 	width=&#34;1278&#34;
 	height=&#34;1648&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -217,10 +451,10 @@ $$&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;版图图层和物理图层的关系&#34;&gt;版图图层和物理图层的关系&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/6.png&#34;
 	width=&#34;1588&#34;
 	height=&#34;596&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -329,10 +563,10 @@ C &amp;amp;= \varepsilon_0 \varepsilon_r \frac{ A }{ d }
 $$&lt;/p&gt;
 &lt;h3 id=&#34;category&#34;&gt;Category&lt;/h3&gt;
 &lt;h4 id=&#34;mim-metal-insulator-metal&#34;&gt;MiM (Metal-Insulator-Metal)&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/1.png&#34;
 	width=&#34;1328&#34;
 	height=&#34;876&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -345,10 +579,10 @@ $$&lt;/p&gt;
 &lt;li&gt;加上&lt;strong&gt;Contact&lt;/strong&gt;, 目的是减小$d$, 增加电容大小&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;mom-metal-oxide-metal&#34;&gt;MoM (Metal-Oxide-Metal)&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/2.png&#34;
 	width=&#34;1708&#34;
 	height=&#34;1382&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -369,10 +603,10 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;pip-poly-insulator-poly&#34;&gt;PiP (Poly-Insulator-Poly)&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/3.png&#34;
 	width=&#34;1556&#34;
 	height=&#34;1332&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -382,10 +616,10 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h4 id=&#34;mos-mosfet-capacitor&#34;&gt;MOS (MOSFET Capacitor)&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/4.png&#34;
 	width=&#34;2178&#34;
 	height=&#34;1150&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-layout/4_huf762809b9932922faa71ba7c70325c30_767557_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/4_huf762809b9932922faa71ba7c70325c30_767557_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-layout/4_huf762809b9932922faa71ba7c70325c30_767557_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/4_huf762809b9932922faa71ba7c70325c30_767557_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -397,10 +631,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$C_{ox} - V_{dc}$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/5.png&#34;
 	width=&#34;1166&#34;
 	height=&#34;988&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -414,10 +648,10 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;on-chip-inductor&#34;&gt;On-Chip Inductor&lt;/h2&gt;
 &lt;h3 id=&#34;basic-inductor&#34;&gt;Basic Inductor&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/8.png&#34;
 	width=&#34;1384&#34;
 	height=&#34;1034&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-layout/8_hua03031feee965c87c5a5660702218218_650313_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/8_hua03031feee965c87c5a5660702218218_650313_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-layout/8_hua03031feee965c87c5a5660702218218_650313_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/8_hua03031feee965c87c5a5660702218218_650313_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -435,10 +669,10 @@ L &amp;amp;= \mu_0 \frac{ N^2 A }{ l } \\
 \end{gather}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;on-chip-inductor-1&#34;&gt;On-Chip Inductor&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-layout/9.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/9.png&#34;
 	width=&#34;1196&#34;
 	height=&#34;1278&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-layout/9_hu554510b1c5a47772abeeb40b381f01ee_445495_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-layout/9_hu554510b1c5a47772abeeb40b381f01ee_445495_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a3-layout/9_hu554510b1c5a47772abeeb40b381f01ee_445495_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/9_hu554510b1c5a47772abeeb40b381f01ee_445495_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1586,38 +1820,6 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;branch-line-coupler&#34;&gt;Branch Line Coupler&lt;/h3&gt;
-&lt;h4 id=&#34;evenodd-mode-analysis&#34;&gt;Even/Odd Mode Analysis&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;分析&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/25.png&#34;
-	width=&#34;1770&#34;
-	height=&#34;1532&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/25_hu34fb17840e4b5dd711866b4b4708e80a_1302984_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/25_hu34fb17840e4b5dd711866b4b4708e80a_1302984_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;115&#34;
-		data-flex-basis=&#34;277px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;半电路&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/26.png&#34;
-	width=&#34;1260&#34;
-	height=&#34;1422&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/26_hu41d4a9da289d07ac636e9613fe977ec5_823468_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/26_hu41d4a9da289d07ac636e9613fe977ec5_823468_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;88&#34;
-		data-flex-basis=&#34;212px&#34;
-	
-&gt;&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;triogonometric-function-formula&#34;&gt;Triogonometric Function Formula&lt;/h2&gt;
 &lt;h3 id=&#34;rare-functions&#34;&gt;Rare Functions&lt;/h3&gt;
@@ -1668,6 +1870,17 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2 id=&#34;q值&#34;&gt;Q值&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Q &amp;amp;= \frac{ E_{store} }{ E_{loss} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;越高，表示品质越好&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -1811,7 +2024,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{\lambda_0}{ 4 }$ Transmission Line&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;传输线的电长度为90度,即电长度为信号波长λ的1/4。在线性的传输线中,λ/4长度会产生一个电压和电流的逆变换。可以用作为匹配网络,将阻抗从一个值变换到另一个值。&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;传输线的电长度为90度,即电线物理长度为$\dfrac{ 1 }{ 4 } \lambda$。在线性的传输线中,λ/4长度会产生一个电压和电流逆变换&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Signal Condition Circuit&lt;/td&gt;
@@ -1819,7 +2032,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;IMD3&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Integral Model Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Integral MoDel Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;FETX Pulse&lt;/td&gt;
@@ -1845,12 +2058,41 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Relative Impedance Bandwidth&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;工作频率范围&lt;/strong&gt;相对于中心频率的百分比&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SEL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Single Element Lock, 通过一个latch实现锁存功能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CID&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Current Identification Code, 用二进制标识不同电流&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DPD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Digital Pre-Distortion, 数字预失真&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;QAM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Quadrature Amplitude Modulation (IQ-Based Modulation), 正交调幅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;APSK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Amplitude Phase Shifting Keying&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h1 id=&#34;当前目标--问题&#34;&gt;当前目标 &amp;amp; 问题&lt;/h1&gt;
+&lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;小尺寸差分电桥&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;阻抗调解（大了，小了？）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;当前行动&#34;&gt;当前行动&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;长度(频点)、宽度(阻抗)、间隙(耦合)、挖地大小(隔离)&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
