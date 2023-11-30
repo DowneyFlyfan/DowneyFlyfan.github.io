@@ -6,43 +6,855 @@
         <description>Recent content on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sat, 25 Nov 2023 14:25:03 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>A4 Filter</title>
-        <link>https://downeyflyfan.com/p/a4-filter/</link>
-        <pubDate>Sat, 25 Nov 2023 14:25:03 +0800</pubDate>
+        <lastBuildDate>Wed, 29 Nov 2023 16:14:41 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>2. Smith Graph &amp; RF Network</title>
+        <link>https://downeyflyfan.com/p/2.-smith-graph-rf-network/</link>
+        <pubDate>Wed, 29 Nov 2023 16:14:41 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/a4-filter/</guid>
-        <description>&lt;h1 id=&#34;1st-order-filters&#34;&gt;1st-Order Filters&lt;/h1&gt;
-&lt;h2 id=&#34;rccr-lpfhpf&#34;&gt;RC/CR (LPF/HPF)&lt;/h2&gt;
+        <guid>https://downeyflyfan.com/p/2.-smith-graph-rf-network/</guid>
+        <description>&lt;h1 id=&#34;representation-of-reflect-coefficient-on-complex-plane&#34;&gt;Representation of Reflect Coefficient on Complex Plane&lt;/h1&gt;
+&lt;h2 id=&#34;反射系数的表示&#34;&gt;反射系数的表示&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\omega_c &amp;amp;= \frac{ 1 }{ RC }
+\Gamma(x&amp;rsquo;) &amp;amp;= | \Gamma_L| e^{j ( \phi_L - 2 \beta x&amp;rsquo;)} \\
+&amp;amp;= \Gamma_r + j \Gamma_i
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;2nd-order-lpf&#34;&gt;2nd-Order LPF&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a4-filter/1.png&#34;
-	width=&#34;1220&#34;
-	height=&#34;564&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a4-filter/1_hua2ee3c3729848dcbfc8019735efcebf5_119377_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a4-filter/1_hua2ee3c3729848dcbfc8019735efcebf5_119377_1024x0_resize_box_3.png 1024w&#34;
+&lt;h2 id=&#34;等反射系数圆&#34;&gt;等反射系数圆&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Smith Graph 的半径是$|\Gamma_L|$, 因此同一个也就是&lt;strong&gt;等反射系数圆&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;半径为1的圆是&lt;strong&gt;单位反射圆&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;电刻度圆&#34;&gt;电刻度圆&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\phi &amp;amp;= \phi_L - 2 \beta x&amp;rsquo; \\
+&amp;amp;= \phi_L - \frac{ 4 \pi }{ \lambda } x&#39;
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;转一圈对应$x&amp;rsquo; = \dfrac{ \lambda }{ 2 }$, 因为$\Gamma_L$是周期为$\dfrac{ \lambda }{2}$的函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-smith-graph-rf-network/1.png&#34;
+	width=&#34;1598&#34;
+	height=&#34;1424&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-smith-graph-rf-network/1_hu8410b8778f8afedd8b9790bf0a450484_791471_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-smith-graph-rf-network/1_hu8410b8778f8afedd8b9790bf0a450484_791471_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;216&#34;
-		data-flex-basis=&#34;519px&#34;
+		data-flex-grow=&#34;112&#34;
+		data-flex-basis=&#34;269px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;smith-chart&#34;&gt;Smith Chart&lt;/h1&gt;
+&lt;h2 id=&#34;normalized-impedance&#34;&gt;Normalized Impedance&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in} (x&amp;rsquo;) &amp;amp;= \frac{ Z_{in}(x&amp;rsquo;) }{ Z_0 } \\
+&amp;amp;= Z_0 \frac{ 1 + \Gamma(x&amp;rsquo;) }{ 1 - \Gamma(x&amp;rsquo;) } \\
+&amp;amp;= \frac{ 1 - \Gamma_r^2 - \Gamma_i^2 }{ (1 - \Gamma_r)^2 + \Gamma_i^2 } + j \frac{ 2 \Gamma_i }{ (1 - \Gamma_r)^2 + \Gamma_i^2}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+R &amp;amp;= \frac{ 1 - \Gamma_r^2 - \Gamma_i^2 }{ (1 - \Gamma_r)^2 + \Gamma_i^2 } \\
+X &amp;amp;= \frac{ 2 \Gamma_i }{ (1 - \Gamma_r)^2 + \Gamma_i^2}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;等电阻圆--等电抗圆&#34;&gt;等电阻圆 &amp;amp; 等电抗圆&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;根据&lt;strong&gt;方程4&lt;/strong&gt;可以得出&lt;strong&gt;等电阻圆&lt;/strong&gt;和&lt;strong&gt;等电抗圆&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+(\Gamma_r - \frac{ r }{ 1 + r })^2 + \Gamma_i^2 &amp;amp;= ( \frac{ 1 }{ 1 + r })^2 \\
+( \Gamma_r - 1)^2 + ( \Gamma_i - \frac{ 1 }{ X }) &amp;amp;= (\frac{ 1 }{ X })^2
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;等电阻圆&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;圆心在实轴上，半径为$\dfrac{ 1 }{ r }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;等电抗圆&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;圆心在$\Gamma_r = 1$上，半径为$\dfrac{ 1 }{ X }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-smith-graph-rf-network/2.png&#34;
+	width=&#34;1634&#34;
+	height=&#34;838&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-smith-graph-rf-network/2_huc1e0fb8163a5aab3fd29799ddff7533a_553159_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-smith-graph-rf-network/2_huc1e0fb8163a5aab3fd29799ddff7533a_553159_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;194&#34;
+		data-flex-basis=&#34;467px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;rf-network&#34;&gt;RF Network&lt;/h1&gt;
+&lt;h2 id=&#34;evenodd-mode&#34;&gt;Even/Odd Mode&lt;/h2&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/21.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/22.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;项目&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Even Mode&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Odd Mode&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电流&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I_1 = I_2$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I_1 = - I_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\varepsilon_{re}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;更大&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;更小&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;驱动&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;共模驱动&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;差分驱动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;最终的参数应该是$\dfrac{ Z_e + Z_o }{ 2 }$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;impedance&#34;&gt;Impedance&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{diff}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;差分信号沿着差分对传播时受到的阻抗，是每条信号线与返回路径之间阻抗之和。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{common}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;共模信号沿传输线传播时收到的阻抗。共模信号是两条信号线的电压平均值，纯共模信号就是差分信号为0时的信号。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{diff} &amp;amp;= \begin{cases}
+2 Z_0 &amp;amp; C = 0 \\
+2 Z_o &amp;amp; C \neq 0
+\end{cases} \\
+Z_{common} &amp;amp;= \frac{ 1}{ 2 } Z_e
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若$Z_0 = 50 \Omega$，那么$Z_0$的&lt;strong&gt;Even/Odd&lt;/strong&gt;部分分别为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{0o} &amp;amp;= 50 \\
+Z_{0e} &amp;amp;= 50
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;voltage-component&#34;&gt;Voltage Component&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;amp;= V_{diff} = V_1 - V_2 \\
+V_e &amp;amp;= V_{common} = \frac{ V_1 + V_2 }{ 2 } \\
+V_1 &amp;amp;= V_e + \frac{ V_o }{ 2 } \\
+V_2 &amp;amp;= V_e - \frac{ V_o }{ 2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;2-ports-network&#34;&gt;2-Ports Network&lt;/h2&gt;
+&lt;h3 id=&#34;low-frequency&#34;&gt;Low Frequency&lt;/h3&gt;
+&lt;h4 id=&#34;impedance--admittace-parameters&#34;&gt;Impedance &amp;amp; Admittace Parameters&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/17.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[V] &amp;amp;= [Z] [i] \\
+[I] &amp;amp;= [Y] [V]  \\
+[V] &amp;amp;= \begin{bmatrix}
+V_1 \
+V_2
+\end{bmatrix} \\
+[Z] &amp;amp;= \begin{bmatrix}
+Z_{11} &amp;amp; Z_{12}  \\
+Z_{21} &amp;amp; Z_{22}
+\end{bmatrix} \\
+[i] &amp;amp;= \begin{bmatrix}
+i_1  \
+i_2
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{mn} &amp;amp;= \begin{cases}
+\dfrac{ V_m }{ i_m }|&lt;em&gt;{i_n = 0} &amp;amp; n = m\\
+\dfrac{ V_m }{ i_n }|&lt;/em&gt;{i_m = 0} &amp;amp; n \neq m
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;hybrid--transfer-parameters&#34;&gt;Hybrid &amp;amp; Transfer Parameters&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+v_1\\
+i_2
+\end{bmatrix} &amp;amp;= \begin{bmatrix}
+h_{11} &amp;amp; h_{12}\\
+h_{21} &amp;amp; h_{22}
+\end{bmatrix} \begin{bmatrix}
+i_1\\
+v_2
+\end{bmatrix} \\
+\begin{bmatrix}
+v_1\\
+i_1
+\end{bmatrix} &amp;amp;=  \begin{bmatrix}
+A &amp;amp; B\\
+C &amp;amp; D
+\end{bmatrix} \begin{bmatrix}
+v_2\\
+-i_2
+\end{bmatrix} \\
+[ABCD] &amp;amp;= \begin{bmatrix}
+A &amp;amp; B\\
+C &amp;amp; D
+\end{bmatrix} \\
+&amp;amp;= \begin{bmatrix}
+\dfrac{ v_1 }{ v_2 } &amp;amp; - \dfrac{ v_1 }{ i_2 }\\
+\dfrac{ i_1 }{ v_2 } &amp;amp; - \dfrac{ i_1 }{ i_2 }
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;transfer-matrix&#34;&gt;Transfer Matrix&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;串联阻抗$Z$的二端口网络&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/18.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$v_2 = 0$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$i_1 = -i_2 = \dfrac{ v_1 }{ Z }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$i_2 = 0$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$i_1 = -i_2 = 0, v_1 = v_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;amp;= \begin{bmatrix}
+1 &amp;amp; Z\\
+0 &amp;amp; 1
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;并联导纳$Y$的二端口网络&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/19.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;amp;= \begin{bmatrix}
+1 &amp;amp; 0\\
+Y &amp;amp; 1
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;t型网络&#34;&gt;T型网络&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/20.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以看成串联阻抗和并联导纳的Cascade&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;amp;= \begin{bmatrix}
+1 + \dfrac{ Z_A }{ Z_C } &amp;amp; Z_A + Z_B + \dfrac{ Z_A Z_B }{ Z_C }\\
+\dfrac{ 1 }{ Z_C } &amp;amp; 1 + \dfrac{ Z_B }{ Z_C }
+\end{bmatrix} \\
+&amp;amp;= \begin{bmatrix}
+1 &amp;amp; Z_A \\
+0 &amp;amp; 1
+\end{bmatrix} \begin{bmatrix}
+1 &amp;amp; 0\\
+\dfrac{ 1 }{ Z_C } &amp;amp; 1
+\end{bmatrix} \begin{bmatrix}
+1 &amp;amp; Z_B\\
+0 &amp;amp; 1
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;pi型网络&#34;&gt;$\pi$型网络&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/21.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;amp;= \begin{bmatrix}
+1 + \dfrac{ Y_B }{ Y_C } &amp;amp; \dfrac{ 1 }{ Y_C }\\
+Y_A + Y_B + \dfrac{ Y_A Y_B }{ Y_C } &amp;amp; 1 + \dfrac{ Y_A }{ Y_C }
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;uniform-transmission-line&#34;&gt;Uniform Transmission Line&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;包含了$\dfrac{ \lambda }{ 4 }, \dfrac{ \lambda }{ 2 }$传输线的$T$矩阵&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;amp;= \begin{cases}
+\begin{bmatrix}
+cos( \beta l) &amp;amp; jZ_0 sin( \beta l)\\
+j \dfrac{ 1 }{ Z_0 } sin( \beta l) &amp;amp; cos( \beta l)
+\end{bmatrix} &amp;amp; General \\
+\begin{bmatrix}
+0 &amp;amp; j Z_0 \\
+\dfrac{ j }{ Z_0 } &amp;amp; 0 &amp;amp; \theta = \dfrac{ \lambda }{ 4 }
+\end{bmatrix} &amp;amp; \theta = \dfrac{ \lambda }{ 4 } \\
+\begin{bmatrix}
+-1 &amp;amp; 0 \\
+0 &amp;amp; -1
+\end{bmatrix} &amp;amp; \theta = \dfrac{ \lambda }{ 2 }
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;high-frequency&#34;&gt;High Frequency&lt;/h3&gt;
+&lt;h4 id=&#34;scattered-parameter&#34;&gt;Scattered Parameter&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Normalized Parameter&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/13.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Normalized Voltage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+a_1 &amp;amp;= \frac{ V_1^+ }{ \sqrt{ Z_{01} } } \\
+b_1 &amp;amp;= \frac{ V_1^- }{ \sqrt{ Z_{01} } } \\
+a_2 &amp;amp;= \frac{ V_2^+ }{ \sqrt{ Z_{02} } } \\
+b_2 &amp;amp;= \frac{ V_2^- }{ \sqrt{ Z_{02} } } \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Normalized Power&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P(x&amp;rsquo;) &amp;amp;= \frac{ |V^+(x&amp;rsquo;)|^2 }{ 2Z_0 } \Big[ 1 - | \Gamma(x&amp;rsquo;)|^2 \Big] = P^+(x&amp;rsquo;) - P^-(x&amp;rsquo;) \\
+P_1 &amp;amp;= \frac{ 1 }{ 2 } ( |a_1|^2 - |b_1|^2 ) \\
+P_2 &amp;amp;= \frac{ 1 }{ 2 } ( |a_2|^2 - |b_2|^2 )
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;s-parameter&#34;&gt;S Parameter&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[b] &amp;amp;= [S] [a] \\
+[S] &amp;amp;= \begin{bmatrix}
+S_{11} &amp;amp; S_{12}\\
+S_{21} &amp;amp; S_{22}
+\end{bmatrix}  \\
+&amp;amp;= \begin{bmatrix}
+\dfrac{ b_1 }{ a_1 }|&lt;em&gt;{a_2 = 0} &amp;amp; \dfrac{ b_1 }{ a_2 }|&lt;/em&gt;{a_1 = 0} \\
+\dfrac{ b_2 }{ a_1 }|&lt;em&gt;{a_2 =0} &amp;amp; \dfrac{ b_2 }{ a_2 }|&lt;/em&gt;{a_1 = 0}
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;4-ports-network&#34;&gt;4-Ports Network&lt;/h2&gt;
+&lt;h3 id=&#34;schematic&#34;&gt;Schematic&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/10.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_1$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Input Power $P_{in}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_2$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Forward Power $P_f$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_3$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reflected Power $P_r$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_4$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Coupled Power $P_c$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;factors&#34;&gt;Factors&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Coupling Factor&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$C = 10 \cdot lg( \dfrac{ P_i }{ P_c })$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Directivity&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$D = 10  \cdot lg( \dfrac{ P_f }{ P_r})$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Isolation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I = 10 \cdot lg( \dfrac{ P_i }{ P_r })$，隔离&lt;strong&gt;输入与反射&lt;/strong&gt;，&lt;strong&gt;输出与耦合&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;s-parameter-analysis-in-idealized-case&#34;&gt;S Parameter Analysis In Idealized Case&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Idealized Case&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;4 Ports are Matched&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{11} = S_{22} = S_{33} = S_{44} = 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;It follows the property of &lt;strong&gt;symmetry&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{ij} = S_{ji}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;1 &amp;amp; 3, 2 &amp;amp; 4&lt;/strong&gt; are isolated&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{13} = S_{31} = S_{24} = S_{42} = 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Equal Forward Power&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{12} = S_{34} = P$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Equal Coupled Power&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{14} = S_{23} = Q$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Lossless&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$[S] \cdot [S]^* = I$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;对应端口阻抗相同&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{ij} = Z_{ji}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;S Matrix&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= \begin{bmatrix}
+0 &amp;amp; P &amp;amp; 0 &amp;amp; Q \\
+P &amp;amp; 0 &amp;amp; Q &amp;amp; 0 \\
+0 &amp;amp; Q &amp;amp; 0 &amp;amp; P \\
+Q &amp;amp; 0 &amp;amp; P &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\because [S] \cdot [S]^* &amp;amp;= I \\
+\therefore P^2 + Q^2 &amp;amp;= 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;h2 id=&#34;电抗&#34;&gt;电抗&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+X_C &amp;amp;= -\frac{ 1 }{ \omega C } \\
+X_L &amp;amp;= \omega L
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;q值&#34;&gt;Q值&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Q &amp;amp;= \frac{ E_{store} }{ E_{loss} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;越高，表示品质越好&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
-        <title>A2 Coupler Practice</title>
-        <link>https://downeyflyfan.com/p/a2-coupler-practice/</link>
-        <pubDate>Mon, 20 Nov 2023 21:24:58 +0800</pubDate>
+        <title>A1 Fragmentray Knowledge</title>
+        <link>https://downeyflyfan.com/p/a1-fragmentray-knowledge/</link>
+        <pubDate>Wed, 29 Nov 2023 13:10:26 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/a2-coupler-practice/</guid>
+        <guid>https://downeyflyfan.com/p/a1-fragmentray-knowledge/</guid>
+        <description>&lt;h1 id=&#34;cadence-virtuoso&#34;&gt;Cadence Virtuoso&lt;/h1&gt;
+&lt;h2 id=&#34;字体调整&#34;&gt;字体调整&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hiSetFont(&amp;#34;ciw&amp;#34; ?size 20) # 修改text文字大小为20
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hiSetFont(&amp;#34;label&amp;#34; ?size 20) # 修改Toolbar文字大小为20
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;ade&#34;&gt;ADE&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Do Noise (Yes/No)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;考虑&lt;strong&gt;Thermal/Shot Noise&lt;/strong&gt;, $T \uparrow \longrightarrow $ Carrier Motions $\uparrow \longrightarrow$; Carriers 穿过 &lt;strong&gt;Barrier&lt;/strong&gt;产生随机噪声&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YP&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;交流信号分析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ZM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Impedance Matrix&lt;/strong&gt;, $\begin{bmatrix} Z_{11} \ Z_{12} \ Z_{21} \ Z_{22} \end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;h2 id=&#34;人工传输线&#34;&gt;人工传输线&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;传输特性：人工传输线具有特定的传输特性，如传输速度、带宽、传输损耗、传输延迟和噪声等。这些特性直接影响信号的传输质量和可靠性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;阻抗匹配：为了最大限度地减少信号反射和传输损耗，人工传输线需要与连接的设备之间的阻抗进行匹配。阻抗不匹配会导致信号反射和信号失真。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;传输模式：人工传输线可以支持不同的传输模式，如单端传输和差分传输。差分传输常用于抑制噪声和提高信号抗干扰能力。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;传输介质：人工传输线可以采用不同的传输介质，包括金属导线（如铜线）、光纤和空气介质等。每种介质都有其特定的传输特性和应用领域。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;传输线理论：人工传输线的行为可以通过传输线理论进行建模和分析。传输线理论考虑了电磁波在传输线上的传播、反射、折射和衰减等现象，以帮助设计和优化传输线的性能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;师兄的项目&#34;&gt;师兄的项目&lt;/h2&gt;
+&lt;h3 id=&#34;2-18ghz-硅基功率放大器&#34;&gt;2-18GHz 硅基功率放大器&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Peaking inductor&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$C_{GS}$, $C_L$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Intra-Stack Coupling&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;低功耗抗干扰fsk-调制调解器&#34;&gt;低功耗抗干扰FSK 调制调解器&lt;/h3&gt;
+&lt;h3 id=&#34;谐波抑制器&#34;&gt;谐波抑制器&lt;/h3&gt;
+&lt;h3 id=&#34;前馈线性化&#34;&gt;前馈线性化&lt;/h3&gt;
+&lt;h2 id=&#34;short-academic-phrases&#34;&gt;Short Academic Phrases&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;定义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ATL(Active Transistor Level)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;分为4个等级，等级越高，晶体管的参数越详细&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PAE(Power Added Efficiency)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出和输入之间的&lt;strong&gt;功率转化效率(%)&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Stack Distributed Power Amplifier&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Refactoring&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Logic/Layout/Time-Sequence/Power Consumption Refactoring&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Process Corner&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DRC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Design Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PEX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Parasitic Extraction, 提取寄生参数，功能更强大&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;RCX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Resistance Capacitance Extraction, 是&lt;strong&gt;Mentor&lt;/strong&gt;的另一款寄生参数提取工具&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BGR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Bandgap Reference, 带隙基准电压源,输出电压&lt;strong&gt;精度高&lt;/strong&gt;，且&lt;strong&gt;稳定&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CMN/CLN/CRN&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CMOS Mobile Normal, CMOS Logic Normal，CMOS Radio Frequency Normal，三种台积电工艺&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PDK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Process Design Kit, 设计套件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;GDSII&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Graphic Data System II，IC的实际版图信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;isolation zero(零点)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;传输函数零点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FBW(Fractional Bandwidth)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;带宽相对于中心频率的比率: $\dfrac{ \omega_{B}}{ \omega_{C} } \times 100%$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{\lambda_0}{ 4 }$ Transmission Line&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;传输线的电长度为90度,即电线物理长度为$\dfrac{ 1 }{ 4 } \lambda$。在线性的传输线中,λ/4长度会产生一个电压和电流逆变换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Signal Condition Circuit&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;处理传感器输出信号，&lt;strong&gt;改善信号质量&lt;/strong&gt;的电路&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;IMD3&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Integral MoDel Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FETX Pulse&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Negative Far End CrossTalk Pulse，测试数字通信系统的测试信号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;TCC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Thermal Cutoff Current, 不同温度条件下的最大电流&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;VCC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Voltage at Common Collector, 电源电压&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;VEE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;负电源电压&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Relative Impedance Bandwidth&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;工作频率范围&lt;/strong&gt;相对于中心频率的百分比&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SEL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Single Element Lock, 通过一个latch实现锁存功能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CID&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Current Identification Code, 用二进制标识不同电流&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DPD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Digital Pre-Distortion, 数字预失真&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;QAM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Quadrature Amplitude Modulation (IQ-Based Modulation), 正交调幅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;APSK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Amplitude Phase Shifting Keying&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SOI&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Silicon on Insulator, 在绝缘体上制造芯片，减小了晶体管之间的寄生效应，有PD-SOI(Partial), FD-SOI, FinFET&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CPW&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Coplanar Waveguide, 共面波导，适用于高频传输线&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;波段&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;C(4 -8GHz), Ku(12 -18GHz), Ka(26.5-40GHz),Q(33-50GHz), V(40-75GHz)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;当前目标--问题&#34;&gt;当前目标 &amp;amp; 问题&lt;/h1&gt;
+&lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;小尺寸差分电桥&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;阻抗调解（大了，小了？）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;当前行动&#34;&gt;当前行动&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;串并联结构可以降低&lt;strong&gt;插损&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>3. Coupler</title>
+        <link>https://downeyflyfan.com/p/3.-coupler/</link>
+        <pubDate>Wed, 29 Nov 2023 13:07:56 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/3.-coupler/</guid>
         <description>&lt;h1 id=&#34;coupler-and-its-quality&#34;&gt;Coupler and Its Quality&lt;/h1&gt;
 &lt;h2 id=&#34;和s参数工作频率的关系&#34;&gt;和S参数、工作频率的关系&lt;/h2&gt;
 &lt;table&gt;
@@ -67,15 +879,11 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;耦合器臂宽度&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$R = \dfrac{ \pho l }{ S }$, 与特征阻抗成反比，影响&lt;strong&gt;阻抗匹配&lt;/strong&gt;和&lt;strong&gt;正反向传输系数&lt;/strong&gt;($S_{11}, S_{22}, S_{21}, S_{12}$)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$R = \dfrac{ \pho l }{ S }$, 与特征阻抗成反比，影响&lt;strong&gt;阻抗匹配&lt;/strong&gt;和&lt;strong&gt;正反向传输系数&lt;/strong&gt;($S_{11}, S_{22}, S_{21}, S_{12}$), 因为太窄电流损失会很大&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;耦合器臂形状&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;影响电磁场分布,从而影响耦合强度和S参数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;耦合器对称性&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;非对称会引入突变,改变S参数&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;交叉臂长度&lt;/td&gt;
@@ -110,11 +918,11 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;传输$S_{21}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$-3dB$就是一半，比较好&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$3dB$以下表示效果较好&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;耦合$S_{31}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;有些半耦合的就是$-3dB$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;看设计要求&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;隔离$S_{41}$&lt;/td&gt;
@@ -175,6 +983,752 @@ $$&lt;/p&gt;
 &lt;p&gt;在射频集成电路中,可以利用RC杂散网络实现各种相位差。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>1. Transmission Line</title>
+        <link>https://downeyflyfan.com/p/1.-transmission-line/</link>
+        <pubDate>Wed, 29 Nov 2023 10:34:14 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/1.-transmission-line/</guid>
+        <description>&lt;h1 id=&#34;basic-concepts&#34;&gt;Basic Concepts&lt;/h1&gt;
+&lt;h2 id=&#34;频谱划分--无线通信系统的工作频率&#34;&gt;频谱划分 &amp;amp; 无线通信系统的工作频率&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/1.-transmission-line/1.png&#34;
+	width=&#34;1646&#34;
+	height=&#34;1496&#34;
+	srcset=&#34;https://downeyflyfan.com/p/1.-transmission-line/1_hue612c4082edaaccf57bc110c7a44ebe6_338286_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/1.-transmission-line/1_hue612c4082edaaccf57bc110c7a44ebe6_338286_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;110&#34;
+		data-flex-basis=&#34;264px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/1.-transmission-line/2.png&#34;
+	width=&#34;1604&#34;
+	height=&#34;1250&#34;
+	srcset=&#34;https://downeyflyfan.com/p/1.-transmission-line/2_hu97231fe68415dc6ac9a67e78a800de5f_277989_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/1.-transmission-line/2_hu97231fe68415dc6ac9a67e78a800de5f_277989_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;307px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;radio-frequency--microwave&#34;&gt;Radio Frequency &amp;amp; Microwave&lt;/h2&gt;
+&lt;h3 id=&#34;比较&#34;&gt;比较&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;分类&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Radio Frequency&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Microwave&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;频率&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$30MHz - 100GHz+$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$300MHz - 3000GHz$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;优点&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;速度快，频率高，带宽大，尺寸小&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;缺点&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;成本高，功率小，辐射损耗大&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;电路尺寸和波长可以想比拟时，称为射频电路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;特点&#34;&gt;特点&lt;/h2&gt;
+&lt;h3 id=&#34;distributed-parameters&#34;&gt;Distributed Parameters&lt;/h3&gt;
+&lt;h3 id=&#34;skin-effect&#34;&gt;Skin Effect&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Skin Effect&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;电流高度集中在导体表面，增加电阻&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\mu$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;磁导率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\rho$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电阻率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\sigma = \dfrac{ 1 }{ \rho }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电导率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Skin Depth&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\delta &amp;amp;= \frac{ 1 }{ \sqrt{ \pi f \mu \sigma } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Radio Frequency Resistance&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;以半径为$a$, 长为$l$的圆柱形导体为例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+R_{DC} &amp;amp;= \frac{ l }{ \pi a^2 \sigma} \\
+R_{RF} &amp;amp;= \frac{ a }{ 2 \delta } R_{DC} \\
+&amp;amp;= \frac{ \sqrt{ \pi f \mu/ \sigma} l}{ 2 \pi a}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;transmission-line-structure&#34;&gt;Transmission Line Structure&lt;/h1&gt;
+&lt;h2 id=&#34;basic-concepts-1&#34;&gt;Basic Concepts&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Wavelength&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\lambda = \dfrac{ c }{ \sqrt{ \varepsilon_r} f_0 }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Electric Length&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$G= \dfrac{ l}{ \lambda } = \dfrac{ lf }{ v_p }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Phase Velocity&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$v_p = f \lambda = \dfrac{ \omega }{ \beta } = \dfrac{ c }{ \sqrt{\varepsilon_r \mu_r }}, f = \sqrt{ \varepsilon_r} f_0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Phase Shift&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\phi = 2 \pi \dfrac{ l }{ \lambda }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Normalized Frequency&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$f_N =$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;常见频率波长转换&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$2.4GHz \longleftrightarrow \lambda= 12.5cm \ 5GHz \longleftrightarrow  \lambda = 6cm \ 10GHz \longleftrightarrow  \lambda = 3cm$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;构成与分类&#34;&gt;构成与分类&lt;/h2&gt;
+&lt;h3 id=&#34;电性能分类&#34;&gt;电性能分类&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;TEM(横电磁波)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电/磁场都与传播方向垂直&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;TE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;电场与传播方向垂直&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;TM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;磁场与传播方向垂直&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;带状线微带线&#34;&gt;带状线/微带线&lt;/h3&gt;
+&lt;h1 id=&#34;transmission-line-function&#34;&gt;Transmission Line Function&lt;/h1&gt;
+&lt;h2 id=&#34;telegraphers-equation&#34;&gt;Telegrapher&amp;rsquo;s Equation&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\frac{ \partial V(x,t) }{ \partial x } = - (R + j \omega L) I(x) \\
+\frac{ \partial  I(x,t) }{ \partial x } = - (G + j \omega C) V(x)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;wave-equation-for-a-homogeneous-transmission-line&#34;&gt;Wave Equation for a homogeneous Transmission Line&lt;/h2&gt;
+&lt;h3 id=&#34;wave-equation&#34;&gt;Wave Equation&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+0 &amp;amp;= \frac{ \partial^2 V }{ \partial x^2 } - \gamma^2 V \\
+0 &amp;amp;= \frac{ \partial^2 I }{ \partial x^2 } - \gamma^2 I
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;transmission-constant&#34;&gt;Transmission Constant&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当$L,C, \omega \neq 0$时&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\gamma &amp;amp;= \sqrt{ (R + j \omega L)(G + j \omega C) } = \alpha + j \beta \\
+\mathbb { Re } ( \gamma) &amp;amp;= \alpha = (a^2 + b^2)^{1/4} cos( \phi)  \\
+\mathbb { Im }( \gamma) &amp;amp;= \beta = (a^2 + b^2)^{1/4}sin( \phi) \\
+a &amp;amp;= RG - \omega^2 LC = \omega^2 LC \Big[ ( \frac{ R }{ \omega L}) ( \frac{ G }{ \omega C }) - 1) \Big] \\
+b &amp;amp;= \omega C R + \omega L G = \omega^2 LC ( \frac{ R }{ \omega L } + \frac{ G }{ \omega C }) \\
+\phi &amp;amp;= tan^{-1}( \frac{ b }{ a })
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;solution-in-general-case&#34;&gt;Solution in General Case&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;In &lt;strong&gt;General&lt;/strong&gt; Case&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V(x) &amp;amp;= A_1 e^{- \gamma x} + A_2 e^{ \gamma x} \\
+I(x) &amp;amp;= \frac{ 1 }{ Z_0 }(A_1 e^{- \gamma x} - A_2 e^{ \gamma x}) \\
+Z_0 &amp;amp;= \sqrt{ \dfrac{ R + j \omega L }{ G + j \omega C } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;in &lt;strong&gt;Idealized&lt;/strong&gt; Case&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$R, G = 0$, 通常都认为是&lt;strong&gt;无损耗线&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V(x) &amp;amp;= A_1 e^{- j \beta x}  +A_2 e^{j \beta x} \\
+I(x) &amp;amp;= \frac{ 1 }{ Z_0 } (A_1 e^{- j \beta x} - A_2 e^{j \beta x}) \\
+Z_0 &amp;amp;= \sqrt{ \dfrac{ L }{ C } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;incident--reflected-traveling-wave&#34;&gt;Incident &amp;amp; Reflected Traveling Wave&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+v(x,t) &amp;amp;= \mathbb{ Re } \Big\lbrace v(x) e^{j \omega t} \Big\rbrace \\
+&amp;amp;= \mathbb { Re } \Big\lbrace  A_1 e^{j( \omega t - \beta x) } + A_2 e^{j ( \omega t + \beta x)} \Big\rbrace  \\
+&amp;amp;= A_1 cos( \omega t - \beta x) + A_2 cos ( \omega t + \beta x) \\
+&amp;amp;= A_1 cos[ \beta( \frac{ \omega }{ \beta }t - x )] + A_2 cos[ \beta( \frac{ \omega }{ \beta }t + x )] \\
+&amp;amp;= A_1 cos[ \beta(x -v_p t)]+ A_2 cos [ \beta(x + v_p t)] \\
+I(x,t) &amp;amp;= \frac{ 1 }{ Z_0 } \Big\lbrace A_1 cos[ \beta(x -v_p t)] - A_2 cos [ \beta(x + v_p t)] \Big\rbrace
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$v(x,t)$和$i(x,t)$都是&lt;strong&gt;入射行波&lt;/strong&gt;和&lt;strong&gt;反射行波&lt;/strong&gt;的线性叠加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;boundary-conditions-of-transmission-lines&#34;&gt;Boundary Conditions of Transmission Lines&lt;/h2&gt;
+&lt;h3 id=&#34;known-end-ports-最常见&#34;&gt;Known End Ports (最常见)&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Variable&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$V(l)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$V_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I(l)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$l$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Transmission Line 总长度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$x&#39;$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$l-x$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;将$V_2, I_2$代入&lt;strong&gt;方程7&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+A_1 &amp;amp;= \frac{ V_2 + I_2 Z_0 }{ 2 } e^{j \beta l} \\
+A_2 &amp;amp;= \frac{ V_2 - I_2 Z_0 }{ 2 } e^{-j \beta l}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V(x&amp;rsquo;) &amp;amp;=  \frac{ V_2 + I_2 Z_0 }{ 2 } e^{ j \beta x&amp;rsquo;} + \frac{ V_2 - I_2 Z_0 }{ 2 } e^{ - j \beta x&amp;rsquo;} \\
+&amp;amp;= V_2 cos ( \beta x&amp;rsquo;) + j I_2 Z_0 sin( \beta x&amp;rsquo;) \\
+&amp;amp;= V^+(x&amp;rsquo;) + V^-(x&amp;rsquo;) \\
+&amp;amp;= V_2 ^+ e^{ j \beta x&amp;rsquo;} ( 1 + \Gamma_L e^{- j 2 \beta x&amp;rsquo;})
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I(x&amp;rsquo;) &amp;amp;=  \frac{ V_2 + I_2 Z_0 }{ 2Z_0 } e^{j \beta x&amp;rsquo;} - \frac{ V_2 - I_2 Z_0 }{ 2Z_0 } e^{ - j \beta x&amp;rsquo;} \\
+&amp;amp;= I_2 cos ( \beta x&amp;rsquo;) - j \frac{ V_2 }{ Z_0 } sin( \beta x&amp;rsquo;) \\
+&amp;amp;= I^+(x&amp;rsquo;) - I^-(x&amp;rsquo;) \\
+&amp;amp;= I_2 ^+ e^{j \beta x&amp;rsquo;} ( 1 - \Gamma_L e^{-j 2 \beta x&amp;rsquo;})
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;known-initial-ports&#34;&gt;Known Initial Ports&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+A_1 &amp;amp;= \frac{ V_1 + I_1 Z_0 }{ 2 } \\
+A_2 &amp;amp;= \frac{ V_1 - I_1 Z_0 }{ 2 } \\
+V(x) &amp;amp;= V_1 cos( \beta x) + j I_1 Z_0 sin ( \beta x) \\
+I(x) &amp;amp;= I_1 cos( \beta x) - j \frac{ V_1 }{ Z_0 } sin ( \beta z)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;basic-parameters-of-transmission-line-&#34;&gt;Basic Parameters of Transmission Line !!!&lt;/h1&gt;
+&lt;h2 id=&#34;characteristic-impedance&#34;&gt;Characteristic Impedance&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;入射电压/入射电流&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_0 &amp;amp;= \sqrt{ \dfrac{ R + j \omega L }{ G + j \omega C } } \\
+&amp;amp;\approx \sqrt{ \dfrac{ L }{ C } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;reflect-coefficient&#34;&gt;Reflect Coefficient&lt;/h2&gt;
+&lt;h3 id=&#34;定义-1&#34;&gt;定义&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;反射电压/入射电压&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma(x&amp;rsquo;) &amp;amp;= \frac{ V^-(x&amp;rsquo;) }{ V^+(x&amp;rsquo;) } = - \frac{ I^-(x&amp;rsquo;) }{ I^+(x&amp;rsquo;) } \\
+&amp;amp;= \Gamma_L e^{-j 2 \beta x&amp;rsquo;} \\
+&amp;amp;= | \Gamma_L | e^{ j (\phi_L - 2 \beta x&amp;rsquo;)}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma_L &amp;amp;= \frac{ V_2^- }{ V_2^+ } \\
+&amp;amp;= \frac{ V_2 - I_2 Z_0 }{ V_2 + I_2 Z_0 } \\
+&amp;amp;= \frac{ Z_L - Z_0 }{ Z_L + Z_0 } \\
+&amp;amp;= | \Gamma_L | e^{j \phi L}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;结论&#34;&gt;结论&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;无损耗均匀传输线上任一点反射波与入射波振幅之比为常数&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\Gamma(x&amp;rsquo;)$的周期为$\dfrac{ \lambda }{ 2 }$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;vswr-voltage-standing-wave-ratio&#34;&gt;VSWR (Voltage Standing Wave Ratio)&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+VSWR &amp;amp;= \rho = \frac{ |V_{max}| }{|V_{min}|} \\
+&amp;amp;= \frac{ 1 + | \Gamma_L | }{ 1 - | \Gamma_L | } \\
+K &amp;amp;= \frac{ 1 }{ \rho } = \frac{ |V_{min} |}{|V_{max}|} \\
+&amp;amp;= \frac{ 1 - | \Gamma_L | }{ 1 + | \Gamma_L | }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$|\Gamma_L| = 0$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;行波状态，$Z_L = Z_0 = Z_{in}$, 阻抗匹配, $\rho = 1, K = 1$, 各个点的电压/电流同幅同相&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$|\Gamma_L| = 1$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;驻波状态, $\rho = \infin, K = 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$0 &amp;lt;|\Gamma_L| &amp;lt; 1$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;行驻波状态, $1 &amp;lt; \rho &amp;lt; \infin ,1 &amp;lt; K &amp;lt; \infin$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;input-impedance&#34;&gt;Input Impedance&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;任意一点的电压$V(x)$与电流$I(x)$值之比&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in}(x&amp;rsquo;) &amp;amp;= \frac{ V(x&amp;rsquo;) }{ I(x&amp;rsquo;) } \\
+&amp;amp;= Z_0 \dfrac{ Z_L + j Z_0 tan (\beta x&amp;rsquo;) }{  Z_0 + j Z_L tan( \beta x&amp;rsquo;)} \\
+&amp;amp;= Z_0 \frac{ 1 + \Gamma(x&amp;rsquo;) }{ 1 - \Gamma(x&amp;rsquo;) }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_L &amp;amp;= Z_0 \frac{ 1 + \Gamma_L }{1 0 \Gamma_L }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当$Z_L = Z_0$时, $Z_{in} = Z_0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;transmission-power&#34;&gt;Transmission Power&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P(x&amp;rsquo;) &amp;amp;= \frac{ 1 }{ 2 } Re \Big\lbrace V(x) I^*(x) \Big\rbrace \\
+&amp;amp;= \frac{ |V^+(x&amp;rsquo;)|^2 }{2 Z_0} 2 Z_0 \Big[ 1 - | \Gamma(x&amp;rsquo;)|^2 \Big] \\
+&amp;amp;= \frac{ | V^+(x&amp;rsquo;) |^2 }{ 2 Z_0 } - \frac{ |V^-(x&amp;rsquo;)|^2 }{ 2 Z_0} \\
+&amp;amp;= P^+(x&amp;rsquo;) - P^-(x&amp;rsquo;)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;传输功率 = &lt;strong&gt;入射功率&lt;/strong&gt; - &lt;strong&gt;反射功率&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;signal-power--on-load-transmission-line&#34;&gt;Signal Power &amp;amp; On-Load Transmission Line&lt;/h1&gt;
+&lt;h2 id=&#34;transmission-line-with-load-and-signal-source&#34;&gt;Transmission Line With Load and Signal Source&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/13.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;4-reflected-coefficient&#34;&gt;4 Reflected Coefficient&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma_{in} &amp;amp;= \frac{ Z_{in} - Z_0 }{ Z_{in} + Z_0} = \Gamma_L e^{-j 2 \beta l} \\
+\Gamma_{S} &amp;amp;= \frac{ Z_S - Z_0 }{ Z_S + Z_0 } \\
+\Gamma_{out} &amp;amp;=  \Gamma_S e^{-j 2 \beta l}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;transmission-coefficient&#34;&gt;Transmission Coefficient&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+T_{in} &amp;amp;= 1 + \Gamma_{in} = \frac{ 2 Z_{in} }{ Z_{in} + Z_0 } \\
+T_L &amp;amp;= 1 + \Gamma_L = \frac{ 2 Z_L }{ Z_L + Z_0 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;power-of-transmission-line&#34;&gt;Power of Transmission Line&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{in} &amp;amp;= V_{in}^+ + V_{in}^- \\
+&amp;amp;= V_{in}^+ ( 1 + \Gamma_{in}) \\
+&amp;amp;= V_S \frac{ Z_S }{ Z_{in} + Z_S } \\
+V_{in}^+ &amp;amp;= \frac{ V_S }{ 2 } \frac{ 1 - \Gamma_S }{ 1 - \Gamma_S \Gamma_{in} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{in} &amp;amp;= \frac{ |V_{in}|^2 }{ 2 Z_0 } \Big[ 1 - | \Gamma_{in} |^2 \Big] \\
+&amp;amp;= \frac{ |V_S|^2 }{ 8 Z_0 } \frac{ | 1 - \Gamma_S|^2 }{ |1 - \Gamma_S \Gamma_{in} |^2} ( 1 - | \Gamma_{in}|^2 )
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;conjuction-match--losses&#34;&gt;Conjuction Match &amp;amp; Losses&lt;/h2&gt;
+&lt;h3 id=&#34;conjuction-match-of-signal-source&#34;&gt;Conjuction Match of Signal Source&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/15.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+P_{in} &amp;amp;= \frac{ 1 }{ 2 } R_{in} I \cdot I^* \\
+&amp;amp;= \frac{ 1 }{ 2 } R_{in} \frac{ V_S^2 }{ (R_S + R_{in})^2 + (X_{in} + X_S)^2 } \\
+When \ X_{in} &amp;amp;= - X_S \\
+P_{in \ max}  &amp;amp;= \frac{ R_{in} V_S^2 }{ 2 (R_S + R_{in})^2 }  \\
+\frac{ \partial P_{in} }{ \partial R_{in} } &amp;amp;= \frac{ V_S^2 }{ 2 } \frac{ R_S - R_{in} }{ (R_S + R_{in})^3 } \\
+hen \ R_S &amp;amp;= R_{in} \\
+P_{in} &amp;amp;= \frac{ V_S^2 }{ 8 R_S }
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所以信号换功率输出最大的条件为$Z_{in} = Z_S^*$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;return-loss--insertion-loss&#34;&gt;Return Loss &amp;amp; Insertion Loss&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+RL &amp;amp;= - 10 lg \Big( \frac{P_{in}^- }{ P_{in}^+ } \Big) \\
+&amp;amp;= -10 lg | \Gamma_{in} |^2 \\
+&amp;amp;= -20 lg | \Gamma_{in} | dB
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+IL &amp;amp;= -10 lg \Big( \frac{ P_{in}^+ - P_{in}^- }{ P_{in}^+ } \Big) \\
+&amp;amp;= -10 lg ( 1 - |\Gamma_{in}|^2 ) dB
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;microstrip&#34;&gt;Microstrip&lt;/h1&gt;
+&lt;h2 id=&#34;分类&#34;&gt;分类&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(a)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;全部填充空气&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(b)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;介质r&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(c)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;真实物理结构&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(d)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;等效介质re&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;介质公式&#34;&gt;介质公式&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\varepsilon_{re} &amp;amp;= \begin{cases}
+\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r - 1 }{ 2 } \Big[ (2 + \dfrac{ 12 }{ W })^{-1/2} + 0.041 (1 - \dfrac{ W }{ h })^2 \Big] &amp;amp; W \le h \\
+\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r -1 }{ 2 } ( 1 + 12 \dfrac{ h }{ W })^{-1/2} &amp;amp; W \ge h
+\end{cases} \\
+Z_0 &amp;amp;=  \begin{cases}
+\dfrac{ 60 }{ \sqrt{ \varepsilon_{re} } } ln \Big( \dfrac{ 8h }{ W } + \dfrac{ W }{ 4h } \Big) &amp;amp; W \le h \\
+\dfrac{ 120 \pi }{ \sqrt{ \varepsilon_{re} } \Big[ \dfrac{ W }{ h } + 1.393 + 0.667 ln \Big( \dfrac{ W }{ h } + 1.444 \Big) \Big]} &amp;amp; W \ge h
+\end{cases} \\
+\frac{ W}{ h } &amp;amp;= \begin{cases}
+\dfrac{ 8 e^{A} }{ e^{2A} - 2} &amp;amp; \dfrac{ W }{  h} \le 2 \\
+\dfrac{ 2 }{ \pi } \Big\lbrace B - 1 -ln (2B -1) + \dfrac{ \varepsilon_r -1 }{ 2 \varepsilon_r } \Big[ ln(B - 1) + 0.39 - \dfrac{ 0.61 }{ \varepsilon_r } \Big]\Big\rbrace &amp;amp; \dfrac{ W }{ h } \ge 2
+\end{cases} \\
+A &amp;amp;= \frac{ Z_0 }{ 60 } \sqrt{ \frac{ \varepsilon_r + 1 }{ 2 } } + \frac{ \varepsilon_r - 1 }{ \varepsilon_r + 1 } \Big( 0.23 + \frac{ 0.11 }{ \varepsilon_r } \Big) \\
+B &amp;amp;= \frac{ 377 \pi }{ 2 Z_0 \sqrt{ \varepsilon_r } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;h2 id=&#34;部分微分方程解法&#34;&gt;部分微分方程解法&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/1.-transmission-line/3.png&#34;
+	width=&#34;1398&#34;
+	height=&#34;1154&#34;
+	srcset=&#34;https://downeyflyfan.com/p/1.-transmission-line/3_hu3bb24ce82c26cbb35ff64d54e716f964_453676_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/1.-transmission-line/3_hu3bb24ce82c26cbb35ff64d54e716f964_453676_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;121&#34;
+		data-flex-basis=&#34;290px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;triogonometric-function-formulas&#34;&gt;Triogonometric Function Formulas&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+tanh(x) &amp;amp;= \frac{ e^x - e^{-x} }{  e^x + e^{-x}} \\
+atans2(x) &amp;amp;= \begin{cases}
+tan^{-1}( \dfrac{ y }{ x }) &amp;amp; x &amp;gt; 0 \\
+tan^{-1}( \dfrac{ y }{ x }) + \pi &amp;amp; x &amp;lt; 0, y \ge 0 \\
+tan^{-1}( \dfrac{ y }{ x }) - \pi &amp;amp; x &amp;lt; 0, y &amp;lt; 0 \\
+Error &amp;amp; x = 0, y =0
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;voltage-wave--standing-wave-states&#34;&gt;Voltage Wave &amp;amp; Standing Wave States&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;驻波由反射波产生，不传递能量&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;行波可以传递能量&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;本篇博客的一些符号定义&#34;&gt;本篇博客的一些符号定义&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;$1,2$表示始端，$+,-$表示&lt;strong&gt;入射&lt;/strong&gt;和&lt;strong&gt;反射&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>9-10. Laplace &amp; Z Transform</title>
+        <link>https://downeyflyfan.com/p/9-10.-laplace-z-transform/</link>
+        <pubDate>Mon, 27 Nov 2023 10:22:11 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/9-10.-laplace-z-transform/</guid>
+        <description>&lt;h1 id=&#34;laplace-transform&#34;&gt;Laplace Transform&lt;/h1&gt;
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+X(s) &amp;amp;= \int_{ - \infin  }^{ \infin  } x(t) e^{- s t} dt \\
+s &amp;amp;=  \alpha + j \omega
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;relations-with-fourier-transform&#34;&gt;Relations with Fourier Transform&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;当$\alpha = 0$时, $X(s)$就是$x(t)$的傅立叶变换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+X(j \omega) &amp;amp;= \int_{ - \infin  }^{ \infin  } x(t) e^{-j \omega t} dt
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;当$\alpha \neq 0$时, $X(s)$是$x(t)$乘以实信号$e^{ \alpha t}$之后的傅立叶变换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+X(s) &amp;amp;= \int_{ - \infin  }^{ \infin  } [x(t) e^{- \alpha t}] e^{-j \omega t}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;roc-region-of-convergence&#34;&gt;ROC (Region of Convergence)&lt;/h2&gt;
+&lt;h3 id=&#34;rational-laplace-transform&#34;&gt;Rational Laplace Transform&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ROC是由使得$X(s)$收敛的$s$组成的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;只要$x(t)$是复指数信号的线性组合，$X(s)$就是有理的, $N(s)$和$D(s)$也可以用它们的根来表示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+X(s) &amp;amp;= \frac{ N(s) }{ D(s) }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/9-10.-laplace-z-transform/1.png&#34;
+	width=&#34;2178&#34;
+	height=&#34;814&#34;
+	srcset=&#34;https://downeyflyfan.com/p/9-10.-laplace-z-transform/1_hu300c2b460db10699f14ffb74ece32564_1030823_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/9-10.-laplace-z-transform/1_hu300c2b460db10699f14ffb74ece32564_1030823_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;267&#34;
+		data-flex-basis=&#34;642px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;properties&#34;&gt;Properties&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;$X(s)$收敛的条件是&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+|\int_{ - \infin  }^{ \infin  } x(t) e^{- \alpha t} dt| &amp;lt; \infin
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ROC由&lt;/strong&gt;$\alpha$&lt;strong&gt;而不是&lt;/strong&gt;$\omega$&lt;strong&gt;决定&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;有理&lt;/strong&gt;拉普拉斯变换的&lt;strong&gt;收敛域没有极点&lt;/strong&gt;， 边界由&lt;strong&gt;极点&lt;/strong&gt;定义(没有极点就没有边界)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>A2 Filter</title>
+        <link>https://downeyflyfan.com/p/a2-filter/</link>
+        <pubDate>Sat, 25 Nov 2023 14:25:03 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/a2-filter/</guid>
+        <description>&lt;h1 id=&#34;1st-order-filters&#34;&gt;1st-Order Filters&lt;/h1&gt;
+&lt;h2 id=&#34;rccr-lpfhpf&#34;&gt;RC/CR (LPF/HPF)&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\omega_c &amp;amp;= \frac{ 1 }{ RC }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;2nd-order-lpf&#34;&gt;2nd-Order LPF&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-filter/1.png&#34;
+	width=&#34;1220&#34;
+	height=&#34;564&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a2-filter/1_hua2ee3c3729848dcbfc8019735efcebf5_119377_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-filter/1_hua2ee3c3729848dcbfc8019735efcebf5_119377_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;519px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
 </description>
         </item>
         <item>
@@ -452,17 +2006,17 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>A3 Layout</title>
-        <link>https://downeyflyfan.com/p/a3-layout/</link>
+        <title>A1 Layout</title>
+        <link>https://downeyflyfan.com/p/a1-layout/</link>
         <pubDate>Wed, 08 Nov 2023 09:30:33 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/a3-layout/</guid>
+        <guid>https://downeyflyfan.com/p/a1-layout/</guid>
         <description>&lt;h1 id=&#34;layers-in-tsmc65nm&#34;&gt;Layers in TSMC65nm&lt;/h1&gt;
 &lt;h2 id=&#34;metal-structure&#34;&gt;Metal Structure&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-layout/7.png&#34;
 	width=&#34;1278&#34;
 	height=&#34;1648&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a3-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-layout/7_hu6e4ec724d159cd43494a600f3a2d7dc5_259487_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -535,10 +2089,10 @@ $$&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;版图图层和物理图层的关系&#34;&gt;版图图层和物理图层的关系&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-layout/6.png&#34;
 	width=&#34;1588&#34;
 	height=&#34;596&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a3-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-layout/6_hu5dbf0e6f65ebb26e3a08bf4d7a1a5578_514658_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -647,10 +2201,10 @@ C &amp;amp;= \varepsilon_0 \varepsilon_r \frac{ A }{ d }
 $$&lt;/p&gt;
 &lt;h3 id=&#34;category&#34;&gt;Category&lt;/h3&gt;
 &lt;h4 id=&#34;mim-metal-insulator-metal&#34;&gt;MiM (Metal-Insulator-Metal)&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-layout/1.png&#34;
 	width=&#34;1328&#34;
 	height=&#34;876&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a3-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-layout/1_huaae5712be9647a0417c2de3f99225f5f_1180078_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -663,10 +2217,10 @@ $$&lt;/p&gt;
 &lt;li&gt;加上&lt;strong&gt;Contact&lt;/strong&gt;, 目的是减小$d$, 增加电容大小&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;mom-metal-oxide-metal&#34;&gt;MoM (Metal-Oxide-Metal)&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-layout/2.png&#34;
 	width=&#34;1708&#34;
 	height=&#34;1382&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a3-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-layout/2_hu3ce5d9447cc319f180d76600188f1e49_1152124_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -687,10 +2241,10 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;pip-poly-insulator-poly&#34;&gt;PiP (Poly-Insulator-Poly)&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-layout/3.png&#34;
 	width=&#34;1556&#34;
 	height=&#34;1332&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a3-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-layout/3_hu0620dd7568e7391654a01f54e3096faa_1378296_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -700,10 +2254,10 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h4 id=&#34;mos-mosfet-capacitor&#34;&gt;MOS (MOSFET Capacitor)&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-layout/4.png&#34;
 	width=&#34;2178&#34;
 	height=&#34;1150&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a3-layout/4_huf762809b9932922faa71ba7c70325c30_767557_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/4_huf762809b9932922faa71ba7c70325c30_767557_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-layout/4_huf762809b9932922faa71ba7c70325c30_767557_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-layout/4_huf762809b9932922faa71ba7c70325c30_767557_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -715,10 +2269,10 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$C_{ox} - V_{dc}$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-layout/5.png&#34;
 	width=&#34;1166&#34;
 	height=&#34;988&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a3-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-layout/5_hue7f97b50c8045e4786931b85cf5e11ea_441674_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -732,10 +2286,10 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;on-chip-inductor&#34;&gt;On-Chip Inductor&lt;/h2&gt;
 &lt;h3 id=&#34;basic-inductor&#34;&gt;Basic Inductor&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-layout/8.png&#34;
 	width=&#34;1384&#34;
 	height=&#34;1034&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a3-layout/8_hua03031feee965c87c5a5660702218218_650313_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/8_hua03031feee965c87c5a5660702218218_650313_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-layout/8_hua03031feee965c87c5a5660702218218_650313_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-layout/8_hua03031feee965c87c5a5660702218218_650313_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -753,10 +2307,10 @@ L &amp;amp;= \mu_0 \frac{ N^2 A }{ l } \\
 \end{gather}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;on-chip-inductor-1&#34;&gt;On-Chip Inductor&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a3-layout/9.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-layout/9.png&#34;
 	width=&#34;1196&#34;
 	height=&#34;1278&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a3-layout/9_hu554510b1c5a47772abeeb40b381f01ee_445495_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a3-layout/9_hu554510b1c5a47772abeeb40b381f01ee_445495_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-layout/9_hu554510b1c5a47772abeeb40b381f01ee_445495_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-layout/9_hu554510b1c5a47772abeeb40b381f01ee_445495_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -769,1361 +2323,6 @@ $$&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Ideal Inductor&lt;/strong&gt; is &lt;strong&gt;Circular&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;characteristic&#34;&gt;Characteristic&lt;/h3&gt;
-</description>
-        </item>
-        <item>
-        <title>A1 Coupler</title>
-        <link>https://downeyflyfan.com/p/a1-coupler/</link>
-        <pubDate>Thu, 26 Oct 2023 19:35:25 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/a1-coupler/</guid>
-        <description>&lt;h1 id=&#34;transmission-line&#34;&gt;Transmission Line&lt;/h1&gt;
-&lt;h2 id=&#34;distributed-parameters--microstrip-lines&#34;&gt;Distributed Parameters &amp;amp; MicroStrip Lines&lt;/h2&gt;
-&lt;h3 id=&#34;basic-cnocepts&#34;&gt;Basic Cnocepts&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Electric Length&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$G= \dfrac{ l}{ \lambda } = \dfrac{ lf }{ v_p }$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Phase Velocity&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$v_p = f \lambda = \dfrac{ \omega }{ \beta } = \dfrac{ c }{ \sqrt{\varepsilon_r \mu_r }}, f = \sqrt{ \varepsilon_r f_0}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Phase Shift&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\phi = 2 \pi \dfrac{ l }{ \lambda }$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Normalized Frequency&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$f_N = \dfrac{ \theta }{ \lambda } = \dfrac{ 2 \pi }{ \lambda^2 } l \propto l$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;常见频率波长转换&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$2.4GHz \longleftrightarrow \lambda= 12.5cm \ 5GHz \longleftrightarrow  \lambda = 6cm \ 10GHz \longleftrightarrow  \lambda = 3cm$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;distributed-parameters&#34;&gt;Distributed Parameters&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/12.png&#34;
-	width=&#34;1588&#34;
-	height=&#34;650&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/12_hue20630f99e53a3d6839ba01fdfcf2fd1_409091_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/12_hue20630f99e53a3d6839ba01fdfcf2fd1_409091_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;244&#34;
-		data-flex-basis=&#34;586px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;microstrip-line&#34;&gt;MicroStrip Line&lt;/h3&gt;
-&lt;h4 id=&#34;effective-dielectric-constant--characteristic-impedance&#34;&gt;Effective Dielectric Constant &amp;amp; Characteristic Impedance&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/15.png&#34;
-	width=&#34;1528&#34;
-	height=&#34;684&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/15_hu3330977cecae1271f1201095cffac587_234153_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/15_hu3330977cecae1271f1201095cffac587_234153_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;223&#34;
-		data-flex-basis=&#34;536px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(a)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;全部填充空气&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(b)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;介质r&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(c)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;真实物理结构&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(d)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;等效介质re&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\varepsilon_{re} &amp;amp;= \begin{cases}
-\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r - 1 }{ 2 } \Big[ (2 + \dfrac{ 12 }{ W })^{-1/2} + 0.041 (1 - \dfrac{ W }{ h })^2 \Big] &amp;amp; W \le h \\
-\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r -1 }{ 2 } ( 1 + 12 \dfrac{ h }{ W })^{-1/2} &amp;amp; W \ge h
-\end{cases} \\
-Z_0 &amp;amp;=  \begin{cases}
-\dfrac{ 60 }{ \sqrt{ \varepsilon_{re} } } ln \Big( \dfrac{ 8h }{ W } + \dfrac{ W }{ 4h } \Big) &amp;amp; W \le h \\
-\dfrac{ 120 \pi }{ \sqrt{ \varepsilon_{re} } \Big[ \dfrac{ W }{ h } + 1.393 + 0.667 ln \Big( \dfrac{ W }{ h } + 1.444 \Big) \Big]} &amp;amp; W \ge h
-\end{cases} \\
-\frac{ W}{ h } &amp;amp;= \begin{cases}
-\dfrac{ 8 e^{A} }{ e^{2A} - 2} &amp;amp; \dfrac{ W }{  h} \le 2 \\
-\dfrac{ 2 }{ \pi } \Big\lbrace B - 1 -ln (2B -1) + \dfrac{ \varepsilon_r -1 }{ 2 \varepsilon_r } \Big[ ln(B - 1) + 0.39 - \dfrac{ 0.61 }{ \varepsilon_r } \Big]\Big\rbrace &amp;amp; \dfrac{ W }{ h } \ge 2
-\end{cases} \\
-A &amp;amp;= \frac{ Z_0 }{ 60 } \sqrt{ \frac{ \varepsilon_r + 1 }{ 2 } } + \frac{ \varepsilon_r - 1 }{ \varepsilon_r + 1 } \Big( 0.23 + \frac{ 0.11 }{ \varepsilon_r } \Big) \\
-B &amp;amp;= \frac{ 377 \pi }{ 2 Z_0 \sqrt{ \varepsilon_r } }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;phase-velocity--wave-length&#34;&gt;Phase Velocity &amp;amp; Wave Length&lt;/h4&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-v_p &amp;amp;= \frac{ c }{ \sqrt{ \varepsilon_{re} } } \\
-\lambda_p &amp;amp;= \frac{ \lambda }{ \sqrt{ \varepsilon_{re} } }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;impedance--reflected-coefficient&#34;&gt;Impedance &amp;amp; Reflected Coefficient&lt;/h2&gt;
-&lt;h3 id=&#34;characteristic-impedance&#34;&gt;Characteristic Impedance&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Z_0 &amp;amp;= \frac{ V^+ (x) }{ I^+ (x) } \\
-&amp;amp;= \sqrt{ \frac{ R + j \omega L }{ G + j \omega C } } \\
-&amp;amp;= \frac{ |V_{max}| }{ |I_{max}| }  \\
-&amp;amp;= \frac{ |V_{min}| }{ |I_{min}| }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;reflected-coefficient&#34;&gt;Reflected Coefficient&lt;/h3&gt;
-&lt;h4 id=&#34;reflected-coefficient-formula&#34;&gt;Reflected Coefficient Formula&lt;/h4&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\Gamma (x&amp;rsquo;) &amp;amp;= \frac{ V^-(x&amp;rsquo;) }{ V^+ (x&amp;rsquo;) } = - \frac{ I^- (x&amp;rsquo;) }{ I^+ (x&amp;rsquo;) } \\
-&amp;amp;= \frac{ V_2 ^- e^{ -j \beta x&amp;rsquo;} }{  V_2 ^+ e^{ j \beta x&amp;rsquo;}} \\
-&amp;amp;= \Gamma_L e^{-j 2 \beta x&amp;rsquo;} \\
-&amp;amp;= |\Gamma_L| e^{j ( \phi_L - 2 \beta x&amp;rsquo;)}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;上式说明，任意一点的反射波的&lt;strong&gt;模值相等&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$T = \dfrac{ 2 \pi }{ 2 \beta } = \dfrac{ \lambda }{ 2 }$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;reflected-coefficient-at-terminal-load&#34;&gt;Reflected Coefficient at Terminal (Load)&lt;/h4&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\Gamma_L &amp;amp;=  \frac{ V_2^- }{ V_2^+ } \\
-&amp;amp;= \frac{ V_2 - I_2 Z_0 }{ V_2 + I_2 Z_0 } \\
-&amp;amp;= \frac{ Z_L - Z_0}{ Z_L + Z_0 } \\
-&amp;amp;= | \Gamma_L | e^{j \phi_L}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Total Reflected&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Z_L = Z_0$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Partially Reflected&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Z_L \neq Z_0, 0$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Impedance Match&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Z_L = 0$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h4 id=&#34;vswr-voltage-standing-wave-ratio--traveling-wave-coefficient&#34;&gt;VSWR (Voltage Standing Wave Ratio) &amp;amp; Traveling Wave Coefficient&lt;/h4&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-VSWR &amp;amp;= \rho = \frac{ |V_{max} }{ |V_{min}| } \\
-&amp;amp;= \frac{ 1 + | \Gamma_L| }{ 1 - | \Gamma_l| } \\
-K &amp;amp;= \frac{ 1 }{ \rho} = \frac{ |V_{min}| }{ |V_{max}|} \\
-&amp;amp;= \frac{ 1 -| \Gamma_L| }{ 1 + | \Gamma_l | }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;input-impedance&#34;&gt;Input Impedance&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Z_{in}(x&amp;rsquo;) &amp;amp;= \frac{ V(x&amp;rsquo;) }{ I(x&amp;rsquo;) }  \\
-&amp;amp;= Z_0 \frac{ 1 + \Gamma (x&amp;rsquo;) e^{-j 2 \beta x&amp;rsquo;}}{1 - \Gamma (x&amp;rsquo;) e^{-j 2 \beta x&amp;rsquo;}} \\
-&amp;amp;= Z_0 \frac{ Z_L + j Z_0 tan( \beta x&amp;rsquo;) }{ Z_0 + j Z_L tan( \beta x&amp;rsquo;) }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Z_{in}(0) &amp;amp;= Z_0 \frac{ 1 + \Gamma_L }{ 1 - \Gamma_l } = Z_L \\
-Z_{in}(l) &amp;amp;= Z_0
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;impedance-match&#34;&gt;Impedance Match&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;$\dfrac{  \lambda}{ 4 }$ Transmission Line&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/24.png&#34;
-	width=&#34;1262&#34;
-	height=&#34;620&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/24_hue610f8ce0f6b3830df7e85f405b050a1_88881_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/24_hue610f8ce0f6b3830df7e85f405b050a1_88881_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;203&#34;
-		data-flex-basis=&#34;488px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;这里做一个等效替换&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;为了实现阻抗匹配， 令$Z_{in} = Z_0$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\beta l &amp;amp;= \frac{ 2 \pi }{  \lambda} \cdot \frac{ \lambda }{ 4 } = \frac{ \pi }{ 2 }\\
-Z_{in} &amp;amp;= \frac{ Z_1^2 }{ Z_L } \\
-Z_1 &amp;amp;= \sqrt{ Z_0 Z_L }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;telegraphers-equation&#34;&gt;Telegrapher&amp;rsquo;s equation&lt;/h2&gt;
-&lt;h3 id=&#34;telegraphers-equation-1&#34;&gt;Telegrapher&amp;rsquo;s Equation&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\frac{ \partial V(x,t) }{ \partial x } = - (R + j \omega L) I(x) \\
-\frac{ \partial  I(x,t) }{ \partial x } = - (G + j \omega C) V(x)
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;wave-equation-for-a-homogeneous-transmission-line&#34;&gt;Wave Equation for a homogeneous Transmission Line&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Equation&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\frac{ \partial^2 V }{ \partial x^2 } - \gamma^2 V &amp;amp;= 0 \\
-\frac{ \partial^2 I }{ \partial x^2 } - \gamma^2 I &amp;amp;= 0 \\
-\gamma &amp;amp;= \sqrt{ (R + j \omega L)(G + j \omega C) } = \alpha + j \beta \\
-\mathbb { Re } ( \gamma) &amp;amp;= \alpha = (a^2 + b^2)^{1/4} cos( \phi)  \\
-\mathbb { Im }( \gamma) &amp;amp;= \beta = (a^2 + b^2)^{1/4}sin( \phi) \\
-a &amp;amp;= RG - \omega^2 LC = \omega^2 LC \Big[ ( \frac{ R }{ \omega L}) ( \frac{ G }{ \omega C }) - 1) \Big] \\
-b &amp;amp;= \omega C R + \omega L G = \omega^2 LC ( \frac{ R }{ \omega L } + \frac{ G }{ \omega C }) \\
-\phi &amp;amp;= tan^{-1}( \frac{ b }{ a }) \\
-L, C, \omega &amp;amp;\neq 0
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Solution in General Case&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-V(x) &amp;amp;= A_1 e^{- \gamma x} + A_2 e^{ \gamma x} \\
-I(x) &amp;amp;= \frac{ 1 }{ Z_0 }(A_1 e^{- \gamma x} - A_2 e^{ \gamma x}) \\
-Z_0 &amp;amp;= \sqrt{ \dfrac{ R + j \omega L }{ G + j \omega C } }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Solution in &lt;strong&gt;Idealized Case&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;$R, G = 0$, 通常都认为是&lt;strong&gt;无损耗线&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-V(x) &amp;amp;= A_1 e^{- j \beta x}  +A_2 e^{j \beta x} \\
-I(x) &amp;amp;= \frac{ 1 }{ Z_0 } (A_1 e^{- j \beta x} - A_2 e^{j \beta x}) \\
-Z_0 &amp;amp;= \sqrt{ \dfrac{ L }{ C } }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;incident--reflected-traveling-wave&#34;&gt;Incident &amp;amp; Reflected Traveling Wave&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;瞬时电压电流，不考虑虚部&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-v(x,t) &amp;amp;= \mathbb{ Re } \Big\lbrace V(x) e^{j \omega t} \Big\rbrace \\
-&amp;amp;= \mathbb { Re } \Big\lbrace  A_1 e^{j( \omega t - \beta x) } + A_2 e^{j ( \omega t + \beta x)} \Big\rbrace  \\
-&amp;amp;= A_1 cos( \omega t - \beta x) + A_2 cos ( \omega t + \beta x) \\
-&amp;amp;= A_1 cos[ \beta( \frac{ \omega }{ \beta }t - x )] + A_2 cos[ \beta( \frac{ \omega }{ \beta }t + x )] \\
-&amp;amp;= A_1 cos[ \beta(x -v_p t)]+ A_2 cos [ \beta(x + v_p t)] \\
-I(x,t) &amp;amp;= \frac{ 1 }{ Z_0 } \Big\lbrace A_1 cos[ \beta(x -v_p t)] - A_2 cos [ \beta(x + v_p t)] \Big\rbrace
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;前者在$x_+$方向移动，为入射横波&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;后者在$x_-$方向移动，为反射横波&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;boundary-conditions&#34;&gt;Boundary Conditions&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;End Ports&lt;/strong&gt;: $V_2, I_2$ are known&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;将$V(l) = V_2, I(l) = I_2, x = l$, ($l$是传输线总长度) 带入方程(10)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-A_1 &amp;amp;= \frac{ V_2 + I_2 Z_0 }{ 2 } e^{j \beta l} \\
-A_2 &amp;amp;= \frac{ V_2 - I_2 Z_0 }{ 2 } e^{-j \beta l}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-V(x&amp;rsquo;) &amp;amp;=  \frac{ V_2 + I_2 Z_0 }{ 2 } e^{ j \beta x&amp;rsquo;} + \frac{ V_2 - I_2 Z_0 }{ 2 } e^{ - j \beta x&amp;rsquo;} \\
-&amp;amp;= V_2 cos ( \beta x&amp;rsquo;) + j I_2 Z_0 sin( \beta x&amp;rsquo;) \\
-&amp;amp;= V_2 ^+ e^{ j \beta x&amp;rsquo;} ( 1 + \Gamma_L e^{- j 2 \beta x&amp;rsquo;}) \\
-x&amp;rsquo; &amp;amp;= l - x
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-I(x&amp;rsquo;) &amp;amp;=  \frac{ V_2 + I_2 Z_0 }{ 2Z_0 } e^{j \beta x&amp;rsquo;} - \frac{ V_2 - I_2 Z_0 }{ 2Z_0 } e^{ - j \beta x&amp;rsquo;} \\
-&amp;amp;= I_2 cos ( \beta x&amp;rsquo;) - j \frac{ V_2 }{ Z_0 } sin( \beta x&amp;rsquo;) \\
-&amp;amp;= I_2 ^+ e^{j \beta x&amp;rsquo;} ( 1 - \Gamma_L e^{-j 2 \beta x&amp;rsquo;}) \\
-x&amp;rsquo; &amp;amp;= l - x
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Beginning Ports&lt;/strong&gt;: $V_1, I_1$ are known&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;将$V(0) = V_1, I(0) = I_1, x =  0$代入得到&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-A_1 &amp;amp;= \frac{ V_1 + I_1 Z_0 }{ 2 } \\
-A_2 &amp;amp;= \frac{ V_1 - I_1 Z_0 }{ 2 } \\
-V(x) &amp;amp;= V_1 cos( \beta x) + j I_1 Z_0 sin ( \beta x) \\
-I(x) &amp;amp;= I_1 cos( \beta x) - j \frac{ V_1 }{ Z_0 } sin ( \beta z)
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;on-load--signal-source-transmission-line&#34;&gt;On-Load + Signal Source Transmission Line&lt;/h2&gt;
-&lt;h3 id=&#34;transmission-line-with-load-and-signal-source&#34;&gt;Transmission Line With Load and Signal Source&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/13.png&#34;
-	width=&#34;1214&#34;
-	height=&#34;414&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/13_hu2ef49677ef4df4e3bf82d5be6b68a970_229607_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/13_hu2ef49677ef4df4e3bf82d5be6b68a970_229607_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;293&#34;
-		data-flex-basis=&#34;703px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h4 id=&#34;4-reflected-coefficient&#34;&gt;4 Reflected Coefficient&lt;/h4&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\Gamma_{in} &amp;amp;= \frac{ Z_{in} - Z_0 }{ Z_{in} + Z_0} = \Gamma_L e^{-j 2 \beta l} \\
-\Gamma_{S} &amp;amp;= \frac{ Z_S - Z_0 }{ Z_S + Z_0 } \\
-\Gamma_{out} &amp;amp;=  \Gamma_S e^{-j 2 \beta l}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;transmission-coefficient&#34;&gt;Transmission Coefficient&lt;/h4&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-T_{in} &amp;amp;= 1 + \Gamma_{in} = \frac{ 2 Z_{in} }{ Z_{in} + Z_0 } \\
-T_L &amp;amp;= 1 + \Gamma_L = \frac{ 2 Z_L }{ Z_L + Z_0 }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;power-of-transmission-line&#34;&gt;Power of Transmission Line&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-V_{in} &amp;amp;= V_{in}^+ + V_{in}^- \\
-&amp;amp;= V_{in}^+ ( 1 + \Gamma_{in}) \\
-&amp;amp;= V_S \frac{ Z_S }{ Z_{in} + Z_S } \\
-V_{in}^+ &amp;amp;= \frac{ V_S }{ 2 } \frac{ 1 - \Gamma_S }{ 1 - \Gamma_S \Gamma_{in} }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-P_{in} &amp;amp;= \frac{ |V_{in}|^2 }{ 2 Z_0 } \Big[ 1 - | \Gamma_{in} |^2 \Big] \\
-&amp;amp;= \frac{ |V_S|^2 }{ 8 Z_0 } \frac{ | 1 - \Gamma_S|^2 }{ |1 - \Gamma_S \Gamma_{in} |^2} ( 1 - | \Gamma_{in}|^2 )
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;conjuction-match--losses&#34;&gt;Conjuction Match &amp;amp; Losses&lt;/h3&gt;
-&lt;h4 id=&#34;conjuction-match-of-signal-source&#34;&gt;Conjuction Match of Signal Source&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/15.png&#34;
-	width=&#34;1528&#34;
-	height=&#34;684&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/15_hu3330977cecae1271f1201095cffac587_234153_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/15_hu3330977cecae1271f1201095cffac587_234153_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;223&#34;
-		data-flex-basis=&#34;536px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-P_{in} &amp;amp;= \frac{ 1 }{ 2 } R_{in} I \cdot I^* \\
-&amp;amp;= \frac{ 1 }{ 2 } R_{in} \frac{ V_S^2 }{ (R_S + R_{in})^2 + (X_{in} + X_S)^2 } \\
-When \ X_{in} &amp;amp;= - X_S \\
-P_{in \ max}  &amp;amp;= \frac{ R_{in} V_S^2 }{ 2 (R_S + R_{in})^2 }  \\
-\frac{ \partial P_{in} }{ \partial R_{in} } &amp;amp;= \frac{ V_S^2 }{ 2 } \frac{ R_S - R_{in} }{ (R_S + R_{in})^3 } \\
-hen \ R_S &amp;amp;= R_{in} \\
-P_{in} &amp;amp;= \frac{ V_S^2 }{ 8 R_S }
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;所以信号换功率输出最大的条件为$Z_{in} = Z_S^*$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;return-loss--insertion-loss&#34;&gt;Return Loss &amp;amp; Insertion Loss&lt;/h4&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-RL &amp;amp;= - 10 lg \Big( \frac{P_{in}^- }{ P_{in}^+ } \Big) \\
-&amp;amp;= -10 lg | \Gamma_{in} |^2 \\
-&amp;amp;= -20 lg | \Gamma_{in} | dB
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-IL &amp;amp;= -10 lg \Big( \frac{ P_{in}^+ - P_{in}^- }{ P_{in}^+ } \Big) \\
-&amp;amp;= -10 lg ( 1 - |\Gamma_{in}|^2 ) dB
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;lossless-condition-analysis&#34;&gt;Lossless Condition Analysis&lt;/h2&gt;
-&lt;h3 id=&#34;lossless-condition&#34;&gt;Lossless Condition&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\alpha &amp;amp;= 0, \beta = \omega \sqrt{ LC } , \gamma = j \beta, Z_0 = \sqrt{ \dfrac{ L }{ C } } \\
-\Gamma &amp;amp;= 0
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;tranveling-wave-condition&#34;&gt;Tranveling Wave Condition&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\Gamma &amp;amp;= 0 \longrightarrow V^-(x&amp;rsquo;) = 0 \longrightarrow Z_L = Z_0
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;电压和电流振幅不变&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;电压电流同相&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$Z_{in} = Z_0 = Z_L$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;rf-network&#34;&gt;RF Network&lt;/h1&gt;
-&lt;h2 id=&#34;evenodd-mode&#34;&gt;Even/Odd Mode&lt;/h2&gt;
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/21.png&#34;
-	width=&#34;1072&#34;
-	height=&#34;402&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/21_hu9c46945a293ab3c271e0758486409af7_120556_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/21_hu9c46945a293ab3c271e0758486409af7_120556_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;266&#34;
-		data-flex-basis=&#34;640px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/22.png&#34;
-	width=&#34;1400&#34;
-	height=&#34;378&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/22_hu53050d1d9150fa6f95f1d5c2feb5fa02_371576_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/22_hu53050d1d9150fa6f95f1d5c2feb5fa02_371576_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;370&#34;
-		data-flex-basis=&#34;888px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;项目&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Even Mode&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Odd Mode&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;电流&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$I_1 = I_2$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$I_1 = - I_2$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\varepsilon_{re}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;更大&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;更小&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;驱动&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;共模驱动&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;差分驱动&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;最终的参数应该是$\dfrac{ Z_e + Z_o }{ 2 }$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;impedance&#34;&gt;Impedance&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Z_{diff}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;差分信号沿着差分对传播时受到的阻抗，是每条信号线与返回路径之间阻抗之和。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Z_{common}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;共模信号沿传输线传播时收到的阻抗。共模信号是两条信号线的电压平均值，纯共模信号就是差分信号为0时的信号。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Z_{diff} &amp;amp;= \begin{cases}
-2 Z_0 &amp;amp; C = 0 \\
-2 Z_o &amp;amp; C \neq 0
-\end{cases} \\
-Z_{common} &amp;amp;= \frac{ 1}{ 2 } Z_e
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;若$Z_0 = 50 \Omega$，那么$Z_0$的&lt;strong&gt;Even/Odd&lt;/strong&gt;部分分别为&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Z_{0o} &amp;amp;= 50 \\
-Z_{0e} &amp;amp;= 50
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;voltage-component&#34;&gt;Voltage Component&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-V_o &amp;amp;= V_{diff} = V_1 - V_2 \\
-V_e &amp;amp;= V_{common} = \frac{ V_1 + V_2 }{ 2 } \\
-V_1 &amp;amp;= V_e + \frac{ V_o }{ 2 } \\
-V_2 &amp;amp;= V_e - \frac{ V_o }{ 2 }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;2-ports-network&#34;&gt;2-Ports Network&lt;/h2&gt;
-&lt;h3 id=&#34;low-frequency&#34;&gt;Low Frequency&lt;/h3&gt;
-&lt;h4 id=&#34;impedance--admittace-parameters&#34;&gt;Impedance &amp;amp; Admittace Parameters&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/17.png&#34;
-	width=&#34;1426&#34;
-	height=&#34;536&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/17_hucb18d4ee70baaf46e617f75b897d3a79_103612_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/17_hucb18d4ee70baaf46e617f75b897d3a79_103612_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;266&#34;
-		data-flex-basis=&#34;638px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-[V] &amp;amp;= [Z] [i] \\
-[I] &amp;amp;= [Y] [V]  \\
-[V] &amp;amp;= \begin{bmatrix}
-V_1 \
-V_2
-\end{bmatrix} \\
-[Z] &amp;amp;= \begin{bmatrix}
-Z_{11} &amp;amp; Z_{12}  \\
-Z_{21} &amp;amp; Z_{22}
-\end{bmatrix} \\
-[i] &amp;amp;= \begin{bmatrix}
-i_1  \
-i_2
-\end{bmatrix}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Z_{mn} &amp;amp;= \begin{cases}
-\dfrac{ V_m }{ i_m }|&lt;em&gt;{i_n = 0} &amp;amp; n = m\\
-\dfrac{ V_m }{ i_n }|&lt;/em&gt;{i_m = 0} &amp;amp; n \neq m
-\end{cases}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;hybrid--transfer-parameters&#34;&gt;Hybrid &amp;amp; Transfer Parameters&lt;/h4&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\begin{bmatrix}
-v_1\\
-i_2
-\end{bmatrix} &amp;amp;= \begin{bmatrix}
-h_{11} &amp;amp; h_{12}\\
-h_{21} &amp;amp; h_{22}
-\end{bmatrix} \begin{bmatrix}
-i_1\\
-v_2
-\end{bmatrix} \\
-\begin{bmatrix}
-v_1\\
-i_1
-\end{bmatrix} &amp;amp;=  \begin{bmatrix}
-A &amp;amp; B\\
-C &amp;amp; D
-\end{bmatrix} \begin{bmatrix}
-v_2\\
--i_2
-\end{bmatrix} \\
-[ABCD] &amp;amp;= \begin{bmatrix}
-A &amp;amp; B\\
-C &amp;amp; D
-\end{bmatrix} \\
-&amp;amp;= \begin{bmatrix}
-\dfrac{ v_1 }{ v_2 } &amp;amp; - \dfrac{ v_1 }{ i_2 }\\
-\dfrac{ i_1 }{ v_2 } &amp;amp; - \dfrac{ i_1 }{ i_2 }
-\end{bmatrix}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;transfer-matrix&#34;&gt;Transfer Matrix&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;串联阻抗$Z$的二端口网络&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/18.png&#34;
-	width=&#34;1078&#34;
-	height=&#34;492&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/18_hude6949af7d1cd0e4cfeed4cce06c3a70_147421_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/18_hude6949af7d1cd0e4cfeed4cce06c3a70_147421_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;219&#34;
-		data-flex-basis=&#34;525px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$v_2 = 0$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$i_1 = -i_2 = \dfrac{ v_1 }{ Z }$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$i_2 = 0$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$i_1 = -i_2 = 0, v_1 = v_2$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-[ABCD] &amp;amp;= \begin{bmatrix}
-1 &amp;amp; Z\\
-0 &amp;amp; 1
-\end{bmatrix}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;并联导纳$Y$的二端口网络&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/19.png&#34;
-	width=&#34;1156&#34;
-	height=&#34;600&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/19_hu2ff3fd112dab77a08e39f807ef6db860_160407_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/19_hu2ff3fd112dab77a08e39f807ef6db860_160407_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;192&#34;
-		data-flex-basis=&#34;462px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-[ABCD] &amp;amp;= \begin{bmatrix}
-1 &amp;amp; 0\\
-Y &amp;amp; 1
-\end{bmatrix}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;t型网络&#34;&gt;T型网络&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/20.png&#34;
-	width=&#34;1102&#34;
-	height=&#34;518&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/20_hu42633d76ea65e64a389ab84225299f73_165669_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/20_hu42633d76ea65e64a389ab84225299f73_165669_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;212&#34;
-		data-flex-basis=&#34;510px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;可以看成串联阻抗和并联导纳的Cascade&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-[ABCD] &amp;amp;= \begin{bmatrix}
-1 + \dfrac{ Z_A }{ Z_C } &amp;amp; Z_A + Z_B + \dfrac{ Z_A Z_B }{ Z_C }\\
-\dfrac{ 1 }{ Z_C } &amp;amp; 1 + \dfrac{ Z_B }{ Z_C }
-\end{bmatrix} \\
-&amp;amp;= \begin{bmatrix}
-1 &amp;amp; Z_A \\
-0 &amp;amp; 1
-\end{bmatrix} \begin{bmatrix}
-1 &amp;amp; 0\\
-\dfrac{ 1 }{ Z_C } &amp;amp; 1
-\end{bmatrix} \begin{bmatrix}
-1 &amp;amp; Z_B\\
-0 &amp;amp; 1
-\end{bmatrix}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;pi型网络&#34;&gt;$\pi$型网络&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/21.png&#34;
-	width=&#34;1072&#34;
-	height=&#34;402&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/21_hu9c46945a293ab3c271e0758486409af7_120556_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/21_hu9c46945a293ab3c271e0758486409af7_120556_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;266&#34;
-		data-flex-basis=&#34;640px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-[ABCD] &amp;amp;= \begin{bmatrix}
-1 + \dfrac{ Y_B }{ Y_C } &amp;amp; \dfrac{ 1 }{ Y_C }\\
-Y_A + Y_B + \dfrac{ Y_A Y_B }{ Y_C } &amp;amp; 1 + \dfrac{ Y_A }{ Y_C }
-\end{bmatrix}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;uniform-transmission-line&#34;&gt;Uniform Transmission Line&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;包含了$\dfrac{ \lambda }{ 4 }, \dfrac{ \lambda }{ 2 }$传输线的$T$矩阵&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-[ABCD] &amp;amp;= \begin{cases}
-\begin{bmatrix}
-cos( \beta l) &amp;amp; jZ_0 sin( \beta l)\\
-j \dfrac{ 1 }{ Z_0 } sin( \beta l) &amp;amp; cos( \beta l)
-\end{bmatrix} &amp;amp; General \\
-\begin{bmatrix}
-0 &amp;amp; j Z_0 \\
-\dfrac{ j }{ Z_0 } &amp;amp; 0 &amp;amp; \theta = \dfrac{ \lambda }{ 4 }
-\end{bmatrix} &amp;amp; \theta = \dfrac{ \lambda }{ 4 } \\
-\begin{bmatrix}
--1 &amp;amp; 0 \\
-0 &amp;amp; -1
-\end{bmatrix} &amp;amp; \theta = \dfrac{ \lambda }{ 2 }
-\end{cases}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;high-frequency&#34;&gt;High Frequency&lt;/h3&gt;
-&lt;h4 id=&#34;scattered-parameter&#34;&gt;Scattered Parameter&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Normalized Parameter&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/13.png&#34;
-	width=&#34;1214&#34;
-	height=&#34;414&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/13_hu2ef49677ef4df4e3bf82d5be6b68a970_229607_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/13_hu2ef49677ef4df4e3bf82d5be6b68a970_229607_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;293&#34;
-		data-flex-basis=&#34;703px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Normalized Voltage&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-a_1 &amp;amp;= \frac{ V_1^+ }{ \sqrt{ Z_{01} } } \\
-b_1 &amp;amp;= \frac{ V_1^- }{ \sqrt{ Z_{01} } } \\
-a_2 &amp;amp;= \frac{ V_2^+ }{ \sqrt{ Z_{02} } } \\
-b_2 &amp;amp;= \frac{ V_2^- }{ \sqrt{ Z_{02} } } \\
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Normalized Power&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-P(x&amp;rsquo;) &amp;amp;= \frac{ |V^+(x&amp;rsquo;)|^2 }{ 2Z_0 } \Big[ 1 - | \Gamma(x&amp;rsquo;)|^2 \Big] = P^+(x&amp;rsquo;) - P^-(x&amp;rsquo;) \\
-P_1 &amp;amp;= \frac{ 1 }{ 2 } ( |a_1|^2 - |b_1|^2 ) \\
-P_2 &amp;amp;= \frac{ 1 }{ 2 } ( |a_2|^2 - |b_2|^2 )
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h4 id=&#34;s-parameter&#34;&gt;S Parameter&lt;/h4&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-[b] &amp;amp;= [S] [a] \\
-[S] &amp;amp;= \begin{bmatrix}
-S_{11} &amp;amp; S_{12}\\
-S_{21} &amp;amp; S_{22}
-\end{bmatrix}  \\
-&amp;amp;= \begin{bmatrix}
-\dfrac{ b_1 }{ a_1 }|&lt;em&gt;{a_2 = 0} &amp;amp; \dfrac{ b_1 }{ a_2 }|&lt;/em&gt;{a_1 = 0} \\
-\dfrac{ b_2 }{ a_1 }|&lt;em&gt;{a_2 =0} &amp;amp; \dfrac{ b_2 }{ a_2 }|&lt;/em&gt;{a_1 = 0}
-\end{bmatrix}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;4-ports-network&#34;&gt;4-Ports Network&lt;/h2&gt;
-&lt;h3 id=&#34;schematic&#34;&gt;Schematic&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-coupler/10.png&#34;
-	width=&#34;3214&#34;
-	height=&#34;1590&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a1-coupler/10_hu608ad56feeb36a2206dcb59e2c68cb53_1800561_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-coupler/10_hu608ad56feeb36a2206dcb59e2c68cb53_1800561_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;202&#34;
-		data-flex-basis=&#34;485px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$P_1$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Input Power $P_{in}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$P_2$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Forward Power $P_f$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$P_3$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Reflected Power $P_r$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$P_4$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Coupled Power $P_c$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;factors&#34;&gt;Factors&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Coupling Factor&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$C = 10 \cdot lg( \dfrac{ P_i }{ P_c })$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Directivity&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$D = 10  \cdot lg( \dfrac{ P_f }{ P_r})$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Isolation&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$I = 10 \cdot lg( \dfrac{ P_i }{ P_r })$，隔离&lt;strong&gt;输入与反射&lt;/strong&gt;，&lt;strong&gt;输出与耦合&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;s-parameter-analysis-in-idealized-case&#34;&gt;S Parameter Analysis In Idealized Case&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Idealized Case&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;4 Ports are Matched&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$S_{11} = S_{22} = S_{33} = S_{44} = 0$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;It follows the property of &lt;strong&gt;symmetry&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$S_{ij} = S_{ji}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;1 &amp;amp; 3, 2 &amp;amp; 4&lt;/strong&gt; are isolated&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$S_{13} = S_{31} = S_{24} = S_{42} = 0$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Equal Forward Power&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$S_{12} = S_{34} = P$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Equal Coupled Power&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$S_{14} = S_{23} = Q$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Lossless&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$[S] \cdot [S]^* = I$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;对应端口阻抗相同&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Z_{ij} = Z_{ji}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;S Matrix&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-[S] &amp;amp;= \begin{bmatrix}
-0 &amp;amp; P &amp;amp; 0 &amp;amp; Q \\
-P &amp;amp; 0 &amp;amp; Q &amp;amp; 0 \\
-0 &amp;amp; Q &amp;amp; 0 &amp;amp; P \\
-Q &amp;amp; 0 &amp;amp; P &amp;amp; 0
-\end{bmatrix}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\because [S] \cdot [S]^* &amp;amp;= I \\
-\therefore P^2 + Q^2 &amp;amp;= 1
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
-&lt;h2 id=&#34;triogonometric-function-formula&#34;&gt;Triogonometric Function Formula&lt;/h2&gt;
-&lt;h3 id=&#34;rare-functions&#34;&gt;Rare Functions&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-tanh(x) &amp;amp;= \frac{ e^x - e^{-x} }{ e^x + e^{-x} } \\
-atan2(x) &amp;amp;= \begin{cases}
-tan^{-1}( \frac{ y }{ x }) &amp;amp; x &amp;gt; 0 \\
-tan^{-1}( \frac{ y }{ x }) + \pi &amp;amp; x&amp;lt;0, y \ge 0 \\
-tan^{-1}( \frac{ y }{ x }) - \pi &amp;amp; x&amp;lt;0, y &amp;lt; 0 \\
-Error &amp;amp; x=0, y=0
-\end{cases}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;common-formulas&#34;&gt;Common Formulas&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-sin(2x) &amp;amp;= 2sin(x) cos(x) \\
-cos(2x) &amp;amp;= cos^2(x) - sin^2(x) \\
-&amp;amp;= 2cos^2(x) - 1 \\
-&amp;amp;= 1  -2 sin^2(x)
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-sin^2(x) &amp;amp;= \frac{ 1-cos(2x) }{ 2 } \\
-cos^2(x) &amp;amp;= \frac{ 1 + cos(2x) }{ 2 }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;reactance&#34;&gt;Reactance&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;情况&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;$X_{eq}$&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$L || C$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{ \omega L}{ 1 - \omega^2 L C}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;q值&#34;&gt;Q值&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Q &amp;amp;= \frac{ E_{store} }{ E_{loss} }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;越高，表示品质越好&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>EDA</title>
-        <link>https://downeyflyfan.com/p/eda/</link>
-        <pubDate>Mon, 23 Oct 2023 17:10:01 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/eda/</guid>
-        <description>&lt;h1 id=&#34;cadence-virtuoso&#34;&gt;Cadence Virtuoso&lt;/h1&gt;
-&lt;h2 id=&#34;字体调整&#34;&gt;字体调整&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hiSetFont(&amp;#34;ciw&amp;#34; ?size 20) # 修改text文字大小为20
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hiSetFont(&amp;#34;label&amp;#34; ?size 20) # 修改Toolbar文字大小为20
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;ade&#34;&gt;ADE&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Do Noise (Yes/No)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;考虑&lt;strong&gt;Thermal/Shot Noise&lt;/strong&gt;, $T \uparrow \longrightarrow $ Carrier Motions $\uparrow \longrightarrow$; Carriers 穿过 &lt;strong&gt;Barrier&lt;/strong&gt;产生随机噪声&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;YP&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;交流信号分析&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;ZM&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Impedance Matrix&lt;/strong&gt;, $\begin{bmatrix} Z_{11} \ Z_{12} \ Z_{21} \ Z_{22} \end{bmatrix}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
-&lt;h2 id=&#34;人工传输线&#34;&gt;人工传输线&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;传输特性：人工传输线具有特定的传输特性，如传输速度、带宽、传输损耗、传输延迟和噪声等。这些特性直接影响信号的传输质量和可靠性。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;阻抗匹配：为了最大限度地减少信号反射和传输损耗，人工传输线需要与连接的设备之间的阻抗进行匹配。阻抗不匹配会导致信号反射和信号失真。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;传输模式：人工传输线可以支持不同的传输模式，如单端传输和差分传输。差分传输常用于抑制噪声和提高信号抗干扰能力。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;传输介质：人工传输线可以采用不同的传输介质，包括金属导线（如铜线）、光纤和空气介质等。每种介质都有其特定的传输特性和应用领域。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;传输线理论：人工传输线的行为可以通过传输线理论进行建模和分析。传输线理论考虑了电磁波在传输线上的传播、反射、折射和衰减等现象，以帮助设计和优化传输线的性能。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;师兄的项目&#34;&gt;师兄的项目&lt;/h2&gt;
-&lt;h3 id=&#34;2-18ghz-硅基功率放大器&#34;&gt;2-18GHz 硅基功率放大器&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Peaking inductor&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;$C_{GS}$, $C_L$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Intra-Stack Coupling&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;低功耗抗干扰fsk-调制调解器&#34;&gt;低功耗抗干扰FSK 调制调解器&lt;/h3&gt;
-&lt;h3 id=&#34;谐波抑制器&#34;&gt;谐波抑制器&lt;/h3&gt;
-&lt;h3 id=&#34;前馈线性化&#34;&gt;前馈线性化&lt;/h3&gt;
-&lt;h2 id=&#34;short-academic-phrases&#34;&gt;Short Academic Phrases&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;定义&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;ATL(Active Transistor Level)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;分为4个等级，等级越高，晶体管的参数越详细&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PAE(Power Added Efficiency)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;输出和输入之间的&lt;strong&gt;功率转化效率(%)&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Stack Distributed Power Amplifier&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Refactoring&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Logic/Layout/Time-Sequence/Power Consumption Refactoring&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Process Corner&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;DRC&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Design Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PEX&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Parasitic Extraction, 提取寄生参数，功能更强大&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;RCX&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Resistance Capacitance Extraction, 是&lt;strong&gt;Mentor&lt;/strong&gt;的另一款寄生参数提取工具&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;BGR&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Bandgap Reference, 带隙基准电压源,输出电压&lt;strong&gt;精度高&lt;/strong&gt;，且&lt;strong&gt;稳定&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;CMN/CLN/CRN&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;CMOS Mobile Normal, CMOS Logic Normal，CMOS Radio Frequency Normal，三种台积电工艺&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PDK&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Process Design Kit, 设计套件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;GDSII&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Graphic Data System II，IC的实际版图信息&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;isolation zero(零点)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;传输函数零点&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;FBW(Fractional Bandwidth)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;带宽相对于中心频率的比率: $\dfrac{ \omega_{B}}{ \omega_{C} } \times 100%$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{\lambda_0}{ 4 }$ Transmission Line&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;传输线的电长度为90度,即电线物理长度为$\dfrac{ 1 }{ 4 } \lambda$。在线性的传输线中,λ/4长度会产生一个电压和电流逆变换&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Signal Condition Circuit&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;处理传感器输出信号，&lt;strong&gt;改善信号质量&lt;/strong&gt;的电路&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;IMD3&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Integral MoDel Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;FETX Pulse&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Negative Far End CrossTalk Pulse，测试数字通信系统的测试信号&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;TCC&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Thermal Cutoff Current, 不同温度条件下的最大电流&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;VCC&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Voltage at Common Collector, 电源电压&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;VEE&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;负电源电压&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Relative Impedance Bandwidth&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;工作频率范围&lt;/strong&gt;相对于中心频率的百分比&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;SEL&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Single Element Lock, 通过一个latch实现锁存功能&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;CID&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Current Identification Code, 用二进制标识不同电流&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;DPD&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Digital Pre-Distortion, 数字预失真&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;QAM&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Quadrature Amplitude Modulation (IQ-Based Modulation), 正交调幅&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;APSK&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Amplitude Phase Shifting Keying&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;SOI&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Silicon on Insulator, 在绝缘体上制造芯片，减小了晶体管之间的寄生效应，有PD-SOI(Partial), FD-SOI, FinFET&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;CPW&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Coplanar Waveguide, 共面波导，适用于高频传输线&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h1 id=&#34;当前目标--问题&#34;&gt;当前目标 &amp;amp; 问题&lt;/h1&gt;
-&lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;小尺寸差分电桥&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;阻抗调解（大了，小了？）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;当前行动&#34;&gt;当前行动&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;长度(频点)、宽度(阻抗)、间隙(耦合)、挖地大小(隔离)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>1. Supervised Learning</title>
-        <link>https://downeyflyfan.com/p/1.-supervised-learning/</link>
-        <pubDate>Mon, 16 Oct 2023 16:27:22 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/1.-supervised-learning/</guid>
-        <description>&lt;h1 id=&#34;过程&#34;&gt;过程&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/1.-supervised-learning/1.png&#34;
-	width=&#34;2540&#34;
-	height=&#34;1330&#34;
-	srcset=&#34;https://downeyflyfan.com/p/1.-supervised-learning/1_hu4821c10183ec216f38ee1352f27cb873_612372_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/1.-supervised-learning/1_hu4821c10183ec216f38ee1352f27cb873_612372_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;190&#34;
-		data-flex-basis=&#34;458px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Data Preparation / Cleaning&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Feature Selection&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Data Transformation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Feature Engineering&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Dimensionality Reduction&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
 </description>
         </item>
         <item>
@@ -10512,11 +10711,11 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>系统安装与换机</title>
-        <link>https://downeyflyfan.com/p/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8D%A2%E6%9C%BA/</link>
+        <title>Archlinux 安装与换机</title>
+        <link>https://downeyflyfan.com/p/archlinux-%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8D%A2%E6%9C%BA/</link>
         <pubDate>Fri, 05 May 2023 10:03:14 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8D%A2%E6%9C%BA/</guid>
+        <guid>https://downeyflyfan.com/p/archlinux-%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8D%A2%E6%9C%BA/</guid>
         <description>&lt;h1 id=&#34;文件备份&#34;&gt;文件备份&lt;/h1&gt;
 &lt;h1 id=&#34;开机分区的安装&#34;&gt;开机分区的安装&lt;/h1&gt;
 &lt;h2 id=&#34;新建boot分区&#34;&gt;新建boot分区&lt;/h2&gt;
@@ -11251,11 +11450,11 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>创建博客</title>
-        <link>https://downeyflyfan.com/p/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+        <title>创建博客 for Linux and MacOS</title>
+        <link>https://downeyflyfan.com/p/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2-for-linux-and-macos/</link>
         <pubDate>Tue, 02 May 2023 20:47:39 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+        <guid>https://downeyflyfan.com/p/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2-for-linux-and-macos/</guid>
         <description>&lt;h1 id=&#34;如何创建hexo博客&#34;&gt;如何创建hexo博客&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
