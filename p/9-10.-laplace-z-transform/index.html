@@ -272,6 +272,7 @@ Relations with Fourier Transform 当$\alpha = 0$时, $X(s)$就是$x(t)$的傅立
       <ol>
         <li><a href="#conjugation-formulas">Conjugation Formulas</a></li>
         <li><a href="#finite-duration">Finite Duration</a></li>
+        <li><a href="#sigularity-function--laplace-transform">Sigularity Function &amp; Laplace Transform</a></li>
       </ol>
     </li>
   </ol>
@@ -436,8 +437,8 @@ $$</p>
 <p>$$
 \begin{gather}
 \begin{aligned}
-(AB)* &amp;= A<em>B</em> \\
-(A<em>B)</em> &amp;= AB*
+(AB)^* &amp;= A^<em>B^</em> \\
+(A^<em>B)^</em> &amp;= AB^*
 \end{aligned}
 \end{gather}
 $$</p>
@@ -447,9 +448,19 @@ $$</p>
 <p>$f(t)$在$[0,T]$上有值，其他区域为$0$</p>
 </li>
 <li>
-<p>收敛函数的收敛域必包含$j \omega$轴</p>
+<p>收敛函数的收敛域必包含$j \omega$</p>
 </li>
 </ol>
+<h2 id="sigularity-function--laplace-transform">Sigularity Function &amp; Laplace Transform</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+u_k(t) &amp;\overset{ \mathcal{L} }{ \longleftrightarrow  } s^k \\
+u_0(t) &amp;= \delta (t) \overset{ \mathcal{L} }{ \longleftrightarrow  } 1 = s^0 \\
+u_{-1}(t) &amp;= u(t) \overset{ \mathcal{L} }{  \longleftrightarrow } s^{-1} = \frac{ 1 }{ s }
+\end{aligned}
+\end{gather}
+$$</p>
 
 </section>
 
