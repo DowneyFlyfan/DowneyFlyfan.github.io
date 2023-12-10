@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='海森堡不确定性原理 1.1 内容 一个物体的动量和它的位置不可能被同时准确地观测到
+1.2 解释 原理 需要用光子撞击电子才能知道它的位置,而撞击会增加电子的动量，改变其位置 根据$p = \frac{h}{\lambda}$ 波长越大，动量越大，动量测不准，位置也会改变
+波长越小，动量太小，仪器没法精确测量，位置不准
+1.3 公式 动量和位置 $$ 对于波长为\lambda的光子 \\\ \\ \Delta x \approx \lambda \\\ \\ \Delta p \approx \frac{h}{\lambda} \\\ \\ \therefore (\Delta x)(\Delta p) \approx h \\\ \\ 根据海森堡的精确计算(这课本真省事) \\\ \\ (\Delta x)(\Delta p) \ge \frac{h}{2\pi} $$
+能量与时间 $$ \Delta E = hf = \frac{hc}{\lambda} \\\ \\ \Delta t \approx \frac{\lambda}{c} \\\ \\ (\Delta E )(\Delta t) = h \\\ \\ (\Delta E )(\Delta t) \ge \frac{h}{2\pi} \\\ \\ 科学家们给这个常用的量换了个名字: \ \hbar = \frac{h}{2\pi} $$'>
+<title>7. 量子力学</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='7. 量子力学'>
+<meta property='og:description' content='海森堡不确定性原理 1.1 内容 一个物体的动量和它的位置不可能被同时准确地观测到
+1.2 解释 原理 需要用光子撞击电子才能知道它的位置,而撞击会增加电子的动量，改变其位置 根据$p = \frac{h}{\lambda}$ 波长越大，动量越大，动量测不准，位置也会改变
+波长越小，动量太小，仪器没法精确测量，位置不准
+1.3 公式 动量和位置 $$ 对于波长为\lambda的光子 \\\ \\ \Delta x \approx \lambda \\\ \\ \Delta p \approx \frac{h}{\lambda} \\\ \\ \therefore (\Delta x)(\Delta p) \approx h \\\ \\ 根据海森堡的精确计算(这课本真省事) \\\ \\ (\Delta x)(\Delta p) \ge \frac{h}{2\pi} $$
+能量与时间 $$ \Delta E = hf = \frac{hc}{\lambda} \\\ \\ \Delta t \approx \frac{\lambda}{c} \\\ \\ (\Delta E )(\Delta t) = h \\\ \\ (\Delta E )(\Delta t) \ge \frac{h}{2\pi} \\\ \\ 科学家们给这个常用的量换了个名字: \ \hbar = \frac{h}{2\pi} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/'>
+<meta property='og:site_name' content='Flyfan Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-02-01T07:03:55&#43;08:00'/><meta property='article:modified_time' content='2023-02-01T07:03:55&#43;08:00'/>
+<meta name="twitter:title" content="7. 量子力学">
+<meta name="twitter:description" content="海森堡不确定性原理 1.1 内容 一个物体的动量和它的位置不可能被同时准确地观测到
+1.2 解释 原理 需要用光子撞击电子才能知道它的位置,而撞击会增加电子的动量，改变其位置 根据$p = \frac{h}{\lambda}$ 波长越大，动量越大，动量测不准，位置也会改变
+波长越小，动量太小，仪器没法精确测量，位置不准
+1.3 公式 动量和位置 $$ 对于波长为\lambda的光子 \\\ \\ \Delta x \approx \lambda \\\ \\ \Delta p \approx \frac{h}{\lambda} \\\ \\ \therefore (\Delta x)(\Delta p) \approx h \\\ \\ 根据海森堡的精确计算(这课本真省事) \\\ \\ (\Delta x)(\Delta p) \ge \frac{h}{2\pi} $$
+能量与时间 $$ \Delta E = hf = \frac{hc}{\lambda} \\\ \\ \Delta t \approx \frac{\lambda}{c} \\\ \\ (\Delta E )(\Delta t) = h \\\ \\ (\Delta E )(\Delta t) \ge \frac{h}{2\pi} \\\ \\ 科学家们给这个常用的量换了个名字: \ \hbar = \frac{h}{2\pi} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Flyfan Blog</a></h1>
+            <h2 class="site-description">A Record of My Study</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#海森堡不确定性原理">海森堡不确定性原理</a>
+      <ol>
+        <li><a href="#11-内容">1.1 内容</a></li>
+        <li><a href="#12-解释">1.2 解释</a></li>
+        <li><a href="#13-公式">1.3 公式</a></li>
+      </ol>
+    </li>
+    <li><a href="#一维薛定谔方程时间无关形式">一维薛定谔方程时间无关形式</a>
+      <ol>
+        <li><a href="#21-不考虑时间">2.1 不考虑时间</a></li>
+        <li><a href="#22-三维形式">2.2 三维形式</a></li>
+        <li><a href="#23-一维形式的正交化条件">2.3 一维形式的正交化条件</a></li>
+      </ol>
+    </li>
+    <li><a href="#薛定谔方程的时间有关形式">薛定谔方程的时间有关形式*</a></li>
+    <li><a href="#自由粒子-平面波-波包">自由粒子 平面波 波包</a></li>
+    <li><a href="#粒子在无限深的井中的势能">粒子在无限深的井中的势能</a>
+      <ol>
+        <li><a href="#51-图示">5.1 图示</a></li>
+        <li><a href="#52-波方程">5.2 波方程</a></li>
+        <li><a href="#53-能量方程">5.3 能量方程</a></li>
+      </ol>
+    </li>
+    <li><a href="#粒子在有限深井中的势能">粒子在有限深井中的势能</a>
+      <ol>
+        <li><a href="#61-图示">6.1 图示</a></li>
+        <li><a href="#62-波方程">6.2 波方程</a></li>
+        <li><a href="#63-另一种情况">6.3 另一种情况</a></li>
+      </ol>
+    </li>
+    <li><a href="#穿越障碍">穿越障碍</a>
+      <ol>
+        <li><a href="#71-图示">7.1 图示</a></li>
+        <li><a href="#72-解释">7.2 解释</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #6A5ACD; color: #fff;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">7. 量子力学</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 01, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="海森堡不确定性原理">海森堡不确定性原理</h1>
+<h2 id="11-内容">1.1 内容</h2>
+<blockquote>
+<p>一个物体的<strong>动量</strong>和它的<strong>位置</strong>不可能被<strong>同时</strong>准确地观测到</p>
+</blockquote>
+<h2 id="12-解释">1.2 解释</h2>
+<ol>
+<li>原理</li>
+</ol>
+<ul>
+<li>需要用光子撞击电子才能知道它的位置,而撞击会增加电子的动量，改变其位置</li>
+</ul>
+<ol start="2">
+<li>根据$p = \frac{h}{\lambda}$</li>
+</ol>
+<ul>
+<li>
+<p><strong>波长</strong>越大，<strong>动量</strong>越大，<strong>动量</strong>测不准，<strong>位置</strong>也会改变</p>
+</li>
+<li>
+<p><strong>波长</strong>越小，<strong>动量</strong>太小，仪器没法精确测量，<strong>位置</strong>不准</p>
+</li>
+</ul>
+<h2 id="13-公式">1.3 公式</h2>
+<ol>
+<li><strong>动量</strong>和<strong>位置</strong></li>
+</ol>
+<p>$$
+对于波长为\lambda的光子 \\\
+\\ \Delta x \approx \lambda \\\
+\\ \Delta p \approx \frac{h}{\lambda} \\\
+\\ \therefore (\Delta x)(\Delta p) \approx h \\\
+\\ 根据海森堡的精确计算(这课本真省事) \\\
+\\ (\Delta x)(\Delta p) \ge \frac{h}{2\pi}
+$$</p>
+<ol start="2">
+<li><strong>能量</strong>与<strong>时间</strong></li>
+</ol>
+<p>$$
+\Delta E = hf = \frac{hc}{\lambda} \\\
+\\ \Delta t \approx \frac{\lambda}{c} \\\
+\\ (\Delta E )(\Delta t) = h \\\
+\\ (\Delta E )(\Delta t) \ge \frac{h}{2\pi} \\\
+\\ 科学家们给这个常用的量换了个名字: \ \hbar = \frac{h}{2\pi}
+$$</p>
+<h1 id="一维薛定谔方程时间无关形式">一维薛定谔方程时间无关形式</h1>
+<h2 id="21-不考虑时间">2.1 不考虑时间</h2>
+<p>$$
+假设\psi(x) = Asinkx + Bcoskx \\\
+\\ k = \frac{2\pi}{\lambda} = \frac{2\pi p}{h} = \frac{p}{\hbar} (1)\\\
+\\ \frac{d^2\psi(x)}{dx^2} = -k^2 \varphi(x) (2)\\\
+\\ 根据能量守恒 \\\
+\\ K + U = E \ \ \ \ 动能 + 势能 = 总能量 \\\
+\\ \frac{p^2}{2m} + U = E (3)\\\
+\\ 根据(1)式 ， p = k\hbar \\\
+\\ \therefore \frac{k^2\hbar^2}{2m} + U  =E (4)\\\
+\\ 结合(2)和(3)式，-\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} = \frac{\hbar^2k^2}{2m}\varphi(x) \\\
+\\ 对(4)式两端乘以\psi(x),得到\pmb{一维薛定谔方程的无时间形式} \\\
+\\ -\frac{\hbar^2}{2m}\frac{d^2\psi(x)}{dx^2} + U(x) \cdot \varphi(x)  = E\cdot \varphi(x)
+$$</p>
+<h2 id="22-三维形式">2.2 三维形式</h2>
+<blockquote>
+<p>将上式的$(x)$改为$(x,y,z)$即可</p>
+</blockquote>
+<h2 id="23-一维形式的正交化条件">2.3 一维形式的正交化条件</h2>
+<p>$$
+\int_{三维} |\psi|^2dV = \int_{一维} |\varphi|^2dx = 1
+$$</p>
+<h1 id="薛定谔方程的时间有关形式">薛定谔方程的时间有关形式*</h1>
+<ol>
+<li>公式</li>
+</ol>
+<p>$$
+\frac{\hbar^2}{2m}\frac{\partial^2 \psi(x,t)}{\partial x^2} + U(x) \cdot \psi(x,t) = i\hbar \frac{\partial \psi(x,t)}{\partial t} \\\
+\\ 很多时候， \psi(x,t) = \varphi(x)\cdot f(t)\\\
+\\ \therefore -\frac{\hbar}{2m} \frac{d\varphi^2(x)}{dx^2}\cdot f(t) + U(x) \cdot \varphi(x)\cdot f(t) = i\hbar \frac{df(t)}{dt}\varphi(x) \\\
+\\ 两边同时除以f(t)\cdot \varphi(x) \\\
+\\ -\frac{\hbar}{2m}\frac{1}{\varphi(x)} \frac{d\varphi^2(x)}{dx^2} + U(x) = i\hbar \frac{1}{f(t)} \frac{df(t)}{dt} = C \\\
+\\ 对于上式，两边分别只有一个变量 \\\
+\\ 故分别让两边等于同一个常数即可 \\\
+\\ -\frac{\hbar}{2m} \frac{d^2\varphi(x)}{dx^2} +U(x) \varphi(x) = C\varphi(x) \\\
+\\ 注意到，上式与时间无关的以为薛定谔方程相同 \\\
+\\ \therefore C = E \\\
+\\ \therefore i\hbar \frac{1}{f(t)} \frac{df(t)}{dt} = E \\\
+\\ \therefore \frac{df(t)}{dt} = -i\frac{f(t)}{\hbar} E \\\
+\\ 解得：f(t) = e^{-i(\frac{E}{\hbar})t} \\\
+$$</p>
+<ol start="2">
+<li>波的方程</li>
+</ol>
+<p>$$
+\psi(x,t)  =\varphi(x) e^{-i(\frac{E}{\hbar})t}\\\
+\\ 根据欧拉公式：|f(t)| =1 \Longrightarrow |f(t)|^2 = 1 \\\
+\\ \therefore |\psi(x,t)|^2 = |\varphi(x)|^2
+$$</p>
+<h1 id="自由粒子-平面波-波包">自由粒子 平面波 波包</h1>
+<ol>
+<li>自由粒子</li>
+</ol>
+<blockquote>
+<p>不受任何外力的粒子</p>
+</blockquote>
+<ul>
+<li>其势能为0</li>
+</ul>
+<ol start="2">
+<li>自由粒子的薛定谔方程</li>
+</ol>
+<p>$$
+\frac{d^2\psi(x)}{dx^2} + \frac{2mE}{\hbar^2}\psi(x) = 0 \\\
+\\ 其中, k =\frac{2\pi}{\lambda} = \frac{p}{\hbar} = \sqrt{\frac{2mE}{\hbar^2}}
+$$</p>
+<h1 id="粒子在无限深的井中的势能">粒子在无限深的井中的势能</h1>
+<h2 id="51-图示">5.1 图示</h2>
+<p><img src="/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/1.png"
+	width="469"
+	height="636"
+	srcset="/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/1_hu50ce61058e3f08935c40dff1a2fbc0bc_69004_480x0_resize_box_3.png 480w, /p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/1_hu50ce61058e3f08935c40dff1a2fbc0bc_69004_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="73"
+		data-flex-basis="176px"
+	
+></p>
+<p>$$
+我们规定 \\\
+\\ U(x) = \begin{cases}
+0 &amp; 0 \lt x \lt L \\
+\infin &amp; x \le 0 \ or \ x \ge L
+\end{cases}
+$$</p>
+<h2 id="52-波方程">5.2 波方程</h2>
+<p>$$
+当x \lt 0 \ or \ x \gt L ，U(x) = \infin  \\\
+\\ 为了使得薛定谔方程成立，U(x) \cdot \psi(x)= 0 \\\
+\\ \therefore \psi(x) =0 \\\
+\\ 我们认为一个波函数是\pmb{连续的} \\\
+\\ \therefore 当x= 0和x = L 时，\psi(x) = 0 \\\
+\\ \psi(0) = B = 0\\\
+\\ \psi(L) = A\cdot sinkL = 0 \\\
+\\ \therefore k = \frac{n\pi}{L} \\\
+\\ \therefore \psi_n(x) = Asin\frac{n \pi}{L}x\\\
+\\ 根据归一化条件 \\\
+\\ \int_{0}^{L} |\psi(x)|^2dx = 1 \\\
+\\ 解得: A = \sqrt{\frac{2}{L}} \\\
+\\ \therefore \psi_n(x)  =\sqrt{\frac{2}{L}}sin\frac{n\pi}{L}x
+$$</p>
+<h2 id="53-能量方程">5.3 能量方程</h2>
+<ol>
+<li>方程</li>
+</ol>
+<p>$$
+\because k = \sqrt{\frac{2mE}{\hbar^2}} \\\
+\\ E_n = \frac{k^2\hbar^2}{2m} = n^2 \frac{h^2}{8mL^2} \\\
+\\ \therefore E_1 =\frac{h^2}{8mL^2},\pmb{零点能量}
+$$</p>
+<ol start="2">
+<li>观察与解释</li>
+</ol>
+<p>$$
+p = \frac{h}{\lambda} = \hbar k = n\hbar\frac{\pi}{L} \\\
+\\ p与L 成反比
+$$</p>
+<ul>
+<li>这可以理解为不确定性原理的一种体现</li>
+</ul>
+<h1 id="粒子在有限深井中的势能">粒子在有限深井中的势能</h1>
+<h2 id="61-图示">6.1 图示</h2>
+<p><img src="/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/3.png"
+	width="596"
+	height="749"
+	srcset="/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/3_hucdcc47c1f73d5c70fd7b7bb14395aa4e_114890_480x0_resize_box_3.png 480w, /p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/3_hucdcc47c1f73d5c70fd7b7bb14395aa4e_114890_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="79"
+		data-flex-basis="190px"
+	
+></p>
+<h2 id="62-波方程">6.2 波方程</h2>
+<p>$$
+设 \psi = Asinkx + Bcoskx \\\
+\\ -\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} + U\psi = E\psi  \\\
+\\ \frac{d^2\psi}{dx^2} - \Big[\frac{2m(U_0 -E)}{\hbar^2}\Big] \psi = 0 \\\
+\\ 设G^2 = \frac{2m(U_0-E)}{\hbar^2} \\\
+\\ \pmb{当U_0 \gt E}时: \\\
+\\ \psi_{I,III} = Ce^{Gx} + De^{-Gx} \\\
+\\ 在I处，x \lt 0 \Longrightarrow 当x \rightarrow -\infin 时, \psi \rightarrow +\infin \\\
+\\ 这显然不可能，故D = 0 \\\
+\\ 同理，在III处，C = 0 \\\
+\\ 我们得到 \begin{cases}
+\psi_I = Ce^{Gx} \\
+\psi_{III}  = De^{-Gx}
+\end{cases} \\\
+\\ 由于波方程是连续且可微的 \\\
+\\ 故有x =0 时: \psi_I =  \psi_{II}，\frac{d\psi_I}{dx} = \frac{d\psi_{II}}{dx} \\\
+\\ x= L时: \psi_{II} = \psi_{III} ，\frac{d\psi_{II}}{dx} = \frac{d\psi_{III}}{dx} \\\
+\\ 解得 \pmb{B = C， GC = kA}
+$$</p>
+<h2 id="63-另一种情况">6.3 另一种情况</h2>
+<p>$$
+当U_0 \lt E \\\
+\\ 我们有 \lambda =\begin{cases}
+\frac{h}{p} = \frac{h}{\sqrt{2mE}} &amp; 0 \le x \le L \\
+\frac{h}{p} = \frac{h}{\sqrt{2m(E-U_0)}} &amp; x\gt L \ or \ x \lt 0
+\end{cases} \\\
+$$</p>
+<h1 id="穿越障碍">穿越障碍</h1>
+<h2 id="71-图示">7.1 图示</h2>
+<p><img src="/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/4.png"
+	width="886"
+	height="329"
+	srcset="/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/4_hu1e033acceb8d6ec7174796c66e6aa046_123564_480x0_resize_box_3.png 480w, /p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/4_hu1e033acceb8d6ec7174796c66e6aa046_123564_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="269"
+		data-flex-basis="646px"
+	
+></p>
+<h2 id="72-解释">7.2 解释</h2>
+<ol>
+<li>
+<p>前提：$U_0 \gt E$</p>
+</li>
+<li>
+<p>有一部分粒子会穿过障碍，如图(b)所示</p>
+</li>
+</ol>
+<p>$$
+假设穿过概率为T,反弹概率为R,有T+R = 1 \\\
+\\ 当T 非常小时 \\\
+\\ T = \frac{|\psi(L)|^2}{|\psi(0)|^2} = e^{-2GL}
+$$</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/p3-%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C%E8%80%83%E8%AF%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">P3 大物实验考试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">6. 原子的量子力学</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/p2-%E6%B3%A2%E7%9A%84%E8%BF%90%E5%8A%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">P2 波的运动</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/5.-%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+        
+        
+            <div class="article-image">
+                <img src="/p/5.-%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1.bd0b7c9354ba09750f115df37e5c9b4b_hub06219d070f66f8c658580c5f1108b51_11730_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 5. 早期量子理论和原子模型"
+                        
+                        data-hash="md5-vQt8k1S6CXUPEV3zflybSw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5. 早期量子理论和原子模型</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/">
+        
+        
+            <div class="article-image">
+                <img src="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1.3926e008109fbfb24116e08ef8250b8a_hu2de589d636666dff036e9f7186e7da49_5116_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post P1 狭义相对论"
+                        
+                        data-hash="md5-OSbgCBCfv7JBFuCO&#43;CULig==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">P1 狭义相对论</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Flyfan Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

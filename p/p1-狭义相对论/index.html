@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='狭义相对论的概念和简单运用'>
+<title>P1 狭义相对论</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='P1 狭义相对论'>
+<meta property='og:description' content='狭义相对论的概念和简单运用'>
+<meta property='og:url' content='https://downeyflyfan.com/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/'>
+<meta property='og:site_name' content='Flyfan Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2022-12-07T05:29:32&#43;08:00'/><meta property='article:modified_time' content='2022-12-07T05:29:32&#43;08:00'/><meta property='og:image' content='https://downeyflyfan.com/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1.jpg' />
+<meta name="twitter:title" content="P1 狭义相对论">
+<meta name="twitter:description" content="狭义相对论的概念和简单运用"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://downeyflyfan.com/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1.jpg' /><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Flyfan Blog</a></h1>
+            <h2 class="site-description">A Record of My Study</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#伽利略-牛顿相对论">伽利略-牛顿相对论</a></li>
+    <li><a href="#狭义相对论与洛伦兹变换">狭义相对论与洛伦兹变换</a>
+      <ol>
+        <li><a href="#狭义相对论的基本原理">狭义相对论的基本原理</a>
+          <ol>
+            <li><a href="#光速不变原理">光速不变原理</a></li>
+            <li><a href="#狭义相对论原理">狭义相对论原理</a></li>
+          </ol>
+        </li>
+        <li><a href="#六大公式">六大公式</a>
+          <ol>
+            <li><a href="#钟慢效应时间">钟慢效应(时间)</a></li>
+            <li><a href="#尺短效应长度">尺短效应(长度)</a></li>
+            <li><a href="#洛伦兹变换速度">洛伦兹变换(速度)</a></li>
+            <li><a href="#相对论系数">相对论系数</a></li>
+            <li><a href="#质量">质量</a></li>
+            <li><a href="#质能与动量">质能与动量</a></li>
+          </ol>
+        </li>
+        <li><a href="#相对论公式总结">相对论公式总结</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/">
+                <img src="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1_hu2de589d636666dff036e9f7186e7da49_5116_800x0_resize_q75_box.jpg"
+                        srcset="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1_hu2de589d636666dff036e9f7186e7da49_5116_800x0_resize_q75_box.jpg 800w, /p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1_hu2de589d636666dff036e9f7186e7da49_5116_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="735" 
+                        loading="lazy"
+                        alt="Featured image of post P1 狭义相对论" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #6A5ACD; color: #fff;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/">P1 狭义相对论</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            狭义相对论的概念和简单运用
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 07, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="伽利略-牛顿相对论">伽利略-牛顿相对论</h1>
+<blockquote>
+<p>传统思维</p>
+</blockquote>
+<h1 id="狭义相对论与洛伦兹变换">狭义相对论与洛伦兹变换</h1>
+<h2 id="狭义相对论的基本原理">狭义相对论的基本原理</h2>
+<h3 id="光速不变原理">光速不变原理</h3>
+<blockquote>
+<p>光速是绝对的，它<strong>相对于</strong>任何物体的速度都是不变的</p>
+</blockquote>
+<h3 id="狭义相对论原理">狭义相对论原理</h3>
+<blockquote>
+<p>物理规律在一切惯性参考系中都是等价的</p>
+</blockquote>
+<h2 id="六大公式">六大公式</h2>
+<h3 id="钟慢效应时间">钟慢效应(时间)</h3>
+<ol>
+<li>图示</li>
+</ol>
+<p><img src="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/3.png"
+	width="912"
+	height="473"
+	srcset="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/3_hud0fcb25ebf3631982bec513af4b263ff_356500_480x0_resize_box_3.png 480w, /p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/3_hud0fcb25ebf3631982bec513af4b263ff_356500_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="192"
+		data-flex-basis="462px"
+	
+></p>
+<ol start="2">
+<li>推导</li>
+</ol>
+<p>$$
+对于车外的人来说, \Delta t = \frac{2\sqrt{d^2 + (\frac{1}{2}v\Delta t)^2}}{c} \\\
+\\ 对于车内的人来说：\Delta t&rsquo; = \frac{2d}{c} \\\
+\\ 根据以上两式可得：\Delta t = \frac{\Delta t&rsquo; }{\sqrt{1-v^2/c^2}}  \\\
+$$</p>
+<h3 id="尺短效应长度">尺短效应(长度)</h3>
+<ol>
+<li>图示</li>
+</ol>
+<p><img src="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/4.png"
+	width="843"
+	height="456"
+	srcset="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/4_hu0d4c2587b312d103ee4f6592f07f22ec_273847_480x0_resize_box_3.png 480w, /p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/4_hu0d4c2587b312d103ee4f6592f07f22ec_273847_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="184"
+		data-flex-basis="443px"
+	
+></p>
+<ol start="2">
+<li>推导</li>
+</ol>
+<p>$$
+对于车外的人来说: \\\
+\\ \Delta t = \frac{l}{c-v}+\frac{l}{c+v} \\\
+\\ 对于车内的人来说 \\\
+\\ \Delta t&rsquo; = \frac{2l_0}{c} \\\
+\\ 由以上两式可知: L = \sqrt{1-v^2/c^2} \cdot  L_0
+$$</p>
+<h3 id="洛伦兹变换速度">洛伦兹变换(速度)</h3>
+<p>$$
+\begin{cases} x = \gamma (x&rsquo;+vt&rsquo;) \\ y =y&rsquo; \\ z = z&rsquo; \\ t = \gamma (t&rsquo; + vx&rsquo;/c^2)\end{cases} \Rightarrow\begin{cases}dx =\gamma(dx&rsquo; + vdt&rsquo;)\\ dy = dy&rsquo; \\ dz = dz&rsquo; \\ dt = \gamma(dt&rsquo; + vdx&rsquo;/c^2) \end{cases}  \\\
+\\ 我们可以得出: \frac{dx}{dt} = \frac{dx&rsquo;+vdt&rsquo;}{dt&rsquo;+vdx&rsquo;/c^2} = \frac{\frac{dx&rsquo;}{dt&rsquo;}+v}{1+\frac{v}{c^2}\frac{dx&rsquo;}{dt&rsquo;}} \\\
+\\ 其中 u =\frac{du}{dt}，u&rsquo; =\frac{dx&rsquo;}{dt&rsquo;} \\\
+\\ \therefore u_x = \frac{u_x&rsquo;+ v}{1+u_x&rsquo;v/c^2} \\\
+\\ 其中，v是坐标系S&rsquo;相对于坐标系S的移动速度 \\\
+\\ u和u&rsquo;分别是两个坐标系中移动物体的速度
+$$</p>
+<h3 id="相对论系数">相对论系数</h3>
+<ol>
+<li>第一个图示
+<img src="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1.png"
+	width="724"
+	height="496"
+	srcset="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1_hub1f6a9b86be582257be9855b44b8f91b_87825_480x0_resize_box_3.png 480w, /p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1_hub1f6a9b86be582257be9855b44b8f91b_87825_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="350px"
+	
+></li>
+</ol>
+<p>$$
+如上图，黑色坐标系为一在原地不动的人，蓝色坐标系为一前进的火车 \\\
+\\ 对于静止不动的人来说，在t=0时刻，一光束从火车上反射到石头处(蓝色竖杠) \\\
+\\ 在t=t时刻，光束到达石头，火车前进了vt \\\
+\\ 此时，人离石头距离x = ct
+$$</p>
+<ol start="2">
+<li>第二个图示
+<img src="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/2.png"
+	width="709"
+	height="476"
+	srcset="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/2_hu5b30dd6174cde4c6dfe254134b856e90_68279_480x0_resize_box_3.png 480w, /p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/2_hu5b30dd6174cde4c6dfe254134b856e90_68279_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="357px"
+	
+></li>
+</ol>
+<p>$$
+对于火车来说，在t=t时刻,石头离它的距离x&rsquo;=ct&rsquo; \\\
+\\ 由于两个时空因为引力产生的度量不同 \\\
+\\ \therefore\begin{cases} x = \gamma(x&rsquo;+vt&rsquo;) \\ x&rsquo; = \gamma(x-vt)\end{cases}   \\\
+\\ 又\begin{cases} x = ct \\ x&rsquo;= ct&rsquo; \end{cases}  \\\
+\\ \Rightarrow \gamma = \frac{1}{\sqrt{1-\frac{c^2}{v^2}}}
+$$</p>
+<h3 id="质量">质量</h3>
+<p>$$
+在一次动量守恒的碰撞中，从撞击者和被撞击者的角度分别来看\\\
+\\ mv = (m+m_0)u [1] \\\
+\\ -mv = (m+ m_0)u&rsquo; [2] \\\
+\\ u  =\frac{u&rsquo;+v}{1+u&rsquo;v/c^2} [3] \\\
+\\ 根据以上三式可得出： m=\frac{m_0}{\sqrt{1-v^2/c^2}} \\\
+\\ 此时，牛顿方程\pmb F = \frac{d\pmb p}{dt} = \frac{d(m\pmb v)}{dt} = m\frac{d\pmb v}{dt} + \pmb v\frac{dm}{dt} \pmb{不再成立}
+$$</p>
+<h3 id="质能与动量">质能与动量</h3>
+<p>$$
+E_k = \int_0^v \pmb F\cdot d\pmb r = \int_0^v\frac{d(m\pmb v)}{dt}\cdot d\pmb r = \int_0^r \pmb v \cdot d(m\pmb v) \\\
+\\ \because \pmb v\cdot d(m\pmb v) = v^2 dm  +m\pmb v \cdot d\pmb v \\\
+\\ 并且，m=\frac{m_0}{\sqrt{1-v^2/c^2}} \Rightarrow dm = \frac{mvdv}{c^2-v^2} \\\
+\\ \pmb{质能方程：E_k = \int_{m_0}^mc^2dm= mc^2-m_0c^2} \\\
+\\ 动能方程是质能方程的特殊情况 \\\
+\\ E_k = mc^2 - m_0c^2 = m_0c^2(\frac{1}{\sqrt{1-v^2/c^2}}-1) 泰勒公式展开 \\\
+\\ = \frac{1}{2}m_0v^2 + \frac{3}{8}m_0 \frac{v^4}{c^3} + &hellip;
+$$</p>
+<h2 id="相对论公式总结">相对论公式总结</h2>
+<blockquote>
+<p>六大方面: 质量、长度、速度、时间、能量、动量</p>
+</blockquote>
+<p>$$
+m = \frac{1}{\sqrt{1-v^2/c^2}}m_0 \\\
+\\ L = \sqrt{1-v^2/c^2} L_0 \\\
+\\ u = \frac{u&rsquo;+v}{1+u&rsquo;v/c^2} \\\
+\\ t = \frac{1}{\sqrt{1-v^2/c^2}}t_0 \\\
+\\ \pmb p = m\pmb v = \frac{m_0\pmb v}{\sqrt{1-v^2/c^2}} = \frac{\sqrt{K^2 + 2Kmc^2}}{c} \\\
+\\ E = \Delta mc^2
+$$</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/p3-%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C%E8%80%83%E8%AF%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">P3 大物实验考试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">6. 原子的量子力学</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/p2-%E6%B3%A2%E7%9A%84%E8%BF%90%E5%8A%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">P2 波的运动</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">7. 量子力学</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/5.-%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+        
+        
+            <div class="article-image">
+                <img src="/p/5.-%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1.bd0b7c9354ba09750f115df37e5c9b4b_hub06219d070f66f8c658580c5f1108b51_11730_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 5. 早期量子理论和原子模型"
+                        
+                        data-hash="md5-vQt8k1S6CXUPEV3zflybSw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5. 早期量子理论和原子模型</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Flyfan Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

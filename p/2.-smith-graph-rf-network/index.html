@@ -275,16 +275,6 @@
         <li><a href="#等电阻圆--等电抗圆">等电阻圆 &amp; 等电抗圆</a></li>
       </ol>
     </li>
-    <li><a href="#evenodd-mode">Even/Odd Mode</a>
-      <ol>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#impedance">Impedance</a>
-          <ol>
-            <li><a href="#voltage-component">Voltage Component</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
     <li><a href="#2-ports-network">2-Ports Network</a>
       <ol>
         <li><a href="#low-frequency">Low Frequency</a>
@@ -314,6 +304,16 @@
           <ol>
             <li><a href="#branch-line-coupler">Branch-Line Coupler</a></li>
             <li><a href="#rat-race-coupler-180-degree-hybrid-coupler">Rat-Race Coupler (180-degree Hybrid Coupler)</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#evenodd-mode">Even/Odd Mode</a>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#impedance">Impedance</a>
+          <ol>
+            <li><a href="#voltage-component">Voltage Component</a></li>
           </ol>
         </li>
       </ol>
@@ -507,89 +507,6 @@ $$</p>
 		data-flex-basis="467px"
 	
 ></p>
-<h1 id="evenodd-mode">Even/Odd Mode</h1>
-<h2 id="introduction">Introduction</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">项目</th>
-<th style="text-align:center">Even Mode</th>
-<th style="text-align:center">Odd Mode</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">电流</td>
-<td style="text-align:center">$I_1 = I_2$</td>
-<td style="text-align:center">$I_1 = - I_2$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\varepsilon_{re}$</td>
-<td style="text-align:center">更大</td>
-<td style="text-align:center">更小</td>
-</tr>
-<tr>
-<td style="text-align:center">驱动</td>
-<td style="text-align:center">共模驱动</td>
-<td style="text-align:center">差分驱动</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li>最终的参数应该是$\dfrac{ Z_e + Z_o }{ 2 }$</li>
-</ul>
-<h2 id="impedance">Impedance</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">概念</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$Z_{diff}$</td>
-<td style="text-align:center">差分信号沿着差分对传播时受到的阻抗，是每条信号线与返回路径之间阻抗之和。</td>
-</tr>
-<tr>
-<td style="text-align:center">$Z_{common}$</td>
-<td style="text-align:center">共模信号沿传输线传播时收到的阻抗。共模信号是两条信号线的电压平均值，纯共模信号就是差分信号为0时的信号。</td>
-</tr>
-</tbody>
-</table></div>
-<p>$$
-\begin{gather}
-\begin{aligned}
-Z_{diff} &amp;= \begin{cases}
-2 Z_0 &amp; C = 0 \\
-2 Z_{odd} &amp; C \neq 0
-\end{cases} \\
-Z_{common} &amp;= \frac{ 1}{ 2 } Z_{even}
-\end{aligned}
-\end{gather}
-$$</p>
-<ul>
-<li>若$Z_0 = 50 \Omega$，那么$Z_0$的<strong>Even/Odd</strong>部分分别为</li>
-</ul>
-<p>$$
-\begin{gather}
-\begin{aligned}
-Z_{0o} &amp;= 50 \Omega \\
-Z_{0e} &amp;= 50 \Omega
-\end{aligned}
-\end{gather}
-$$</p>
-<h3 id="voltage-component">Voltage Component</h3>
-<p>$$
-\begin{gather}
-\begin{aligned}
-V_o &amp;= V_{diff} = V_1 - V_2 \\
-V_e &amp;= V_{common} = \frac{ V_1 + V_2 }{ 2 } \\
-V_1 &amp;= V_e + \frac{ V_o }{ 2 } \\
-V_2 &amp;= V_e - \frac{ V_o }{ 2 }
-\end{aligned}
-\end{gather}
-$$</p>
 <h1 id="2-ports-network">2-Ports Network</h1>
 <h2 id="low-frequency">Low Frequency</h2>
 <h3 id="impedance--admittace-parameters">Impedance &amp; Admittace Parameters</h3>
@@ -1021,6 +938,89 @@ $$</li>
 \end{aligned}
 \end{gather}
 $$</p>
+<h1 id="evenodd-mode">Even/Odd Mode</h1>
+<h2 id="introduction">Introduction</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">项目</th>
+<th style="text-align:center">Even Mode</th>
+<th style="text-align:center">Odd Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">电流</td>
+<td style="text-align:center">$I_1 = I_2$</td>
+<td style="text-align:center">$I_1 = - I_2$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\varepsilon_{re}$</td>
+<td style="text-align:center">更大</td>
+<td style="text-align:center">更小</td>
+</tr>
+<tr>
+<td style="text-align:center">驱动</td>
+<td style="text-align:center">共模驱动</td>
+<td style="text-align:center">差分驱动</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>最终的参数应该是$\dfrac{ Z_e + Z_o }{ 2 }$</li>
+</ul>
+<h2 id="impedance">Impedance</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$Z_{diff}$</td>
+<td style="text-align:center">差分信号沿着差分对传播时受到的阻抗，是每条信号线与返回路径之间阻抗之和。</td>
+</tr>
+<tr>
+<td style="text-align:center">$Z_{common}$</td>
+<td style="text-align:center">共模信号沿传输线传播时收到的阻抗。共模信号是两条信号线的电压平均值，纯共模信号就是差分信号为0时的信号。</td>
+</tr>
+</tbody>
+</table></div>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{diff} &amp;= \begin{cases}
+2 Z_0 &amp; C = 0 \\
+2 Z_{odd} &amp; C \neq 0
+\end{cases} \\
+Z_{common} &amp;= \frac{ 1}{ 2 } Z_{even}
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>若$Z_0 = 50 \Omega$，那么$Z_0$的<strong>Even/Odd</strong>部分分别为</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{0o} &amp;= 50 \Omega \\
+Z_{0e} &amp;= 50 \Omega
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="voltage-component">Voltage Component</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;= V_{diff} = V_1 - V_2 \\
+V_e &amp;= V_{common} = \frac{ V_1 + V_2 }{ 2 } \\
+V_1 &amp;= V_e + \frac{ V_o }{ 2 } \\
+V_2 &amp;= V_e - \frac{ V_o }{ 2 }
+\end{aligned}
+\end{gather}
+$$</p>
 <h1 id="appendix">Appendix</h1>
 <h2 id="电抗">电抗</h2>
 <p>$$
@@ -1102,6 +1102,19 @@ $$</p>
     <h2 class="section-title">Related content</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/4.-electromagnetic-compatability/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">4. Electromagnetic Compatability</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">

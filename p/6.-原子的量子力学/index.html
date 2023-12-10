@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='探究氢原子中的量子数(Quantum Number) 主量子数(Principal) $$ E_n = \frac{-13.6eV(E_1)}{n^2} \\\ \\ 此处的n即为主量子数 $$
+轨道量子数(Orbital) 轨道量子数$l$与电子的轨道角动量的大小有关系 $$ L = \sqrt{l(l&#43;1)}\hbar \\\ \\ \pmb{0 \le l \le (n-1)} $$
+磁量子数(magnetic) 磁量子数表示轨道角动量的方向 $$ L_z = m_l \hbar \\\ \\ -l \le m_l \le l $$
+自旋量子数(spin) 自旋量子数表示自旋的方向 $$ m_s = &#43;\frac{1}{2} \Leftrightarrow 上旋(Spin \ Up) \\\ \\ m_s = -\frac{1}{2} \Leftrightarrow 下旋(Spin \ Down) \\\ \\ 电子的自旋角动量S = \sqrt{s(s&#43;1)}\hbar = \frac{\sqrt{3}}{2}\hbar $$
+总结 在氢原子中，只有$n$影响能量 在其他原子中，$n$和$l$对电子能量的影响最大，$m_l$和$m_s$影响甚微 电子的跃迁 Selection Rule 电子跃迁的轨道角动量变化只可能是$\Delta l = \pm 1$之间,'>
+<title>6. 原子的量子力学</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='6. 原子的量子力学'>
+<meta property='og:description' content='探究氢原子中的量子数(Quantum Number) 主量子数(Principal) $$ E_n = \frac{-13.6eV(E_1)}{n^2} \\\ \\ 此处的n即为主量子数 $$
+轨道量子数(Orbital) 轨道量子数$l$与电子的轨道角动量的大小有关系 $$ L = \sqrt{l(l&#43;1)}\hbar \\\ \\ \pmb{0 \le l \le (n-1)} $$
+磁量子数(magnetic) 磁量子数表示轨道角动量的方向 $$ L_z = m_l \hbar \\\ \\ -l \le m_l \le l $$
+自旋量子数(spin) 自旋量子数表示自旋的方向 $$ m_s = &#43;\frac{1}{2} \Leftrightarrow 上旋(Spin \ Up) \\\ \\ m_s = -\frac{1}{2} \Leftrightarrow 下旋(Spin \ Down) \\\ \\ 电子的自旋角动量S = \sqrt{s(s&#43;1)}\hbar = \frac{\sqrt{3}}{2}\hbar $$
+总结 在氢原子中，只有$n$影响能量 在其他原子中，$n$和$l$对电子能量的影响最大，$m_l$和$m_s$影响甚微 电子的跃迁 Selection Rule 电子跃迁的轨道角动量变化只可能是$\Delta l = \pm 1$之间,'>
+<meta property='og:url' content='https://downeyflyfan.com/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/'>
+<meta property='og:site_name' content='Flyfan Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-02-10T22:28:52&#43;08:00'/><meta property='article:modified_time' content='2023-02-10T22:28:52&#43;08:00'/>
+<meta name="twitter:title" content="6. 原子的量子力学">
+<meta name="twitter:description" content="探究氢原子中的量子数(Quantum Number) 主量子数(Principal) $$ E_n = \frac{-13.6eV(E_1)}{n^2} \\\ \\ 此处的n即为主量子数 $$
+轨道量子数(Orbital) 轨道量子数$l$与电子的轨道角动量的大小有关系 $$ L = \sqrt{l(l&#43;1)}\hbar \\\ \\ \pmb{0 \le l \le (n-1)} $$
+磁量子数(magnetic) 磁量子数表示轨道角动量的方向 $$ L_z = m_l \hbar \\\ \\ -l \le m_l \le l $$
+自旋量子数(spin) 自旋量子数表示自旋的方向 $$ m_s = &#43;\frac{1}{2} \Leftrightarrow 上旋(Spin \ Up) \\\ \\ m_s = -\frac{1}{2} \Leftrightarrow 下旋(Spin \ Down) \\\ \\ 电子的自旋角动量S = \sqrt{s(s&#43;1)}\hbar = \frac{\sqrt{3}}{2}\hbar $$
+总结 在氢原子中，只有$n$影响能量 在其他原子中，$n$和$l$对电子能量的影响最大，$m_l$和$m_s$影响甚微 电子的跃迁 Selection Rule 电子跃迁的轨道角动量变化只可能是$\Delta l = \pm 1$之间,"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Flyfan Blog</a></h1>
+            <h2 class="site-description">A Record of My Study</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#探究氢原子中的量子数quantum-number">探究氢原子中的量子数(Quantum Number)</a>
+      <ol>
+        <li><a href="#主量子数principal">主量子数(Principal)</a></li>
+        <li><a href="#轨道量子数orbital">轨道量子数(Orbital)</a></li>
+        <li><a href="#磁量子数magnetic">磁量子数(magnetic)</a></li>
+        <li><a href="#自旋量子数spin">自旋量子数(spin)</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#电子的跃迁">电子的跃迁</a></li>
+      </ol>
+    </li>
+    <li><a href="#氢原子波方程">氢原子波方程</a>
+      <ol>
+        <li><a href="#基态氢原子薛定谔方程的解">基态氢原子薛定谔方程的解</a></li>
+        <li><a href="#氢原子中电子的概率分布">氢原子中电子的概率分布</a>
+          <ol>
+            <li><a href="#基态">基态</a></li>
+            <li><a href="#非基态的一些解">非基态的一些解</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#元素周期表">元素周期表</a>
+      <ol>
+        <li><a href="#泡利不相容原理">泡利不相容原理</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+          </ol>
+        </li>
+        <li><a href="#能量最低原理">能量最低原理</a></li>
+        <li><a href="#洪特规则">洪特规则</a></li>
+        <li><a href="#元素周期表-1">元素周期表</a>
+          <ol>
+            <li><a href="#subshell与l的关系">$Subshell$与$l$的关系</a></li>
+            <li><a href="#元素周期表-2">元素周期表</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#x射线和原子数">X射线和原子数</a>
+      <ol>
+        <li><a href="#产生原因">产生原因</a></li>
+        <li><a href="#x-射线-光强--波长-关系图">X-射线 光强 —— 波长 关系图</a></li>
+        <li><a href="#关系">关系</a></li>
+        <li><a href="#电子与光子撞击过程中的能量转换">电子与光子撞击过程中的能量转换</a></li>
+      </ol>
+    </li>
+    <li><a href="#磁偶极矩-总角动量">磁偶极矩 总角动量*</a>
+      <ol>
+        <li><a href="#磁偶极矩">磁偶极矩</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #6A5ACD; color: #fff;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">6. 原子的量子力学</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 10, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="探究氢原子中的量子数quantum-number">探究氢原子中的量子数(Quantum Number)</h1>
+<h2 id="主量子数principal">主量子数(Principal)</h2>
+<p>$$
+E_n = \frac{-13.6eV(E_1)}{n^2} \\\
+\\ 此处的n即为主量子数
+$$</p>
+<h2 id="轨道量子数orbital">轨道量子数(Orbital)</h2>
+<ul>
+<li>轨道量子数$l$与电子的<em><strong>轨道角动量</strong></em>的<em><strong>大小</strong></em>有关系</li>
+</ul>
+<p>$$
+L = \sqrt{l(l+1)}\hbar \\\
+\\ \pmb{0 \le l \le (n-1)}
+$$</p>
+<h2 id="磁量子数magnetic">磁量子数(magnetic)</h2>
+<ul>
+<li>磁量子数表示<strong>轨道角动量的方向</strong></li>
+</ul>
+<p>$$
+L_z = m_l \hbar \\\
+\\ -l \le m_l \le l
+$$</p>
+<p><img src="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/1.png"
+	width="489"
+	height="775"
+	srcset="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/1_hu8aa4302ae1e86b6924a1b24e578a8d29_133881_480x0_resize_box_3.png 480w, /p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/1_hu8aa4302ae1e86b6924a1b24e578a8d29_133881_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="63"
+		data-flex-basis="151px"
+	
+></p>
+<h2 id="自旋量子数spin">自旋量子数(spin)</h2>
+<ul>
+<li>自旋量子数表示<strong>自旋</strong>的方向</li>
+</ul>
+<p>$$
+m_s = +\frac{1}{2} \Leftrightarrow 上旋(Spin \ Up)  \\\
+\\ m_s = -\frac{1}{2} \Leftrightarrow 下旋(Spin \ Down) \\\
+\\ 电子的自旋角动量S = \sqrt{s(s+1)}\hbar = \frac{\sqrt{3}}{2}\hbar
+$$</p>
+<h2 id="总结">总结</h2>
+<ul>
+<li>在氢原子中，只有$n$影响能量</li>
+<li>在其他原子中，$n$和$l$对电子能量的<strong>影响最大</strong>，$m_l$和$m_s$<strong>影响甚微</strong></li>
+</ul>
+<h2 id="电子的跃迁">电子的跃迁</h2>
+<ol>
+<li>Selection Rule</li>
+</ol>
+<ul>
+<li>
+<p>电子跃迁的<strong>轨道角动量</strong>变化只可能<strong>是</strong>$\Delta l = \pm 1$之间,</p>
+</li>
+<li>
+<p>其他范围(包括$l=0$)叫做<strong>forbidden transition</strong></p>
+</li>
+</ul>
+<h1 id="氢原子波方程">氢原子波方程</h1>
+<h2 id="基态氢原子薛定谔方程的解">基态氢原子薛定谔方程的解</h2>
+<p>$$
+\psi_{100} = \frac{1}{\sqrt{\pi r_0^3}}e^{-\frac{r}{r_0}} \\\
+\\ 其中, r_0 = \frac{h^2 \varepsilon_0}{\pi me^2} = 0.0529(nm),为\pmb{波尔半径} \\\
+\\ \psi的下标分表表示n,l,m_l
+$$</p>
+<h2 id="氢原子中电子的概率分布">氢原子中电子的概率分布</h2>
+<h3 id="基态">基态</h3>
+<p>$$
+假设P_r 是电子的半径分布概率，则 \\\
+\\ P_rdr 可以看作电子分布在半径r处的概率 \\\
+\\ 对于一个球壳来说，其体积 \\\
+\\ dV = 4\pi r^2 dr \Longrightarrow |\psi|^2 dV = |\psi|^2 4\pi r^2 dr \\\
+\\ \therefore P_r dr = |\psi|^2 dV \Longrightarrow P_r = 4\pi r^2 |\psi|^2 \\\
+\\ 对于基态氢原子，P_r = 4\frac{r^2}{r_0^3}e^{-\frac{2r}{r_0}}
+$$</p>
+<h3 id="非基态的一些解">非基态的一些解</h3>
+<p>$$
+\psi_{200} = \frac{1}{\sqrt{32\pi r_0^3}} (2-\frac{r}{r_0})e^{-\frac{r}{2r_0}} \\\
+\\ P_{r200} = \frac{1}{8}\frac{r^2}{r_0^3}(2-\frac{r}{r_0})^2 e^{-\frac{r}{r_0}} \\\
+\\ \psi_{210} = \frac{Z}{\sqrt{32\pi r_0^5}}e^{-r/2r_0} \\\
+\\ \psi_{211} = \frac{x + iy}{\sqrt{64 \pi r_0^5}}e^{-r/2r_0} \\\
+\\ \psi_{21-1} =\frac{x - iy}{\sqrt{64 \pi r_0^5}}e^{-r/2r_0}
+$$</p>
+<h1 id="元素周期表">元素周期表</h1>
+<h2 id="泡利不相容原理">泡利不相容原理</h2>
+<h3 id="定义">定义</h3>
+<blockquote>
+<p>每个轨道只能容纳两个电子，且自旋相反配对</p>
+</blockquote>
+<ul>
+<li>即每个电子的四个量子数<strong>不可能完全相同</strong></li>
+</ul>
+<h2 id="能量最低原理">能量最低原理</h2>
+<blockquote>
+<p>原子的基态是能量最低的状态</p>
+</blockquote>
+<h2 id="洪特规则">洪特规则</h2>
+<blockquote>
+<p>电子分布到能量能级相同的轨道时，优先以自旋相同的方式分别占据不同的轨道</p>
+</blockquote>
+<h2 id="元素周期表-1">元素周期表</h2>
+<h3 id="subshell与l的关系">$Subshell$与$l$的关系</h3>
+<p><img src="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/4.png"
+	width="485"
+	height="529"
+	srcset="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/4_hu7c6ae8e7154bcaed65bf483eaf8ab8af_188137_480x0_resize_box_3.png 480w, /p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/4_hu7c6ae8e7154bcaed65bf483eaf8ab8af_188137_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="91"
+		data-flex-basis="220px"
+	
+></p>
+<h3 id="元素周期表-2">元素周期表</h3>
+<p><img src="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/2.png"
+	width="341"
+	height="969"
+	srcset="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/2_huda4daec9c3f1693771a9af1528ed321c_291342_480x0_resize_box_3.png 480w, /p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/2_huda4daec9c3f1693771a9af1528ed321c_291342_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="35"
+		data-flex-basis="84px"
+	
+></p>
+<h1 id="x射线和原子数">X射线和原子数</h1>
+<h2 id="产生原因">产生原因</h2>
+<blockquote>
+<p>由高能电子撞击X射线管道中的特定金属产生</p>
+</blockquote>
+<h2 id="x-射线-光强--波长-关系图">X-射线 光强 —— 波长 关系图</h2>
+<p><img src="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/3.png"
+	width="425"
+	height="383"
+	srcset="/p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/3_hua6052d027472755731e874ed78397414_58140_480x0_resize_box_3.png 480w, /p/6.-%E5%8E%9F%E5%AD%90%E7%9A%84%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/3_hua6052d027472755731e874ed78397414_58140_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="110"
+		data-flex-basis="266px"
+	
+></p>
+<ul>
+<li>
+<p>随着撞击电子的能量(即加速撞击电子的电压)增高，$\lambda_0$减小</p>
+</li>
+<li>
+<p>$K_{\alpha}$和$K_{\beta}$两个峰体现了<strong>被撞击材料的特性</strong>,不因入射电子能量的改变而改变</p>
+</li>
+</ul>
+<h2 id="关系">关系</h2>
+<p>$$
+电子从n=2向n=1跃迁的过程中产生了K_{\alpha}\\\
+\\ \lambda_{min} \propto \frac{1}{(Z-1)^2} \\\
+\\ \lambda_{min}：最短的X射线
+$$</p>
+<h2 id="电子与光子撞击过程中的能量转换">电子与光子撞击过程中的能量转换</h2>
+<p>$$
+E = hf_0 =eV \\\
+\\ \therefore \lambda_0 =\frac{hc}{eV}
+$$</p>
+<h1 id="磁偶极矩-总角动量">磁偶极矩 总角动量*</h1>
+<h2 id="磁偶极矩">磁偶极矩</h2>
+<p>$$
+\mu = IA = \frac{1}{2}evr \\\
+\\ 又L = mvr \\\
+\\ \therefore \mu = \frac{1}{2}\frac{e}{m}L \\\
+\\ 由于电流中是电子(附点),所以磁偶极矩与角动量反向 \\\
+\\ \begin{align}
+\therefore \pmb{\mu} = -\frac{1}{2}\frac{e}{m}\pmb{L} \\
+U  =- \pmb{\mu \cdot B}
+\end{align}
+\\ 假设B都在z方向上 \\\
+\begin{align}
+有 U = -\mu_z \cdot B_z \\
+又L_z = m_l\hbar
+\end{align} \\\
+\\ 可以得到\mu = - \frac{e\hbar}{2m}m_l \\\
+\\ 其中\mu_B = \frac{e\hbar}{2m} = 9.27 \times 10^{-24}(J/T)，被称作\pmb{玻尔磁子} \\\
+\\ 有 \mu = - \mu_B m_l
+$$</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/p3-%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C%E8%80%83%E8%AF%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">P3 大物实验考试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/p2-%E6%B3%A2%E7%9A%84%E8%BF%90%E5%8A%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">P2 波的运动</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/7.-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">7. 量子力学</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/5.-%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+        
+        
+            <div class="article-image">
+                <img src="/p/5.-%E6%97%A9%E6%9C%9F%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%92%8C%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B/1.bd0b7c9354ba09750f115df37e5c9b4b_hub06219d070f66f8c658580c5f1108b51_11730_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 5. 早期量子理论和原子模型"
+                        
+                        data-hash="md5-vQt8k1S6CXUPEV3zflybSw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5. 早期量子理论和原子模型</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/">
+        
+        
+            <div class="article-image">
+                <img src="/p/p1-%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/1.3926e008109fbfb24116e08ef8250b8a_hu2de589d636666dff036e9f7186e7da49_5116_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post P1 狭义相对论"
+                        
+                        data-hash="md5-OSbgCBCfv7JBFuCO&#43;CULig==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">P1 狭义相对论</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Flyfan Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
