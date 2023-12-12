@@ -268,6 +268,13 @@ Relations with Fourier Transform 当$\alpha = 0$时, $X(s)$就是$x(t)$的傅立
         </li>
       </ol>
     </li>
+    <li><a href="#z-transform">Z Transform</a>
+      <ol>
+        <li><a href="#definition-1">Definition</a></li>
+        <li><a href="#与-ft-的关系">与 FT 的关系</a></li>
+        <li><a href="#roc">ROC</a></li>
+      </ol>
+    </li>
     <li><a href="#appendix">Appendix</a>
       <ol>
         <li><a href="#conjugation-formulas">Conjugation Formulas</a></li>
@@ -339,7 +346,7 @@ Relations with Fourier Transform 当$\alpha = 0$时, $X(s)$就是$x(t)$的傅立
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -427,11 +434,28 @@ $$</p>
 <li><strong>ROC由</strong>$\alpha$<strong>而不是</strong>$\omega$<strong>决定</strong></li>
 </ul>
 <ol start="2">
-<li>
-<p><strong>有理</strong>拉普拉斯变换的<strong>收敛域没有极点</strong>， 边界由<strong>极点</strong>定义(没有极点就没有边界)</p>
-</li>
-<li></li>
+<li><strong>有理</strong>拉普拉斯变换的<strong>收敛域没有极点</strong>， 边界由<strong>极点</strong>定义(没有极点就没有边界)</li>
 </ol>
+<h1 id="z-transform">Z Transform</h1>
+<h2 id="definition-1">Definition</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+X(z) &amp;= \sum_{ n = - \infin }^{ \infin } x[n] z^{-n} \\
+x[n] &amp;\overset{ Z }{ \longleftrightarrow } X(z) \\
+z &amp;= re^{j \omega}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="与-ft-的关系">与 FT 的关系</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+X(z) &amp;= \mathcal{F} \Big\lbrace x[n] r^{-n}\Big\rbrace
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="roc">ROC</h2>
 <h1 id="appendix">Appendix</h1>
 <h2 id="conjugation-formulas">Conjugation Formulas</h2>
 <p>$$
