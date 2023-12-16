@@ -272,7 +272,17 @@ Relations with Fourier Transform 当$\alpha = 0$时, $X(s)$就是$x(t)$的傅立
       <ol>
         <li><a href="#definition-1">Definition</a></li>
         <li><a href="#与-ft-的关系">与 FT 的关系</a></li>
-        <li><a href="#roc">ROC</a></li>
+        <li><a href="#inverse-z-transform">Inverse Z Transform</a>
+          <ol>
+            <li><a href="#definition-2">Definition</a></li>
+            <li><a href="#solving-methods">Solving Methods</a>
+              <ol>
+                <li><a href="#partial-fraction">Partial Fraction</a></li>
+                <li><a href="#power-series-expansion">Power Series Expansion</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#appendix">Appendix</a>
@@ -455,7 +465,46 @@ X(z) &amp;= \mathcal{F} \Big\lbrace x[n] r^{-n}\Big\rbrace
 \end{aligned}
 \end{gather}
 $$</p>
-<h2 id="roc">ROC</h2>
+<h2 id="inverse-z-transform">Inverse Z Transform</h2>
+<h3 id="definition-2">Definition</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+x[n] &amp;= \frac{ 1 }{ 2 \pi j } \oint_{  }^{  } X(z) z^{n-1} dz
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="solving-methods">Solving Methods</h3>
+<h4 id="partial-fraction">Partial Fraction</h4>
+<p>$$
+\begin{gather}
+\begin{aligned}
+X(z) &amp;= \sum_{i = 1 }^{ m } \frac{ A_i }{ 1 - a_i z^{-1} } \\
+x_i[n] &amp;= A_i a_i^n u[n]   \\
+or \ x_i[n] &amp;= -A_i a_i^n u[-n-1]
+\end{aligned}
+\end{gather}
+$$</p>
+<h4 id="power-series-expansion">Power Series Expansion</h4>
+<ol>
+<li>Compared with Definition</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+X(z) &amp;= \sum_{ i = 0 }^{ N } a_i z^i \\
+x[n] &amp;= a_i, n = -i
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>
+<p>Long Division</p>
+</li>
+<li>
+<p>Tailor&rsquo;s Series</p>
+</li>
+</ol>
 <h1 id="appendix">Appendix</h1>
 <h2 id="conjugation-formulas">Conjugation Formulas</h2>
 <p>$$

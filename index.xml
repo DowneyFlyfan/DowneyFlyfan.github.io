@@ -6,15 +6,326 @@
         <description>Recent content on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Tue, 12 Dec 2023 11:16:44 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 15 Dec 2023 19:22:04 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>A1 ESD</title>
+        <link>https://downeyflyfan.com/p/a1-esd/</link>
+        <pubDate>Fri, 15 Dec 2023 19:22:04 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/a1-esd/</guid>
+        <description>&lt;h1 id=&#34;adc--dac&#34;&gt;ADC &amp;amp; DAC&lt;/h1&gt;
+&lt;h2 id=&#34;dac&#34;&gt;DAC&lt;/h2&gt;
+&lt;h3 id=&#34;io和解释&#34;&gt;I/O和解释&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/4.png&#34;
+	width=&#34;1630&#34;
+	height=&#34;926&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/4_hu324e3e6db617250e7ba4c8271e03e466_223237_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/4_hu324e3e6db617250e7ba4c8271e03e466_223237_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;422px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;amp;= \frac{ D }{ 2^n } V_r
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;adc&#34;&gt;ADC&lt;/h2&gt;
+&lt;h3 id=&#34;io和原理&#34;&gt;I/O和原理&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/1.png&#34;
+	width=&#34;1296&#34;
+	height=&#34;506&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/1_hu6d7612e3835e2f729693798231894f40_115479_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/1_hu6d7612e3835e2f729693798231894f40_115479_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;256&#34;
+		data-flex-basis=&#34;614px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$V_{ref}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reference Voltage&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Resolution(LSB)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{ V_r }{ 2^n }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Start of Conversion&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;EOC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;End of Conversion&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$D_i$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;数字输入的二进制第$i$位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+D &amp;amp;= \frac{ V_i }{ V_r } 2^n \\
+0 \le D &amp;amp;\le \frac{ 1 }{ 2 } V_{ref}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$D$的最大值为$V_r$的一半，是因为AC信号的pk-pk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;successive-approximation-adc&#34;&gt;Successive Approximation ADC&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/2.png&#34;
+	width=&#34;1506&#34;
+	height=&#34;648&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/2_hu7ffe474e635a24ab4ada58ca2734bd71_359120_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/2_hu7ffe474e635a24ab4ada58ca2734bd71_359120_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;232&#34;
+		data-flex-basis=&#34;557px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/3.png&#34;
+	width=&#34;1238&#34;
+	height=&#34;734&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/3_hu6e2f7fc31310e7ddbd1d2050812cadc5_347965_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/3_hu6e2f7fc31310e7ddbd1d2050812cadc5_347965_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;168&#34;
+		data-flex-basis=&#34;404px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+数字输入 \times 分辨率 &amp;amp;= 模拟输出
+模拟输入 % 分辨率 &amp;amp;= 数字输出
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;opamp-revision&#34;&gt;Opamp Revision&lt;/h1&gt;
+&lt;h2 id=&#34;imperfection-in-opamp&#34;&gt;Imperfection in Opamp&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ideal Opamp + Current Sources = Model of a Real Opamp&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;bias-current&#34;&gt;Bias Current&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/5.png&#34;
+	width=&#34;1470&#34;
+	height=&#34;856&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/5_hu06c8fe0510c981ccb8ed3a12f04417cf_61612_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/5_hu06c8fe0510c981ccb8ed3a12f04417cf_61612_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;412px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;图中的的放大器是&lt;strong&gt;理想的&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_B(+) &amp;amp;\approx  I_B(-) \
+I_B &amp;amp;= \frac{ I_B(+) + I_B(-) }{ 2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;以inverting-configuration-为例介绍非理想时的输出电压&#34;&gt;以Inverting Configuration 为例介绍非理想时的输出电压&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/6.png&#34;
+	width=&#34;2412&#34;
+	height=&#34;1074&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/6_hu7aa47abdd37bc9e36a618873b0360be0_172217_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/6_hu7aa47abdd37bc9e36a618873b0360be0_172217_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;224&#34;
+		data-flex-basis=&#34;538px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;amp;= - \frac{ V_{in} R_2 }{ R_1 } + I_B R_2  \\
+&amp;amp;= - \frac{ V_{in} R_2 }{ R_1 } - I_B R_1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Refer to Output(RTO)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$I_BR_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Refer to Input(RTI)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$- I_BR_1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;等效电路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/7.png&#34;
+	width=&#34;2382&#34;
+	height=&#34;1470&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/7_hu41f5dc668716da10af4e7ab91289766a_311412_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/7_hu41f5dc668716da10af4e7ab91289766a_311412_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;162&#34;
+		data-flex-basis=&#34;388px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;compensating&#34;&gt;Compensating&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/8.png&#34;
+	width=&#34;2108&#34;
+	height=&#34;1276&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/8_hu3850283ea6891fff4c905f029463cc1a_186109_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/8_hu3850283ea6891fff4c905f029463cc1a_186109_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;396px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;amp;= -V_{in} + R(I_B(-) - I_B(+)) \\
+&amp;amp;= -V_{in} + RI_{os}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;input-offset-current&#34;&gt;Input Offset Current&lt;/h2&gt;
+&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_{os} &amp;amp;= |I_B(+) - I_B(-)|
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;用bias-和-offset-current-来表示电流&#34;&gt;用Bias 和 Offset Current 来表示电流&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_B(+) &amp;amp;= \frac{ I_{os} }{ 2 } + I_B \\
+I_B(-) &amp;amp;= - \frac{ I_{os} }{ 2 } + I_B
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;figure-of-merit&#34;&gt;Figure of Merit&lt;/h1&gt;
+&lt;h2 id=&#34;integrate-and-hold&#34;&gt;Integrate and Hold&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/9.png&#34;
+	width=&#34;2212&#34;
+	height=&#34;950&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/9_huda1677d3cd22894068c422e0b742196e_181154_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/9_huda1677d3cd22894068c422e0b742196e_181154_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;232&#34;
+		data-flex-basis=&#34;558px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$S_1$接$V_{in}$时 &lt;strong&gt;Integrator&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{out} &amp;amp;= - \int_{}^{  } \frac{ V_{in} }{ RC }dt
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;$S_1$接地时 &lt;strong&gt;Memory&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{out} &amp;amp;= Constant \\
+| \frac{ dV_{out} }{ dt }| &amp;amp;= \frac{ 1 }{ C } \frac{ dQ }{ dt } \\
+&amp;amp;= \frac{ 1 }{ C } (I_B + \frac{ V_{os} }{ R }) \\
+&amp;amp;= \frac{ 1 }{ \tau } (V_{os} + I_BR)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因此，$R$越小越好&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;checklist&#34;&gt;CheckList&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;什么情况下使用Bias 或 Offset&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Impedance Unbalanced&lt;/strong&gt;: Bias; &lt;strong&gt;Impedance Matched&lt;/strong&gt;: Offset&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Figure of Merit&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A function of all significant contributions of the components to the total system error, which changes &lt;strong&gt;monotonically&lt;/strong&gt; with the overall error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;公式&#34;&gt;公式&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Dynamic Range (DR)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+DR &amp;amp;= 20 \times lg( \frac{ V_{max} }{ V_{noise} }) \\
+&amp;amp;= (6.02N + 1.76) dB
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>期末复习查缺补漏</title>
         <link>https://downeyflyfan.com/p/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/</link>
         <pubDate>Tue, 12 Dec 2023 11:16:44 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/</guid>
-        <description>&lt;h1 id=&#34;ed&#34;&gt;ED&lt;/h1&gt;
-&lt;h2 id=&#34;inversion-layer&#34;&gt;Inversion Layer&lt;/h2&gt;
-&lt;h2 id=&#34;carrier-injection&#34;&gt;Carrier Injection&lt;/h2&gt;
+        <description>&lt;h1 id=&#34;esd&#34;&gt;ESD&lt;/h1&gt;
 &lt;h2 id=&#34;概念速记&#34;&gt;概念速记&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -25,270 +336,15 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Long-Range Order&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Systematic arrangement of atoms or molecules over the long distance.&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;System&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A set of things working together as parts of a mechanism or an interconnecting network; a complex whole [to implement a defined function]&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Elemental Semiconductors&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Column IV Semiconductors&lt;/strong&gt;, Si, Ge, composed of single pieces of atoms&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Coumpound Semiconductors&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Column &lt;strong&gt;IV&lt;/strong&gt;, &lt;strong&gt;III-V&lt;/strong&gt;, &lt;strong&gt;II-IV&lt;/strong&gt; make up the compound Semiconductors&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Crystal Lattice&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Symmetrical 3-D arrangement of atoms inside a Crystal&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Solids 分类&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Crystalline, Polycrystalline, amorphous solids&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;bcc lattice&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;has an additioanl atom at the cetber of the cube&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;fcc&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;has additioanl atoms cetered at the 6 faces&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Miller Indices&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Three Integars $h,k,l$, which definesa set of parallel planes in the lattice&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;APF(Atomic Packing Factor)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;fractin of volume occupied by atoms in a crystal&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Ionic bond&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;one atom essentially donates an electron to stabilize the other atom&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Covalent Bond&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Atoms are bounded by shared electrons&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Energy Bonds&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;In solids, several bands of energy levels are formed due to the intermixing of atoms in solids, which we call the &lt;strong&gt;energy bond&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Equilibrium Interatomic Spacing&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Equilibrium interatomic spacing will occur when the bond energy is a minimum. That is when the net forces (attractive force, repulsive force) between the two atoms is zero.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Valence Electrons&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The electrons in the outermost shell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Conduction Electrons&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The free electrons that conduct current in conductors&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Forbidden Energy Gap($E_p$)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The gap between the Valence band and the conduction band&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Direct Band Gaps&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Crystal momentum ($k$ vector) is the same in both VB and CB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;改变Doping&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;以&lt;strong&gt;GaAs&lt;/strong&gt;为例，&lt;strong&gt;As&lt;/strong&gt;增加会产生&lt;strong&gt;n-type doping&lt;/strong&gt;, &lt;strong&gt;Ga&lt;/strong&gt;增加会产生&lt;strong&gt;p-type doping&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Electron Affinity&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The width of Conduction Band&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Semiconductors 优点&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;小，轻;温度越高，阻值越低&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;N/P-type Doping&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-5价(Pentavalent), +3价(trivalent)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Pauli Exclusion Principle &lt;strong&gt;Definition&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;In a single atom, each electron should have or be in its unique states.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Pauli Exclusion Principle &lt;strong&gt;Explanation&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Only two atoms can occupy the same orbit with &lt;strong&gt;opposite spins&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Fermi Level$E_F$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The description of the top of the collection of electron energy levels at absolute zero temperature, $f(E_F) = \dfrac{ 1 }{ 2 }$, 在pn结中和点的能级&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Probability of Occupancy&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$f(E)$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;density of states&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$N(E)dE$ is the density of states in the energy range $dE$, $N(E) \propto E^{1/2}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Drift&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Charged-Partcle motion in response to an applied electric field&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;luminescence&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;General property of light emission&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Diffusion&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Whenever there is a concentration gradient of particles, there is a net diffusional motion of particles in the direction of decreasing concentration.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;pn Junction&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;An interface or boundary between 2 semiconductor material types.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Metallurgical Junction(M)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;An abrupt discontinuity between p- and n- regions&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Built-in Potential(Contact Voltage)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Voltage across a pn junction, going from p- to n- type semiconductors in an &lt;strong&gt;open circuit&lt;/strong&gt;, $V_0 = V_n - V_p$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Forward Bias&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The built-in electric field at the pn junction and the applied electric field are in opposite direction&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Reverse Bias&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;built-in electric field and the applied electric field are in the same direction&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Minority Carrier Injection&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The exponential increase of the hole concentration at $x_{n0}$ with forward bias&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Impact Ionization&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;A drifting electron gains sufficient energy from the field to ionize a host crystal atom by bombardment.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Avalanche Breakdown&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The EHPs generated by impact ionization themselves can now be accelerated by the field and will themselves give rise to further EHPs by ionizing collisions and so on, leading to an avalanche effect.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Zener Effect&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;As the separation between the VB and CB narrows, electrons easily tunnel from the VB in the p-side to the CB in the n-side, which leads to a current.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Optoelectronic&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Functions involving the interaction of photons with semiconductors&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Optoelectronic Devices&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Devices that detect photons and those that emit photons&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Photoconductors&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Devices or materials that exhibit Photoconductivity&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Photoconductivity&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The change of electrical conductivity of a material when exposed to light&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Photodiodes&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;2-Terminal devices designed to respond to photon absorption, 分为&lt;strong&gt;PN/PIN/Avalanche(APD)&lt;/strong&gt; Photodiodes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Responsitivity&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$R = \dfrac{ I_{op} }{ P } = \eta \dfrac{ q }{ hf } = \eta \dfrac{ \lambda_{( \mu m)} }{ 1.23985 }, (A/W)$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Quantum Efficiency&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\eta = \dfrac{ Number \ of \ Electrons/Holes \ Generated}{ Number \ of \ Incident \ Photons}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Dark Current&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Small current that flows through the photodiode when there is no incident light, affected by the photodiode material, temperatures, size of the active area.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Photoconductive Mode&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;an external reverse bias is applied, which is the basis for high-speed optical communication.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Photovoltaic Mode&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The photodiode is zero biased.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;LED&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;A pn junction diode typically made from a direct bandgap semiconductor, the type of which determines the color, 分为&lt;strong&gt;Standard Visible/Infrared(IR)/High-Power/RGB&lt;/strong&gt; LEDs&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Electriluminescence(EL)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;An optical process that leads to the generation of photons as a result of the radiative recombination of holes and electrons during the passage of an electric current through a material.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Injection EL&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;In pn junction with heavily n-type doped, the phenomenon of light emission from the EHP recombination as a result of minority carrier injection&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Homojunction&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;A pn junction between two differently doped semiconductors that are of the same material&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Heterojunction&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;A junction between two different bandgap semiconductors&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Double-Heterojunction(DH)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;LED constructions for increasing the intensity of the output light make use of the double heterostructure.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Quantum Well&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;It has an ultra thin, typically &lt;strong&gt;less than 50nm&lt;/strong&gt;. narrow bandgap semiconductor with a bandgap $E_{g1}$ between two wider semiconductors with $E_{g2}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Confining layers&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The wide bandgap layers&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Visible Radiation&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$E_g &amp;gt; 1.8eV$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Commercial LEDs&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$1.6V \le V_{op} \le 4V, 10mA \le I \le 30mA$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Bandgap Energy&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$E_g = \dfrac{ hc }{ \lambda } = \dfrac{ 1.24 }{ \lambda }(\mu m)$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;External Quantum Efficiency&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\eta_{EQE} = \eta_{IQE} \times \eta_{EXT}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Light-escape Cone(Critical Angle)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;The angle for total internal reflection(TIR), $\theta_c = sin^{-1} ( \dfrac{ n_2 }{ n_1 }), n_2 &amp;lt; n_1$, $n_1$是LED内的反射系数，$n_2$是外面的介质反射系数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Solar Cell分类&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Monocrystalline Silicon/ Polycrystalline Silicon/ Thin-Film Solar Cells&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;System Design&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;The process of defining elements of a system like modules, architecture to realise a function based on the specified requirements.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;不常用公式&#34;&gt;不常用公式&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-J &amp;amp;= \sigma E = q \Gamma_n \\
-\rho &amp;amp;= \frac{ 1 }{ \sigma } \\
-\Gamma_n &amp;amp;= - D_n \frac{ dn }{ dx } \\
-R &amp;amp;= \dfrac{ r_1^2 + r_2^2 + 2\pi cos(2 \theta) }{ 1 + r_1^2r_2^2 + 2\pi cos(2 \theta) }, r_1 = \dfrac{ n_0 - n_1 }{ n_0 + n_1 }, r_2 = \dfrac{ n_1 - n_2 }{ n_1 + n_2 }, \theta = \dfrac{ 2 \pi n_1 d_1}{ \lambda } \\
-FF &amp;amp;= \frac{ I_m V_m }{ I_{sc} V_{oc}} \\
-I_E &amp;amp;= I_C + I_B \\
-\beta_F &amp;amp;= \frac{ I_C }{ I_B } \\
-\alpha_F &amp;amp;= \frac{ I_C }{ I_E }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -2095,7 +2151,46 @@ X(z) &amp;amp;= \mathcal{F} \Big\lbrace x[n] r^{-n}\Big\rbrace
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;roc&#34;&gt;ROC&lt;/h2&gt;
+&lt;h2 id=&#34;inverse-z-transform&#34;&gt;Inverse Z Transform&lt;/h2&gt;
+&lt;h3 id=&#34;definition-2&#34;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+x[n] &amp;amp;= \frac{ 1 }{ 2 \pi j } \oint_{  }^{  } X(z) z^{n-1} dz
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;solving-methods&#34;&gt;Solving Methods&lt;/h3&gt;
+&lt;h4 id=&#34;partial-fraction&#34;&gt;Partial Fraction&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+X(z) &amp;amp;= \sum_{i = 1 }^{ m } \frac{ A_i }{ 1 - a_i z^{-1} } \\
+x_i[n] &amp;amp;= A_i a_i^n u[n]   \\
+or \ x_i[n] &amp;amp;= -A_i a_i^n u[-n-1]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;power-series-expansion&#34;&gt;Power Series Expansion&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Compared with Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+X(z) &amp;amp;= \sum_{ i = 0 }^{ N } a_i z^i \\
+x[n] &amp;amp;= a_i, n = -i
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Long Division&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tailor&amp;rsquo;s Series&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;conjugation-formulas&#34;&gt;Conjugation Formulas&lt;/h2&gt;
 &lt;p&gt;$$
@@ -12052,11 +12147,7 @@ $$&lt;/p&gt;
         <pubDate>Wed, 26 Apr 2023 10:14:34 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/</guid>
-        <description>&lt;h1 id=&#34;philosophy&#34;&gt;Philosophy&lt;/h1&gt;
-&lt;h2 id=&#34;小电容&#34;&gt;小电容&lt;/h2&gt;
-&lt;h2 id=&#34;小面积&#34;&gt;&lt;strong&gt;小面积&lt;/strong&gt;&lt;/h2&gt;
-&lt;h2 id=&#34;最好只用mosfet实现尽可能多的功能&#34;&gt;最好只用MOSFET实现尽可能多的功能&lt;/h2&gt;
-&lt;h1 id=&#34;ic-biasing&#34;&gt;IC Biasing&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;ic-biasing&#34;&gt;IC Biasing&lt;/h1&gt;
 &lt;h2 id=&#34;simple-mos-constant-current-source&#34;&gt;simple MOS constant-current source&lt;/h2&gt;
 &lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/8-9.-ic-amplifer-differential-and-multistage-amplifiers/1.png&#34;
@@ -14060,7 +14151,7 @@ $$&lt;/p&gt;
         
         <guid>https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/</guid>
         <description>&lt;h1 id=&#34;有mosfet的放大器&#34;&gt;有MOSFET的放大器&lt;/h1&gt;
-&lt;h2 id=&#34;v_ds---v_gs&#34;&gt;$V_{DS} - V_{GS}$&lt;/h2&gt;
+&lt;h2 id=&#34;voltage-transfer-characteristics&#34;&gt;Voltage-Transfer Characteristics&lt;/h2&gt;
 &lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/2.png&#34;
 	width=&#34;639&#34;
@@ -14076,16 +14167,32 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;公式&#34;&gt;公式&lt;/h3&gt;
 &lt;p&gt;$$
+\begin{gather}
 \begin{aligned}
 V_{DS} &amp;amp;= V_{DD} - i_DR_D \\
-&amp;amp;= V_{DD} - \frac{1}{2}k_nV_{OV}^2R_D  \\\
-\\ 对于饱和区&amp;amp;和三角区的临界点\pmb B \\
+&amp;amp;= V_{DD} - \frac{1}{2}k_nV_{OV}^2R_D
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于&lt;strong&gt;Active&lt;/strong&gt;和&lt;strong&gt;Triode&lt;/strong&gt;的临界点$\pmb B$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
 V_{DS}|&lt;em&gt;B &amp;amp;= V&lt;/em&gt;{GS}|&lt;em&gt;B -V_T  \\
 &amp;amp;= V&lt;/em&gt;{OV} \\
-&amp;amp;= \frac{\sqrt{2k_n R_D V_{DD}+1}-1}{k_nR_D} (带入上式获得) \\
+&amp;amp;= \frac{\sqrt{2k_n R_D V_{DD}+1}-1}{k_nR_D}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
 V_{GS}|&lt;em&gt;B &amp;amp;= V_t + V&lt;/em&gt;{DS}|&lt;em&gt;B  \\
 &amp;amp;= V_t + \frac{\sqrt{2k_n R_D V&lt;/em&gt;{DD}+1}-1}{k_nR_D}
 \end{aligned}
+\end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;偏压获得线性放大&#34;&gt;偏压获得线性放大&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.%E6%99%B6%E4%BD%93%E7%AE%A1%E6%94%BE%E5%A4%A7%E5%99%A8/3.png&#34;
@@ -22902,469 +23009,6 @@ $$&lt;/p&gt;
 &lt;p&gt;只准带&lt;em&gt;白纸&lt;/em&gt;，不准带&lt;em&gt;手机&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-</description>
-        </item>
-        <item>
-        <title>3.半导体</title>
-        <link>https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/</link>
-        <pubDate>Wed, 08 Mar 2023 10:14:43 +0000</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/</guid>
-        <description>&lt;h1 id=&#34;本征半导体&#34;&gt;本征半导体&lt;/h1&gt;
-&lt;h2 id=&#34;半导体&#34;&gt;半导体&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;导电性在导体和绝缘体之间的一种物质&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;分类&#34;&gt;分类&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;单元素&lt;/strong&gt;半导体&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;锗(Ge)，硅(Si)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;strong&gt;化合物&lt;/strong&gt;半导体&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;镓-砷(Ga-As)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;si的原子结构与结合&#34;&gt;Si的原子结构与结合&lt;/h2&gt;
-&lt;h3 id=&#34;原子结构&#34;&gt;原子结构&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/1.png&#34;
-	width=&#34;980&#34;
-	height=&#34;299&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/1_hudd9cf5e55c5e0f0bef97243e440df282_57518_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/1_hudd9cf5e55c5e0f0bef97243e440df282_57518_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;327&#34;
-		data-flex-basis=&#34;786px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;结合&#34;&gt;结合&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/2.png&#34;
-	width=&#34;351&#34;
-	height=&#34;185&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/2_hu96f27de0921833bab969ef12c9c4100e_13793_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/2_hu96f27de0921833bab969ef12c9c4100e_13793_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;189&#34;
-		data-flex-basis=&#34;455px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;si晶体结构&#34;&gt;Si晶体结构&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/3.png&#34;
-	width=&#34;456&#34;
-	height=&#34;409&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/3_huca5b558b0547885fd8f95e6bf0354136_151529_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/3_huca5b558b0547885fd8f95e6bf0354136_151529_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;111&#34;
-		data-flex-basis=&#34;267px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;si的导电性&#34;&gt;Si的导电性&lt;/h2&gt;
-&lt;h3 id=&#34;绝对零度&#34;&gt;绝对零度&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;所有原子都在化合键中&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;导电性为0&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;室温下-热电离&#34;&gt;室温下—— 热电离&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;过程&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;部分电子吸收了足够的热能&lt;strong&gt;脱离核子束缚&lt;/strong&gt;,产生&lt;strong&gt;空穴&lt;/strong&gt;,变成&lt;strong&gt;自由电子&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;邻近电子可能又被吸引到该&lt;strong&gt;空穴&lt;/strong&gt;上(&lt;em&gt;&lt;strong&gt;recombination&lt;/strong&gt;&lt;/em&gt;)，产生&lt;strong&gt;导电性&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;产生&lt;strong&gt;电子-空穴&lt;/strong&gt;对&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;两种载流子&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;电子&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;空穴&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;em&gt;&lt;strong&gt;载流子浓度(半导体物理)&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-pn = n_i^2 \\\
-\\ p: 电导率 \\\
-\\ n: 杂质粒子浓度 \\\
-\\ n_i: 本征载流子浓度 \\\
-\\ 载流子浓度：n_i \approx 1.5 \times 10^{10}/cm^3 \\\
-\\ 原子密度：n = 5.22 \times 10^{22}/cm^3
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;载流子可以&lt;strong&gt;移动&lt;/strong&gt;，离子不能&lt;strong&gt;移动&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;结论&#34;&gt;结论&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;本征半导体呈电中性&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;杂质半导体&#34;&gt;杂质半导体&lt;/h1&gt;
-&lt;h2 id=&#34;掺杂质的原因&#34;&gt;掺杂质的原因&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;增强导电性&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;分类-1&#34;&gt;分类&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;分类&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;n型半导体&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;p型半导体&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;最外层电子&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;5($Si^{-1}$)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;3($Si^{+1}$)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;原理&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;增加&lt;strong&gt;自由电子&lt;/strong&gt;数量&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;增加&lt;strong&gt;空穴&lt;/strong&gt;数量&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;实例&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;磷(P)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;硼(B)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;n型半导体&#34;&gt;n型半导体&lt;/h2&gt;
-&lt;h3 id=&#34;掺p的si半导体图示&#34;&gt;掺P的Si半导体图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/4.png&#34;
-	width=&#34;704&#34;
-	height=&#34;713&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/4_huf3cac95275853c10ebf7c1f578f30596_62974_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/4_huf3cac95275853c10ebf7c1f578f30596_62974_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;98&#34;
-		data-flex-basis=&#34;236px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;自由电子&lt;strong&gt;占大头&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;空穴是&lt;strong&gt;少数&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;杂质正离子+自由电子&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;载流子浓度&#34;&gt;载流子浓度&lt;/h3&gt;
-&lt;p&gt;$$
-\pmb{施主}原子浓度N_D \gg n_i \\\
-\\ \pmb{n型半导体} \ 自由电子的 \ 载流子浓度n_n \approx N_D (因为自由电子\pmb{占大头})\\\
-\\ \therefore p_n \approx \frac{n_i^2}{N_D} \\\
-$$&lt;/p&gt;
-&lt;h2 id=&#34;p型半导体&#34;&gt;p型半导体&lt;/h2&gt;
-&lt;h3 id=&#34;掺b的si半导体图示&#34;&gt;掺B的Si半导体图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/5.png&#34;
-	width=&#34;910&#34;
-	height=&#34;946&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/5_hue83da0ca94b040cd5e9ece304b84d41c_85713_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/5_hue83da0ca94b040cd5e9ece304b84d41c_85713_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;96&#34;
-		data-flex-basis=&#34;230px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;空穴&lt;strong&gt;占大头&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;自由电子是&lt;strong&gt;少数&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;杂质负离子+空穴&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-受主原子浓度N_A \gg n_i \\\
-\\  p_p \approx N_A \\\
-\\ n_p \approx \frac{n_i^2}{N_A}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;半导体的电流流动&#34;&gt;半导体的电流流动&lt;/h1&gt;
-&lt;h2 id=&#34;漂移电流&#34;&gt;漂移电流&lt;/h2&gt;
-&lt;h3 id=&#34;图示&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/6.png&#34;
-	width=&#34;1007&#34;
-	height=&#34;625&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/6_huade593ce1f1ca5475b6d7174707f96e9_142363_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/6_huade593ce1f1ca5475b6d7174707f96e9_142363_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;161&#34;
-		data-flex-basis=&#34;386px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;沿着电场方向移动的正负电荷&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;扩散电流&#34;&gt;扩散电流&lt;/h2&gt;
-&lt;h3 id=&#34;定义-1&#34;&gt;定义&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;当载流子浓度不均匀时，载流子会从高密度向低密度移动&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;图示-1&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/7.png&#34;
-	width=&#34;1012&#34;
-	height=&#34;288&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/7_huc3bb345bb8ec50d65c954d60266bc944_38041_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/7_huc3bb345bb8ec50d65c954d60266bc944_38041_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;351&#34;
-		data-flex-basis=&#34;843px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;总电流&#34;&gt;总电流&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;漂移电流&lt;/strong&gt;与&lt;strong&gt;电场大小&lt;/strong&gt;成正比&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;扩散电流&lt;/strong&gt;与&lt;strong&gt;载流子浓度梯度&lt;/strong&gt;成正比&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;开路终端的pn结&#34;&gt;开路终端的pn结&lt;/h1&gt;
-&lt;h2 id=&#34;图示-2&#34;&gt;图示&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/8.png&#34;
-	width=&#34;885&#34;
-	height=&#34;522&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/8_hucb6624add7679f7a06416ce25db23314_47006_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/8_hucb6624add7679f7a06416ce25db23314_47006_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;169&#34;
-		data-flex-basis=&#34;406px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;解释&#34;&gt;解释&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;中间区域叫做耗尽区(dpletion area)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;两边的电压差形成电场$\Longrightarrow$漂移电流$I_S$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;两边的&lt;strong&gt;载流子浓度差&lt;/strong&gt;形成扩散电流$I_D$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;直到两边达到平衡$I_D = I_S$,耗尽区&lt;strong&gt;宽度不变&lt;/strong&gt;，形成&lt;strong&gt;PN结&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;外加电压的pn结&#34;&gt;外加电压的pn结&lt;/h1&gt;
-&lt;h2 id=&#34;pn结操作的量化描述&#34;&gt;pn结操作的量化描述&lt;/h2&gt;
-&lt;h3 id=&#34;forward-bias&#34;&gt;forward bias&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;图示&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/9.png&#34;
-	width=&#34;465&#34;
-	height=&#34;412&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/9_hu85c9e1cd0dae539bfab0819999f62ce6_11542_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/9_hu85c9e1cd0dae539bfab0819999f62ce6_11542_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;112&#34;
-		data-flex-basis=&#34;270px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;解释&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-V_F 与原电压方向相反 \Longrightarrow 有效障碍减少 \\\
-\\ 扩散率增加,\pmb{I_D \uparrow ,I_S不变}\\\
-$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;结果&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;$pn$结产生显著的电流$(I_D - I_S)$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;耗尽区变&lt;strong&gt;窄&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;reverse-bias&#34;&gt;reverse bias&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;图示&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/10.png&#34;
-	width=&#34;464&#34;
-	height=&#34;393&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/10_hu3dad3a366ba68857a699a56ecd5af934_12038_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/10_hu3dad3a366ba68857a699a56ecd5af934_12038_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;118&#34;
-		data-flex-basis=&#34;283px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;解释&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-当V_R \ge \pmb V时，I_D = 0 \\\
-\\ I_S只受温度影响(\pmb{为什么呢})
-$$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;结果&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;$pn$结产生少量电流$(I_S)$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;耗尽区变&lt;strong&gt;宽&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;开路&#34;&gt;开路&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/11.png&#34;
-	width=&#34;659&#34;
-	height=&#34;516&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/11_hu5e7f231a63eb3d4aac747f2a70f9950f_22275_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/11_hu5e7f231a63eb3d4aac747f2a70f9950f_22275_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;127&#34;
-		data-flex-basis=&#34;306px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-I_D = I_S
-$$&lt;/p&gt;
-&lt;h3 id=&#34;总结&#34;&gt;总结&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;施加电压只影响$I_D$,不影响$I_S$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;耗尽区的宽度会受到影响&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;pn结的i-v关系&#34;&gt;pn结的I-V关系&lt;/h2&gt;
-&lt;h3 id=&#34;公式&#34;&gt;公式&lt;/h3&gt;
-&lt;p&gt;$$
-I = I_S (e^{\frac{v}{v_T}}-1) \\\
-\\ I_S: 饱和电流 \\\
-\\ V_T = \frac{kT}{q}: 热电压 \\\
-\\ k: 波兹曼常数 \ 1.38 \times 10^{-23}(J/K) \\\
-\\ 当T_{室温} = 300K, V_T = 25mV
-$$&lt;/p&gt;
-&lt;h3 id=&#34;分析&#34;&gt;分析&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/12.png&#34;
-	width=&#34;504&#34;
-	height=&#34;514&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/12_hu1a2f7331d1a5eb97c462737078b25eb7_11656_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/12_hu1a2f7331d1a5eb97c462737078b25eb7_11656_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;98&#34;
-		data-flex-basis=&#34;235px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-当|v| \gg V_T\\\
-\\ Forward-Bias: i = I_Se^{\frac{v}{v_T}} \\\
-\\ Reverse-Bias: i = - I_S
-$$&lt;/p&gt;
-&lt;h2 id=&#34;反向击穿&#34;&gt;反向击穿&lt;/h2&gt;
-&lt;h3 id=&#34;齐纳击穿&#34;&gt;齐纳击穿&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;当电压增加到&lt;strong&gt;化学键破裂&lt;/strong&gt;和形成&lt;strong&gt;自由电子-空穴对&lt;/strong&gt;的那一点&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;雪崩击穿&#34;&gt;雪崩击穿&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;当势垒获得足够的&lt;strong&gt;动能&lt;/strong&gt;使得&lt;strong&gt;原子撞击&lt;/strong&gt;足以击穿&lt;strong&gt;化学键&lt;/strong&gt;时发生&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;pn结的电容效应&#34;&gt;pn结的电容效应&lt;/h1&gt;
-&lt;h2 id=&#34;耗尽层电容结电容&#34;&gt;耗尽层电容(结电容)&lt;/h2&gt;
-&lt;p&gt;$$
-C_j = \frac{\Delta Q}{\Delta V}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;扩散电容&#34;&gt;扩散电容&lt;/h2&gt;
-&lt;h3 id=&#34;图示-3&#34;&gt;图示&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/13.png&#34;
-	width=&#34;887&#34;
-	height=&#34;492&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/13_hub8776915a6f84dd999c741236176d871_57168_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/13_hub8776915a6f84dd999c741236176d871_57168_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;180&#34;
-		data-flex-basis=&#34;432px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-p区比n区杂质更多 \Longrightarrow N_A \gg N_D
-$$&lt;/p&gt;
-&lt;h1 id=&#34;半导体的简化物理结构图&#34;&gt;半导体的简化物理结构图&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/14.png&#34;
-	width=&#34;776&#34;
-	height=&#34;324&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/14_huad4b62f6ab68e7802e4e08a0100a530f_46953_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.%E5%8D%8A%E5%AF%BC%E4%BD%93/14_huad4b62f6ab68e7802e4e08a0100a530f_46953_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;239&#34;
-		data-flex-basis=&#34;574px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h1 id=&#34;附录&#34;&gt;附录&lt;/h1&gt;
-&lt;h2 id=&#34;载流子&#34;&gt;载流子&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;载流子是指在材料中可以携带电荷并参与电流运输的自由电子和空穴&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;电势垒耗尽区&#34;&gt;电势垒(耗尽区)&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在电势垒中，由于空穴和电子的浓度非常低，导致区域中几乎没有自由载流子，因此电势垒是一个电子和空穴不能通过的屏障，它阻碍了电子和空穴的扩散和漂移，形成了一种高电阻区域&lt;/p&gt;
-&lt;/blockquote&gt;
 </description>
         </item>
         <item>

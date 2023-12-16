@@ -106,7 +106,46 @@ X(z) &amp;amp;= \mathcal{F} \Big\lbrace x[n] r^{-n}\Big\rbrace
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;roc&#34;&gt;ROC&lt;/h2&gt;
+&lt;h2 id=&#34;inverse-z-transform&#34;&gt;Inverse Z Transform&lt;/h2&gt;
+&lt;h3 id=&#34;definition-2&#34;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+x[n] &amp;amp;= \frac{ 1 }{ 2 \pi j } \oint_{  }^{  } X(z) z^{n-1} dz
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;solving-methods&#34;&gt;Solving Methods&lt;/h3&gt;
+&lt;h4 id=&#34;partial-fraction&#34;&gt;Partial Fraction&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+X(z) &amp;amp;= \sum_{i = 1 }^{ m } \frac{ A_i }{ 1 - a_i z^{-1} } \\
+x_i[n] &amp;amp;= A_i a_i^n u[n]   \\
+or \ x_i[n] &amp;amp;= -A_i a_i^n u[-n-1]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;power-series-expansion&#34;&gt;Power Series Expansion&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Compared with Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+X(z) &amp;amp;= \sum_{ i = 0 }^{ N } a_i z^i \\
+x[n] &amp;amp;= a_i, n = -i
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Long Division&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tailor&amp;rsquo;s Series&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;conjugation-formulas&#34;&gt;Conjugation Formulas&lt;/h2&gt;
 &lt;p&gt;$$
