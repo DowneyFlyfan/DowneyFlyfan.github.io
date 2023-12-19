@@ -207,7 +207,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;388px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;compensating&#34;&gt;Compensating&lt;/h3&gt;
+&lt;h3 id=&#34;compensation&#34;&gt;Compensation&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/8.png&#34;
 	width=&#34;2108&#34;
 	height=&#34;1276&#34;
@@ -247,7 +247,8 @@ I_B(-) &amp;amp;= - \frac{ I_{os} }{ 2 } + I_B
 \end{gather}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;figure-of-merit&#34;&gt;Figure of Merit&lt;/h1&gt;
-&lt;h2 id=&#34;integrate-and-hold&#34;&gt;Integrate and Hold&lt;/h2&gt;
+&lt;h2 id=&#34;ex1---integrate-and-hold&#34;&gt;Ex.1 - Integrate and Hold&lt;/h2&gt;
+&lt;h3 id=&#34;电路&#34;&gt;电路&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/9.png&#34;
 	width=&#34;2212&#34;
 	height=&#34;950&#34;
@@ -260,9 +261,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;558px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;$S_1$接$V_{in}$时 &lt;strong&gt;Integrator&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;s_1接v_in时-integrator&#34;&gt;$S_1$接$V_{in}$时 &lt;strong&gt;Integrator&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -270,9 +269,7 @@ V_{out} &amp;amp;= - \int_{}^{  } \frac{ V_{in} }{ RC }dt
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;$S_1$接地时 &lt;strong&gt;Memory&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;s_1接地时-memory&#34;&gt;$S_1$接地时 &lt;strong&gt;Memory&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -284,8 +281,275 @@ V_{out} &amp;amp;= Constant \\
 \end{gather}
 $$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;因此，$R$越小越好&lt;/li&gt;
+&lt;li&gt;为了使得$| \dfrac{ dV_{out} }{ dt}|$尽可能小; $V_{out}$不变时，$V_{in}$ 尽可能大&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+R \ge 2 k \Omega
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;figure-of-merit-1&#34;&gt;Figure of Merit&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+F &amp;amp;= V_{os} + I_{os} R
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;ex2---differential-amplifier&#34;&gt;Ex.2 - Differential Amplifier&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/10.png&#34;
+	width=&#34;2318&#34;
+	height=&#34;1436&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/10_hu6ef35ddff4b7ed13898d0e5f89b7d3c3_306957_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/10_hu6ef35ddff4b7ed13898d0e5f89b7d3c3_306957_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;161&#34;
+		data-flex-basis=&#34;387px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{out} &amp;amp;= 2 V_{os} + 20k \cdot I_{os} \\
+F &amp;amp;= 2 V_{os} + 20k \cdot I_{os}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;grounding--common-mode-rejection&#34;&gt;Grounding &amp;amp; Common-Mode Rejection&lt;/h1&gt;
+&lt;h2 id=&#34;power-dissipation-capacitance-for-cmos-logic-current&#34;&gt;Power Dissipation Capacitance for CMOS Logic Current&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C_{PD} &amp;amp;= \frac{ Q_{switch} }{ V_{CC} } \\
+&amp;amp;= \frac{ I_{max} \tau_{switch} }{ V_{CC} } \\
+&amp;amp;= \frac{ \tau_{switch} }{ R_{switch} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;cm-rejection&#34;&gt;CM Rejection&lt;/h2&gt;
+&lt;h3 id=&#34;定义-1&#34;&gt;定义&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+CMRR &amp;amp;= | \frac{ A_{dm} }{ A_{cm} }|
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;influence-on-error&#34;&gt;Influence on Error&lt;/h3&gt;
+&lt;h4 id=&#34;rti&#34;&gt;RTI&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;amp;= A_{cm} V_{cm} + A_{dm} V_{diff} \\
+&amp;amp;= A_{dm} \Big( V_{diff} + V_{cm} \frac{ A_{cm} }{ A_{dm} }\Big) \\
+&amp;amp;= A_{dm} (V_{diff} + \frac{ V_{cm} }{ CMRR }) \\
+RTI &amp;amp;= \frac{ V_{cm} }{ CMRR }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;等效电路和分析&#34;&gt;等效电路和分析&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/11.png&#34;
+	width=&#34;1848&#34;
+	height=&#34;1012&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/11_hu52a32b6fb28ee26bb22bacf54a869d48_134322_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/11_hu52a32b6fb28ee26bb22bacf54a869d48_134322_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;182&#34;
+		data-flex-basis=&#34;438px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;amp;= A(V(+) - V(-)) \\
+&amp;amp;= A(V(+) - (V_o \pm \frac{ V_{CM} }{ CMRR })) \\
+\frac{ V_o }{ V(+) } &amp;amp;= \frac{ A \Big[ 1 + \dfrac{ 1 }{ CMRR } \Big] }{ 1 + A } \\
+&amp;amp; \approx 1 + \frac{ 1 }{ CMRR }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$CMRR$越大，&lt;strong&gt;Error&lt;/strong&gt;越小&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;cmrr-of-differential-amplifier-with-imbalanced-resistors&#34;&gt;CMRR of Differential Amplifier with Imbalanced Resistors&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/12.png&#34;
+	width=&#34;1590&#34;
+	height=&#34;690&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/12_hu1508895d1052399e9a29cc5e0eaed038_86569_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/12_hu1508895d1052399e9a29cc5e0eaed038_86569_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;230&#34;
+		data-flex-basis=&#34;553px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;gains&#34;&gt;Gains&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;amp;= \frac{ V_{CM} - \dfrac{ V_{diff} }{ 2 } - \dfrac{ R_2 }{ R_1 + R_2 } (V_{CM} + \dfrac{ V_{diff} }{ 2 })}{ R_1 } R_2(1 - \varepsilon) + \frac{ R_2 }{ R_1  +R_2 } (V_{CM} - \frac{ V_{diff} }{ 2 }) \\
+&amp;amp;= A_{dm} V_{dm}+ A_{cm} V_{cm} \\
+A_{diff} &amp;amp;= \frac{ R_2 }{ R_1 } \Big( 1 - \frac{ R_1 + 2R_2 }{R_1 + R_2 } \times \frac{ \varepsilon }{ 2 }\Big) \\
+A_{dm} &amp;amp;= \frac{ R_2 }{ R_1 + R_2 } \varepsilon
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;cmrr-when-varepsilon-is-small&#34;&gt;CMRR when $\varepsilon$ is Small&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+CMR(dB) &amp;amp;= 20 l \Big[ \frac{ 1 + \dfrac{ R_2 }{ R_1 } }{ \varepsilon} \Big]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;instrumentaiton-amplifier&#34;&gt;Instrumentaiton Amplifier&lt;/h2&gt;
+&lt;h3 id=&#34;电路-1&#34;&gt;电路&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/13.png&#34;
+	width=&#34;1346&#34;
+	height=&#34;924&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/13_hubc38794abfa2429379bf1e9d08e86c05_119076_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/13_hubc38794abfa2429379bf1e9d08e86c05_119076_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;349px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;红色部分是&lt;strong&gt;Buffer Stage&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第二部分是&lt;strong&gt;Unity Gain&lt;/strong&gt; Amplifier&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;电流$I$方向是&lt;strong&gt;3-1-2-4&lt;/strong&gt;, 因此$V_3 - V_1 = V_4 - V_2$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;电流电压-分析&#34;&gt;电流/电压 分析&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I &amp;amp;= \frac{ V_3 - V_4 }{ 2R_a + R_b } \\
+&amp;amp;= \frac{ V_1 - V_2 }{ R_b } \\
+V_o &amp;amp;= V_3 - V_4 \\
+&amp;amp;= (V_1 - V_2) \frac{ 2R_a + R_b }{ R_b }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;gain--cmrr-considering-varepsilon&#34;&gt;Gain &amp;amp; CMRR Considering $\varepsilon$&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+A_{diff} &amp;amp;= \frac{ 2R_a + R_b }{ R_b } \\
+A_{cm} &amp;amp;= \frac{ \varepsilon }{ 2 } \\
+CMRR &amp;amp;= \frac{ 4R_a  +2R_b }{ \varepsilon R_b }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;ia-application-ecg&#34;&gt;IA Application (ECG)&lt;/h1&gt;
+&lt;h2 id=&#34;测量方法&#34;&gt;测量方法&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/14.png&#34;
+	width=&#34;660&#34;
+	height=&#34;970&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/14_huc8df2f1c892dae89e2c634b64eb790da_101662_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/14_huc8df2f1c892dae89e2c634b64eb790da_101662_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;68&#34;
+		data-flex-basis=&#34;163px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;LL-RA&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;LL-LA&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;LA-RA&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;difference-amplifier-problem&#34;&gt;Difference Amplifier Problem&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a1-esd/15.png&#34;
+	width=&#34;1634&#34;
+	height=&#34;788&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a1-esd/15_hu9eb314744de3cc17b4a5337261747d48_115485_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a1-esd/15_hu9eb314744de3cc17b4a5337261747d48_115485_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;497px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\Delta \ll R_1$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;dm-gain&#34;&gt;DM Gain&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$In(+) = V_{diff} = -In(-)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+A_{dm} &amp;amp;\approx  1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_p &amp;amp;= V_n \\
+(Ref - In(+)) \frac{ R_1 }{ R_1 + R_1 + \Delta } &amp;amp;= (Sense - In(-)) \frac{ R_1 }{ R1 + R_1 - \Delta } \\
+V_{diff} &amp;amp;= Sense - Ref
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;cm-gain&#34;&gt;CM Gain&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$In(+) = In(-) = V_{CM}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+(Ref- V_{CM}) \frac{ R_1 }{ 2R_1 + \Delta} &amp;amp;= (Sense -V_{CM}) \frac{ R_1 }{ 2R_1 - \Delta } \\
+(Ref -V_{CM}) (2R_1 - \Delta) &amp;amp;= (Sense - V_{CM}) (2R_1 + \Delta)) \\
+A_{CM} &amp;amp;= \frac{ Sense - Ref }{ V_{CM} } \\
+&amp;amp; \approx \frac{ \Delta  }{ R_1 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;cmmr&#34;&gt;CMMR&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+CMMR &amp;amp;= \frac{ R_1 }{ \Delta }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;noise--operational-amplifier&#34;&gt;Noise &amp;amp; Operational Amplifier&lt;/h2&gt;
 &lt;h1 id=&#34;checklist&#34;&gt;CheckList&lt;/h1&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -302,6 +566,14 @@ $$&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Figure of Merit&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;A function of all significant contributions of the components to the total system error, which changes &lt;strong&gt;monotonically&lt;/strong&gt; with the overall error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Shielding&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Covering it with Metal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;twisted pair&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;减少&lt;strong&gt;Differential Noise&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -450,7 +722,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;耦合器臂宽度&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$R = \dfrac{ \pho l }{ S }$, 与特征阻抗成反比，影响阻抗匹配和正反向传输系数, 太窄电流损失会很大&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$R = \dfrac{ \rho l }{ S }$, 与特征阻抗成反比，影响阻抗匹配和正反向传输系数, 太窄电流损失会很大&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;交叉臂长度&lt;/td&gt;
@@ -496,13 +768,13 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;90度相位差的实现&#34;&gt;90度相位差的实现&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;利用传输线的电长度差异。例如branch-line Coupler,通过四分之一个波长的电长度差,可以实现90度相位差。&lt;/p&gt;
+&lt;p&gt;$\dfrac{ 1 }{ 4 } \lambda$ 传输线&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;交叉耦合&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;利用环形和直形传输线的电长度和耦合因子差异。例如环形杂散耦合器和桥式耦合器。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在筛选器和耦合器的结构中引入交叉耦合。交叉耦合等效于在两个路径中引入了90度相移。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;在微带线路中,利用偶极子和零偶极子模式的耦合,可以产生90度相位差。&lt;/p&gt;
@@ -2191,6 +2463,33 @@ $$&lt;/p&gt;
 &lt;p&gt;Tailor&amp;rsquo;s Series&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;性质--常见z变换对&#34;&gt;性质 &amp;amp; 常见Z变换对&lt;/h2&gt;
+&lt;h3 id=&#34;性质&#34;&gt;性质&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/9-10.-laplace-z-transform/2.png&#34;
+	width=&#34;1790&#34;
+	height=&#34;1564&#34;
+	srcset=&#34;https://downeyflyfan.com/p/9-10.-laplace-z-transform/2_hud8cf3817ee42fa1705f2baf180f8c639_865067_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/9-10.-laplace-z-transform/2_hud8cf3817ee42fa1705f2baf180f8c639_865067_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;114&#34;
+		data-flex-basis=&#34;274px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;变换对&#34;&gt;变换对&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/9-10.-laplace-z-transform/3.png&#34;
+	width=&#34;2132&#34;
+	height=&#34;1516&#34;
+	srcset=&#34;https://downeyflyfan.com/p/9-10.-laplace-z-transform/3_huee04e674cd9ad043353d088acd5cfa06_619665_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/9-10.-laplace-z-transform/3_huee04e674cd9ad043353d088acd5cfa06_619665_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;337px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;conjugation-formulas&#34;&gt;Conjugation Formulas&lt;/h2&gt;
 &lt;p&gt;$$
@@ -2229,11 +2528,24 @@ $$&lt;/p&gt;
         
         <guid>https://downeyflyfan.com/p/a2-filter/</guid>
         <description>&lt;h1 id=&#34;1st-order-filters&#34;&gt;1st-Order Filters&lt;/h1&gt;
-&lt;h2 id=&#34;rccr-lpfhpf&#34;&gt;RC/CR (LPF/HPF)&lt;/h2&gt;
+&lt;h2 id=&#34;bpf&#34;&gt;BPF&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-filter/2.png&#34;
+	width=&#34;1074&#34;
+	height=&#34;536&#34;
+	srcset=&#34;https://downeyflyfan.com/p/a2-filter/2_hud2d07d9e97fe306866e3a4143b1ad791_127996_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-filter/2_hud2d07d9e97fe306866e3a4143b1ad791_127996_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;200&#34;
+		data-flex-basis=&#34;480px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\omega_c &amp;amp;= \frac{ 1 }{ RC }
+G_v &amp;amp;= \frac{ 1 }{ 2 } \frac{ sRC }{ s^2 R^2 C^2  + 2sRC + 1 }\\
+R &amp;amp;= \frac{ 1 }{ \omega_c C }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;

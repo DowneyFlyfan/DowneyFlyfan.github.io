@@ -279,7 +279,7 @@ $D$的最大值为$V_r$的一半，是因为AC信号的pk-pk Successive Approxim
           <ol>
             <li><a href="#定义">定义</a></li>
             <li><a href="#以inverting-configuration-为例介绍非理想时的输出电压">以Inverting Configuration 为例介绍非理想时的输出电压</a></li>
-            <li><a href="#compensating">Compensating</a></li>
+            <li><a href="#compensation">Compensation</a></li>
           </ol>
         </li>
         <li><a href="#input-offset-current">Input Offset Current</a>
@@ -292,7 +292,57 @@ $D$的最大值为$V_r$的一半，是因为AC信号的pk-pk Successive Approxim
     </li>
     <li><a href="#figure-of-merit">Figure of Merit</a>
       <ol>
-        <li><a href="#integrate-and-hold">Integrate and Hold</a></li>
+        <li><a href="#ex1---integrate-and-hold">Ex.1 - Integrate and Hold</a>
+          <ol>
+            <li><a href="#电路">电路</a></li>
+            <li><a href="#s_1接v_in时-integrator">$S_1$接$V_{in}$时 <strong>Integrator</strong></a></li>
+            <li><a href="#s_1接地时-memory">$S_1$接地时 <strong>Memory</strong></a></li>
+            <li><a href="#figure-of-merit-1">Figure of Merit</a></li>
+          </ol>
+        </li>
+        <li><a href="#ex2---differential-amplifier">Ex.2 - Differential Amplifier</a></li>
+      </ol>
+    </li>
+    <li><a href="#grounding--common-mode-rejection">Grounding &amp; Common-Mode Rejection</a>
+      <ol>
+        <li><a href="#power-dissipation-capacitance-for-cmos-logic-current">Power Dissipation Capacitance for CMOS Logic Current</a></li>
+        <li><a href="#cm-rejection">CM Rejection</a>
+          <ol>
+            <li><a href="#定义-1">定义</a></li>
+            <li><a href="#influence-on-error">Influence on Error</a>
+              <ol>
+                <li><a href="#rti">RTI</a></li>
+                <li><a href="#等效电路和分析">等效电路和分析</a></li>
+              </ol>
+            </li>
+            <li><a href="#cmrr-of-differential-amplifier-with-imbalanced-resistors">CMRR of Differential Amplifier with Imbalanced Resistors</a>
+              <ol>
+                <li><a href="#gains">Gains</a></li>
+                <li><a href="#cmrr-when-varepsilon-is-small">CMRR when $\varepsilon$ is Small</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li><a href="#instrumentaiton-amplifier">Instrumentaiton Amplifier</a>
+          <ol>
+            <li><a href="#电路-1">电路</a></li>
+            <li><a href="#电流电压-分析">电流/电压 分析</a></li>
+            <li><a href="#gain--cmrr-considering-varepsilon">Gain &amp; CMRR Considering $\varepsilon$</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#ia-application-ecg">IA Application (ECG)</a>
+      <ol>
+        <li><a href="#测量方法">测量方法</a></li>
+        <li><a href="#difference-amplifier-problem">Difference Amplifier Problem</a>
+          <ol>
+            <li><a href="#dm-gain">DM Gain</a></li>
+            <li><a href="#cm-gain">CM Gain</a></li>
+            <li><a href="#cmmr">CMMR</a></li>
+          </ol>
+        </li>
+        <li><a href="#noise--operational-amplifier">Noise &amp; Operational Amplifier</a></li>
       </ol>
     </li>
     <li><a href="#checklist">CheckList</a></li>
@@ -361,7 +411,7 @@ $D$的最大值为$V_r$的一半，是因为AC信号的pk-pk Successive Approxim
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -571,7 +621,7 @@ $$</p>
 		data-flex-basis="388px"
 	
 ></p>
-<h3 id="compensating">Compensating</h3>
+<h3 id="compensation">Compensation</h3>
 <p><img src="/p/a1-esd/8.png"
 	width="2108"
 	height="1276"
@@ -611,7 +661,8 @@ I_B(-) &amp;= - \frac{ I_{os} }{ 2 } + I_B
 \end{gather}
 $$</p>
 <h1 id="figure-of-merit">Figure of Merit</h1>
-<h2 id="integrate-and-hold">Integrate and Hold</h2>
+<h2 id="ex1---integrate-and-hold">Ex.1 - Integrate and Hold</h2>
+<h3 id="电路">电路</h3>
 <p><img src="/p/a1-esd/9.png"
 	width="2212"
 	height="950"
@@ -624,9 +675,7 @@ $$</p>
 		data-flex-basis="558px"
 	
 ></p>
-<ol>
-<li>$S_1$接$V_{in}$时 <strong>Integrator</strong></li>
-</ol>
+<h3 id="s_1接v_in时-integrator">$S_1$接$V_{in}$时 <strong>Integrator</strong></h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -634,9 +683,7 @@ V_{out} &amp;= - \int_{}^{  } \frac{ V_{in} }{ RC }dt
 \end{aligned}
 \end{gather}
 $$</p>
-<ol start="2">
-<li>$S_1$接地时 <strong>Memory</strong></li>
-</ol>
+<h3 id="s_1接地时-memory">$S_1$接地时 <strong>Memory</strong></h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -648,8 +695,275 @@ V_{out} &amp;= Constant \\
 \end{gather}
 $$</p>
 <ul>
-<li>因此，$R$越小越好</li>
+<li>为了使得$| \dfrac{ dV_{out} }{ dt}|$尽可能小; $V_{out}$不变时，$V_{in}$ 尽可能大</li>
 </ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+R \ge 2 k \Omega
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="figure-of-merit-1">Figure of Merit</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+F &amp;= V_{os} + I_{os} R
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="ex2---differential-amplifier">Ex.2 - Differential Amplifier</h2>
+<p><img src="/p/a1-esd/10.png"
+	width="2318"
+	height="1436"
+	srcset="/p/a1-esd/10_hu6ef35ddff4b7ed13898d0e5f89b7d3c3_306957_480x0_resize_box_3.png 480w, /p/a1-esd/10_hu6ef35ddff4b7ed13898d0e5f89b7d3c3_306957_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="161"
+		data-flex-basis="387px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_{out} &amp;= 2 V_{os} + 20k \cdot I_{os} \\
+F &amp;= 2 V_{os} + 20k \cdot I_{os}
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="grounding--common-mode-rejection">Grounding &amp; Common-Mode Rejection</h1>
+<h2 id="power-dissipation-capacitance-for-cmos-logic-current">Power Dissipation Capacitance for CMOS Logic Current</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+C_{PD} &amp;= \frac{ Q_{switch} }{ V_{CC} } \\
+&amp;= \frac{ I_{max} \tau_{switch} }{ V_{CC} } \\
+&amp;= \frac{ \tau_{switch} }{ R_{switch} }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="cm-rejection">CM Rejection</h2>
+<h3 id="定义-1">定义</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+CMRR &amp;= | \frac{ A_{dm} }{ A_{cm} }|
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="influence-on-error">Influence on Error</h3>
+<h4 id="rti">RTI</h4>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;= A_{cm} V_{cm} + A_{dm} V_{diff} \\
+&amp;= A_{dm} \Big( V_{diff} + V_{cm} \frac{ A_{cm} }{ A_{dm} }\Big) \\
+&amp;= A_{dm} (V_{diff} + \frac{ V_{cm} }{ CMRR }) \\
+RTI &amp;= \frac{ V_{cm} }{ CMRR }
+\end{aligned}
+\end{gather}
+$$</p>
+<h4 id="等效电路和分析">等效电路和分析</h4>
+<p><img src="/p/a1-esd/11.png"
+	width="1848"
+	height="1012"
+	srcset="/p/a1-esd/11_hu52a32b6fb28ee26bb22bacf54a869d48_134322_480x0_resize_box_3.png 480w, /p/a1-esd/11_hu52a32b6fb28ee26bb22bacf54a869d48_134322_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="438px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;= A(V(+) - V(-)) \\
+&amp;= A(V(+) - (V_o \pm \frac{ V_{CM} }{ CMRR })) \\
+\frac{ V_o }{ V(+) } &amp;= \frac{ A \Big[ 1 + \dfrac{ 1 }{ CMRR } \Big] }{ 1 + A } \\
+&amp; \approx 1 + \frac{ 1 }{ CMRR }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>$CMRR$越大，<strong>Error</strong>越小</li>
+</ul>
+<h3 id="cmrr-of-differential-amplifier-with-imbalanced-resistors">CMRR of Differential Amplifier with Imbalanced Resistors</h3>
+<p><img src="/p/a1-esd/12.png"
+	width="1590"
+	height="690"
+	srcset="/p/a1-esd/12_hu1508895d1052399e9a29cc5e0eaed038_86569_480x0_resize_box_3.png 480w, /p/a1-esd/12_hu1508895d1052399e9a29cc5e0eaed038_86569_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="230"
+		data-flex-basis="553px"
+	
+></p>
+<h4 id="gains">Gains</h4>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;= \frac{ V_{CM} - \dfrac{ V_{diff} }{ 2 } - \dfrac{ R_2 }{ R_1 + R_2 } (V_{CM} + \dfrac{ V_{diff} }{ 2 })}{ R_1 } R_2(1 - \varepsilon) + \frac{ R_2 }{ R_1  +R_2 } (V_{CM} - \frac{ V_{diff} }{ 2 }) \\
+&amp;= A_{dm} V_{dm}+ A_{cm} V_{cm} \\
+A_{diff} &amp;= \frac{ R_2 }{ R_1 } \Big( 1 - \frac{ R_1 + 2R_2 }{R_1 + R_2 } \times \frac{ \varepsilon }{ 2 }\Big) \\
+A_{dm} &amp;= \frac{ R_2 }{ R_1 + R_2 } \varepsilon
+\end{aligned}
+\end{gather}
+$$</p>
+<h4 id="cmrr-when-varepsilon-is-small">CMRR when $\varepsilon$ is Small</h4>
+<p>$$
+\begin{gather}
+\begin{aligned}
+CMR(dB) &amp;= 20 l \Big[ \frac{ 1 + \dfrac{ R_2 }{ R_1 } }{ \varepsilon} \Big]
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="instrumentaiton-amplifier">Instrumentaiton Amplifier</h2>
+<h3 id="电路-1">电路</h3>
+<p><img src="/p/a1-esd/13.png"
+	width="1346"
+	height="924"
+	srcset="/p/a1-esd/13_hubc38794abfa2429379bf1e9d08e86c05_119076_480x0_resize_box_3.png 480w, /p/a1-esd/13_hubc38794abfa2429379bf1e9d08e86c05_119076_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="349px"
+	
+></p>
+<ul>
+<li>
+<p>红色部分是<strong>Buffer Stage</strong></p>
+</li>
+<li>
+<p>第二部分是<strong>Unity Gain</strong> Amplifier</p>
+</li>
+<li>
+<p>电流$I$方向是<strong>3-1-2-4</strong>, 因此$V_3 - V_1 = V_4 - V_2$</p>
+</li>
+</ul>
+<h3 id="电流电压-分析">电流/电压 分析</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+I &amp;= \frac{ V_3 - V_4 }{ 2R_a + R_b } \\
+&amp;= \frac{ V_1 - V_2 }{ R_b } \\
+V_o &amp;= V_3 - V_4 \\
+&amp;= (V_1 - V_2) \frac{ 2R_a + R_b }{ R_b }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="gain--cmrr-considering-varepsilon">Gain &amp; CMRR Considering $\varepsilon$</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+A_{diff} &amp;= \frac{ 2R_a + R_b }{ R_b } \\
+A_{cm} &amp;= \frac{ \varepsilon }{ 2 } \\
+CMRR &amp;= \frac{ 4R_a  +2R_b }{ \varepsilon R_b }
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="ia-application-ecg">IA Application (ECG)</h1>
+<h2 id="测量方法">测量方法</h2>
+<p><img src="/p/a1-esd/14.png"
+	width="660"
+	height="970"
+	srcset="/p/a1-esd/14_huc8df2f1c892dae89e2c634b64eb790da_101662_480x0_resize_box_3.png 480w, /p/a1-esd/14_huc8df2f1c892dae89e2c634b64eb790da_101662_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="68"
+		data-flex-basis="163px"
+	
+></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">LL-RA</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">LL-LA</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">LA-RA</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="difference-amplifier-problem">Difference Amplifier Problem</h2>
+<p><img src="/p/a1-esd/15.png"
+	width="1634"
+	height="788"
+	srcset="/p/a1-esd/15_hu9eb314744de3cc17b4a5337261747d48_115485_480x0_resize_box_3.png 480w, /p/a1-esd/15_hu9eb314744de3cc17b4a5337261747d48_115485_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="497px"
+	
+></p>
+<ul>
+<li>$\Delta \ll R_1$</li>
+</ul>
+<h3 id="dm-gain">DM Gain</h3>
+<ul>
+<li>$In(+) = V_{diff} = -In(-)$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+A_{dm} &amp;\approx  1
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_p &amp;= V_n \\
+(Ref - In(+)) \frac{ R_1 }{ R_1 + R_1 + \Delta } &amp;= (Sense - In(-)) \frac{ R_1 }{ R1 + R_1 - \Delta } \\
+V_{diff} &amp;= Sense - Ref
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="cm-gain">CM Gain</h3>
+<ul>
+<li>$In(+) = In(-) = V_{CM}$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+(Ref- V_{CM}) \frac{ R_1 }{ 2R_1 + \Delta} &amp;= (Sense -V_{CM}) \frac{ R_1 }{ 2R_1 - \Delta } \\
+(Ref -V_{CM}) (2R_1 - \Delta) &amp;= (Sense - V_{CM}) (2R_1 + \Delta)) \\
+A_{CM} &amp;= \frac{ Sense - Ref }{ V_{CM} } \\
+&amp; \approx \frac{ \Delta  }{ R_1 }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="cmmr">CMMR</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+CMMR &amp;= \frac{ R_1 }{ \Delta }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="noise--operational-amplifier">Noise &amp; Operational Amplifier</h2>
 <h1 id="checklist">CheckList</h1>
 <div class="table-wrapper"><table>
 <thead>
@@ -666,6 +980,14 @@ $$</p>
 <tr>
 <td style="text-align:center">Figure of Merit</td>
 <td style="text-align:center">A function of all significant contributions of the components to the total system error, which changes <strong>monotonically</strong> with the overall error</td>
+</tr>
+<tr>
+<td style="text-align:center">Shielding</td>
+<td style="text-align:center">Covering it with Metal</td>
+</tr>
+<tr>
+<td style="text-align:center">twisted pair</td>
+<td style="text-align:center">减少<strong>Differential Noise</strong></td>
 </tr>
 </tbody>
 </table></div>
