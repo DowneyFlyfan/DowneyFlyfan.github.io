@@ -286,6 +286,7 @@ $D$的最大值为$V_r$的一半，是因为AC信号的pk-pk Successive Approxim
           <ol>
             <li><a href="#definition">Definition</a></li>
             <li><a href="#用bias-和-offset-current-来表示电流">用Bias 和 Offset Current 来表示电流</a></li>
+            <li><a href="#ex-integrator">Ex. Integrator</a></li>
           </ol>
         </li>
       </ol>
@@ -306,6 +307,7 @@ $D$的最大值为$V_r$的一半，是因为AC信号的pk-pk Successive Approxim
     <li><a href="#grounding--common-mode-rejection">Grounding &amp; Common-Mode Rejection</a>
       <ol>
         <li><a href="#power-dissipation-capacitance-for-cmos-logic-current">Power Dissipation Capacitance for CMOS Logic Current</a></li>
+        <li><a href="#designing-ground">Designing Ground</a></li>
         <li><a href="#cm-rejection">CM Rejection</a>
           <ol>
             <li><a href="#定义-1">定义</a></li>
@@ -337,23 +339,29 @@ $D$的最大值为$V_r$的一半，是因为AC信号的pk-pk Successive Approxim
         <li><a href="#测量方法">测量方法</a></li>
         <li><a href="#difference-amplifier-problem">Difference Amplifier Problem</a>
           <ol>
+            <li><a href="#circuit">Circuit</a></li>
             <li><a href="#dm-gain">DM Gain</a></li>
             <li><a href="#cm-gain">CM Gain</a></li>
-            <li><a href="#cmmr">CMMR</a></li>
+            <li><a href="#cmrr">CMRR</a></li>
           </ol>
         </li>
       </ol>
     </li>
     <li><a href="#noise--opamp">Noise &amp; Opamp</a>
       <ol>
-        <li><a href="#concepts">Concepts</a></li>
+        <li><a href="#snr--neb">SNR &amp; NEB</a></li>
         <li><a href="#opamp-noise-model">Opamp Noise Model</a>
           <ol>
-            <li><a href="#circuit">Circuit</a></li>
-            <li><a href="#white-moise-to-lpf">white moise to LPF</a></li>
+            <li><a href="#circuit-1">Circuit</a></li>
+            <li><a href="#white-noise-passing-lpf">White Noise Passing LPF</a></li>
           </ol>
         </li>
-        <li><a href="#rms-input-noise">RMS Input Noise</a></li>
+        <li><a href="#rms-input-noise">RMS Input Noise</a>
+          <ol>
+            <li><a href="#formulas">Formulas</a></li>
+            <li><a href="#relationship-in-graph">Relationship in Graph</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#appendix">Appendix</a>
@@ -426,7 +434,7 @@ $D$的最大值为$V_r$的一半，是因为AC信号的pk-pk Successive Approxim
 
 
                 <time class="article-time--reading">
-                    6 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -675,6 +683,26 @@ I_B(-) &amp;= - \frac{ I_{os} }{ 2 } + I_B
 \end{aligned}
 \end{gather}
 $$</p>
+<h3 id="ex-integrator">Ex. Integrator</h3>
+<p><img src="/p/a1-esd/20.png"
+	width="1998"
+	height="1320"
+	srcset="/p/a1-esd/20_hu32d3dff5761c904e51c2ebd68ecc6431_234872_480x0_resize_box_3.png 480w, /p/a1-esd/20_hu32d3dff5761c904e51c2ebd68ecc6431_234872_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="363px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_{out} &amp;=
+\end{aligned}
+\end{gather}
+$$</p>
 <h1 id="figure-of-merit">Figure of Merit</h1>
 <h2 id="ex1---integrate-and-hold">Ex.1 - Integrate and Hold</h2>
 <h3 id="电路">电路</h3>
@@ -759,6 +787,31 @@ C_{PD} &amp;= \frac{ Q_{switch} }{ V_{CC} } \\
 \end{aligned}
 \end{gather}
 $$</p>
+<h2 id="designing-ground">Designing Ground</h2>
+<p><img src="/p/a1-esd/21.png"
+	width="1918"
+	height="1196"
+	srcset="/p/a1-esd/21_hucf334cfa674aced096d48d1b35033465_111886_480x0_resize_box_3.png 480w, /p/a1-esd/21_hucf334cfa674aced096d48d1b35033465_111886_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="160"
+		data-flex-basis="384px"
+	
+></p>
+<p><img src="/p/a1-esd/22.png"
+	width="2038"
+	height="898"
+	srcset="/p/a1-esd/22_hua51417ac01b5c5b01ba9f27996c73c99_178892_480x0_resize_box_3.png 480w, /p/a1-esd/22_hua51417ac01b5c5b01ba9f27996c73c99_178892_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="226"
+		data-flex-basis="544px"
+	
+></p>
 <h2 id="cm-rejection">CM Rejection</h2>
 <h3 id="定义-1">定义</h3>
 <p>$$
@@ -921,6 +974,7 @@ $$</p>
 </tbody>
 </table></div>
 <h2 id="difference-amplifier-problem">Difference Amplifier Problem</h2>
+<h3 id="circuit">Circuit</h3>
 <p><img src="/p/a1-esd/15.png"
 	width="1634"
 	height="788"
@@ -978,7 +1032,7 @@ A_{CM} &amp;= \frac{ Sense - Ref }{ V_{CM} } \\
 \end{aligned}
 \end{gather}
 $$</p>
-<h3 id="cmmr">CMMR</h3>
+<h3 id="cmrr">CMRR</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -987,39 +1041,9 @@ CMMR &amp;= \frac{ R_1 }{ \Delta }
 \end{gather}
 $$</p>
 <h1 id="noise--opamp">Noise &amp; Opamp</h1>
-<h2 id="concepts">Concepts</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">Category</th>
-<th style="text-align:center">Concept</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">White Noise</td>
-<td style="text-align:center">Noise that has <strong>flat Spectral Density</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>3 Sources</strong> for Noise</td>
-<td style="text-align:center">两个<strong>Voltage Inputs</strong>, 每个输入端的<strong>Current Noise</strong></td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>2 Reasons</strong> for Noise</td>
-<td style="text-align:center"><strong>Recombination &amp; Generation</strong> of electrons in semiconductors; <strong>Thermal Agitation</strong> of electrons, $E_r = \sqrt{4 R k T \Delta f}$, $\Delta f$ is <strong>bandwidth</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">Noise Equivalent Bandwidth</td>
-<td style="text-align:center">Incresed Bandwidth</td>
-</tr>
-<tr>
-<td style="text-align:center">Gain-Bandwdith</td>
-<td style="text-align:center">The point of <strong>Unitary-Gain</strong></td>
-</tr>
-</tbody>
-</table></div>
+<h2 id="snr--neb">SNR &amp; NEB</h2>
 <ul>
-<li><strong>Signal to Noise Ratio (SNR)</strong> and <strong>Noise Equivalent Bandwidth</strong></li>
+<li><strong>Signal to Noise Ratio (SNR)</strong> and <strong>Noise Equivalent Bandwidth (NEB)</strong></li>
 </ul>
 <p>$$
 \begin{gather}
@@ -1051,7 +1075,7 @@ $$</p>
 	
 ></p>
 <h2 id="opamp-noise-model">Opamp Noise Model</h2>
-<h3 id="circuit">Circuit</h3>
+<h3 id="circuit-1">Circuit</h3>
 <p><img src="/p/a1-esd/16.png"
 	width="954"
 	height="360"
@@ -1067,7 +1091,7 @@ $$</p>
 <ul>
 <li>$i_n, e_n$ are <strong>Spectral Density</strong></li>
 </ul>
-<h3 id="white-moise-to-lpf">white moise to LPF</h3>
+<h3 id="white-noise-passing-lpf">White Noise Passing LPF</h3>
 <p><img src="/p/a1-esd/17.png"
 	width="824"
 	height="610"
@@ -1080,14 +1104,6 @@ $$</p>
 		data-flex-basis="324px"
 	
 ></p>
-<ul>
-<li>
-<p>$G = \dfrac{ 1 }{ \sqrt{ 2 } }, f =  f_H$</p>
-</li>
-<li>
-<p>$G= \dfrac{ 1 }{ 2 }, f = f_c$</p>
-</li>
-</ul>
 <h2 id="rms-input-noise">RMS Input Noise</h2>
 <p><img src="/p/a1-esd/19.png"
 	width="1046"
@@ -1101,6 +1117,7 @@ $$</p>
 		data-flex-basis="403px"
 	
 ></p>
+<h3 id="formulas">Formulas</h3>
 <ul>
 <li>$R_1 || R_2 = R_3$</li>
 </ul>
@@ -1127,6 +1144,19 @@ E_{noise} &amp;= E_{ni} (1 + \frac{ R_2 }{ R_1 })
 \end{aligned}
 \end{gather}
 $$</p>
+<h3 id="relationship-in-graph">Relationship in Graph</h3>
+<p><img src="/p/a1-esd/23.png"
+	width="1662"
+	height="824"
+	srcset="/p/a1-esd/23_huf8b0708d691bdc7eda0cfe3421a568c2_106720_480x0_resize_box_3.png 480w, /p/a1-esd/23_huf8b0708d691bdc7eda0cfe3421a568c2_106720_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="201"
+		data-flex-basis="484px"
+	
+></p>
 <h1 id="appendix">Appendix</h1>
 <h2 id="checklist">CheckList</h2>
 <div class="table-wrapper"><table>
@@ -1139,7 +1169,7 @@ $$</p>
 <tbody>
 <tr>
 <td style="text-align:center">什么情况下使用Bias 或 Offset</td>
-<td style="text-align:center"><strong>Impedance Unbalanced</strong>: Bias; <strong>Impedance Matched</strong>: Offset</td>
+<td style="text-align:center"><strong>Impedance (Very) Unbalanced</strong>: Bias; <strong>Impedance Matched</strong>: Offset</td>
 </tr>
 <tr>
 <td style="text-align:center">Figure of Merit</td>
@@ -1153,6 +1183,50 @@ $$</p>
 <td style="text-align:center">twisted pair</td>
 <td style="text-align:center">减少<strong>Differential Noise</strong></td>
 </tr>
+<tr>
+<td style="text-align:center">Supply Decoupling</td>
+<td style="text-align:center">对于大电流电路端，需要单独使用宽轨线进行布线, 防止<strong>磁场干扰、过热、噪声</strong>问题</td>
+</tr>
+<tr>
+<td style="text-align:center">Ground Bounce</td>
+<td style="text-align:center">多个芯片共享参考地，产生<strong>回路电流干扰</strong>和<strong>寄生电容、电感</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Supply Decoupling</td>
+<td style="text-align:center">在供电引脚之间防止<strong>无极性电容(去耦电容)</strong>, 隔离噪声干扰</td>
+</tr>
+<tr>
+<td style="text-align:center">Cold End</td>
+<td style="text-align:center">连接<strong>Load</strong>和<strong>Ground</strong>的电路</td>
+</tr>
+<tr>
+<td style="text-align:center">Hot End</td>
+<td style="text-align:center">连接<strong>Power</strong>和<strong>Input Signal</strong>的电路</td>
+</tr>
+<tr>
+<td style="text-align:center">Thermocouple</td>
+<td style="text-align:center">两种不同材料的导线连在一起，当有$\Delta T$时，就会产生电动势</td>
+</tr>
+<tr>
+<td style="text-align:center">White Noise</td>
+<td style="text-align:center">Noise that has <strong>flat Spectral Density</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3 Sources</strong> for Noise</td>
+<td style="text-align:center">两个<strong>Voltage Inputs</strong>, 每个输入端的<strong>Current Noise</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2 Reasons</strong> for Noise</td>
+<td style="text-align:center"><strong>Recombination &amp; Generation</strong> of electrons in semiconductors; <strong>Thermal Agitation</strong> of electrons, $E_r = \sqrt{4 R k T \Delta f}$, $\Delta f$ is <strong>bandwidth</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Noise Equivalent Bandwidth</td>
+<td style="text-align:center">在指定带宽内，能产生和实际噪声功率相等的均匀白噪声所对应的等效宽带</td>
+</tr>
+<tr>
+<td style="text-align:center">Gain-Bandwdith</td>
+<td style="text-align:center">The point of <strong>Unitary-Gain</strong>, 能够提供一定增益的最大频率带宽</td>
+</tr>
 </tbody>
 </table></div>
 <h2 id="公式">公式</h2>
@@ -1164,6 +1238,16 @@ $$</p>
 \begin{aligned}
 DR &amp;= 20 \times lg( \frac{ V_{max} }{ V_{noise} }) \\
 &amp;= (6.02N + 1.76) dB
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Energy Spectral Density</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V &amp;= \sqrt{ E_n \Delta f }
 \end{aligned}
 \end{gather}
 $$</p>

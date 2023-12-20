@@ -285,6 +285,12 @@
         <li><a href="#线宽w和差分对间距d">线宽(W)和差分对间距(D)</a></li>
       </ol>
     </li>
+    <li><a href="#directional-coupler">Directional Coupler</a>
+      <ol>
+        <li><a href="#s-parameters-of-4-ports-network">S Parameters of 4-Ports Network</a></li>
+        <li><a href="#quantities">Quantities</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -349,7 +355,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -491,6 +497,105 @@ $$</p>
 <ul>
 <li><strong>特定</strong>差分对下, $D$和$W$正相关, 与<strong>损耗</strong>负相关</li>
 </ul>
+<h1 id="directional-coupler">Directional Coupler</h1>
+<h2 id="s-parameters-of-4-ports-network">S Parameters of 4-Ports Network</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+S] &amp;= \begin{bmatrix}
+0 &amp; S_{12} &amp; S_{13} &amp; S_{14} \\
+S_{21} &amp; 0 &amp; S_{23} &amp; S_{24} \\
+S_{31} &amp;  S_{32} &amp; 0 &amp; S_{34} \\
+S_{41} &amp; S_{42} &amp; S_{43} &amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol>
+<li>因为<strong>理想状况下</strong>， 各个端口完全隔离, $S_{xy} =S_{yx}$</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+S_1 \cdot S_2  &amp;= 0 \\
+S_{13}^* S_{23} + S_{14}^* S_{24} &amp;= 0 \\
+S_3 \cdot S_4  &amp;= 0 \\
+S_{14}^* S_{13} + S_{24}^* S_{23} &amp;= 0
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>可以得到</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\alpha$</td>
+<td style="text-align:center">$S_{12} = S_{34} = \alpha$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\beta, \theta, \phi$</td>
+<td style="text-align:center">$S_{13} = \beta e^{j \theta}, S_{24} = \beta e^{j \phi}$</td>
+</tr>
+</tbody>
+</table></div>
+<p>$$
+\begin{gather}
+\begin{aligned}
+S_2 \cdot S_3 &amp;= 0 \\
+\theta + \phi &amp;= \pi \pm 2n \pi \\
+\alpha^2 + \beta^2 &amp;= 0
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="3">
+<li>分类</li>
+</ol>
+<ul>
+<li>Symmetric Coupler ( $\theta = \phi = \dfrac{ \pi }{ 2 }$)</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[S]_{Symmetric} &amp;= \begin{bmatrix}
+0 &amp; \alpha &amp; j \beta &amp; 0 \\
+\alpha &amp; 0 &amp; 0 &amp; j \beta \\
+j \beta &amp; 0 &amp; 0  &amp; \alpha \\
+0&amp; j \beta &amp; \alpha &amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>Antisymmetric Coupler ($\theta = 0, \phi = \pi$)</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[S]_{Antisymmetric} &amp;= \begin{bmatrix}
+0 &amp; \alpha &amp; \beta &amp; 0 \\
+\alpha &amp; 0 &amp; 0 &amp;  - \beta \\
+\beta &amp; 0 &amp; 0 &amp; \alpha \\
+0 &amp; - \beta &amp; \alpha &amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="quantities">Quantities</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+C &amp;= -20lg( \beta) \\
+D &amp;= 20lg( \frac{ \beta }{ |S_{14}| })
+\end{aligned}
+\end{gather}
+$$</p>
 
 </section>
 

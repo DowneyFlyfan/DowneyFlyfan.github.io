@@ -139,6 +139,105 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;特定&lt;/strong&gt;差分对下, $D$和$W$正相关, 与&lt;strong&gt;损耗&lt;/strong&gt;负相关&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h1 id=&#34;directional-coupler&#34;&gt;Directional Coupler&lt;/h1&gt;
+&lt;h2 id=&#34;s-parameters-of-4-ports-network&#34;&gt;S Parameters of 4-Ports Network&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+S] &amp;amp;= \begin{bmatrix}
+0 &amp;amp; S_{12} &amp;amp; S_{13} &amp;amp; S_{14} \\
+S_{21} &amp;amp; 0 &amp;amp; S_{23} &amp;amp; S_{24} \\
+S_{31} &amp;amp;  S_{32} &amp;amp; 0 &amp;amp; S_{34} \\
+S_{41} &amp;amp; S_{42} &amp;amp; S_{43} &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;因为&lt;strong&gt;理想状况下&lt;/strong&gt;， 各个端口完全隔离, $S_{xy} =S_{yx}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+S_1 \cdot S_2  &amp;amp;= 0 \\
+S_{13}^* S_{23} + S_{14}^* S_{24} &amp;amp;= 0 \\
+S_3 \cdot S_4  &amp;amp;= 0 \\
+S_{14}^* S_{13} + S_{24}^* S_{23} &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;可以得到&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\alpha$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{12} = S_{34} = \alpha$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\beta, \theta, \phi$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$S_{13} = \beta e^{j \theta}, S_{24} = \beta e^{j \phi}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+S_2 \cdot S_3 &amp;amp;= 0 \\
+\theta + \phi &amp;amp;= \pi \pm 2n \pi \\
+\alpha^2 + \beta^2 &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;分类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Symmetric Coupler ( $\theta = \phi = \dfrac{ \pi }{ 2 }$)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S]_{Symmetric} &amp;amp;= \begin{bmatrix}
+0 &amp;amp; \alpha &amp;amp; j \beta &amp;amp; 0 \\
+\alpha &amp;amp; 0 &amp;amp; 0 &amp;amp; j \beta \\
+j \beta &amp;amp; 0 &amp;amp; 0  &amp;amp; \alpha \\
+0&amp;amp; j \beta &amp;amp; \alpha &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Antisymmetric Coupler ($\theta = 0, \phi = \pi$)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S]_{Antisymmetric} &amp;amp;= \begin{bmatrix}
+0 &amp;amp; \alpha &amp;amp; \beta &amp;amp; 0 \\
+\alpha &amp;amp; 0 &amp;amp; 0 &amp;amp;  - \beta \\
+\beta &amp;amp; 0 &amp;amp; 0 &amp;amp; \alpha \\
+0 &amp;amp; - \beta &amp;amp; \alpha &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;quantities&#34;&gt;Quantities&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C &amp;amp;= -20lg( \beta) \\
+D &amp;amp;= 20lg( \frac{ \beta }{ |S_{14}| })
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -932,10 +1031,6 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;传输线的电长度为90度,即电线物理长度为$\dfrac{ 1 }{ 4 } \lambda$。在线性的传输线中,λ/4长度会产生一个电压和电流逆变换&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Signal Condition Circuit&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;处理传感器输出信号，&lt;strong&gt;改善信号质量&lt;/strong&gt;的电路&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;IMD3&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Integral MoDel Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素&lt;/td&gt;
 &lt;/tr&gt;
@@ -990,6 +1085,10 @@ $$&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;波段&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;C(4 -8GHz), Ku(12 -18GHz), Ka(26.5-40GHz),Q(33-50GHz), V(40-75GHz)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reconstruction Bias&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;模型在数据重构过程中出现的&lt;strong&gt;系统偏差&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
