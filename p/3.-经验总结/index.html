@@ -1,84 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='电阻色环 第一个环（最左边的环）：代表第一位数字，即阻值的第一位数字。
-第二个环：代表第二位数字，即阻值的第二位数字。
-颜色 数字 黑色 0 棕色 1 红色 2 橙色 3 黄色 4 绿色 5 蓝色 6 紫色 7 灰色 8 白色 9 第三个环：代表乘法因子，用于计算阻值的数量级。 黑色：无
-棕色：$10^1$
-红色：$10^2$
-橙色：$10^3$
-黄色：$10^4$
-绿色：$10^5$
-蓝色：$10^6$
-紫色：$10^7$
-灰色：$10^8$
-白色：$10^9$
-第四个环（最右边的环）：代表容差，即电阻值的允许误差范围。 无色环：±20%
-银色环：±10%
-金色环：±5%
-棕色环：±1%
-红色环：±2%
-绿色环：±0.5%
-蓝色环：±0.25%
-紫色环：±0.10%
-灰色环：±0.05%
-白色环：±10%
-例如，如果电阻色环的顺序为棕色、黑色、红色、金色，那么其阻值为1 0 2乘以10^5，即1020000欧姆，容差为±5%。'>
-<title>电子实验基础知识</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='数据题思路(国赛) 建模总思路 &#43; 子任务 &#43; 难点
+方法合理性 = 模型过检验 &#43; 结果可解释
+敏感性分析
+步骤 数据预处理(必须!!!) 难点与方案 数据丑 解决方案 样本量小 数据增强(通过变换和平移样本，获得更多数据) 缺失值多 1. 若缺失值的样本很少，删除含有缺失值的样本 2. 删除缺失值很多的特征 3. 插值(用机器学习(KNN, SVM)补差) 定类变量 SVM, KNN 分析聚类 样本量非常小 正向化 要点 补全 &amp;gt; 剔除 $2/3$页作为预处理 指标的选择!!!(非常重要) Category Concept 平均值 稳定性 用方差、标准差衡量 连续性 用ACF(自相关函数)描述，并可视化 频率 根据具体题目而言 比例 根据具体题目而言 必须要详细 模型的选择 慎重选择的模型 可用的模型列举 回归
+拟合
+基于TOPSIS的熵权法(典型的无监督学习)
+结果 预测精度要说明
+一定要检验!
+解释模型 数学公式解释
+并指出具体的指标
+写作(美赛应该很不一样) Abstract In General 摘要总体结构 = 总述*1 &#43; 子任务 *n &#43; 优势*1'>
+<title>3. 经验总结</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/%E7%94%B5%E5%AD%90%E5%AE%9E%E9%AA%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/3.-%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='电子实验基础知识'>
-<meta property='og:description' content='电阻色环 第一个环（最左边的环）：代表第一位数字，即阻值的第一位数字。
-第二个环：代表第二位数字，即阻值的第二位数字。
-颜色 数字 黑色 0 棕色 1 红色 2 橙色 3 黄色 4 绿色 5 蓝色 6 紫色 7 灰色 8 白色 9 第三个环：代表乘法因子，用于计算阻值的数量级。 黑色：无
-棕色：$10^1$
-红色：$10^2$
-橙色：$10^3$
-黄色：$10^4$
-绿色：$10^5$
-蓝色：$10^6$
-紫色：$10^7$
-灰色：$10^8$
-白色：$10^9$
-第四个环（最右边的环）：代表容差，即电阻值的允许误差范围。 无色环：±20%
-银色环：±10%
-金色环：±5%
-棕色环：±1%
-红色环：±2%
-绿色环：±0.5%
-蓝色环：±0.25%
-紫色环：±0.10%
-灰色环：±0.05%
-白色环：±10%
-例如，如果电阻色环的顺序为棕色、黑色、红色、金色，那么其阻值为1 0 2乘以10^5，即1020000欧姆，容差为±5%。'>
-<meta property='og:url' content='https://downeyflyfan.com/p/%E7%94%B5%E5%AD%90%E5%AE%9E%E9%AA%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='3. 经验总结'>
+<meta property='og:description' content='数据题思路(国赛) 建模总思路 &#43; 子任务 &#43; 难点
+方法合理性 = 模型过检验 &#43; 结果可解释
+敏感性分析
+步骤 数据预处理(必须!!!) 难点与方案 数据丑 解决方案 样本量小 数据增强(通过变换和平移样本，获得更多数据) 缺失值多 1. 若缺失值的样本很少，删除含有缺失值的样本 2. 删除缺失值很多的特征 3. 插值(用机器学习(KNN, SVM)补差) 定类变量 SVM, KNN 分析聚类 样本量非常小 正向化 要点 补全 &amp;gt; 剔除 $2/3$页作为预处理 指标的选择!!!(非常重要) Category Concept 平均值 稳定性 用方差、标准差衡量 连续性 用ACF(自相关函数)描述，并可视化 频率 根据具体题目而言 比例 根据具体题目而言 必须要详细 模型的选择 慎重选择的模型 可用的模型列举 回归
+拟合
+基于TOPSIS的熵权法(典型的无监督学习)
+结果 预测精度要说明
+一定要检验!
+解释模型 数学公式解释
+并指出具体的指标
+写作(美赛应该很不一样) Abstract In General 摘要总体结构 = 总述*1 &#43; 子任务 *n &#43; 优势*1'>
+<meta property='og:url' content='https://downeyflyfan.com/p/3.-%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/'>
 <meta property='og:site_name' content='Flyfan Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-09-14T10:11:16&#43;08:00'/><meta property='article:modified_time' content='2023-09-14T10:11:16&#43;08:00'/>
-<meta name="twitter:title" content="电子实验基础知识">
-<meta name="twitter:description" content="电阻色环 第一个环（最左边的环）：代表第一位数字，即阻值的第一位数字。
-第二个环：代表第二位数字，即阻值的第二位数字。
-颜色 数字 黑色 0 棕色 1 红色 2 橙色 3 黄色 4 绿色 5 蓝色 6 紫色 7 灰色 8 白色 9 第三个环：代表乘法因子，用于计算阻值的数量级。 黑色：无
-棕色：$10^1$
-红色：$10^2$
-橙色：$10^3$
-黄色：$10^4$
-绿色：$10^5$
-蓝色：$10^6$
-紫色：$10^7$
-灰色：$10^8$
-白色：$10^9$
-第四个环（最右边的环）：代表容差，即电阻值的允许误差范围。 无色环：±20%
-银色环：±10%
-金色环：±5%
-棕色环：±1%
-红色环：±2%
-绿色环：±0.5%
-蓝色环：±0.25%
-紫色环：±0.10%
-灰色环：±0.05%
-白色环：±10%
-例如，如果电阻色环的顺序为棕色、黑色、红色、金色，那么其阻值为1 0 2乘以10^5，即1020000欧姆，容差为±5%。"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-11-25T17:18:37&#43;08:00'/><meta property='article:modified_time' content='2022-11-25T17:18:37&#43;08:00'/>
+<meta name="twitter:title" content="3. 经验总结">
+<meta name="twitter:description" content="数据题思路(国赛) 建模总思路 &#43; 子任务 &#43; 难点
+方法合理性 = 模型过检验 &#43; 结果可解释
+敏感性分析
+步骤 数据预处理(必须!!!) 难点与方案 数据丑 解决方案 样本量小 数据增强(通过变换和平移样本，获得更多数据) 缺失值多 1. 若缺失值的样本很少，删除含有缺失值的样本 2. 删除缺失值很多的特征 3. 插值(用机器学习(KNN, SVM)补差) 定类变量 SVM, KNN 分析聚类 样本量非常小 正向化 要点 补全 &amp;gt; 剔除 $2/3$页作为预处理 指标的选择!!!(非常重要) Category Concept 平均值 稳定性 用方差、标准差衡量 连续性 用ACF(自相关函数)描述，并可视化 频率 根据具体题目而言 比例 根据具体题目而言 必须要详细 模型的选择 慎重选择的模型 可用的模型列举 回归
+拟合
+基于TOPSIS的熵权法(典型的无监督学习)
+结果 预测精度要说明
+一定要检验!
+解释模型 数学公式解释
+并指出具体的指标
+写作(美赛应该很不一样) Abstract In General 摘要总体结构 = 总述*1 &#43; 子任务 *n &#43; 优势*1"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -316,8 +280,39 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#电阻色环">电阻色环</a></li>
-    <li><a href="#heading"></a></li>
+    <li><a href="#数据题思路国赛">数据题思路(国赛)</a></li>
+    <li><a href="#步骤">步骤</a>
+      <ol>
+        <li><a href="#数据预处理必须">数据预处理(必须!!!)</a>
+          <ol>
+            <li><a href="#难点与方案">难点与方案</a></li>
+            <li><a href="#要点">要点</a></li>
+            <li><a href="#指标的选择非常重要">指标的选择!!!(非常重要)</a></li>
+          </ol>
+        </li>
+        <li><a href="#模型的选择">模型的选择</a>
+          <ol>
+            <li><a href="#慎重选择的模型">慎重选择的模型</a></li>
+            <li><a href="#可用的模型列举">可用的模型列举</a></li>
+            <li><a href="#结果">结果</a></li>
+            <li><a href="#解释模型">解释模型</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#写作美赛应该很不一样">写作(美赛应该很不一样)</a>
+      <ol>
+        <li><a href="#abstract">Abstract</a>
+          <ol>
+            <li><a href="#in-general">In General</a></li>
+            <li><a href="#in-detail">In Detail</a></li>
+          </ol>
+        </li>
+        <li><a href="#ways-of-description">Ways of Description</a></li>
+      </ol>
+    </li>
+    <li><a href="#其他">其他</a></li>
+    <li><a href="#赛前准备">赛前准备</a></li>
   </ol>
 </nav>
         </div>
@@ -336,8 +331,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E5%85%B6%E4%BB%96/" style="background-color: #FF4500; color: #fff;">
-                其他
+            <a href="/categories/%E6%95%B0%E6%A8%A1/" style="background-color: #2E8B57; color: #fff;">
+                数模
             </a>
         
     </header>
@@ -345,7 +340,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E7%94%B5%E5%AD%90%E5%AE%9E%E9%AA%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">电子实验基础知识</a>
+            <a href="/p/3.-%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/">3. 经验总结</a>
         </h2>
     
         
@@ -367,7 +362,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Sep 14, 2023</time>
+                <time class="article-time--published">Nov 25, 2022</time>
             </div>
         
 
@@ -397,147 +392,242 @@
     <section class="article-content">
     
     
-    <h1 id="电阻色环">电阻色环</h1>
+    <h1 id="数据题思路国赛">数据题思路(国赛)</h1>
 <ol>
 <li>
-<p>第一个环（最左边的环）：代表第一位数字，即阻值的第一位数字。</p>
+<p>建模总思路 + 子任务 + 难点</p>
 </li>
 <li>
-<p>第二个环：代表第二位数字，即阻值的第二位数字。</p>
+<p>方法合理性 = 模型过检验 + 结果可解释</p>
+</li>
+<li>
+<p>敏感性分析</p>
 </li>
 </ol>
+<h1 id="步骤">步骤</h1>
+<h2 id="数据预处理必须">数据预处理(必须!!!)</h2>
+<h3 id="难点与方案">难点与方案</h3>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th>颜色</th>
-<th>数字</th>
+<th style="text-align:center">数据丑</th>
+<th style="text-align:center">解决方案</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>黑色</td>
-<td>0</td>
+<td style="text-align:center">样本量小</td>
+<td style="text-align:center">数据增强(通过<strong>变换</strong>和<strong>平移</strong>样本，获得更多数据)</td>
 </tr>
 <tr>
-<td>棕色</td>
-<td>1</td>
+<td style="text-align:center">缺失值多</td>
+<td style="text-align:center">1. 若<strong>缺失值的样本很少</strong>，删除含有缺失值的样本 2. 删除缺失值很多的<strong>特征</strong> 3. 插值(用机器学习(KNN, SVM)补差)</td>
 </tr>
 <tr>
-<td>红色</td>
-<td>2</td>
+<td style="text-align:center"><strong>定类变量</strong></td>
+<td style="text-align:center">SVM, KNN 分析<strong>聚类</strong></td>
 </tr>
 <tr>
-<td>橙色</td>
-<td>3</td>
-</tr>
-<tr>
-<td>黄色</td>
-<td>4</td>
-</tr>
-<tr>
-<td>绿色</td>
-<td>5</td>
-</tr>
-<tr>
-<td>蓝色</td>
-<td>6</td>
-</tr>
-<tr>
-<td>紫色</td>
-<td>7</td>
-</tr>
-<tr>
-<td>灰色</td>
-<td>8</td>
-</tr>
-<tr>
-<td>白色</td>
-<td>9</td>
+<td style="text-align:center">样本量非常小</td>
+<td style="text-align:center"><strong>正向化</strong></td>
 </tr>
 </tbody>
 </table></div>
-<ol start="3">
-<li>第三个环：代表乘法因子，用于计算阻值的数量级。</li>
-</ol>
+<h3 id="要点">要点</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>补全</strong> &gt; <strong>剔除</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$2/3$页作为<strong>预处理</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="指标的选择非常重要">指标的选择!!!(非常重要)</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">平均值</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">稳定性</td>
+<td style="text-align:center">用<strong>方差</strong>、<strong>标准差</strong>衡量</td>
+</tr>
+<tr>
+<td style="text-align:center">连续性</td>
+<td style="text-align:center">用ACF(自相关函数)描述，并可视化</td>
+</tr>
+<tr>
+<td style="text-align:center">频率</td>
+<td style="text-align:center">根据具体题目而言</td>
+</tr>
+<tr>
+<td style="text-align:center">比例</td>
+<td style="text-align:center">根据具体题目而言</td>
+</tr>
+<tr>
+<td style="text-align:center">必须要详细</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="模型的选择">模型的选择</h2>
+<h3 id="慎重选择的模型">慎重选择的模型</h3>
+<h3 id="可用的模型列举">可用的模型列举</h3>
 <ul>
 <li>
-<p>黑色：无</p>
+<p>回归</p>
 </li>
 <li>
-<p>棕色：$10^1$</p>
+<p>拟合</p>
 </li>
 <li>
-<p>红色：$10^2$</p>
-</li>
-<li>
-<p>橙色：$10^3$</p>
-</li>
-<li>
-<p>黄色：$10^4$</p>
-</li>
-<li>
-<p>绿色：$10^5$</p>
-</li>
-<li>
-<p>蓝色：$10^6$</p>
-</li>
-<li>
-<p>紫色：$10^7$</p>
-</li>
-<li>
-<p>灰色：$10^8$</p>
-</li>
-<li>
-<p>白色：$10^9$</p>
+<p>基于TOPSIS的熵权法(典型的<strong>无监督学习</strong>)</p>
 </li>
 </ul>
-<ol start="4">
-<li>第四个环（最右边的环）：代表容差，即电阻值的允许误差范围。</li>
-</ol>
+<h3 id="结果">结果</h3>
 <ul>
 <li>
-<p>无色环：±20%</p>
+<p><strong>预测精度</strong>要说明</p>
 </li>
 <li>
-<p>银色环：±10%</p>
-</li>
-<li>
-<p>金色环：±5%</p>
-</li>
-<li>
-<p>棕色环：±1%</p>
-</li>
-<li>
-<p>红色环：±2%</p>
-</li>
-<li>
-<p>绿色环：±0.5%</p>
-</li>
-<li>
-<p>蓝色环：±0.25%</p>
-</li>
-<li>
-<p>紫色环：±0.10%</p>
-</li>
-<li>
-<p>灰色环：±0.05%</p>
-</li>
-<li>
-<p>白色环：±10%</p>
+<p>一定要<strong>检验</strong>!</p>
 </li>
 </ul>
-<p>例如，如果电阻色环的顺序为棕色、黑色、红色、金色，那么其阻值为1 0 2乘以10^5，即1020000欧姆，容差为±5%。</p>
-<h1 id="heading"></h1>
+<h3 id="解释模型">解释模型</h3>
+<ul>
+<li>
+<p>数学公式解释</p>
+</li>
+<li>
+<p>并指出具体的指标</p>
+</li>
+</ul>
+<h1 id="写作美赛应该很不一样">写作(美赛应该很不一样)</h1>
+<h2 id="abstract">Abstract</h2>
+<h3 id="in-general">In General</h3>
+<ul>
+<li>
+<p>摘要总体结构 = 总述*1 + 子任务 *n + 优势*1</p>
+</li>
+<li>
+<p>总述 = 总目的/总流程(本文解决的核心问题是&hellip;)</p>
+</li>
+<li>
+<p>每段子任务 = <strong>子目的</strong> + 方法 + 数字结果(如果有) + **难点解决 + 评论}</p>
+</li>
+<li>
+<p>一句话总结 + 优势</p>
+</li>
+</ul>
+<h3 id="in-detail">In Detail</h3>
+<ul>
+<li>
+<p>第一次出现的<strong>术语</strong>要写全称</p>
+</li>
+<li>
+<p>重点<strong>加粗</strong>, 不要太多</p>
+</li>
+<li>
+<p>不<strong>重复使用词汇</strong></p>
+</li>
+</ul>
+<h2 id="ways-of-description">Ways of Description</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">图</th>
+<th style="text-align:center">算法</th>
+<th style="text-align:center">表格</th>
+<th style="text-align:center">参考文献</th>
+<th style="text-align:center">公式</th>
+<th style="text-align:center">附件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">引用时要指出<strong>引用图片</strong></td>
+<td style="text-align:center">通过<strong>伪代码</strong>或<strong>自然语言</strong>描述!!</td>
+<td style="text-align:center">统一风格</td>
+<td style="text-align:center">5-15个之间</td>
+<td style="text-align:center"><strong>重要公式</strong>要加编号</td>
+<td style="text-align:center">指出是<strong>题目所给附件</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">不要连续给多个图</td>
+<td style="text-align:center"><strong>描述完算法后</strong>，再指出使用附录中的代码</td>
+<td style="text-align:center">在<strong>表格上方</strong>编号</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">公式符号<strong>不使用英文单词</strong>，容易引起歧义</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">一定要<strong>解释图像</strong></td>
+<td style="text-align:center">算法的介绍和解释一定不能<strong>泛</strong>，要<strong>具体</strong></td>
+<td style="text-align:center">用<strong>三线表</strong></td>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>图表</strong>一定要<strong>具体引用</strong></li>
+</ul>
+<h1 id="其他">其他</h1>
+<ul>
+<li>
+<p>非技术性报告要<strong>图文并茂</strong></p>
+</li>
+<li>
+<p>建模过程中<strong>可能</strong>出现分段拟合的情况，分段进行建模</p>
+</li>
+<li>
+<p>确定模型后，要将模型的定义和方法再结合题意复述一遍</p>
+</li>
+<li>
+<p>模型假设时可以考虑的两个角度：一是对数据的可靠性，二是对其他影响因素忽略不计</p>
+</li>
+<li>
+<p>数据预处理时用到的理论也要进行说明</p>
+</li>
+<li>
+<p>列表简化数据的表述</p>
+</li>
+</ul>
+<h1 id="赛前准备">赛前准备</h1>
+<ol>
+<li>
+<p>看往年题，分析思路</p>
+</li>
+<li>
+<p>分析优秀论文</p>
+</li>
+<li>
+<p>增强<strong>检索能力</strong>，学会<strong>搜索专利</strong></p>
+</li>
+<li>
+<p><strong>图、表、方程</strong>的引用问题 (序号会变)</p>
+</li>
+</ol>
 
 </section>
 
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-    </section>
-
 
     
     <section class="article-copyright">
@@ -591,12 +681,12 @@
             
                 
 <article class="">
-    <a href="/p/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/">
+    <a href="/p/4.-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E7%AE%97%E6%B3%95%E5%8F%8A%E4%BB%A3%E7%A0%81/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">期末复习查缺补漏</h2>
+            <h2 class="article-title">4. 常见问题的算法及代码</h2>
         </div>
     </a>
 </article>
@@ -604,12 +694,12 @@
             
                 
 <article class="">
-    <a href="/p/%E6%89%98%E7%A6%8F/">
+    <a href="/p/2.-%E6%95%B0%E6%A8%A1%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E7%AE%97%E6%B3%95/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">托福</h2>
+            <h2 class="article-title">2. 数模问题的解决算法</h2>
         </div>
     </a>
 </article>
@@ -617,12 +707,12 @@
             
                 
 <article class="">
-    <a href="/p/numerical-computation/">
+    <a href="/p/python%E6%96%B9%E6%B3%95-%E4%BB%A3%E7%A0%81%E5%82%A8%E5%A4%87/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Numerical Computation</h2>
+            <h2 class="article-title">Python方法&#43;代码储备</h2>
         </div>
     </a>
 </article>
@@ -630,12 +720,12 @@
             
                 
 <article class="">
-    <a href="/p/statistics-information-theory/">
+    <a href="/p/deep_networks/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Statistics &amp; Information Theory</h2>
+            <h2 class="article-title">Deep_Networks</h2>
         </div>
     </a>
 </article>
@@ -643,12 +733,12 @@
             
                 
 <article class="">
-    <a href="/p/linear-algebra/">
+    <a href="/p/%E7%88%AC%E8%99%AB/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Linear Algebra</h2>
+            <h2 class="article-title">爬虫</h2>
         </div>
     </a>
 </article>

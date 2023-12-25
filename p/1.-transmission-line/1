@@ -1,0 +1,507 @@
+---
+title: "1. Transmission Line"
+date: 2023-11-29T10:34:14+08:00
+description: ""
+categories: ["RFIC"]
+tags: [""]
+image: ""
+math: true
+draft: true
+---
+
+# Basic Concepts
+
+## 频谱划分 \& 无线通信系统的工作频率
+
+![](1.png)
+
+![](2.png)
+
+## Radio Frequency \& Microwave
+
+### 比较
+
+|分类|Radio Frequency|Microwave|
+|:-:|:-:|:-:|
+|频率|$30MHz - 100GHz+$|$300MHz - 3000GHz$|
+|优点|速度快，频率高，带宽大，尺寸小||
+|缺点|成本高，功率小，辐射损耗大|
+
+### 定义
+
+- 电路尺寸和波长可以想比拟时，称为射频电路
+
+## 特点
+
+### Distributed Parameters
+
+### Skin Effect
+
+1. Skin Effect
+
+> 电流高度集中在导体表面，增加电阻
+
+|Category|Concept|
+|:-:|:-:|
+|$\mu$|磁导率|
+|$\rho$|电阻率|
+|$\sigma = \dfrac{ 1 }{ \rho }$|电导率|
+
+2. Skin Depth
+
+$$
+\begin{gather}
+\begin{aligned}
+\delta &= \frac{ 1 }{ \sqrt{ \pi f \mu \sigma } }
+\end{aligned}
+\end{gather}
+$$
+
+3. Radio Frequency Resistance 
+
+- 以半径为$a$, 长为$l$的圆柱形导体为例
+
+$$
+\begin{gather}
+\begin{aligned}
+R_{DC} &= \frac{ l }{ \pi a^2 \sigma} \\\
+R_{RF} &= \frac{ a }{ 2 \delta } R_{DC} \\\
+&= \frac{ \sqrt{ \pi f \mu/ \sigma} l}{ 2 \pi a}
+\end{aligned}
+\end{gather}
+$$
+
+# Transmission Line Structure
+
+## Basic Concepts
+
+|名称|概念|
+|:-:|:-:|
+|Wavelength|$\lambda = \dfrac{ c }{ \sqrt{ \varepsilon_r} f_0 }$|
+Electric Length|$G= \dfrac{ l}{ \lambda } = \dfrac{ lf }{ v_p }$|
+|Phase Velocity|$v_p = f \lambda = \dfrac{ \omega }{ \beta } = \dfrac{ c }{ \sqrt{\varepsilon_r \mu_r }}, f = \sqrt{ \varepsilon_r} f_0$|
+|Phase Shift|$\phi = 2 \pi \dfrac{ l }{ \lambda }$|
+|Normalized Frequency|$f_N =$|
+|常见频率波长转换|$2.4GHz \longleftrightarrow \lambda= 12.5cm \\ 5GHz \longleftrightarrow  \lambda = 6cm \\ 10GHz \longleftrightarrow  \lambda = 3cm$|
+
+## 构成与分类
+
+### 电性能分类
+
+|Category|Concept|
+|:-:|:-:|
+|TEM(横电磁波)|电/磁场都与传播方向垂直|
+|TE|电场与传播方向垂直|
+|TM|磁场与传播方向垂直|
+
+### 带状线/微带线
+
+# Transmission Line Function 
+
+## Telegrapher's Equation
+
+$$
+\begin{gather}
+\begin{aligned}
+\frac{ \partial V(x,t) }{ \partial x } = - (R + j \omega L) I(x) \\\
+\frac{ \partial  I(x,t) }{ \partial x } = - (G + j \omega C) V(x)
+\end{aligned}
+\end{gather}
+$$
+
+## Wave Equation for a homogeneous Transmission Line
+
+### Wave Equation
+
+$$
+\begin{gather}
+\begin{aligned}
+0 &= \frac{ \partial^2 V }{ \partial x^2 } - \gamma^2 V \\\
+0 &= \frac{ \partial^2 I }{ \partial x^2 } - \gamma^2 I
+\end{aligned}
+\end{gather}
+$$
+
+### Transmission Constant
+
+- 当$L,C, \omega \neq 0$时
+
+$$
+\begin{gather}
+\begin{aligned}
+\gamma &= \sqrt{ (R + j \omega L)(G + j \omega C) } = \alpha + j \beta \\\
+\mathbb { Re } ( \gamma) &= \alpha = (a^2 + b^2)^{1/4} cos( \phi)  \\\
+\mathbb { Im }( \gamma) &= \beta = (a^2 + b^2)^{1/4}sin( \phi) \\\
+a &= RG - \omega^2 LC = \omega^2 LC \Big[ ( \frac{ R }{ \omega L}) ( \frac{ G }{ \omega C }) - 1) \Big] \\\
+b &= \omega C R + \omega L G = \omega^2 LC ( \frac{ R }{ \omega L } + \frac{ G }{ \omega C }) \\\
+\phi &= tan^{-1}( \frac{ b }{ a })
+\end{aligned}
+\end{gather}
+$$
+
+### Solution in General Case
+
+1. In **General** Case
+
+$$
+\begin{gather}
+\begin{aligned}
+V(x) &= A_1 e^{- \gamma x} + A_2 e^{ \gamma x} \\\
+I(x) &= \frac{ 1 }{ Z_0 }(A_1 e^{- \gamma x} - A_2 e^{ \gamma x}) \\\
+Z_0 &= \sqrt{ \dfrac{ R + j \omega L }{ G + j \omega C } }
+\end{aligned}
+\end{gather}
+$$
+
+2. in **Idealized** Case
+
+- $R, G = 0$, 通常都认为是**无损耗线**
+
+$$
+\begin{gather}
+\begin{aligned}
+V(x) &= A_1 e^{- j \beta x}  +A_2 e^{j \beta x} \\\
+I(x) &= \frac{ 1 }{ Z_0 } (A_1 e^{- j \beta x} - A_2 e^{j \beta x}) \\\
+Z_0 &= \sqrt{ \dfrac{ L }{ C } }
+\end{aligned}
+\end{gather}
+$$
+
+## Incident \& Reflected Traveling Wave
+
+$$
+\begin{gather}
+\begin{aligned}
+v(x,t) &= \mathbb{ Re } \Big\lbrace v(x) e^{j \omega t} \Big\rbrace \\\
+&= \mathbb { Re } \Big\lbrace  A_1 e^{j( \omega t - \beta x) } + A_2 e^{j ( \omega t + \beta x)} \Big\rbrace  \\\
+&= A_1 cos( \omega t - \beta x) + A_2 cos ( \omega t + \beta x) \\\
+&= A_1 cos[ \beta( \frac{ \omega }{ \beta }t - x )] + A_2 cos[ \beta( \frac{ \omega }{ \beta }t + x )] \\\
+&= A_1 cos[ \beta(x -v_p t)]+ A_2 cos [ \beta(x + v_p t)] \\\
+I(x,t) &= \frac{ 1 }{ Z_0 } \Big\lbrace A_1 cos[ \beta(x -v_p t)] - A_2 cos [ \beta(x + v_p t)] \Big\rbrace 
+\end{aligned}
+\end{gather}
+$$
+
+- $v(x,t)$和$i(x,t)$都是**入射行波**和**反射行波**的线性叠加
+
+## Boundary Conditions of Transmission Lines
+
+### Known End Ports (最常见)
+
+|Variable|Value|
+|:-:|:-:|
+|$V(l)$|$V_2$|
+|$I(l)$|$I_2$|
+|$l$|Transmission Line 总长度|
+|$x'$|$l-x$|
+
+- 将$V_2, I_2$代入**方程7**
+
+$$
+\begin{gather}
+\begin{aligned}
+A_1 &= \frac{ V_2 + I_2 Z_0 }{ 2 } e^{j \beta l} \\\
+A_2 &= \frac{ V_2 - I_2 Z_0 }{ 2 } e^{-j \beta l}
+\end{aligned}
+\end{gather}
+$$
+
+$$
+\begin{gather}
+\begin{aligned}
+V(x') &=  \frac{ V_2 + I_2 Z_0 }{ 2 } e^{ j \beta x'} + \frac{ V_2 - I_2 Z_0 }{ 2 } e^{ - j \beta x'} \\\
+&= V_2 cos ( \beta x') + j I_2 Z_0 sin( \beta x') \\\
+&= V^+(x') + V^-(x') \\\
+&= V_2 ^+ e^{ j \beta x'} ( 1 + \Gamma_L e^{- j 2 \beta x'})
+\end{aligned}
+\end{gather}
+$$
+
+$$
+\begin{gather}
+\begin{aligned}
+I(x') &=  \frac{ V_2 + I_2 Z_0 }{ 2Z_0 } e^{j \beta x'} - \frac{ V_2 - I_2 Z_0 }{ 2Z_0 } e^{ - j \beta x'} \\\
+&= I_2 cos ( \beta x') - j \frac{ V_2 }{ Z_0 } sin( \beta x') \\\
+&= I^+(x') - I^-(x') \\\
+&= I_2 ^+ e^{j \beta x'} ( 1 - \Gamma_L e^{-j 2 \beta x'})
+\end{aligned}
+\end{gather}
+$$
+
+### Known Initial Ports
+
+$$
+\begin{gather}
+\begin{aligned}
+A_1 &= \frac{ V_1 + I_1 Z_0 }{ 2 } \\\
+A_2 &= \frac{ V_1 - I_1 Z_0 }{ 2 } \\\
+V(x) &= V_1 cos( \beta x) + j I_1 Z_0 sin ( \beta x) \\\
+I(x) &= I_1 cos( \beta x) - j \frac{ V_1 }{ Z_0 } sin ( \beta z)
+\end{aligned}
+\end{gather}
+$$
+
+# Basic Parameters of Transmission Line !!!
+
+## Characteristic Impedance
+
+> **入射电压/入射电流**
+
+$$
+\begin{gather}
+\begin{aligned}
+Z_0 &= \sqrt{ \dfrac{ R + j \omega L }{ G + j \omega C } } \\\
+&\approx \sqrt{ \dfrac{ L }{ C } }
+\end{aligned}
+\end{gather}
+$$
+
+## Reflect Coefficient
+
+### 定义
+
+- **反射电压/入射电压**
+
+$$
+\begin{gather}
+\begin{aligned}
+\Gamma(x') &= \frac{ V^-(x') }{ V^+(x') } = - \frac{ I^-(x') }{ I^+(x') } \\\
+&= \Gamma_L e^{-j 2 \beta x'} \\\
+&= | \Gamma_L | e^{ j (\phi_L - 2 \beta x')}
+\end{aligned}
+\end{gather}
+$$
+
+$$
+\begin{gather}
+\begin{aligned}
+\Gamma_L &= \frac{ V_2^- }{ V_2^+ } \\\
+&= \frac{ V_2 - I_2 Z_0 }{ V_2 + I_2 Z_0 } \\\
+&= \frac{ Z_L - Z_0 }{ Z_L + Z_0 } \\\
+&= | \Gamma_L | e^{j \phi L}
+\end{aligned}
+\end{gather}
+$$
+
+### 结论
+
+1. **无损耗均匀传输线上任一点反射波与入射波振幅之比为常数**
+
+2. $\Gamma(x')$的周期为$\dfrac{ \lambda }{ 2 }$
+
+## VSWR (Voltage Standing Wave Ratio)
+
+$$
+\begin{gather}
+\begin{aligned}
+VSWR &= \rho = \frac{ |V_{max}| }{|V_{min}|} \\\
+&= \frac{ 1 + | \Gamma_L | }{ 1 - | \Gamma_L | } \\\
+K &= \frac{ 1 }{ \rho } = \frac{ |V_{min} |}{|V_{max}|} \\\
+&= \frac{ 1 - | \Gamma_L | }{ 1 + | \Gamma_L | }
+\end{aligned}
+\end{gather}
+$$
+
+|Category|Concept|
+|:-:|:-:|
+|$\|\Gamma_L\| = 0$|行波状态，$Z_L = Z_0 = Z_{in}$, 阻抗匹配, $\rho = 1, K = 1$, 各个点的电压/电流同幅同相|
+|$\|\Gamma_L\| = 1$|驻波状态, $\rho = \infin, K = 0$|
+|$0 <\|\Gamma_L\| < 1$|行驻波状态, $1 < \rho < \infin ,1 < K < \infin$|
+
+## Input Impedance
+
+> 任意一点的电压$V(x)$与电流$I(x)$值之比
+
+$$
+\begin{gather}
+\begin{aligned}
+Z_{in}(x') &= \frac{ V(x') }{ I(x') } \\\
+&= Z_0 \dfrac{ Z_L + j Z_0 tan (\beta x') }{  Z_0 + j Z_L tan( \beta x')} \\\
+&= Z_0 \frac{ 1 + \Gamma(x') }{ 1 - \Gamma(x') }
+\end{aligned}
+\end{gather}
+$$
+
+$$
+\begin{gather}
+\begin{aligned}
+Z_L &= Z_0 \frac{ 1 + \Gamma_L }{1 0 \Gamma_L }
+\end{aligned}
+\end{gather}
+$$
+
+- 当$Z_L = Z_0$时, $Z_{in} = Z_0$
+
+## Transmission Power
+
+$$
+\begin{gather}
+\begin{aligned}
+P(x') &= \frac{ 1 }{ 2 } Re \Big\lbrace V(x) I^*(x) \Big\rbrace \\\
+&= \frac{ |V^+(x')|^2 }{2 Z_0} 2 Z_0 \Big[ 1 - | \Gamma(x')|^2 \Big] \\\
+&= \frac{ | V^+(x') |^2 }{ 2 Z_0 } - \frac{ |V^-(x')|^2 }{ 2 Z_0} \\\
+&= P^+(x') - P^-(x')
+\end{aligned}
+\end{gather}
+$$
+
+- 传输功率 = **入射功率** - **反射功率**
+
+# Signal Power \& On-Load Transmission Line
+
+## Transmission Line With Load and Signal Source
+
+![](13.png)
+
+### 4 Reflected Coefficient
+
+$$
+\begin{gather}
+\begin{aligned}
+\Gamma_{in} &= \frac{ Z_{in} - Z_0 }{ Z_{in} + Z_0} = \Gamma_L e^{-j 2 \beta l} \\\
+\Gamma_{S} &= \frac{ Z_S - Z_0 }{ Z_S + Z_0 } \\\
+\Gamma_{out} &=  \Gamma_S e^{-j 2 \beta l}
+\end{aligned}
+\end{gather}
+$$
+
+### Transmission Coefficient
+
+$$
+\begin{gather}
+\begin{aligned}
+T_{in} &= 1 + \Gamma_{in} = \frac{ 2 Z_{in} }{ Z_{in} + Z_0 } \\\
+T_L &= 1 + \Gamma_L = \frac{ 2 Z_L }{ Z_L + Z_0 }
+\end{aligned}
+\end{gather}
+$$
+
+## Power of Transmission Line
+
+$$
+\begin{gather}
+\begin{aligned}
+V_{in} &= V_{in}^+ + V_{in}^- \\\
+&= V_{in}^+ ( 1 + \Gamma_{in}) \\\
+&= V_S \frac{ Z_S }{ Z_{in} + Z_S } \\\
+V_{in}^+ &= \frac{ V_S }{ 2 } \frac{ 1 - \Gamma_S }{ 1 - \Gamma_S \Gamma_{in} }
+\end{aligned}
+\end{gather}
+$$
+
+$$
+\begin{gather}
+\begin{aligned}
+P_{in} &= \frac{ |V_{in}|^2 }{ 2 Z_0 } \Big[ 1 - | \Gamma_{in} |^2 \Big] \\\
+&= \frac{ |V_S|^2 }{ 8 Z_0 } \frac{ | 1 - \Gamma_S|^2 }{ |1 - \Gamma_S \Gamma_{in} |^2} ( 1 - | \Gamma_{in}|^2 )
+\end{aligned}
+\end{gather}
+$$
+
+## Conjuction Match \& Losses
+
+### Conjuction Match of Signal Source
+
+![](15.png)
+
+$$
+\begin{aligned}
+P_{in} &= \frac{ 1 }{ 2 } R_{in} I \cdot I^* \\\
+&= \frac{ 1 }{ 2 } R_{in} \frac{ V_S^2 }{ (R_S + R_{in})^2 + (X_{in} + X_S)^2 } \\\
+When \ X_{in} &= - X_S \\\
+P_{in \ max}  &= \frac{ R_{in} V_S^2 }{ 2 (R_S + R_{in})^2 }  \\\
+\frac{ \partial P_{in} }{ \partial R_{in} } &= \frac{ V_S^2 }{ 2 } \frac{ R_S - R_{in} }{ (R_S + R_{in})^3 } \\\
+hen \ R_S &= R_{in} \\\
+P_{in} &= \frac{ V_S^2 }{ 8 R_S }
+\end{aligned}
+$$
+
+- 所以信号换功率输出最大的条件为$Z_{in} = Z_S^*$
+
+### Return Loss \& Insertion Loss
+
+$$
+\begin{gather}
+\begin{aligned}
+RL &= - 10 lg \Big( \frac{P_{in}^- }{ P_{in}^+ } \Big) \\\
+&= -10 lg | \Gamma_{in} |^2 \\\
+&= -20 lg | \Gamma_{in} | dB
+\end{aligned}
+\end{gather}
+$$
+
+$$
+\begin{gather}
+\begin{aligned}
+IL &= -10 lg \Big( \frac{ P_{in}^+ - P_{in}^- }{ P_{in}^+ } \Big) \\\
+&= -10 lg ( 1 - |\Gamma_{in}|^2 ) dB
+\end{aligned}
+\end{gather}
+$$
+
+# Microstrip
+
+## 分类
+
+|名称|概念|
+|:-:|:-:|
+|(a)|全部填充空气|
+|(b)|全部填充**介质r**|
+|(c)|真实物理结构|
+|(d)|全部填充**等效介质re**|
+
+## 介质公式
+
+$$
+\begin{gather}
+\begin{aligned}
+\varepsilon_{re} &= \begin{cases}
+\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r - 1 }{ 2 } \Big[ (2 + \dfrac{ 12 }{ W })^{-1/2} + 0.041 (1 - \dfrac{ W }{ h })^2 \Big] & W \le h \\\
+\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r -1 }{ 2 } ( 1 + 12 \dfrac{ h }{ W })^{-1/2} & W \ge h
+\end{cases} \\\
+Z_0 &=  \begin{cases}
+\dfrac{ 60 }{ \sqrt{ \varepsilon_{re} } } ln \Big( \dfrac{ 8h }{ W } + \dfrac{ W }{ 4h } \Big) & W \le h \\\
+\dfrac{ 120 \pi }{ \sqrt{ \varepsilon_{re} } \Big[ \dfrac{ W }{ h } + 1.393 + 0.667 ln \Big( \dfrac{ W }{ h } + 1.444 \Big) \Big]} & W \ge h
+\end{cases} \\\
+\frac{ W}{ h } &= \begin{cases}
+\dfrac{ 8 e^{A} }{ e^{2A} - 2} & \dfrac{ W }{  h} \le 2 \\\
+\dfrac{ 2 }{ \pi } \Big\lbrace B - 1 -ln (2B -1) + \dfrac{ \varepsilon_r -1 }{ 2 \varepsilon_r } \Big[ ln(B - 1) + 0.39 - \dfrac{ 0.61 }{ \varepsilon_r } \Big]\Big\rbrace & \dfrac{ W }{ h } \ge 2
+\end{cases} \\\
+A &= \frac{ Z_0 }{ 60 } \sqrt{ \frac{ \varepsilon_r + 1 }{ 2 } } + \frac{ \varepsilon_r - 1 }{ \varepsilon_r + 1 } \Big( 0.23 + \frac{ 0.11 }{ \varepsilon_r } \Big) \\\
+B &= \frac{ 377 \pi }{ 2 Z_0 \sqrt{ \varepsilon_r } }
+\end{aligned}
+\end{gather}
+$$
+
+
+# Appendix
+
+## 部分微分方程解法
+
+![](3.png)
+
+## Triogonometric Function Formulas
+
+$$
+\begin{gather}
+\begin{aligned}
+tanh(x) &= \frac{ e^x - e^{-x} }{  e^x + e^{-x}} \\\
+atans2(x) &= \begin{cases}
+tan^{-1}( \dfrac{ y }{ x }) & x > 0 \\\
+tan^{-1}( \dfrac{ y }{ x }) + \pi & x < 0, y \ge 0 \\\
+tan^{-1}( \dfrac{ y }{ x }) - \pi & x < 0, y < 0 \\\
+Error & x = 0, y =0
+\end{cases}
+\end{aligned}
+\end{gather}
+$$
+
+## Voltage Wave \& Standing Wave States
+
+- 驻波由反射波产生，不传递能量
+
+- 行波可以传递能量
+
+## 本篇博客的一些符号定义
+
+1. $1,2$表示始端，$+,-$表示**入射**和**反射**

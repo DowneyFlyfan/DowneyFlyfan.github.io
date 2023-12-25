@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Supercised Learning &amp;amp; Reinforesment Learning 决策树分类 前提 假设我们有一个包含 $N$ 个样本的训练集，每个样本包含 $M$ 个特征，用 $X_{i,j}$ 表示第 $i$ 个样本的第 $j$ 个特征的取值，用 $y_i$ 表示第 $i$ 个样本的目标值（或标签）。决策树模型的目标是学习从特征到目标值的映射关系，并用学习到的模型对新的样本进行预测。 流程 计算特征阈值和判断最优特征 通过基尼指数判断最优特征 基尼指数越小表示数据集越纯。
+对于一个特征 $A$ 和其取值 $a_i$，假设 $D$ 表示当前节点的数据集，$D_i$ 表示特征 $A$ 取值为 $a_i$ 时的子数据集，则基尼指数计算公式为：
+$$Gini(D,A)=\sum_{i=1}^{k}\frac{|D_i|}{|D|}Gini(D_i)$$
+其中，$k$ 表示特征 $A$ 的取值数目，$|D_i|$ 表示子数据集 $D_i$ 中样本的数目，$|D|$ 表示当前节点的样本数目，$Gini(D_i)$ 表示子数据集 $D_i$ 的基尼指数，计算公式为：
+$$Gini(D_i)=1-\sum_{j=1}^{c}p_{ij}^2$$
+其中，$c$ 表示类别数目，$p_{ij}$ 表示子数据集 $D_i$ 中属于第 $j$ 类的样本占比。
+基尼指数越小表示使用特征 $A$ 进行划分后，得到的子数据集的纯度越高。因此，决策树算法选择基尼指数最小的特征作为最优特征进行划分。
+计算特征阈值(用信息增益表示特征阈值) 信息增益是评价特征重要性的一种指标，它表示特征 $x_j$ 对分类的贡献程度。信息增益越大，说明特征的重要性越高。可以通过以下公式计算信息增益：
+$$ \begin{aligned} Gain(D,x_j) &amp;amp;= H(D) - \sum_{i=1}^m \frac{|D_i|}{|D|} H(D_i) \\ H &amp;amp;= -\sum p(x) \times log_2[p(x)] \end{aligned} $$'>
+<title>2. 数模问题的解决算法</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/2.-%E6%95%B0%E6%A8%A1%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E7%AE%97%E6%B3%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='2. 数模问题的解决算法'>
+<meta property='og:description' content='Supercised Learning &amp;amp; Reinforesment Learning 决策树分类 前提 假设我们有一个包含 $N$ 个样本的训练集，每个样本包含 $M$ 个特征，用 $X_{i,j}$ 表示第 $i$ 个样本的第 $j$ 个特征的取值，用 $y_i$ 表示第 $i$ 个样本的目标值（或标签）。决策树模型的目标是学习从特征到目标值的映射关系，并用学习到的模型对新的样本进行预测。 流程 计算特征阈值和判断最优特征 通过基尼指数判断最优特征 基尼指数越小表示数据集越纯。
+对于一个特征 $A$ 和其取值 $a_i$，假设 $D$ 表示当前节点的数据集，$D_i$ 表示特征 $A$ 取值为 $a_i$ 时的子数据集，则基尼指数计算公式为：
+$$Gini(D,A)=\sum_{i=1}^{k}\frac{|D_i|}{|D|}Gini(D_i)$$
+其中，$k$ 表示特征 $A$ 的取值数目，$|D_i|$ 表示子数据集 $D_i$ 中样本的数目，$|D|$ 表示当前节点的样本数目，$Gini(D_i)$ 表示子数据集 $D_i$ 的基尼指数，计算公式为：
+$$Gini(D_i)=1-\sum_{j=1}^{c}p_{ij}^2$$
+其中，$c$ 表示类别数目，$p_{ij}$ 表示子数据集 $D_i$ 中属于第 $j$ 类的样本占比。
+基尼指数越小表示使用特征 $A$ 进行划分后，得到的子数据集的纯度越高。因此，决策树算法选择基尼指数最小的特征作为最优特征进行划分。
+计算特征阈值(用信息增益表示特征阈值) 信息增益是评价特征重要性的一种指标，它表示特征 $x_j$ 对分类的贡献程度。信息增益越大，说明特征的重要性越高。可以通过以下公式计算信息增益：
+$$ \begin{aligned} Gain(D,x_j) &amp;amp;= H(D) - \sum_{i=1}^m \frac{|D_i|}{|D|} H(D_i) \\ H &amp;amp;= -\sum p(x) \times log_2[p(x)] \end{aligned} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/2.-%E6%95%B0%E6%A8%A1%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E7%AE%97%E6%B3%95/'>
+<meta property='og:site_name' content='Flyfan Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-12-23T11:10:21&#43;08:00'/><meta property='article:modified_time' content='2023-12-23T11:10:21&#43;08:00'/>
+<meta name="twitter:title" content="2. 数模问题的解决算法">
+<meta name="twitter:description" content="Supercised Learning &amp;amp; Reinforesment Learning 决策树分类 前提 假设我们有一个包含 $N$ 个样本的训练集，每个样本包含 $M$ 个特征，用 $X_{i,j}$ 表示第 $i$ 个样本的第 $j$ 个特征的取值，用 $y_i$ 表示第 $i$ 个样本的目标值（或标签）。决策树模型的目标是学习从特征到目标值的映射关系，并用学习到的模型对新的样本进行预测。 流程 计算特征阈值和判断最优特征 通过基尼指数判断最优特征 基尼指数越小表示数据集越纯。
+对于一个特征 $A$ 和其取值 $a_i$，假设 $D$ 表示当前节点的数据集，$D_i$ 表示特征 $A$ 取值为 $a_i$ 时的子数据集，则基尼指数计算公式为：
+$$Gini(D,A)=\sum_{i=1}^{k}\frac{|D_i|}{|D|}Gini(D_i)$$
+其中，$k$ 表示特征 $A$ 的取值数目，$|D_i|$ 表示子数据集 $D_i$ 中样本的数目，$|D|$ 表示当前节点的样本数目，$Gini(D_i)$ 表示子数据集 $D_i$ 的基尼指数，计算公式为：
+$$Gini(D_i)=1-\sum_{j=1}^{c}p_{ij}^2$$
+其中，$c$ 表示类别数目，$p_{ij}$ 表示子数据集 $D_i$ 中属于第 $j$ 类的样本占比。
+基尼指数越小表示使用特征 $A$ 进行划分后，得到的子数据集的纯度越高。因此，决策树算法选择基尼指数最小的特征作为最优特征进行划分。
+计算特征阈值(用信息增益表示特征阈值) 信息增益是评价特征重要性的一种指标，它表示特征 $x_j$ 对分类的贡献程度。信息增益越大，说明特征的重要性越高。可以通过以下公式计算信息增益：
+$$ \begin{aligned} Gain(D,x_j) &amp;amp;= H(D) - \sum_{i=1}^m \frac{|D_i|}{|D|} H(D_i) \\ H &amp;amp;= -\sum p(x) \times log_2[p(x)] \end{aligned} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Flyfan Blog</a></h1>
+            <h2 class="site-description">A Record of My Study</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#supercised-learning--reinforesment-learning">Supercised Learning &amp; Reinforesment Learning</a>
+      <ol>
+        <li><a href="#决策树分类">决策树分类</a>
+          <ol>
+            <li><a href="#前提">前提</a></li>
+            <li><a href="#流程">流程</a>
+              <ol>
+                <li><a href="#信息增益比information-gain-ratio">信息增益比（Information gain ratio）</a></li>
+                <li><a href="#总结">总结</a></li>
+              </ol>
+            </li>
+            <li><a href="#结点判定规则">结点判定规则</a></li>
+            <li><a href="#树的结构">树的结构</a></li>
+            <li><a href="#代码">代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#随机森林分类">随机森林分类</a></li>
+        <li><a href="#xgboostextreme-gradient-boosting--网格搜索--交叉验证">XGBoost(eXtreme Gradient Boosting) + 网格搜索 + 交叉验证</a>
+          <ol>
+            <li><a href="#原理">原理</a>
+              <ol>
+                <li><a href="#网格搜索">网格搜索</a></li>
+                <li><a href="#交叉验证">交叉验证</a></li>
+                <li><a href="#xgboost">XGBoost</a></li>
+              </ol>
+            </li>
+            <li><a href="#代码-1">代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#adaboost-adaptive-boosting">Adaboost (Adaptive Boosting)</a>
+          <ol>
+            <li><a href="#原理-1">原理</a></li>
+            <li><a href="#代码-2">代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#模拟退火-simulated-annealing-sa">模拟退火 (Simulated Annealing, SA)</a>
+          <ol>
+            <li><a href="#数学原理和过程-默认求最小值">数学原理和过程 (默认求最小值)</a></li>
+            <li><a href="#流程图">流程图</a></li>
+            <li><a href="#应用">应用</a></li>
+            <li><a href="#双退火代码">双退火代码</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#regression">Regression</a>
+      <ol>
+        <li><a href="#多元逻辑回归multinomial-logistic-regression">多元逻辑回归(Multinomial Logistic Regression)</a>
+          <ol>
+            <li><a href="#原理-2">原理</a></li>
+            <li><a href="#意义">意义</a></li>
+            <li><a href="#代码-3">代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#ridge-regression">Ridge Regression</a>
+          <ol>
+            <li><a href="#原理-3">原理</a></li>
+          </ol>
+        </li>
+        <li><a href="#lasso-regression">LASSO Regression</a></li>
+      </ol>
+    </li>
+    <li><a href="#classification">Classification</a>
+      <ol>
+        <li><a href="#bayes-algorithms">Bayes Algorithms</a></li>
+      </ol>
+    </li>
+    <li><a href="#other-algorithms">Other Algorithms</a>
+      <ol>
+        <li><a href="#贪心算法">贪心算法</a>
+          <ol>
+            <li><a href="#一种可能的贪心算法">一种可能的贪心算法</a></li>
+          </ol>
+        </li>
+        <li><a href="#动态规划算法">动态规划算法</a>
+          <ol>
+            <li><a href="#0-1背包问题">0-1背包问题</a></li>
+          </ol>
+        </li>
+        <li><a href="#调度">调度</a>
+          <ol>
+            <li><a href="#时间片轮转">时间片(轮转)</a></li>
+            <li><a href="#edf--dynamic-programming--linear-programming">EDF + Dynamic Programming + Linear Programming</a></li>
+          </ol>
+        </li>
+        <li><a href="#srimax滑动平均的改良版">SRIMAX(滑动平均的改良版)</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%95%B0%E6%A8%A1/" style="background-color: #2E8B57; color: #fff;">
+                数模
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2.-%E6%95%B0%E6%A8%A1%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E7%AE%97%E6%B3%95/">2. 数模问题的解决算法</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 23, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="supercised-learning--reinforesment-learning">Supercised Learning &amp; Reinforesment Learning</h1>
+<h2 id="决策树分类">决策树分类</h2>
+<h3 id="前提">前提</h3>
+<ul>
+<li>假设我们有一个包含 $N$ 个样本的训练集，每个样本包含 $M$ 个特征，用 $X_{i,j}$ 表示第 $i$ 个样本的第 $j$ 个特征的取值，用 $y_i$ 表示第 $i$ 个样本的目标值（或标签）。决策树模型的目标是学习从特征到目标值的映射关系，并用学习到的模型对新的样本进行预测。</li>
+</ul>
+<h3 id="流程">流程</h3>
+<ol>
+<li>计算特征阈值和判断最优特征</li>
+</ol>
+<ul>
+<li>通过<strong>基尼指数</strong>判断最优特征</li>
+</ul>
+<p>基尼指数越小表示数据集越纯。</p>
+<p>对于一个特征 $A$ 和其取值 $a_i$，假设 $D$ 表示当前节点的数据集，$D_i$ 表示特征 $A$ 取值为 $a_i$ 时的子数据集，则基尼指数计算公式为：</p>
+<p>$$Gini(D,A)=\sum_{i=1}^{k}\frac{|D_i|}{|D|}Gini(D_i)$$</p>
+<p>其中，$k$ 表示特征 $A$ 的取值数目，$|D_i|$ 表示子数据集 $D_i$ 中样本的数目，$|D|$ 表示当前节点的样本数目，$Gini(D_i)$ 表示子数据集 $D_i$ 的基尼指数，计算公式为：</p>
+<p>$$Gini(D_i)=1-\sum_{j=1}^{c}p_{ij}^2$$</p>
+<p>其中，$c$ 表示类别数目，$p_{ij}$ 表示子数据集 $D_i$ 中属于第 $j$ 类的样本占比。</p>
+<p>基尼指数越小表示使用特征 $A$ 进行划分后，得到的子数据集的纯度越高。因此，决策树算法选择基尼指数最小的特征作为最优特征进行划分。</p>
+<ul>
+<li>计算特征阈值(用信息增益表示特征阈值)</li>
+</ul>
+<p>信息增益是评价特征重要性的一种指标，它表示特征 $x_j$ 对分类的贡献程度。信息增益越大，说明特征的重要性越高。可以通过以下公式计算信息增益：</p>
+<p>$$
+\begin{aligned}
+Gain(D,x_j) &amp;= H(D) - \sum_{i=1}^m \frac{|D_i|}{|D|} H(D_i) \\
+H &amp;= -\sum p(x) \times log_2[p(x)]
+\end{aligned}
+$$</p>
+<ul>
+<li>其中 $H(D)$ 表示数据集 $D$ 的熵，$m$ 表示特征 $x_j$的可能取值个数，$D_i$ 表示数据集 $D$ 在特征 $x_j$ 取值为 $i$ 时对应的子集，$|D_i|$ 表示子集 $D_i$ 的大小，$|D|$ 表示数据集 $D$ 的大小。</li>
+</ul>
+<ol>
+<li>
+<p>对特征 $x_j$ 的取值进行排序，得到一个有序的列表 $[x_1,x_2,\cdots,x_m]$</p>
+</li>
+<li>
+<p>对于相邻的取值 $x_i$ 和 $x_{i+1}$，将它们作为特征阈值 $s$，将数据集划分为两个子集 $D_1={x\in D|x_j\leq s}$ 和 $D_2={x\in D|x_j&gt;s}$</p>
+</li>
+<li>
+<p>计算使用特征阈值 $s$ 进行划分的信息增益 $Gain(D,x_j,s)$</p>
+</li>
+</ol>
+<ul>
+<li>根据 $x_j \leq s$ 和 $x_j &gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$ ，然后计算信息增益</li>
+</ul>
+<p>$$Gain(D,x_j,s) = H(D) - \frac{|D_1|}{|D|} H(D_1) - \frac{|D_2|}{|D|} H(D_2)$$</p>
+<ol start="4">
+<li>
+<p>重复步骤2和3，直到计算完所有相邻取值的信息增益为止。</p>
+</li>
+<li>
+<p>选择信息增益最大的特征阈值作为最终的特征阈值。</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>筛选最优特征</p>
+<p>计算训练集的经验熵（entropy）$H(D)$，表示训练集中样本的不确定性</p>
+<p>对于每个特征$A$，计算其对训练集的条件熵（conditional entropy）$H(D|A)$，表示在特征$A$已知的条件下，训练集中样本的不确定性，公式为：
+$$H(D|A)=\sum_{i=1}^{|A|} \frac{|D_i|}{|D|} H(D_i)$$
+其中，$|A|$表示特征$A$可能的取值个数，$|D_i|$表示在特征$A$取值为第$i$个值时，训练集中样本的个数，$H(D_i)$表示在特征$A$取值为第$i$个值时，训练集中样本的经验熵。</p>
+<p>计算信息增益（information gain）$g(D,A)$，表示特征$A$对训练集划分的贡献程度，公式为：
+$$g(D,A)=H(D)-H(D|A)$$</p>
+</li>
+</ul>
+<p>选择信息增益最大的特征作为当前节点的划分特征，将训练集划分成更加纯净的子集，并递归地重复上述步骤，直到所有子集都变得足够纯或达到预定的停止条件为止，生成一棵完整的决策树。</p>
+<ul>
+<li>需要注意的是，信息增益存在一个缺陷，即它倾向于选择可能取值较多的特征，因为这些特征往往可以划分出更多的子集。为了克服这个缺陷，可以使用其他的划分指标，例如基尼不纯度（Gini impurity）或者增益率（gain ratio），来选择最优的特征。</li>
+</ul>
+<h4 id="信息增益比information-gain-ratio">信息增益比（Information gain ratio）</h4>
+<ul>
+<li>信息增益比是信息增益的一种改进，它考虑了特征取值数目对信息增益的影响。可以通过以下公式计算信息增益比：</li>
+</ul>
+<p>$$Gain \ ratio \ (D,x_j) = \frac{Gain(D,x_j)}{IV(x_j)}$$</p>
+<ul>
+<li>其中 $IV(x_j)$ 表示特征 $x_j$ 的固有值，表示特征 $x_j$ 取值的多样性，可以通过以下公式计算：</li>
+</ul>
+<p>$$IV(x_j) = - \sum_{i=1}^m \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}$$</p>
+<ul>
+<li>在特征 $x_j$ 的阈值为 $s$ 时，可以根据 $x_j \leq s$ 和 $x_j &gt; s$ 将数据集 $D$ 划分为两个子集 $D_1$ 和 $D_2$，然后计算信息增益比。</li>
+</ul>
+<h4 id="总结">总结</h4>
+<ul>
+<li>以上三种方法都可以用于计算特征阈值，其中基尼指数适用于连续和离散特征，而信息增益和信息增益比适用于离散特征。在实际应用中，我们可以根据具体问题选择不同的评价指标来计算特征阈值，并选择最优的阈值来进行样本划分。</li>
+</ul>
+<h3 id="结点判定规则">结点判定规则</h3>
+<p>假设第 $t$ 个节点的判定规则为 $f_t(x)$，其中 $x$ 表示一个样本的特征向量，$f_t(x)$ 返回一个取值为 $0$ 或 $1$ 的标记，表示该样本应该进入该节点的左子树（$f_t(x)=0$）还是右子树（$f_t(x)=1$）。可以将判定规则表示为：</p>
+<p>$$f_t(x) = \begin{cases} 0, &amp; \text{if}\ x \in R_{t,\text{left}} \ 1, &amp; \text{otherwise} \end{cases}$$</p>
+<p>其中 $R_{t,\text{left}}$ 是第 $t$ 个节点左子树的样本所在区域，可以用一个特征阈值组合来表示：</p>
+<p>$$R_{t,\text{left}} = {x | x_j \leq s_t}$$</p>
+<p>其中 $x_j$ 表示样本 $x$ 的第 $j$ 个特征的取值，$s_t$ 是第 $t$ 个节点的特征阈值。右子树的样本所在区域可以表示为 $R_{t,\text{right}} = { x | x_j &gt; s_t }$。</p>
+<h3 id="树的结构">树的结构</h3>
+<p>决策树模型的树的结构可以用一个树形图或者一组规则来表示。假设决策树模型的根节点为 $t=1$，可以用以下的数学公式来表示该模型：</p>
+<p>$$\hat{y}<em>i = \sum</em>{t=1}^T c_t \cdot I(x_i \in R_{t})$$</p>
+<p>其中 $\hat{y}_i$ 表示用决策树模型预测样本 $i$ 的目标值，$T$ 表示树的深度或节点个数，$c_t$ 表示第 $t$ 个节点的预测值，可以是该节点所属的样本的平均值或者分类问题中该节点所属的样本中出现最多的类别值， $I(x_i \in R_t)$ 是一个指示函数，如果样本 $i$ 属于第 $t$ 个节点的子树，取值为 $1$，否则取值为 $0$</p>
+<h3 id="代码">代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">export_graphviz</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">graphviz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/数模/原表格.xlsx&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">98</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">24</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">98</span><span class="p">,</span> <span class="mi">26</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将树可视化为图形</span>
+</span></span><span class="line"><span class="cl"><span class="n">dot_data</span> <span class="o">=</span> <span class="n">export_graphviz</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;年龄&#39;</span><span class="p">,</span><span class="s1">&#39;术前CEA&#39;</span><span class="p">,</span><span class="s1">&#39;距肛距离&#39;</span><span class="p">,</span><span class="s1">&#39;放疗与手术时间差(W)&#39;</span><span class="p">,</span><span class="s1">&#39;阳性淋巴结初始数量估计&#39;</span><span class="p">],</span> <span class="n">class_names</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LRG0&#39;</span><span class="p">,</span><span class="s1">&#39;LRG1&#39;</span><span class="p">,</span><span class="s1">&#39;LRG2&#39;</span><span class="p">,</span><span class="s1">&#39;LRGX&#39;</span><span class="p">],</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">graph</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">dot_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">graph</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&#34;决策树&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">graph</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="随机森林分类">随机森林分类</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取数据集</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果标签是字符</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 划分数据集为训练集和测试集</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建随机森林模型</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在训练集上训练模型</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在测试集上进行预测</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算模型在测试集上的准确性</span>
+</span></span><span class="line"><span class="cl"><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;模型在测试集上的准确性：&#34;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="xgboostextreme-gradient-boosting--网格搜索--交叉验证">XGBoost(eXtreme Gradient Boosting) + 网格搜索 + 交叉验证</h2>
+<h3 id="原理">原理</h3>
+<h4 id="网格搜索">网格搜索</h4>
+<ul>
+<li>
+<p><strong>穷举所有给出的参数取值的组合</strong></p>
+</li>
+<li>
+<p>根据交叉验证计算<strong>模型质量</strong></p>
+</li>
+<li>
+<p>给出<strong>质量最高的模型</strong></p>
+</li>
+</ul>
+<h4 id="交叉验证">交叉验证</h4>
+<ul>
+<li>
+<p>将数据集分成k个相等大小的子集（折）。</p>
+</li>
+<li>
+<p>对于每个折，将其作为验证集，剩余的k-1个折作为训练集。</p>
+</li>
+<li>
+<p>使用训练集进行模型的训练，并在验证集上进行性能评估。</p>
+</li>
+<li>
+<p>计算模型在当前折上的评估指标（如准确率、F1 分数、均方误差等）。</p>
+</li>
+<li>
+<p>重复步骤2-4，直到每个折都作为验证集并得到了一个评估指标。</p>
+</li>
+<li>
+<p>统计k次评估指标的平均值作为模型的最终评估结果。</p>
+</li>
+</ul>
+<h4 id="xgboost">XGBoost</h4>
+<ol>
+<li>
+<p><strong>梯度提升树原理</strong>：XGBoost是基于梯度提升树（Gradient Boosting Tree）的算法。梯度提升树是一种迭代的集成学习算法，通过迭代地训练一系列决策树来逐步改进模型的预测能力。每个新的决策树都会尝试纠正前一棵树的预测误差，从而逐步减小模型的残差。</p>
+</li>
+<li>
+<p><strong>XGBoost的目标函数</strong>：XGBoost的目标函数由两部分组成：损失函数（Loss Function）和正则化项（Regularization Term）。损失函数衡量模型的预测误差，正则化项控制模型的复杂性。目标函数的目标是最小化损失函数和正则化项的和。</p>
+</li>
+<li>
+<p><strong>模型训练步骤</strong>：XGBoost的模型训练步骤如下：</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>初始化模型：将初始预测值设为全局平均值（或使用先验概率）。</p>
+</li>
+<li>
+<p>迭代训练：对于每一轮迭代：</p>
+<ul>
+<li>
+<p>计算残差：计算当前模型的预测值与实际值之间的残差。</p>
+</li>
+<li>
+<p>训练一个决策树：使用残差作为目标值，训练一个决策树模型。决策树的构建过程采用贪婪算法，通过优化目标函数来确定最佳的分裂点。</p>
+</li>
+<li>
+<p>更新模型：根据学习率（步长）和决策树的输出，更新模型的预测值。</p>
+</li>
+<li>
+<p>正则化：根据正则化项对树的结构进行修剪，以控制模型的复杂性。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>重复步骤b，直到达到预先设定的迭代次数（即树的数量）或达到停止条件。</p>
+</li>
+</ul>
+<ol start="4">
+<li><strong>预测步骤</strong>：使用训练好的模型进行预测时，将待预测样本输入到每棵树中，根据树的结构和叶子节点的预测值得到最终的预测结果。最终的预测结果由所有树的预测值加权求和得到。</li>
+</ol>
+<h3 id="代码-1">代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取数据集</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/数模/2020C/附件/指标选择.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;第一题&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 划分数据集为训练集和测试集</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将数据集转换为XGBoost专用的DMatrix格式</span>
+</span></span><span class="line"><span class="cl"><span class="n">dtrain</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">DMatrix</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义初始参数范围</span>
+</span></span><span class="line"><span class="cl"><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="c1"># 树的最大深度</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;eta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">],</span> <span class="c1"># 学习率</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建模型</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="n">objective</span><span class="o">=</span><span class="s1">&#39;multi:softmax&#39;</span><span class="p">,</span> <span class="n">num_class</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># 多分类问题，类别数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义网格搜索对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在训练集上进行网格搜索</span>
+</span></span><span class="line"><span class="cl"><span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 输出最佳参数组合</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;最佳参数组合：&#34;</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用最佳参数的模型进行预测</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算模型在测试集上的准确性</span>
+</span></span><span class="line"><span class="cl"><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;模型在测试集上的准确性：&#34;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="adaboost-adaptive-boosting">Adaboost (Adaptive Boosting)</h2>
+<h3 id="原理-1">原理</h3>
+<blockquote>
+<p>AdaBoost是一种集成学习算法，用于提高分类器的准确性。它通过迭代地训练一系列弱分类器（即在某个特定任务上表现略好于随机猜测的分类器），并将它们组合成一个强分类器。</p>
+</blockquote>
+<p>下面是AdaBoost算法的基本原理：</p>
+<ol>
+<li>
+<p>初始化样本权重：对于包含N个样本的训练集，初始时每个样本的权重相等，即1/N。</p>
+</li>
+<li>
+<p>迭代训练弱分类器：对于每个迭代轮次t（从1到T），进行以下步骤：</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>使用当前样本权重训练一个弱分类器（例如决策树桩），得到分类器ht。</p>
+</li>
+<li>
+<p>计算分类器ht在训练集上的误差率εt，即被错误分类的样本的权重之和。</p>
+</li>
+<li>
+<p>计算分类器ht的权重系数αt，αt = 0.5 * ln((1-εt)/εt)。这个权重系数表示分类器ht在最终的强分类器中的重要程度，当分类器的误差率较低时，其权重系数会更大。</p>
+</li>
+<li>
+<p>更新样本权重：根据样本是否被分类器ht正确分类来更新样本的权重，被错误分类的样本的权重会增加，而被正确分类的样本的权重会减少。</p>
+</li>
+</ul>
+<ol start="3">
+<li>
+<p>构建强分类器：将每个弱分类器的预测结果乘以其权重系数αt，并将它们线性组合得到最终的强分类器。</p>
+</li>
+<li>
+<p>预测：使用强分类器对新样本进行预测。对于二分类问题，预测结果是通过对弱分类器的预测结果进行加权投票得到的。</p>
+</li>
+</ol>
+<h3 id="代码-2">代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">AdaBoostClassifier</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取数据集</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/数模/2020C/附件/指标选择.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;第一题&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 划分数据集为训练集和测试集</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">36</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建AdaBoost模型</span>
+</span></span><span class="line"><span class="cl"><span class="n">ada_model</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义参数网格</span>
+</span></span><span class="line"><span class="cl"><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>  <span class="c1"># 弱分类器数量</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span>  <span class="c1"># 学习率</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建GridSearchCV对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">ada_model</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在训练集上进行网格搜索</span>
+</span></span><span class="line"><span class="cl"><span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 输出最佳参数组合</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;最佳参数组合：&#34;</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用最佳参数的模型进行预测</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算模型在测试集上的准确性</span>
+</span></span><span class="line"><span class="cl"><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;模型在测试集上的准确性：&#34;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 针对数据量较小的模型</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1"># 创建AdaBoost模型
+</span></span></span><span class="line"><span class="cl"><span class="s1">ada_model = AdaBoostClassifier(n_estimators=50, learning_rate=1.0)
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1"># 在训练集上拟合AdaBoost模型
+</span></span></span><span class="line"><span class="cl"><span class="s1">ada_model.fit(X_train, y_train)
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1"># 使用训练好的模型进行预测
+</span></span></span><span class="line"><span class="cl"><span class="s1">y_pred = ada_model.predict(X_test)
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1"># 计算模型在测试集上的准确性
+</span></span></span><span class="line"><span class="cl"><span class="s1">accuracy = accuracy_score(y_test, y_pred)
+</span></span></span><span class="line"><span class="cl"><span class="s1">print(&#34;AdaBoost模型在测试集上的准确性：&#34;, accuracy)
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="模拟退火-simulated-annealing-sa">模拟退火 (Simulated Annealing, SA)</h2>
+<h3 id="数学原理和过程-默认求最小值">数学原理和过程 (默认求最小值)</h3>
+<ol>
+<li>
+<p>令$T = T_0$ 表示开始退火的初始温度，随机产生一个初始解$x_t$,并计算对应的目标函数值</p>
+</li>
+<li>
+<p>令$T= kT, k \in (0,1)$, 为温度下降速率</p>
+</li>
+<li>
+<p>对当前解施加随机扰动，在其邻域内产生一个新解$x_{t+1}$，通过以下公式(MetroPolis 准则)判断<strong>是否接受这个解的概率</strong></p>
+</li>
+</ol>
+<p>$$
+\begin{aligned}
+P &amp;= \begin{cases}
+1 &amp; E_{t+1} \le E_t \\
+e^{\dfrac{-(E_{t+1} - E_t)}{kT}} &amp; E_{t+1} \gt E_t
+\end{cases}
+\end{aligned}
+$$</p>
+<h3 id="流程图">流程图</h3>
+<p><img src="/1.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="应用">应用</h3>
+<ul>
+<li>用于VLSI(超大集成电路设计)</li>
+</ul>
+<h3 id="双退火代码">双退火代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">dual_annealing</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">scipy.optimize.dual_annealing(func, bounds, args=(), maxiter=1000, minimizer_kwargs=None, initial_temp=5230.0, restart_temp_ratio=2e-05, visit=2.62, accept=-5.0, maxfun=10000000.0, seed=None, no_local_search=False, callback=None, x0=None)
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">func(x, *args): args是Optional
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">bounds: (min,max)
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">args: optional
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">maxiter: 最大迭代次数, optional
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="regression">Regression</h1>
+<h2 id="多元逻辑回归multinomial-logistic-regression">多元逻辑回归(Multinomial Logistic Regression)</h2>
+<h3 id="原理-2">原理</h3>
+<ol>
+<li>
+<p>在多元逻辑回归中，我们有一个因变量（多类别）和多个自变量。假设有 k 个类别，我们需要建立 k-1 个二元逻辑回归模型来预测每个类别相对于某个基准类别的概率。</p>
+</li>
+<li>
+<p>数学上，多元逻辑回归使用 softmax 函数将线性组合的结果转化为概率分布。对于第 i 个类别（其中 i = 1, 2, &hellip;, k-1），我们定义一个线性组合：</p>
+</li>
+</ol>
+<p>$$
+z_i = b_{i0} + b_{i1}x_1 + b_{i2}x_2 + &hellip; + b_{ip}x_p
+$$</p>
+<ol start="3">
+<li>通过应用 softmax 函数，我们可以计算每个类别的概率。对于第$i$个类别，其概率为：</li>
+</ol>
+<p>$$
+P(Y=i|X) = exp(z_i) / (exp(z_1) + exp(z_2) + &hellip; + exp(z_{k-1}))
+$$</p>
+<h3 id="意义">意义</h3>
+<ul>
+<li>训练多元逻辑回归模型的目标是最大化似然函数或最小化交叉熵损失函数。通常使用梯度下降等优化算法来寻找最优的系数。</li>
+</ul>
+<h3 id="代码-3">代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提取数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/2020C/附件/指标选择.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;第一题&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/2020C/附件/指标选择.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;第二题&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取 训练集 预测集</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_train</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_train</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>  <span class="c1"># 将目标变量转换为整数类型</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_test</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建逻辑回归模型</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 训练模型</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用模型进行预测</span>
+</span></span><span class="line"><span class="cl"><span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 企业代号</span>
+</span></span><span class="line"><span class="cl"><span class="n">code</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">302</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">303</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">code</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;E&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 导出数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;企业代号&#39;</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;企业信誉评级&#39;</span><span class="p">:</span> <span class="n">predictions</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data_out</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;第二题信誉评级.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ridge-regression">Ridge Regression</h2>
+<h3 id="原理-3">原理</h3>
+<ul>
+<li>减小<strong>Overfitting</strong></li>
+</ul>
+<h2 id="lasso-regression">LASSO Regression</h2>
+<h1 id="classification">Classification</h1>
+<h2 id="bayes-algorithms">Bayes Algorithms</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P(c|X) &amp;= \frac{ P(x|c) P(c)}{ P(X) } \\</p>
+<p>\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="other-algorithms">Other Algorithms</h1>
+<h2 id="贪心算法">贪心算法</h2>
+<h3 id="一种可能的贪心算法">一种可能的贪心算法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">chosen_suppliers_II</span><span class="p">(</span><span class="n">suppliers_A_names</span><span class="p">,</span> <span class="n">suppliers_A</span><span class="p">,</span> <span class="n">suppliers_B_names</span><span class="p">,</span> <span class="n">suppliers_B</span><span class="p">,</span> <span class="n">suppliers_C_names</span><span class="p">,</span> <span class="n">suppliers_C</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 将A、B、C的供应商名称和供货量合并到一个列表中</span>
+</span></span><span class="line"><span class="cl">    <span class="n">suppliers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">suppliers_A_names</span><span class="p">,</span> <span class="n">suppliers_A</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">suppliers_A</span><span class="p">)))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">suppliers_B_names</span><span class="p">,</span> <span class="n">suppliers_B</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">suppliers_B</span><span class="p">)))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">suppliers_C_names</span><span class="p">,</span> <span class="n">suppliers_C</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">suppliers_C</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 先按照A、B、C, 再按照供货量从大到小对suppliers列表进行排序</span>
+</span></span><span class="line"><span class="cl">    <span class="n">suppliers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">suppliers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 按照A、B、C的顺序选取供应商，并购买其提供的原材料，直到所需量达到要求为止</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_amount</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_productivity</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">purchased</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">supply</span><span class="p">,</span> <span class="nb">type</span> <span class="ow">in</span> <span class="n">suppliers</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">supply</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># 跳过供应量为0的供应商</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">total_productivity</span> <span class="o">&gt;=</span> <span class="mi">28200</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="n">purchased_amount</span> <span class="o">=</span> <span class="n">supply</span>
+</span></span><span class="line"><span class="cl">        <span class="n">total_amount</span> <span class="o">+=</span> <span class="n">purchased_amount</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">total_productivity</span> <span class="o">+=</span> <span class="n">purchased_amount</span><span class="o">/</span><span class="mf">0.6</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">total_productivity</span> <span class="o">+=</span> <span class="n">purchased_amount</span><span class="o">/</span><span class="mf">0.66</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">total_productivity</span> <span class="o">+=</span> <span class="n">purchased_amount</span><span class="o">/</span><span class="mf">0.72</span>
+</span></span><span class="line"><span class="cl">        <span class="n">purchased</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">purchased_amount</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="动态规划算法">动态规划算法</h2>
+<h3 id="0-1背包问题">0-1背包问题</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">knapsack</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">capacity</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># dp[i][j]: 在前 i 个物品中，背包容量为 j 时的最大价值</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">capacity</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">capacity</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">selected_items</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">capacity</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">-=</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">selected_items</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">capacity</span><span class="p">],</span> <span class="n">selected_items</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 示例用法</span>
+</span></span><span class="line"><span class="cl"><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">242</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">capacity</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="n">max_value</span><span class="p">,</span> <span class="n">selected_items</span> <span class="o">=</span> <span class="n">knapsack</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">capacity</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;选择第</span><span class="si">{</span><span class="n">selected_items</span><span class="si">}</span><span class="s2">个物体可以获得最大价值为</span><span class="si">{</span><span class="n">max_value</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="调度">调度</h2>
+<h3 id="时间片轮转">时间片(轮转)</h3>
+<ol>
+<li>需要的已知数据</li>
+</ol>
+<ul>
+<li>
+<p><code>time_slice</code>: 时间片的长度</p>
+</li>
+<li>
+<p><code>time_remaining</code>: 该任务还需要多长时间完成</p>
+</li>
+<li>
+<p><code>time_available</code>: 当前时间片内的剩余时间</p>
+</li>
+</ul>
+<ol start="2">
+<li>代码</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># 时间片的分配</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="n">time_remaining</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 订单可以在当前时间切片内完成 (更新当前时间和剩下时间)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">time_remaining</span> <span class="o">&lt;=</span> <span class="n">time_available</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">current_time</span> <span class="o">+=</span> <span class="n">time_remaining</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time_remaining</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time_available</span> <span class="o">-=</span> <span class="n">time_remaining</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 计算超时时间</span>
+</span></span><span class="line"><span class="cl">        <span class="n">order_timeout</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;deadline&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">line_timeout</span> <span class="o">+=</span> <span class="n">order_timeout</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="c1"># 订单无法在当前时间切片内完成，继续下一个时间切片</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">current_time</span> <span class="o">+=</span> <span class="n">time_available</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time_remaining</span> <span class="o">-=</span> <span class="n">time_available</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time_available</span> <span class="o">=</span> <span class="n">time_slice</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="edf--dynamic-programming--linear-programming">EDF + Dynamic Programming + Linear Programming</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pulp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ProductLine</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_workstations</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">orders</span> <span class="o">=</span> <span class="p">[]):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 属性: 产线编号、订单信息、工位数、总时间</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">line_id</span> <span class="o">=</span> <span class="n">line_id</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">orders</span> <span class="o">=</span> <span class="n">orders</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">num_workstations</span> <span class="o">=</span> <span class="n">num_workstations</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">total_time</span> <span class="o">=</span> <span class="n">total_time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">add_orders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">orders_str</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">order</span><span class="p">)</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">orders</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;L</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">line_id</span><span class="si">}</span><span class="s2">, 工位: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">num_workstations</span><span class="si">}</span><span class="s2">, 总耗时: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_time</span><span class="si">}</span><span class="s2">, 订单:</span><span class="se">\n</span><span class="si">{</span><span class="n">orders_str</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Order</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order_id</span><span class="p">,</span> <span class="n">product_name</span><span class="p">,</span> <span class="n">product_number</span><span class="p">,</span> <span class="n">ddl</span><span class="p">,</span> <span class="n">line_id</span><span class="p">,</span> <span class="n">start_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">finish_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">overtime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">total_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">standard_time</span> <span class="o">=</span> <span class="p">[]):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 属性: 订单号 产品名称 产品数目 截止时间 对应产线 开始时间 结束时间 超时时间 总用时 产品标准工时</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">order_id</span> <span class="o">=</span> <span class="n">order_id</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">product_name</span><span class="o">=</span> <span class="n">product_name</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">product_number</span> <span class="o">=</span> <span class="n">product_number</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">standard_time</span> <span class="o">=</span> <span class="n">standard_time</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">ddl</span> <span class="o">=</span> <span class="n">ddl</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">line_id</span> <span class="o">=</span><span class="n">line_id</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">start_time</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">finish_time</span> <span class="o">=</span> <span class="n">finish_time</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">overtime</span> <span class="o">=</span> <span class="n">overtime</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">total_time</span> <span class="o">=</span> <span class="n">total_time</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">add_standard_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">standard_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;订单号: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">order_id</span><span class="si">}</span><span class="s2">, 总用时: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_time</span><span class="si">}</span><span class="s2">, 超时时间:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">overtime</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sheet_name</span> <span class="o">=</span> <span class="s2">&#34;Sheet1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">orders</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;生产订单&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">products</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;产品名称&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">standard_time</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;标准工时&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ddls</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;完工截止时间&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">product_lines</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;产线代码&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 定义字典，合并、存储所有订单</span>
+</span></span><span class="line"><span class="cl">    <span class="n">current_order</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 新订单</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">orders</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">orders</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 添加上一个订单到字典</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_order</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 添加新的订单项</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current_order</span> <span class="o">=</span> <span class="n">orders</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_order</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span><span class="n">order_id</span><span class="o">=</span><span class="n">orders</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">product_name</span><span class="o">=</span><span class="n">products</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">product_number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ddl</span> <span class="o">=</span> <span class="n">ddls</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">line_id</span><span class="o">=</span><span class="n">product_lines</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">start_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">finish_time</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">overtime</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">total_time</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">standard_time</span><span class="o">=</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_order</span><span class="o">.</span><span class="n">add_standard_time</span><span class="p">(</span><span class="n">standard_time</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 合并相同订单的项</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_order</span><span class="o">.</span><span class="n">product_number</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_order</span><span class="o">.</span><span class="n">add_standard_time</span><span class="p">(</span><span class="n">standard_time</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tasks</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">save_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;生产订单&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">order_id</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;开始时间&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">start_time</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;结束时间&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">finish_time</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;超时时间&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">overtime</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">data_out</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&#34;Sheet1&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">min_processing_time</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">num_stations</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">num_stations</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">products</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">num_stations</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="n">num_stations</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 初始化边界状态</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">products</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 通过状态转移方程求解问题</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="nb">sum</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">i</span><span class="p">])))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">Linear_Programming</span><span class="p">(</span><span class="n">num_workers</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">station_number</span><span class="p">):</span> <span class="c1"># 员工数 生产线数 工位分布</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skill_matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/杉树杯/附件/附件4.xlsx&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="s1">&#39;B:M&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 将数据转换为NumPy数组并进行值转换</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skill_matrix</span><span class="p">[</span><span class="n">skill_matrix</span> <span class="o">==</span> <span class="s1">&#39;N&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skill_matrix</span><span class="p">[</span><span class="n">skill_matrix</span> <span class="o">==</span> <span class="s1">&#39;O&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.8</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skill_matrix</span><span class="p">[</span><span class="n">skill_matrix</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 构建线性规划模型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prob</span> <span class="o">=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">LpProblem</span><span class="p">(</span><span class="s1">&#39;Product_Allocation&#39;</span><span class="p">,</span> <span class="n">pulp</span><span class="o">.</span><span class="n">LpMaximize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 定义决策变量 - 每个员工被分配到每个工位的binary变量</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assignment</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">vars</span> <span class="o">=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">LpVariable</span><span class="o">.</span><span class="n">dicts</span><span class="p">(</span><span class="s1">&#39;assignment&#39;</span><span class="p">,</span> <span class="n">assignment</span><span class="p">,</span> <span class="n">cat</span><span class="o">=</span><span class="s1">&#39;Binary&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 定义目标函数 - 最大化效率</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prob</span> <span class="o">+=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">lpSum</span><span class="p">([</span><span class="nb">vars</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="o">*</span> <span class="n">skill_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)]),</span> <span class="s1">&#39;Efficiency&#39;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 添加约束条件</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">prob</span> <span class="o">+=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">lpSum</span><span class="p">([</span><span class="nb">vars</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)])</span> <span class="o">&lt;=</span> <span class="mi">1</span>  <span class="c1"># 每个员工只能被分配到一个工位</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">prob</span> <span class="o">+=</span> <span class="n">pulp</span><span class="o">.</span><span class="n">lpSum</span><span class="p">([</span><span class="nb">vars</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">)])</span> <span class="o">&lt;=</span> <span class="n">station_number</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="c1"># 每个工位只能分配一个员工</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 求解模型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prob</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 提取解并存储在矩阵中</span>
+</span></span><span class="line"><span class="cl">    <span class="n">coordination</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">prob</span><span class="o">.</span><span class="n">variables</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">varValue</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 提取坐标</span>
+</span></span><span class="line"><span class="cl">            <span class="n">coord</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;assignment_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">coord</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,_&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">coordination</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># (员工索引，生产线索引) 工作人数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">coordination</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">coordination</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">working_number</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">coordination</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 通过员工分配矩阵计算效率矩阵</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arrangment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_workers</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">efficiency_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_workers</span><span class="p">,</span><span class="n">line</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">working_number</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">arrangment</span><span class="p">[</span><span class="n">coordination</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]][</span><span class="n">coordination</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">efficiency_matrix</span> <span class="o">=</span> <span class="n">arrangment</span><span class="o">*</span><span class="n">skill_matrix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 根据效率矩阵计算效率 根据员工分配矩阵获得员工分配列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">efficiency</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arrangment_list</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">):</span> <span class="c1"># 遍历员工</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">):</span> <span class="c1"># 遍历生产线</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">efficiency_matrix</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># 若是非零元素</span>
+</span></span><span class="line"><span class="cl">                <span class="n">efficiency</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">efficiency_matrix</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span> <span class="c1"># 加入对应生产线的效率</span>
+</span></span><span class="line"><span class="cl">                <span class="n">arrangment_list</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;PE&#39;</span> <span class="o">+</span> <span class="s2">&#34;</span><span class="si">{:03d}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1"># 加入员工分配列表</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">efficiency</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">efficiency</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 返回效率列表，员工列表</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">efficiency</span><span class="p">,</span> <span class="n">arrangment_list</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">__main__</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 基本参数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_lines</span> <span class="o">=</span> <span class="mi">12</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_workstations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">ProductLine</span><span class="p">(</span><span class="n">line_id</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_workstations</span><span class="o">=</span><span class="n">num_workstations</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">total_time</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">orders</span><span class="o">=</span> <span class="p">[])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_lines</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 读取数据</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tasks</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&#34;~/数模/杉树杯/附件/附件1.xlsx&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 给每个生产线分配订单</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lines</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">line_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">add_orders</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 计算订单的时间信息</span>
+</span></span><span class="line"><span class="cl">    <span class="n">line_total_overtime</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">num_lines</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">orders</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">order</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">total_time</span>
+</span></span><span class="line"><span class="cl">            <span class="n">order</span><span class="o">.</span><span class="n">total_time</span> <span class="o">=</span> <span class="n">min_processing_time</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">standard_time</span><span class="p">,</span> <span class="n">num_workstations</span><span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">line_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">order</span><span class="o">.</span><span class="n">finish_time</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">start_time</span> <span class="o">+</span> <span class="n">order</span><span class="o">.</span><span class="n">total_time</span>
+</span></span><span class="line"><span class="cl">            <span class="n">line</span><span class="o">.</span><span class="n">total_time</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">finish_time</span>
+</span></span><span class="line"><span class="cl">            <span class="n">order</span><span class="o">.</span><span class="n">overtime</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">finish_time</span> <span class="o">-</span><span class="n">order</span><span class="o">.</span><span class="n">ddl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">line_total_overtime</span><span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">line_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">order</span><span class="o">.</span><span class="n">overtime</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">line</span><span class="o">.</span><span class="n">line_id</span><span class="si">}</span><span class="s2">号生产线的超时时间为</span><span class="si">{</span><span class="n">line_total_overtime</span><span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">line_id</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;第一题的超时时间为: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">line_total_overtime</span><span class="p">)</span><span class="si">}</span><span class="s2"> 分钟&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 存储数据</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_data</span><span class="p">(</span><span class="s2">&#34;第一题分配方案.xlsx&#34;</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">   <span class="n">__main__</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="srimax滑动平均的改良版">SRIMAX(滑动平均的改良版)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.sarimax</span> <span class="kn">import</span> <span class="n">SARIMAX</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib.font_manager</span> <span class="kn">import</span> <span class="n">FontProperties</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取数据(可以修改)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data2.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;订货量&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="s1">&#39;C:IH&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">T</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置中文字体</span>
+</span></span><span class="line"><span class="cl"><span class="n">font</span> <span class="o">=</span> <span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;/Users/downeyflyfan/Library/Fonts/NotoSansCJKsc-Regular.otf&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">product</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 进行差分处理</span>
+</span></span><span class="line"><span class="cl">    <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 拟合SARIMA模型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">24</span><span class="p">))</span>  <span class="c1"># (p, d, q)是非季节性部分的阶数，(P, D, Q)是季节性部分的阶数，m是季节性周期。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">forecast</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">end</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">+</span><span class="mi">23</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 将预测值限制在大于0的范围内</span>
+</span></span><span class="line"><span class="cl">    <span class="n">forecast</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">forecast</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 绘制原始数据和预测数据</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;原材料</span><span class="si">{}</span><span class="s1">原始数据&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">product</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">forecast</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;原材料</span><span class="si">{}</span><span class="s1">预测数据&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">product</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;时间(W)&#39;</span><span class="p">,</span> <span class="n">fontproperties</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;订货量($m^3$)&#39;</span><span class="p">,</span> <span class="n">fontproperties</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;订货量预测图像&#39;</span><span class="p">,</span> <span class="n">fontproperties</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/4.-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E7%AE%97%E6%B3%95%E5%8F%8A%E4%BB%A3%E7%A0%81/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">4. 常见问题的算法及代码</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/python%E6%96%B9%E6%B3%95-%E4%BB%A3%E7%A0%81%E5%82%A8%E5%A4%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python方法&#43;代码储备</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/deep_networks/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Deep_Networks</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E7%88%AC%E8%99%AB/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">爬虫</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/deep-learning-basics/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Deep Learning Basics</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Flyfan Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
