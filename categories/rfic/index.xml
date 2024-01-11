@@ -12,7 +12,302 @@
         <pubDate>Tue, 26 Dec 2023 14:30:55 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/1.-electromagnetic-theory/</guid>
-        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;maxwell-equation&#34;&gt;Maxwell Equation&lt;/h1&gt;
+&lt;h2 id=&#34;differetial-form&#34;&gt;Differetial Form&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\nabla \times \overset{ \longrightarrow }{ \varepsilon} &amp;amp;= - \frac{ \partial \pmb{ B } }{ \partial t } - \pmb{ M } \\
+\nabla \times \overset{ \longrightarrow }{ H} &amp;amp;= \frac{ \partial \pmb{ D } }{ \partial t } + \pmb{ J } \\
+\nabla \cdot \overset{ \longrightarrow }{  \varepsilon} &amp;amp;= \rho \\
+\nabla \cdot \overset{ \longrightarrow }{ H} &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;integral-form&#34;&gt;Integral Form&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\oint_{  }^{  } \overrightarrow { \varepsilon} d \overrightarrow{l} &amp;amp;= - \frac{ \partial }{ \partial t } \int_{  }^{  } \pmb{  B } d \overrightarrow{S} - \int_{  }^{  } \pmb{ M } d \overrightarrow{S} \\
+\oint_{  }^{  } \overrightarrow { H} d \overrightarrow{l} &amp;amp;= \frac{ \partial }{ \partial t } \int_{  }^{  } \pmb{ D } d \overrightarrow{S} + I \\
+\int_{  }^{  } \overrightarrow{ \varepsilon } d \overrightarrow{ S } &amp;amp;= \int_{  }^{  } \rho dV \\
+\int_{  }^{  } \overrightarrow{  H} d \overrightarrow{ S } &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;不同情况下的变化&#34;&gt;不同情况下的变化&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Free Space&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\pmb{ M, J } = 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Source-Free Space&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\rho = 0$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;wave-equation&#34;&gt;Wave Equation&lt;/h1&gt;
+&lt;h2 id=&#34;wave-equations--basic-plane-wave-solutions-in-free-space&#34;&gt;Wave Equations &amp;amp; Basic Plane Wave Solutions In Free Space&lt;/h2&gt;
+&lt;h3 id=&#34;wave-equations&#34;&gt;Wave Equations&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Maxwell Equation in &lt;strong&gt;Frequency Domain&lt;/strong&gt; &amp;amp; &lt;strong&gt;Lossless Medium&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\nabla \times \overrightarrow{ E } &amp;amp;= - j \omega \mu \overrightarrow{ H } \\
+\nabla \times \overrightarrow{ H } &amp;amp;= j \omega \varepsilon \overrightarrow{ E }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Mathmatical Transformation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\nabla \times \nabla \times \overrightarrow{ E } &amp;amp;= - j \omega \mu \nabla \times \overrightarrow{ H } \\
+\nabla ( \nabla \cdot  \overrightarrow{  E }) - \nabla^2 \overrightarrow{ E } &amp;amp;= \omega^2 \mu \varepsilon \overrightarrow{E }
+\end{aligned}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Wave Equations&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\nabla^2 \overrightarrow{ E } + k^2 \overrightarrow{ E } &amp;amp;= 0 \\
+\nabla^2 \overrightarrow{ H } + k^2 \overrightarrow{ H } &amp;amp;= 0 \\
+k &amp;amp;= \omega \sqrt{ \mu \varepsilon }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;basic-plane-wave-solutions-in-lossless-medium&#34;&gt;Basic Plane Wave Solutions in Lossless Medium&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;假设$\overrightarrow{  E }$&lt;strong&gt;只有&lt;/strong&gt;$x$方向上的分量，且$\dfrac{ \partial }{ \partial x } = \dfrac{ \partial }{ \partial y } = 0$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Electric Solution&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\frac{ \partial^2 E_x }{ \partial z^2 } + k^2 E_x &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+E_x &amp;amp;= E^+ e^{-j k z} + E^- e^{jkz}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Phase Velocity&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\varepsilon_x &amp;amp;= \mathcal{Re} \Big\lbrace E_x e^{j \omega t} \Big\rbrace \\
+&amp;amp;= E^+ cos( \omega t - kz) + E^- cos( \omega t + kz)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于&lt;strong&gt;特定时间和地点&lt;/strong&gt;，$\omega t - kz$是常数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+v_p &amp;amp;= \frac{ dz }{ dt } = \frac{ \omega }{ k } = \lambda f = \sqrt{ \mu \varepsilon }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Magenetic Solution&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;将&lt;strong&gt;公式(6)&lt;strong&gt;代入&lt;/strong&gt;公式(3)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+H_y &amp;amp;= \frac{ 1 }{ \eta } (E^+ e^{-jkz} - E^-e^{j k z}) \\
+\eta &amp;amp;= \sqrt{ \frac{ \mu }{ \varepsilon } }  \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;basic-plane-wave-solutions-in-lossy-medium&#34;&gt;Basic Plane Wave Solutions in Lossy Medium&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Maxwell Equation in &lt;strong&gt;Frequency Domain&lt;/strong&gt; &amp;amp; &lt;strong&gt;Lossy Medium&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\nabla \times \overrightarrow{ E } &amp;amp;= -j \omega \mu \overrightarrow{ H } \\
+\nabla \times \overrightarrow{ H } &amp;amp;= j \omega \epsilon \overrightarrow{ E } + \sigma \overrightarrow{ E }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Wave Equations&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\frac{ \partial^2 E_x }{ \partial z^2 } - \gamma^2 E_x &amp;amp;= 0 \\
+\gamma &amp;amp;= \alpha + j \beta  = j \omega \sqrt{ \mu \epsilon } \sqrt{ 1- j \frac{ \sigma }{ \omega \epsilon }  }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Solutions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+E_x &amp;amp;= E^+ e^{ -\gamma z} + E^- e^{\gamma z} \\
+H_y &amp;amp;= \frac{ 1 }{ \eta } (E^+ e^{- \gamma z} - E^- e^{ \gamma z}) \\
+\eta &amp;amp;= \frac{ j \omega \mu }{ \gamma }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;general-plane-wave-solutions&#34;&gt;General Plane Wave Solutions&lt;/h2&gt;
+&lt;h3 id=&#34;wave-equation-in-general-form&#34;&gt;Wave Equation in General Form&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\nabla^2 \overrightarrow{ E } + k_0^2 \overrightarrow{ E } &amp;amp;= 0 \\
+\frac{ \partial^2 E_i }{ \partial x^2} + \frac{ \partial^2 E_i }{ \partial y^2 } + \frac{ \partial^2 E_i }{ \partial z^2 } + k_0^2 E_i&amp;amp;= 0 \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;considering-the-x-direction-first&#34;&gt;Considering the X Direction First&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+E_x(x,y,z) &amp;amp;= f(x) g(y) h(z) \\
+f^{&amp;rsquo;&amp;rsquo;} gh + fg^{&amp;rsquo;&amp;rsquo;} h + fgh^{&amp;rsquo;&amp;rsquo;} + k_0^2 fgh &amp;amp;= 0 \\
+\frac{ f^{&amp;rsquo;&amp;rsquo;} }{ f } + \frac{ g^{&amp;rsquo;&amp;rsquo;} }{ g } + \frac{ h^{&amp;rsquo;&amp;rsquo;} }{ h } + k_0^2 &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设$\dfrac{ f^{&amp;rsquo;&amp;rsquo;} }{ f } = -k_x^2, \dfrac{ g^{&amp;rsquo;&amp;rsquo;} }{ g } = - k_y^2, \dfrac{ h^{&amp;rsquo;&amp;rsquo;} }{ h } = -k_z^2$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+k_x^2 + k_y^2 + k_z^2 &amp;amp;= k_0^2
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为了简化情况，先只考虑&lt;strong&gt;正向传播&lt;/strong&gt;， 不考虑反向传播
+$$
+\begin{gather}
+\begin{aligned}
+E_x(x,y,z) &amp;amp;= Ae^{-j(k_x x + k_y y + k_z z)} \\
+\overrightarrow{ k } &amp;amp;= k_x \overrightarrow{ x } + k_y \overrightarrow{ y } + k_z \overrightarrow{ z }  = k_0 \overrightarrow{ n }\\
+\overrightarrow{r} &amp;amp;= x \overrightarrow{ x } + y \overrightarrow{ y } + z \overrightarrow{ z } \\
+E_x(x,y,z) &amp;amp;= A e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r }}
+\end{aligned}
+\end{gather}
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;considering-all-directions&#34;&gt;Considering All Directions&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Assumptions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+E_x(x,y,z) &amp;amp;= A e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r }} \\
+E_y(x,y,z) &amp;amp;= B e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r }} \\
+E_z(x,y,z) &amp;amp;= C e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r }} \\
+\overrightarrow{ E_0 } &amp;amp;= A \overrightarrow{ x } + B \overrightarrow{ y } + C \overrightarrow{ z }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Wave Equation Solutions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E } &amp;amp;= \overrightarrow{ E_0 } e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r } } \\
+\overrightarrow{ \varepsilon } (x,y,z,t) &amp;amp;=  \overrightarrow{ E_0 }  cos( \overrightarrow{ k } \cdot \overrightarrow{ r } - \omega t)\\
+\overrightarrow{ H } &amp;amp;= \frac{ j }{ \omega \mu_0 } \nabla \times \overrightarrow{ E } \\
+&amp;amp;= \frac{ 1 }{ \eta } \overrightarrow{ n } \times  \overrightarrow{ E }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;considering-free-space&#34;&gt;Considering Free-Space&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\nabla \times \overrightarrow{ E} &amp;amp;= 0 \\
+-j \overrightarrow{ k } \cdot \overrightarrow{ E_0 }   e^{-j \overrightarrow{ k } \cdot  \overrightarrow{ r }} &amp;amp;= 0
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ k } \cdot \overrightarrow{ E_0 } &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因此，&lt;strong&gt;电场方向&lt;/strong&gt;和&lt;strong&gt;电磁波传播方向&lt;/strong&gt;相互垂直&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;含义解释&#34;&gt;含义解释&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\overrightarrow{ E_0 }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Electric Field Amplitude Vector&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\overrightarrow{ k }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Direction of Propogation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;energy-and-power&#34;&gt;Energy and Power&lt;/h1&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;h2 id=&#34;constant&#34;&gt;Constant&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;光速&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$v_p = \sqrt{ \varepsilon_0 \mu_0} = 2.998 \times 10^8 m/s$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Wave/Intrinsic Impedance&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\eta_0 = \sqrt{\dfrac{ \mu_0 }{ \varepsilon_0 }} = 377 \Omega$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         <item>
