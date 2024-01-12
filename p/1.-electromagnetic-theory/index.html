@@ -279,6 +279,19 @@
     </li>
     <li><a href="#energy-and-power">Energy and Power</a>
       <ol>
+        <li><a href="#time-average-stored-energy">Time-Average Stored Energy</a></li>
+        <li><a href="#poynting-theorem">Poynting Theorem</a>
+          <ol>
+            <li><a href="#conduction-current--source-current">Conduction Current + Source Current</a></li>
+            <li><a href="#gausss-law">Gauss&rsquo;s Law</a></li>
+            <li><a href="#考虑介质">考虑介质</a></li>
+            <li><a href="#poynting-vector">Poynting Vector</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#plane-wave-reflection-from-a-media-interface">Plane Wave Reflection From a Media Interface</a>
+      <ol>
         <li><a href="#heading"></a></li>
       </ol>
     </li>
@@ -351,7 +364,7 @@
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    9 minute read
                 </time>
             </div>
         
@@ -641,6 +654,110 @@ $$</p>
 </tbody>
 </table></div>
 <h1 id="energy-and-power">Energy and Power</h1>
+<h2 id="time-average-stored-energy">Time-Average Stored Energy</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+W_e &amp;= \frac{ 1 }{ 4 } \mathcal{Re} \int_{ V }^{  } \overrightarrow{ E } \cdot \overrightarrow{ D }^* dV \\
+&amp;= \frac{ \epsilon }{  4} \int_{ V }^{  } \overrightarrow{ E } \cdot \overrightarrow{ E }^* dV
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+W_m &amp;= \frac{ \mu }{ 4 } \int_{ V }^{  } \overrightarrow{ H } \cdot \overrightarrow{ H }^* dV
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="poynting-theorem">Poynting Theorem</h2>
+<h3 id="conduction-current--source-current">Conduction Current + Source Current</h3>
+<ul>
+<li>$\overrightarrow{  J} = \overrightarrow{ J_s } + \sigma \overrightarrow{ E }$</li>
+</ul>
+<p>$$
+\begin{aligned}
+\overrightarrow{ H }^* \cdot ( \nabla \times  \overrightarrow{ E }) &amp;= -j \omega \mu | \overrightarrow{ H }|^2 - \overrightarrow{ M } \cdot \overrightarrow{ H }^* \\
+\overrightarrow{ E } \cdot  ( \nabla \times \overrightarrow{ H }^<em>) &amp;= \overrightarrow{ E } \cdot ( - j \omega \epsilon^</em> \overrightarrow{ E }^* + \overrightarrow{ J }^<em>) \\
+&amp;= -j \omega \epsilon^</em> | \overrightarrow{ E }|^2 + \overrightarrow{ J_s }^* \cdot \overrightarrow{ E } + \sigma | \overrightarrow{ E }|^2\\
+&amp;= ( \sigma - j \omega \epsilon^<em>) | \overrightarrow{ E }|^2 + \overrightarrow{ J_s }^</em> \cdot \overrightarrow{ E }\\
+\therefore \nabla \cdot (\overrightarrow{ E } \times  \overrightarrow{ H }^<em>) &amp;= \overrightarrow{ H }^</em> \cdot ( \nabla \times  \overrightarrow{ E }) - \overrightarrow{ E } \cdot  ( \nabla \times  \overrightarrow{ H }^<em>) \\
+&amp;= - \sigma | \overrightarrow{ E }|^2 + j \omega( \epsilon^</em>| \overrightarrow{ E }|^2 - \mu | \overrightarrow{ H }|^2 ) - ( \overrightarrow{ M } \cdot  \overrightarrow{ H^* } + \overrightarrow{ J_s }^* \cdot \overrightarrow{ E })
+\end{aligned}
+$$</p>
+<h3 id="gausss-law">Gauss&rsquo;s Law</h3>
+<p>$$
+\begin{aligned}
+\int_{ V }^{  } \nabla \cdot (\overrightarrow{ E } \times  \overrightarrow{ H }^<em>) dV &amp;= \int_{ V }^{  }  - \sigma | \overrightarrow{ E }|^2 + j \omega( \epsilon^</em>| \overrightarrow{ E }|^2 - \mu | \overrightarrow{ H }|^2 ) - ( \overrightarrow{ M } \cdot  \overrightarrow{ H^* } + \overrightarrow{ J_s }^* \cdot \overrightarrow{ E }) dV \\
+\oint_{  }^{  } \overrightarrow{ E } \times \overrightarrow{ H }^* dS &amp;= \int_{ V }^{  }  - \sigma | \overrightarrow{ E }|^2 + j \omega( \epsilon^<em>| \overrightarrow{ E }|^2 - \mu | \overrightarrow{ H }|^2 ) - ( \overrightarrow{ M } \cdot  \overrightarrow{ H^</em> } + \overrightarrow{ J_s }^* \cdot \overrightarrow{ E }) dV
+\end{aligned}
+$$</p>
+<h3 id="考虑介质">考虑介质</h3>
+<ol>
+<li>
+<p>引入$\epsilon = \epsilon&rsquo; - j \epsilon&rsquo;&rsquo;, \mu = \mu&rsquo; - j \mu&rsquo;'$</p>
+</li>
+<li>
+<p>Complex Power $P_s$</p>
+</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_s &amp;= - \frac{ 1 }{ 2 } \int_{ V }^{  } ( \overrightarrow{ E } \cdot \overrightarrow{ J_S }^* + \overrightarrow{ H }^* \times \overrightarrow{ M })dV \\
+&amp;= \frac{ 1 }{2  } \oint_{  }^{  }\overrightarrow{ E } \times  \overrightarrow{ H }^* d \overrightarrow{ S } + \frac{ \sigma }{ 2 } \int_{ V }^{  } |\overrightarrow{ E }|^2 dV + \frac{ \omega }{2  }\int_{ V }^{  } ( \epsilon&rsquo;&rsquo; | \overrightarrow{ E }|^2 + \mu&rsquo;&rsquo; | \overrightarrow{ H }|^2) dv + j \frac{ \omega }{ 2 } \int_{ V }^{  }( \mu&rsquo; | \overrightarrow{ H }|^2 - \epsilon&rsquo; | \overrightarrow{ E }|^2)dv
+\end{aligned}
+\end{gather}
+$$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">第一项 $\dfrac{ 1 }{2  } \oint_{  }^{  }\overrightarrow{ E } \times  \overrightarrow{ H }^* d \overrightarrow{ S }$</td>
+<td style="text-align:center">流出<strong>Closed Surface</strong> $S$的能量$P_o$</td>
+</tr>
+<tr>
+<td style="text-align:center">第二、三项</td>
+<td style="text-align:center">在空间$V$内由于各种原因损失的<strong>均时功率</strong>$P_l$, 又称作<strong>Joule&rsquo;s Law</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">第四项</td>
+<td style="text-align:center">存储的能量</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="poynting-vector">Poynting Vector</h3>
+<ol>
+<li>Expression</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ S } &amp;= \overrightarrow{ E } \times \overrightarrow{ H }^*
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Different Parts of the Output Power</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_o &amp;= \frac{ 1 }{ 2 } \oint_{  }^{  } \overrightarrow{ S } \cdot d \overrightarrow{ s } \\
+P_l &amp;= \frac{ \sigma }{ 2 } \int_{ V }^{  } | \overrightarrow{ E }|^2 dv + \frac{ \omega }{  2}  \int_{ V }^{  }( \epsilon&rsquo;&rsquo; | \overrightarrow{ E }|^2 + \mu&rsquo;&rsquo; | \overrightarrow{ H }|^2 )dv \\
+P_s &amp;= P_o + P_l + 2j \omega (W_m - W_e)
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>源提供的能量 = 离开空间的能量 - 损失的能量 + 存储的能量</li>
+</ul>
+<h1 id="plane-wave-reflection-from-a-media-interface">Plane Wave Reflection From a Media Interface</h1>
 <h2 id="heading"></h2>
 <h1 id="appendix">Appendix</h1>
 <h2 id="constant">Constant</h2>

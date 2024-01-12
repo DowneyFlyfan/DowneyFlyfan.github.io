@@ -287,6 +287,110 @@ $$&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h1 id=&#34;energy-and-power&#34;&gt;Energy and Power&lt;/h1&gt;
+&lt;h2 id=&#34;time-average-stored-energy&#34;&gt;Time-Average Stored Energy&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+W_e &amp;amp;= \frac{ 1 }{ 4 } \mathcal{Re} \int_{ V }^{  } \overrightarrow{ E } \cdot \overrightarrow{ D }^* dV \\
+&amp;amp;= \frac{ \epsilon }{  4} \int_{ V }^{  } \overrightarrow{ E } \cdot \overrightarrow{ E }^* dV
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+W_m &amp;amp;= \frac{ \mu }{ 4 } \int_{ V }^{  } \overrightarrow{ H } \cdot \overrightarrow{ H }^* dV
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;poynting-theorem&#34;&gt;Poynting Theorem&lt;/h2&gt;
+&lt;h3 id=&#34;conduction-current--source-current&#34;&gt;Conduction Current + Source Current&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$\overrightarrow{  J} = \overrightarrow{ J_s } + \sigma \overrightarrow{ E }$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\overrightarrow{ H }^* \cdot ( \nabla \times  \overrightarrow{ E }) &amp;amp;= -j \omega \mu | \overrightarrow{ H }|^2 - \overrightarrow{ M } \cdot \overrightarrow{ H }^* \\
+\overrightarrow{ E } \cdot  ( \nabla \times \overrightarrow{ H }^&lt;em&gt;) &amp;amp;= \overrightarrow{ E } \cdot ( - j \omega \epsilon^&lt;/em&gt; \overrightarrow{ E }^* + \overrightarrow{ J }^&lt;em&gt;) \\
+&amp;amp;= -j \omega \epsilon^&lt;/em&gt; | \overrightarrow{ E }|^2 + \overrightarrow{ J_s }^* \cdot \overrightarrow{ E } + \sigma | \overrightarrow{ E }|^2\\
+&amp;amp;= ( \sigma - j \omega \epsilon^&lt;em&gt;) | \overrightarrow{ E }|^2 + \overrightarrow{ J_s }^&lt;/em&gt; \cdot \overrightarrow{ E }\\
+\therefore \nabla \cdot (\overrightarrow{ E } \times  \overrightarrow{ H }^&lt;em&gt;) &amp;amp;= \overrightarrow{ H }^&lt;/em&gt; \cdot ( \nabla \times  \overrightarrow{ E }) - \overrightarrow{ E } \cdot  ( \nabla \times  \overrightarrow{ H }^&lt;em&gt;) \\
+&amp;amp;= - \sigma | \overrightarrow{ E }|^2 + j \omega( \epsilon^&lt;/em&gt;| \overrightarrow{ E }|^2 - \mu | \overrightarrow{ H }|^2 ) - ( \overrightarrow{ M } \cdot  \overrightarrow{ H^* } + \overrightarrow{ J_s }^* \cdot \overrightarrow{ E })
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;gausss-law&#34;&gt;Gauss&amp;rsquo;s Law&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\int_{ V }^{  } \nabla \cdot (\overrightarrow{ E } \times  \overrightarrow{ H }^&lt;em&gt;) dV &amp;amp;= \int_{ V }^{  }  - \sigma | \overrightarrow{ E }|^2 + j \omega( \epsilon^&lt;/em&gt;| \overrightarrow{ E }|^2 - \mu | \overrightarrow{ H }|^2 ) - ( \overrightarrow{ M } \cdot  \overrightarrow{ H^* } + \overrightarrow{ J_s }^* \cdot \overrightarrow{ E }) dV \\
+\oint_{  }^{  } \overrightarrow{ E } \times \overrightarrow{ H }^* dS &amp;amp;= \int_{ V }^{  }  - \sigma | \overrightarrow{ E }|^2 + j \omega( \epsilon^&lt;em&gt;| \overrightarrow{ E }|^2 - \mu | \overrightarrow{ H }|^2 ) - ( \overrightarrow{ M } \cdot  \overrightarrow{ H^&lt;/em&gt; } + \overrightarrow{ J_s }^* \cdot \overrightarrow{ E }) dV
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;考虑介质&#34;&gt;考虑介质&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;引入$\epsilon = \epsilon&amp;rsquo; - j \epsilon&amp;rsquo;&amp;rsquo;, \mu = \mu&amp;rsquo; - j \mu&amp;rsquo;&#39;$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Complex Power $P_s$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_s &amp;amp;= - \frac{ 1 }{ 2 } \int_{ V }^{  } ( \overrightarrow{ E } \cdot \overrightarrow{ J_S }^* + \overrightarrow{ H }^* \times \overrightarrow{ M })dV \\
+&amp;amp;= \frac{ 1 }{2  } \oint_{  }^{  }\overrightarrow{ E } \times  \overrightarrow{ H }^* d \overrightarrow{ S } + \frac{ \sigma }{ 2 } \int_{ V }^{  } |\overrightarrow{ E }|^2 dV + \frac{ \omega }{2  }\int_{ V }^{  } ( \epsilon&amp;rsquo;&amp;rsquo; | \overrightarrow{ E }|^2 + \mu&amp;rsquo;&amp;rsquo; | \overrightarrow{ H }|^2) dv + j \frac{ \omega }{ 2 } \int_{ V }^{  }( \mu&amp;rsquo; | \overrightarrow{ H }|^2 - \epsilon&amp;rsquo; | \overrightarrow{ E }|^2)dv
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;第一项 $\dfrac{ 1 }{2  } \oint_{  }^{  }\overrightarrow{ E } \times  \overrightarrow{ H }^* d \overrightarrow{ S }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;流出&lt;strong&gt;Closed Surface&lt;/strong&gt; $S$的能量$P_o$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;第二、三项&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在空间$V$内由于各种原因损失的&lt;strong&gt;均时功率&lt;/strong&gt;$P_l$, 又称作&lt;strong&gt;Joule&amp;rsquo;s Law&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;第四项&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;存储的能量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;poynting-vector&#34;&gt;Poynting Vector&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Expression&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ S } &amp;amp;= \overrightarrow{ E } \times \overrightarrow{ H }^*
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Different Parts of the Output Power&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_o &amp;amp;= \frac{ 1 }{ 2 } \oint_{  }^{  } \overrightarrow{ S } \cdot d \overrightarrow{ s } \\
+P_l &amp;amp;= \frac{ \sigma }{ 2 } \int_{ V }^{  } | \overrightarrow{ E }|^2 dv + \frac{ \omega }{  2}  \int_{ V }^{  }( \epsilon&amp;rsquo;&amp;rsquo; | \overrightarrow{ E }|^2 + \mu&amp;rsquo;&amp;rsquo; | \overrightarrow{ H }|^2 )dv \\
+P_s &amp;amp;= P_o + P_l + 2j \omega (W_m - W_e)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;源提供的能量 = 离开空间的能量 - 损失的能量 + 存储的能量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;plane-wave-reflection-from-a-media-interface&#34;&gt;Plane Wave Reflection From a Media Interface&lt;/h1&gt;
 &lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;constant&#34;&gt;Constant&lt;/h2&gt;
@@ -1197,8 +1301,9 @@ $$&lt;/p&gt;
         <pubDate>Wed, 29 Nov 2023 13:10:26 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/a1-fragmentray-knowledge/</guid>
-        <description>&lt;h1 id=&#34;cadence-virtuoso&#34;&gt;Cadence Virtuoso&lt;/h1&gt;
-&lt;h2 id=&#34;字体调整&#34;&gt;字体调整&lt;/h2&gt;
+        <description>&lt;h1 id=&#34;eda-manuals&#34;&gt;EDA Manuals&lt;/h1&gt;
+&lt;h2 id=&#34;cadence-virtuoso&#34;&gt;Cadence Virtuoso&lt;/h2&gt;
+&lt;h3 id=&#34;字体调整&#34;&gt;字体调整&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1400,10 +1505,6 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;小尺寸差分电桥&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;阻抗调解（大了，小了？）&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;当前行动&#34;&gt;当前行动&lt;/h2&gt;
 &lt;ul&gt;
