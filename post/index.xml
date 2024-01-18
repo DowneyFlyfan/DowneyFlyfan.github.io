@@ -141,7 +141,7 @@ $$&lt;/p&gt;
 \begin{gather}
 \begin{aligned}
 H_y &amp;amp;= \frac{ 1 }{ \eta } (E^+ e^{-jkz} - E^-e^{j k z}) \\
-\eta &amp;amp;= \sqrt{ \frac{ \mu }{ \varepsilon } }  \\
+\eta &amp;amp;= \sqrt{ \frac{ \mu }{ \varepsilon } }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -238,19 +238,25 @@ E_z(x,y,z) &amp;amp;= C e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r }} 
 \end{gather}
 $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Wave Equation Solutions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;General Wave Equation Solutions&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
 \overrightarrow{ E } &amp;amp;= \overrightarrow{ E_0 } e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r } } \\
-\overrightarrow{ \varepsilon } (x,y,z,t) &amp;amp;=  \overrightarrow{ E_0 }  cos( \overrightarrow{ k } \cdot \overrightarrow{ r } - \omega t)\\
-\overrightarrow{ H } &amp;amp;= \frac{ j }{ \omega \mu_0 } \nabla \times \overrightarrow{ E } \\
-&amp;amp;= \frac{ 1 }{ \eta } \overrightarrow{ n } \times  \overrightarrow{ E }
+\overrightarrow{ \varepsilon } (x,y,z,t) &amp;amp;=  \overrightarrow{ E_0 } \cdot cos( \overrightarrow{ k } \cdot \overrightarrow{ r } - \omega t)\\
+\overrightarrow{ H } &amp;amp;= \frac{ j }{ \omega \mu } \nabla \times \overrightarrow{ E } \\
+&amp;amp;= \frac{ j }{ \omega \mu } \nabla \times \overrightarrow{ E_0} e^{-j \overrightarrow{ k } \cdot \overrightarrow{ r }} \\
+&amp;amp;= - \frac{ j }{ \omega \mu } \overrightarrow{ E_0 } \times  \nabla e^{-j \overrightarrow{ k } \cdot  \overrightarrow{ r }} \\
+&amp;amp;= \frac{ -j }{ \omega \mu } \overrightarrow{ E_0 } \times (-j \overrightarrow{ k })  e^{-j \overrightarrow{ k } \cdot  \overrightarrow{ r }} \\
+&amp;amp;= \frac{ \overrightarrow{ k } }{ \omega \mu } \times \overrightarrow{ E_0 } e^{-j \overrightarrow{ k } \cdot \overrightarrow{ r }} \\
+&amp;amp;= \frac{ 1 }{ \eta } \overrightarrow{ n } \times \overrightarrow{ E }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;considering-free-space&#34;&gt;Considering Free-Space&lt;/h3&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Considering &lt;strong&gt;Free-Space&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{aligned}
 \nabla \times \overrightarrow{ E} &amp;amp;= 0 \\
@@ -375,6 +381,9 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;描述了电磁场的能量流密度和方向&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Different Parts of the Output Power&lt;/li&gt;
 &lt;/ol&gt;
@@ -391,9 +400,163 @@ $$&lt;/p&gt;
 &lt;li&gt;源提供的能量 = 离开空间的能量 - 损失的能量 + 存储的能量&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;plane-wave-reflection-from-a-media-interface&#34;&gt;Plane Wave Reflection From a Media Interface&lt;/h1&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;incident-reflected-transmissmitted-electromagnetic-waves&#34;&gt;Incident, Reflected, Transmissmitted Electromagnetic Waves&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E_i } &amp;amp;= E_0e^{-jk z} \overrightarrow{ x } \\
+\overrightarrow{ H_i } &amp;amp;= \frac{ 1 }{ \eta_0 }E_0e^{-jk z} \overrightarrow{ y} \\
+\overrightarrow{ E_r } &amp;amp;= \Gamma E_0 e^{jkz} \overrightarrow{ x } \\
+\overrightarrow{ H_r} &amp;amp;= -\frac{ \Gamma }{ \eta_0 }E_0e^{jk z} \overrightarrow{ y} \\
+\overrightarrow{ E_t } &amp;amp;= T E_o e^{- \gamma z} \overrightarrow{ x } \\
+\overrightarrow{ H_t } &amp;amp;= \frac{ T E_0}{ \eta } e^{- \gamma z} \overrightarrow{ y }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;transmission-coefficient--reflection-coefficient&#34;&gt;Transmission Coefficient &amp;amp; Reflection Coefficient&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E_t } &amp;amp;= \overrightarrow{ E_i } + \overrightarrow{ E_r } \\
+\overrightarrow{ H_t } &amp;amp;= \overrightarrow{ H_i } + \overrightarrow{ H_r }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在$z=0$时，以上公式成立, 所以&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+1 + \Gamma &amp;amp;= T \\
+\frac{ 1 - \Gamma }{ \eta_0 } &amp;amp;= \frac{ T }{ \eta }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解得:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma &amp;amp;= \frac{ \eta - \eta_0 }{ \eta + \eta_0} \\
+T &amp;amp;= \frac{ 2 \eta }{ \eta + \eta_0 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;poynting-vectors&#34;&gt;Poynting Vectors&lt;/h2&gt;
+&lt;h3 id=&#34;incident-reflected-poynting-vector&#34;&gt;Incident, Reflected Poynting Vector&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ S_i } &amp;amp;=  \frac{ E_0^2 }{ \eta_0 } \overrightarrow{ z } \\
+\overrightarrow{ S_r } &amp;amp;= \overrightarrow{ E } \times \overrightarrow{ H }^* \\
+&amp;amp;= - \frac{ \Gamma^2 E_0^2}{ \eta_0 } \overrightarrow{ z }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;poynting-vector-in-both-directions&#34;&gt;Poynting Vector In Both Directions&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ S }^- &amp;amp;= \overrightarrow{ E } \times  \overrightarrow{ H }^*  \\
+&amp;amp;= ( \overrightarrow{ E_i } + \overrightarrow{ E_r }) ( \overrightarrow{ H_i } + \overrightarrow{ H_r })^* \\
+&amp;amp;= E_0^2 \frac{ 1 }{ \eta_0 } (1 - \Gamma^2 + 2j \Gamma sin(2 k_0z)) \overrightarrow{ z } \\
+\overrightarrow{ S }^+ &amp;amp;=  \frac{ E_0^2}{ \eta_0 } (1 - \Gamma^2)\\
+&amp;amp;= \frac{ E_0^2 T^2 }{  \eta} \overrightarrow{ z }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;oblique-incidence-at-a-dielectric-interface&#34;&gt;Oblique Incidence at a Dielectric Interface&lt;/h1&gt;
+&lt;h2 id=&#34;parallel-polarization&#34;&gt;Parallel Polarization&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/1.-electromagnetic-theory/1.png&#34;
+	width=&#34;1130&#34;
+	height=&#34;1014&#34;
+	srcset=&#34;https://downeyflyfan.com/p/1.-electromagnetic-theory/1_hue93f284a22046d1aec7ca9c4fbe8cb70_82736_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/1.-electromagnetic-theory/1_hue93f284a22046d1aec7ca9c4fbe8cb70_82736_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;111&#34;
+		data-flex-basis=&#34;267px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$传播方向 \perp \overrightarrow{ E } \perp \overrightarrow{ H }$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E_i } &amp;amp;= E_0 (\overrightarrow{ x } cos \theta_i - \overrightarrow{ z} sin \theta_i) e^{- j k_1 (x \cdot cos \theta_i + z \cdot  sin \theta_i)} \\
+\overrightarrow{ H_i } &amp;amp;= \frac{ E_0 }{ \eta_1 } \overrightarrow{ y } e^{- j k _1 (x \cdot sin\theta_i + z \cdot cos \theta_i)} \\
+\overrightarrow{ E_r } &amp;amp;= \Gamma E_0 (\overrightarrow{ x } cos \theta_r + \overrightarrow{ z} sin \theta_r) e^{- j k_1 (x \cdot cos \theta_r - z \cdot  sin \theta_r)} \\
+\overrightarrow{ H_r } &amp;amp;= - \frac{ \Gamma E_0 }{ \eta_1 } \overrightarrow{ y } e^{- j k _1 (x \cdot sin\theta_r + z \cdot cos \theta_r)} \\
+\overrightarrow{ E_t } &amp;amp;= T E_0 (\overrightarrow{ x } cos \theta_t - \overrightarrow{ z} sin \theta_t) e^{- j k_2 (x \cdot cos \theta_t + z \cdot  sin \theta_t)} \\
+\overrightarrow{ H_t } &amp;amp;= \frac{ T E_0 }{ \eta_2 } \overrightarrow{ y } e^{- j k_2 (x \cdot sin\theta_t + z \cdot cos \theta_t)} \\
+k_1 &amp;amp;= \omega \sqrt{ \mu_0 \epsilon_1 }, \eta_1 = \sqrt{ \frac{ \mu_0 }{ \epsilon_1 }} \\
+k_2 &amp;amp;= \omega \sqrt{ \mu_0 \epsilon_2 }, \eta_2 = \sqrt{ \frac{ \mu_0 }{ \epsilon_2 }}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;结合公式$26,31$, 当$z = 0$时&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+cos \theta_i e^{-j k_1 x cos \theta_i}+ \Gamma cos \theta_r e^{-jk_1 x cos \theta_r} &amp;amp;= T cos \theta_t e^{-j k_2 cos \theta_t} \\
+\frac{ 1 }{ \eta_1 } e^{-j k_1 x \cdot sin \theta_i} - \frac{ \Gamma }{ \eta_1 } e^{-jk_2 x \cdot sin \theta_r} &amp;amp;= \frac{ T}{ \eta_2 } e^{-j k_2 x \cdot sin \theta_t}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解得&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma &amp;amp;= \frac{ \eta_2 cos \theta_t - \eta_1 cos \theta_i }{ \eta_2 cos \theta_t + \eta_1 cos \theta_i } \\
+T &amp;amp;= \frac{ 2 \eta_2 cos \theta_i }{ \eta_2 cos \theta_t + \eta_1 cos \theta_i }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;若要在z=0处连续, 可以得到 &lt;strong&gt;Snell&amp;rsquo;s Law&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+k_1 cos \theta_i &amp;amp;= k_1 cos \theta_r = k_2 sin \theta_t \\
+\theta_i &amp;amp;= \theta_r \\
+k_1 sin \theta_i &amp;amp;= k_2 sin \theta_t
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Brewster&amp;rsquo;s Angle&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;当 $\eta_2 cos \theta_t = \eta_1 cos \theta_i$ 时, $\theta_b = \theta_i$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+sin \theta_b &amp;amp;= \frac{ 1 }{ \sqrt{ 1 + \epsilon_1/ \epsilon_2 } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;perpendicular-polarization&#34;&gt;Perpendicular Polarization&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E_i } &amp;amp;= E_0 \overrightarrow{ y } e^{-j k_1 (x \cdot  sin \theta_i + z \cdot  cos \theta_i)} \\
+\overrightarrow{ H_i } &amp;amp;= \frac{ E_0 }{ \eta_1 } (- \overrightarrow{ x } \cdot cos \theta_i + \overrightarrow{ z } \cdot sin \theta_i) e^{-j k_1 (x \cdot  sin \theta_i + z \cdot  cos \theta_i)} \\
+\overrightarrow{ E_r } &amp;amp;= E_0 \Gamma
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
-&lt;h2 id=&#34;constant&#34;&gt;Constant&lt;/h2&gt;
+&lt;h2 id=&#34;最常用参数&#34;&gt;最常用参数&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -403,12 +566,16 @@ $$&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;光速&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$v_p = \sqrt{ \varepsilon_0 \mu_0} = 2.998 \times 10^8 m/s$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Phase Velocity&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$v_p = \dfrac{ \omega }{ \beta } = \dfrac{ 1 }{ \sqrt{ \mu \epsilon } } = \dfrac{ c }{ \sqrt{ \mu_0 \epsilon_0 } }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Wave/Intrinsic Impedance&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\eta_0 = \sqrt{\dfrac{ \mu_0 }{ \varepsilon_0 }} = 377 \Omega$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Wave/Intrinsic Impedance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\eta = \dfrac{ j \omega \mu }{ \gamma } = \sqrt{ \dfrac{ \mu }{ \epsilon } } = \eta_0 \sqrt{  \dfrac{ \mu_r }{ \epsilon_r } }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reflection Coefficient&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\gamma = \alpha + j \beta$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -6397,24 +6564,25 @@ $$&lt;/p&gt;
 &lt;p&gt;On the other hand&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;常用词组&#34;&gt;常用词组&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;It is a must for sb to do sth&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Be Bound to 必然会&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The real looks of ..的真面目&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;be paved with 由..铺成&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Social Fabric 社会组织&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&#34;词义猜测&#34;&gt;词义猜测&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;, respectively&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;= &lt;strong&gt;In that Order&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h1 id=&#34;writing&#34;&gt;Writing&lt;/h1&gt;
 &lt;h2 id=&#34;academic-discussion-writing&#34;&gt;Academic Discussion Writing&lt;/h2&gt;
 &lt;ol&gt;
@@ -6425,7 +6593,7 @@ $$&lt;/p&gt;
 &lt;p&gt;While I totally understand what both of you mean, I mostly agree with XXX&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;In my opinion/view&lt;/p&gt;
+&lt;p&gt;While I appreciate the points mentioned by both XX and XX, I think that &amp;hellip;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
@@ -6433,18 +6601,38 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;the negatives seems to outweigh the positives&lt;/p&gt;
+&lt;p&gt;the negatives seems to outweigh the positives.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Both options have real advantages&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;赞同他人观点&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I strongly agree with XX&amp;rsquo;s idea that &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;XX&amp;rsquo;s observations that &amp;hellip; is resonable.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;他人提出观点&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;XX raised the relevant point that &amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;长难句翻译&#34;&gt;长难句翻译&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;In their search for political legitimacy, they collected and studied ancient artifacts, pursuits that in themselves reinforced the high status of jade and bronze in society.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;为了寻求政治合法性，他们收集和研究了古代文物，这些追求本身就加强了玉石和青铜器在社会中的崇高地位。为了寻求政治合法性，他们收集和研究了古代文物，这些追求本身就加强了玉石和青铜器在社会中的崇高地位。 \\&lt;/li&gt;
+&lt;li&gt;为了寻求政治合法性，他们收集和研究了古代文物，这些追求本身就加强了玉石和青铜器在社会中的崇高地位。为了寻求政治合法性，他们收集和研究了古代文物，这些追求本身就加强了玉石和青铜器在社会中的崇高地位。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;&lt;/li&gt;

@@ -271,7 +271,6 @@
             <li><a href="#wave-equation-in-general-form">Wave Equation in General Form</a></li>
             <li><a href="#considering-the-x-direction-first">Considering the X Direction First</a></li>
             <li><a href="#considering-all-directions">Considering All Directions</a></li>
-            <li><a href="#considering-free-space">Considering Free-Space</a></li>
             <li><a href="#含义解释">含义解释</a></li>
           </ol>
         </li>
@@ -292,12 +291,25 @@
     </li>
     <li><a href="#plane-wave-reflection-from-a-media-interface">Plane Wave Reflection From a Media Interface</a>
       <ol>
-        <li><a href="#heading"></a></li>
+        <li><a href="#incident-reflected-transmissmitted-electromagnetic-waves">Incident, Reflected, Transmissmitted Electromagnetic Waves</a></li>
+        <li><a href="#transmission-coefficient--reflection-coefficient">Transmission Coefficient &amp; Reflection Coefficient</a></li>
+        <li><a href="#poynting-vectors">Poynting Vectors</a>
+          <ol>
+            <li><a href="#incident-reflected-poynting-vector">Incident, Reflected Poynting Vector</a></li>
+            <li><a href="#poynting-vector-in-both-directions">Poynting Vector In Both Directions</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#oblique-incidence-at-a-dielectric-interface">Oblique Incidence at a Dielectric Interface</a>
+      <ol>
+        <li><a href="#parallel-polarization">Parallel Polarization</a></li>
+        <li><a href="#perpendicular-polarization">Perpendicular Polarization</a></li>
       </ol>
     </li>
     <li><a href="#appendix">Appendix</a>
       <ol>
-        <li><a href="#constant">Constant</a></li>
+        <li><a href="#最常用参数">最常用参数</a></li>
       </ol>
     </li>
   </ol>
@@ -364,7 +376,7 @@
 
 
                 <time class="article-time--reading">
-                    9 minute read
+                    13 minute read
                 </time>
             </div>
         
@@ -508,7 +520,7 @@ $$</p>
 \begin{gather}
 \begin{aligned}
 H_y &amp;= \frac{ 1 }{ \eta } (E^+ e^{-jkz} - E^-e^{j k z}) \\
-\eta &amp;= \sqrt{ \frac{ \mu }{ \varepsilon } }  \\
+\eta &amp;= \sqrt{ \frac{ \mu }{ \varepsilon } }
 \end{aligned}
 \end{gather}
 $$</p>
@@ -605,19 +617,25 @@ E_z(x,y,z) &amp;= C e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r }} \\
 \end{gather}
 $$</p>
 <ol start="2">
-<li>Wave Equation Solutions</li>
+<li><strong>General Wave Equation Solutions</strong></li>
 </ol>
 <p>$$
 \begin{gather}
 \begin{aligned}
 \overrightarrow{ E } &amp;= \overrightarrow{ E_0 } e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r } } \\
-\overrightarrow{ \varepsilon } (x,y,z,t) &amp;=  \overrightarrow{ E_0 }  cos( \overrightarrow{ k } \cdot \overrightarrow{ r } - \omega t)\\
-\overrightarrow{ H } &amp;= \frac{ j }{ \omega \mu_0 } \nabla \times \overrightarrow{ E } \\
-&amp;= \frac{ 1 }{ \eta } \overrightarrow{ n } \times  \overrightarrow{ E }
+\overrightarrow{ \varepsilon } (x,y,z,t) &amp;=  \overrightarrow{ E_0 } \cdot cos( \overrightarrow{ k } \cdot \overrightarrow{ r } - \omega t)\\
+\overrightarrow{ H } &amp;= \frac{ j }{ \omega \mu } \nabla \times \overrightarrow{ E } \\
+&amp;= \frac{ j }{ \omega \mu } \nabla \times \overrightarrow{ E_0} e^{-j \overrightarrow{ k } \cdot \overrightarrow{ r }} \\
+&amp;= - \frac{ j }{ \omega \mu } \overrightarrow{ E_0 } \times  \nabla e^{-j \overrightarrow{ k } \cdot  \overrightarrow{ r }} \\
+&amp;= \frac{ -j }{ \omega \mu } \overrightarrow{ E_0 } \times (-j \overrightarrow{ k })  e^{-j \overrightarrow{ k } \cdot  \overrightarrow{ r }} \\
+&amp;= \frac{ \overrightarrow{ k } }{ \omega \mu } \times \overrightarrow{ E_0 } e^{-j \overrightarrow{ k } \cdot \overrightarrow{ r }} \\
+&amp;= \frac{ 1 }{ \eta } \overrightarrow{ n } \times \overrightarrow{ E }
 \end{aligned}
 \end{gather}
 $$</p>
-<h3 id="considering-free-space">Considering Free-Space</h3>
+<ol start="3">
+<li>Considering <strong>Free-Space</strong></li>
+</ol>
 <p>$$
 \begin{aligned}
 \nabla \times \overrightarrow{ E} &amp;= 0 \\
@@ -742,6 +760,9 @@ $$</p>
 \end{aligned}
 \end{gather}
 $$</p>
+<blockquote>
+<p>描述了电磁场的能量流密度和方向</p>
+</blockquote>
 <ol start="2">
 <li>Different Parts of the Output Power</li>
 </ol>
@@ -758,9 +779,163 @@ $$</p>
 <li>源提供的能量 = 离开空间的能量 - 损失的能量 + 存储的能量</li>
 </ul>
 <h1 id="plane-wave-reflection-from-a-media-interface">Plane Wave Reflection From a Media Interface</h1>
-<h2 id="heading"></h2>
+<h2 id="incident-reflected-transmissmitted-electromagnetic-waves">Incident, Reflected, Transmissmitted Electromagnetic Waves</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E_i } &amp;= E_0e^{-jk z} \overrightarrow{ x } \\
+\overrightarrow{ H_i } &amp;= \frac{ 1 }{ \eta_0 }E_0e^{-jk z} \overrightarrow{ y} \\
+\overrightarrow{ E_r } &amp;= \Gamma E_0 e^{jkz} \overrightarrow{ x } \\
+\overrightarrow{ H_r} &amp;= -\frac{ \Gamma }{ \eta_0 }E_0e^{jk z} \overrightarrow{ y} \\
+\overrightarrow{ E_t } &amp;= T E_o e^{- \gamma z} \overrightarrow{ x } \\
+\overrightarrow{ H_t } &amp;= \frac{ T E_0}{ \eta } e^{- \gamma z} \overrightarrow{ y }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="transmission-coefficient--reflection-coefficient">Transmission Coefficient &amp; Reflection Coefficient</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E_t } &amp;= \overrightarrow{ E_i } + \overrightarrow{ E_r } \\
+\overrightarrow{ H_t } &amp;= \overrightarrow{ H_i } + \overrightarrow{ H_r }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>在$z=0$时，以上公式成立, 所以</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+1 + \Gamma &amp;= T \\
+\frac{ 1 - \Gamma }{ \eta_0 } &amp;= \frac{ T }{ \eta }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>解得:</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\Gamma &amp;= \frac{ \eta - \eta_0 }{ \eta + \eta_0} \\
+T &amp;= \frac{ 2 \eta }{ \eta + \eta_0 }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="poynting-vectors">Poynting Vectors</h2>
+<h3 id="incident-reflected-poynting-vector">Incident, Reflected Poynting Vector</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ S_i } &amp;=  \frac{ E_0^2 }{ \eta_0 } \overrightarrow{ z } \\
+\overrightarrow{ S_r } &amp;= \overrightarrow{ E } \times \overrightarrow{ H }^* \\
+&amp;= - \frac{ \Gamma^2 E_0^2}{ \eta_0 } \overrightarrow{ z }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="poynting-vector-in-both-directions">Poynting Vector In Both Directions</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ S }^- &amp;= \overrightarrow{ E } \times  \overrightarrow{ H }^*  \\
+&amp;= ( \overrightarrow{ E_i } + \overrightarrow{ E_r }) ( \overrightarrow{ H_i } + \overrightarrow{ H_r })^* \\
+&amp;= E_0^2 \frac{ 1 }{ \eta_0 } (1 - \Gamma^2 + 2j \Gamma sin(2 k_0z)) \overrightarrow{ z } \\
+\overrightarrow{ S }^+ &amp;=  \frac{ E_0^2}{ \eta_0 } (1 - \Gamma^2)\\
+&amp;= \frac{ E_0^2 T^2 }{  \eta} \overrightarrow{ z }
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="oblique-incidence-at-a-dielectric-interface">Oblique Incidence at a Dielectric Interface</h1>
+<h2 id="parallel-polarization">Parallel Polarization</h2>
+<p><img src="/p/1.-electromagnetic-theory/1.png"
+	width="1130"
+	height="1014"
+	srcset="/p/1.-electromagnetic-theory/1_hue93f284a22046d1aec7ca9c4fbe8cb70_82736_480x0_resize_box_3.png 480w, /p/1.-electromagnetic-theory/1_hue93f284a22046d1aec7ca9c4fbe8cb70_82736_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="111"
+		data-flex-basis="267px"
+	
+></p>
+<ul>
+<li>$传播方向 \perp \overrightarrow{ E } \perp \overrightarrow{ H }$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E_i } &amp;= E_0 (\overrightarrow{ x } cos \theta_i - \overrightarrow{ z} sin \theta_i) e^{- j k_1 (x \cdot cos \theta_i + z \cdot  sin \theta_i)} \\
+\overrightarrow{ H_i } &amp;= \frac{ E_0 }{ \eta_1 } \overrightarrow{ y } e^{- j k _1 (x \cdot sin\theta_i + z \cdot cos \theta_i)} \\
+\overrightarrow{ E_r } &amp;= \Gamma E_0 (\overrightarrow{ x } cos \theta_r + \overrightarrow{ z} sin \theta_r) e^{- j k_1 (x \cdot cos \theta_r - z \cdot  sin \theta_r)} \\
+\overrightarrow{ H_r } &amp;= - \frac{ \Gamma E_0 }{ \eta_1 } \overrightarrow{ y } e^{- j k _1 (x \cdot sin\theta_r + z \cdot cos \theta_r)} \\
+\overrightarrow{ E_t } &amp;= T E_0 (\overrightarrow{ x } cos \theta_t - \overrightarrow{ z} sin \theta_t) e^{- j k_2 (x \cdot cos \theta_t + z \cdot  sin \theta_t)} \\
+\overrightarrow{ H_t } &amp;= \frac{ T E_0 }{ \eta_2 } \overrightarrow{ y } e^{- j k_2 (x \cdot sin\theta_t + z \cdot cos \theta_t)} \\
+k_1 &amp;= \omega \sqrt{ \mu_0 \epsilon_1 }, \eta_1 = \sqrt{ \frac{ \mu_0 }{ \epsilon_1 }} \\
+k_2 &amp;= \omega \sqrt{ \mu_0 \epsilon_2 }, \eta_2 = \sqrt{ \frac{ \mu_0 }{ \epsilon_2 }}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>结合公式$26,31$, 当$z = 0$时</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+cos \theta_i e^{-j k_1 x cos \theta_i}+ \Gamma cos \theta_r e^{-jk_1 x cos \theta_r} &amp;= T cos \theta_t e^{-j k_2 cos \theta_t} \\
+\frac{ 1 }{ \eta_1 } e^{-j k_1 x \cdot sin \theta_i} - \frac{ \Gamma }{ \eta_1 } e^{-jk_2 x \cdot sin \theta_r} &amp;= \frac{ T}{ \eta_2 } e^{-j k_2 x \cdot sin \theta_t}
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>解得</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\Gamma &amp;= \frac{ \eta_2 cos \theta_t - \eta_1 cos \theta_i }{ \eta_2 cos \theta_t + \eta_1 cos \theta_i } \\
+T &amp;= \frac{ 2 \eta_2 cos \theta_i }{ \eta_2 cos \theta_t + \eta_1 cos \theta_i }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="3">
+<li>若要在z=0处连续, 可以得到 <strong>Snell&rsquo;s Law</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+k_1 cos \theta_i &amp;= k_1 cos \theta_r = k_2 sin \theta_t \\
+\theta_i &amp;= \theta_r \\
+k_1 sin \theta_i &amp;= k_2 sin \theta_t
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="4">
+<li><strong>Brewster&rsquo;s Angle</strong></li>
+</ol>
+<ul>
+<li>当 $\eta_2 cos \theta_t = \eta_1 cos \theta_i$ 时, $\theta_b = \theta_i$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+sin \theta_b &amp;= \frac{ 1 }{ \sqrt{ 1 + \epsilon_1/ \epsilon_2 } }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="perpendicular-polarization">Perpendicular Polarization</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E_i } &amp;= E_0 \overrightarrow{ y } e^{-j k_1 (x \cdot  sin \theta_i + z \cdot  cos \theta_i)} \\
+\overrightarrow{ H_i } &amp;= \frac{ E_0 }{ \eta_1 } (- \overrightarrow{ x } \cdot cos \theta_i + \overrightarrow{ z } \cdot sin \theta_i) e^{-j k_1 (x \cdot  sin \theta_i + z \cdot  cos \theta_i)} \\
+\overrightarrow{ E_r } &amp;= E_0 \Gamma
+\end{aligned}
+\end{gather}
+$$</p>
 <h1 id="appendix">Appendix</h1>
-<h2 id="constant">Constant</h2>
+<h2 id="最常用参数">最常用参数</h2>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -770,12 +945,16 @@ $$</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">光速</td>
-<td style="text-align:center">$v_p = \sqrt{ \varepsilon_0 \mu_0} = 2.998 \times 10^8 m/s$</td>
+<td style="text-align:center">Phase Velocity</td>
+<td style="text-align:center">$v_p = \dfrac{ \omega }{ \beta } = \dfrac{ 1 }{ \sqrt{ \mu \epsilon } } = \dfrac{ c }{ \sqrt{ \mu_0 \epsilon_0 } }$</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>Wave/Intrinsic Impedance</strong></td>
-<td style="text-align:center">$\eta_0 = \sqrt{\dfrac{ \mu_0 }{ \varepsilon_0 }} = 377 \Omega$</td>
+<td style="text-align:center">Wave/Intrinsic Impedance</td>
+<td style="text-align:center">$\eta = \dfrac{ j \omega \mu }{ \gamma } = \sqrt{ \dfrac{ \mu }{ \epsilon } } = \eta_0 \sqrt{  \dfrac{ \mu_r }{ \epsilon_r } }$</td>
+</tr>
+<tr>
+<td style="text-align:center">Reflection Coefficient</td>
+<td style="text-align:center">$\gamma = \alpha + j \beta$</td>
 </tr>
 </tbody>
 </table></div>
