@@ -303,8 +303,39 @@
     </li>
     <li><a href="#oblique-incidence-at-a-dielectric-interface">Oblique Incidence at a Dielectric Interface</a>
       <ol>
-        <li><a href="#parallel-polarization">Parallel Polarization</a></li>
-        <li><a href="#perpendicular-polarization">Perpendicular Polarization</a></li>
+        <li><a href="#parallel-polarization">Parallel Polarization</a>
+          <ol>
+            <li><a href="#wave-solutions">Wave Solutions</a></li>
+            <li><a href="#coefficients">Coefficients</a></li>
+            <li><a href="#snells-law--brewsters-angle">Snell&rsquo;s Law &amp; Brewster&rsquo;s Angle</a></li>
+          </ol>
+        </li>
+        <li><a href="#perpendicular-polarization">Perpendicular Polarization</a>
+          <ol>
+            <li><a href="#wave-solutions-1">Wave Solutions</a></li>
+            <li><a href="#coefficients-1">Coefficients</a></li>
+          </ol>
+        </li>
+        <li><a href="#total-reflection--surface-wave">Total Reflection &amp; Surface Wave</a>
+          <ol>
+            <li><a href="#incident-angle--reflection-coefficients">Incident Angle &amp; Reflection Coefficients</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#some-useful-theorems">Some useful Theorems</a>
+      <ol>
+        <li><a href="#lorentz-reciprocity-theorem">Lorentz Reciprocity Theorem</a>
+          <ol>
+            <li><a href="#statement">Statement</a></li>
+            <li><a href="#in-special-conditions">In Special Conditions</a></li>
+          </ol>
+        </li>
+        <li><a href="#image-theory">Image Theory</a>
+          <ol>
+            <li><a href="#heading"></a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#appendix">Appendix</a>
@@ -376,7 +407,7 @@
 
 
                 <time class="article-time--reading">
-                    13 minute read
+                    15 minute read
                 </time>
             </div>
         
@@ -570,6 +601,9 @@ $$</p>
 \end{gather}
 $$</p>
 <h3 id="considering-the-x-direction-first">Considering the X Direction First</h3>
+<ol>
+<li>Seperation Variables</li>
+</ol>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -579,9 +613,9 @@ f^{&rsquo;&rsquo;} gh + fg^{&rsquo;&rsquo;} h + fgh^{&rsquo;&rsquo;} + k_0^2 fgh
 \end{aligned}
 \end{gather}
 $$</p>
-<ul>
+<ol start="2">
 <li>设$\dfrac{ f^{&rsquo;&rsquo;} }{ f } = -k_x^2, \dfrac{ g^{&rsquo;&rsquo;} }{ g } = - k_y^2, \dfrac{ h^{&rsquo;&rsquo;} }{ h } = -k_z^2$</li>
-</ul>
+</ol>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -589,9 +623,10 @@ k_x^2 + k_y^2 + k_z^2 &amp;= k_0^2
 \end{aligned}
 \end{gather}
 $$</p>
-<ul>
-<li>为了简化情况，先只考虑<strong>正向传播</strong>， 不考虑反向传播
-$$
+<ol start="3">
+<li>为了简化情况，先只考虑<strong>正向传播</strong>， 不考虑反向传播</li>
+</ol>
+<p>$$
 \begin{gather}
 \begin{aligned}
 E_x(x,y,z) &amp;= Ae^{-j(k_x x + k_y y + k_z z)} \\
@@ -600,7 +635,9 @@ E_x(x,y,z) &amp;= Ae^{-j(k_x x + k_y y + k_z z)} \\
 E_x(x,y,z) &amp;= A e^{- j \overrightarrow{ k } \cdot \overrightarrow{ r }}
 \end{aligned}
 \end{gather}
-$$</li>
+$$</p>
+<ul>
+<li>在计算$k$时, 要考虑电场在各个方向上的分量</li>
 </ul>
 <h3 id="considering-all-directions">Considering All Directions</h3>
 <ol>
@@ -860,9 +897,7 @@ $$</p>
 		data-flex-basis="267px"
 	
 ></p>
-<ul>
-<li>$传播方向 \perp \overrightarrow{ E } \perp \overrightarrow{ H }$</li>
-</ul>
+<h3 id="wave-solutions">Wave Solutions</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -877,9 +912,10 @@ k_2 &amp;= \omega \sqrt{ \mu_0 \epsilon_2 }, \eta_2 = \sqrt{ \frac{ \mu_0 }{ \ep
 \end{aligned}
 \end{gather}
 $$</p>
-<ol start="2">
+<h3 id="coefficients">Coefficients</h3>
+<ul>
 <li>结合公式$26,31$, 当$z = 0$时</li>
-</ol>
+</ul>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -899,7 +935,8 @@ T &amp;= \frac{ 2 \eta_2 cos \theta_i }{ \eta_2 cos \theta_t + \eta_1 cos \theta
 \end{aligned}
 \end{gather}
 $$</p>
-<ol start="3">
+<h3 id="snells-law--brewsters-angle">Snell&rsquo;s Law &amp; Brewster&rsquo;s Angle</h3>
+<ol>
 <li>若要在z=0处连续, 可以得到 <strong>Snell&rsquo;s Law</strong></li>
 </ol>
 <p>$$
@@ -911,7 +948,7 @@ k_1 sin \theta_i &amp;= k_2 sin \theta_t
 \end{aligned}
 \end{gather}
 $$</p>
-<ol start="4">
+<ol start="2">
 <li><strong>Brewster&rsquo;s Angle</strong></li>
 </ol>
 <ul>
@@ -925,15 +962,113 @@ sin \theta_b &amp;= \frac{ 1 }{ \sqrt{ 1 + \epsilon_1/ \epsilon_2 } }
 \end{gather}
 $$</p>
 <h2 id="perpendicular-polarization">Perpendicular Polarization</h2>
+<h3 id="wave-solutions-1">Wave Solutions</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
 \overrightarrow{ E_i } &amp;= E_0 \overrightarrow{ y } e^{-j k_1 (x \cdot  sin \theta_i + z \cdot  cos \theta_i)} \\
 \overrightarrow{ H_i } &amp;= \frac{ E_0 }{ \eta_1 } (- \overrightarrow{ x } \cdot cos \theta_i + \overrightarrow{ z } \cdot sin \theta_i) e^{-j k_1 (x \cdot  sin \theta_i + z \cdot  cos \theta_i)} \\
-\overrightarrow{ E_r } &amp;= E_0 \Gamma
+\overrightarrow{ E_r } &amp;= \Gamma E_0 \overrightarrow{ y } e^{-j k_1 (x \cdot  sin \theta_r - z \cdot  cos \theta_r)} \\
+\overrightarrow{ H_r } &amp;= - \frac{ \Gamma E_0 }{ \eta_1 } ( \overrightarrow{ x } \cdot cos \theta_r + \overrightarrow{ z } \cdot sin \theta_r) e^{-j k_1 (x \cdot  sin \theta_r + z \cdot  cos \theta_r)} \\
+\overrightarrow{ E_t } &amp;= E_0 T \overrightarrow{ y } e^{-j k_1 (x \cdot  sin \theta_t - z \cdot  cos \theta_t)} \\
+\overrightarrow{ H_i } &amp;= \frac{ E_0 T }{ \eta_1 } (- \overrightarrow{ x } \cdot cos \theta_t + \overrightarrow{ z } \cdot sin \theta_t) e^{-j k_1 (x \cdot  sin \theta_t + z \cdot  cos \theta_t)}
 \end{aligned}
 \end{gather}
 $$</p>
+<h3 id="coefficients-1">Coefficients</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\Gamma &amp;= \frac{ \eta_2 cos \theta_t - \eta_1 cos \theta_i }{ \eta_2 cos \theta_i + \eta_1 cos \theta_t } \\
+T &amp;= \frac{ 2 \eta_2 cos \theta_i }{ \eta_2 cos \theta_i + \eta_1 cos \theta_t }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="total-reflection--surface-wave">Total Reflection &amp; Surface Wave</h2>
+<h3 id="incident-angle--reflection-coefficients">Incident Angle &amp; Reflection Coefficients</h3>
+<p><img src="/p/1.-electromagnetic-theory/2.png"
+	width="1402"
+	height="1540"
+	srcset="/p/1.-electromagnetic-theory/2_hu7aee1c4ce54eeb8ba1470f60fc0b5bf5_163164_480x0_resize_box_3.png 480w, /p/1.-electromagnetic-theory/2_hu7aee1c4ce54eeb8ba1470f60fc0b5bf5_163164_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="91"
+		data-flex-basis="218px"
+	
+></p>
+<ul>
+<li>Critical Angle $\theta_c$: 此时$\theta_t = \dfrac{ \pi }{ 2 }$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+sin \theta_t &amp;= \sqrt{ \frac{ \epsilon_1 }{ \epsilon_2 } } sin \theta_i \\
+sin \theta_c &amp;= \sqrt{ \frac{ \epsilon_2 }{ \epsilon_1 } }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>对于$\theta_i &gt; \theta_c$, 都会发生完全反射</li>
+</ul>
+<h1 id="some-useful-theorems">Some useful Theorems</h1>
+<h2 id="lorentz-reciprocity-theorem">Lorentz Reciprocity Theorem</h2>
+<h3 id="statement">Statement</h3>
+<p><img src="/p/1.-electromagnetic-theory/3.png"
+	width="934"
+	height="764"
+	srcset="/p/1.-electromagnetic-theory/3_hubf1a6c82f1752e89aea1cf756060c75e_77038_480x0_resize_box_3.png 480w, /p/1.-electromagnetic-theory/3_hubf1a6c82f1752e89aea1cf756060c75e_77038_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="122"
+		data-flex-basis="293px"
+	
+></p>
+<ul>
+<li>两个独立源产生电磁场</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\nabla \cdot ( \overrightarrow{ E_1 } \times \overrightarrow{ H_2 } - \overrightarrow{ E_2 } \times  \overrightarrow{ H_1 }) &amp;= \overrightarrow{ J_1} \cdot \overrightarrow{ E_2 } - \overrightarrow{ J_2 } \cdot \overrightarrow{ E_1 }  + \overrightarrow{ M_2 } \cdot \overrightarrow{ H_1 } - \overrightarrow{ M_1 } \cdot \overrightarrow{ H_2 } \\
+\oint_{ S }^{  } ( \overrightarrow{ E_1 } \times \overrightarrow{ H_2 } - \overrightarrow{ E_2 } \times  \overrightarrow{ H_1 }) d \overrightarrow{ S } &amp;= \int_{ V }^{  }\overrightarrow{ J_1} \cdot \overrightarrow{ E_2 } - \overrightarrow{ J_2 } \cdot \overrightarrow{ E_1 }  + \overrightarrow{ M_2 } \cdot \overrightarrow{ H_1 } - \overrightarrow{ M_1 } \cdot \overrightarrow{ H_2 } d \overrightarrow{ V }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="in-special-conditions">In Special Conditions</h3>
+<ol>
+<li>S encloses <strong>No Sources</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\oint_{ S }^{  } \overrightarrow{ E_1 } \times  \overrightarrow{ H_2 } d \overrightarrow{ S } &amp;= \oint_{ S }^{  } \overrightarrow{ E_2 } \times \overrightarrow{ H_1 } d \overrightarrow{ S }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>S bounds a <strong>Perfect Conductor</strong> / <strong>S</strong> is at <strong>Infinity</strong></li>
+</ol>
+<ul>
+<li>
+<p>Perfect Conductor</p>
+</li>
+<li>
+<p>S At Infinity, 可以将其视为平面波</p>
+</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\int_{ V }^{  } \overrightarrow{ E_1 } \cdot  \overrightarrow{ J }<em>2 - \overrightarrow{ H_1 } \cdot  \overrightarrow{ M_2 } dV &amp;= \int</em>{ V }^{  } \overrightarrow{ E_2 } \cdot \overrightarrow{ J_1 } - \overrightarrow{ H_2 } \cdot  \overrightarrow{ M_1} dV
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="image-theory">Image Theory</h2>
+<h3 id="heading"></h3>
 <h1 id="appendix">Appendix</h1>
 <h2 id="最常用参数">最常用参数</h2>
 <div class="table-wrapper"><table>
