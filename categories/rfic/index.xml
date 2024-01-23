@@ -6,7 +6,169 @@
         <description>Recent content in RFIC on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Tue, 26 Dec 2023 14:30:55 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/rfic/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 22 Jan 2024 20:57:28 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/rfic/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>3. Transmission Lines &amp; Waveguides</title>
+        <link>https://downeyflyfan.com/p/3.-transmission-lines-waveguides/</link>
+        <pubDate>Mon, 22 Jan 2024 20:57:28 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/3.-transmission-lines-waveguides/</guid>
+        <description>&lt;h1 id=&#34;general-solutions-for-tem-te-tm-waves&#34;&gt;General Solutions for TEM, TE, TM Waves&lt;/h1&gt;
+&lt;h2 id=&#34;general-solutions&#34;&gt;General Solutions&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/1.png&#34;
+	width=&#34;2182&#34;
+	height=&#34;1056&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/1_hu52b96bd7c077c2afffb4b3a9a7d1d72f_165000_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/1_hu52b96bd7c077c2afffb4b3a9a7d1d72f_165000_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;206&#34;
+		data-flex-basis=&#34;495px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;equations&#34;&gt;Equations&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E }(x,y,z) &amp;amp;= \Big[ \overrightarrow{ e}(x,y) + \overrightarrow{ z } \cdot \overrightarrow{ e }_z (x,y) \Big]e^{-j \beta z} \\
+\overrightarrow{ H }(x,y,z) &amp;amp;= \Big[ \overrightarrow{ h}(x,y) + \overrightarrow{ z } \cdot \overrightarrow{ h }_z (x,y) \Big]e^{-j \beta z} \\
+\nabla \times \overrightarrow{ E } &amp;amp;= - j \omega \mu \overrightarrow{ H } \\
+\nabla \times \overrightarrow{ H } &amp;amp;= -j \omega\mu \overrightarrow{ E }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;solutions-of-3-components&#34;&gt;Solutions of &lt;strong&gt;3 Components&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\frac{ \partial E_z }{ \partial y } + j \beta E_y &amp;amp;= - j \omega \mu H_x \\&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;j \beta E_x - \frac{ \partial E_z }{ \partial x } &amp;amp;= - j \omega \mu H_y \\
+\frac{ \partial E_y }{ \partial x } - \frac{ \partial E_x }{ \partial y } &amp;amp;= - j \omega \mu H_z \\
+\frac{ \partial H_z }{ \partial y } + j \beta H_y &amp;amp;= j \omega \mu E_x \\&lt;/li&gt;
+&lt;li&gt;j \beta H_x - \frac{ \partial H_z }{ \partial x } &amp;amp;= j \omega \mu E_y \\
+\frac{ \partial H_y }{ \partial x } - \frac{ \partial H_x }{ \partial y } &amp;amp;= j \omega \mu E_z
+\end{aligned}
+\end{gather}
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;solutions-in-xy-direction-using-z-direction&#34;&gt;Solutions in x,y Direction Using Z Direction&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+H_x &amp;amp;= \frac{ j }{ k_c^2 } ( \omega \epsilon \frac{ \partial E_z }{ \partial y } - \beta \frac{ \partial H_z }{ \partial x }) \\
+H_y &amp;amp;= \frac{ -j }{ k_c^2 } ( \omega \epsilon \frac{ \partial E_z }{ \partial x } + \beta \frac{ \partial H_z }{ \partial y }) \\
+E_x &amp;amp;= \frac{ -j }{ k_c^2 } ( \beta \frac{ \partial E_z }{ \partial x } + \omega \mu \frac{ \partial H_z }{ \partial y }) \\
+E_y &amp;amp;= \frac{ j }{ k_c^2 } ( -\beta \frac{ \partial E_z }{ \partial y } + \omega \mu \frac{ \partial H_z }{ \partial x }) \\
+k_c^2 &amp;amp;= k^2 - \beta^2
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;tem-waves&#34;&gt;TEM Waves&lt;/h2&gt;
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+E_z &amp;amp;= H_z = 0  \\
+\therefore \beta &amp;amp;= k = \omega \sqrt{ \mu \epsilon } \\
+k_c &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;field-and-potential&#34;&gt;Field and Potential&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Fields&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+( \frac{ \partial^2 }{ \partial x^2 } + \frac{ \partial^2  }{ \partial y^2 } + \frac{ \partial^2 }{ \partial z^2 } + k^2) E_x &amp;amp;= 0 \\
+( \frac{ \partial^2 }{ \partial x^2 } + \frac{ \partial^2 }{ \partial y^2 }) E_x &amp;amp;= 0 \\
+\nabla^2_t \cdot \overrightarrow{ e } (x,y) &amp;amp;= 0 \\
+\therefore  \nabla_t^2 \cdot \overrightarrow{ h }(x,y) &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Potential (&lt;strong&gt;Laplace Equation&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ e } (x,y) &amp;amp;= - \nabla_t \cdot \Phi(x,y) \\
+\nabla^2_t \cdot  \Phi(x,y) &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;expression&#34;&gt;Expression&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{TEM} &amp;amp;= \frac{ E_x }{ H_y } = \frac{ -E_y }{ H_x } = \eta \\
+\overrightarrow{ h }(x,y) &amp;amp;= \frac{ 1 }{ Z_{TEM}}  \overrightarrow{ z } \times \overrightarrow{ e }(x,y)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;te-waves-h-waves&#34;&gt;TE Waves (H-Waves)&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+E_z &amp;amp;=0, H_z \neq 0 \\
+( \frac{ \partial^2 }{ \partial x^2 } + \frac{ \partial^2  }{ \partial y^2 } + \frac{ \partial^2 }{ \partial z^2 } + k^2) H_z &amp;amp;= 0 \\
+( \frac{ \partial^2 }{ \partial x^2 } + \frac{ \partial^2  }{ \partial y^2 } + k_c^2) h_z &amp;amp;= 0 \\
+Z_{TE} &amp;amp;= \frac{ E_x }{ H_y } = \frac{ k \eta }{ \beta }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;tm-waves-e-waves&#34;&gt;TM Waves (E-Waves)&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+H_z &amp;amp;=0, E_z \neq 0 \\
+Z_{TM} &amp;amp;= \frac{ \beta k }{ \eta }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;attenuation-due-to-dielectric-loss-&#34;&gt;Attenuation Due to Dielectric Loss &amp;hellip;&lt;/h2&gt;
+&lt;h1 id=&#34;parallel-plate-waveguides&#34;&gt;Parallel Plate Waveguides&lt;/h1&gt;
+&lt;h2 id=&#34;tem-mode&#34;&gt;TEM Mode&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2.png&#34;
+	width=&#34;1294&#34;
+	height=&#34;906&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2_huc37274206da932cbe791f48aa0a4cc30_60526_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2_huc37274206da932cbe791f48aa0a4cc30_60526_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;142&#34;
+		data-flex-basis=&#34;342px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;potenial-fields&#34;&gt;Potenial Fields&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\phi(x,0) &amp;amp;= 0 \\
+\phi(x,d) &amp;amp;= V_o \\
+\phi(x,y) &amp;amp;= \frac{ V_o }{ d } y \\
+\overrightarrow{ e }(x,y) &amp;amp;= - \nabla \cdot \phi(x,y)  \\
+&amp;amp;= - \frac{ V_o }{ d } \overrightarrow{ y } \\
+\overrightarrow{ E }(x,y,z) &amp;amp;= - \frac{ V_o }{ d } e^{-jk z} \overrightarrow{ y } \\
+\overrightarrow{ H }(x,y,z) &amp;amp;= \frac{ 1 }{ \eta } \overrightarrow{ z } \times \overrightarrow{ E }(x,y,z)  \\
+&amp;amp;= \frac{ V_o }{ \eta d } e^{-jkz} \overrightarrow{ x }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;current-voltage-impedance&#34;&gt;Current Voltage Impedance&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}&lt;/p&gt;
+&lt;p&gt;\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>1. Electromagnetic Theory</title>
         <link>https://downeyflyfan.com/p/1.-electromagnetic-theory/</link>
         <pubDate>Tue, 26 Dec 2023 14:30:55 +0800</pubDate>
@@ -661,11 +823,11 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>3. Coupler</title>
-        <link>https://downeyflyfan.com/p/3.-coupler/</link>
+        <title>A3. Coupler</title>
+        <link>https://downeyflyfan.com/p/a3.-coupler/</link>
         <pubDate>Fri, 01 Dec 2023 16:14:41 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/3.-coupler/</guid>
+        <guid>https://downeyflyfan.com/p/a3.-coupler/</guid>
         <description>&lt;h1 id=&#34;coupler的调节&#34;&gt;Coupler的调节&lt;/h1&gt;
 &lt;h2 id=&#34;quality-和s参数工作频率的关系&#34;&gt;Quality 和S参数、工作频率的关系&lt;/h2&gt;
 &lt;table&gt;
@@ -1745,6 +1907,14 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Reconstruction Bias&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;模型在数据重构过程中出现的&lt;strong&gt;系统偏差&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Multitone Simulation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;多载波调制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;dBm&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$dBm = 10 \cdot lg ( \dfrac{ P }{ 1mW }$&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h1 id=&#34;当前目标--问题&#34;&gt;当前目标 &amp;amp; 问题&lt;/h1&gt;
@@ -1905,7 +2075,7 @@ R_{RF} &amp;amp;= \frac{ a }{ 2 \delta } R_{DC} \\
 \end{gather}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;the-lumped-element-circuit-model-for-a-transmission-line&#34;&gt;The Lumped-Element Circuit Model for a Transmission Line&lt;/h1&gt;
-&lt;h3 id=&#34;telegraphers-equation&#34;&gt;Telegrapher&amp;rsquo;s Equation&lt;/h3&gt;
+&lt;h2 id=&#34;telegraphers-equation&#34;&gt;Telegrapher&amp;rsquo;s Equation&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/4.png&#34;
 	width=&#34;1506&#34;
 	height=&#34;1150&#34;
@@ -1946,7 +2116,7 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;wave-propagation-on-transmission&#34;&gt;Wave Propagation on Transmission&lt;/h3&gt;
+&lt;h2 id=&#34;wave-propagation-on-transmission&#34;&gt;Wave Propagation on Transmission&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Wave Equations&lt;/li&gt;
 &lt;/ol&gt;
@@ -1992,12 +2162,12 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-Z_0 &amp;amp;= \frac{ V(0) }{  I(0)} = \sqrt{ \frac{ R + j \omega L }{ G + j \omega C } }  \\
+Z_0 &amp;amp;= \sqrt{ \frac{ R + j \omega L }{ G + j \omega C } }  \\
 &amp;amp;= \frac{ V_0^+ }{  I_0^+} = - \frac{ V_0^- }{ I_0^- }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;parameters-for-lossless-line&#34;&gt;Parameters for Lossless Line&lt;/h3&gt;
+&lt;h2 id=&#34;parameters-for-lossless-lines&#34;&gt;Parameters for Lossless Lines&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -2007,7 +2177,8 @@ v_p &amp;amp;= \frac{ \omega }{ \beta } = \frac{ 1 }{ \sqrt{ LC } }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;field-analysis-for-transmission-lines-待续&#34;&gt;Field Analysis for Transmission Lines (待续)&lt;/h2&gt;
+&lt;h1 id=&#34;field-analysis-for-transmission-lines-待续&#34;&gt;Field Analysis for Transmission Lines (待续)&lt;/h1&gt;
+&lt;h2 id=&#34;transmission-line-parameters&#34;&gt;Transmission Line Parameters&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/5.png&#34;
 	width=&#34;1204&#34;
 	height=&#34;620&#34;
@@ -2040,18 +2211,10 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;583px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h3 id=&#34;input--load-impedances&#34;&gt;Input / Load Impedances&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Input / Load Impedances&lt;/li&gt;
+&lt;li&gt;Reflected Coefficient&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Z_L &amp;amp;= \frac{ V(0) }{ I(0) } \\
-&amp;amp;= \frac{ V_0^+ + V_0^- }{ V_0^+ - V_0^- } Z_0 \\
-Z_{in} &amp;amp;= \frac{ 1 + \Gamma e^{-2j \beta l} }{ 1 - \Gamma e^{-2 j \beta l} }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -2062,6 +2225,24 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Transmission Line Impedance Equation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_L &amp;amp;= \frac{ V(0) }{ I(0) } \\
+&amp;amp;= \frac{ V_0^+ + V_0^- }{ V_0^+ - V_0^- } Z_0 \\
+Z_{in} &amp;amp;= \frac{ V(-l) }{ I(-l) } \\
+&amp;amp;= \frac{ 1 + \Gamma e^{-2j \beta l} }{ 1 - \Gamma e^{-2 j \beta l} } Z_0 \\
+&amp;amp;= Z_0 \frac{ Z_L + j Z_0 tan ( \beta l) }{ Z_0 + j Z_L tan ( \beta l) } \\
+l &amp;amp;= -z
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Voltage/Current Equations&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -2070,14 +2251,15 @@ I(z) &amp;amp;= \frac{ V_0^+ }{ Z_0 }( e^{-j \beta z} - \Gamma e^{j \beta z})
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;return-loss--vswr&#34;&gt;Return Loss &amp;amp; VSWR&lt;/h3&gt;
+&lt;h3 id=&#34;returninsertion-loss--vswr&#34;&gt;Return/Insertion Loss &amp;amp; VSWR&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Retuen Loss&lt;/li&gt;
+&lt;li&gt;Return/Insertion Loss&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-RL &amp;amp;= -20 \cdot lg |\Gamma| dB
+RL &amp;amp;= -20 \cdot lg |\Gamma| dB \\
+IL &amp;amp;= -20 \cdot lg |T| dB
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -2100,304 +2282,317 @@ VSWR &amp;amp;= \frac{ V_{max} }{ V_{min} } \\
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;h2 id=&#34;special-cases&#34;&gt;Special Cases&lt;/h2&gt;
+&lt;h3 id=&#34;short-circuited&#34;&gt;Short-Circuited&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$Z_L = 0, \Gamma = -1$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V(z) &amp;amp;= V_0^+(e^{-j \beta z} + e^{j \beta z}) \\
+I(z) &amp;amp;= \frac{ V_0^+ }{ Z_0 } ( e^{-j \beta z} - e^{j \beta z}) \\
+Z_{in} &amp;amp;= j Z_0 tan ( \beta l)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;open-circuited&#34;&gt;Open-Circuited&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in} &amp;amp;= -j Z_0 cot ( \beta l) \\
+Z_{in} &amp;amp;= \begin{cases}
+Z_L &amp;amp; l = \dfrac{ \lambda }{ 2 } \\
+\dfrac{ Z_0^2 }{ Z_L } &amp;amp; l = \dfrac{ \lambda }{ 4 } + n \dfrac{ \lambda }{ 2 }
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;feedload-lines&#34;&gt;Feed/Load Lines&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/7.png&#34;
+	width=&#34;1512&#34;
+	height=&#34;532&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/7_hub4529f328ee1ffc3f18bf187294a6b44_39249_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-transmission-line-theory/7_hub4529f328ee1ffc3f18bf187294a6b44_39249_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;284&#34;
+		data-flex-basis=&#34;682px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma &amp;amp;= \frac{ Z_1 - Z_0 }{ Z_1 + Z_0 } \\
+T &amp;amp;= 1 + \Gamma \\
+&amp;amp;= \frac{ 2Z_1 }{ Z_1 + Z_0 } \\
+V(z) &amp;amp;= V_0^+ T e^{- j \beta z} , z &amp;gt; 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;quarter-wave-transformer&#34;&gt;Quarter-Wave Transformer&lt;/h1&gt;
+&lt;h2 id=&#34;impedance&#34;&gt;Impedance&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/8.png&#34;
+	width=&#34;1294&#34;
+	height=&#34;642&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/8_hu9970c0dfff79a4ff067f6da15a41b7be_42357_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-transmission-line-theory/8_hu9970c0dfff79a4ff067f6da15a41b7be_42357_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;201&#34;
+		data-flex-basis=&#34;483px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为了使得$\Gamma = 1$, $l = \dfrac{ \lambda }{ 4 }, Z_{in} = Z_0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in} &amp;amp;= Z_1 \frac{ R_L + j Z_1 tan( \beta l)  }{ Z_1 +j R_L tan( \beta l) } \\
+&amp;amp;= \frac{ Z_1^2 }{ R_L } \\
+Z_1  &amp;amp;= \sqrt{ Z_{0} R_L}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;multiple-reflection&#34;&gt;Multiple-Reflection&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/9.png&#34;
+	width=&#34;1210&#34;
+	height=&#34;674&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/9_huea16468d9a2447e901834ff597b72f8d_51291_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-transmission-line-theory/9_huea16468d9a2447e901834ff597b72f8d_51291_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;430px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;partial-coefficients&#34;&gt;Partial Coefficients&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma_1 &amp;amp;= \frac{ Z_1 - Z_0 }{ Z_1 + Z_0 } \\
+\Gamma_2 &amp;amp;= - \Gamma_1 \\
+\Gamma_3 &amp;amp;= \frac{ R_L - Z_1 }{ R_L + Z_1 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+T_1 &amp;amp;= \frac{ 2Z_1 }{ Z_1 + Z_0 } \\
+T_2 &amp;amp;= \frac{ 2Z_0 }{ Z_1 + Z_0 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;total-reflection-coefficients&#34;&gt;Total Reflection Coefficients&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma &amp;amp;= \Gamma_1 - T_1 T_2 \Gamma_3 + T_1 T_2 \Gamma_2 \Gamma_3^2 \\
+&amp;amp;= \Gamma_1 - T_1 T_2 \Gamma_3 \sum_{ n=0 }^{ \infin  } (- \Gamma_2 \Gamma_3 )^n \\
+&amp;amp;= \Gamma_1 - \frac{ T_1 T_2 \Gamma_3 }{ 1 + \Gamma_2 \Gamma_3 } \\
+&amp;amp;= \frac{ \Gamma_1 + \Gamma_1 \Gamma_2 \Gamma_3 - T_1 T_2 \Gamma_3 }{1 + \Gamma_2 \Gamma_3 } \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中，分子可以写成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma_1 - \Gamma_3( \Gamma_1^2 + T_1T_2) &amp;amp;= \frac{ 2(Z_1^2 - Z_0 R_L) }{ (Z_1 + Z_0)(R_L + Z_1) }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以看出，当$Z_1 = \sqrt{ Z_0 R_L }$时，&lt;strong&gt;Impedance Match&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;generator-and-impedance-mismatches&#34;&gt;Generator and Impedance Mismatches&lt;/h1&gt;
+&lt;h2 id=&#34;power-expression&#34;&gt;Power Expression&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/10.png&#34;
+	width=&#34;1650&#34;
+	height=&#34;560&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/10_hu87b579d0c965f41a506319bf0d77a6e5_54716_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-transmission-line-theory/10_hu87b579d0c965f41a506319bf0d77a6e5_54716_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;294&#34;
+		data-flex-basis=&#34;707px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;input-voltage&#34;&gt;Input Voltage&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in} &amp;amp;= Z_0 \frac{ 1 + \Gamma_l e^{-2j \beta l} }{ 1 - \Gamma_l e^{-2j \beta l} } \\
+V_{in} &amp;amp;= V(-l) \\
+&amp;amp;= V_0^+( e^{j \beta l} + \Gamma_l e^{-j \beta l}) \\
+&amp;amp;= \frac{ Z_{in} }{ Z_{in} + Z_g } V_g \\
+\therefore V_0^+ &amp;amp;= V_g \frac{ Z_0 }{ Z_0 + Z_g } \frac{ e^{-j \beta l} }{ 1 + \Gamma_l \Gamma_g e^{-2j \beta l} } \\
+\Gamma_l &amp;amp;= \frac{ Z_l - Z_0 }{ Z_l + Z_0 }, \Gamma_g = \frac{ Z_g - Z_0 }{ Z_g + Z_0 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;power-expression-1&#34;&gt;Power Expression&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P &amp;amp;= \frac{ 1 }{ 2 } \mathcal{Re} \Big\lbrace V_{in}  I_{in}^* \Big\rbrace \\
+&amp;amp;= \frac{ 1 }{ 2 } V_{in}^2 \mathcal{Re} \Big\lbrace \frac{ 1 }{ Z_{in} } \Big\rbrace  \\
+&amp;amp;= \frac{ 1 }{ 2 } | V_g|^2 \frac{ |Z_0|^2 }{ |Z_0 + Z_g|^2 } \mathcal{Re} \Big\lbrace \frac{ 1 }{ Z_{in} } \Big\rbrace \\
+&amp;amp;= \frac{ 1 }{ 2 } |V_g|^2 \frac{ R_{in} }{ (R_{in} + R_g)^2 + (X_{in} + X_g)^2}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;impedance-match&#34;&gt;Impedance Match&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;$Z_l = Z_0$&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;incident--reflected-traveling-wave&#34;&gt;Incident &amp;amp; Reflected Traveling Wave&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-v(x,t) &amp;amp;= \mathbb{ Re } \Big\lbrace v(x) e^{j \omega t} \Big\rbrace \\
-&amp;amp;= \mathbb { Re } \Big\lbrace  A_1 e^{j( \omega t - \beta x) } + A_2 e^{j ( \omega t + \beta x)} \Big\rbrace  \\
-&amp;amp;= A_1 cos( \omega t - \beta x) + A_2 cos ( \omega t + \beta x) \\
-&amp;amp;= A_1 cos[ \beta( \frac{ \omega }{ \beta }t - x )] + A_2 cos[ \beta( \frac{ \omega }{ \beta }t + x )] \\
-&amp;amp;= A_1 cos[ \beta(x -v_p t)]+ A_2 cos [ \beta(x + v_p t)] \\
-I(x,t) &amp;amp;= \frac{ 1 }{ Z_0 } \Big\lbrace A_1 cos[ \beta(x -v_p t)] - A_2 cos [ \beta(x + v_p t)] \Big\rbrace
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;$v(x,t)$和$i(x,t)$都是&lt;strong&gt;入射行波&lt;/strong&gt;和&lt;strong&gt;反射行波&lt;/strong&gt;的线性叠加&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;boundary-conditions-of-transmission-lines&#34;&gt;Boundary Conditions of Transmission Lines&lt;/h2&gt;
-&lt;h3 id=&#34;known-end-ports-最常见&#34;&gt;Known End Ports (最常见)&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Variable&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$V(l)$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$V_2$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$I(l)$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$I_2$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$l$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Transmission Line 总长度&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$x&#39;$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$l-x$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;将$V_2, I_2$代入&lt;strong&gt;方程7&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;$Z_{in} = Z_0$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-A_1 &amp;amp;= \frac{ V_2 + I_2 Z_0 }{ 2 } e^{j \beta l} \\
-A_2 &amp;amp;= \frac{ V_2 - I_2 Z_0 }{ 2 } e^{-j \beta l}
+P &amp;amp;= \frac{ 1 }{ 2 } |V_g|^2 \frac{ Z_0 }{ (Z_0 + R_g)^2 + X_g^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;$Z_g = Z_{in}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P &amp;amp;= \frac{ 1 }{ 2 } |V_g|^2 \frac{ R_g }{ 4(R_g + X_g)^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Conjugate Matching&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\frac{ \partial P }{ \partial R_{in} } &amp;amp;=0 \Longrightarrow R_g^2 - R_{in}^2 = -(X_{in} + X_g)^2 \\
+\frac{ \partial P }{ \partial X_{in} } &amp;amp;= 0 \Longrightarrow X_{in} (X_{in} + X_g) = 0 \\
+\therefore Z_{in} &amp;amp;= Z_g^* \\
+P_{min} &amp;amp;= \frac{ |V_g|^2 }{ 8 R_g }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;lossy-transmission-lines&#34;&gt;Lossy Transmission Lines&lt;/h1&gt;
+&lt;h2 id=&#34;low-loss-line&#34;&gt;Low-Loss Line&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\gamma &amp;amp;= \alpha + j \beta \\
+&amp;amp;= \sqrt{ (R + j \omega L) ( G + j \omega C) } \\
+&amp;amp;= j \omega \sqrt{ LC } \sqrt{ 1 - \frac{ RG}{ \omega^2 L C } - j ( \frac{ R }{ \omega L } + \frac{ G }{ \omega C })} \\
+&amp;amp;\approx j \omega \sqrt{  LC } \sqrt{ 1 - j ( \frac{ R }{ \omega L } + \frac{ G }{ \omega C }) } \\
+&amp;amp;\approx j \omega \sqrt{ LC } \Big[ 1 - \frac{ j }{ 2 } ( \frac{ R }{ \omega L } + \frac{ G }{ \omega C }) \Big]
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-V(x&amp;rsquo;) &amp;amp;=  \frac{ V_2 + I_2 Z_0 }{ 2 } e^{ j \beta x&amp;rsquo;} + \frac{ V_2 - I_2 Z_0 }{ 2 } e^{ - j \beta x&amp;rsquo;} \\
-&amp;amp;= V_2 cos ( \beta x&amp;rsquo;) + j I_2 Z_0 sin( \beta x&amp;rsquo;) \\
-&amp;amp;= V^+(x&amp;rsquo;) + V^-(x&amp;rsquo;) \\
-&amp;amp;= V_2 ^+ e^{ j \beta x&amp;rsquo;} ( 1 + \Gamma_L e^{- j 2 \beta x&amp;rsquo;})
+\alpha &amp;amp;= \frac{ 1 }{ 2 } ( \frac{ R }{ \omega L } + \frac{ G }{ \omega C }) \\
+\beta &amp;amp;= \omega \sqrt{ LC } = k
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-I(x&amp;rsquo;) &amp;amp;=  \frac{ V_2 + I_2 Z_0 }{ 2Z_0 } e^{j \beta x&amp;rsquo;} - \frac{ V_2 - I_2 Z_0 }{ 2Z_0 } e^{ - j \beta x&amp;rsquo;} \\
-&amp;amp;= I_2 cos ( \beta x&amp;rsquo;) - j \frac{ V_2 }{ Z_0 } sin( \beta x&amp;rsquo;) \\
-&amp;amp;= I^+(x&amp;rsquo;) - I^-(x&amp;rsquo;) \\
-&amp;amp;= I_2 ^+ e^{j \beta x&amp;rsquo;} ( 1 - \Gamma_L e^{-j 2 \beta x&amp;rsquo;})
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;known-initial-ports&#34;&gt;Known Initial Ports&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-A_1 &amp;amp;= \frac{ V_1 + I_1 Z_0 }{ 2 } \\
-A_2 &amp;amp;= \frac{ V_1 - I_1 Z_0 }{ 2 } \\
-V(x) &amp;amp;= V_1 cos( \beta x) + j I_1 Z_0 sin ( \beta x) \\
-I(x) &amp;amp;= I_1 cos( \beta x) - j \frac{ V_1 }{ Z_0 } sin ( \beta z)
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;vswr-voltage-standing-wave-ratio&#34;&gt;VSWR (Voltage Standing Wave Ratio)&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-VSWR &amp;amp;= \rho = \frac{ |V_{max}| }{|V_{min}|} \\
-&amp;amp;= \frac{ 1 + | \Gamma_L | }{ 1 - | \Gamma_L | } \\
-K &amp;amp;= \frac{ 1 }{ \rho } = \frac{ |V_{min} |}{|V_{max}|} \\
-&amp;amp;= \frac{ 1 - | \Gamma_L | }{ 1 + | \Gamma_L | }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$|\Gamma_L| = 0$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;行波状态，$Z_L = Z_0 = Z_{in}$, 阻抗匹配, $\rho = 1, K = 1$, 各个点的电压/电流同幅同相&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$|\Gamma_L| = 1$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;驻波状态, $\rho = \infin, K = 0$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$0 &amp;lt;|\Gamma_L| &amp;lt; 1$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;行驻波状态, $1 &amp;lt; \rho &amp;lt; \infin ,1 &amp;lt; K &amp;lt; \infin$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;input-impedance&#34;&gt;Input Impedance&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;任意一点的电压$V(x)$与电流$I(x)$值之比&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Z_{in}(x&amp;rsquo;) &amp;amp;= \frac{ V(x&amp;rsquo;) }{ I(x&amp;rsquo;) } \\
-&amp;amp;= Z_0 \dfrac{ Z_L + j Z_0 tan (\beta x&amp;rsquo;) }{  Z_0 + j Z_L tan( \beta x&amp;rsquo;)} \\
-&amp;amp;= Z_0 \frac{ 1 + \Gamma(x&amp;rsquo;) }{ 1 - \Gamma(x&amp;rsquo;) }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-Z_L &amp;amp;= Z_0 \frac{ 1 + \Gamma_L }{1 0 \Gamma_L }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
+&lt;h2 id=&#34;distortionless-line&#34;&gt;Distortionless Line&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;当$Z_L = Z_0$时, $Z_{in} = Z_0$&lt;/li&gt;
+&lt;li&gt;$\dfrac{ R }{ L } = \dfrac{ G }{ C }$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;transmission-power&#34;&gt;Transmission Power&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-P(x&amp;rsquo;) &amp;amp;= \frac{ 1 }{ 2 } Re \Big\lbrace V(x) I^*(x) \Big\rbrace \\
-&amp;amp;= \frac{ |V^+(x&amp;rsquo;)|^2 }{2 Z_0} 2 Z_0 \Big[ 1 - | \Gamma(x&amp;rsquo;)|^2 \Big] \\
-&amp;amp;= \frac{ | V^+(x&amp;rsquo;) |^2 }{ 2 Z_0 } - \frac{ |V^-(x&amp;rsquo;)|^2 }{ 2 Z_0} \\
-&amp;amp;= P^+(x&amp;rsquo;) - P^-(x&amp;rsquo;)
+\gamma &amp;amp;\approx j \omega \sqrt{ LC } \sqrt{ 1 - j \frac{ R }{ \omega L } } \\
+\alpha + j\beta  &amp;amp;= R \sqrt{ \frac{ C }{ L } } + j \omega \sqrt{ L C }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;传输功率 = &lt;strong&gt;入射功率&lt;/strong&gt; - &lt;strong&gt;反射功率&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;signal-power--on-load-transmission-line&#34;&gt;Signal Power &amp;amp; On-Load Transmission Line&lt;/h1&gt;
-&lt;h2 id=&#34;transmission-line-with-load-and-signal-source&#34;&gt;Transmission Line With Load and Signal Source&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/13.png&#34;
-	
-	
-	
+&lt;h2 id=&#34;terminated-lossy-line-&#34;&gt;Terminated Lossy Line &amp;hellip;&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{in} &amp;amp;= \frac{ 1 }{ 2 } \mathcal{Re} \Big\lbrace V(-l) I^*(-l) \Big\rbrace \\
+&amp;amp;= \frac{ |V_0^+|^2 }{ 2 Z_0 } (e^{2 \alpha l} - | \Gamma|^2 e^{-2 \alpha l}) \\
+&amp;amp;= \frac{ |V_0^+|^2 }{ (1 - | \Gamma(l) |^2) e^{-2 \alpha l} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;transients-on-transmission-line&#34;&gt;Transients on Transmission Line&lt;/h1&gt;
+&lt;h2 id=&#34;reflection-of-pulses-from-a-terminated-transmission-line&#34;&gt;Reflection of Pulses From a Terminated Transmission Line&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;$Z_S = Z_L = Z_0$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/11.png&#34;
+	width=&#34;1762&#34;
+	height=&#34;1160&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/11_hu065b3f23b90664ce466fd99a48cf846c_120200_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-transmission-line-theory/11_hu065b3f23b90664ce466fd99a48cf846c_120200_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;364px&#34;
+	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;4-reflected-coefficient&#34;&gt;4 Reflected Coefficient&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\Gamma_{in} &amp;amp;= \frac{ Z_{in} - Z_0 }{ Z_{in} + Z_0} = \Gamma_L e^{-j 2 \beta l} \\
-\Gamma_{S} &amp;amp;= \frac{ Z_S - Z_0 }{ Z_S + Z_0 } \\
-\Gamma_{out} &amp;amp;=  \Gamma_S e^{-j 2 \beta l}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;transmission-coefficient&#34;&gt;Transmission Coefficient&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-T_{in} &amp;amp;= 1 + \Gamma_{in} = \frac{ 2 Z_{in} }{ Z_{in} + Z_0 } \\
-T_L &amp;amp;= 1 + \Gamma_L = \frac{ 2 Z_L }{ Z_L + Z_0 }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;power-of-transmission-line&#34;&gt;Power of Transmission Line&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-V_{in} &amp;amp;= V_{in}^+ + V_{in}^- \\
-&amp;amp;= V_{in}^+ ( 1 + \Gamma_{in}) \\
-&amp;amp;= V_S \frac{ Z_S }{ Z_{in} + Z_S } \\
-V_{in}^+ &amp;amp;= \frac{ V_S }{ 2 } \frac{ 1 - \Gamma_S }{ 1 - \Gamma_S \Gamma_{in} }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-P_{in} &amp;amp;= \frac{ |V_{in}|^2 }{ 2 Z_0 } \Big[ 1 - | \Gamma_{in} |^2 \Big] \\
-&amp;amp;= \frac{ |V_S|^2 }{ 8 Z_0 } \frac{ | 1 - \Gamma_S|^2 }{ |1 - \Gamma_S \Gamma_{in} |^2} ( 1 - | \Gamma_{in}|^2 )
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;conjuction-match--losses&#34;&gt;Conjuction Match &amp;amp; Losses&lt;/h2&gt;
-&lt;h3 id=&#34;conjuction-match-of-signal-source&#34;&gt;Conjuction Match of Signal Source&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/15.png&#34;
-	
-	
-	
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Short-Circuit, $\Gamma = -1$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/12.png&#34;
+	width=&#34;1810&#34;
+	height=&#34;1260&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/12_hu3eeb7ec9b1666cca5bfa8c43f197e404_127209_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-transmission-line-theory/12_hu3eeb7ec9b1666cca5bfa8c43f197e404_127209_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;143&#34;
+		data-flex-basis=&#34;344px&#34;
+	
 &gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{aligned}
-P_{in} &amp;amp;= \frac{ 1 }{ 2 } R_{in} I \cdot I^* \\
-&amp;amp;= \frac{ 1 }{ 2 } R_{in} \frac{ V_S^2 }{ (R_S + R_{in})^2 + (X_{in} + X_S)^2 } \\
-When \ X_{in} &amp;amp;= - X_S \\
-P_{in \ max}  &amp;amp;= \frac{ R_{in} V_S^2 }{ 2 (R_S + R_{in})^2 }  \\
-\frac{ \partial P_{in} }{ \partial R_{in} } &amp;amp;= \frac{ V_S^2 }{ 2 } \frac{ R_S - R_{in} }{ (R_S + R_{in})^3 } \\
-hen \ R_S &amp;amp;= R_{in} \\
-P_{in} &amp;amp;= \frac{ V_S^2 }{ 8 R_S }
-\end{aligned}
-$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Open-Circuit, $\Gamma = 1$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/13.png&#34;
+	width=&#34;1802&#34;
+	height=&#34;1246&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/13_hu944ab2474113a3d61ae991cf8ab92af0_127288_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-transmission-line-theory/13_hu944ab2474113a3d61ae991cf8ab92af0_127288_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;347px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;bounce-diagrams-for-transient-circuits&#34;&gt;Bounce Diagrams for Transient Circuits&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;所以信号换功率输出最大的条件为$Z_{in} = Z_S^*$&lt;/li&gt;
+&lt;li&gt;Bounce Diagram for &lt;strong&gt;Open-Circuit&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;return-loss--insertion-loss&#34;&gt;Return Loss &amp;amp; Insertion Loss&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-RL &amp;amp;= - 10 lg \Big( \frac{P_{in}^- }{ P_{in}^+ } \Big) \\
-&amp;amp;= -10 lg | \Gamma_{in} |^2 \\
-&amp;amp;= -20 lg | \Gamma_{in} | dB
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-IL &amp;amp;= -10 lg \Big( \frac{ P_{in}^+ - P_{in}^- }{ P_{in}^+ } \Big) \\
-&amp;amp;= -10 lg ( 1 - |\Gamma_{in}|^2 ) dB
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;microstrip&#34;&gt;Microstrip&lt;/h1&gt;
-&lt;h2 id=&#34;分类&#34;&gt;分类&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;概念&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(a)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;全部填充空气&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(b)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;介质r&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(c)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;真实物理结构&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;(d)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;全部填充&lt;strong&gt;等效介质re&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;介质公式&#34;&gt;介质公式&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\varepsilon_{re} &amp;amp;= \begin{cases}
-\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r - 1 }{ 2 } \Big[ (2 + \dfrac{ 12 }{ W })^{-1/2} + 0.041 (1 - \dfrac{ W }{ h })^2 \Big] &amp;amp; W \le h \\
-\dfrac{ \varepsilon_r + 1 }{ 2 } \dfrac{ \varepsilon_r -1 }{ 2 } ( 1 + 12 \dfrac{ h }{ W })^{-1/2} &amp;amp; W \ge h
-\end{cases} \\
-Z_0 &amp;amp;=  \begin{cases}
-\dfrac{ 60 }{ \sqrt{ \varepsilon_{re} } } ln \Big( \dfrac{ 8h }{ W } + \dfrac{ W }{ 4h } \Big) &amp;amp; W \le h \\
-\dfrac{ 120 \pi }{ \sqrt{ \varepsilon_{re} } \Big[ \dfrac{ W }{ h } + 1.393 + 0.667 ln \Big( \dfrac{ W }{ h } + 1.444 \Big) \Big]} &amp;amp; W \ge h
-\end{cases} \\
-\frac{ W}{ h } &amp;amp;= \begin{cases}
-\dfrac{ 8 e^{A} }{ e^{2A} - 2} &amp;amp; \dfrac{ W }{  h} \le 2 \\
-\dfrac{ 2 }{ \pi } \Big\lbrace B - 1 -ln (2B -1) + \dfrac{ \varepsilon_r -1 }{ 2 \varepsilon_r } \Big[ ln(B - 1) + 0.39 - \dfrac{ 0.61 }{ \varepsilon_r } \Big]\Big\rbrace &amp;amp; \dfrac{ W }{ h } \ge 2
-\end{cases} \\
-A &amp;amp;= \frac{ Z_0 }{ 60 } \sqrt{ \frac{ \varepsilon_r + 1 }{ 2 } } + \frac{ \varepsilon_r - 1 }{ \varepsilon_r + 1 } \Big( 0.23 + \frac{ 0.11 }{ \varepsilon_r } \Big) \\
-B &amp;amp;= \frac{ 377 \pi }{ 2 Z_0 \sqrt{ \varepsilon_r } }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/14.png&#34;
+	width=&#34;870&#34;
+	height=&#34;580&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/14_huf6c1658b3711e19c72320ffa705cedb8_52328_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-transmission-line-theory/14_huf6c1658b3711e19c72320ffa705cedb8_52328_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;360px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;部分微分方程解法&#34;&gt;部分微分方程解法&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/3.png&#34;
@@ -2426,19 +2621,6 @@ Error &amp;amp; x = 0, y =0
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;voltage-wave--standing-wave-states&#34;&gt;Voltage Wave &amp;amp; Standing Wave States&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;驻波由反射波产生，不传递能量&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;行波可以传递能量&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;本篇博客的一些符号定义&#34;&gt;本篇博客的一些符号定义&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;$1,2$表示始端，$+,-$表示&lt;strong&gt;入射&lt;/strong&gt;和&lt;strong&gt;反射&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
 </description>
         </item>
         <item>
