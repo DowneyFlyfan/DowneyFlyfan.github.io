@@ -110,10 +110,24 @@ Z_{TEM} &amp;amp;= \frac{ E_x }{ H_y } = \frac{ -E_y }{ H_x } = \eta \\
 \end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;te-waves-h-waves&#34;&gt;TE Waves (H-Waves)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;$E_z =0, H_z \neq 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;solutions&#34;&gt;Solutions&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-E_z &amp;amp;=0, H_z \neq 0 \\
+H_x &amp;amp;= \frac{ -j \beta }{ k_c^2 } \frac{ \partial H_z }{ \partial x } \\
+H_y &amp;amp;= \frac{ -j \beta }{ k_c^2 } \frac{ \partial H_z }{ \partial y } \\
+E_x &amp;amp;= \frac{ -j \omega \mu }{ k_c^2 } \frac{ \partial H_z }{ \partial y } \\
+E_y &amp;amp;= \frac{ j \omega \mu }{ k_c^2 } \frac{ \partial H_z }{ \partial x }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;impedance&#34;&gt;Impedance&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
 ( \frac{ \partial^2 }{ \partial x^2 } + \frac{ \partial^2  }{ \partial y^2 } + \frac{ \partial^2 }{ \partial z^2 } + k^2) H_z &amp;amp;= 0 \\
 ( \frac{ \partial^2 }{ \partial x^2 } + \frac{ \partial^2  }{ \partial y^2 } + k_c^2) h_z &amp;amp;= 0 \\
 Z_{TE} &amp;amp;= \frac{ E_x }{ H_y } = \frac{ k \eta }{ \beta }
@@ -121,17 +135,30 @@ Z_{TE} &amp;amp;= \frac{ E_x }{ H_y } = \frac{ k \eta }{ \beta }
 \end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;tm-waves-e-waves&#34;&gt;TM Waves (E-Waves)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;$H_z =0, E_z \neq 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;solutions-1&#34;&gt;Solutions&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-H_z &amp;amp;=0, E_z \neq 0 \\
+H_x &amp;amp;= \frac{ j \omega \epsilon }{ k_c^2 } \frac{ \partial E_z }{ \partial y }  \\
+H_y &amp;amp;= \frac{ - j \omega \epsilon }{ k_c^2 } \frac{ \partial E_z }{ \partial x } \\
+E_x &amp;amp;= \frac{ -j \beta }{ k_c^2 } \frac{ \partial E_z }{ \partial x} \\
+E_y &amp;amp;= \frac{ -j \beta }{ k_c^2 } \frac{ \partial E_z }{ \partial y }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;impedance-1&#34;&gt;Impedance&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
 Z_{TM} &amp;amp;= \frac{ \beta k }{ \eta }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;attenuation-due-to-dielectric-loss-&#34;&gt;Attenuation Due to Dielectric Loss &amp;hellip;&lt;/h2&gt;
 &lt;h1 id=&#34;parallel-plate-waveguides&#34;&gt;Parallel Plate Waveguides&lt;/h1&gt;
-&lt;h2 id=&#34;tem-mode&#34;&gt;TEM Mode&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2.png&#34;
 	width=&#34;1294&#34;
 	height=&#34;906&#34;
@@ -144,7 +171,8 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;342px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;potenial-fields&#34;&gt;Potenial Fields&lt;/h3&gt;
+&lt;h2 id=&#34;tem-mode&#34;&gt;TEM Mode&lt;/h2&gt;
+&lt;h3 id=&#34;potential--fields&#34;&gt;Potential &amp;amp; Fields&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -162,8 +190,85 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;current-voltage-impedance&#34;&gt;Current Voltage Impedance&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
-\begin{aligned}&lt;/p&gt;
-&lt;p&gt;\end{aligned}
+\begin{aligned}
+V &amp;amp;= V_o e^{-jkz} \\
+I &amp;amp;= \int_{ x = 0 }^{ W } \overrightarrow{ J_s } \cdot  \overrightarrow{ z } dx = \int_{ x = 0 }^{ W } (- \overrightarrow{ y } \times \overrightarrow{ H }) \cdot  \overrightarrow{ z } dx \\
+&amp;amp;= \int_{ x=0 }^{ W } H_x dx \\
+&amp;amp;= \frac{ V_o W }{ \eta d } e^{-jkz} \\
+Z &amp;amp;= \frac{ V }{ I } \\
+&amp;amp;= \frac{ \eta d }{ W } \\
+v_p &amp;amp;= \frac{ \omega }{ \beta } = \frac{ 1 }{ \sqrt{ \mu \epsilon } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;tm-mode&#34;&gt;TM Mode&lt;/h2&gt;
+&lt;h3 id=&#34;solving-equations&#34;&gt;Solving Equations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在&lt;strong&gt;Parallel Plate&lt;/strong&gt;条件下, $\dfrac{ \partial }{ \partial x } = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{aligned}
+( \frac{ \partial^2 }{ \partial y^2 } + k_c^2) e_z(x,y) &amp;amp;= 0 \\
+e_z(x,y) &amp;amp;= A sin(k_c y) + B cos(k_c y) \\
+e_z(x,0) &amp;amp;= e_z(x,d) = 0 \\
+\therefore B &amp;amp;= 0, k_c = \frac{ n \pi }{ d } \\
+\therefore e_z(x,y) &amp;amp;= A sin( \frac{ n \pi }{ d } y)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;solutions-2&#34;&gt;Solutions&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+E_z(x,y,z) &amp;amp;= A sin( \frac{ n \pi }{ d } y) e^{-j \beta z} \\
+H_x &amp;amp;= \frac{ j \omega \epsilon }{ k_c } cos( \frac{ n \pi }{ d } y) e^{-j \beta z} \\
+E_y &amp;amp;= \frac{ -j \beta }{ k_c } A_n cos( \frac{ n \pi }{ d }y) e^{-j \beta z} \\
+E_x &amp;amp;= H_y = 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;different-modes&#34;&gt;Different Modes&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;$TM_0$ Mode = $TEM$ Mode&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;此时，原来的方程解无效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;$TM_n$ Mode&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+f_c &amp;amp;= \frac{ k_c }{ 2\pi \sqrt{ \mu \epsilon } } \\
+\beta &amp;amp;= \sqrt{ k^2 - k_c^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在$f_c$以上电磁波才会传播，否则会decay&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_o &amp;amp;= \frac{ 1 }{ 2 } \mathcal{Re} \int_{ y = 0 }^{ d } \int_{ x=0 }^{ W } \overrightarrow{ E } \times \overrightarrow{ H }^* dx dy \\
+&amp;amp;= - \frac{ 1 }{ 2 } \mathcal{Re} \int_{  }^{  }\int_{  }^{  } E_yH_x^* dydx \\
+&amp;amp;= \begin{cases}
+\dfrac{ W \mathcal{Re} ( \beta) \omega \epsilon d }{ 4 k_c^2 } |A_n|^2 &amp;amp; n &amp;gt; 0 \\
+\dfrac{ W \mathcal{Re} ( \beta) \omega \epsilon d }{ 2 k_c^2 } |A_n|^2 &amp;amp; n = 0
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;bouncing-plane-waves&#34;&gt;Bouncing Plane Waves&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\beta &amp;amp;= \sqrt{ k^2 - (\pi/d)^2 } \\
+E_z &amp;amp;= A_1 sin ( \frac{ \pi y }{ d }) e^{-j \beta z} \\
+&amp;amp;= \frac{ A_1 }{ 2j } \Big[ e^{-j( -(\pi/d)y + \beta z)} + e^{-j( \pi/d) y+ \beta z} \Big] \\
+E_z &amp;amp;= A_1 e^{-j k (y sin \theta + z cos \theta)} \\
+\therefore
+\end{aligned}
 \end{gather}
 $$&lt;/p&gt;
 </description>
@@ -4425,12 +4530,40 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;466px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h3 id=&#34;inductors--capacitors&#34;&gt;Inductors &amp;amp; Capacitors&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
-\begin{aligned}&lt;/p&gt;
-&lt;p&gt;\end{aligned}
+\begin{aligned}
+W_m &amp;amp;= \frac{ \mu }{ 4 } \int_{ S }^{  } \overrightarrow{ H } \cdot \overrightarrow{ H }^* ds = \frac{ 1 }{ 4 } L |I_0|^2 \\
+\therefore L &amp;amp;= \frac{ \mu }{ |I_0|^2 } \int_{ S }^{  } \overrightarrow{ H } \cdot  \overrightarrow{ H }^* ds (H/m)\\
+C &amp;amp;= \frac{ \epsilon }{ |V_0|^2 } \int_{ S }^{  } \overrightarrow{ E } \cdot  \overrightarrow{ E }^* ds (F/m) \\
+\end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;h3 id=&#34;lossy-energy-due-to-conductors--dielectric&#34;&gt;Lossy Energy Due to Conductors &amp;amp; Dielectric&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_c &amp;amp;= \frac{ R_s }{ 2 } \int_{ C_1 + C_2 }^{  } \overrightarrow{ H } \cdot \overrightarrow{ H }^* dl = \frac{ 1 }{ 2 } |I_0|^2 R \\
+\therefore R_s &amp;amp;= \frac{ R_s }{ |I_0|^2} \int_{ C_1 + C_2 }^{  } \overrightarrow{ H } \cdot \overrightarrow{ H }^* dl \\
+P_d &amp;amp;= \frac{ \omega \epsilon&amp;rsquo;&amp;rsquo; }{ 2 } \int_{ S }^{  } \overrightarrow{ E } \cdot  \overrightarrow{ E }^* ds = \frac{ 1 }{ 2 } G |V_0|^2 \\
+\therefore G &amp;amp;= \frac{ \omega \epsilon&amp;rsquo;&amp;rsquo; }{ |V_o|^2 } \int_{ S }^{  } \overrightarrow{ E } \cdot  \overrightarrow{ E }^* ds (S/m)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;transmission-line-parameters-for-some-common-lines&#34;&gt;Transmission Line Parameters for Some Common Lines&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/15.png&#34;
+	width=&#34;2318&#34;
+	height=&#34;1286&#34;
+	srcset=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/15_hub62f53df714d899c23ca54daf1183c4c_230351_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/2.-transmission-line-theory/15_hub62f53df714d899c23ca54daf1183c4c_230351_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;432px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h1 id=&#34;terminated-lossless-transmission-line&#34;&gt;Terminated Lossless Transmission Line&lt;/h1&gt;
 &lt;h2 id=&#34;impedances--reflected-coefficient&#34;&gt;Impedances &amp;amp; Reflected Coefficient&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/6.png&#34;
@@ -5061,50 +5194,6 @@ u_{-1}(t) &amp;amp;= u(t) \overset{ \mathcal{L} }{  \longleftrightarrow } s^{-1}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>A2 Filter</title>
-        <link>https://downeyflyfan.com/p/a2-filter/</link>
-        <pubDate>Sat, 25 Nov 2023 14:25:03 +0800</pubDate>
-        
-        <guid>https://downeyflyfan.com/p/a2-filter/</guid>
-        <description>&lt;h1 id=&#34;1st-order-filters&#34;&gt;1st-Order Filters&lt;/h1&gt;
-&lt;h2 id=&#34;bpf&#34;&gt;BPF&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-filter/2.png&#34;
-	width=&#34;1074&#34;
-	height=&#34;536&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-filter/2_hud2d07d9e97fe306866e3a4143b1ad791_127996_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-filter/2_hud2d07d9e97fe306866e3a4143b1ad791_127996_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;200&#34;
-		data-flex-basis=&#34;480px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-G_v &amp;amp;= \frac{ 1 }{ 2 } \frac{ sRC }{ s^2 R^2 C^2  + 2sRC + 1 }\\
-R &amp;amp;= \frac{ 1 }{ \omega_c C }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h1 id=&#34;2nd-order-lpf&#34;&gt;2nd-Order LPF&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2-filter/1.png&#34;
-	width=&#34;1220&#34;
-	height=&#34;564&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2-filter/1_hua2ee3c3729848dcbfc8019735efcebf5_119377_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2-filter/1_hua2ee3c3729848dcbfc8019735efcebf5_119377_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;216&#34;
-		data-flex-basis=&#34;519px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
 </description>
         </item>
         <item>

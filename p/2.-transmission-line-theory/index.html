@@ -272,7 +272,13 @@
     </li>
     <li><a href="#field-analysis-for-transmission-lines-待续">Field Analysis for Transmission Lines (待续)</a>
       <ol>
-        <li><a href="#transmission-line-parameters">Transmission Line Parameters</a></li>
+        <li><a href="#transmission-line-parameters">Transmission Line Parameters</a>
+          <ol>
+            <li><a href="#inductors--capacitors">Inductors &amp; Capacitors</a></li>
+            <li><a href="#lossy-energy-due-to-conductors--dielectric">Lossy Energy Due to Conductors &amp; Dielectric</a></li>
+            <li><a href="#transmission-line-parameters-for-some-common-lines">Transmission Line Parameters for Some Common Lines</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#terminated-lossless-transmission-line">Terminated Lossless Transmission Line</a>
@@ -669,12 +675,40 @@ $$</p>
 		data-flex-basis="466px"
 	
 ></p>
+<h3 id="inductors--capacitors">Inductors &amp; Capacitors</h3>
 <p>$$
 \begin{gather}
-\begin{aligned}</p>
-<p>\end{aligned}
+\begin{aligned}
+W_m &amp;= \frac{ \mu }{ 4 } \int_{ S }^{  } \overrightarrow{ H } \cdot \overrightarrow{ H }^* ds = \frac{ 1 }{ 4 } L |I_0|^2 \\
+\therefore L &amp;= \frac{ \mu }{ |I_0|^2 } \int_{ S }^{  } \overrightarrow{ H } \cdot  \overrightarrow{ H }^* ds (H/m)\\
+C &amp;= \frac{ \epsilon }{ |V_0|^2 } \int_{ S }^{  } \overrightarrow{ E } \cdot  \overrightarrow{ E }^* ds (F/m) \\
+\end{aligned}
 \end{gather}
 $$</p>
+<h3 id="lossy-energy-due-to-conductors--dielectric">Lossy Energy Due to Conductors &amp; Dielectric</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_c &amp;= \frac{ R_s }{ 2 } \int_{ C_1 + C_2 }^{  } \overrightarrow{ H } \cdot \overrightarrow{ H }^* dl = \frac{ 1 }{ 2 } |I_0|^2 R \\
+\therefore R_s &amp;= \frac{ R_s }{ |I_0|^2} \int_{ C_1 + C_2 }^{  } \overrightarrow{ H } \cdot \overrightarrow{ H }^* dl \\
+P_d &amp;= \frac{ \omega \epsilon&rsquo;&rsquo; }{ 2 } \int_{ S }^{  } \overrightarrow{ E } \cdot  \overrightarrow{ E }^* ds = \frac{ 1 }{ 2 } G |V_0|^2 \\
+\therefore G &amp;= \frac{ \omega \epsilon&rsquo;&rsquo; }{ |V_o|^2 } \int_{ S }^{  } \overrightarrow{ E } \cdot  \overrightarrow{ E }^* ds (S/m)
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="transmission-line-parameters-for-some-common-lines">Transmission Line Parameters for Some Common Lines</h3>
+<p><img src="/p/2.-transmission-line-theory/15.png"
+	width="2318"
+	height="1286"
+	srcset="/p/2.-transmission-line-theory/15_hub62f53df714d899c23ca54daf1183c4c_230351_480x0_resize_box_3.png 480w, /p/2.-transmission-line-theory/15_hub62f53df714d899c23ca54daf1183c4c_230351_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="432px"
+	
+></p>
 <h1 id="terminated-lossless-transmission-line">Terminated Lossless Transmission Line</h1>
 <h2 id="impedances--reflected-coefficient">Impedances &amp; Reflected Coefficient</h2>
 <p><img src="/p/2.-transmission-line-theory/6.png"
@@ -1203,12 +1237,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/2.-smith-graph-rf-network/">
+    <a href="/p/a1-fragmentray-knowledge/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">2. Smith Graph &amp; RF Network</h2>
+            <h2 class="article-title">A1 Fragmentray Knowledge</h2>
         </div>
     </a>
 </article>
@@ -1216,12 +1250,12 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/a1-fragmentray-knowledge/">
+    <a href="/p/2.-smith-graph-rf-network/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">A1 Fragmentray Knowledge</h2>
+            <h2 class="article-title">2. Smith Graph &amp; RF Network</h2>
         </div>
     </a>
 </article>

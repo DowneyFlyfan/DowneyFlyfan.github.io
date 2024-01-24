@@ -266,8 +266,18 @@
             <li><a href="#expression">Expression</a></li>
           </ol>
         </li>
-        <li><a href="#te-waves-h-waves">TE Waves (H-Waves)</a></li>
-        <li><a href="#tm-waves-e-waves">TM Waves (E-Waves)</a></li>
+        <li><a href="#te-waves-h-waves">TE Waves (H-Waves)</a>
+          <ol>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#impedance">Impedance</a></li>
+          </ol>
+        </li>
+        <li><a href="#tm-waves-e-waves">TM Waves (E-Waves)</a>
+          <ol>
+            <li><a href="#solutions-1">Solutions</a></li>
+            <li><a href="#impedance-1">Impedance</a></li>
+          </ol>
+        </li>
         <li><a href="#attenuation-due-to-dielectric-loss-">Attenuation Due to Dielectric Loss &hellip;</a></li>
       </ol>
     </li>
@@ -275,8 +285,16 @@
       <ol>
         <li><a href="#tem-mode">TEM Mode</a>
           <ol>
-            <li><a href="#potenial-fields">Potenial Fields</a></li>
+            <li><a href="#potential--fields">Potential &amp; Fields</a></li>
             <li><a href="#current-voltage-impedance">Current Voltage Impedance</a></li>
+          </ol>
+        </li>
+        <li><a href="#tm-mode">TM Mode</a>
+          <ol>
+            <li><a href="#solving-equations">Solving Equations</a></li>
+            <li><a href="#solutions-2">Solutions</a></li>
+            <li><a href="#different-modes">Different Modes</a></li>
+            <li><a href="#bouncing-plane-waves">Bouncing Plane Waves</a></li>
           </ol>
         </li>
       </ol>
@@ -345,7 +363,7 @@
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -458,10 +476,24 @@ Z_{TEM} &amp;= \frac{ E_x }{ H_y } = \frac{ -E_y }{ H_x } = \eta \\
 \end{gather}
 $$</p>
 <h2 id="te-waves-h-waves">TE Waves (H-Waves)</h2>
+<ul>
+<li>$E_z =0, H_z \neq 0$</li>
+</ul>
+<h3 id="solutions">Solutions</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
-E_z &amp;=0, H_z \neq 0 \\
+H_x &amp;= \frac{ -j \beta }{ k_c^2 } \frac{ \partial H_z }{ \partial x } \\
+H_y &amp;= \frac{ -j \beta }{ k_c^2 } \frac{ \partial H_z }{ \partial y } \\
+E_x &amp;= \frac{ -j \omega \mu }{ k_c^2 } \frac{ \partial H_z }{ \partial y } \\
+E_y &amp;= \frac{ j \omega \mu }{ k_c^2 } \frac{ \partial H_z }{ \partial x }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="impedance">Impedance</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
 ( \frac{ \partial^2 }{ \partial x^2 } + \frac{ \partial^2  }{ \partial y^2 } + \frac{ \partial^2 }{ \partial z^2 } + k^2) H_z &amp;= 0 \\
 ( \frac{ \partial^2 }{ \partial x^2 } + \frac{ \partial^2  }{ \partial y^2 } + k_c^2) h_z &amp;= 0 \\
 Z_{TE} &amp;= \frac{ E_x }{ H_y } = \frac{ k \eta }{ \beta }
@@ -469,17 +501,30 @@ Z_{TE} &amp;= \frac{ E_x }{ H_y } = \frac{ k \eta }{ \beta }
 \end{gather}
 $$</p>
 <h2 id="tm-waves-e-waves">TM Waves (E-Waves)</h2>
+<ul>
+<li>$H_z =0, E_z \neq 0$</li>
+</ul>
+<h3 id="solutions-1">Solutions</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
-H_z &amp;=0, E_z \neq 0 \\
+H_x &amp;= \frac{ j \omega \epsilon }{ k_c^2 } \frac{ \partial E_z }{ \partial y }  \\
+H_y &amp;= \frac{ - j \omega \epsilon }{ k_c^2 } \frac{ \partial E_z }{ \partial x } \\
+E_x &amp;= \frac{ -j \beta }{ k_c^2 } \frac{ \partial E_z }{ \partial x} \\
+E_y &amp;= \frac{ -j \beta }{ k_c^2 } \frac{ \partial E_z }{ \partial y }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="impedance-1">Impedance</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
 Z_{TM} &amp;= \frac{ \beta k }{ \eta }
 \end{aligned}
 \end{gather}
 $$</p>
 <h2 id="attenuation-due-to-dielectric-loss-">Attenuation Due to Dielectric Loss &hellip;</h2>
 <h1 id="parallel-plate-waveguides">Parallel Plate Waveguides</h1>
-<h2 id="tem-mode">TEM Mode</h2>
 <p><img src="/p/3.-transmission-lines-waveguides/2.png"
 	width="1294"
 	height="906"
@@ -492,7 +537,8 @@ $$</p>
 		data-flex-basis="342px"
 	
 ></p>
-<h3 id="potenial-fields">Potenial Fields</h3>
+<h2 id="tem-mode">TEM Mode</h2>
+<h3 id="potential--fields">Potential &amp; Fields</h3>
 <p>$$
 \begin{gather}
 \begin{aligned}
@@ -510,8 +556,85 @@ $$</p>
 <h3 id="current-voltage-impedance">Current Voltage Impedance</h3>
 <p>$$
 \begin{gather}
-\begin{aligned}</p>
-<p>\end{aligned}
+\begin{aligned}
+V &amp;= V_o e^{-jkz} \\
+I &amp;= \int_{ x = 0 }^{ W } \overrightarrow{ J_s } \cdot  \overrightarrow{ z } dx = \int_{ x = 0 }^{ W } (- \overrightarrow{ y } \times \overrightarrow{ H }) \cdot  \overrightarrow{ z } dx \\
+&amp;= \int_{ x=0 }^{ W } H_x dx \\
+&amp;= \frac{ V_o W }{ \eta d } e^{-jkz} \\
+Z &amp;= \frac{ V }{ I } \\
+&amp;= \frac{ \eta d }{ W } \\
+v_p &amp;= \frac{ \omega }{ \beta } = \frac{ 1 }{ \sqrt{ \mu \epsilon } }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="tm-mode">TM Mode</h2>
+<h3 id="solving-equations">Solving Equations</h3>
+<ul>
+<li>在<strong>Parallel Plate</strong>条件下, $\dfrac{ \partial }{ \partial x } = 0$</li>
+</ul>
+<p>$$
+\begin{aligned}
+( \frac{ \partial^2 }{ \partial y^2 } + k_c^2) e_z(x,y) &amp;= 0 \\
+e_z(x,y) &amp;= A sin(k_c y) + B cos(k_c y) \\
+e_z(x,0) &amp;= e_z(x,d) = 0 \\
+\therefore B &amp;= 0, k_c = \frac{ n \pi }{ d } \\
+\therefore e_z(x,y) &amp;= A sin( \frac{ n \pi }{ d } y)
+\end{aligned}
+$$</p>
+<h3 id="solutions-2">Solutions</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+E_z(x,y,z) &amp;= A sin( \frac{ n \pi }{ d } y) e^{-j \beta z} \\
+H_x &amp;= \frac{ j \omega \epsilon }{ k_c } cos( \frac{ n \pi }{ d } y) e^{-j \beta z} \\
+E_y &amp;= \frac{ -j \beta }{ k_c } A_n cos( \frac{ n \pi }{ d }y) e^{-j \beta z} \\
+E_x &amp;= H_y = 0
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="different-modes">Different Modes</h3>
+<ol>
+<li>$TM_0$ Mode = $TEM$ Mode</li>
+</ol>
+<ul>
+<li>此时，原来的方程解无效</li>
+</ul>
+<ol start="2">
+<li>$TM_n$ Mode</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+f_c &amp;= \frac{ k_c }{ 2\pi \sqrt{ \mu \epsilon } } \\
+\beta &amp;= \sqrt{ k^2 - k_c^2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>在$f_c$以上电磁波才会传播，否则会decay</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_o &amp;= \frac{ 1 }{ 2 } \mathcal{Re} \int_{ y = 0 }^{ d } \int_{ x=0 }^{ W } \overrightarrow{ E } \times \overrightarrow{ H }^* dx dy \\
+&amp;= - \frac{ 1 }{ 2 } \mathcal{Re} \int_{  }^{  }\int_{  }^{  } E_yH_x^* dydx \\
+&amp;= \begin{cases}
+\dfrac{ W \mathcal{Re} ( \beta) \omega \epsilon d }{ 4 k_c^2 } |A_n|^2 &amp; n &gt; 0 \\
+\dfrac{ W \mathcal{Re} ( \beta) \omega \epsilon d }{ 2 k_c^2 } |A_n|^2 &amp; n = 0
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="bouncing-plane-waves">Bouncing Plane Waves</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\beta &amp;= \sqrt{ k^2 - (\pi/d)^2 } \\
+E_z &amp;= A_1 sin ( \frac{ \pi y }{ d }) e^{-j \beta z} \\
+&amp;= \frac{ A_1 }{ 2j } \Big[ e^{-j( -(\pi/d)y + \beta z)} + e^{-j( \pi/d) y+ \beta z} \Big] \\
+E_z &amp;= A_1 e^{-j k (y sin \theta + z cos \theta)} \\
+\therefore
+\end{aligned}
 \end{gather}
 $$</p>
 
@@ -605,6 +728,19 @@ $$</p>
             
                 
 <article class="">
+    <a href="/p/a1-fragmentray-knowledge/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">A1 Fragmentray Knowledge</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/2.-transmission-line-theory/">
         
         
@@ -624,19 +760,6 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">2. Smith Graph &amp; RF Network</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/a1-fragmentray-knowledge/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">A1 Fragmentray Knowledge</h2>
         </div>
     </a>
 </article>
