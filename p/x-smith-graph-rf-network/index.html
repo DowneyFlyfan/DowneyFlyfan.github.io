@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Representation of Reflect Coefficient on Complex Plane 反射系数的表示 $$ \begin{gather} \begin{aligned} \Gamma(x&amp;rsquo;) &amp;amp;= | \Gamma_L| e^{j ( \phi_L - 2 \beta x&amp;rsquo;)} \\ &amp;amp;= \Gamma_r &#43; j \Gamma_i \end{aligned} \end{gather} $$
+等反射系数圆 Smith Graph 的半径是$|\Gamma_L|$, 因此同一个也就是等反射系数圆
+半径为1的圆是单位反射圆
+电刻度圆 $$ \begin{gather} \begin{aligned} \phi &amp;amp;= \phi_L - 2 \beta x&amp;rsquo; \\ &amp;amp;= \phi_L - \frac{ 4 \pi }{ \lambda } x&#39; \end{aligned} \end{gather} $$
+转一圈对应$x&amp;rsquo; = \dfrac{ \lambda }{ 2 }$, 因为$\Gamma_L$是周期为$\dfrac{ \lambda }{2}$的函数 Smith Chart Normalized Impedance $$ \begin{gather} \begin{aligned} Z_{in} (x&amp;rsquo;) &amp;amp;= \frac{ Z_{in}(x&amp;rsquo;) }{ Z_0 } \\ &amp;amp;= Z_0 \frac{ 1 &#43; \Gamma(x&amp;rsquo;) }{ 1 - \Gamma(x&amp;rsquo;) } \\ &amp;amp;= \frac{ 1 - \Gamma_r^2 - \Gamma_i^2 }{ (1 - \Gamma_r)^2 &#43; \Gamma_i^2 } &#43; j \frac{ 2 \Gamma_i }{ (1 - \Gamma_r)^2 &#43; \Gamma_i^2} \end{aligned} \end{gather} $$'>
+<title>X Smith Graph &amp; RF Network</title>
+
+<link rel='canonical' href='https://downeyflyfan.com/p/x-smith-graph-rf-network/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='X Smith Graph &amp; RF Network'>
+<meta property='og:description' content='Representation of Reflect Coefficient on Complex Plane 反射系数的表示 $$ \begin{gather} \begin{aligned} \Gamma(x&amp;rsquo;) &amp;amp;= | \Gamma_L| e^{j ( \phi_L - 2 \beta x&amp;rsquo;)} \\ &amp;amp;= \Gamma_r &#43; j \Gamma_i \end{aligned} \end{gather} $$
+等反射系数圆 Smith Graph 的半径是$|\Gamma_L|$, 因此同一个也就是等反射系数圆
+半径为1的圆是单位反射圆
+电刻度圆 $$ \begin{gather} \begin{aligned} \phi &amp;amp;= \phi_L - 2 \beta x&amp;rsquo; \\ &amp;amp;= \phi_L - \frac{ 4 \pi }{ \lambda } x&#39; \end{aligned} \end{gather} $$
+转一圈对应$x&amp;rsquo; = \dfrac{ \lambda }{ 2 }$, 因为$\Gamma_L$是周期为$\dfrac{ \lambda }{2}$的函数 Smith Chart Normalized Impedance $$ \begin{gather} \begin{aligned} Z_{in} (x&amp;rsquo;) &amp;amp;= \frac{ Z_{in}(x&amp;rsquo;) }{ Z_0 } \\ &amp;amp;= Z_0 \frac{ 1 &#43; \Gamma(x&amp;rsquo;) }{ 1 - \Gamma(x&amp;rsquo;) } \\ &amp;amp;= \frac{ 1 - \Gamma_r^2 - \Gamma_i^2 }{ (1 - \Gamma_r)^2 &#43; \Gamma_i^2 } &#43; j \frac{ 2 \Gamma_i }{ (1 - \Gamma_r)^2 &#43; \Gamma_i^2} \end{aligned} \end{gather} $$'>
+<meta property='og:url' content='https://downeyflyfan.com/p/x-smith-graph-rf-network/'>
+<meta property='og:site_name' content='Flyfan Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2023-11-29T16:14:41&#43;08:00'/><meta property='article:modified_time' content='2023-11-29T16:14:41&#43;08:00'/>
+<meta name="twitter:title" content="X Smith Graph &amp; RF Network">
+<meta name="twitter:description" content="Representation of Reflect Coefficient on Complex Plane 反射系数的表示 $$ \begin{gather} \begin{aligned} \Gamma(x&amp;rsquo;) &amp;amp;= | \Gamma_L| e^{j ( \phi_L - 2 \beta x&amp;rsquo;)} \\ &amp;amp;= \Gamma_r &#43; j \Gamma_i \end{aligned} \end{gather} $$
+等反射系数圆 Smith Graph 的半径是$|\Gamma_L|$, 因此同一个也就是等反射系数圆
+半径为1的圆是单位反射圆
+电刻度圆 $$ \begin{gather} \begin{aligned} \phi &amp;amp;= \phi_L - 2 \beta x&amp;rsquo; \\ &amp;amp;= \phi_L - \frac{ 4 \pi }{ \lambda } x&#39; \end{aligned} \end{gather} $$
+转一圈对应$x&amp;rsquo; = \dfrac{ \lambda }{ 2 }$, 因为$\Gamma_L$是周期为$\dfrac{ \lambda }{2}$的函数 Smith Chart Normalized Impedance $$ \begin{gather} \begin{aligned} Z_{in} (x&amp;rsquo;) &amp;amp;= \frac{ Z_{in}(x&amp;rsquo;) }{ Z_0 } \\ &amp;amp;= Z_0 \frac{ 1 &#43; \Gamma(x&amp;rsquo;) }{ 1 - \Gamma(x&amp;rsquo;) } \\ &amp;amp;= \frac{ 1 - \Gamma_r^2 - \Gamma_i^2 }{ (1 - \Gamma_r)^2 &#43; \Gamma_i^2 } &#43; j \frac{ 2 \Gamma_i }{ (1 - \Gamma_r)^2 &#43; \Gamma_i^2} \end{aligned} \end{gather} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu62edb26072f005515c3c4237363ebd9b_786285_300x0_resize_box_3.png" width="300"
+                            height="289" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Flyfan Blog</a></h1>
+            <h2 class="site-description">A Record of My Study</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://downeyflyfan.com/" selected>English</option>
+                        
+                            <option value="https://downeyflyfan.com/zh-cn/" >中文</option>
+                        
+                            <option value="https://downeyflyfan.com/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#representation-of-reflect-coefficient-on-complex-plane">Representation of Reflect Coefficient on Complex Plane</a>
+      <ol>
+        <li><a href="#反射系数的表示">反射系数的表示</a></li>
+        <li><a href="#等反射系数圆">等反射系数圆</a></li>
+        <li><a href="#电刻度圆">电刻度圆</a></li>
+      </ol>
+    </li>
+    <li><a href="#smith-chart">Smith Chart</a>
+      <ol>
+        <li><a href="#normalized-impedance">Normalized Impedance</a></li>
+        <li><a href="#等电阻圆--等电抗圆">等电阻圆 &amp; 等电抗圆</a></li>
+      </ol>
+    </li>
+    <li><a href="#2-ports-network">2-Ports Network</a>
+      <ol>
+        <li><a href="#low-frequency">Low Frequency</a>
+          <ol>
+            <li><a href="#impedance--admittace-parameters">Impedance &amp; Admittace Parameters</a></li>
+            <li><a href="#hybrid--transfer-parameters">Hybrid &amp; Transfer Parameters</a></li>
+            <li><a href="#transfer-matrix">Transfer Matrix</a></li>
+            <li><a href="#t型网络">T型网络</a></li>
+            <li><a href="#pi型网络">$\pi$型网络</a></li>
+            <li><a href="#uniform-transmission-line">Uniform Transmission Line</a></li>
+          </ol>
+        </li>
+        <li><a href="#high-frequency">High Frequency</a>
+          <ol>
+            <li><a href="#scattered-parameter">Scattered Parameter</a></li>
+            <li><a href="#s-parameter">S Parameter</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#4-ports-network">4-Ports Network</a>
+      <ol>
+        <li><a href="#schematic">Schematic</a></li>
+        <li><a href="#factors">Factors</a></li>
+        <li><a href="#s-parameter-analysis-in-idealized-case">S Parameter Analysis In Idealized Case</a></li>
+        <li><a href="#s-parameter-of-idealized-couplers">S Parameter of Idealized Couplers</a>
+          <ol>
+            <li><a href="#branch-line-coupler">Branch-Line Coupler</a></li>
+            <li><a href="#rat-race-coupler-180-degree-hybrid-coupler">Rat-Race Coupler (180-degree Hybrid Coupler)</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#evenodd-mode">Even/Odd Mode</a>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#impedance">Impedance</a>
+          <ol>
+            <li><a href="#voltage-component">Voltage Component</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#appendix">Appendix</a>
+      <ol>
+        <li><a href="#电抗">电抗</a></li>
+        <li><a href="#q值">Q值</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/rfic/" style="background-color: #8B0001; color: #fff;">
+                RFIC
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/x-smith-graph-rf-network/">X Smith Graph &amp; RF Network</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 29, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="representation-of-reflect-coefficient-on-complex-plane">Representation of Reflect Coefficient on Complex Plane</h1>
+<h2 id="反射系数的表示">反射系数的表示</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\Gamma(x&rsquo;) &amp;= | \Gamma_L| e^{j ( \phi_L - 2 \beta x&rsquo;)} \\
+&amp;= \Gamma_r + j \Gamma_i
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="等反射系数圆">等反射系数圆</h2>
+<ul>
+<li>
+<p>Smith Graph 的半径是$|\Gamma_L|$, 因此同一个也就是<strong>等反射系数圆</strong></p>
+</li>
+<li>
+<p>半径为1的圆是<strong>单位反射圆</strong></p>
+</li>
+</ul>
+<h2 id="电刻度圆">电刻度圆</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\phi &amp;= \phi_L - 2 \beta x&rsquo; \\
+&amp;= \phi_L - \frac{ 4 \pi }{ \lambda } x'
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>转一圈对应$x&rsquo; = \dfrac{ \lambda }{ 2 }$, 因为$\Gamma_L$是周期为$\dfrac{ \lambda }{2}$的函数</li>
+</ul>
+<p><img src="/p/x-smith-graph-rf-network/1.png"
+	width="1598"
+	height="1424"
+	srcset="/p/x-smith-graph-rf-network/1_hu8410b8778f8afedd8b9790bf0a450484_791471_480x0_resize_box_3.png 480w, /p/x-smith-graph-rf-network/1_hu8410b8778f8afedd8b9790bf0a450484_791471_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="112"
+		data-flex-basis="269px"
+	
+></p>
+<h1 id="smith-chart">Smith Chart</h1>
+<h2 id="normalized-impedance">Normalized Impedance</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{in} (x&rsquo;) &amp;= \frac{ Z_{in}(x&rsquo;) }{ Z_0 } \\
+&amp;= Z_0 \frac{ 1 + \Gamma(x&rsquo;) }{ 1 - \Gamma(x&rsquo;) } \\
+&amp;= \frac{ 1 - \Gamma_r^2 - \Gamma_i^2 }{ (1 - \Gamma_r)^2 + \Gamma_i^2 } + j \frac{ 2 \Gamma_i }{ (1 - \Gamma_r)^2 + \Gamma_i^2}
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+R &amp;= \frac{ 1 - \Gamma_r^2 - \Gamma_i^2 }{ (1 - \Gamma_r)^2 + \Gamma_i^2 } \\
+X &amp;= \frac{ 2 \Gamma_i }{ (1 - \Gamma_r)^2 + \Gamma_i^2}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="等电阻圆--等电抗圆">等电阻圆 &amp; 等电抗圆</h2>
+<ul>
+<li>根据<strong>方程4</strong>可以得出<strong>等电阻圆</strong>和<strong>等电抗圆</strong></li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+(\Gamma_r - \frac{ r }{ 1 + r })^2 + \Gamma_i^2 &amp;= ( \frac{ 1 }{ 1 + r })^2 \\
+( \Gamma_r - 1)^2 + ( \Gamma_i - \frac{ 1 }{ X }) &amp;= (\frac{ 1 }{ X })^2
+\end{aligned}
+\end{gather}
+$$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">等电阻圆</td>
+<td style="text-align:center">圆心在实轴上，半径为$\dfrac{ 1 }{ r }$</td>
+</tr>
+<tr>
+<td style="text-align:center">等电抗圆</td>
+<td style="text-align:center">圆心在$\Gamma_r = 1$上，半径为$\dfrac{ 1 }{ X }$</td>
+</tr>
+</tbody>
+</table></div>
+<p><img src="/p/x-smith-graph-rf-network/2.png"
+	width="1634"
+	height="838"
+	srcset="/p/x-smith-graph-rf-network/2_huc1e0fb8163a5aab3fd29799ddff7533a_553159_480x0_resize_box_3.png 480w, /p/x-smith-graph-rf-network/2_huc1e0fb8163a5aab3fd29799ddff7533a_553159_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="467px"
+	
+></p>
+<h1 id="2-ports-network">2-Ports Network</h1>
+<h2 id="low-frequency">Low Frequency</h2>
+<h3 id="impedance--admittace-parameters">Impedance &amp; Admittace Parameters</h3>
+<p><img src="/17.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[V] &amp;= [Z] [i] \\
+[I] &amp;= [Y] [V]  \\
+[V] &amp;= \begin{bmatrix}
+V_1 \
+V_2
+\end{bmatrix} \\
+[Z] &amp;= \begin{bmatrix}
+Z_{11} &amp; Z_{12}  \\
+Z_{21} &amp; Z_{22}
+\end{bmatrix} \\
+[i] &amp;= \begin{bmatrix}
+i_1  \
+i_2
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{mn} &amp;= \begin{cases}
+\dfrac{ V_m }{ i_m }|<em>{i_n = 0} &amp; n = m \\\
+\\ \dfrac{ V_m }{ i_n }|</em>{i_m = 0} &amp; n \neq m
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="hybrid--transfer-parameters">Hybrid &amp; Transfer Parameters</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+v_1\\
+i_2
+\end{bmatrix} &amp;= \begin{bmatrix}
+h_{11} &amp; h_{12}\\
+h_{21} &amp; h_{22}
+\end{bmatrix} \begin{bmatrix}
+i_1\\
+v_2
+\end{bmatrix} \\
+\begin{bmatrix}
+v_1\\
+i_1
+\end{bmatrix} &amp;=  \begin{bmatrix}
+A &amp; B\\
+C &amp; D
+\end{bmatrix} \begin{bmatrix}
+v_2\\
+-i_2
+\end{bmatrix} \\
+[ABCD] &amp;= \begin{bmatrix}
+A &amp; B\\
+C &amp; D
+\end{bmatrix} \\
+&amp;= \begin{bmatrix}
+\dfrac{ v_1 }{ v_2 } &amp; - \dfrac{ v_1 }{ i_2 }\\
+\dfrac{ i_1 }{ v_2 } &amp; - \dfrac{ i_1 }{ i_2 }
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="transfer-matrix">Transfer Matrix</h3>
+<ol>
+<li>串联阻抗$Z$的二端口网络</li>
+</ol>
+<p><img src="/18.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$v_2 = 0$</td>
+<td style="text-align:center">$i_1 = -i_2 = \dfrac{ v_1 }{ Z }$</td>
+</tr>
+<tr>
+<td style="text-align:center">$i_2 = 0$</td>
+<td style="text-align:center">$i_1 = -i_2 = 0, v_1 = v_2$</td>
+</tr>
+</tbody>
+</table></div>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;= \begin{bmatrix}
+1 &amp; Z\\
+0 &amp; 1
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>并联导纳$Y$的二端口网络</li>
+</ol>
+<p><img src="/19.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;= \begin{bmatrix}
+1 &amp; 0\\
+Y &amp; 1
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="t型网络">T型网络</h3>
+<p><img src="/20.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<ul>
+<li>可以看成串联阻抗和并联导纳的<strong>Cascade</strong></li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;= \begin{bmatrix}
+1 + \dfrac{ Z_A }{ Z_C } &amp; Z_A + Z_B + \dfrac{ Z_A Z_B }{ Z_C }\\
+\dfrac{ 1 }{ Z_C } &amp; 1 + \dfrac{ Z_B }{ Z_C }
+\end{bmatrix} \\
+&amp;= \begin{bmatrix}
+1 &amp; Z_A \\
+0 &amp; 1
+\end{bmatrix} \begin{bmatrix}
+1 &amp; 0\\
+\dfrac{ 1 }{ Z_C } &amp; 1
+\end{bmatrix} \begin{bmatrix}
+1 &amp; Z_B\\
+0 &amp; 1
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="pi型网络">$\pi$型网络</h3>
+<p><img src="/21.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;= \begin{bmatrix}
+1 + \dfrac{ Y_B }{ Y_C } &amp; \dfrac{ 1 }{ Y_C }\\
+Y_A + Y_B + \dfrac{ Y_A Y_B }{ Y_C } &amp; 1 + \dfrac{ Y_A }{ Y_C }
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="uniform-transmission-line">Uniform Transmission Line</h3>
+<ul>
+<li>包含了$\dfrac{ \lambda }{ 4 }, \dfrac{ \lambda }{ 2 }$传输线的$T$矩阵</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[ABCD] &amp;= \begin{cases}
+\begin{bmatrix}
+cos( \beta l) &amp; jZ_0 sin( \beta l)\\
+j \dfrac{ 1 }{ Z_0 } sin( \beta l) &amp; cos( \beta l)
+\end{bmatrix} &amp; General \\
+\begin{bmatrix}
+0 &amp; j Z_0 \\
+\dfrac{ j }{ Z_0 } &amp; 0 &amp; \theta = \dfrac{ \lambda }{ 4 }
+\end{bmatrix} &amp; \theta = \dfrac{ \lambda }{ 4 } \\
+\begin{bmatrix}
+-1 &amp; 0 \\
+0 &amp; -1
+\end{bmatrix} &amp; \theta = \dfrac{ \lambda }{ 2 }
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="high-frequency">High Frequency</h2>
+<h3 id="scattered-parameter">Scattered Parameter</h3>
+<ol>
+<li>Normalized Parameter</li>
+</ol>
+<p><img src="/13.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<ul>
+<li>Normalized Voltage</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+a_1 &amp;= \frac{ V_1^+ }{ \sqrt{ Z_{01} } } \\
+b_1 &amp;= \frac{ V_1^- }{ \sqrt{ Z_{01} } } \\
+a_2 &amp;= \frac{ V_2^+ }{ \sqrt{ Z_{02} } } \\
+b_2 &amp;= \frac{ V_2^- }{ \sqrt{ Z_{02} } } \\
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>Normalized Power</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P(x&rsquo;) &amp;= \frac{ |V^+(x&rsquo;)|^2 }{ 2Z_0 } \Big[ 1 - | \Gamma(x&rsquo;)|^2 \Big] = P^+(x&rsquo;) - P^-(x&rsquo;) \\
+P_1 &amp;= \frac{ 1 }{ 2 } ( |a_1|^2 - |b_1|^2 ) \\
+P_2 &amp;= \frac{ 1 }{ 2 } ( |a_2|^2 - |b_2|^2 )
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="s-parameter">S Parameter</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[b] &amp;= [S] [a] \\
+[S] &amp;= \begin{bmatrix}
+S_{11} &amp; S_{12}\\
+S_{21} &amp; S_{22}
+\end{bmatrix}  \\
+&amp;= \begin{bmatrix}
+\dfrac{ b_1 }{ a_1 }|<em>{a_2 = 0} &amp; \dfrac{ b_1 }{ a_2 }|</em>{a_1 = 0} \\
+\dfrac{ b_2 }{ a_1 }|<em>{a_2 =0} &amp; \dfrac{ b_2 }{ a_2 }|</em>{a_1 = 0}
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="4-ports-network">4-Ports Network</h1>
+<h2 id="schematic">Schematic</h2>
+<p><img src="/10.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$P_1$</td>
+<td style="text-align:center">Input Power $P_{in}$</td>
+</tr>
+<tr>
+<td style="text-align:center">$P_2$</td>
+<td style="text-align:center">Forward Power $P_f$</td>
+</tr>
+<tr>
+<td style="text-align:center">$P_3$</td>
+<td style="text-align:center">Reflected Power $P_r$</td>
+</tr>
+<tr>
+<td style="text-align:center">$P_4$</td>
+<td style="text-align:center">Coupled Power $P_c$</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="factors">Factors</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Coupling Factor</td>
+<td style="text-align:center">$C = 10 \cdot lg( \dfrac{ P_i }{ P_c })$</td>
+</tr>
+<tr>
+<td style="text-align:center">Directivity</td>
+<td style="text-align:center">$D = 10  \cdot lg( \dfrac{ P_f }{ P_r})$</td>
+</tr>
+<tr>
+<td style="text-align:center">Isolation</td>
+<td style="text-align:center">$I = 10 \cdot lg( \dfrac{ P_i }{ P_r })$，隔离<strong>输入与反射</strong>，<strong>输出与耦合</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="s-parameter-analysis-in-idealized-case">S Parameter Analysis In Idealized Case</h2>
+<ol>
+<li>Idealized Case</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>4 Ports are Matched</strong></td>
+<td style="text-align:center">$S_{11} = S_{22} = S_{33} = S_{44} = 0$</td>
+</tr>
+<tr>
+<td style="text-align:center">It follows the property of <strong>symmetry</strong></td>
+<td style="text-align:center">$S_{ij} = S_{ji}$</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>1 &amp; 3, 2 &amp; 4</strong> are isolated</td>
+<td style="text-align:center">$S_{13} = S_{31} = S_{24} = S_{42} = 0$</td>
+</tr>
+<tr>
+<td style="text-align:center">Equal Forward Power</td>
+<td style="text-align:center">$S_{12} = S_{34} = P$</td>
+</tr>
+<tr>
+<td style="text-align:center">Equal Coupled Power</td>
+<td style="text-align:center">$S_{14} = S_{23} = Q$</td>
+</tr>
+<tr>
+<td style="text-align:center">Lossless</td>
+<td style="text-align:center">$[S] \cdot [S]^* = I$</td>
+</tr>
+<tr>
+<td style="text-align:center">对应端口阻抗相同</td>
+<td style="text-align:center">$Z_{ij} = Z_{ji}$</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="2">
+<li>S Matrix</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;= \begin{bmatrix}
+0 &amp; P &amp; 0 &amp; Q \\
+P &amp; 0 &amp; Q &amp; 0 \\
+0 &amp; Q &amp; 0 &amp; P \\
+Q &amp; 0 &amp; P &amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\because [S] \cdot [S]^* &amp;= I \\
+\therefore P^2 + Q^2 &amp;= 1
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="s-parameter-of-idealized-couplers">S Parameter of Idealized Couplers</h2>
+<h3 id="branch-line-coupler">Branch-Line Coupler</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;= \begin{bmatrix}
+0 &amp; -\dfrac{ j }{ \sqrt{ 2 } }  &amp; - \dfrac{ 1 }{ \sqrt{ 2 }} &amp; 0 \\</p>
+<ul>
+<li>\dfrac{ j }{ \sqrt{ 2 } } &amp; 0 &amp; 0 &amp; - \dfrac{ 1 }{ \sqrt{ 2 } }  \\</li>
+<li>\dfrac{ 1 }{ \sqrt{ 2 } }  &amp; 0 &amp; 0 &amp; - \dfrac{ j }{ \sqrt{ 2 }  } \\
+0  &amp; - \dfrac{ 1 }{ \sqrt{ 2 } } &amp; - \dfrac{ j }{ \sqrt{ 2 } } &amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</li>
+</ul>
+<h3 id="rat-race-coupler-180-degree-hybrid-coupler">Rat-Race Coupler (180-degree Hybrid Coupler)</h3>
+<p><img src="/p/x-smith-graph-rf-network/3.png"
+	width="424"
+	height="524"
+	srcset="/p/x-smith-graph-rf-network/3_hu66e87dcf6d5538220952607b23410216_184570_480x0_resize_box_3.png 480w, /p/x-smith-graph-rf-network/3_hu66e87dcf6d5538220952607b23410216_184570_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="80"
+		data-flex-basis="194px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;= - \frac{ j }{ \sqrt{ 2 } } \begin{bmatrix}
+0 &amp; 1 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; -1 \\
+1 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; -1 &amp; 1 &amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="evenodd-mode">Even/Odd Mode</h1>
+<h2 id="introduction">Introduction</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">项目</th>
+<th style="text-align:center">Even Mode</th>
+<th style="text-align:center">Odd Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">电流</td>
+<td style="text-align:center">$I_1 = I_2$</td>
+<td style="text-align:center">$I_1 = - I_2$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\varepsilon_{re}$</td>
+<td style="text-align:center">更大</td>
+<td style="text-align:center">更小</td>
+</tr>
+<tr>
+<td style="text-align:center">驱动</td>
+<td style="text-align:center">共模驱动</td>
+<td style="text-align:center">差分驱动</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>最终的参数应该是$\dfrac{ Z_e + Z_o }{ 2 }$</li>
+</ul>
+<h2 id="impedance">Impedance</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$Z_{diff}$</td>
+<td style="text-align:center">差分信号沿着差分对传播时受到的阻抗，是每条信号线与返回路径之间阻抗之和。</td>
+</tr>
+<tr>
+<td style="text-align:center">$Z_{common}$</td>
+<td style="text-align:center">共模信号沿传输线传播时收到的阻抗。共模信号是两条信号线的电压平均值，纯共模信号就是差分信号为0时的信号。</td>
+</tr>
+</tbody>
+</table></div>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{diff} &amp;= \begin{cases}
+2 Z_0 &amp; C = 0 \\
+2 Z_{odd} &amp; C \neq 0
+\end{cases} \\
+Z_{common} &amp;= \frac{ 1}{ 2 } Z_{even}
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>若$Z_0 = 50 \Omega$，那么$Z_0$的<strong>Even/Odd</strong>部分分别为</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{0o} &amp;= 50 \Omega \\
+Z_{0e} &amp;= 50 \Omega
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="voltage-component">Voltage Component</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_o &amp;= V_{diff} = V_1 - V_2 \\
+V_e &amp;= V_{common} = \frac{ V_1 + V_2 }{ 2 } \\
+V_1 &amp;= V_e + \frac{ V_o }{ 2 } \\
+V_2 &amp;= V_e - \frac{ V_o }{ 2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="appendix">Appendix</h1>
+<h2 id="电抗">电抗</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+X_C &amp;= -\frac{ 1 }{ \omega C } \\
+X_L &amp;= \omega L
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="q值">Q值</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Q &amp;= \frac{ E_{store} }{ E_{loss} }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>越高，表示品质越好</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/a2-semiconductors/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">A2 Semiconductors</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/4.-microwave-network-analysis/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">4. Microwave Network Analysis</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/3.-transmission-lines-waveguides/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3. Transmission Lines &amp; Waveguides</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/1.-electromagnetic-theory/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1. Electromagnetic Theory</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/a3.-coupler/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">A3. Coupler</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2024 Flyfan Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
