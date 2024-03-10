@@ -282,24 +282,6 @@
         <li><a href="#attenuation-due-to-dielectric-loss">Attenuation Due to Dielectric Loss</a></li>
       </ol>
     </li>
-    <li><a href="#parallel-plate-waveguides">Parallel Plate Waveguides</a>
-      <ol>
-        <li><a href="#tem-mode">TEM Mode</a>
-          <ol>
-            <li><a href="#potential--fields">Potential &amp; Fields</a></li>
-            <li><a href="#current-voltage-impedance">Current Voltage Impedance</a></li>
-          </ol>
-        </li>
-        <li><a href="#tm-mode">TM Mode</a>
-          <ol>
-            <li><a href="#solutions-2">Solutions</a></li>
-            <li><a href="#different-modes">Different Modes</a></li>
-            <li><a href="#bouncing-plane-waves">Bouncing Plane Waves</a></li>
-            <li><a href="#power-loss">Power Loss</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
   </ol>
 </nav>
         </div>
@@ -364,7 +346,7 @@
 
 
                 <time class="article-time--reading">
-                    7 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -548,156 +530,6 @@ $$</p>
 \end{aligned}
 \end{gather}
 $$</p>
-<h1 id="parallel-plate-waveguides">Parallel Plate Waveguides</h1>
-<p><img src="/p/3.-transmission-lines-waveguides/2.png"
-	width="1294"
-	height="906"
-	srcset="/p/3.-transmission-lines-waveguides/2_huc37274206da932cbe791f48aa0a4cc30_60526_480x0_resize_box_3.png 480w, /p/3.-transmission-lines-waveguides/2_huc37274206da932cbe791f48aa0a4cc30_60526_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="142"
-		data-flex-basis="342px"
-	
-></p>
-<h2 id="tem-mode">TEM Mode</h2>
-<h3 id="potential--fields">Potential &amp; Fields</h3>
-<p>$$
-\begin{gather}
-\begin{aligned}
-\phi(x,0) &amp;= 0 \\
-\phi(x,d) &amp;= V_o \\
-\phi(x,y) &amp;= \frac{ V_o }{ d } y \\
-\overrightarrow{ e }(x,y) &amp;= - \nabla \cdot \phi(x,y)  \\
-&amp;= - \frac{ V_o }{ d } \overrightarrow{ y } \\
-\overrightarrow{ E }(x,y,z) &amp;= - \frac{ V_o }{ d } e^{-jk z} \overrightarrow{ y } \\
-\overrightarrow{ H }(x,y,z) &amp;= \frac{ 1 }{ \eta } \overrightarrow{ z } \times \overrightarrow{ E }(x,y,z)  \\
-&amp;= \frac{ V_o }{ \eta d } e^{-jkz} \overrightarrow{ x }
-\end{aligned}
-\end{gather}
-$$</p>
-<h3 id="current-voltage-impedance">Current Voltage Impedance</h3>
-<p>$$
-\begin{gather}
-\begin{aligned}
-V &amp;= V_o e^{-jkz} \\
-I &amp;= \int_{ x = 0 }^{ W } \overrightarrow{ J_s } \cdot  \overrightarrow{ z } dx = \int_{ x = 0 }^{ W } (- \overrightarrow{ y } \times \overrightarrow{ H }) \cdot  \overrightarrow{ z } dx \\
-&amp;= \int_{ x=0 }^{ W } H_x dx \\
-&amp;= \frac{ V_o W }{ \eta d } e^{-jkz} \\
-Z &amp;= \frac{ V }{ I } \\
-&amp;= \frac{ \eta d }{ W } \\
-v_p &amp;= \frac{ \omega }{ \beta } = \frac{ 1 }{ \sqrt{ \mu \epsilon } }
-\end{aligned}
-\end{gather}
-$$</p>
-<h2 id="tm-mode">TM Mode</h2>
-<h3 id="solutions-2">Solutions</h3>
-<ol>
-<li>在<strong>Parallel Plate</strong>条件下, $\dfrac{ \partial }{ \partial x } = 0$</li>
-</ol>
-<p>$$
-\begin{aligned}
-( \frac{ \partial^2 }{ \partial y^2 } + k_c^2) e_z(x,y) &amp;= 0 \\
-e_z(x,y) &amp;= A sin(k_c y) + B cos(k_c y) \\
-e_z(x,0) &amp;= e_z(x,d) = 0 \\
-\therefore B &amp;= 0, k_c = \frac{ n \pi }{ d } \\
-\therefore e_z(x,y) &amp;= A sin( \frac{ n \pi }{ d } y)
-\end{aligned}
-$$</p>
-<ol start="2">
-<li>Solutions</li>
-</ol>
-<p>$$
-\begin{gather}
-\begin{aligned}
-E_z(x,y,z) &amp;= A sin( \frac{ n \pi }{ d } y) e^{-j \beta z} \\
-H_x &amp;= \frac{ j \omega \epsilon }{ k_c } cos( \frac{ n \pi }{ d } y) e^{-j \beta z} \\
-E_y &amp;= \frac{ -j \beta }{ k_c } A_n cos( \frac{ n \pi }{ d }y) e^{-j \beta z} \\
-E_x &amp;= H_y = 0
-\end{aligned}
-\end{gather}
-$$</p>
-<h3 id="different-modes">Different Modes</h3>
-<ol>
-<li>$TM_0$ Mode = $TEM$ Mode</li>
-</ol>
-<ul>
-<li>此时，原来的方程解无效</li>
-</ul>
-<ol start="2">
-<li>$TM_n$ Mode</li>
-</ol>
-<p>$$
-\begin{gather}
-\begin{aligned}
-f_c &amp;= \frac{ k_c }{ 2\pi \sqrt{ \mu \epsilon } } \\
-\beta &amp;= \sqrt{ k^2 - k_c^2 }
-\end{aligned}
-\end{gather}
-$$</p>
-<ul>
-<li>在$f_c$以上电磁波才会传播，否则会decay</li>
-</ul>
-<p>$$
-\begin{gather}
-\begin{aligned}
-P_o &amp;= \frac{ 1 }{ 2 } \mathcal{Re} \int_{ y = 0 }^{ d } \int_{ x=0 }^{ W } \overrightarrow{ E } \times \overrightarrow{ H }^* dx dy \\
-&amp;= - \frac{ 1 }{ 2 } \mathcal{Re} \int_{  }^{  }\int_{  }^{  } E_yH_x^* dydx \\
-&amp;= \begin{cases}
-\dfrac{ W \mathcal{Re} ( \beta) \omega \epsilon d }{ 4 k_c^2 } |A_n|^2 &amp; n &gt; 0 \\
-\dfrac{ W \mathcal{Re} ( \beta) \omega \epsilon d }{ 2 k_c^2 } |A_n|^2 &amp; n = 0
-\end{cases}
-\end{aligned}
-\end{gather}
-$$</p>
-<h3 id="bouncing-plane-waves">Bouncing Plane Waves</h3>
-<p><img src="/p/3.-transmission-lines-waveguides/3.png"
-	width="1250"
-	height="446"
-	srcset="/p/3.-transmission-lines-waveguides/3_hu6f2915fccf0f4cdce174d97f180b75f4_52115_480x0_resize_box_3.png 480w, /p/3.-transmission-lines-waveguides/3_hu6f2915fccf0f4cdce174d97f180b75f4_52115_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="280"
-		data-flex-basis="672px"
-	
-></p>
-<ol>
-<li>Electric Field</li>
-</ol>
-<p>$$
-\begin{gather}
-\begin{aligned}
-\beta &amp;= \sqrt{ k^2 - (\pi/d)^2 } \\
-E_z &amp;= A_1 sin ( \frac{ \pi y }{ d }) e^{-j \beta z} \\
-&amp;= \frac{ A_1 }{ 2j } \Big[ e^{-j( -(\pi/d)y + \beta z)} + e^{-j( \pi/d) y+ \beta z} \Big] \\
-E_z &amp;= A_1 e^{-j k (y sin \theta + z cos \theta)}
-\end{aligned}
-\end{gather}
-$$</p>
-<ol start="2">
-<li>Wave Number</li>
-</ol>
-<p>$$
-\begin{gather}
-\begin{aligned}
-k sin \theta &amp;= \frac{ \pi }{ d } \\
-k cos \theta &amp;= \beta_1 \\
-k^2 &amp;= (\frac{ \pi }{ d })^2 + \beta_1^2
-\end{aligned}
-\end{gather}
-$$</p>
-<h3 id="power-loss">Power Loss</h3>
-<p>$$
-\begin{gather}
-\begin{aligned}
-\alpha_c &amp;= \frac{ P_l }{ 2 P_o } \\
-P_l &amp;= 2 ( \frac{ R_s }{ 2 }) \int_{  }^{  }
-\end{aligned}
-\end{gather}
-$$</p>
 
 </section>
 
@@ -808,19 +640,6 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">2. Transmission Line Theory</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/x-smith-graph-rf-network/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">X Smith Graph &amp; RF Network</h2>
         </div>
     </a>
 </article>

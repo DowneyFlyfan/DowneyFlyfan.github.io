@@ -181,156 +181,6 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;parallel-plate-waveguides&#34;&gt;Parallel Plate Waveguides&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2.png&#34;
-	width=&#34;1294&#34;
-	height=&#34;906&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2_huc37274206da932cbe791f48aa0a4cc30_60526_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2_huc37274206da932cbe791f48aa0a4cc30_60526_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;142&#34;
-		data-flex-basis=&#34;342px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;tem-mode&#34;&gt;TEM Mode&lt;/h2&gt;
-&lt;h3 id=&#34;potential--fields&#34;&gt;Potential &amp;amp; Fields&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\phi(x,0) &amp;amp;= 0 \\
-\phi(x,d) &amp;amp;= V_o \\
-\phi(x,y) &amp;amp;= \frac{ V_o }{ d } y \\
-\overrightarrow{ e }(x,y) &amp;amp;= - \nabla \cdot \phi(x,y)  \\
-&amp;amp;= - \frac{ V_o }{ d } \overrightarrow{ y } \\
-\overrightarrow{ E }(x,y,z) &amp;amp;= - \frac{ V_o }{ d } e^{-jk z} \overrightarrow{ y } \\
-\overrightarrow{ H }(x,y,z) &amp;amp;= \frac{ 1 }{ \eta } \overrightarrow{ z } \times \overrightarrow{ E }(x,y,z)  \\
-&amp;amp;= \frac{ V_o }{ \eta d } e^{-jkz} \overrightarrow{ x }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;current-voltage-impedance&#34;&gt;Current Voltage Impedance&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-V &amp;amp;= V_o e^{-jkz} \\
-I &amp;amp;= \int_{ x = 0 }^{ W } \overrightarrow{ J_s } \cdot  \overrightarrow{ z } dx = \int_{ x = 0 }^{ W } (- \overrightarrow{ y } \times \overrightarrow{ H }) \cdot  \overrightarrow{ z } dx \\
-&amp;amp;= \int_{ x=0 }^{ W } H_x dx \\
-&amp;amp;= \frac{ V_o W }{ \eta d } e^{-jkz} \\
-Z &amp;amp;= \frac{ V }{ I } \\
-&amp;amp;= \frac{ \eta d }{ W } \\
-v_p &amp;amp;= \frac{ \omega }{ \beta } = \frac{ 1 }{ \sqrt{ \mu \epsilon } }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;tm-mode&#34;&gt;TM Mode&lt;/h2&gt;
-&lt;h3 id=&#34;solutions-2&#34;&gt;Solutions&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;在&lt;strong&gt;Parallel Plate&lt;/strong&gt;条件下, $\dfrac{ \partial }{ \partial x } = 0$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{aligned}
-( \frac{ \partial^2 }{ \partial y^2 } + k_c^2) e_z(x,y) &amp;amp;= 0 \\
-e_z(x,y) &amp;amp;= A sin(k_c y) + B cos(k_c y) \\
-e_z(x,0) &amp;amp;= e_z(x,d) = 0 \\
-\therefore B &amp;amp;= 0, k_c = \frac{ n \pi }{ d } \\
-\therefore e_z(x,y) &amp;amp;= A sin( \frac{ n \pi }{ d } y)
-\end{aligned}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Solutions&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-E_z(x,y,z) &amp;amp;= A sin( \frac{ n \pi }{ d } y) e^{-j \beta z} \\
-H_x &amp;amp;= \frac{ j \omega \epsilon }{ k_c } cos( \frac{ n \pi }{ d } y) e^{-j \beta z} \\
-E_y &amp;amp;= \frac{ -j \beta }{ k_c } A_n cos( \frac{ n \pi }{ d }y) e^{-j \beta z} \\
-E_x &amp;amp;= H_y = 0
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;different-modes&#34;&gt;Different Modes&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;$TM_0$ Mode = $TEM$ Mode&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;此时，原来的方程解无效&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;$TM_n$ Mode&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-f_c &amp;amp;= \frac{ k_c }{ 2\pi \sqrt{ \mu \epsilon } } \\
-\beta &amp;amp;= \sqrt{ k^2 - k_c^2 }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在$f_c$以上电磁波才会传播，否则会decay&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-P_o &amp;amp;= \frac{ 1 }{ 2 } \mathcal{Re} \int_{ y = 0 }^{ d } \int_{ x=0 }^{ W } \overrightarrow{ E } \times \overrightarrow{ H }^* dx dy \\
-&amp;amp;= - \frac{ 1 }{ 2 } \mathcal{Re} \int_{  }^{  }\int_{  }^{  } E_yH_x^* dydx \\
-&amp;amp;= \begin{cases}
-\dfrac{ W \mathcal{Re} ( \beta) \omega \epsilon d }{ 4 k_c^2 } |A_n|^2 &amp;amp; n &amp;gt; 0 \\
-\dfrac{ W \mathcal{Re} ( \beta) \omega \epsilon d }{ 2 k_c^2 } |A_n|^2 &amp;amp; n = 0
-\end{cases}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;bouncing-plane-waves&#34;&gt;Bouncing Plane Waves&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/3.png&#34;
-	width=&#34;1250&#34;
-	height=&#34;446&#34;
-	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/3_hu6f2915fccf0f4cdce174d97f180b75f4_52115_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/3_hu6f2915fccf0f4cdce174d97f180b75f4_52115_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;280&#34;
-		data-flex-basis=&#34;672px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Electric Field&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\beta &amp;amp;= \sqrt{ k^2 - (\pi/d)^2 } \\
-E_z &amp;amp;= A_1 sin ( \frac{ \pi y }{ d }) e^{-j \beta z} \\
-&amp;amp;= \frac{ A_1 }{ 2j } \Big[ e^{-j( -(\pi/d)y + \beta z)} + e^{-j( \pi/d) y+ \beta z} \Big] \\
-E_z &amp;amp;= A_1 e^{-j k (y sin \theta + z cos \theta)}
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Wave Number&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-k sin \theta &amp;amp;= \frac{ \pi }{ d } \\
-k cos \theta &amp;amp;= \beta_1 \\
-k^2 &amp;amp;= (\frac{ \pi }{ d })^2 + \beta_1^2
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;h3 id=&#34;power-loss&#34;&gt;Power Loss&lt;/h3&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-\alpha_c &amp;amp;= \frac{ P_l }{ 2 P_o } \\
-P_l &amp;amp;= 2 ( \frac{ R_s }{ 2 }) \int_{  }^{  }
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -1122,7 +972,15 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\sigma &amp;amp;= \omega \epsilon \longleftrightarrow \epsilon= \sigma t \\
+\sigma &amp;amp;= \omega \epsilon \Longleftrightarrow \epsilon= \sigma t \\
+\overrightarrow{ J } &amp;amp;= \sigma \overrightarrow{ E }  =  \overrightarrow{ n } \times \overrightarrow{ H}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ a } \times \overrightarrow{ a } \times \overrightarrow{ b } &amp;amp;= \overrightarrow{ b } \\
 \sqrt{ 2j } &amp;amp;= 1 + j \\
 \overrightarrow{ J}_d &amp;amp;= \frac{ d \overrightarrow{ D } }{ d t }
 \end{aligned}
@@ -2175,6 +2033,9 @@ $$&lt;/p&gt;
 \end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;terminated-lossy-line&#34;&gt;Terminated Lossy Line&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Reflection Coefficient&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;假设&lt;strong&gt;Loss&lt;/strong&gt;很小, $\beta \approx 0, \gamma \approx \alpha$&lt;/li&gt;
 &lt;/ul&gt;
@@ -2185,6 +2046,9 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Power&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -2232,7 +2096,6 @@ P_l(z) &amp;amp;= - \frac{ \partial P }{ \partial z } \\
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 &lt;h1 id=&#34;transients-on-transmission-line&#34;&gt;Transients on Transmission Line&lt;/h1&gt;
 &lt;h2 id=&#34;reflection-of-pulses-from-a-terminated-transmission-line&#34;&gt;Reflection of Pulses From a Terminated Transmission Line&lt;/h2&gt;
 &lt;ol&gt;
