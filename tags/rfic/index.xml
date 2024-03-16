@@ -1292,177 +1292,78 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;ATL(Active Transistor Level)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;分为4个等级，等级越高，晶体管的参数越详细&lt;/td&gt;
 &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;|Stack Distributed Power Amplifier||
+|Refactoring|Logic/Layout/Time-Sequence/Power Consumption Refactoring|
+|Process Corner|工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化|
+|DRC|Design Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;|
+|PEX|Parasitic Extraction, 提取寄生参数，功能更强大|
+|RCX|Resistance Capacitance Extraction, 是&lt;strong&gt;Mentor&lt;/strong&gt;的另一款寄生参数提取工具|
+|BGR|Bandgap Reference, 带隙基准电压源,输出电压&lt;strong&gt;精度高&lt;/strong&gt;，且&lt;strong&gt;稳定&lt;/strong&gt;|
+|CMN/CLN/CRN|CMOS Mobile Normal, CMOS Logic Normal，CMOS Radio Frequency Normal，三种台积电工艺|
+|PDK|Process Design Kit, 设计套件|
+|GDSII|Graphic Data System II，IC的实际版图信息|
+|isolation zero(零点)|传输函数零点|
+|FBW(Fractional Bandwidth)|带宽相对于中心频率的比率: $\dfrac{ \omega_{B}}{ \omega_{C} } \times 100%$|
+|$\dfrac{\lambda_0}{ 4 }$ Transmission Line|传输线的电长度为90度,即电线物理长度为$\dfrac{ 1 }{ 4 } \lambda$。在线性的传输线中,λ/4长度会产生一个电压和电流逆变换|
+|IMD3|Integral MoDel Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素|
+|FETX Pulse|Negative Far End CrossTalk Pulse，测试数字通信系统的测试信号|
+|TCC|Thermal Cutoff Current, 不同温度条件下的最大电流|
+|VCC|Voltage at Common Collector, 电源电压|
+|VEE|负电源电压|
+|Relative Impedance Bandwidth|&lt;strong&gt;工作频率范围&lt;/strong&gt;相对于中心频率的百分比|
+|SEL|Single Element Lock, 通过一个latch实现锁存功能|
+|CID|Current Identification Code, 用二进制标识不同电流|
+|DPD|Digital Pre-Distortion, 数字预失真|
+|QAM|Quadrature Amplitude Modulation (IQ-Based Modulation), 正交调幅|
+|APSK|Amplitude Phase Shifting Keying|
+|SOI|Silicon on Insulator, 在绝缘体上制造芯片，减小了晶体管之间的寄生效应，有PD-SOI(Partial), FD-SOI, FinFET|
+|CPW|Coplanar Waveguide, 共面波导，适用于高频传输线|
+|波段|C(4 -8GHz), Ku(12 -18GHz), Ka(26.5-40GHz),Q(33-50GHz), V(40-75GHz)|
+|Reconstruction Bias|模型在数据重构过程中出现的&lt;strong&gt;系统偏差&lt;/strong&gt;|
+|Multitone Simulation|多载波调制|
+|OFDM|OFDM(Orthogonal Frequency Division Multiplexing)正交频分复用,是一种基于多载波调制技术的数字调制方式。它通过把高速数据流分配到多条正交的子载波上传输,可以有效提高频谱利用率和抗干扰能力|
+|STI|Shallow Trench Isolation, 在硅衬底上制造出互相隔离的晶体管和元件区,防止它们之间的电子迁移和相互干扰|
+|Envelop Frequency|指调制信号包络中主要频率成分的频率. e.g.其包络为正弦调制波,则该正弦波的频率即为Envelop Frequency。|
+|ALCR|相邻信道上的泄漏功率与主信道上功率之间的比值|
+|IMD|两个或两个以上信号通过一个非线性器件传输时产生的新的频率分量,对设备的性能产生负面影响。|
+|THD|第三阶互调失真|
+|Bypass, Decoupling Capacitor|提供电源的交流信号路径 ;解耦电容, 过滤噪声|
+|SMD|Surface Mount Decice, 芯片表面的贴片|
+|Center Frequency|频率范围的中间值|
+|C,D,E band|C-Band: 约为4-8 GHz, E-Band: 约为60-90 GHz, D-Band: 约为110-170 GHz|
+|$TZ_{m1}, TZ_{mh}$|$m$是数字，表示零点个数; 1表示实数, $h$表示$m$对共轭复数|
+|$TZ$, $TP$|TZ和TP共同决定了滤波器的传递带和阻带的性能。增加TZ的数量可以获得更陡峭的抑制,而调整TP的位置可以改变通带的平坦度。|
+|MMIC|Monolithic Microwave IC|&lt;/p&gt;
+&lt;h2 id=&#34;pa-指标&#34;&gt;PA 指标&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PAE(Power Added Efficiency)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;输出和输入之间的&lt;strong&gt;功率转化效率(%)&lt;/strong&gt;&lt;/td&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
 &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Stack Distributed Power Amplifier&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Refactoring&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Logic/Layout/Time-Sequence/Power Consumption Refactoring&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Process Corner&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;DRC&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Design Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PEX&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Parasitic Extraction, 提取寄生参数，功能更强大&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;RCX&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Resistance Capacitance Extraction, 是&lt;strong&gt;Mentor&lt;/strong&gt;的另一款寄生参数提取工具&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;BGR&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Bandgap Reference, 带隙基准电压源,输出电压&lt;strong&gt;精度高&lt;/strong&gt;，且&lt;strong&gt;稳定&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;CMN/CLN/CRN&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;CMOS Mobile Normal, CMOS Logic Normal，CMOS Radio Frequency Normal，三种台积电工艺&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PDK&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Process Design Kit, 设计套件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;GDSII&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Graphic Data System II，IC的实际版图信息&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;isolation zero(零点)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;传输函数零点&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;FBW(Fractional Bandwidth)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;带宽相对于中心频率的比率: $\dfrac{ \omega_{B}}{ \omega_{C} } \times 100%$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{\lambda_0}{ 4 }$ Transmission Line&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;传输线的电长度为90度,即电线物理长度为$\dfrac{ 1 }{ 4 } \lambda$。在线性的传输线中,λ/4长度会产生一个电压和电流逆变换&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;IMD3&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Integral MoDel Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;FETX Pulse&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Negative Far End CrossTalk Pulse，测试数字通信系统的测试信号&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;TCC&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Thermal Cutoff Current, 不同温度条件下的最大电流&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;VCC&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Voltage at Common Collector, 电源电压&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;VEE&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;负电源电压&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Relative Impedance Bandwidth&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;工作频率范围&lt;/strong&gt;相对于中心频率的百分比&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;SEL&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Single Element Lock, 通过一个latch实现锁存功能&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;CID&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Current Identification Code, 用二进制标识不同电流&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;DPD&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Digital Pre-Distortion, 数字预失真&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;QAM&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Quadrature Amplitude Modulation (IQ-Based Modulation), 正交调幅&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;APSK&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Amplitude Phase Shifting Keying&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;SOI&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Silicon on Insulator, 在绝缘体上制造芯片，减小了晶体管之间的寄生效应，有PD-SOI(Partial), FD-SOI, FinFET&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;CPW&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Coplanar Waveguide, 共面波导，适用于高频传输线&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;波段&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;C(4 -8GHz), Ku(12 -18GHz), Ka(26.5-40GHz),Q(33-50GHz), V(40-75GHz)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Reconstruction Bias&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;模型在数据重构过程中出现的&lt;strong&gt;系统偏差&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Multitone Simulation&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;多载波调制&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;增益平坦度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Gain \ Flatness = 10 \times log_{10} \dfrac{ Gain_{max} }{ Gain_{min} }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;dBm&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$dBm = 10 \cdot lg ( \dfrac{ P }{ 1mW } )$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;OFDM&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;OFDM(Orthogonal Frequency Division Multiplexing)正交频分复用,是一种基于多载波调制技术的数字调制方式。它通过把高速数据流分配到多条正交的子载波上传输,可以有效提高频谱利用率和抗干扰能力&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;dBc&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$dBc = 10 \cdot lg ( \dfrac{ P }{ P_{ref} })$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;STI&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Shallow Trench Isolation, 在硅衬底上制造出互相隔离的晶体管和元件区,防止它们之间的电子迁移和相互干扰&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PAE(Power Added Efficiency)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$PAE = 10 \times log_{10} \dfrac{ P_{out} - P_{in} }{ P_{supply} }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Envelop Frequency&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;指调制信号包络中主要频率成分的频率. e.g.其包络为正弦调制波,则该正弦波的频率即为Envelop Frequency。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;ALCR&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;相邻信道上的泄漏功率与主信道上功率之间的比值&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;IMD&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;两个或两个以上信号通过一个非线性器件传输时产生的新的频率分量,对设备的性能产生负面影响。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;THD&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;第三阶互调失真&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Bypass, Decoupling Capacitor&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;提供电源的交流信号路径 ;解耦电容, 过滤噪声&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;SMD&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Surface Mount Decice, 芯片表面的贴片&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Center Frequency&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;频率范围的中间值&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;C,D,E band&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;C-Band: 约为4-8 GHz, E-Band: 约为60-90 GHz, D-Band: 约为110-170 GHz&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$TZ_{m1}, TZ_{mh}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$m$是数字，表示零点个数; 1表示实数, $h$表示$m$对共轭复数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$TZ$, $TP$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;TZ和TP共同决定了滤波器的传递带和阻带的性能。增加TZ的数量可以获得更陡峭的抑制,而调整TP的位置可以改变通带的平坦度。&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;小信号增益&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Gain = 10 \times log_{10}\dfrac{ P_{out} }{ P_{in} }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1710,7 +1611,7 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;terminated-lossless-transmission-line&#34;&gt;Terminated Lossless Transmission Line&lt;/h1&gt;
-&lt;h2 id=&#34;impedances--reflected-coefficient&#34;&gt;Impedances &amp;amp; Reflected Coefficient&lt;/h2&gt;
+&lt;h2 id=&#34;impedances--reflection-coefficient&#34;&gt;Impedances &amp;amp; Reflection Coefficient&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/6.png&#34;
 	width=&#34;1172&#34;
 	height=&#34;482&#34;
@@ -1725,7 +1626,7 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;input--load-impedances&#34;&gt;Input / Load Impedances&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Reflected Coefficient&lt;/li&gt;
+&lt;li&gt;Reflection Coefficient &amp;amp; Transimission Coefficient&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \begin{gather}
@@ -1736,10 +1637,8 @@ $$&lt;/p&gt;
 \Gamma(l) &amp;amp;= \Gamma e^{- 2j \beta l}
 \end{aligned}
 \end{gather}
-$$&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Transmission Line Impedance Equation&lt;/li&gt;
-&lt;/ol&gt;
+$$
+2. Transmission Line Impedance Equation&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
