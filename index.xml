@@ -6,14 +6,142 @@
         <description>Recent content on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sat, 16 Mar 2024 11:54:05 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 23 Mar 2024 17:14:34 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>2. Linear Algrebra</title>
+        <link>https://downeyflyfan.com/p/2.-linear-algrebra/</link>
+        <pubDate>Sat, 23 Mar 2024 17:14:34 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/2.-linear-algrebra/</guid>
+        <description>&lt;h1 id=&#34;matrix&#34;&gt;Matrix&lt;/h1&gt;
+&lt;h2 id=&#34;norms&#34;&gt;Norms&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+|| \mathcal{X} ||&lt;em&gt;0 &amp;amp;= \sum&lt;/em&gt;{ i=1 }^{ n } \frac{ \mathcal{X}_i }{ \mathcal{X_i} }, \mathcal{X}&lt;em&gt;i \neq 0 \\
+|| \mathcal{X} ||&lt;em&gt;p &amp;amp;= \Big[ \sum&lt;/em&gt;{ i = 1 }^{ n } \mathcal{X}&lt;em&gt;i^p \Big]^{1/p} \\
+|| \mathcal{X} ||&lt;/em&gt;{\infin} &amp;amp;= \mathcal{X}&lt;/em&gt;{max}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;mode-n-unfolding-matrix&#34;&gt;Mode-n Unfolding Matrix&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;沿着第$n$个纬度把张量展开&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;指标介绍&#34;&gt;指标介绍&lt;/h1&gt;
+&lt;h2 id=&#34;ms-fusion&#34;&gt;MS-Fusion&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;HS-HRI $\longrightarrow$ HS-LRI&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k + \pmb{N}_k$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$f$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;模糊算子&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\pmb N$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;噪声&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\downarrow^k$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;下采样$n$倍&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;HS-HRI$\longrightarrow$ MS-HRI(Pan)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;cross-correlation&#34;&gt;Cross Correlation&lt;/h2&gt;
+</description>
+        </item>
+        <item>
         <title>1. 常用库</title>
         <link>https://downeyflyfan.com/p/1.-%E5%B8%B8%E7%94%A8%E5%BA%93/</link>
         <pubDate>Sat, 16 Mar 2024 11:54:05 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/1.-%E5%B8%B8%E7%94%A8%E5%BA%93/</guid>
         <description>&lt;h1 id=&#34;常用库&#34;&gt;常用库&lt;/h1&gt;
-&lt;h2 id=&#34;pytorch&#34;&gt;Pytorch&lt;/h2&gt;
+&lt;h2 id=&#34;pytorch--tensor&#34;&gt;Pytorch &amp;amp; Tensor&lt;/h2&gt;
+&lt;h3 id=&#34;矩阵操作&#34;&gt;矩阵操作&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;常见用法示例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Linear(in_features, out_features, bias=True, device=None, dtype=None)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;线性变换&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;m = nn.Linear(20, 30)  output = m(input)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Conv2d&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;卷积&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Conv2d(in_channels=3, out_channels=8, kernel_size=3, stride=1, padding=1)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.AdaptiveAvgPool2d(output_size)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;全局池化&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;m = nn.AdaptiveAvgPool2d(1)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.PixelShuffle(upsale_factor = ...)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将输入的低分辨率图像块进行像素重排，生成更大尺寸的高分辨率图像块&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;pixel_shuffle = nn.PixelShuffle(3) output = pixel_shuffle(input)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.cat&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;拼接变量，拼接纬度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;input = torch.cat([output_deconv, y], 1)  # Bsx9x64x64&lt;/code&gt;, 1表示从第二个纬度(此处为C)开始拼接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.matmul(input, other, *, out=None)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;张量乘法&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.matmul(tensor1, tensor2)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;激活函数&#34;&gt;激活函数&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.ReLU(inplace=False)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;激活函数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Sigmoid(*args, **kwargs)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;激活函数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;其他&#34;&gt;其他&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -27,16 +155,6 @@
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.randn&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;随机生成Tensor&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.randn(1, 3, 256, 256) # NxCxHxW&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Conv2d&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;卷积&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Conv2d(in_channels=3, out_channels=8, kernel_size=3, stride=1, padding=1)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.ConvTranspose2d&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;逆卷积, $Output = \Big[ \dfrac{ H + 2P - K }{ S } + 1 \Big] \times \Big[ \dfrac{ W + 2P - K }{ S } + 1\Big]$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;self.deconv = nn.ConvTranspose2d(in_channels=spectral_num, out_channels=spectral_num, kernel_size=8, stride=4,padding=2, bias=True)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Sequential&lt;/code&gt;&lt;/td&gt;
@@ -54,14 +172,53 @@
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;writer = SummaryWriter(&#39;./train_logs/50&#39;)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.cat&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;拼接变量，拼接纬度&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;input = torch.cat([output_deconv, y], 1)  # Bsx9x64x64&lt;/code&gt;, 1表示从第二个纬度(此处为C)开始拼接&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.utils.data.DataLoader&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;数据加载, &lt;code&gt;num_workers&lt;/code&gt;表示线程数，为0表示在主线程中加载, &lt;code&gt;drop_last(bool)&lt;/code&gt; 设为True会丢弃最后一个batch的剩余样本,确保每个batch都有batch_size个样本。&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;training_data_loader = DataLoader(dataset=train_set, num_workers=0, batch_size=batch_size, shuffle=True, pin_memory=True, drop_last=True)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;x.repeat&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在各个维度上对&lt;code&gt;x&lt;/code&gt;进行复制&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;pan = y.repeat(1, 8, 1, 1) # Bsx8x64x64&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;经验&#34;&gt;经验&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.ConvTranspose2d&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;逆卷积, $Output = \Big[ \dfrac{ H + 2P - K }{ S } + 1 \Big] \times \Big[ \dfrac{ W + 2P - K }{ S } + 1\Big]$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$P$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$K$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$S$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;OutPut&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;8&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{ H }{4 } \times \dfrac{ W }{ 4 }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{ H }{2 } \times \dfrac{ W }{ 2 }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3321,13 +3478,115 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>A2. Coupler</title>
-        <link>https://downeyflyfan.com/p/a2.-coupler/</link>
+        <title>A2. PA &amp; Coupler &amp; Layout</title>
+        <link>https://downeyflyfan.com/p/a2.-pa-coupler-layout/</link>
         <pubDate>Fri, 01 Dec 2023 16:14:41 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/a2.-coupler/</guid>
-        <description>&lt;h1 id=&#34;coupler的调节&#34;&gt;Coupler的调节&lt;/h1&gt;
-&lt;h2 id=&#34;quality-和s参数工作频率的关系&#34;&gt;Quality 和S参数、工作频率的关系&lt;/h2&gt;
+        <guid>https://downeyflyfan.com/p/a2.-pa-coupler-layout/</guid>
+        <description>&lt;h1 id=&#34;power-amplifier&#34;&gt;Power Amplifier&lt;/h1&gt;
+&lt;h2 id=&#34;transistor&#34;&gt;Transistor&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;栅宽$W$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$W$越大, 饱和输出功率$P_{Sout}$越大，增益$G$越小&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;栅指宽度$w$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$w$越大，越不利于散热&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;栅指数量$N$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$N$越大，寄生参数越大，阻抗减小，不利于匹配&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;功率密度$\rho_P (mW/mm)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\rho_P$是该功率下的最小栅宽总和，否则有负载风险&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;工艺角&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;tt(Typical Corner), ff(Fast Corner),时间增长，功率下降 ss(Slow Corner), 时间减短，功率增高&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;pa指标&#34;&gt;PA指标&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PAE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$PAE = \dfrac{ P_{out} - P_{in} }{ P_{out} }$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;相对工作带宽$RBW$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$RBW = \dfrac{ 2 (f_H - f_L) }{ f_H + f_L }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;工作带宽与中心频率的比值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;增益平坦度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\Delta G = \dfrac{ G_{max} - G_{min} }{ 2 }$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;回退功率(Back-Off Power)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_{bo} = P_{sat} - P_{in}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;回退功率越大, 线性度越好，效率越低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$1dB$压缩点&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Bode-Fano准则&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;一般&lt;strong&gt;Drive Stage&lt;/strong&gt;使用&lt;strong&gt;小栅宽，大增益&lt;/strong&gt;；&lt;strong&gt;Power Stage&lt;/strong&gt;用&lt;strong&gt;大栅宽，大功率&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;layout&#34;&gt;Layout&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PO&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Poly(多晶硅)层&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;OD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Oxide(氧化)层&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;coupler&#34;&gt;Coupler&lt;/h1&gt;
+&lt;h2 id=&#34;coupler的调节&#34;&gt;Coupler的调节&lt;/h2&gt;
+&lt;h3 id=&#34;quality-和s参数工作频率的关系&#34;&gt;Quality 和S参数、工作频率的关系&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3362,7 +3621,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;阻抗调节&#34;&gt;阻抗调节&lt;/h2&gt;
+&lt;h3 id=&#34;阻抗调节&#34;&gt;阻抗调节&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;接地&lt;/p&gt;
@@ -3374,7 +3633,7 @@ $$&lt;/p&gt;
 &lt;p&gt;改变线宽&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;电长度和频率&#34;&gt;电长度和频率&lt;/h2&gt;
+&lt;h3 id=&#34;电长度和频率&#34;&gt;电长度和频率&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3393,7 +3652,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;90度相位差的实现&#34;&gt;90度相位差的实现&lt;/h2&gt;
+&lt;h3 id=&#34;90度相位差的实现&#34;&gt;90度相位差的实现&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;$\dfrac{ 1 }{ 4 } \lambda$ 传输线&lt;/p&gt;
@@ -3408,7 +3667,7 @@ $$&lt;/p&gt;
 &lt;p&gt;在微带线路中,利用偶极子和零偶极子模式的耦合,可以产生90度相位差。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;耦合方式&#34;&gt;耦合方式&lt;/h2&gt;
+&lt;h3 id=&#34;耦合方式&#34;&gt;耦合方式&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3448,13 +3707,13 @@ L &amp;amp;= \frac{ d \Phi }{ dI } \\
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;differential-coupler&#34;&gt;Differential Coupler&lt;/h1&gt;
-&lt;h2 id=&#34;线宽w和差分对间距d&#34;&gt;线宽(W)和差分对间距(D)&lt;/h2&gt;
+&lt;h2 id=&#34;differential-coupler&#34;&gt;Differential Coupler&lt;/h2&gt;
+&lt;h3 id=&#34;线宽w和差分对间距d&#34;&gt;线宽(W)和差分对间距(D)&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;特定&lt;/strong&gt;差分对下, $D$和$W$正相关, 与&lt;strong&gt;损耗&lt;/strong&gt;负相关&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;directional-coupler&#34;&gt;Directional Coupler&lt;/h1&gt;
-&lt;h2 id=&#34;s-parameters-of-4-ports-network&#34;&gt;S Parameters of 4-Ports Network&lt;/h2&gt;
+&lt;h2 id=&#34;directional-coupler&#34;&gt;Directional Coupler&lt;/h2&gt;
+&lt;h3 id=&#34;s-parameters-of-4-ports-network&#34;&gt;S Parameters of 4-Ports Network&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -3543,15 +3802,43 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;quantities&#34;&gt;Quantities&lt;/h2&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
-C &amp;amp;= -20lg( \beta) \\
-D &amp;amp;= 20lg( \frac{ \beta }{ |S_{14}| })
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
+&lt;h3 id=&#34;结构选择&#34;&gt;结构选择&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;耦合强度&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;阻抗&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;三层耦合&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;★★★★&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;很低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;两层耦合&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;★★★&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;一般&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;扭矩耦合&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;★★&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;一般&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;平行耦合&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;★&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;越近阻抗越低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;并联&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;极低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         <item>
@@ -3624,78 +3911,185 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;ATL(Active Transistor Level)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;分为4个等级，等级越高，晶体管的参数越详细&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;|Stack Distributed Power Amplifier||
-|Refactoring|Logic/Layout/Time-Sequence/Power Consumption Refactoring|
-|Process Corner|工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化|
-|DRC|Design Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;|
-|PEX|Parasitic Extraction, 提取寄生参数，功能更强大|
-|RCX|Resistance Capacitance Extraction, 是&lt;strong&gt;Mentor&lt;/strong&gt;的另一款寄生参数提取工具|
-|BGR|Bandgap Reference, 带隙基准电压源,输出电压&lt;strong&gt;精度高&lt;/strong&gt;，且&lt;strong&gt;稳定&lt;/strong&gt;|
-|CMN/CLN/CRN|CMOS Mobile Normal, CMOS Logic Normal，CMOS Radio Frequency Normal，三种台积电工艺|
-|PDK|Process Design Kit, 设计套件|
-|GDSII|Graphic Data System II，IC的实际版图信息|
-|isolation zero(零点)|传输函数零点|
-|FBW(Fractional Bandwidth)|带宽相对于中心频率的比率: $\dfrac{ \omega_{B}}{ \omega_{C} } \times 100%$|
-|$\dfrac{\lambda_0}{ 4 }$ Transmission Line|传输线的电长度为90度,即电线物理长度为$\dfrac{ 1 }{ 4 } \lambda$。在线性的传输线中,λ/4长度会产生一个电压和电流逆变换|
-|IMD3|Integral MoDel Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素|
-|FETX Pulse|Negative Far End CrossTalk Pulse，测试数字通信系统的测试信号|
-|TCC|Thermal Cutoff Current, 不同温度条件下的最大电流|
-|VCC|Voltage at Common Collector, 电源电压|
-|VEE|负电源电压|
-|Relative Impedance Bandwidth|&lt;strong&gt;工作频率范围&lt;/strong&gt;相对于中心频率的百分比|
-|SEL|Single Element Lock, 通过一个latch实现锁存功能|
-|CID|Current Identification Code, 用二进制标识不同电流|
-|DPD|Digital Pre-Distortion, 数字预失真|
-|QAM|Quadrature Amplitude Modulation (IQ-Based Modulation), 正交调幅|
-|APSK|Amplitude Phase Shifting Keying|
-|SOI|Silicon on Insulator, 在绝缘体上制造芯片，减小了晶体管之间的寄生效应，有PD-SOI(Partial), FD-SOI, FinFET|
-|CPW|Coplanar Waveguide, 共面波导，适用于高频传输线|
-|波段|C(4 -8GHz), Ku(12 -18GHz), Ka(26.5-40GHz),Q(33-50GHz), V(40-75GHz)|
-|Reconstruction Bias|模型在数据重构过程中出现的&lt;strong&gt;系统偏差&lt;/strong&gt;|
-|Multitone Simulation|多载波调制|
-|OFDM|OFDM(Orthogonal Frequency Division Multiplexing)正交频分复用,是一种基于多载波调制技术的数字调制方式。它通过把高速数据流分配到多条正交的子载波上传输,可以有效提高频谱利用率和抗干扰能力|
-|STI|Shallow Trench Isolation, 在硅衬底上制造出互相隔离的晶体管和元件区,防止它们之间的电子迁移和相互干扰|
-|Envelop Frequency|指调制信号包络中主要频率成分的频率. e.g.其包络为正弦调制波,则该正弦波的频率即为Envelop Frequency。|
-|ALCR|相邻信道上的泄漏功率与主信道上功率之间的比值|
-|IMD|两个或两个以上信号通过一个非线性器件传输时产生的新的频率分量,对设备的性能产生负面影响。|
-|THD|第三阶互调失真|
-|Bypass, Decoupling Capacitor|提供电源的交流信号路径 ;解耦电容, 过滤噪声|
-|SMD|Surface Mount Decice, 芯片表面的贴片|
-|Center Frequency|频率范围的中间值|
-|C,D,E band|C-Band: 约为4-8 GHz, E-Band: 约为60-90 GHz, D-Band: 约为110-170 GHz|
-|$TZ_{m1}, TZ_{mh}$|$m$是数字，表示零点个数; 1表示实数, $h$表示$m$对共轭复数|
-|$TZ$, $TP$|TZ和TP共同决定了滤波器的传递带和阻带的性能。增加TZ的数量可以获得更陡峭的抑制,而调整TP的位置可以改变通带的平坦度。|
-|MMIC|Monolithic Microwave IC|&lt;/p&gt;
-&lt;h2 id=&#34;pa-指标&#34;&gt;PA 指标&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;增益平坦度&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Gain \ Flatness = 10 \times log_{10} \dfrac{ Gain_{max} }{ Gain_{min} }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Stack Distributed Power Amplifier&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;dBm&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$dBm = 10 \cdot lg ( \dfrac{ P }{ 1mW } )$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Refactoring&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Logic/Layout/Time-Sequence/Power Consumption Refactoring&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;dBc&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$dBc = 10 \cdot lg ( \dfrac{ P }{ P_{ref} })$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Process Corner&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;工艺角描述了芯片在不同工艺条件下的性能变化情况。这些条件包括工艺偏移、温度变化和电压变化&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PAE(Power Added Efficiency)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$PAE = 10 \times log_{10} \dfrac{ P_{out} - P_{in} }{ P_{supply} }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DRC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Design Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;小信号增益&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$Gain = 10 \times log_{10}\dfrac{ P_{out} }{ P_{in} }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PEX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Parasitic Extraction, 提取寄生参数，功能更强大&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;RCX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Resistance Capacitance Extraction, 是&lt;strong&gt;Mentor&lt;/strong&gt;的另一款寄生参数提取工具&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BGR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Bandgap Reference, 带隙基准电压源,输出电压&lt;strong&gt;精度高&lt;/strong&gt;，且&lt;strong&gt;稳定&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CMN/CLN/CRN&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CMOS Mobile Normal, CMOS Logic Normal，CMOS Radio Frequency Normal，三种台积电工艺&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PDK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Process Design Kit, 设计套件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;GDSII&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Graphic Data System II，IC的实际版图信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;isolation zero(零点)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;传输函数零点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FBW(Fractional Bandwidth)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;带宽相对于中心频率的比率: $\dfrac{ \omega_{B}}{ \omega_{C} } \times 100%$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{\lambda_0}{ 4 }$ Transmission Line&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;传输线的电长度为90度,即电线物理长度为$\dfrac{ 1 }{ 4 } \lambda$。在线性的传输线中,λ/4长度会产生一个电压和电流逆变换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;IMD3&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Integral MoDel Level 3, 第三代晶体管模型，考虑了&lt;strong&gt;温度、Body effect, 功率变化&lt;/strong&gt;等更多因素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FETX Pulse&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Negative Far End CrossTalk Pulse，测试数字通信系统的测试信号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;TCC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Thermal Cutoff Current, 不同温度条件下的最大电流&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;VCC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Voltage at Common Collector, 电源电压&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;VEE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;负电源电压&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Relative Impedance Bandwidth&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;工作频率范围&lt;/strong&gt;相对于中心频率的百分比&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SEL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Single Element Lock, 通过一个latch实现锁存功能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CID&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Current Identification Code, 用二进制标识不同电流&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DPD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Digital Pre-Distortion, 数字预失真&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;QAM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Quadrature Amplitude Modulation (IQ-Based Modulation), 正交调幅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;APSK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Amplitude Phase Shifting Keying&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SOI&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Silicon on Insulator, 在绝缘体上制造芯片，减小了晶体管之间的寄生效应，有PD-SOI(Partial), FD-SOI, FinFET&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CPW&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Coplanar Waveguide, 共面波导，适用于高频传输线&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;波段&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;C(4 -8GHz), Ku(12 -18GHz), Ka(26.5-40GHz),Q(33-50GHz), V(40-75GHz)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reconstruction Bias&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;模型在数据重构过程中出现的&lt;strong&gt;系统偏差&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Multitone Simulation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;多载波调制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;OFDM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;OFDM(Orthogonal Frequency Division Multiplexing)正交频分复用,是一种基于多载波调制技术的数字调制方式。它通过把高速数据流分配到多条正交的子载波上传输,可以有效提高频谱利用率和抗干扰能力&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;STI&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Shallow Trench Isolation, 在硅衬底上制造出互相隔离的晶体管和元件区,防止它们之间的电子迁移和相互干扰&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Envelop Frequency&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;指调制信号包络中主要频率成分的频率. e.g.其包络为正弦调制波,则该正弦波的频率即为Envelop Frequency。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ALCR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;相邻信道上的泄漏功率与主信道上功率之间的比值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;IMD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;两个或两个以上信号通过一个非线性器件传输时产生的新的频率分量,对设备的性能产生负面影响。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;THD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;第三阶互调失真&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Bypass, Decoupling Capacitor&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;提供电源的交流信号路径 ;解耦电容, 过滤噪声&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SMD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Surface Mount Decice, 芯片表面的贴片&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Center Frequency&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;频率范围的中间值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;C,D,E band&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;C-Band: 约为4-8 GHz, E-Band: 约为60-90 GHz, D-Band: 约为110-170 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$TZ_{m1}, TZ_{mh}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$m$是数字，表示零点个数; 1表示实数, $h$表示$m$对共轭复数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$TZ$, $TP$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;TZ和TP共同决定了滤波器的传递带和阻带的性能。增加TZ的数量可以获得更陡峭的抑制,而调整TP的位置可以改变通带的平坦度。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;MMIC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Monolithic Microwave IC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;APD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Avalanche Photodiode 高内增益&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Coupled line Balun&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将不平衡信号转换为平衡信号,或将平衡信号转换为不平衡信号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FSK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Frequency Shift Keying&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3752,6 +4146,20 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;264px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;范围&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;W&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;75GHz - 110GHzq&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/2.-transmission-line-theory/2.png&#34;
 	width=&#34;1604&#34;
 	height=&#34;1250&#34;

@@ -6,14 +6,142 @@
         <description>Recent content in AI on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sat, 16 Mar 2024 11:54:05 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/ai/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 23 Mar 2024 17:14:34 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/ai/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>2. Linear Algrebra</title>
+        <link>https://downeyflyfan.com/p/2.-linear-algrebra/</link>
+        <pubDate>Sat, 23 Mar 2024 17:14:34 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/2.-linear-algrebra/</guid>
+        <description>&lt;h1 id=&#34;matrix&#34;&gt;Matrix&lt;/h1&gt;
+&lt;h2 id=&#34;norms&#34;&gt;Norms&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+|| \mathcal{X} ||&lt;em&gt;0 &amp;amp;= \sum&lt;/em&gt;{ i=1 }^{ n } \frac{ \mathcal{X}_i }{ \mathcal{X_i} }, \mathcal{X}&lt;em&gt;i \neq 0 \\
+|| \mathcal{X} ||&lt;em&gt;p &amp;amp;= \Big[ \sum&lt;/em&gt;{ i = 1 }^{ n } \mathcal{X}&lt;em&gt;i^p \Big]^{1/p} \\
+|| \mathcal{X} ||&lt;/em&gt;{\infin} &amp;amp;= \mathcal{X}&lt;/em&gt;{max}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;mode-n-unfolding-matrix&#34;&gt;Mode-n Unfolding Matrix&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;沿着第$n$个纬度把张量展开&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;指标介绍&#34;&gt;指标介绍&lt;/h1&gt;
+&lt;h2 id=&#34;ms-fusion&#34;&gt;MS-Fusion&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;HS-HRI $\longrightarrow$ HS-LRI&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k + \pmb{N}_k$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$f$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;模糊算子&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\pmb N$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;噪声&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\downarrow^k$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;下采样$n$倍&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;HS-HRI$\longrightarrow$ MS-HRI(Pan)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;cross-correlation&#34;&gt;Cross Correlation&lt;/h2&gt;
+</description>
+        </item>
+        <item>
         <title>1. 常用库</title>
         <link>https://downeyflyfan.com/p/1.-%E5%B8%B8%E7%94%A8%E5%BA%93/</link>
         <pubDate>Sat, 16 Mar 2024 11:54:05 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/1.-%E5%B8%B8%E7%94%A8%E5%BA%93/</guid>
         <description>&lt;h1 id=&#34;常用库&#34;&gt;常用库&lt;/h1&gt;
-&lt;h2 id=&#34;pytorch&#34;&gt;Pytorch&lt;/h2&gt;
+&lt;h2 id=&#34;pytorch--tensor&#34;&gt;Pytorch &amp;amp; Tensor&lt;/h2&gt;
+&lt;h3 id=&#34;矩阵操作&#34;&gt;矩阵操作&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;常见用法示例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Linear(in_features, out_features, bias=True, device=None, dtype=None)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;线性变换&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;m = nn.Linear(20, 30)  output = m(input)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Conv2d&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;卷积&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Conv2d(in_channels=3, out_channels=8, kernel_size=3, stride=1, padding=1)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.AdaptiveAvgPool2d(output_size)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;全局池化&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;m = nn.AdaptiveAvgPool2d(1)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.PixelShuffle(upsale_factor = ...)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将输入的低分辨率图像块进行像素重排，生成更大尺寸的高分辨率图像块&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;pixel_shuffle = nn.PixelShuffle(3) output = pixel_shuffle(input)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.cat&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;拼接变量，拼接纬度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;input = torch.cat([output_deconv, y], 1)  # Bsx9x64x64&lt;/code&gt;, 1表示从第二个纬度(此处为C)开始拼接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.matmul(input, other, *, out=None)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;张量乘法&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.matmul(tensor1, tensor2)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;激活函数&#34;&gt;激活函数&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.ReLU(inplace=False)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;激活函数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Sigmoid(*args, **kwargs)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;激活函数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;其他&#34;&gt;其他&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -27,16 +155,6 @@
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.randn&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;随机生成Tensor&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.randn(1, 3, 256, 256) # NxCxHxW&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Conv2d&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;卷积&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Conv2d(in_channels=3, out_channels=8, kernel_size=3, stride=1, padding=1)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.ConvTranspose2d&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;逆卷积, $Output = \Big[ \dfrac{ H + 2P - K }{ S } + 1 \Big] \times \Big[ \dfrac{ W + 2P - K }{ S } + 1\Big]$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;self.deconv = nn.ConvTranspose2d(in_channels=spectral_num, out_channels=spectral_num, kernel_size=8, stride=4,padding=2, bias=True)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Sequential&lt;/code&gt;&lt;/td&gt;
@@ -54,14 +172,53 @@
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;writer = SummaryWriter(&#39;./train_logs/50&#39;)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.cat&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;拼接变量，拼接纬度&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;input = torch.cat([output_deconv, y], 1)  # Bsx9x64x64&lt;/code&gt;, 1表示从第二个纬度(此处为C)开始拼接&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.utils.data.DataLoader&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;数据加载, &lt;code&gt;num_workers&lt;/code&gt;表示线程数，为0表示在主线程中加载, &lt;code&gt;drop_last(bool)&lt;/code&gt; 设为True会丢弃最后一个batch的剩余样本,确保每个batch都有batch_size个样本。&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;training_data_loader = DataLoader(dataset=train_set, num_workers=0, batch_size=batch_size, shuffle=True, pin_memory=True, drop_last=True)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;x.repeat&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在各个维度上对&lt;code&gt;x&lt;/code&gt;进行复制&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;pan = y.repeat(1, 8, 1, 1) # Bsx8x64x64&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;经验&#34;&gt;经验&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.ConvTranspose2d&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;逆卷积, $Output = \Big[ \dfrac{ H + 2P - K }{ S } + 1 \Big] \times \Big[ \dfrac{ W + 2P - K }{ S } + 1\Big]$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$P$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$K$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$S$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;OutPut&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;8&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{ H }{4 } \times \dfrac{ W }{ 4 }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{ H }{2 } \times \dfrac{ W }{ 2 }$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
