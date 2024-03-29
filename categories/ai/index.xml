@@ -7,11 +7,11 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <lastBuildDate>Sat, 23 Mar 2024 17:14:34 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/ai/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>2. Linear Algrebra</title>
-        <link>https://downeyflyfan.com/p/2.-linear-algrebra/</link>
+        <title>2. Linear Algrebra &amp; CNN &amp; 速记</title>
+        <link>https://downeyflyfan.com/p/2.-linear-algrebra-cnn-%E9%80%9F%E8%AE%B0/</link>
         <pubDate>Sat, 23 Mar 2024 17:14:34 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/2.-linear-algrebra/</guid>
+        <guid>https://downeyflyfan.com/p/2.-linear-algrebra-cnn-%E9%80%9F%E8%AE%B0/</guid>
         <description>&lt;h1 id=&#34;matrix&#34;&gt;Matrix&lt;/h1&gt;
 &lt;h2 id=&#34;norms&#34;&gt;Norms&lt;/h2&gt;
 &lt;p&gt;$$
@@ -70,6 +70,151 @@ $$&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;cross-correlation&#34;&gt;Cross Correlation&lt;/h2&gt;
+&lt;h1 id=&#34;cnn&#34;&gt;CNN&lt;/h1&gt;
+&lt;h2 id=&#34;category&#34;&gt;Category&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Width&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;太宽容易过拟合&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Depth&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;过深，有些层可能会失效；梯度可能会消失&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Multi-Path&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Feature-Maps&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;卷积核对特征的提取&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Attention&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;对图像重点部分的关注&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Channel(Dimension)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;分路卷积，分别提取&lt;strong&gt;Spatial/Channel&lt;/strong&gt; Imformation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Channel Boosting&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;特征增强&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;超过&lt;strong&gt;3层&lt;/strong&gt;才叫&lt;strong&gt;Deep Network&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;application&#34;&gt;Application&lt;/h2&gt;
+&lt;h3 id=&#34;denoise&#34;&gt;Denoise&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;AWNI(Additive White Noisy Imgae)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Changing Network Architecture&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Fusion&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;改变Width, Depth&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;改变Loss Function&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Cascade Connection&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Skip Connection&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Plugins&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Activation, Pooling, Fully-Connected Layer(展开成一维)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Real Noisy Image (现实中的噪声)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Blind Denoising (盲源去噪)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;challenge&#34;&gt;Challenge&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Hyper-Para Settings&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;超参数设置十分重要&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Hard to Explain&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;速记&#34;&gt;速记&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;important-networks&#34;&gt;Important Networks&lt;/h1&gt;
+&lt;h2 id=&#34;mamba-network&#34;&gt;Mamba Network&lt;/h2&gt;
+&lt;h2 id=&#34;residual-network&#34;&gt;Residual Network&lt;/h2&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Weak Edge-Information Noisy Image&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;物体与背景的边缘模糊&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         <item>

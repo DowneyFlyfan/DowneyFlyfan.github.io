@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='常用库 Pytorch &amp;amp; Tensor 矩阵操作 函数 含义 常见用法示例 torch.nn.Linear(in_features, out_features, bias=True, device=None, dtype=None) 线性变换 m = nn.Linear(20, 30) output = m(input) torch.nn.Conv2d 卷积 torch.nn.Conv2d(in_channels=3, out_channels=8, kernel_size=3, stride=1, padding=1) torch.nn.AdaptiveAvgPool2d(output_size) 全局池化 m = nn.AdaptiveAvgPool2d(1) torch.nn.PixelShuffle(upsale_factor = ...) 将输入的低分辨率图像块进行像素重排，生成更大尺寸的高分辨率图像块 pixel_shuffle = nn.PixelShuffle(3) output = pixel_shuffle(input) torch.cat 拼接变量，拼接纬度 input = torch.cat([output_deconv, y], 1) # Bsx9x64x64, 1表示从第二个纬度(此处为C)开始拼接 torch.matmul(input, other, *, out=None) 张量乘法 torch.matmul(tensor1, tensor2) 激活函数 函数 含义 torch.nn.ReLU(inplace=False) 激活函数 torch.nn.Sigmoid(*args, **kwargs) 激活函数 其他 函数 含义 常见用法示例 torch.'>
-<title>1. 常用库</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Matrix Norms $$ \begin{gather} \begin{aligned} || \mathcal{X} ||0 &amp;amp;= \sum{ i=1 }^{ n } \frac{ \mathcal{X}_i }{ \mathcal{X_i} }, \mathcal{X}i \neq 0 \\ || \mathcal{X} ||p &amp;amp;= \Big[ \sum{ i = 1 }^{ n } \mathcal{X}i^p \Big]^{1/p} \\ || \mathcal{X} ||{\infin} &amp;amp;= \mathcal{X}{max} \end{aligned} \end{gather} $$
+Mode-n Unfolding Matrix 沿着第$n$个纬度把张量展开
+指标介绍 MS-Fusion Category Concept HS-HRI $\longrightarrow$ HS-LRI $\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k &#43; \pmb{N}_k$ $f$ 模糊算子 $\pmb N$ 噪声 $\downarrow^k$ 下采样$n$倍 Category Concept HS-HRI$\longrightarrow$ MS-HRI(Pan) $\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$ Cross Correlation CNN Category Category Concept Width 太宽容易过拟合 Depth 过深，有些层可能会失效；梯度可能会消失 Multi-Path Feature-Maps 卷积核对特征的提取 Attention 对图像重点部分的关注 Channel(Dimension) 分路卷积，分别提取Spatial/Channel Imformation Channel Boosting 特征增强 超过3层才叫Deep Network Application Denoise AWNI(Additive White Noisy Imgae) Changing Network Architecture Category Concept Fusion 改变Width, Depth 改变Loss Function Cascade Connection Skip Connection Plugins Activation, Pooling, Fully-Connected Layer(展开成一维) Real Noisy Image (现实中的噪声)'>
+<title>2. Linear Algrebra &amp; CNN &amp; 速记</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/1.-%E5%B8%B8%E7%94%A8%E5%BA%93/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/2.-linear-algrebra-cnn-%E9%80%9F%E8%AE%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='1. 常用库'>
-<meta property='og:description' content='常用库 Pytorch &amp;amp; Tensor 矩阵操作 函数 含义 常见用法示例 torch.nn.Linear(in_features, out_features, bias=True, device=None, dtype=None) 线性变换 m = nn.Linear(20, 30) output = m(input) torch.nn.Conv2d 卷积 torch.nn.Conv2d(in_channels=3, out_channels=8, kernel_size=3, stride=1, padding=1) torch.nn.AdaptiveAvgPool2d(output_size) 全局池化 m = nn.AdaptiveAvgPool2d(1) torch.nn.PixelShuffle(upsale_factor = ...) 将输入的低分辨率图像块进行像素重排，生成更大尺寸的高分辨率图像块 pixel_shuffle = nn.PixelShuffle(3) output = pixel_shuffle(input) torch.cat 拼接变量，拼接纬度 input = torch.cat([output_deconv, y], 1) # Bsx9x64x64, 1表示从第二个纬度(此处为C)开始拼接 torch.matmul(input, other, *, out=None) 张量乘法 torch.matmul(tensor1, tensor2) 激活函数 函数 含义 torch.nn.ReLU(inplace=False) 激活函数 torch.nn.Sigmoid(*args, **kwargs) 激活函数 其他 函数 含义 常见用法示例 torch.'>
-<meta property='og:url' content='https://downeyflyfan.com/p/1.-%E5%B8%B8%E7%94%A8%E5%BA%93/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='2. Linear Algrebra &amp; CNN &amp; 速记'>
+<meta property='og:description' content='Matrix Norms $$ \begin{gather} \begin{aligned} || \mathcal{X} ||0 &amp;amp;= \sum{ i=1 }^{ n } \frac{ \mathcal{X}_i }{ \mathcal{X_i} }, \mathcal{X}i \neq 0 \\ || \mathcal{X} ||p &amp;amp;= \Big[ \sum{ i = 1 }^{ n } \mathcal{X}i^p \Big]^{1/p} \\ || \mathcal{X} ||{\infin} &amp;amp;= \mathcal{X}{max} \end{aligned} \end{gather} $$
+Mode-n Unfolding Matrix 沿着第$n$个纬度把张量展开
+指标介绍 MS-Fusion Category Concept HS-HRI $\longrightarrow$ HS-LRI $\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k &#43; \pmb{N}_k$ $f$ 模糊算子 $\pmb N$ 噪声 $\downarrow^k$ 下采样$n$倍 Category Concept HS-HRI$\longrightarrow$ MS-HRI(Pan) $\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$ Cross Correlation CNN Category Category Concept Width 太宽容易过拟合 Depth 过深，有些层可能会失效；梯度可能会消失 Multi-Path Feature-Maps 卷积核对特征的提取 Attention 对图像重点部分的关注 Channel(Dimension) 分路卷积，分别提取Spatial/Channel Imformation Channel Boosting 特征增强 超过3层才叫Deep Network Application Denoise AWNI(Additive White Noisy Imgae) Changing Network Architecture Category Concept Fusion 改变Width, Depth 改变Loss Function Cascade Connection Skip Connection Plugins Activation, Pooling, Fully-Connected Layer(展开成一维) Real Noisy Image (现实中的噪声)'>
+<meta property='og:url' content='https://downeyflyfan.com/p/2.-linear-algrebra-cnn-%E9%80%9F%E8%AE%B0/'>
 <meta property='og:site_name' content='Flyfan Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-03-16T11:54:05&#43;08:00'/><meta property='article:modified_time' content='2024-03-16T11:54:05&#43;08:00'/>
-<meta name="twitter:title" content="1. 常用库">
-<meta name="twitter:description" content="常用库 Pytorch &amp;amp; Tensor 矩阵操作 函数 含义 常见用法示例 torch.nn.Linear(in_features, out_features, bias=True, device=None, dtype=None) 线性变换 m = nn.Linear(20, 30) output = m(input) torch.nn.Conv2d 卷积 torch.nn.Conv2d(in_channels=3, out_channels=8, kernel_size=3, stride=1, padding=1) torch.nn.AdaptiveAvgPool2d(output_size) 全局池化 m = nn.AdaptiveAvgPool2d(1) torch.nn.PixelShuffle(upsale_factor = ...) 将输入的低分辨率图像块进行像素重排，生成更大尺寸的高分辨率图像块 pixel_shuffle = nn.PixelShuffle(3) output = pixel_shuffle(input) torch.cat 拼接变量，拼接纬度 input = torch.cat([output_deconv, y], 1) # Bsx9x64x64, 1表示从第二个纬度(此处为C)开始拼接 torch.matmul(input, other, *, out=None) 张量乘法 torch.matmul(tensor1, tensor2) 激活函数 函数 含义 torch.nn.ReLU(inplace=False) 激活函数 torch.nn.Sigmoid(*args, **kwargs) 激活函数 其他 函数 含义 常见用法示例 torch."><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-03-23T17:14:34&#43;08:00'/><meta property='article:modified_time' content='2024-03-23T17:14:34&#43;08:00'/>
+<meta name="twitter:title" content="2. Linear Algrebra &amp; CNN &amp; 速记">
+<meta name="twitter:description" content="Matrix Norms $$ \begin{gather} \begin{aligned} || \mathcal{X} ||0 &amp;amp;= \sum{ i=1 }^{ n } \frac{ \mathcal{X}_i }{ \mathcal{X_i} }, \mathcal{X}i \neq 0 \\ || \mathcal{X} ||p &amp;amp;= \Big[ \sum{ i = 1 }^{ n } \mathcal{X}i^p \Big]^{1/p} \\ || \mathcal{X} ||{\infin} &amp;amp;= \mathcal{X}{max} \end{aligned} \end{gather} $$
+Mode-n Unfolding Matrix 沿着第$n$个纬度把张量展开
+指标介绍 MS-Fusion Category Concept HS-HRI $\longrightarrow$ HS-LRI $\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k &#43; \pmb{N}_k$ $f$ 模糊算子 $\pmb N$ 噪声 $\downarrow^k$ 下采样$n$倍 Category Concept HS-HRI$\longrightarrow$ MS-HRI(Pan) $\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$ Cross Correlation CNN Category Category Concept Width 太宽容易过拟合 Depth 过深，有些层可能会失效；梯度可能会消失 Multi-Path Feature-Maps 卷积核对特征的提取 Attention 对图像重点部分的关注 Channel(Dimension) 分路卷积，分别提取Spatial/Channel Imformation Channel Boosting 特征增强 超过3层才叫Deep Network Application Denoise AWNI(Additive White Noisy Imgae) Changing Network Architecture Category Concept Fusion 改变Width, Depth 改变Loss Function Cascade Connection Skip Connection Plugins Activation, Pooling, Fully-Connected Layer(展开成一维) Real Noisy Image (现实中的噪声)"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -250,22 +256,37 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#常用库">常用库</a>
+    <li><a href="#matrix">Matrix</a>
       <ol>
-        <li><a href="#pytorch--tensor">Pytorch &amp; Tensor</a>
-          <ol>
-            <li><a href="#矩阵操作">矩阵操作</a></li>
-            <li><a href="#激活函数">激活函数</a></li>
-            <li><a href="#其他">其他</a></li>
-          </ol>
-        </li>
-        <li><a href="#经验">经验</a></li>
-        <li><a href="#cv2--h5py">CV2 &amp; h5py</a></li>
-        <li><a href="#cv2-函数">CV2 函数</a></li>
-        <li><a href="#h5py">h5py</a></li>
+        <li><a href="#norms">Norms</a></li>
+        <li><a href="#mode-n-unfolding-matrix">Mode-n Unfolding Matrix</a></li>
       </ol>
     </li>
-    <li><a href="#常用简写">常用简写</a></li>
+    <li><a href="#指标介绍">指标介绍</a>
+      <ol>
+        <li><a href="#ms-fusion">MS-Fusion</a></li>
+        <li><a href="#cross-correlation">Cross Correlation</a></li>
+      </ol>
+    </li>
+    <li><a href="#cnn">CNN</a>
+      <ol>
+        <li><a href="#category">Category</a></li>
+        <li><a href="#application">Application</a>
+          <ol>
+            <li><a href="#denoise">Denoise</a></li>
+          </ol>
+        </li>
+        <li><a href="#challenge">Challenge</a></li>
+      </ol>
+    </li>
+    <li><a href="#速记">速记</a></li>
+    <li><a href="#important-networks">Important Networks</a>
+      <ol>
+        <li><a href="#mamba-network">Mamba Network</a></li>
+        <li><a href="#residual-network">Residual Network</a></li>
+      </ol>
+    </li>
+    <li><a href="#appendix">Appendix</a></li>
   </ol>
 </nav>
         </div>
@@ -293,7 +314,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/1.-%E5%B8%B8%E7%94%A8%E5%BA%93/">1. 常用库</a>
+            <a href="/p/2.-linear-algrebra-cnn-%E9%80%9F%E8%AE%B0/">2. Linear Algrebra &amp; CNN &amp; 速记</a>
         </h2>
     
         
@@ -315,7 +336,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 16, 2024</time>
+                <time class="article-time--published">Mar 23, 2024</time>
             </div>
         
 
@@ -345,173 +366,23 @@
     <section class="article-content">
     
     
-    <h1 id="常用库">常用库</h1>
-<h2 id="pytorch--tensor">Pytorch &amp; Tensor</h2>
-<h3 id="矩阵操作">矩阵操作</h3>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">函数</th>
-<th style="text-align:center">含义</th>
-<th style="text-align:center">常见用法示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>torch.nn.Linear(in_features, out_features, bias=True, device=None, dtype=None)</code></td>
-<td style="text-align:center">线性变换</td>
-<td style="text-align:center"><code>m = nn.Linear(20, 30)  output = m(input)</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>torch.nn.Conv2d</code></td>
-<td style="text-align:center">卷积</td>
-<td style="text-align:center"><code>torch.nn.Conv2d(in_channels=3, out_channels=8, kernel_size=3, stride=1, padding=1)</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>torch.nn.AdaptiveAvgPool2d(output_size)</code></td>
-<td style="text-align:center">全局池化</td>
-<td style="text-align:center"><code>m = nn.AdaptiveAvgPool2d(1)</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>torch.nn.PixelShuffle(upsale_factor = ...)</code></td>
-<td style="text-align:center">将输入的低分辨率图像块进行像素重排，生成更大尺寸的高分辨率图像块</td>
-<td style="text-align:center"><code>pixel_shuffle = nn.PixelShuffle(3) output = pixel_shuffle(input)</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>torch.cat</code></td>
-<td style="text-align:center">拼接变量，拼接纬度</td>
-<td style="text-align:center"><code>input = torch.cat([output_deconv, y], 1)  # Bsx9x64x64</code>, 1表示从第二个纬度(此处为C)开始拼接</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>torch.matmul(input, other, *, out=None)</code></td>
-<td style="text-align:center">张量乘法</td>
-<td style="text-align:center"><code>torch.matmul(tensor1, tensor2)</code></td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="激活函数">激活函数</h3>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">函数</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>torch.nn.ReLU(inplace=False)</code></td>
-<td style="text-align:center">激活函数</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>torch.nn.Sigmoid(*args, **kwargs)</code></td>
-<td style="text-align:center">激活函数</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="其他">其他</h3>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">函数</th>
-<th style="text-align:center">含义</th>
-<th style="text-align:center">常见用法示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>torch.randn</code></td>
-<td style="text-align:center">随机生成Tensor</td>
-<td style="text-align:center"><code>torch.randn(1, 3, 256, 256) # NxCxHxW</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>torch.nn.Sequential</code></td>
-<td style="text-align:center">创建按顺序执行的神经网络</td>
-<td style="text-align:center"><code>self.backbone = nn.Sequential(self.res1,self.res2,self.res3,self.res4)</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>torchsummary.summary</code></td>
-<td style="text-align:center">输出神经网络的摘要信息</td>
-<td style="text-align:center"><code>summary(model, input_size=[(8, 16, 16), (1, 64, 64)], batch_size=1)</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>SummaryWriter</code></td>
-<td style="text-align:center">将数据写入TensorBoard日志文件</td>
-<td style="text-align:center"><code>writer = SummaryWriter('./train_logs/50')</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>torch.utils.data.DataLoader</code></td>
-<td style="text-align:center">数据加载, <code>num_workers</code>表示线程数，为0表示在主线程中加载, <code>drop_last(bool)</code> 设为True会丢弃最后一个batch的剩余样本,确保每个batch都有batch_size个样本。</td>
-<td style="text-align:center"><code>training_data_loader = DataLoader(dataset=train_set, num_workers=0, batch_size=batch_size, shuffle=True, pin_memory=True, drop_last=True)</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>x.repeat</code></td>
-<td style="text-align:center">在各个维度上对<code>x</code>进行复制</td>
-<td style="text-align:center"><code>pan = y.repeat(1, 8, 1, 1) # Bsx8x64x64</code></td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="经验">经验</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">Category</th>
-<th style="text-align:center">Concept</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>torch.nn.ConvTranspose2d</code></td>
-<td style="text-align:center">逆卷积, $Output = \Big[ \dfrac{ H + 2P - K }{ S } + 1 \Big] \times \Big[ \dfrac{ W + 2P - K }{ S } + 1\Big]$</td>
-</tr>
-</tbody>
-</table></div>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">$P$</th>
-<th style="text-align:center">$K$</th>
-<th style="text-align:center">$S$</th>
-<th style="text-align:center">OutPut</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">$\dfrac{ H }{4 } \times \dfrac{ W }{ 4 }$</td>
-</tr>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">$\dfrac{ H }{2 } \times \dfrac{ W }{ 2 }$</td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="cv2--h5py">CV2 &amp; h5py</h2>
-<h2 id="cv2-函数">CV2 函数</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">函数</th>
-<th style="text-align:center">含义</th>
-<th style="text-align:center">常见用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>cv2.boxFilter</code></td>
-<td style="text-align:center">方框滤波</td>
-<td style="text-align:center"><code>cv2.boxFilter(data[i, :, :], -1, (5, 5))</code></td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="h5py">h5py</h2>
+    <h1 id="matrix">Matrix</h1>
+<h2 id="norms">Norms</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+|| \mathcal{X} ||<em>0 &amp;= \sum</em>{ i=1 }^{ n } \frac{ \mathcal{X}_i }{ \mathcal{X_i} }, \mathcal{X}<em>i \neq 0 \\
+|| \mathcal{X} ||<em>p &amp;= \Big[ \sum</em>{ i = 1 }^{ n } \mathcal{X}<em>i^p \Big]^{1/p} \\
+|| \mathcal{X} ||</em>{\infin} &amp;= \mathcal{X}</em>{max}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="mode-n-unfolding-matrix">Mode-n Unfolding Matrix</h2>
 <blockquote>
-<p>HDF5 是一种数据存储格式和库，用于有效地组织、存储和管理大量的科学数据。HDF5 文件可以包含多个数据集（dataset）和组（group），以层次结构的方式组织数据。每个数据集可以存储多维数组、表格数据、图像、文本等各种类型的数据。</p>
+<p>沿着第$n$个纬度把张量展开</p>
 </blockquote>
-<h1 id="常用简写">常用简写</h1>
+<h1 id="指标介绍">指标介绍</h1>
+<h2 id="ms-fusion">MS-Fusion</h2>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -521,8 +392,180 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><code>Resblock</code></td>
-<td style="text-align:center"><strong>Residual Block</strong>, 残差块</td>
+<td style="text-align:center">HS-HRI $\longrightarrow$ HS-LRI</td>
+<td style="text-align:center">$\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k + \pmb{N}_k$</td>
+</tr>
+<tr>
+<td style="text-align:center">$f$</td>
+<td style="text-align:center">模糊算子</td>
+</tr>
+<tr>
+<td style="text-align:center">$\pmb N$</td>
+<td style="text-align:center">噪声</td>
+</tr>
+<tr>
+<td style="text-align:center">$\downarrow^k$</td>
+<td style="text-align:center">下采样$n$倍</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">HS-HRI$\longrightarrow$ MS-HRI(Pan)</td>
+<td style="text-align:center">$\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="cross-correlation">Cross Correlation</h2>
+<h1 id="cnn">CNN</h1>
+<h2 id="category">Category</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Width</td>
+<td style="text-align:center">太宽容易过拟合</td>
+</tr>
+<tr>
+<td style="text-align:center">Depth</td>
+<td style="text-align:center">过深，有些层可能会失效；梯度可能会消失</td>
+</tr>
+<tr>
+<td style="text-align:center">Multi-Path</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Feature-Maps</td>
+<td style="text-align:center">卷积核对特征的提取</td>
+</tr>
+<tr>
+<td style="text-align:center">Attention</td>
+<td style="text-align:center">对图像重点部分的关注</td>
+</tr>
+<tr>
+<td style="text-align:center">Channel(Dimension)</td>
+<td style="text-align:center">分路卷积，分别提取<strong>Spatial/Channel</strong> Imformation</td>
+</tr>
+<tr>
+<td style="text-align:center">Channel Boosting</td>
+<td style="text-align:center">特征增强</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>超过<strong>3层</strong>才叫<strong>Deep Network</strong></li>
+</ul>
+<h2 id="application">Application</h2>
+<h3 id="denoise">Denoise</h3>
+<ol>
+<li>AWNI(Additive White Noisy Imgae)</li>
+</ol>
+<ul>
+<li>Changing Network Architecture</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Fusion</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">改变Width, Depth</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">改变Loss Function</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Cascade Connection</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Skip Connection</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Plugins</td>
+<td style="text-align:center">Activation, Pooling, Fully-Connected Layer(展开成一维)</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="2">
+<li>
+<p>Real Noisy Image (现实中的噪声)</p>
+</li>
+<li>
+<p>Blind Denoising (盲源去噪)</p>
+</li>
+</ol>
+<h2 id="challenge">Challenge</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Hyper-Para Settings</td>
+<td style="text-align:center">超参数设置十分重要</td>
+</tr>
+<tr>
+<td style="text-align:center">Hard to Explain</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="速记">速记</h1>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="important-networks">Important Networks</h1>
+<h2 id="mamba-network">Mamba Network</h2>
+<h2 id="residual-network">Residual Network</h2>
+<h1 id="appendix">Appendix</h1>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Weak Edge-Information Noisy Image</td>
+<td style="text-align:center">物体与背景的边缘模糊</td>
 </tr>
 </tbody>
 </table></div>
@@ -589,12 +632,12 @@
             
                 
 <article class="">
-    <a href="/p/2.-linear-algrebra-cnn-%E9%80%9F%E8%AE%B0/">
+    <a href="/p/1.-%E5%B8%B8%E7%94%A8%E5%BA%93/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">2. Linear Algrebra &amp; CNN &amp; 速记</h2>
+            <h2 class="article-title">1. 常用库</h2>
         </div>
     </a>
 </article>
