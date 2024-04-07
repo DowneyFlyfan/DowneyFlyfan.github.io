@@ -269,6 +269,24 @@ Category Concept $Z_{ij}$ 用$I_j$驱动Port j, 开路其他所有端口，测�
         </li>
         <li><a href="#reciprocal--lossless-network-1">Reciprocal &amp; Lossless Network</a></li>
         <li><a href="#a-shift-in-reference-planes">A Shift in Reference Planes</a></li>
+        <li><a href="#power-wave--generalized-scattering-parameters">Power Wave &amp; Generalized Scattering Parameters</a>
+          <ol>
+            <li><a href="#power-wave-with-real-characteristic-impedance">Power Wave With Real Characteristic Impedance</a></li>
+          </ol>
+        </li>
+        <li><a href="#power-wave-with-complex-characteristic-impedance">Power Wave With Complex Characteristic Impedance</a></li>
+      </ol>
+    </li>
+    <li><a href="#transmission-matrix">Transmission Matrix</a>
+      <ol>
+        <li><a href="#definition-1">Definition</a></li>
+        <li><a href="#常用电路结构的参数转化">常用电路结构的参数转化</a></li>
+        <li><a href="#s-z-y-abcd-参数转换表">S Z Y ABCD 参数转换表</a></li>
+      </ol>
+    </li>
+    <li><a href="#signal-flow-graphs">Signal Flow Graphs</a>
+      <ol>
+        <li><a href="#decomposition">Decomposition</a></li>
       </ol>
     </li>
   </ol>
@@ -335,7 +353,7 @@ Category Concept $Z_{ij}$ 用$I_j$驱动Port j, 开路其他所有端口，测�
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -448,12 +466,192 @@ or \ [S][S]^{*t} &amp;= [U]
 \end{gather}
 $$</p>
 <h2 id="a-shift-in-reference-planes">A Shift in Reference Planes</h2>
+<p><img src="/p/4.-microwave-network-analysis/1.png"
+	width="1716"
+	height="1202"
+	srcset="/p/4.-microwave-network-analysis/1_hu086eb3eddc86f61164b651307f7271ff_110315_480x0_resize_box_3.png 480w, /p/4.-microwave-network-analysis/1_hu086eb3eddc86f61164b651307f7271ff_110315_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="142"
+		data-flex-basis="342px"
+	
+></p>
 <p>$$
 \begin{gather}
-\begin{aligned}</p>
-<p>\end{aligned}
+\begin{aligned}
+[V^-] &amp;= [S] [V^+] \\
+[V^-]&rsquo; &amp;= [S]&rsquo; [V^+]&rsquo; \\
+V_n^{-&rsquo;} &amp;= e^{-j \theta_n} V_n^- \\
+V_n^{+&rsquo;} &amp;= e^{j \theta_n} V_n^+ \\
+\theta_n &amp;= \beta_n l_n
+\end{aligned}
 \end{gather}
 $$</p>
+<ul>
+<li>化成矩阵形式</li>
+</ul>
+<p><img src="/p/4.-microwave-network-analysis/2.png"
+	width="1560"
+	height="338"
+	srcset="/p/4.-microwave-network-analysis/2_hua7d37ecb52103c7c839dc59fa3947eae_33077_480x0_resize_box_3.png 480w, /p/4.-microwave-network-analysis/2_hua7d37ecb52103c7c839dc59fa3947eae_33077_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="461"
+		data-flex-basis="1107px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+S_{nn}^{&rsquo;} &amp;= e^{-2j \theta_n} S_{nn}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="power-wave--generalized-scattering-parameters">Power Wave &amp; Generalized Scattering Parameters</h2>
+<h3 id="power-wave-with-real-characteristic-impedance">Power Wave With Real Characteristic Impedance</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_L &amp;= \frac{ 1 }{ 2 } \mathcal{Re} \Big\lbrace VI^* \Big\rbrace \\
+&amp;= \frac{ 1 }{ 2Z_0 } \mathcal{Re} \Big\lbrace (V_0^+ + V_0^-)(V_0^+ -  V_0^-)^* \Big\rbrace \\
+&amp;= \frac{ 1 }{ 2 Z_0 } (|V_0^+|^2 - |V_0^-|^2)
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="power-wave-with-complex-characteristic-impedance">Power Wave With Complex Characteristic Impedance</h2>
+<p><img src="/p/4.-microwave-network-analysis/3.png"
+	width="682"
+	height="356"
+	srcset="/p/4.-microwave-network-analysis/3_hubc000f0f0a74ad3eaa40bb14ebb1b112_27500_480x0_resize_box_3.png 480w, /p/4.-microwave-network-analysis/3_hubc000f0f0a74ad3eaa40bb14ebb1b112_27500_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="459px"
+	
+></p>
+<ul>
+<li>设立一个<strong>Reference Impedance</strong> $Z_R = R_R + j X_R$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+a &amp;= \frac{ V + IZ_R }{ 2 \sqrt{ R_R } } \\
+b &amp;= \frac{ V - IZ_R^* }{ 2 \sqrt{ R_R } } \\
+V &amp;= \frac{ Z_R^*a + Z_R b }{ \sqrt{ R_R } } \\
+I &amp;= \frac{ a-b }{ \sqrt{ R_R } }
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_L &amp;= \frac{ 1 }{ 2 } (|a|^2 - |b|^2) \\
+\Gamma_P &amp;= \frac{ b }{ a } = \frac{ Z_L - Z_R^* }{Z_L + Z_R  }
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="transmission-matrix">Transmission Matrix</h1>
+<h2 id="definition-1">Definition</h2>
+<p><img src="/p/4.-microwave-network-analysis/4.png"
+	width="1590"
+	height="912"
+	srcset="/p/4.-microwave-network-analysis/4_hudee8973c63bdedf071524a1ade30447f_76200_480x0_resize_box_3.png 480w, /p/4.-microwave-network-analysis/4_hudee8973c63bdedf071524a1ade30447f_76200_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="418px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+V_1  \\
+I_1
+\end{bmatrix} &amp;= \begin{bmatrix}
+A &amp; B \\
+C &amp; D
+\end{bmatrix} \begin{bmatrix}
+V_2 \\
+I_2
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="常用电路结构的参数转化">常用电路结构的参数转化</h2>
+<p><img src="/p/4.-microwave-network-analysis/5.png"
+	width="1532"
+	height="1530"
+	srcset="/p/4.-microwave-network-analysis/5_hu67699c04cf04a2898c3f7186e59c9e2d_157652_480x0_resize_box_3.png 480w, /p/4.-microwave-network-analysis/5_hu67699c04cf04a2898c3f7186e59c9e2d_157652_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="240px"
+	
+></p>
+<h2 id="s-z-y-abcd-参数转换表">S Z Y ABCD 参数转换表</h2>
+<p><img src="/p/4.-microwave-network-analysis/6.png"
+	width="2578"
+	height="1776"
+	srcset="/p/4.-microwave-network-analysis/6_hu947c4ac32fc8ca996b3c63f00a1d75d4_380021_480x0_resize_box_3.png 480w, /p/4.-microwave-network-analysis/6_hu947c4ac32fc8ca996b3c63f00a1d75d4_380021_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="348px"
+	
+></p>
+<h1 id="signal-flow-graphs">Signal Flow Graphs</h1>
+<h2 id="decomposition">Decomposition</h2>
+<p><img src="/p/4.-microwave-network-analysis/7.png"
+	width="1266"
+	height="1538"
+	srcset="/p/4.-microwave-network-analysis/7_hu3ed00619af78753266956374d2f2b4b5_141937_480x0_resize_box_3.png 480w, /p/4.-microwave-network-analysis/7_hu3ed00619af78753266956374d2f2b4b5_141937_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="82"
+		data-flex-basis="197px"
+	
+></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Rules</th>
+<th style="text-align:center">Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Series Rule</td>
+<td style="text-align:center">$V_3 = S_{21}S_{32} V_1$</td>
+</tr>
+<tr>
+<td style="text-align:center">Parallel Rule</td>
+<td style="text-align:center">$V_2 = (S_a + S_b) V_1$</td>
+</tr>
+<tr>
+<td style="text-align:center">Self-Loop Rule</td>
+<td style="text-align:center">$V_3 = \dfrac{ S_{32} S_{21} }{ 1 - S_{22} }V_1$</td>
+</tr>
+<tr>
+<td style="text-align:center">Splitting Rule</td>
+<td style="text-align:center">$V_4 = S_{42}S_{21} V_1$</td>
+</tr>
+</tbody>
+</table></div>
 
 </section>
 
@@ -517,19 +715,6 @@ $$</p>
             
                 
 <article class="">
-    <a href="/p/3.-python%E4%BB%A3%E7%A0%81/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">3. Python代码</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/7.-power-dividers-directional-coupler/">
         
         
@@ -575,6 +760,19 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">3. Transmission Lines &amp; Waveguides</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2.-transmission-line-theory/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2. Transmission Line Theory</h2>
         </div>
     </a>
 </article>

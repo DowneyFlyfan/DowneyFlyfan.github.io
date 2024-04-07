@@ -678,12 +678,192 @@ or \ [S][S]^{*t} &amp;amp;= [U]
 \end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;a-shift-in-reference-planes&#34;&gt;A Shift in Reference Planes&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/1.png&#34;
+	width=&#34;1716&#34;
+	height=&#34;1202&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/1_hu086eb3eddc86f61164b651307f7271ff_110315_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-microwave-network-analysis/1_hu086eb3eddc86f61164b651307f7271ff_110315_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;142&#34;
+		data-flex-basis=&#34;342px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
-\begin{aligned}&lt;/p&gt;
-&lt;p&gt;\end{aligned}
+\begin{aligned}
+[V^-] &amp;amp;= [S] [V^+] \\
+[V^-]&amp;rsquo; &amp;amp;= [S]&amp;rsquo; [V^+]&amp;rsquo; \\
+V_n^{-&amp;rsquo;} &amp;amp;= e^{-j \theta_n} V_n^- \\
+V_n^{+&amp;rsquo;} &amp;amp;= e^{j \theta_n} V_n^+ \\
+\theta_n &amp;amp;= \beta_n l_n
+\end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;化成矩阵形式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/2.png&#34;
+	width=&#34;1560&#34;
+	height=&#34;338&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/2_hua7d37ecb52103c7c839dc59fa3947eae_33077_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-microwave-network-analysis/2_hua7d37ecb52103c7c839dc59fa3947eae_33077_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;461&#34;
+		data-flex-basis=&#34;1107px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+S_{nn}^{&amp;rsquo;} &amp;amp;= e^{-2j \theta_n} S_{nn}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;power-wave--generalized-scattering-parameters&#34;&gt;Power Wave &amp;amp; Generalized Scattering Parameters&lt;/h2&gt;
+&lt;h3 id=&#34;power-wave-with-real-characteristic-impedance&#34;&gt;Power Wave With Real Characteristic Impedance&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_L &amp;amp;= \frac{ 1 }{ 2 } \mathcal{Re} \Big\lbrace VI^* \Big\rbrace \\
+&amp;amp;= \frac{ 1 }{ 2Z_0 } \mathcal{Re} \Big\lbrace (V_0^+ + V_0^-)(V_0^+ -  V_0^-)^* \Big\rbrace \\
+&amp;amp;= \frac{ 1 }{ 2 Z_0 } (|V_0^+|^2 - |V_0^-|^2)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;power-wave-with-complex-characteristic-impedance&#34;&gt;Power Wave With Complex Characteristic Impedance&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/3.png&#34;
+	width=&#34;682&#34;
+	height=&#34;356&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/3_hubc000f0f0a74ad3eaa40bb14ebb1b112_27500_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-microwave-network-analysis/3_hubc000f0f0a74ad3eaa40bb14ebb1b112_27500_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;191&#34;
+		data-flex-basis=&#34;459px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设立一个&lt;strong&gt;Reference Impedance&lt;/strong&gt; $Z_R = R_R + j X_R$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+a &amp;amp;= \frac{ V + IZ_R }{ 2 \sqrt{ R_R } } \\
+b &amp;amp;= \frac{ V - IZ_R^* }{ 2 \sqrt{ R_R } } \\
+V &amp;amp;= \frac{ Z_R^*a + Z_R b }{ \sqrt{ R_R } } \\
+I &amp;amp;= \frac{ a-b }{ \sqrt{ R_R } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_L &amp;amp;= \frac{ 1 }{ 2 } (|a|^2 - |b|^2) \\
+\Gamma_P &amp;amp;= \frac{ b }{ a } = \frac{ Z_L - Z_R^* }{Z_L + Z_R  }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;transmission-matrix&#34;&gt;Transmission Matrix&lt;/h1&gt;
+&lt;h2 id=&#34;definition-1&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/4.png&#34;
+	width=&#34;1590&#34;
+	height=&#34;912&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/4_hudee8973c63bdedf071524a1ade30447f_76200_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-microwave-network-analysis/4_hudee8973c63bdedf071524a1ade30447f_76200_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;418px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+V_1  \\
+I_1
+\end{bmatrix} &amp;amp;= \begin{bmatrix}
+A &amp;amp; B \\
+C &amp;amp; D
+\end{bmatrix} \begin{bmatrix}
+V_2 \\
+I_2
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;常用电路结构的参数转化&#34;&gt;常用电路结构的参数转化&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/5.png&#34;
+	width=&#34;1532&#34;
+	height=&#34;1530&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/5_hu67699c04cf04a2898c3f7186e59c9e2d_157652_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-microwave-network-analysis/5_hu67699c04cf04a2898c3f7186e59c9e2d_157652_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;s-z-y-abcd-参数转换表&#34;&gt;S Z Y ABCD 参数转换表&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/6.png&#34;
+	width=&#34;2578&#34;
+	height=&#34;1776&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/6_hu947c4ac32fc8ca996b3c63f00a1d75d4_380021_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-microwave-network-analysis/6_hu947c4ac32fc8ca996b3c63f00a1d75d4_380021_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;348px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;signal-flow-graphs&#34;&gt;Signal Flow Graphs&lt;/h1&gt;
+&lt;h2 id=&#34;decomposition&#34;&gt;Decomposition&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/7.png&#34;
+	width=&#34;1266&#34;
+	height=&#34;1538&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/7_hu3ed00619af78753266956374d2f2b4b5_141937_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-microwave-network-analysis/7_hu3ed00619af78753266956374d2f2b4b5_141937_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;82&#34;
+		data-flex-basis=&#34;197px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Rules&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Formula&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Series Rule&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$V_3 = S_{21}S_{32} V_1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Parallel Rule&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$V_2 = (S_a + S_b) V_1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Self-Loop Rule&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$V_3 = \dfrac{ S_{32} S_{21} }{ 1 - S_{22} }V_1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Splitting Rule&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$V_4 = S_{42}S_{21} V_1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         <item>
