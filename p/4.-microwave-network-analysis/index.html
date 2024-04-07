@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=' '>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Impedance &amp;amp; Admittance Matrix Expressions &amp;amp; Explanations $$ \begin{gather} \begin{aligned} [V] &amp;amp;= [Z][I] \\ [I] &amp;amp;= [Y][V] \\ [Z] &amp;amp;= [Y]^{-1} \\ Z_{ij} &amp;amp;= \frac{ V_i }{ I_j }|{I_k = 0, k \neq j} \\ Y{ij} &amp;amp;= \frac{ I_i }{ V_j }|_{V_k = 0, k \neq j} \end{aligned} \end{gather} $$
+Category Concept $Z_{ij}$ 用$I_j$驱动Port j, 开路其他所有端口，测量$V_i$; 表示其他端口均开路时的$i$到$j$的Transfer Impedance $Z_{ii}$ 开路其他所有端口时Port $i$的阻抗 $Y_{ij}$ 用$V_j$驱动Port j, 短路其他所有端口，测量$I_i$; 表示其他端口均短路时的$i$到$j$的Transfer Admittance Reciprocal &amp;amp; Lossless Network $$ \begin{gather} \begin{aligned} Reciprocal \Longrightarrow [Y] = [Y]^t \\ Lossless \Longrightarrow \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= 0 \\ P_{avg} &amp;amp;= \frac{ 1 }{ 2 } [V]^t [I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } [I]^t [Z]^t[I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } \sum_{ n = 1 }^{ N } \sum_{ m = 1 }^{ N } I_m Z_{mn} I_n^* \\ \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= \frac{ 1 }{ 2 } |I_n|^2 \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace \\ &amp;amp;= 0 \\ \therefore \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace &amp;amp;= 0 \end{aligned} \end{gather} $$'>
 <title>4. Microwave Network Analysis</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/4.-microwave-network-analysis/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4. Microwave Network Analysis'>
-<meta property='og:description' content=' '>
+<meta property='og:description' content='Impedance &amp;amp; Admittance Matrix Expressions &amp;amp; Explanations $$ \begin{gather} \begin{aligned} [V] &amp;amp;= [Z][I] \\ [I] &amp;amp;= [Y][V] \\ [Z] &amp;amp;= [Y]^{-1} \\ Z_{ij} &amp;amp;= \frac{ V_i }{ I_j }|{I_k = 0, k \neq j} \\ Y{ij} &amp;amp;= \frac{ I_i }{ V_j }|_{V_k = 0, k \neq j} \end{aligned} \end{gather} $$
+Category Concept $Z_{ij}$ 用$I_j$驱动Port j, 开路其他所有端口，测量$V_i$; 表示其他端口均开路时的$i$到$j$的Transfer Impedance $Z_{ii}$ 开路其他所有端口时Port $i$的阻抗 $Y_{ij}$ 用$V_j$驱动Port j, 短路其他所有端口，测量$I_i$; 表示其他端口均短路时的$i$到$j$的Transfer Admittance Reciprocal &amp;amp; Lossless Network $$ \begin{gather} \begin{aligned} Reciprocal \Longrightarrow [Y] = [Y]^t \\ Lossless \Longrightarrow \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= 0 \\ P_{avg} &amp;amp;= \frac{ 1 }{ 2 } [V]^t [I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } [I]^t [Z]^t[I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } \sum_{ n = 1 }^{ N } \sum_{ m = 1 }^{ N } I_m Z_{mn} I_n^* \\ \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= \frac{ 1 }{ 2 } |I_n|^2 \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace \\ &amp;amp;= 0 \\ \therefore \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace &amp;amp;= 0 \end{aligned} \end{gather} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/4.-microwave-network-analysis/'>
 <meta property='og:site_name' content='Flyfan Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='RFIC' /><meta property='article:published_time' content='2024-01-26T16:55:32&#43;08:00'/><meta property='article:modified_time' content='2024-01-26T16:55:32&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-04-07T15:16:49&#43;08:00'/><meta property='article:modified_time' content='2024-04-07T15:16:49&#43;08:00'/>
 <meta name="twitter:title" content="4. Microwave Network Analysis">
-<meta name="twitter:description" content=" "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Impedance &amp;amp; Admittance Matrix Expressions &amp;amp; Explanations $$ \begin{gather} \begin{aligned} [V] &amp;amp;= [Z][I] \\ [I] &amp;amp;= [Y][V] \\ [Z] &amp;amp;= [Y]^{-1} \\ Z_{ij} &amp;amp;= \frac{ V_i }{ I_j }|{I_k = 0, k \neq j} \\ Y{ij} &amp;amp;= \frac{ I_i }{ V_j }|_{V_k = 0, k \neq j} \end{aligned} \end{gather} $$
+Category Concept $Z_{ij}$ 用$I_j$驱动Port j, 开路其他所有端口，测量$V_i$; 表示其他端口均开路时的$i$到$j$的Transfer Impedance $Z_{ii}$ 开路其他所有端口时Port $i$的阻抗 $Y_{ij}$ 用$V_j$驱动Port j, 短路其他所有端口，测量$I_i$; 表示其他端口均短路时的$i$到$j$的Transfer Admittance Reciprocal &amp;amp; Lossless Network $$ \begin{gather} \begin{aligned} Reciprocal \Longrightarrow [Y] = [Y]^t \\ Lossless \Longrightarrow \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= 0 \\ P_{avg} &amp;amp;= \frac{ 1 }{ 2 } [V]^t [I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } [I]^t [Z]^t[I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } \sum_{ n = 1 }^{ N } \sum_{ m = 1 }^{ N } I_m Z_{mn} I_n^* \\ \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= \frac{ 1 }{ 2 } |I_n|^2 \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace \\ &amp;amp;= 0 \\ \therefore \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace &amp;amp;= 0 \end{aligned} \end{gather} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -228,7 +231,55 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#impedance--admittance-matrix">Impedance &amp; Admittance Matrix</a>
+      <ol>
+        <li><a href="#expressions--explanations">Expressions &amp; Explanations</a></li>
+        <li><a href="#reciprocal--lossless-network">Reciprocal &amp; Lossless Network</a></li>
+      </ol>
+    </li>
+    <li><a href="#scattering-matrix">Scattering Matrix</a>
+      <ol>
+        <li><a href="#expressions--explanations-1">Expressions &amp; Explanations</a>
+          <ol>
+            <li><a href="#definition">Definition</a></li>
+            <li><a href="#scattering-matrix-to-impedance-matrix">Scattering Matrix to Impedance Matrix</a></li>
+          </ol>
+        </li>
+        <li><a href="#reciprocal--lossless-network-1">Reciprocal &amp; Lossless Network</a></li>
+        <li><a href="#a-shift-in-reference-planes">A Shift in Reference Planes</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -269,7 +320,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Jan 26, 2024</time>
+                <time class="article-time--published">Apr 07, 2024</time>
             </div>
         
 
@@ -284,7 +335,7 @@
 
 
                 <time class="article-time--reading">
-                    0 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -299,7 +350,110 @@
     <section class="article-content">
     
     
-    <h1 id="heading"></h1>
+    <h1 id="impedance--admittance-matrix">Impedance &amp; Admittance Matrix</h1>
+<h2 id="expressions--explanations">Expressions &amp; Explanations</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[V] &amp;= [Z][I] \\
+[I] &amp;= [Y][V] \\
+[Z] &amp;= [Y]^{-1} \\
+Z_{ij} &amp;= \frac{ V_i }{ I_j }|<em>{I_k = 0, k \neq j} \\
+Y</em>{ij} &amp;= \frac{ I_i }{ V_j }|_{V_k = 0, k \neq j}
+\end{aligned}
+\end{gather}
+$$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$Z_{ij}$</td>
+<td style="text-align:center">用$I_j$驱动<strong>Port j</strong>, 开路其他所有端口，测量$V_i$; 表示其他端口均开路时的$i$到$j$的<strong>Transfer Impedance</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">$Z_{ii}$</td>
+<td style="text-align:center">开路其他所有端口时Port $i$的阻抗</td>
+</tr>
+<tr>
+<td style="text-align:center">$Y_{ij}$</td>
+<td style="text-align:center">用$V_j$驱动<strong>Port j</strong>, 短路其他所有端口，测量$I_i$; 表示其他端口均短路时的$i$到$j$的<strong>Transfer Admittance</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="reciprocal--lossless-network">Reciprocal &amp; Lossless Network</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Reciprocal \Longrightarrow [Y] = [Y]^t \\
+Lossless \Longrightarrow \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;= 0 \\
+P_{avg} &amp;= \frac{ 1 }{ 2 } [V]^t [I]^* \\
+&amp;= \frac{ 1 }{ 2 } [I]^t [Z]^t[I]^* \\
+&amp;= \frac{ 1 }{ 2 } \sum_{ n = 1 }^{ N } \sum_{ m = 1 }^{ N } I_m Z_{mn} I_n^* \\
+\mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;= \frac{ 1 }{ 2 } |I_n|^2 \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace \\
+&amp;= 0 \\
+\therefore \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace  &amp;=  0
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="scattering-matrix">Scattering Matrix</h1>
+<h2 id="expressions--explanations-1">Expressions &amp; Explanations</h2>
+<h3 id="definition">Definition</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[V^-] &amp;= [S] [V^+] \\
+S_{ij} &amp;= \frac{ V^-_i }{ V^+<em>j}|</em>{V_k^+ = 0, k \neq j}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="scattering-matrix-to-impedance-matrix">Scattering Matrix to Impedance Matrix</h3>
+<ul>
+<li>假设所有端口的<strong>Characteristic Impedance</strong> $Z_{0n} = 1$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[Z][I] &amp;= [Z][V^+] - [Z][V^-] \\
+[V] &amp;= [V^+] + [V^-] \\
+\therefore [S] &amp;= ([Z] + [U])^{-1} ( [Z] - [U]) \\
+[Z] &amp;= ([U]+ [S])([U] - [S])^{-1}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="reciprocal--lossless-network-1">Reciprocal &amp; Lossless Network</h2>
+<ol>
+<li>经过证明可以得到, Scattering Matrix 是一个Reciprocal Network</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;= [S]^t
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>若Scattering Matrix是一个<strong>Lossless Network</strong>, 则其必然是<strong>Unitary Matrix</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[S]^* &amp;= \Big\lbrace [S]^t \Big\rbrace^{-1} \\
+or \ [S][S]^{*t} &amp;= [U]
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="a-shift-in-reference-planes">A Shift in Reference Planes</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}</p>
+<p>\end{aligned}
+\end{gather}
+$$</p>
 
 </section>
 
@@ -307,8 +461,6 @@
     <footer class="article-footer">
     
     <section class="article-tags">
-        
-            <a href="/tags/rfic/">RFIC</a>
         
     </section>
 
@@ -365,64 +517,64 @@
             
                 
 <article class="">
+    <a href="/p/3.-python%E4%BB%A3%E7%A0%81/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3. Python代码</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/7.-power-dividers-directional-coupler/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">7. Power Dividers &amp; Directional Coupler</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/12.-microwave-amplifier/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">12. Microwave Amplifier</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/a3-passive-component/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">A3 Passive Component</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/3.-transmission-lines-waveguides/">
         
         
 
         <div class="article-details">
             <h2 class="article-title">3. Transmission Lines &amp; Waveguides</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/1.-electromagnetic-theory/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">1. Electromagnetic Theory</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/a2.-coupler/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">A2. Coupler</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/a1-fragmentray-knowledge/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">A1 Fragmentray Knowledge</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/2.-transmission-line-theory/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">2. Transmission Line Theory</h2>
         </div>
     </a>
 </article>

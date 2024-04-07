@@ -259,10 +259,11 @@
             <li><a href="#其他">其他</a></li>
           </ol>
         </li>
-        <li><a href="#经验">经验</a></li>
+        <li><a href="#numpy">Numpy</a></li>
         <li><a href="#cv2--h5py">CV2 &amp; h5py</a></li>
         <li><a href="#cv2-函数">CV2 函数</a></li>
         <li><a href="#h5py">h5py</a></li>
+        <li><a href="#常用库经验">常用库经验</a></li>
       </ol>
     </li>
     <li><a href="#常用简写">常用简写</a></li>
@@ -330,7 +331,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -444,13 +445,57 @@
 <td style="text-align:center"><code>training_data_loader = DataLoader(dataset=train_set, num_workers=0, batch_size=batch_size, shuffle=True, pin_memory=True, drop_last=True)</code></td>
 </tr>
 <tr>
-<td style="text-align:center"><code>x.repeat</code></td>
+<td style="text-align:center"><code>torch.tensor.repeat</code></td>
 <td style="text-align:center">在各个维度上对<code>x</code>进行复制</td>
 <td style="text-align:center"><code>pan = y.repeat(1, 8, 1, 1) # Bsx8x64x64</code></td>
 </tr>
+<tr>
+<td style="text-align:center"><code>torch.tensor.detach()</code></td>
+<td style="text-align:center">将张量从计算图中剥离，不对原有的计梯度等数据进行任何影响</td>
+<td></td>
+</tr>
 </tbody>
 </table></div>
-<h2 id="经验">经验</h2>
+<h2 id="numpy">Numpy</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>numpy.argmax(a, axis=None, out=None, *, keepdims=&lt;no value&gt;)</code></td>
+<td style="text-align:center">返回<code>axis</code>上的最大值</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="cv2--h5py">CV2 &amp; h5py</h2>
+<h2 id="cv2-函数">CV2 函数</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">常见用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>cv2.boxFilter</code></td>
+<td style="text-align:center">方框滤波</td>
+<td style="text-align:center"><code>cv2.boxFilter(data[i, :, :], -1, (5, 5))</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="h5py">h5py</h2>
+<blockquote>
+<p>HDF5 是一种数据存储格式和库，用于有效地组织、存储和管理大量的科学数据。HDF5 文件可以包含多个数据集（dataset）和组（group），以层次结构的方式组织数据。每个数据集可以存储多维数组、表格数据、图像、文本等各种类型的数据。</p>
+</blockquote>
+<h2 id="常用库经验">常用库经验</h2>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -489,28 +534,6 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="cv2--h5py">CV2 &amp; h5py</h2>
-<h2 id="cv2-函数">CV2 函数</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">函数</th>
-<th style="text-align:center">含义</th>
-<th style="text-align:center">常见用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>cv2.boxFilter</code></td>
-<td style="text-align:center">方框滤波</td>
-<td style="text-align:center"><code>cv2.boxFilter(data[i, :, :], -1, (5, 5))</code></td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="h5py">h5py</h2>
-<blockquote>
-<p>HDF5 是一种数据存储格式和库，用于有效地组织、存储和管理大量的科学数据。HDF5 文件可以包含多个数据集（dataset）和组（group），以层次结构的方式组织数据。每个数据集可以存储多维数组、表格数据、图像、文本等各种类型的数据。</p>
-</blockquote>
 <h1 id="常用简写">常用简写</h1>
 <div class="table-wrapper"><table>
 <thead>

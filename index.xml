@@ -6,7 +6,430 @@
         <description>Recent content on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Fri, 29 Mar 2024 12:46:54 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 07 Apr 2024 16:26:09 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>3. Python代码</title>
+        <link>https://downeyflyfan.com/p/3.-python%E4%BB%A3%E7%A0%81/</link>
+        <pubDate>Sun, 07 Apr 2024 16:26:09 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/3.-python%E4%BB%A3%E7%A0%81/</guid>
+        <description>&lt;h1 id=&#34;small-modulos&#34;&gt;Small Modulos&lt;/h1&gt;
+&lt;h2 id=&#34;resnet&#34;&gt;ResNet&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-python%E4%BB%A3%E7%A0%81/1.png&#34;
+	width=&#34;918&#34;
+	height=&#34;786&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-python%E4%BB%A3%E7%A0%81/1_hu9008ff07c5339ee56b99a34438134100_369563_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-python%E4%BB%A3%E7%A0%81/1_hu9008ff07c5339ee56b99a34438134100_369563_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;280px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# ---- ResBlock Definition ----&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Resblock&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Module&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Resblock&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Conv2d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;out_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;kernel_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stride&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;device&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mps_device&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Conv2d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;out_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;kernel_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stride&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;device&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mps_device&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;relu&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ReLU&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inplace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;forward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# x= hp of ms; y = hp of pan&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mps_device&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;rs1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;relu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;rs1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rs1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;rs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rs1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;upsampling&#34;&gt;Upsampling&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;使用&lt;strong&gt;逆卷积&lt;/strong&gt;实现上采样&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# ---- Upsampling definition ----&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Upsampling&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;module&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;upscale&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upscale&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;upscale&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upsampling&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# upsampling&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upsp2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;convtranspose2d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;out_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;kernel_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stride&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;device&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mps&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upsp3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;convtranspose2d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;out_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;kernel_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stride&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;device&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mps&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upsp4&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;convtranspose2d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;out_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;kernel_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stride&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;device&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mps&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# conv &amp;amp; relu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv2d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;out_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;kernel_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stride&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;device&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mps&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv2d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;out_channels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;kernel_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stride&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;device&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mps&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;relu&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;relu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inplace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;forward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mps&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upscale&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;rs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upsp2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;rs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upsp4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;rs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;relu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;rs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conv2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>4. Microwave Network Analysis</title>
+        <link>https://downeyflyfan.com/p/4.-microwave-network-analysis/</link>
+        <pubDate>Sun, 07 Apr 2024 15:16:49 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/4.-microwave-network-analysis/</guid>
+        <description>&lt;h1 id=&#34;impedance--admittance-matrix&#34;&gt;Impedance &amp;amp; Admittance Matrix&lt;/h1&gt;
+&lt;h2 id=&#34;expressions--explanations&#34;&gt;Expressions &amp;amp; Explanations&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[V] &amp;amp;= [Z][I] \\
+[I] &amp;amp;= [Y][V] \\
+[Z] &amp;amp;= [Y]^{-1} \\
+Z_{ij} &amp;amp;= \frac{ V_i }{ I_j }|&lt;em&gt;{I_k = 0, k \neq j} \\
+Y&lt;/em&gt;{ij} &amp;amp;= \frac{ I_i }{ V_j }|_{V_k = 0, k \neq j}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{ij}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;用$I_j$驱动&lt;strong&gt;Port j&lt;/strong&gt;, 开路其他所有端口，测量$V_i$; 表示其他端口均开路时的$i$到$j$的&lt;strong&gt;Transfer Impedance&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Z_{ii}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;开路其他所有端口时Port $i$的阻抗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Y_{ij}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;用$V_j$驱动&lt;strong&gt;Port j&lt;/strong&gt;, 短路其他所有端口，测量$I_i$; 表示其他端口均短路时的$i$到$j$的&lt;strong&gt;Transfer Admittance&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;reciprocal--lossless-network&#34;&gt;Reciprocal &amp;amp; Lossless Network&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Reciprocal \Longrightarrow [Y] = [Y]^t \\
+Lossless \Longrightarrow \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= 0 \\
+P_{avg} &amp;amp;= \frac{ 1 }{ 2 } [V]^t [I]^* \\
+&amp;amp;= \frac{ 1 }{ 2 } [I]^t [Z]^t[I]^* \\
+&amp;amp;= \frac{ 1 }{ 2 } \sum_{ n = 1 }^{ N } \sum_{ m = 1 }^{ N } I_m Z_{mn} I_n^* \\
+\mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= \frac{ 1 }{ 2 } |I_n|^2 \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace \\
+&amp;amp;= 0 \\
+\therefore \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace  &amp;amp;=  0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;scattering-matrix&#34;&gt;Scattering Matrix&lt;/h1&gt;
+&lt;h2 id=&#34;expressions--explanations-1&#34;&gt;Expressions &amp;amp; Explanations&lt;/h2&gt;
+&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[V^-] &amp;amp;= [S] [V^+] \\
+S_{ij} &amp;amp;= \frac{ V^-_i }{ V^+&lt;em&gt;j}|&lt;/em&gt;{V_k^+ = 0, k \neq j}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;scattering-matrix-to-impedance-matrix&#34;&gt;Scattering Matrix to Impedance Matrix&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;假设所有端口的&lt;strong&gt;Characteristic Impedance&lt;/strong&gt; $Z_{0n} = 1$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[Z][I] &amp;amp;= [Z][V^+] - [Z][V^-] \\
+[V] &amp;amp;= [V^+] + [V^-] \\
+\therefore [S] &amp;amp;= ([Z] + [U])^{-1} ( [Z] - [U]) \\
+[Z] &amp;amp;= ([U]+ [S])([U] - [S])^{-1}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;reciprocal--lossless-network-1&#34;&gt;Reciprocal &amp;amp; Lossless Network&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;经过证明可以得到, Scattering Matrix 是一个Reciprocal Network&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= [S]^t
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;若Scattering Matrix是一个&lt;strong&gt;Lossless Network&lt;/strong&gt;, 则其必然是&lt;strong&gt;Unitary Matrix&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S]^* &amp;amp;= \Big\lbrace [S]^t \Big\rbrace^{-1} \\
+or \ [S][S]^{*t} &amp;amp;= [U]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;a-shift-in-reference-planes&#34;&gt;A Shift in Reference Planes&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}&lt;/p&gt;
+&lt;p&gt;\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>7. Power Dividers &amp; Directional Coupler</title>
+        <link>https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/</link>
+        <pubDate>Sun, 07 Apr 2024 14:25:55 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/</guid>
+        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+</description>
+        </item>
+        <item>
+        <title>12. Microwave Amplifier</title>
+        <link>https://downeyflyfan.com/p/12.-microwave-amplifier/</link>
+        <pubDate>Sun, 07 Apr 2024 12:06:29 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/12.-microwave-amplifier/</guid>
+        <description>&lt;h1 id=&#34;broadband-transistor-amplifier-design&#34;&gt;Broadband Transistor Amplifier Design&lt;/h1&gt;
+&lt;h2 id=&#34;增加带宽的做法&#34;&gt;增加带宽的做法&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;方法&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;优点&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;缺点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Compensated Matching Network&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;补偿Gain&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输入、输出阻抗失配&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Resistive Matching Network&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;阻抗匹配&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Gain下降，Noise Figure增加&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Negative Feedback&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;增加增益平坦度，阻抗匹配，增加稳定性&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Gain 下降，Noise Figure 增加&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Balanced Amplifier&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;带宽大，阻抗匹配&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;需要更大的面积、更多的晶体管、更大的DC功耗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Distributed Amplifier&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;大Gain, 阻抗匹配，大带宽，低噪声&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;面积很大&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Differential Amplifier&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;更大的带宽，更大的Output Voltage Swing&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;面积更大&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;balanced-amplifiers&#34;&gt;Balanced Amplifiers&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/1.png&#34;
+	width=&#34;2222&#34;
+	height=&#34;672&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;330&#34;
+		data-flex-basis=&#34;793px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+S_{21} &amp;amp;= - \frac{ j }{ 2 }( G_A + G_B) \\
+S_{11} &amp;amp;= \frac{ 1 }{ 2 } ( \Gamma_A - \Gamma_B )
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;distributed-amplifier&#34;&gt;Distributed Amplifier&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/2.png&#34;
+	width=&#34;1780&#34;
+	height=&#34;542&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/2_hu3ef1c5a9c93e83ed8956181ef8cb0ee7_64285_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/2_hu3ef1c5a9c93e83ed8956181ef8cb0ee7_64285_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;328&#34;
+		data-flex-basis=&#34;788px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;differential-amplifier&#34;&gt;Differential Amplifier&lt;/h2&gt;
+&lt;h3 id=&#34;single-ended--differential-amplifier-symbols&#34;&gt;Single-Ended &amp;amp; Differential Amplifier (Symbols)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/3.png&#34;
+	width=&#34;1684&#34;
+	height=&#34;426&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/3_hu8e6f40c502b23d173b8594f69f3157de_37692_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/3_hu8e6f40c502b23d173b8594f69f3157de_37692_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;395&#34;
+		data-flex-basis=&#34;948px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;balun-lines&#34;&gt;Balun Lines&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/4.png&#34;
+	width=&#34;1986&#34;
+	height=&#34;528&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/4_hu1cc4f0017c292b82a6f094045ea17741_59911_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/4_hu1cc4f0017c292b82a6f094045ea17741_59911_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;376&#34;
+		data-flex-basis=&#34;902px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;differential-amplifier-circuit&#34;&gt;Differential Amplifier Circuit&lt;/h3&gt;
+&lt;h2 id=&#34;pa指标&#34;&gt;PA指标&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PAE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$PAE = \dfrac{ P_{out} - P_{in} }{ P_{out} }$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;相对工作带宽$RBW$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$RBW = \dfrac{ 2 (f_H - f_L) }{ f_H + f_L }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;工作带宽与中心频率的比值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;增益平坦度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\Delta G = \dfrac{ G_{max} - G_{min} }{ 2 }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;指的是带宽内&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;回退功率(Back-Off Power)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_{bo} = P_{sat} - P_{in}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;回退功率越大, 线性度越好，效率越低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;稳定度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$K&amp;gt;1$时绝对稳定&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$1dB$压缩点&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Bode-Fano准则&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\Delta \omega ln \dfrac{ 1 }{ \Gamma_m } &amp;lt; \dfrac{ \pi R }{ L }$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bode Fano 准则&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/1.png&#34;
+	width=&#34;2222&#34;
+	height=&#34;672&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;330&#34;
+		data-flex-basis=&#34;793px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一般&lt;strong&gt;Drive Stage&lt;/strong&gt;使用&lt;strong&gt;小栅宽，大增益&lt;/strong&gt;；&lt;strong&gt;Power Stage&lt;/strong&gt;用&lt;strong&gt;大栅宽，大功率&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>A3 Passive Component</title>
         <link>https://downeyflyfan.com/p/a3-passive-component/</link>
         <pubDate>Fri, 29 Mar 2024 12:46:54 +0800</pubDate>
@@ -268,6 +691,19 @@ $$&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h1 id=&#34;inductor&#34;&gt;Inductor&lt;/h1&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+L &amp;amp;= \frac{ \mathcal{Im}(Z) }{ 2 \pi f } \\
+Q &amp;amp;= \frac{ \mathcal{Im}(Z) }{ \mathcal{Re}(Z) } \\
+&amp;amp;= \frac{ \omega L }{ R }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Lumped Components&lt;/strong&gt; 离周围至少3倍线款&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
@@ -586,13 +1022,57 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;training_data_loader = DataLoader(dataset=train_set, num_workers=0, batch_size=batch_size, shuffle=True, pin_memory=True, drop_last=True)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;x.repeat&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.tensor.repeat&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;在各个维度上对&lt;code&gt;x&lt;/code&gt;进行复制&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;pan = y.repeat(1, 8, 1, 1) # Bsx8x64x64&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.tensor.detach()&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将张量从计算图中剥离，不对原有的计梯度等数据进行任何影响&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;经验&#34;&gt;经验&lt;/h2&gt;
+&lt;h2 id=&#34;numpy&#34;&gt;Numpy&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;示例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;numpy.argmax(a, axis=None, out=None, *, keepdims=&amp;lt;no value&amp;gt;)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;返回&lt;code&gt;axis&lt;/code&gt;上的最大值&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;cv2--h5py&#34;&gt;CV2 &amp;amp; h5py&lt;/h2&gt;
+&lt;h2 id=&#34;cv2-函数&#34;&gt;CV2 函数&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;常见用法&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;cv2.boxFilter&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;方框滤波&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;cv2.boxFilter(data[i, :, :], -1, (5, 5))&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;h5py&#34;&gt;h5py&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HDF5 是一种数据存储格式和库，用于有效地组织、存储和管理大量的科学数据。HDF5 文件可以包含多个数据集（dataset）和组（group），以层次结构的方式组织数据。每个数据集可以存储多维数组、表格数据、图像、文本等各种类型的数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;常用库经验&#34;&gt;常用库经验&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -631,28 +1111,6 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;cv2--h5py&#34;&gt;CV2 &amp;amp; h5py&lt;/h2&gt;
-&lt;h2 id=&#34;cv2-函数&#34;&gt;CV2 函数&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;含义&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;常见用法&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;cv2.boxFilter&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;方框滤波&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;cv2.boxFilter(data[i, :, :], -1, (5, 5))&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;h5py&#34;&gt;h5py&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;HDF5 是一种数据存储格式和库，用于有效地组织、存储和管理大量的科学数据。HDF5 文件可以包含多个数据集（dataset）和组（group），以层次结构的方式组织数据。每个数据集可以存储多维数组、表格数据、图像、文本等各种类型的数据。&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;h1 id=&#34;常用简写&#34;&gt;常用简写&lt;/h1&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -3892,8 +4350,7 @@ $$&lt;/p&gt;
         <pubDate>Fri, 01 Dec 2023 16:14:41 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/a2.-active-component-layout/</guid>
-        <description>&lt;h1 id=&#34;power-amplifier&#34;&gt;Power Amplifier&lt;/h1&gt;
-&lt;h2 id=&#34;transistor&#34;&gt;Transistor&lt;/h2&gt;
+        <description>&lt;h1 id=&#34;transistor&#34;&gt;Transistor&lt;/h1&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3924,71 +4381,6 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;pa指标&#34;&gt;PA指标&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;备注&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PAE&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$PAE = \dfrac{ P_{out} - P_{in} }{ P_{out} }$&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;相对工作带宽$RBW$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$RBW = \dfrac{ 2 (f_H - f_L) }{ f_H + f_L }$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;工作带宽与中心频率的比值&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;增益平坦度&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\Delta G = \dfrac{ G_{max} - G_{min} }{ 2 }$&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;回退功率(Back-Off Power)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$P_{bo} = P_{sat} - P_{in}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;回退功率越大, 线性度越好，效率越低&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;稳定度&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$K&amp;gt;1$时绝对稳定&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$1dB$压缩点&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Bode-Fano准则&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\Delta \omega ln \dfrac{ 1 }{ \Gamma_m } &amp;lt; \dfrac{ \pi R }{ L }$&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Bode Fano 准则&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/a2.-active-component-layout/1.png&#34;
-	width=&#34;1742&#34;
-	height=&#34;1268&#34;
-	srcset=&#34;https://downeyflyfan.com/p/a2.-active-component-layout/1_hu169ca9687de1e1a719a10dbe5f60d10e_608120_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/a2.-active-component-layout/1_hu169ca9687de1e1a719a10dbe5f60d10e_608120_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;137&#34;
-		data-flex-basis=&#34;329px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一般&lt;strong&gt;Drive Stage&lt;/strong&gt;使用&lt;strong&gt;小栅宽，大增益&lt;/strong&gt;；&lt;strong&gt;Power Stage&lt;/strong&gt;用&lt;strong&gt;大栅宽，大功率&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h1 id=&#34;layout&#34;&gt;Layout&lt;/h1&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -4004,15 +4396,19 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;OD&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;有源层&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Oxide Diffusion, 有源层&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;CO&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Contact, 金属接触层&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CBM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Capacitor Bottom Metal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CTM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Capacitor Top Metal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4254,7 +4650,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;MMIC&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Monolithic Microwave IC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Monolithic Microwave IC, 单片微波电路&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;APD&lt;/td&gt;
@@ -4267,6 +4663,10 @@ $$&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;FSK&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Frequency Shift Keying&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
