@@ -12,7 +12,569 @@
         <pubDate>Sun, 07 Apr 2024 14:25:55 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/</guid>
-        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;basic-properties-of-pd--dp&#34;&gt;Basic Properties of PD &amp;amp; DP&lt;/h1&gt;
+&lt;h2 id=&#34;3-port-network&#34;&gt;3-Port Network&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;三端口网络&lt;strong&gt;不可能同时满足Reciprocal, Lossless, Matched&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= \begin{bmatrix}
+0 &amp;amp; S_{12} &amp;amp; S_{13} \\
+S_{12} &amp;amp; 0 &amp;amp; S_{23} \\
+S_{13} &amp;amp; S_{23} &amp;amp; 0
+\end{bmatrix} \\
+[S]^t[S]^* &amp;amp;= [U]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;4-port-network&#34;&gt;4-Port Network&lt;/h2&gt;
+&lt;h3 id=&#34;reciprocal--matched--lossless&#34;&gt;Reciprocal &amp;amp; Matched &amp;amp; Lossless&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Reciprocal &amp;amp; Matched&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= \begin{bmatrix}
+0 &amp;amp; S_{12} &amp;amp; S_{13} &amp;amp; S_{14} \\
+S_{12} &amp;amp; 0 &amp;amp; S_{23} &amp;amp; S_{24} \\
+S_{13} &amp;amp; S_{23} &amp;amp; 0 &amp;amp; S_{34} \\
+S_{14} &amp;amp; S_{24} &amp;amp; S_{34} &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Lossless&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;根据&lt;strong&gt;Unitary Matrix&lt;/strong&gt;的性质, 分别将Row(12,34,13,24)相乘，然后相减&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S]^t [S]^* &amp;amp;= 0 \\
+S_{13} S_{23}^* + S_{14} S_{24}^* &amp;amp;= 0 \\
+S_{13} S_{14}^* + S_{23} S_{24}^* &amp;amp;= 0 \\
+S_{13} (S_{23}^* - S_{14}^&lt;em&gt;) + S_{24}^&lt;/em&gt;(S_{14} - S_{23}) &amp;amp;= 0 \\
+S_{12} (S_{24}^* - S_{13}^&lt;em&gt;) + S_{34}^&lt;/em&gt;(S_{13} - S_{24}) &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
+&lt;h4 id=&#34;solution-i&#34;&gt;Solution I&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;以上方程的&lt;strong&gt;一个可能解&lt;/strong&gt;是$S_{23} = S_{14} = 0$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;基于这个解，再次利用&lt;strong&gt;Unitary Matrix&lt;/strong&gt;的定义可以得到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+|S_{12}|^2 + |S_{13}|^2 &amp;amp;= 1 \\
+|S_{12}|^2 + |S_{24}|^2 &amp;amp;= 1 \\
+|S_{13}|^2 + |S_{34}|^2 &amp;amp;= 1 \\
+|S_{24}|^2 + |S_{34}|^2 &amp;amp;= 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;进一步得到, 并设置&lt;strong&gt;Reference Plane&lt;/strong&gt;进行假设&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+|S_{12}| &amp;amp;= |S_{34}| \\
+|S_{13}| &amp;amp;= |S_{24}| \\
+S_{12} &amp;amp;= S_{34} = \alpha \\
+S_{13} &amp;amp;= \beta e^{j \theta}, S_{24} = \beta e^{j \phi}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;继续利用&lt;strong&gt;Unitary Matrix&lt;/strong&gt;的性质&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Multilication of Row 2 &amp;amp; 3&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+S_{12}^* S_{13} + S_{24}^* S_{34} &amp;amp;= 0 \\
+tan( \theta) + tan( \phi) &amp;amp;= 0 \\
+\therefore  \theta + \phi &amp;amp;= \pi \pm 2n \pi \\
+\alpha^2 + \beta^2 &amp;amp;= 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;通常$\theta$和$\phi$有两种取值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$\theta = \phi = \dfrac{ \pi }{ 2 }$, &lt;strong&gt;Symmetrical Coupler&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= \begin{bmatrix}
+0 &amp;amp; \alpha &amp;amp; j \beta &amp;amp; 0 \\
+\alpha &amp;amp; 0 &amp;amp; 0 &amp;amp; j \beta \\
+j \beta &amp;amp; 0 &amp;amp; 0 &amp;amp; \alpha \\
+0 &amp;amp; j \beta &amp;amp; \alpha &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\theta = 0, \phi = \pi$, &lt;strong&gt;AntiSymmetrical Coupler&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= \begin{bmatrix}
+0 &amp;amp; \alpha &amp;amp; \beta &amp;amp; 0 \\
+\alpha &amp;amp; 0 &amp;amp; 0 &amp;amp; -\beta \\
+\beta &amp;amp; 0 &amp;amp; 0 &amp;amp; \alpha \\
+0 &amp;amp; - \beta &amp;amp; \alpha &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;solution-ii&#34;&gt;Solution II&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$S_{13} = S_{24}, S_{12} = S_{34}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最终得到$[S] = 0$. 这样一个设备是&lt;strong&gt;没有意义的&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;directional-coupler&#34;&gt;Directional Coupler&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/1.png&#34;
+	width=&#34;1084&#34;
+	height=&#34;782&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/1_hucfe38aa3f31631229c7d1bc975fedbed_76231_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/1_hucfe38aa3f31631229c7d1bc975fedbed_76231_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;138&#34;
+		data-flex-basis=&#34;332px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C &amp;amp;= 10 \cdot log( \frac{ P_1 }{ P_3 }) = -20 \cdot log \beta (dB) \\
+D &amp;amp;= 10 \cdot log( \frac{ P_3 }{ P_4 }) = 20 \cdot log ( \frac{ \alpha }{ |S_{14}|}) (dB) \\
+I &amp;amp;= 10 \cdot log( \frac{ P_1 }{ P_4 }) = - 20 \cdot  log( |S_{14}|) (dB) \\
+IL &amp;amp;= 10 \cdot log( \frac{ P_1 }{ P_2 }) = -20 log( |S_{12}|)(dB) \\
+I &amp;amp;= (C+D) ( dB)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;t-junciton-power-divider&#34;&gt;T-Junciton Power Divider&lt;/h1&gt;
+&lt;h2 id=&#34;lossless-divider&#34;&gt;Lossless Divider&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/2.png&#34;
+	width=&#34;1026&#34;
+	height=&#34;808&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/2_huc94c6a6dc2e7c730d5b4eb40f2348b65_63934_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/2_huc94c6a6dc2e7c730d5b4eb40f2348b65_63934_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;126&#34;
+		data-flex-basis=&#34;304px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Y_{in} &amp;amp;= \frac{ 1 }{ Z_0 }  \\
+&amp;amp;= \frac{ 1 }{ Z_1 } + \frac{ 1 }{ Z_2 } + jB
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;resistive-divider&#34;&gt;Resistive Divider&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/3.png&#34;
+	width=&#34;1422&#34;
+	height=&#34;1020&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/3_hu7b44bfb0a37f97d7f5a8be0728a23698_130226_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/3_hu7b44bfb0a37f97d7f5a8be0728a23698_130226_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;139&#34;
+		data-flex-basis=&#34;334px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;电路分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z &amp;amp;= \frac{ Z_0 }{ 3 } + Z_0 = \frac{ 4 }{ 3 } Z_0 \\
+Z_{in} &amp;amp;= \frac{ Z_0 }{ 3 } + \frac{ 4 }{ 3 } Z_0 || \frac{ 4 }{ 3 } Z_0 = Z_0 \\
+\therefore V &amp;amp;= \frac{ 2 }{ 3 }V_1 \\
+V_2 &amp;amp;= V_3 = \frac{ 1 }{ 2 } V_1 \\
+\therefore S_{12} &amp;amp;= S_{13} = S_{23} = \frac{ 1 }{ 2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;阻抗匹配时的S参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= \frac{ 1 }{ 2 } \begin{bmatrix}
+0 &amp;amp; 1 &amp;amp; 1 \\
+1 &amp;amp; 0 &amp;amp; 1 \\
+1 &amp;amp; 1 &amp;amp; 0
+\end{bmatrix} \\
+[S]^t [S]^* &amp;amp;\neq [U]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不是&lt;strong&gt;Unitary Matrix&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Power&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{in} &amp;amp;= \frac{ V_1^2 }{ 2 Z_0 } \\
+P_2 = P_3 &amp;amp;= \frac{ (\dfrac{ 1 }{ 2 } V_1)^2 }{ 2Z_0 } = \frac{ 1 }{ 4 } P_{in} \\
+P_{loss} &amp;amp;= \frac{ 1 }{ 2 } P_{in}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以看出，&lt;strong&gt;损失了一半的能量&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;wilkinson-power-divider&#34;&gt;Wilkinson Power Divider&lt;/h1&gt;
+&lt;h2 id=&#34;circuits&#34;&gt;Circuits&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/4.png&#34;
+	width=&#34;2134&#34;
+	height=&#34;938&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/4_hu6d9f8390994de2a180f5d04b151db081_168563_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/4_hu6d9f8390994de2a180f5d04b151db081_168563_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;227&#34;
+		data-flex-basis=&#34;546px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/5.png&#34;
+	width=&#34;1570&#34;
+	height=&#34;940&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/5_hu5de26d5235346f91ece32ae21beb751f_146955_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/5_hu5de26d5235346f91ece32ae21beb751f_146955_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;167&#34;
+		data-flex-basis=&#34;400px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;analysis&#34;&gt;Analysis&lt;/h2&gt;
+&lt;h3 id=&#34;even-mode-analysis&#34;&gt;Even Mode Analysis&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/6.png&#34;
+	width=&#34;1552&#34;
+	height=&#34;488&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/6_hu5d93f1b9c4367eb3e02a020895dec272_79731_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/6_hu5d93f1b9c4367eb3e02a020895dec272_79731_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;318&#34;
+		data-flex-basis=&#34;763px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$V_2^e$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$Z = \sqrt{ 2 }$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{g1} &amp;amp;= V_{g2} = 2V_0 \\
+Z_{in}^e &amp;amp;= \frac{ Z_0^2 }{ Z_L } = \frac{ Z^2 }{ 2 } = 1 \\
+\therefore V_2^e &amp;amp;= V_0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;$V_1^e$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V(x) &amp;amp;= V^+(e^{-j \beta x} + \Gamma e^{j \beta x})  \\
+V_2^e &amp;amp;= V(- \frac{ \lambda }{ 4 }) = j V^+ ( 1- \Gamma) = V_0 \\
+V_1^e &amp;amp;= V(0) = V^+ ( 1 + \Gamma) = j V_0 \frac{ \Gamma + 1 }{ \Gamma -1 } \\
+\Gamma &amp;amp;= \frac{ Z_{in 1} - Z_0}{ Z_{in1} + Z_0 } \\
+&amp;amp;= \frac{ 2 - \sqrt{ 2 } }{ 2 + \sqrt{ 2 } } \\
+\therefore  V_1^e &amp;amp;= -j V_0 \sqrt{ 2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;odd-mode-analysis&#34;&gt;Odd Mode Analysis&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/7.png&#34;
+	width=&#34;1546&#34;
+	height=&#34;572&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/7_hu5fba79e618017414e36b0a90471d707d_84313_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/7_hu5fba79e618017414e36b0a90471d707d_84313_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;270&#34;
+		data-flex-basis=&#34;648px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Voltage Analysis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$r = 2$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{g2} &amp;amp;= -V_{g3} = 2V_0 \\
+V_2^o &amp;amp;= - V_3^o \\
+Z_{in2} &amp;amp;= \infin  || \frac{ r }{ 2 } = \frac{ r }{ 2 } = 1 \\
+\therefore  V_2^o &amp;amp;= V_0 \\
+V_1^o &amp;amp;=  0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;$Z_{in1}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/8.png&#34;
+	width=&#34;1272&#34;
+	height=&#34;1118&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/8_huf064aadd260327270b5dd5f91acaa25e_143987_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/8_huf064aadd260327270b5dd5f91acaa25e_143987_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;113&#34;
+		data-flex-basis=&#34;273px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in1} &amp;amp;= \frac{ Z_0^2 }{ Z_L } = 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;s-params&#34;&gt;S Params&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/9.png&#34;
+	width=&#34;1756&#34;
+	height=&#34;456&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/9_hu161e7194f07915a07e8f8ffc98c02056_96599_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/9_hu161e7194f07915a07e8f8ffc98c02056_96599_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;385&#34;
+		data-flex-basis=&#34;924px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= -j \sqrt{ 2 } \begin{bmatrix}
+0 &amp;amp; 1 &amp;amp; 1 \\
+1 &amp;amp; 0 &amp;amp; 0 \\
+1 &amp;amp; 0 &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;unequal-power-devision--n-way-wilkinson-power-divider&#34;&gt;Unequal Power Devision &amp;amp; N-Way Wilkinson Power Divider&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;$R_2, R_3$是2、3端口的匹配阻抗&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{03} &amp;amp;= Z_0 \sqrt{ \frac{ 1 + K }{ K^3 } } \\
+Z_{02} &amp;amp;= K^2 Z_{03} = Z_0 \sqrt{ K(1 + K^2) } \\
+R &amp;amp;= Z_0 ( K + \frac{ 1 }{ K }) \\
+R_2 &amp;amp;= Z_0 K \\
+R_3 &amp;amp;= Z_0 / K
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;quadarture-hybrid&#34;&gt;Quadarture Hybrid&lt;/h1&gt;
+&lt;h2 id=&#34;branch-line-coupler&#34;&gt;Branch-Line Coupler&lt;/h2&gt;
+&lt;h3 id=&#34;circuits--s-params&#34;&gt;Circuits &amp;amp; S Params&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/10.png&#34;
+	width=&#34;1498&#34;
+	height=&#34;528&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/10_hu1ca5e1fbcf9ea10b75521ec42163c069_65263_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/10_hu1ca5e1fbcf9ea10b75521ec42163c069_65263_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;283&#34;
+		data-flex-basis=&#34;680px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= - \frac{ 1 }{ \sqrt{ 2 } } \begin{bmatrix}
+0 &amp;amp; j &amp;amp; 1 &amp;amp; 0 \\
+j &amp;amp; 0 &amp;amp; 0 &amp;amp; 1 \\
+1 &amp;amp; 0 &amp;amp; 0 &amp;amp; j \\
+0 &amp;amp; 1 &amp;amp; j &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;normalized-circuits&#34;&gt;Normalized Circuits&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/11.png&#34;
+	width=&#34;1206&#34;
+	height=&#34;672&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/11_hu18b1a5a4024dbb6a93aa1a7e3205eed4_66345_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/11_hu18b1a5a4024dbb6a93aa1a7e3205eed4_66345_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;430px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Emerging Waves&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+B_1 &amp;amp;= \frac{ 1 }{ 2 } ( \Gamma_e + \Gamma_o) \\
+B_2 &amp;amp;= \frac{ 1 }{ 2 } (T_e + T_o) \\
+B_3 &amp;amp;= \frac{ 1 }{ 2 } ( \Gamma_e - \Gamma_o) \\
+B_4 &amp;amp;= \frac{ 1 }{ 2 } (T_e - T_o)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;even-odd-mode-analysis&#34;&gt;Even-Odd Mode Analysis&lt;/h2&gt;
+&lt;h3 id=&#34;even-mode&#34;&gt;Even Mode&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/12.png&#34;
+	width=&#34;1894&#34;
+	height=&#34;552&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/12_hu08055bdf277e0d62fe4e0c527eac5caa_101861_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/12_hu08055bdf277e0d62fe4e0c527eac5caa_101861_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;343&#34;
+		data-flex-basis=&#34;823px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;该电路是&lt;strong&gt;Shunt Y&lt;/strong&gt;, $\dfrac{ \lambda }{ 4 }$, &lt;strong&gt;Shunt Y&lt;/strong&gt; Cascade 形成的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+A &amp;amp; B \\
+C &amp;amp; D
+\end{bmatrix}_e &amp;amp;= \frac{ 1 }{ \sqrt{ 2 } } \begin{bmatrix}
+-1 &amp;amp; j \\
+j &amp;amp; -1
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;根据&lt;strong&gt;ABCD - S&lt;/strong&gt;参数转化表&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma_e &amp;amp;= S_{11}^e = 0 \\
+T_e &amp;amp;= S_{21}^e = - \frac{ 1 }{ \sqrt{ 2 } } (1 + j)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;odd-mode&#34;&gt;Odd Mode&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/13.png&#34;
+	width=&#34;1916&#34;
+	height=&#34;528&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/13_hude6cff34e70857f7bce7fafc286934a9_106574_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/13_hude6cff34e70857f7bce7fafc286934a9_106574_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;362&#34;
+		data-flex-basis=&#34;870px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;同理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+A &amp;amp; B \\
+C &amp;amp; D
+\end{bmatrix}_o &amp;amp;= \frac{ 1 }{ \sqrt{ 2 } } \begin{bmatrix}
+1 &amp;amp; j \\
+j &amp;amp; 1
+\end{bmatrix} \\
+\Gamma_o  &amp;amp;= 0 \\
+T_o &amp;amp;= \frac{ 1 }{ \sqrt{ 2 } } ( 1- j)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;emerging-wave&#34;&gt;Emerging Wave&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+B_1 &amp;amp;= 0 \\
+B_2 &amp;amp;= - \frac{ j }{ \sqrt{ 2 } } \\
+B_3 &amp;amp;= - \frac{ 1 }{ \sqrt{ 2 } } \\
+B_4 &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;coupled-line-directional-coupler&#34;&gt;Coupled-Line Directional Coupler&lt;/h1&gt;
+&lt;h2 id=&#34;even-odd-mode-analysis-1&#34;&gt;Even-Odd Mode Analysis&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/14.png&#34;
+	width=&#34;1608&#34;
+	height=&#34;1228&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/14_huf4628db9aeb2262b28edd640a78a65f4_206046_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/14_huf4628db9aeb2262b28edd640a78a65f4_206046_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;130&#34;
+		data-flex-basis=&#34;314px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}&lt;/p&gt;
+&lt;p&gt;\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
