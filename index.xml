@@ -644,7 +644,7 @@ $$&lt;/p&gt;
 \begin{gather}
 \begin{aligned}
 S_{12}^* S_{13} + S_{24}^* S_{34} &amp;amp;= 0 \\
-tan( \theta) + tan( \phi) &amp;amp;= 0 \\
+\tan( \theta) + \tan( \phi) &amp;amp;= 0 \\
 \therefore  \theta + \phi &amp;amp;= \pi \pm 2n \pi \\
 \alpha^2 + \beta^2 &amp;amp;= 1
 \end{aligned}
@@ -1109,12 +1109,190 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;314px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Even Mode&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C_e &amp;amp;= C_{11} = C_{22} \\
+v_p &amp;amp;= \frac{ 1 }{ \sqrt{ L_o C_o } } = \frac{ 1 }{ \sqrt{ L_e C_e } } \\
+Z_{0e} &amp;amp;= \sqrt{ \frac{ L_e }{ C_e } } = \frac{ 1 }{ v_p C_e }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Odd Mode&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C_o &amp;amp;= C_{11} + 2 C_{12} \\
+Z_{0o} &amp;amp;= \sqrt{ \frac{ L_o }{ C_o } } = \frac{ 1 }{ v_p C_o }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;design-of-coupled-line-couplers&#34;&gt;Design of Coupled Line Couplers&lt;/h2&gt;
+&lt;h3 id=&#34;single-section-coupled-line-coupler&#34;&gt;Single-Section Coupled Line Coupler&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/15.png&#34;
+	width=&#34;1334&#34;
+	height=&#34;1374&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/15_hu62992a79aba8a891447c1e16fae245ef_163729_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/15_hu62992a79aba8a891447c1e16fae245ef_163729_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;97&#34;
+		data-flex-basis=&#34;233px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}&lt;/p&gt;
 &lt;p&gt;\end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;h3 id=&#34;even-odd-mode-analysis-2&#34;&gt;Even-Odd Mode Analysis&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/16.png&#34;
+	width=&#34;1228&#34;
+	height=&#34;1312&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/16_hucb9fb9057149b96afb933c4c464260b5_177402_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/16_hucb9fb9057149b96afb933c4c464260b5_177402_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;93&#34;
+		data-flex-basis=&#34;224px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;回顾 &lt;strong&gt;Impedance Function&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in} &amp;amp;= \frac{ V_1 }{ I_1 } = \frac{ V_1^e + V_1^o }{ I_1^e + I_1^o } \\
+&amp;amp;= Z_0 \frac{ Z_0 + j Z_L \tan \theta }{ Z_L + j Z_0 \tan \theta }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_1^e &amp;amp;= V_0 \frac{ Z_{in}^e }{ Z_{in}^e + Z_0 } \\
+V_1^o &amp;amp;= V_0 \frac{ Z_{in}^o }{ Z_{in}^o + Z_0 } \\
+I_1^e &amp;amp;= \frac{ V_0 }{ Z_{in}^e + Z_0 } \\
+I_1^o &amp;amp;= \frac{ V_0 }{ Z_{in}^o + Z_0 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;假设&lt;/strong&gt;$Z_0 = \sqrt{ Z_{0o} Z_{0e} }$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;可以得到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{in} &amp;amp;= Z_0 \\
+V_1 &amp;amp;= V_0 \\
+V_3 &amp;amp;= V_3^e + V_3^o = V_1^e - V_1^o \\
+&amp;amp;= V_0 \frac{ j (Z_{0e} - Z_{0o}) \tan \theta }{ 2 Z_0 + j (Z_{0e} + Z_{0o}) \tan \theta }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;定义&lt;strong&gt;Coupling Coefficient&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C &amp;amp;= \frac{ Z_{0e} - Z_{0o} }{ Z_{0e} + Z_{0o} } \\
+\sqrt{ 1 - C^2 } &amp;amp;= \frac{ 2Z_0 }{ Z_{0e} + Z_{0o} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;用$C$表示各端口电压(还需要推导！！！！！)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_2 &amp;amp;= V_2^e + V_2^o = V_0 \frac{ \sqrt{ 1 - C^2 } }{ \sqrt{ 1 - C^2 } \cos \theta + j \sin \theta} \\
+V_3 &amp;amp;= V_0 \frac{ j C \tan \theta }{ \sqrt{ 1 - C^2 } + j \tan \theta} \\
+V_4 &amp;amp;= V_2^e - V_2^o = 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;特别地，当$\theta = \dfrac{ \pi }{ 2 }$时，$\dfrac{ V_3 }{ V_1 } = C$, 此时的$C = C_0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/17.png&#34;
+	width=&#34;1152&#34;
+	height=&#34;616&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/17_hu80b257e7da33f476495c52b252c391ee_67197_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/17_hu80b257e7da33f476495c52b252c391ee_67197_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;448px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;用$C$表示&lt;strong&gt;Characteristic Impedance&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{0e} &amp;amp;= Z_0 \sqrt{ \frac{ 1 + C }{ 1 - C } } \\
+Z_{0o} &amp;amp;= Z_0 \sqrt{ \frac{ 1 - C }{ 1 + C } }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;design-of-multisection-coupled-line-coupler&#34;&gt;Design of MultiSection Coupled Line Coupler&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/18.png&#34;
+	width=&#34;2156&#34;
+	height=&#34;920&#34;
+	srcset=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/18_hu6d92eca94052c3e6986aebcd3f44dee3_96935_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/18_hu6d92eca94052c3e6986aebcd3f44dee3_96935_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;234&#34;
+		data-flex-basis=&#34;562px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;假设$C \ll 1$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\frac{ V_2 }{ V_1 } &amp;amp;\approx e^{-j \theta} \\
+\frac{ V_3 }{V_1  } &amp;amp;\approx j C \sin \theta e^{-j \theta}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在多段耦合线中&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;考虑到两段&lt;strong&gt;完全对称&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_3 &amp;amp;= jV_1 \sin \theta e^{-j \theta} \Big[ C_1  +C_2 e^{-2j \theta} + &amp;hellip; + C_N e^{-2j (N-1) \theta} \Big] \\
+&amp;amp;= jV_1 \sin \theta e^{-j \theta} \Big[ C_1(1 + e^{-2j (N-1) \theta}) + C_2(e^{-2j \theta} + e^{-2j(N-2) \theta}) + &amp;hellip; + C_M e^{-j (N-1) \theta}\Big] \\
+&amp;amp;= 2j V_1 \sin \theta e^{-j N \theta} \Big[ C_1 \cos(N-1) \theta + C_2  \cos(N-3) \theta + &amp;hellip; + \frac{ 1 }{ 2 } C_M \Big]\\
+M &amp;amp;= \frac{ N+1 }{ 2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;lange-coupler&#34;&gt;Lange Coupler&lt;/h1&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 </description>
         </item>
         <item>

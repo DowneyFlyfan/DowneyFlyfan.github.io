@@ -309,6 +309,18 @@
     <li><a href="#coupled-line-directional-coupler">Coupled-Line Directional Coupler</a>
       <ol>
         <li><a href="#even-odd-mode-analysis-1">Even-Odd Mode Analysis</a></li>
+        <li><a href="#design-of-coupled-line-couplers">Design of Coupled Line Couplers</a>
+          <ol>
+            <li><a href="#single-section-coupled-line-coupler">Single-Section Coupled Line Coupler</a></li>
+            <li><a href="#even-odd-mode-analysis-2">Even-Odd Mode Analysis</a></li>
+          </ol>
+        </li>
+        <li><a href="#design-of-multisection-coupled-line-coupler">Design of MultiSection Coupled Line Coupler</a></li>
+      </ol>
+    </li>
+    <li><a href="#lange-coupler">Lange Coupler</a>
+      <ol>
+        <li><a href="#heading"></a></li>
       </ol>
     </li>
   </ol>
@@ -375,7 +387,7 @@
 
 
                 <time class="article-time--reading">
-                    6 minute read
+                    9 minute read
                 </time>
             </div>
         
@@ -482,7 +494,7 @@ $$</p>
 \begin{gather}
 \begin{aligned}
 S_{12}^* S_{13} + S_{24}^* S_{34} &amp;= 0 \\
-tan( \theta) + tan( \phi) &amp;= 0 \\
+\tan( \theta) + \tan( \phi) &amp;= 0 \\
 \therefore  \theta + \phi &amp;= \pi \pm 2n \pi \\
 \alpha^2 + \beta^2 &amp;= 1
 \end{aligned}
@@ -947,12 +959,190 @@ $$</p>
 		data-flex-basis="314px"
 	
 ></p>
+<ol>
+<li>Even Mode</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+C_e &amp;= C_{11} = C_{22} \\
+v_p &amp;= \frac{ 1 }{ \sqrt{ L_o C_o } } = \frac{ 1 }{ \sqrt{ L_e C_e } } \\
+Z_{0e} &amp;= \sqrt{ \frac{ L_e }{ C_e } } = \frac{ 1 }{ v_p C_e }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Odd Mode</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+C_o &amp;= C_{11} + 2 C_{12} \\
+Z_{0o} &amp;= \sqrt{ \frac{ L_o }{ C_o } } = \frac{ 1 }{ v_p C_o }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="design-of-coupled-line-couplers">Design of Coupled Line Couplers</h2>
+<h3 id="single-section-coupled-line-coupler">Single-Section Coupled Line Coupler</h3>
+<p><img src="/p/7.-power-dividers-directional-coupler/15.png"
+	width="1334"
+	height="1374"
+	srcset="/p/7.-power-dividers-directional-coupler/15_hu62992a79aba8a891447c1e16fae245ef_163729_480x0_resize_box_3.png 480w, /p/7.-power-dividers-directional-coupler/15_hu62992a79aba8a891447c1e16fae245ef_163729_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="97"
+		data-flex-basis="233px"
+	
+></p>
 <p>$$
 \begin{gather}
 \begin{aligned}</p>
 <p>\end{aligned}
 \end{gather}
 $$</p>
+<h3 id="even-odd-mode-analysis-2">Even-Odd Mode Analysis</h3>
+<p><img src="/p/7.-power-dividers-directional-coupler/16.png"
+	width="1228"
+	height="1312"
+	srcset="/p/7.-power-dividers-directional-coupler/16_hucb9fb9057149b96afb933c4c464260b5_177402_480x0_resize_box_3.png 480w, /p/7.-power-dividers-directional-coupler/16_hucb9fb9057149b96afb933c4c464260b5_177402_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="93"
+		data-flex-basis="224px"
+	
+></p>
+<ol>
+<li>回顾 <strong>Impedance Function</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{in} &amp;= \frac{ V_1 }{ I_1 } = \frac{ V_1^e + V_1^o }{ I_1^e + I_1^o } \\
+&amp;= Z_0 \frac{ Z_0 + j Z_L \tan \theta }{ Z_L + j Z_0 \tan \theta }
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_1^e &amp;= V_0 \frac{ Z_{in}^e }{ Z_{in}^e + Z_0 } \\
+V_1^o &amp;= V_0 \frac{ Z_{in}^o }{ Z_{in}^o + Z_0 } \\
+I_1^e &amp;= \frac{ V_0 }{ Z_{in}^e + Z_0 } \\
+I_1^o &amp;= \frac{ V_0 }{ Z_{in}^o + Z_0 }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li><strong>假设</strong>$Z_0 = \sqrt{ Z_{0o} Z_{0e} }$</li>
+</ol>
+<ul>
+<li>可以得到</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{in} &amp;= Z_0 \\
+V_1 &amp;= V_0 \\
+V_3 &amp;= V_3^e + V_3^o = V_1^e - V_1^o \\
+&amp;= V_0 \frac{ j (Z_{0e} - Z_{0o}) \tan \theta }{ 2 Z_0 + j (Z_{0e} + Z_{0o}) \tan \theta }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="3">
+<li>定义<strong>Coupling Coefficient</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+C &amp;= \frac{ Z_{0e} - Z_{0o} }{ Z_{0e} + Z_{0o} } \\
+\sqrt{ 1 - C^2 } &amp;= \frac{ 2Z_0 }{ Z_{0e} + Z_{0o} }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="4">
+<li>用$C$表示各端口电压(还需要推导！！！！！)</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_2 &amp;= V_2^e + V_2^o = V_0 \frac{ \sqrt{ 1 - C^2 } }{ \sqrt{ 1 - C^2 } \cos \theta + j \sin \theta} \\
+V_3 &amp;= V_0 \frac{ j C \tan \theta }{ \sqrt{ 1 - C^2 } + j \tan \theta} \\
+V_4 &amp;= V_2^e - V_2^o = 0
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>特别地，当$\theta = \dfrac{ \pi }{ 2 }$时，$\dfrac{ V_3 }{ V_1 } = C$, 此时的$C = C_0$</li>
+</ul>
+<p><img src="/p/7.-power-dividers-directional-coupler/17.png"
+	width="1152"
+	height="616"
+	srcset="/p/7.-power-dividers-directional-coupler/17_hu80b257e7da33f476495c52b252c391ee_67197_480x0_resize_box_3.png 480w, /p/7.-power-dividers-directional-coupler/17_hu80b257e7da33f476495c52b252c391ee_67197_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="448px"
+	
+></p>
+<ol start="5">
+<li>用$C$表示<strong>Characteristic Impedance</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{0e} &amp;= Z_0 \sqrt{ \frac{ 1 + C }{ 1 - C } } \\
+Z_{0o} &amp;= Z_0 \sqrt{ \frac{ 1 - C }{ 1 + C } }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="design-of-multisection-coupled-line-coupler">Design of MultiSection Coupled Line Coupler</h2>
+<p><img src="/p/7.-power-dividers-directional-coupler/18.png"
+	width="2156"
+	height="920"
+	srcset="/p/7.-power-dividers-directional-coupler/18_hu6d92eca94052c3e6986aebcd3f44dee3_96935_480x0_resize_box_3.png 480w, /p/7.-power-dividers-directional-coupler/18_hu6d92eca94052c3e6986aebcd3f44dee3_96935_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="234"
+		data-flex-basis="562px"
+	
+></p>
+<ol>
+<li>假设$C \ll 1$</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\frac{ V_2 }{ V_1 } &amp;\approx e^{-j \theta} \\
+\frac{ V_3 }{V_1  } &amp;\approx j C \sin \theta e^{-j \theta}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>在多段耦合线中</li>
+</ol>
+<ul>
+<li>考虑到两段<strong>完全对称</strong></li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_3 &amp;= jV_1 \sin \theta e^{-j \theta} \Big[ C_1  +C_2 e^{-2j \theta} + &hellip; + C_N e^{-2j (N-1) \theta} \Big] \\
+&amp;= jV_1 \sin \theta e^{-j \theta} \Big[ C_1(1 + e^{-2j (N-1) \theta}) + C_2(e^{-2j \theta} + e^{-2j(N-2) \theta}) + &hellip; + C_M e^{-j (N-1) \theta}\Big] \\
+&amp;= 2j V_1 \sin \theta e^{-j N \theta} \Big[ C_1 \cos(N-1) \theta + C_2  \cos(N-3) \theta + &hellip; + \frac{ 1 }{ 2 } C_M \Big]\\
+M &amp;= \frac{ N+1 }{ 2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="lange-coupler">Lange Coupler</h1>
+<h2 id="heading"></h2>
 
 </section>
 
