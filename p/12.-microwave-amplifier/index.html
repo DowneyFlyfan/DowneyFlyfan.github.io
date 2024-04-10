@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Broadband Transistor Amplifier Design 增加带宽的做法 方法 优点 缺点 Compensated Matching Network 补偿Gain 输入、输出阻抗失配 Resistive Matching Network 阻抗匹配 Gain下降，Noise Figure增加 Negative Feedback 增加增益平坦度，阻抗匹配，增加稳定性 Gain 下降，Noise Figure 增加 Balanced Amplifier 带宽大，阻抗匹配 需要更大的面积、更多的晶体管、更大的DC功耗 Distributed Amplifier 大Gain, 阻抗匹配，大带宽，低噪声 面积很大 Differential Amplifier 更大的带宽，更大的Output Voltage Swing 面积更大 Balanced Amplifiers $$ \begin{gather} \begin{aligned} S_{21} &amp;amp;= - \frac{ j }{ 2 }( G_A &#43; G_B) \\ S_{11} &amp;amp;= \frac{ 1 }{ 2 } ( \Gamma_A - \Gamma_B ) \end{aligned} \end{gather} $$'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Two-Port Power Gain Difinition 3 Gains $$ \begin{gather} \begin{aligned} Power \ Gain \ G_p &amp;amp;= \frac{ P_{L} }{ P_{in} } \\ Avaiable \ Gain \ G_A &amp;amp;= \frac{ P_{out} }{ P_{S} } \\ Transducer \ Gain \ G_T &amp;amp;= \frac{ P_L }{ P_S } \end{aligned} \end{gather} $$
+Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_{in}$与$\Gamma_{S}$ $$ \begin{gather} \begin{aligned} \Gamma_L &amp;amp;= \frac{ Z_L - Z_0 }{ Z_L &#43; Z_0 } = \frac{ V_2^&#43; }{ V_2^- } = \frac{ 1 }{ \Gamma_{out} } \\ \Gamma_S &amp;amp;= \frac{ Z_S - Z_0 }{ Z_S &#43; Z_0 } = \frac{ V_1^&#43; }{ V_1^- } = \frac{ 1 }{ \Gamma_{in} } \end{aligned} \end{gather} $$'>
 <title>12. Microwave Amplifier</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/12.-microwave-amplifier/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='12. Microwave Amplifier'>
-<meta property='og:description' content='Broadband Transistor Amplifier Design 增加带宽的做法 方法 优点 缺点 Compensated Matching Network 补偿Gain 输入、输出阻抗失配 Resistive Matching Network 阻抗匹配 Gain下降，Noise Figure增加 Negative Feedback 增加增益平坦度，阻抗匹配，增加稳定性 Gain 下降，Noise Figure 增加 Balanced Amplifier 带宽大，阻抗匹配 需要更大的面积、更多的晶体管、更大的DC功耗 Distributed Amplifier 大Gain, 阻抗匹配，大带宽，低噪声 面积很大 Differential Amplifier 更大的带宽，更大的Output Voltage Swing 面积更大 Balanced Amplifiers $$ \begin{gather} \begin{aligned} S_{21} &amp;amp;= - \frac{ j }{ 2 }( G_A &#43; G_B) \\ S_{11} &amp;amp;= \frac{ 1 }{ 2 } ( \Gamma_A - \Gamma_B ) \end{aligned} \end{gather} $$'>
+<meta property='og:description' content='Two-Port Power Gain Difinition 3 Gains $$ \begin{gather} \begin{aligned} Power \ Gain \ G_p &amp;amp;= \frac{ P_{L} }{ P_{in} } \\ Avaiable \ Gain \ G_A &amp;amp;= \frac{ P_{out} }{ P_{S} } \\ Transducer \ Gain \ G_T &amp;amp;= \frac{ P_L }{ P_S } \end{aligned} \end{gather} $$
+Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_{in}$与$\Gamma_{S}$ $$ \begin{gather} \begin{aligned} \Gamma_L &amp;amp;= \frac{ Z_L - Z_0 }{ Z_L &#43; Z_0 } = \frac{ V_2^&#43; }{ V_2^- } = \frac{ 1 }{ \Gamma_{out} } \\ \Gamma_S &amp;amp;= \frac{ Z_S - Z_0 }{ Z_S &#43; Z_0 } = \frac{ V_1^&#43; }{ V_1^- } = \frac{ 1 }{ \Gamma_{in} } \end{aligned} \end{gather} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/12.-microwave-amplifier/'>
 <meta property='og:site_name' content='Flyfan Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-04-07T12:06:29&#43;08:00'/><meta property='article:modified_time' content='2024-04-07T12:06:29&#43;08:00'/>
 <meta name="twitter:title" content="12. Microwave Amplifier">
-<meta name="twitter:description" content="Broadband Transistor Amplifier Design 增加带宽的做法 方法 优点 缺点 Compensated Matching Network 补偿Gain 输入、输出阻抗失配 Resistive Matching Network 阻抗匹配 Gain下降，Noise Figure增加 Negative Feedback 增加增益平坦度，阻抗匹配，增加稳定性 Gain 下降，Noise Figure 增加 Balanced Amplifier 带宽大，阻抗匹配 需要更大的面积、更多的晶体管、更大的DC功耗 Distributed Amplifier 大Gain, 阻抗匹配，大带宽，低噪声 面积很大 Differential Amplifier 更大的带宽，更大的Output Voltage Swing 面积更大 Balanced Amplifiers $$ \begin{gather} \begin{aligned} S_{21} &amp;amp;= - \frac{ j }{ 2 }( G_A &#43; G_B) \\ S_{11} &amp;amp;= \frac{ 1 }{ 2 } ( \Gamma_A - \Gamma_B ) \end{aligned} \end{gather} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="twitter:description" content="Two-Port Power Gain Difinition 3 Gains $$ \begin{gather} \begin{aligned} Power \ Gain \ G_p &amp;amp;= \frac{ P_{L} }{ P_{in} } \\ Avaiable \ Gain \ G_A &amp;amp;= \frac{ P_{out} }{ P_{S} } \\ Transducer \ Gain \ G_T &amp;amp;= \frac{ P_L }{ P_S } \end{aligned} \end{gather} $$
+Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_{in}$与$\Gamma_{S}$ $$ \begin{gather} \begin{aligned} \Gamma_L &amp;amp;= \frac{ Z_L - Z_0 }{ Z_L &#43; Z_0 } = \frac{ V_2^&#43; }{ V_2^- } = \frac{ 1 }{ \Gamma_{out} } \\ \Gamma_S &amp;amp;= \frac{ Z_S - Z_0 }{ Z_S &#43; Z_0 } = \frac{ V_1^&#43; }{ V_1^- } = \frac{ 1 }{ \Gamma_{in} } \end{aligned} \end{gather} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -250,6 +253,41 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
+    <li><a href="#two-port-power-gain">Two-Port Power Gain</a>
+      <ol>
+        <li><a href="#difinition">Difinition</a>
+          <ol>
+            <li><a href="#3-gains">3 Gains</a></li>
+            <li><a href="#circuit-analysis">Circuit Analysis</a>
+              <ol>
+                <li><a href="#reflection-coefficients">Reflection Coefficients</a></li>
+                <li><a href="#powers">Powers</a></li>
+                <li><a href="#gains">Gains</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li><a href="#2-port-power-gain-in-a-amplifier-model">2-Port Power Gain in a Amplifier Model</a></li>
+      </ol>
+    </li>
+    <li><a href="#stability">Stability</a>
+      <ol>
+        <li><a href="#difinition-1">Difinition</a></li>
+        <li><a href="#stability-circle">Stability Circle</a>
+          <ol>
+            <li><a href="#input-stability-circle">Input Stability Circle</a></li>
+            <li><a href="#output-stability-circle">Output Stability Circle</a></li>
+          </ol>
+        </li>
+        <li><a href="#test-for-unconditionally-stable">Test for Unconditionally Stable</a>
+          <ol>
+            <li><a href="#rollet-condition">Rollet Condition</a></li>
+            <li><a href="#mu-test">\mu Test</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#single-stage-amplifier-design">Single-Stage Amplifier Design</a></li>
     <li><a href="#broadband-transistor-amplifier-design">Broadband Transistor Amplifier Design</a>
       <ol>
         <li><a href="#增加带宽的做法">增加带宽的做法</a></li>
@@ -329,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -344,7 +382,261 @@
     <section class="article-content">
     
     
-    <h1 id="broadband-transistor-amplifier-design">Broadband Transistor Amplifier Design</h1>
+    <h1 id="two-port-power-gain">Two-Port Power Gain</h1>
+<h2 id="difinition">Difinition</h2>
+<h3 id="3-gains">3 Gains</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Power \ Gain \ G_p &amp;= \frac{ P_{L} }{ P_{in} } \\
+Avaiable \ Gain \ G_A &amp;= \frac{ P_{out} }{ P_{S} } \\
+Transducer \ Gain \ G_T &amp;= \frac{ P_L }{ P_S }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="circuit-analysis">Circuit Analysis</h3>
+<p><img src="/p/12.-microwave-amplifier/5.png"
+	width="1490"
+	height="426"
+	srcset="/p/12.-microwave-amplifier/5_hu9e88a343a17971aa583769d0be0142e1_56415_480x0_resize_box_3.png 480w, /p/12.-microwave-amplifier/5_hu9e88a343a17971aa583769d0be0142e1_56415_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="349"
+		data-flex-basis="839px"
+	
+></p>
+<h4 id="reflection-coefficients">Reflection Coefficients</h4>
+<ol>
+<li>$\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_{in}$与$\Gamma_{S}$</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\Gamma_L &amp;= \frac{ Z_L - Z_0 }{ Z_L + Z_0 } = \frac{ V_2^+ }{ V_2^- } = \frac{ 1 }{ \Gamma_{out} } \\
+\Gamma_S &amp;= \frac{ Z_S - Z_0 }{ Z_S + Z_0 } = \frac{ V_1^+ }{ V_1^- } = \frac{ 1 }{ \Gamma_{in} }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>$\Gamma_L$ 与 $\Gamma_{in}$</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_1^- &amp;= S_{11} V_1^+ + S_{12} V_2^+ = S_{11} V_1^+ S_{12} \Gamma_L V_2^- \\
+V_2^- &amp;= S_{22} V_2^+ + S_{21} V_1^+ = S_{21} V_1^+ + S_{22} \Gamma_L V_2^- \\
+\therefore V_2^- &amp;= \frac{ S_{21} V_1^+ }{ 1 - S_{22} \Gamma_L } \\
+V_1^- &amp;= (S_{11} + \frac{ S_{12} S_{21} \Gamma_L }{ 1 - S_{22} \Gamma_L }) V_1^+ \\
+\therefore \Gamma_{in} &amp;= S_{11} + \frac{ S_{12}  S_{21} \Gamma_L }{ 1 -S_{22} \Gamma_L }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="3">
+<li>$\Gamma_S$ 与 $\Gamma_{out}$, 同理可得</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\Gamma_{out} &amp;= S_{22} + \frac{ S_{12} S_{21} \Gamma_S}{ 1- S_{11} \Gamma_S}
+\end{aligned}
+\end{gather}
+$$</p>
+<h4 id="powers">Powers</h4>
+<ol>
+<li>$V_1^+$ 和 $V_S$</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_1 &amp;= \frac{ Z_{in} }{ Z_{in} + Z_S } V_S \\
+&amp;= V_1^+(1 + \Gamma_{in}) \\
+Z_{in} &amp;= Z_0 \frac{ 1 + \Gamma_{in} }{ 1 - \Gamma_{in} } \\
+\therefore V_1^+ &amp;= \frac{ V_S }{ 2 } \frac{ 1 - \Gamma_S }{ 1 - \Gamma_S \Gamma_{in} } \\
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Powers</li>
+</ol>
+<ul>
+<li>$P_{in}$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_{in} &amp;= \frac{ |V_1|^2 }{ 2Z_{in} } \\
+&amp;= \frac{ |V_1^+|^2 }{ 2 Z_0 } (1- |\Gamma_{in}|^2) \\
+&amp;= \frac{ |V_s|^2 }{ 8 Z_0 } \frac{ (1- \Gamma_S)^2 ( 1- | \Gamma_{in}|^2) }{ (1 - \Gamma_S \Gamma_{in})^2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>利用$V_2^- = \dfrac{ S_{21} }{ 1 - S_{22} \Gamma_L } V_1^+$获取$P_L$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_L &amp;= \frac{ |V_2^-|^2 }{ 2Z_0 } (1 - | \Gamma_L|^2) \\
+&amp;= \frac{ |V_s|^2 }{ 8 Z_0 } \frac{ (1- \Gamma_S)^2 ( 1- | \Gamma_{L}|^2) }{ (1 - \Gamma_S \Gamma_{in})^2 } \frac{ |S_{21}|^2 }{ (1 - S_{22} \Gamma_L)^2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>
+<p>$P_{avs}$, 即<strong>Maximum Power Avaiable from the source</strong>, 阻抗匹配时的功率</p>
+<ul>
+<li>此时，$\Gamma$的实部、虚部的平方和为1</li>
+</ul>
+</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_{avs} &amp;= P_{in} \Big|<em>{\Gamma</em>{in} = \Gamma_S^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>$P_{avn}$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_{avn} &amp;= P_L\Big|<em>{\Gamma</em>{out} = \Gamma_L^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_{out}|^2) } \frac{ |S_{21}|^2 }{ |1 - S_{11} \Gamma_S|^2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<h4 id="gains">Gains</h4>
+<ul>
+<li>$G_{TU}$是<strong>Unilateral Gain</strong>, 此时, $S_{12} = 0 \Longrightarrow \Gamma_{in} = S_{11}$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+G_P &amp;= \frac{ P_L }{ P_{in} } = \frac{ |S_{21}|^2 ( 1- | \Gamma_L|^2) }{ (1 - S_{22} \Gamma_L)^2 (1 - | \Gamma_{in}|^2) } \\
+G_A &amp;= \frac{ P_{out} }{ P_{avs} } = \frac{ |S_{21}|^2 ( 1- | \Gamma_S|^2) }{ (1 - S_{11} \Gamma_S)^2 (1 - | \Gamma_{out}|^2) } \\
+G_T &amp;= \frac{ P_{out} }{ P_{in} } = \frac{ |S_{21}|^2 ( 1- | \Gamma_S|^2) ( 1- | \Gamma_L|^2) }{ | 1 - \Gamma_S \Gamma_{in}|^2| 1 - S_{22} \Gamma_L|^2 } \\
+G_{TU} &amp;= \frac{ P_{out} }{ P_{in} } = \frac{ |S_{21}|^2 ( 1- | \Gamma_S|^2) ( 1- | \Gamma_L|^2) }{ | 1 - \Gamma_S S_{11}|^2| 1 - S_{22} \Gamma_L|^2 } \\
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="2-port-power-gain-in-a-amplifier-model">2-Port Power Gain in a Amplifier Model</h2>
+<p><img src="/p/12.-microwave-amplifier/6.png"
+	width="2100"
+	height="478"
+	srcset="/p/12.-microwave-amplifier/6_hu9df34516eeb53d0bd917e97ac14b57e5_71897_480x0_resize_box_3.png 480w, /p/12.-microwave-amplifier/6_hu9df34516eeb53d0bd917e97ac14b57e5_71897_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="439"
+		data-flex-basis="1054px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+G_T &amp;= G_S G_0 G_L \\
+G_S &amp;= \frac{ 1 - | \Gamma_S|^2 }{ |1 - \Gamma_S S_{11}|^2  } \\
+G_0 &amp;= |S_{21}|^2 \\
+G_L &amp;= \frac{ 1 - | \Gamma_L|^2 }{ | 1 - S_{22} \Gamma_L|^2}
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="stability">Stability</h1>
+<h2 id="difinition-1">Difinition</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\mathcal{Re} \Big\lbrace Z_{in} \Big\rbrace \ge 0 \\
+|Z_0 \frac{ 1 - \Gamma_{in} }{ 1 + \Gamma_{in} }| \ge 0 \\
+\therefore  | \Gamma_{in}| &lt; 1 \\
+| \Gamma_{out}| &lt; 1
+\end{aligned}
+\end{gather}
+$$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Unconditionally Stbale</td>
+<td style="text-align:center">在任何情况下$|\Gamma_{in}| &lt; 1. |\Gamma_{out}| &lt; 1$</td>
+</tr>
+<tr>
+<td style="text-align:center">Conditionally Stbale</td>
+<td style="text-align:center">在特定<strong>频段、温度</strong>下$|\Gamma_{in}| &lt; 1. |\Gamma_{out}| &lt; 1$</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="stability-circle">Stability Circle</h2>
+<h3 id="input-stability-circle">Input Stability Circle</h3>
+<ul>
+<li>将$\Gamma_{in}, \Gamma_{out}$的表达式代入$(12)$, 得到</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\Big| \Gamma_L - \frac{ (S_{22} - \Delta S_{11}^<em>)^</em> }{ |S_{22} - | \Delta|^2 } \Big| &amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } \Big| \\
+C_L &amp;= \frac{ (S_{22} - \Delta S_{11}^<em>)^</em> }{ |S_{22} - | \Delta|^2} \\
+R_L &amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } \Big|
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="output-stability-circle">Output Stability Circle</h3>
+<ol>
+<li>同理可得</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\Big| \Gamma_S - \frac{ (S_{11} - \Delta S_{22}^<em>)^</em> }{ |S_{11} - | \Delta|^2 } \Big| &amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } \Big| \\
+C_L &amp;= \frac{ (S_{11} - \Delta S_{22}^<em>)^</em> }{ |S_{11} - | \Delta|^2} \\
+R_L &amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } \Big|
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Output Stability Circles</li>
+</ol>
+<p><img src="/p/12.-microwave-amplifier/7.png"
+	width="2132"
+	height="1224"
+	srcset="/p/12.-microwave-amplifier/7_hu4b860409c8b93aca7dba818022ffce17_270215_480x0_resize_box_3.png 480w, /p/12.-microwave-amplifier/7_hu4b860409c8b93aca7dba818022ffce17_270215_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="418px"
+	
+></p>
+<h2 id="test-for-unconditionally-stable">Test for Unconditionally Stable</h2>
+<h3 id="rollet-condition">Rollet Condition</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+K &amp;= \frac{ 1 - |S_{11}|^2 - |S_{22}|^2 - | \Delta|^2 }{ 2 |S_{12} S_{21}| } &gt; 1 \\
+|\Delta| &amp;&lt; 1
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="mu-test">\mu Test</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\mu = \frac{ 1 - |S_{11}|^2 }{ |S_{22} - \Delta S_{11}^*| + |S_{12} S_{21}| } &gt; 1
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="single-stage-amplifier-design">Single-Stage Amplifier Design</h1>
+<h1 id="broadband-transistor-amplifier-design">Broadband Transistor Amplifier Design</h1>
 <h2 id="增加带宽的做法">增加带宽的做法</h2>
 <div class="table-wrapper"><table>
 <thead>
@@ -486,7 +778,7 @@ $$</p>
 </tr>
 <tr>
 <td style="text-align:center">$1dB$压缩点</td>
-<td></td>
+<td style="text-align:center">分为$IP1dB$和$OP1dB$, 对应线性压缩的1dB点</td>
 <td></td>
 </tr>
 <tr>

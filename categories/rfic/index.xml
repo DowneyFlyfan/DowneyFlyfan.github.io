@@ -12,7 +12,261 @@
         <pubDate>Sun, 07 Apr 2024 12:06:29 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/12.-microwave-amplifier/</guid>
-        <description>&lt;h1 id=&#34;broadband-transistor-amplifier-design&#34;&gt;Broadband Transistor Amplifier Design&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;two-port-power-gain&#34;&gt;Two-Port Power Gain&lt;/h1&gt;
+&lt;h2 id=&#34;difinition&#34;&gt;Difinition&lt;/h2&gt;
+&lt;h3 id=&#34;3-gains&#34;&gt;3 Gains&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Power \ Gain \ G_p &amp;amp;= \frac{ P_{L} }{ P_{in} } \\
+Avaiable \ Gain \ G_A &amp;amp;= \frac{ P_{out} }{ P_{S} } \\
+Transducer \ Gain \ G_T &amp;amp;= \frac{ P_L }{ P_S }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;circuit-analysis&#34;&gt;Circuit Analysis&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/5.png&#34;
+	width=&#34;1490&#34;
+	height=&#34;426&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/5_hu9e88a343a17971aa583769d0be0142e1_56415_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/5_hu9e88a343a17971aa583769d0be0142e1_56415_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;349&#34;
+		data-flex-basis=&#34;839px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;reflection-coefficients&#34;&gt;Reflection Coefficients&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;$\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_{in}$与$\Gamma_{S}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma_L &amp;amp;= \frac{ Z_L - Z_0 }{ Z_L + Z_0 } = \frac{ V_2^+ }{ V_2^- } = \frac{ 1 }{ \Gamma_{out} } \\
+\Gamma_S &amp;amp;= \frac{ Z_S - Z_0 }{ Z_S + Z_0 } = \frac{ V_1^+ }{ V_1^- } = \frac{ 1 }{ \Gamma_{in} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;$\Gamma_L$ 与 $\Gamma_{in}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_1^- &amp;amp;= S_{11} V_1^+ + S_{12} V_2^+ = S_{11} V_1^+ S_{12} \Gamma_L V_2^- \\
+V_2^- &amp;amp;= S_{22} V_2^+ + S_{21} V_1^+ = S_{21} V_1^+ + S_{22} \Gamma_L V_2^- \\
+\therefore V_2^- &amp;amp;= \frac{ S_{21} V_1^+ }{ 1 - S_{22} \Gamma_L } \\
+V_1^- &amp;amp;= (S_{11} + \frac{ S_{12} S_{21} \Gamma_L }{ 1 - S_{22} \Gamma_L }) V_1^+ \\
+\therefore \Gamma_{in} &amp;amp;= S_{11} + \frac{ S_{12}  S_{21} \Gamma_L }{ 1 -S_{22} \Gamma_L }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;$\Gamma_S$ 与 $\Gamma_{out}$, 同理可得&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma_{out} &amp;amp;= S_{22} + \frac{ S_{12} S_{21} \Gamma_S}{ 1- S_{11} \Gamma_S}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;powers&#34;&gt;Powers&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;$V_1^+$ 和 $V_S$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_1 &amp;amp;= \frac{ Z_{in} }{ Z_{in} + Z_S } V_S \\
+&amp;amp;= V_1^+(1 + \Gamma_{in}) \\
+Z_{in} &amp;amp;= Z_0 \frac{ 1 + \Gamma_{in} }{ 1 - \Gamma_{in} } \\
+\therefore V_1^+ &amp;amp;= \frac{ V_S }{ 2 } \frac{ 1 - \Gamma_S }{ 1 - \Gamma_S \Gamma_{in} } \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Powers&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$P_{in}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{in} &amp;amp;= \frac{ |V_1|^2 }{ 2Z_{in} } \\
+&amp;amp;= \frac{ |V_1^+|^2 }{ 2 Z_0 } (1- |\Gamma_{in}|^2) \\
+&amp;amp;= \frac{ |V_s|^2 }{ 8 Z_0 } \frac{ (1- \Gamma_S)^2 ( 1- | \Gamma_{in}|^2) }{ (1 - \Gamma_S \Gamma_{in})^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;利用$V_2^- = \dfrac{ S_{21} }{ 1 - S_{22} \Gamma_L } V_1^+$获取$P_L$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_L &amp;amp;= \frac{ |V_2^-|^2 }{ 2Z_0 } (1 - | \Gamma_L|^2) \\
+&amp;amp;= \frac{ |V_s|^2 }{ 8 Z_0 } \frac{ (1- \Gamma_S)^2 ( 1- | \Gamma_{L}|^2) }{ (1 - \Gamma_S \Gamma_{in})^2 } \frac{ |S_{21}|^2 }{ (1 - S_{22} \Gamma_L)^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$P_{avs}$, 即&lt;strong&gt;Maximum Power Avaiable from the source&lt;/strong&gt;, 阻抗匹配时的功率&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;此时，$\Gamma$的实部、虚部的平方和为1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{avs} &amp;amp;= P_{in} \Big|&lt;em&gt;{\Gamma&lt;/em&gt;{in} = \Gamma_S^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$P_{avn}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{avn} &amp;amp;= P_L\Big|&lt;em&gt;{\Gamma&lt;/em&gt;{out} = \Gamma_L^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_{out}|^2) } \frac{ |S_{21}|^2 }{ |1 - S_{11} \Gamma_S|^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;gains&#34;&gt;Gains&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;$G_{TU}$是&lt;strong&gt;Unilateral Gain&lt;/strong&gt;, 此时, $S_{12} = 0 \Longrightarrow \Gamma_{in} = S_{11}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+G_P &amp;amp;= \frac{ P_L }{ P_{in} } = \frac{ |S_{21}|^2 ( 1- | \Gamma_L|^2) }{ (1 - S_{22} \Gamma_L)^2 (1 - | \Gamma_{in}|^2) } \\
+G_A &amp;amp;= \frac{ P_{out} }{ P_{avs} } = \frac{ |S_{21}|^2 ( 1- | \Gamma_S|^2) }{ (1 - S_{11} \Gamma_S)^2 (1 - | \Gamma_{out}|^2) } \\
+G_T &amp;amp;= \frac{ P_{out} }{ P_{in} } = \frac{ |S_{21}|^2 ( 1- | \Gamma_S|^2) ( 1- | \Gamma_L|^2) }{ | 1 - \Gamma_S \Gamma_{in}|^2| 1 - S_{22} \Gamma_L|^2 } \\
+G_{TU} &amp;amp;= \frac{ P_{out} }{ P_{in} } = \frac{ |S_{21}|^2 ( 1- | \Gamma_S|^2) ( 1- | \Gamma_L|^2) }{ | 1 - \Gamma_S S_{11}|^2| 1 - S_{22} \Gamma_L|^2 } \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;2-port-power-gain-in-a-amplifier-model&#34;&gt;2-Port Power Gain in a Amplifier Model&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/6.png&#34;
+	width=&#34;2100&#34;
+	height=&#34;478&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/6_hu9df34516eeb53d0bd917e97ac14b57e5_71897_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/6_hu9df34516eeb53d0bd917e97ac14b57e5_71897_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;439&#34;
+		data-flex-basis=&#34;1054px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+G_T &amp;amp;= G_S G_0 G_L \\
+G_S &amp;amp;= \frac{ 1 - | \Gamma_S|^2 }{ |1 - \Gamma_S S_{11}|^2  } \\
+G_0 &amp;amp;= |S_{21}|^2 \\
+G_L &amp;amp;= \frac{ 1 - | \Gamma_L|^2 }{ | 1 - S_{22} \Gamma_L|^2}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;stability&#34;&gt;Stability&lt;/h1&gt;
+&lt;h2 id=&#34;difinition-1&#34;&gt;Difinition&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\mathcal{Re} \Big\lbrace Z_{in} \Big\rbrace \ge 0 \\
+|Z_0 \frac{ 1 - \Gamma_{in} }{ 1 + \Gamma_{in} }| \ge 0 \\
+\therefore  | \Gamma_{in}| &amp;lt; 1 \\
+| \Gamma_{out}| &amp;lt; 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Unconditionally Stbale&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在任何情况下$|\Gamma_{in}| &amp;lt; 1. |\Gamma_{out}| &amp;lt; 1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Conditionally Stbale&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在特定&lt;strong&gt;频段、温度&lt;/strong&gt;下$|\Gamma_{in}| &amp;lt; 1. |\Gamma_{out}| &amp;lt; 1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;stability-circle&#34;&gt;Stability Circle&lt;/h2&gt;
+&lt;h3 id=&#34;input-stability-circle&#34;&gt;Input Stability Circle&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;将$\Gamma_{in}, \Gamma_{out}$的表达式代入$(12)$, 得到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Big| \Gamma_L - \frac{ (S_{22} - \Delta S_{11}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{22} - | \Delta|^2 } \Big| &amp;amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } \Big| \\
+C_L &amp;amp;= \frac{ (S_{22} - \Delta S_{11}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{22} - | \Delta|^2} \\
+R_L &amp;amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } \Big|
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;output-stability-circle&#34;&gt;Output Stability Circle&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;同理可得&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Big| \Gamma_S - \frac{ (S_{11} - \Delta S_{22}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{11} - | \Delta|^2 } \Big| &amp;amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } \Big| \\
+C_L &amp;amp;= \frac{ (S_{11} - \Delta S_{22}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{11} - | \Delta|^2} \\
+R_L &amp;amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } \Big|
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Output Stability Circles&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/7.png&#34;
+	width=&#34;2132&#34;
+	height=&#34;1224&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/7_hu4b860409c8b93aca7dba818022ffce17_270215_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/7_hu4b860409c8b93aca7dba818022ffce17_270215_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;418px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;test-for-unconditionally-stable&#34;&gt;Test for Unconditionally Stable&lt;/h2&gt;
+&lt;h3 id=&#34;rollet-condition&#34;&gt;Rollet Condition&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+K &amp;amp;= \frac{ 1 - |S_{11}|^2 - |S_{22}|^2 - | \Delta|^2 }{ 2 |S_{12} S_{21}| } &amp;gt; 1 \\
+|\Delta| &amp;amp;&amp;lt; 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;mu-test&#34;&gt;\mu Test&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\mu = \frac{ 1 - |S_{11}|^2 }{ |S_{22} - \Delta S_{11}^*| + |S_{12} S_{21}| } &amp;gt; 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;single-stage-amplifier-design&#34;&gt;Single-Stage Amplifier Design&lt;/h1&gt;
+&lt;h1 id=&#34;broadband-transistor-amplifier-design&#34;&gt;Broadband Transistor Amplifier Design&lt;/h1&gt;
 &lt;h2 id=&#34;增加带宽的做法&#34;&gt;增加带宽的做法&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -154,7 +408,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$1dB$压缩点&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;分为$IP1dB$和$OP1dB$, 对应线性压缩的1dB点&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -929,7 +1183,7 @@ M &amp;amp;= \frac{ N+1 }{ 2 }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;lange-coupler&#34;&gt;Lange Coupler&lt;/h1&gt;
+&lt;h1 id=&#34;lange-coupler-未完待续&#34;&gt;Lange Coupler (未完待续)&lt;/h1&gt;
 &lt;h2 id=&#34;topology--circuit&#34;&gt;Topology &amp;amp; Circuit&lt;/h2&gt;
 &lt;h3 id=&#34;topology-of-folded--unfolded-lange-coupler&#34;&gt;Topology of Folded &amp;amp; Unfolded Lange Coupler&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/19.png&#34;
@@ -957,6 +1211,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;301px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h1 id=&#34;180-degree-coupler&#34;&gt;180 Degree Coupler&lt;/h1&gt;
 </description>
         </item>
         <item>
@@ -973,8 +1228,8 @@ $$&lt;/p&gt;
 [V] &amp;amp;= [Z][I] \\
 [I] &amp;amp;= [Y][V] \\
 [Z] &amp;amp;= [Y]^{-1} \\
-Z_{ij} &amp;amp;= \frac{ V_i }{ I_j }|&lt;em&gt;{I_k = 0, k \neq j} \\
-Y&lt;/em&gt;{ij} &amp;amp;= \frac{ I_i }{ V_j }|_{V_k = 0, k \neq j}
+Z_{ij} &amp;amp;= \frac{ V_i }{ I_j } \Big|&lt;em&gt;{I_k = 0, k \neq j} \\
+Y&lt;/em&gt;{ij} &amp;amp;= \frac{ I_i }{ V_j } \Big|_{V_k = 0, k \neq j}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -1022,7 +1277,7 @@ $$&lt;/p&gt;
 \begin{gather}
 \begin{aligned}
 [V^-] &amp;amp;= [S] [V^+] \\
-S_{ij} &amp;amp;= \frac{ V^-_i }{ V^+&lt;em&gt;j}|&lt;/em&gt;{V_k^+ = 0, k \neq j}
+S_{ij} &amp;amp;= \frac{ V^-_i }{ V^+&lt;em&gt;j} \Big|&lt;/em&gt;{V_k^+ = 0, k \neq j}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -3237,6 +3492,7 @@ Q &amp;amp;= \frac{ \mathcal{Im}(Z) }{ \mathcal{Re}(Z) } \\
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;h1 id=&#34;pad&#34;&gt;Pad&lt;/h1&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Lumped Components&lt;/strong&gt; 离周围至少3倍线款&lt;/li&gt;
@@ -3472,6 +3728,14 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Digital Pre-Distortion, 数字预失真&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;WDPD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Wideband DPD, 经典的利用&lt;strong&gt;反馈&lt;/strong&gt;估计非线性的DPD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;WODPD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;利用发射机的输入和数学模型估算非线性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;QAM&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Quadrature Amplitude Modulation (IQ-Based Modulation), 正交调幅&lt;/td&gt;
 &lt;/tr&gt;
@@ -3512,8 +3776,8 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;指调制信号包络中主要频率成分的频率. e.g.其包络为正弦调制波,则该正弦波的频率即为Envelop Frequency。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;ALCR&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;相邻信道上的泄漏功率与主信道上功率之间的比值&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ALCR(ACPR)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Ajacent Channel Power Ratio, 相邻信道上的泄漏功率与主信道上功率之间的比值&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;IMD&lt;/td&gt;
@@ -3564,8 +3828,8 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Frequency Shift Keying&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;RAPD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5G网络中的一个应用层协议&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
