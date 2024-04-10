@@ -124,7 +124,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-P_{avs} &amp;amp;= P_{in} \Big|&lt;em&gt;{\Gamma&lt;/em&gt;{in} = \Gamma_S^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
+P_{avs} &amp;amp;= P_{in} |&lt;em&gt;{\Gamma&lt;/em&gt;{in} = \Gamma_S^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -134,7 +134,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-P_{avn} &amp;amp;= P_L\Big|&lt;em&gt;{\Gamma&lt;/em&gt;{out} = \Gamma_L^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_{out}|^2) } \frac{ |S_{21}|^2 }{ |1 - S_{11} \Gamma_S|^2 }
+P_{avn} &amp;amp;= P_L|&lt;em&gt;{\Gamma&lt;/em&gt;{out} = \Gamma_L^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_{out}|^2) } \frac{ |S_{21}|^2 }{ |1 - S_{11} \Gamma_S|^2 }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -180,7 +180,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\mathcal{Re} \Big\lbrace Z_{in} \Big\rbrace \ge 0 \\
+\mathcal{Re} \lbrace Z_{in} \rbrace \ge 0 \\
 |Z_0 \frac{ 1 - \Gamma_{in} }{ 1 + \Gamma_{in} }| \ge 0 \\
 \therefore  | \Gamma_{in}| &amp;lt; 1 \\
 | \Gamma_{out}| &amp;lt; 1
@@ -213,9 +213,9 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\Big| \Gamma_L - \frac{ (S_{22} - \Delta S_{11}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{22} - | \Delta|^2 } \Big| &amp;amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } \Big| \\
+| \Gamma_L - \frac{ (S_{22} - \Delta S_{11}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{22} - | \Delta|^2 } | &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } | \\
 C_L &amp;amp;= \frac{ (S_{22} - \Delta S_{11}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{22} - | \Delta|^2} \\
-R_L &amp;amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } \Big|
+R_L &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } |
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -226,9 +226,9 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\Big| \Gamma_S - \frac{ (S_{11} - \Delta S_{22}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{11} - | \Delta|^2 } \Big| &amp;amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } \Big| \\
+| \Gamma_S - \frac{ (S_{11} - \Delta S_{22}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{11} - | \Delta|^2 } | &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } | \\
 C_L &amp;amp;= \frac{ (S_{11} - \Delta S_{22}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{11} - | \Delta|^2} \\
-R_L &amp;amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } \Big|
+R_L &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } |
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -252,7 +252,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-K &amp;amp;= \frac{ 1 - |S_{11}|^2 - |S_{22}|^2 - | \Delta|^2 }{ 2 |S_{12} S_{21}| } &amp;gt; 1 \\
+K &amp;amp;= \frac{ 1 - |S_{11}|^2 - |S_{22}|^2 + | \Delta|^2 }{ 2 |S_{12} S_{21}| } &amp;gt; 1 \\
 |\Delta| &amp;amp;&amp;lt; 1
 \end{aligned}
 \end{gather}
@@ -266,6 +266,49 @@ $$&lt;/p&gt;
 \end{gather}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;single-stage-amplifier-design&#34;&gt;Single-Stage Amplifier Design&lt;/h1&gt;
+&lt;h2 id=&#34;design-for-maximum-gain&#34;&gt;Design for Maximum Gain&lt;/h2&gt;
+&lt;h3 id=&#34;maximum-gain--max-stable-gain&#34;&gt;Maximum Gain &amp;amp; Max Stable Gain&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当$\Gamma_{in} = \Gamma_S^&lt;em&gt;, \Gamma_{out} = \Gamma^&lt;/em&gt;_L$时，会出现最大增益&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+G_{Tmax} &amp;amp;= \frac{ |S_{21}|^2 (1 - | \Gamma_L|^2) }{ (1- | \Gamma_S|^2) (1- S_{22} \Gamma_L)^2 } \\
+&amp;amp;= \frac{ |S_{21}| }{ |S_{12}| } ( K - \sqrt{ K^2 - 1 }) \\
+G_{msg} &amp;amp;= \frac{ |S_{21}| }{ |S_{12}| }, K = 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;对应的反射系数&#34;&gt;对应的反射系数&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;根据&lt;strong&gt;反射系数公式&lt;/strong&gt;，结合&lt;strong&gt;共轭匹配&lt;/strong&gt;，可以得到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Gamma_S &amp;amp;= \frac{ B_1 \pm \sqrt{ |B_1|^2 - 4|C_1|^2 } }{ 2C_1 } \\
+\Gamma_L &amp;amp;= \frac{ B_2 \pm \sqrt{ |B_2|^2 - 4|C_2|^2 } }{ 2C_2 } \\
+B_1 &amp;amp;= 1 + |S_{11}|^2 - |S_{22}|^2 - | \Delta|^2 \\
+B_2 &amp;amp;= 1 - |S_{11}|^2 + |S_{22}|^2 - | \Delta|^2 \\
+C_1 &amp;amp;= S_{11} - \Delta S_{22}^* \\
+C_2 &amp;amp;= S_{22} - \Delta S_{11}^*
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;以上方程只在$K&amp;gt;1$时有解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;gains-in-unilateral-case&#34;&gt;Gains in Unilateral Case&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+S_{12} &amp;amp;= 0 \\
+\Gamma_{in} &amp;amp;= S_{11}^&lt;em&gt;, \Gamma_{out} = S_{22}^&lt;/em&gt; \\
+G_{TUmax} &amp;amp;= \frac{ |S_{21}|^2 }{ (1 - |S_{11}|^2)(1 - |S_{22}|^2) }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;broadband-transistor-amplifier-design&#34;&gt;Broadband Transistor Amplifier Design&lt;/h1&gt;
 &lt;h2 id=&#34;增加带宽的做法&#34;&gt;增加带宽的做法&lt;/h2&gt;
 &lt;table&gt;

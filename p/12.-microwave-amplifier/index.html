@@ -287,7 +287,17 @@ Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_
         </li>
       </ol>
     </li>
-    <li><a href="#single-stage-amplifier-design">Single-Stage Amplifier Design</a></li>
+    <li><a href="#single-stage-amplifier-design">Single-Stage Amplifier Design</a>
+      <ol>
+        <li><a href="#design-for-maximum-gain">Design for Maximum Gain</a>
+          <ol>
+            <li><a href="#maximum-gain--max-stable-gain">Maximum Gain &amp; Max Stable Gain</a></li>
+            <li><a href="#对应的反射系数">对应的反射系数</a></li>
+            <li><a href="#gains-in-unilateral-case">Gains in Unilateral Case</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
     <li><a href="#broadband-transistor-amplifier-design">Broadband Transistor Amplifier Design</a>
       <ol>
         <li><a href="#增加带宽的做法">增加带宽的做法</a></li>
@@ -367,7 +377,7 @@ Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -494,7 +504,7 @@ $$</p>
 <p>$$
 \begin{gather}
 \begin{aligned}
-P_{avs} &amp;= P_{in} \Big|<em>{\Gamma</em>{in} = \Gamma_S^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
+P_{avs} &amp;= P_{in} |<em>{\Gamma</em>{in} = \Gamma_S^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
 \end{aligned}
 \end{gather}
 $$</p>
@@ -504,7 +514,7 @@ $$</p>
 <p>$$
 \begin{gather}
 \begin{aligned}
-P_{avn} &amp;= P_L\Big|<em>{\Gamma</em>{out} = \Gamma_L^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_{out}|^2) } \frac{ |S_{21}|^2 }{ |1 - S_{11} \Gamma_S|^2 }
+P_{avn} &amp;= P_L|<em>{\Gamma</em>{out} = \Gamma_L^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_{out}|^2) } \frac{ |S_{21}|^2 }{ |1 - S_{11} \Gamma_S|^2 }
 \end{aligned}
 \end{gather}
 $$</p>
@@ -550,7 +560,7 @@ $$</p>
 <p>$$
 \begin{gather}
 \begin{aligned}
-\mathcal{Re} \Big\lbrace Z_{in} \Big\rbrace \ge 0 \\
+\mathcal{Re} \lbrace Z_{in} \rbrace \ge 0 \\
 |Z_0 \frac{ 1 - \Gamma_{in} }{ 1 + \Gamma_{in} }| \ge 0 \\
 \therefore  | \Gamma_{in}| &lt; 1 \\
 | \Gamma_{out}| &lt; 1
@@ -583,9 +593,9 @@ $$</p>
 <p>$$
 \begin{gather}
 \begin{aligned}
-\Big| \Gamma_L - \frac{ (S_{22} - \Delta S_{11}^<em>)^</em> }{ |S_{22} - | \Delta|^2 } \Big| &amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } \Big| \\
+| \Gamma_L - \frac{ (S_{22} - \Delta S_{11}^<em>)^</em> }{ |S_{22} - | \Delta|^2 } | &amp;= | \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } | \\
 C_L &amp;= \frac{ (S_{22} - \Delta S_{11}^<em>)^</em> }{ |S_{22} - | \Delta|^2} \\
-R_L &amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } \Big|
+R_L &amp;= | \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } |
 \end{aligned}
 \end{gather}
 $$</p>
@@ -596,9 +606,9 @@ $$</p>
 <p>$$
 \begin{gather}
 \begin{aligned}
-\Big| \Gamma_S - \frac{ (S_{11} - \Delta S_{22}^<em>)^</em> }{ |S_{11} - | \Delta|^2 } \Big| &amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } \Big| \\
+| \Gamma_S - \frac{ (S_{11} - \Delta S_{22}^<em>)^</em> }{ |S_{11} - | \Delta|^2 } | &amp;= | \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } | \\
 C_L &amp;= \frac{ (S_{11} - \Delta S_{22}^<em>)^</em> }{ |S_{11} - | \Delta|^2} \\
-R_L &amp;= \Big| \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } \Big|
+R_L &amp;= | \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } |
 \end{aligned}
 \end{gather}
 $$</p>
@@ -622,7 +632,7 @@ $$</p>
 <p>$$
 \begin{gather}
 \begin{aligned}
-K &amp;= \frac{ 1 - |S_{11}|^2 - |S_{22}|^2 - | \Delta|^2 }{ 2 |S_{12} S_{21}| } &gt; 1 \\
+K &amp;= \frac{ 1 - |S_{11}|^2 - |S_{22}|^2 + | \Delta|^2 }{ 2 |S_{12} S_{21}| } &gt; 1 \\
 |\Delta| &amp;&lt; 1
 \end{aligned}
 \end{gather}
@@ -636,6 +646,49 @@ $$</p>
 \end{gather}
 $$</p>
 <h1 id="single-stage-amplifier-design">Single-Stage Amplifier Design</h1>
+<h2 id="design-for-maximum-gain">Design for Maximum Gain</h2>
+<h3 id="maximum-gain--max-stable-gain">Maximum Gain &amp; Max Stable Gain</h3>
+<ul>
+<li>当$\Gamma_{in} = \Gamma_S^<em>, \Gamma_{out} = \Gamma^</em>_L$时，会出现最大增益</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+G_{Tmax} &amp;= \frac{ |S_{21}|^2 (1 - | \Gamma_L|^2) }{ (1- | \Gamma_S|^2) (1- S_{22} \Gamma_L)^2 } \\
+&amp;= \frac{ |S_{21}| }{ |S_{12}| } ( K - \sqrt{ K^2 - 1 }) \\
+G_{msg} &amp;= \frac{ |S_{21}| }{ |S_{12}| }, K = 1
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="对应的反射系数">对应的反射系数</h3>
+<ul>
+<li>根据<strong>反射系数公式</strong>，结合<strong>共轭匹配</strong>，可以得到</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\Gamma_S &amp;= \frac{ B_1 \pm \sqrt{ |B_1|^2 - 4|C_1|^2 } }{ 2C_1 } \\
+\Gamma_L &amp;= \frac{ B_2 \pm \sqrt{ |B_2|^2 - 4|C_2|^2 } }{ 2C_2 } \\
+B_1 &amp;= 1 + |S_{11}|^2 - |S_{22}|^2 - | \Delta|^2 \\
+B_2 &amp;= 1 - |S_{11}|^2 + |S_{22}|^2 - | \Delta|^2 \\
+C_1 &amp;= S_{11} - \Delta S_{22}^* \\
+C_2 &amp;= S_{22} - \Delta S_{11}^*
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>以上方程只在$K&gt;1$时有解</li>
+</ul>
+<h3 id="gains-in-unilateral-case">Gains in Unilateral Case</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+S_{12} &amp;= 0 \\
+\Gamma_{in} &amp;= S_{11}^<em>, \Gamma_{out} = S_{22}^</em> \\
+G_{TUmax} &amp;= \frac{ |S_{21}|^2 }{ (1 - |S_{11}|^2)(1 - |S_{22}|^2) }
+\end{aligned}
+\end{gather}
+$$</p>
 <h1 id="broadband-transistor-amplifier-design">Broadband Transistor Amplifier Design</h1>
 <h2 id="增加带宽的做法">增加带宽的做法</h2>
 <div class="table-wrapper"><table>
