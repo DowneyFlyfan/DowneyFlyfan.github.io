@@ -6,10 +6,10 @@
         <description>Recent content in RFIC on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 07 Apr 2024 12:06:29 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/rfic/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 11 Apr 2024 12:06:29 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/categories/rfic/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>12. Microwave Amplifier</title>
         <link>https://downeyflyfan.com/p/12.-microwave-amplifier/</link>
-        <pubDate>Sun, 07 Apr 2024 12:06:29 +0800</pubDate>
+        <pubDate>Thu, 11 Apr 2024 12:06:29 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/12.-microwave-amplifier/</guid>
         <description>&lt;h1 id=&#34;two-port-power-gain&#34;&gt;Two-Port Power Gain&lt;/h1&gt;
@@ -309,6 +309,44 @@ G_{TUmax} &amp;amp;= \frac{ |S_{21}|^2 }{ (1 - |S_{11}|^2)(1 - |S_{22}|^2) }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;constant-gain-circle--desgin-for-specific-gain&#34;&gt;Constant Gain Circle &amp;amp; Desgin for Specific Gain&lt;/h2&gt;
+&lt;h3 id=&#34;gain-factor&#34;&gt;Gain Factor&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;当$\Gamma_S = S_{11}^&lt;em&gt;, \Gamma_L = S_{22}^&lt;/em&gt;$时，增益取得最大值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+G_S &amp;amp;= \frac{ 1 - |\Gamma_s|^2 }{ | 1- S_{11} \Gamma_S|^2 } \\
+G_L &amp;amp;= \frac{ 1 - |\Gamma_L|^2 }{ | 1- S_{22} \Gamma_L|^2 } \\
+G_{Smax} &amp;amp;= \frac{ 1 }{ 1 - |S_{11}|^2 } \\
+G_{Lmax} &amp;amp;= \frac{ 1 }{ 1 - |S_{22}|^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Gain Factor&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+g_s &amp;amp;= \frac{ G_S }{ G_{S \ max} } \\
+g_L &amp;amp;= \frac{ G_L }{ G_{L \ max} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;constant-gain-circles&#34;&gt;Constant Gain Circles&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+C_S &amp;amp;= \frac{ g_s S_{11}^* }{ 1 - (1 - g_s)|S_{11}|^2 } \\
+R_S &amp;amp;= \frac{ \sqrt{ 1 - g_s } ( 1 - |S_{11}|^2)}{ 1 - (1 - g_s) |S_{11}|^2 } \\
+C_L &amp;amp;= \frac{ g_s S_{22}^* }{ 1 - (1 - g_L)|S_{22}|^2 } \\
+R_L &amp;amp;= \frac{ \sqrt{ 1 - g_L } ( 1 - |S_{22}|^2)}{ 1 - (1 - g_L) |S_{22}|^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;low-noise-amplifier-design-&#34;&gt;Low Noise Amplifier Design (!!!)&lt;/h2&gt;
 &lt;h1 id=&#34;broadband-transistor-amplifier-design&#34;&gt;Broadband Transistor Amplifier Design&lt;/h1&gt;
 &lt;h2 id=&#34;增加带宽的做法&#34;&gt;增加带宽的做法&lt;/h2&gt;
 &lt;table&gt;
@@ -479,6 +517,422 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;一般&lt;strong&gt;Drive Stage&lt;/strong&gt;使用&lt;strong&gt;小栅宽，大增益&lt;/strong&gt;；&lt;strong&gt;Power Stage&lt;/strong&gt;用&lt;strong&gt;大栅宽，大功率&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>10. Noise &amp; Nonlinear Distortion</title>
+        <link>https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/</link>
+        <pubDate>Mon, 08 Apr 2024 10:31:59 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/</guid>
+        <description>&lt;h1 id=&#34;noise-in-microwave-circuit&#34;&gt;Noise in Microwave Circuit&lt;/h1&gt;
+&lt;h2 id=&#34;noise-type&#34;&gt;Noise Type&lt;/h2&gt;
+&lt;h3 id=&#34;internal-noise&#34;&gt;Internal Noise&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Thermal Noise&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;热量产生的噪声，常出现在电阻中&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Flicker Noise&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;固态组件中的噪声&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Shot Noise&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;载流子波动引起的噪声&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Plasma Noise&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;离子气体中的电荷移动产生的噪声&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Quantum Noise&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;量子层面可以忽略的噪声&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;external-noise&#34;&gt;External Noise&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Thermal&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Lightning&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Microwave Devices&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;noise-power--equivalent-noise-temperature&#34;&gt;Noise Power &amp;amp; Equivalent Noise Temperature&lt;/h2&gt;
+&lt;h3 id=&#34;thermal-noise-in-resistor&#34;&gt;Thermal Noise in Resistor&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;使用&lt;strong&gt;Rayleigh-Jeans Approximation&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_n &amp;amp;= \sqrt{ \frac{ 4hfBR }{ e^{hf/kT}  - 1} } \\
+hf &amp;amp;\ll  kT \Longrightarrow e^{hf/kT} - 1 \approx hf/kT \\
+\therefore V_n &amp;amp;\approx \sqrt{ 4kTBR }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;noise-power&#34;&gt;Noise Power&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/1.png&#34;
+	width=&#34;1092&#34;
+	height=&#34;496&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/1_hue62cad6a6e9e921304268a362b883a94_49470_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/1_hue62cad6a6e9e921304268a362b883a94_49470_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;220&#34;
+		data-flex-basis=&#34;528px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;计算传递到&lt;strong&gt;Load&lt;/strong&gt;上的噪声能量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_n &amp;amp;= ( \frac{ V_n }{ 2R })^2 R = kTB \\
+\underset{ B \longrightarrow 0}{ lim } P_n &amp;amp;= 0 \\
+\underset{ T \longrightarrow 0}{ lim } P_n &amp;amp;= 0 \\
+\underset{ B \longrightarrow \infin }{ lim } P_n &amp;amp;= ?
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当$B \longrightarrow \infin$或者$T \longrightarrow \infin$， $V_n$必须&lt;strong&gt;使用原公式&lt;/strong&gt;计算&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;equivalent-noise-temperature&#34;&gt;Equivalent Noise Temperature&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/2.png&#34;
+	width=&#34;1784&#34;
+	height=&#34;406&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/2_huceb9a8753ea3a91d618ff8415abbc9b9_72369_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/2_huceb9a8753ea3a91d618ff8415abbc9b9_72369_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;439&#34;
+		data-flex-basis=&#34;1054px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于产生&lt;strong&gt;White Noise&lt;/strong&gt;的设备，其噪声都可以等效成&lt;strong&gt;等效噪声温度&lt;/strong&gt;下的&lt;strong&gt;电阻&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+T_e &amp;amp;= \frac{ N_o }{ kB }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Equivalent Noise Temperature for a &lt;strong&gt;Noisy Amplifier&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/3.png&#34;
+	width=&#34;1162&#34;
+	height=&#34;1060&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/3_hue73c30facf4508498df413d20b64bdae_124098_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/3_hue73c30facf4508498df413d20b64bdae_124098_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;109&#34;
+		data-flex-basis=&#34;263px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+T_e &amp;amp;= \frac{ N_o }{ GkB }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;excess-noise-ratio&#34;&gt;Excess Noise Ratio&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对于一个&lt;strong&gt;分离设备&lt;/strong&gt;而言&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+ENR(dB) &amp;amp;= 10 lg( \frac{ N_g - N_o }{ N_o }) \\
+&amp;amp;= 10 lg( \frac{ T_g - T_o }{ T_o })
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;以上定义在一个系统中可能有所不同&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;measurement-of-noise-temperature-y-factor-method&#34;&gt;Measurement of Noise Temperature (Y-Factor Method)&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/4.png&#34;
+	width=&#34;1198&#34;
+	height=&#34;404&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/4_hua1767819d8c7310b88046eecb7b4a2ed_55107_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/4_hua1767819d8c7310b88046eecb7b4a2ed_55107_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;296&#34;
+		data-flex-basis=&#34;711px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只有在$T_1 \gg T_2$时，该方法才是&lt;strong&gt;适用的&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+N_1 &amp;amp;= GkB(T_1 + T_e) \\
+N_2 &amp;amp;= GkB(T_2 + T_e) \\
+Y &amp;amp;= \frac{ N_1 }{ N_2 } \\
+&amp;amp;= \frac{ T_1 + T_e }{ T_2 + T_e } &amp;gt; 1\\
+\therefore T_e &amp;amp;= \frac{ T-1 - YT_2 }{ Y -1 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;noise-figure&#34;&gt;Noise Figure&lt;/h1&gt;
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在阻抗匹配，且温度$T = 290K$的情况下输入信噪比和输出信噪比的比值&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+F &amp;amp;= \frac{ S_i/N_i }{ S_o/N_o } \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;noise-figure-in-impedance-matched-cases&#34;&gt;Noise Figure in Impedance Matched Cases&lt;/h2&gt;
+&lt;h3 id=&#34;nf-of-a-common-2-port-network&#34;&gt;NF of a common 2-Port Network&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/5.png&#34;
+	width=&#34;1062&#34;
+	height=&#34;436&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/5_huea1e02db7dbd1b070633f212ae67b950_48292_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/5_huea1e02db7dbd1b070633f212ae67b950_48292_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;584px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+N_i &amp;amp;= kT_0B \\
+N_o &amp;amp;= GkB(T_0 + T_e) \\
+S_o &amp;amp;= GS_i \\
+F &amp;amp;= 1 + \frac{ T_e }{ T_0 } \ge 1 \\
+T_e &amp;amp;= T_0(F-1)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;nf-of-a-lossy-line--attenuator&#34;&gt;NF of a Lossy Line / Attenuator&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/6.png&#34;
+	width=&#34;1164&#34;
+	height=&#34;354&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/6_hu31275d9ac898054dfa699e04ef6c6054_41967_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/6_hu31275d9ac898054dfa699e04ef6c6054_41967_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;328&#34;
+		data-flex-basis=&#34;789px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;定义&lt;strong&gt;Lossy Factor&lt;/strong&gt; $L = \dfrac{ 1 }{ G }$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+N_o &amp;amp;= kTB \\
+&amp;amp;= GkTB + GN_{line} \\
+\therefore N_{line} &amp;amp;= \frac{ 1 - G }{ G } kT B \\
+\therefore T_e &amp;amp;= \frac{ N_{line} }{ kB } \\
+&amp;amp;= \frac{ 1 - G }{ G } T \\
+&amp;amp;= (L-1) T \\
+F_{line} &amp;amp;= 1 + \frac{ (L-1) T }{ T_0 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当$T = T_0$时, $F_{line} = L$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;noise-of-a-cascaded-system&#34;&gt;Noise of a Cascaded System&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/7.png&#34;
+	width=&#34;1226&#34;
+	height=&#34;664&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/7_hufff03b527415da834d37b32be22b16cd_47798_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/7_hufff03b527415da834d37b32be22b16cd_47798_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;184&#34;
+		data-flex-basis=&#34;443px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Equivalent Noise Temperature &amp;amp; NF&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+N_1 &amp;amp;= G_1(N_i + N_{e1}) \\
+&amp;amp;= G_1kB(T_0 + T_{e1}) \\
+N_2 &amp;amp;= G_2(N_1 + N_{e2}) \\
+&amp;amp;= G_1G_2 kB(T_0 + T_{e1}) + G_2 kBT_{e2} \\
+&amp;amp;= G_1G_2kB( T_0 + T_{e1} + \frac{ 1 }{ G_1 } T_{e2}) \\
+\therefore T_{cas} &amp;amp;= T_{e1} + \frac{ 1 }{ G_1 } T_{e2} \\
+F &amp;amp;= F_1 + \frac{ 1 }{ G_1 } (F_2 - 1)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Generalization&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+T_{cas} &amp;amp;= T_{e1} + \frac{ 1 }{ G_1} T_{e2} + \frac{ 1 }{ G_1 G_2 } T_{e3} + &amp;hellip; \\
+F &amp;amp;= F_1 + \frac{ 1 }{ G_1 } (F_2 - 1) + \frac{ 1 }{ G_1G_2 } (F_3  -1) + &amp;hellip;
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;noise-figure-in-mismatched-cases&#34;&gt;Noise Figure in Mismatched Cases&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/8.png&#34;
+	width=&#34;1514&#34;
+	height=&#34;510&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/8_hu081b03f54e6dcefc67efe22e373f700b_71592_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/8_hu081b03f54e6dcefc67efe22e373f700b_71592_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;296&#34;
+		data-flex-basis=&#34;712px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lossy Factor&lt;/strong&gt; $L$ 是能量损失&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+S &amp;amp;= \begin{bmatrix}
+0 &amp;amp; 1 \\
+1 &amp;amp; 0
+\end{bmatrix} \frac{ e^{-j \beta l} }{ \sqrt{ L } } \\
+\therefore \Gamma_{out} &amp;amp;= S_{22} + \frac{ S_{12} S_{21} \Gamma_S}{ 1 - S_{11} \Gamma_S} \\
+&amp;amp;= \frac{ \Gamma_S }{ L }e^{-2j \beta l} \\
+\therefore G_{21} &amp;amp;= \frac{ |S_{21}|^2 ( 1- | \Gamma_S|^2) }{ |1 - S_{11} \Gamma_S|^2 ( 1- | \Gamma_{out}|^2)} \\
+&amp;amp;= \frac{ L ( 1 - | \Gamma_S|^2) }{ L^2 - | \Gamma_S|^2 } \\
+T_e &amp;amp;= \frac{ 1 -G_{21} }{ G_{21} } T \\
+&amp;amp;= \frac{ (L-1)(L + | \Gamma_S|^2) }{ L ( 1 - | \Gamma_S|^2) } T
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;noise-figure-for-a-mismatched-amplifier&#34;&gt;Noise Figure for a Mismatched Amplifier&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/9.png&#34;
+	width=&#34;982&#34;
+	height=&#34;366&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/9_hu34f8b9a9ccc60c76e30699d540e93d50_40119_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/9_hu34f8b9a9ccc60c76e30699d540e93d50_40119_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;268&#34;
+		data-flex-basis=&#34;643px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+N_o &amp;amp;= kT_0 GB( 1 - | \Gamma|^2) + kT_0 ( F - 1) GB
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;nonlinear-distortion&#34;&gt;Nonlinear Distortion&lt;/h1&gt;
+&lt;h2 id=&#34;causes--output-signal&#34;&gt;Causes &amp;amp; Output Signal&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harmonic Generation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$n \omega_0$信号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Intermodulation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;交调信号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Saturation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;饱和后的非线性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Cross-Medulation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;两个信号互相调制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AM-PM Conversion&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;幅度变化引起相位失真&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spectral Regrowth&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;很多不同信号之间的调制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/10.png&#34;
+	width=&#34;1028&#34;
+	height=&#34;338&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/10_huce21a1b22249ab9fa15e78d8e51d311f_38007_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/10_huce21a1b22249ab9fa15e78d8e51d311f_38007_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;304&#34;
+		data-flex-basis=&#34;729px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对输出信号进行&lt;strong&gt;Taylor&amp;rsquo;s Series&lt;/strong&gt;展开&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+v_o &amp;amp;= a_0 + a_1 v_i + a_2 v_i^2 + &amp;hellip;
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -871,7 +1325,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-[S] &amp;amp;= -j \sqrt{ 2 } \begin{bmatrix}
+[S] &amp;amp;= -j \frac{ 1 }{ \sqrt{ 2 } } \begin{bmatrix}
 0 &amp;amp; 1 &amp;amp; 1 \\
 1 &amp;amp; 0 &amp;amp; 0 \\
 1 &amp;amp; 0 &amp;amp; 0
@@ -1081,12 +1535,6 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;233px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}&lt;/p&gt;
-&lt;p&gt;\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
 &lt;h3 id=&#34;even-odd-mode-analysis-2&#34;&gt;Even-Odd Mode Analysis&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/7.-power-dividers-directional-coupler/16.png&#34;
 	width=&#34;1228&#34;
@@ -3873,6 +4321,25 @@ $$&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;RAPD&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;5G网络中的一个应用层协议&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;1-5g&#34;&gt;1-5G&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3G&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4G&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Space Division Multiple Access(SDMA), 频率 + 空间&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

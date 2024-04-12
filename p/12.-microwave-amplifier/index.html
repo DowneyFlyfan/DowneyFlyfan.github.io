@@ -12,7 +12,7 @@ Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_
 Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_{in}$与$\Gamma_{S}$ $$ \begin{gather} \begin{aligned} \Gamma_L &amp;amp;= \frac{ Z_L - Z_0 }{ Z_L &#43; Z_0 } = \frac{ V_2^&#43; }{ V_2^- } = \frac{ 1 }{ \Gamma_{out} } \\ \Gamma_S &amp;amp;= \frac{ Z_S - Z_0 }{ Z_S &#43; Z_0 } = \frac{ V_1^&#43; }{ V_1^- } = \frac{ 1 }{ \Gamma_{in} } \end{aligned} \end{gather} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/12.-microwave-amplifier/'>
 <meta property='og:site_name' content='Flyfan Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-04-07T12:06:29&#43;08:00'/><meta property='article:modified_time' content='2024-04-07T12:06:29&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-04-11T12:06:29&#43;08:00'/><meta property='article:modified_time' content='2024-04-11T12:06:29&#43;08:00'/>
 <meta name="twitter:title" content="12. Microwave Amplifier">
 <meta name="twitter:description" content="Two-Port Power Gain Difinition 3 Gains $$ \begin{gather} \begin{aligned} Power \ Gain \ G_p &amp;amp;= \frac{ P_{L} }{ P_{in} } \\ Avaiable \ Gain \ G_A &amp;amp;= \frac{ P_{out} }{ P_{S} } \\ Transducer \ Gain \ G_T &amp;amp;= \frac{ P_L }{ P_S } \end{aligned} \end{gather} $$
 Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_{in}$与$\Gamma_{S}$ $$ \begin{gather} \begin{aligned} \Gamma_L &amp;amp;= \frac{ Z_L - Z_0 }{ Z_L &#43; Z_0 } = \frac{ V_2^&#43; }{ V_2^- } = \frac{ 1 }{ \Gamma_{out} } \\ \Gamma_S &amp;amp;= \frac{ Z_S - Z_0 }{ Z_S &#43; Z_0 } = \frac{ V_1^&#43; }{ V_1^- } = \frac{ 1 }{ \Gamma_{in} } \end{aligned} \end{gather} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -296,6 +296,13 @@ Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_
             <li><a href="#gains-in-unilateral-case">Gains in Unilateral Case</a></li>
           </ol>
         </li>
+        <li><a href="#constant-gain-circle--desgin-for-specific-gain">Constant Gain Circle &amp; Desgin for Specific Gain</a>
+          <ol>
+            <li><a href="#gain-factor">Gain Factor</a></li>
+            <li><a href="#constant-gain-circles">Constant Gain Circles</a></li>
+          </ol>
+        </li>
+        <li><a href="#low-noise-amplifier-design-">Low Noise Amplifier Design (!!!)</a></li>
       </ol>
     </li>
     <li><a href="#broadband-transistor-amplifier-design">Broadband Transistor Amplifier Design</a>
@@ -362,7 +369,7 @@ Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 07, 2024</time>
+                <time class="article-time--published">Apr 11, 2024</time>
             </div>
         
 
@@ -377,7 +384,7 @@ Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_
 
 
                 <time class="article-time--reading">
-                    6 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -689,6 +696,44 @@ G_{TUmax} &amp;= \frac{ |S_{21}|^2 }{ (1 - |S_{11}|^2)(1 - |S_{22}|^2) }
 \end{aligned}
 \end{gather}
 $$</p>
+<h2 id="constant-gain-circle--desgin-for-specific-gain">Constant Gain Circle &amp; Desgin for Specific Gain</h2>
+<h3 id="gain-factor">Gain Factor</h3>
+<ol>
+<li>当$\Gamma_S = S_{11}^<em>, \Gamma_L = S_{22}^</em>$时，增益取得最大值</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+G_S &amp;= \frac{ 1 - |\Gamma_s|^2 }{ | 1- S_{11} \Gamma_S|^2 } \\
+G_L &amp;= \frac{ 1 - |\Gamma_L|^2 }{ | 1- S_{22} \Gamma_L|^2 } \\
+G_{Smax} &amp;= \frac{ 1 }{ 1 - |S_{11}|^2 } \\
+G_{Lmax} &amp;= \frac{ 1 }{ 1 - |S_{22}|^2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Gain Factor</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+g_s &amp;= \frac{ G_S }{ G_{S \ max} } \\
+g_L &amp;= \frac{ G_L }{ G_{L \ max} }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="constant-gain-circles">Constant Gain Circles</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+C_S &amp;= \frac{ g_s S_{11}^* }{ 1 - (1 - g_s)|S_{11}|^2 } \\
+R_S &amp;= \frac{ \sqrt{ 1 - g_s } ( 1 - |S_{11}|^2)}{ 1 - (1 - g_s) |S_{11}|^2 } \\
+C_L &amp;= \frac{ g_s S_{22}^* }{ 1 - (1 - g_L)|S_{22}|^2 } \\
+R_L &amp;= \frac{ \sqrt{ 1 - g_L } ( 1 - |S_{22}|^2)}{ 1 - (1 - g_L) |S_{22}|^2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="low-noise-amplifier-design-">Low Noise Amplifier Design (!!!)</h2>
 <h1 id="broadband-transistor-amplifier-design">Broadband Transistor Amplifier Design</h1>
 <h2 id="增加带宽的做法">增加带宽的做法</h2>
 <div class="table-wrapper"><table>
@@ -922,6 +967,19 @@ $$</p>
             
                 
 <article class="">
+    <a href="/p/10.-noise-nonlinear-distortion/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">10. Noise &amp; Nonlinear Distortion</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/7.-power-dividers-directional-coupler/">
         
         
@@ -967,19 +1025,6 @@ $$</p>
 
         <div class="article-details">
             <h2 class="article-title">3. Transmission Lines &amp; Waveguides</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/2.-transmission-line-theory/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">2. Transmission Line Theory</h2>
         </div>
     </a>
 </article>
