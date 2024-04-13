@@ -286,6 +286,26 @@
     <li><a href="#nonlinear-distortion">Nonlinear Distortion</a>
       <ol>
         <li><a href="#causes--output-signal">Causes &amp; Output Signal</a></li>
+        <li><a href="#gain-compression">Gain Compression</a>
+          <ol>
+            <li><a href="#output-voltage-expressions">Output Voltage Expressions</a></li>
+            <li><a href="#gain-at-center-frequency">Gain at Center Frequency</a></li>
+            <li><a href="#1db-compression-point">1dB Compression Point</a></li>
+          </ol>
+        </li>
+        <li><a href="#harmonic--intermodulation-distortion">Harmonic &amp; Intermodulation Distortion</a>
+          <ol>
+            <li><a href="#analysis-of-two-tone-input-signal">Analysis of Two-Tone Input Signal</a></li>
+            <li><a href="#third-order-intercept-point">Third-Order Intercept Point</a></li>
+          </ol>
+        </li>
+        <li><a href="#intercept-point-of-a-cascaded-system">Intercept Point of a Cascaded System</a></li>
+      </ol>
+    </li>
+    <li><a href="#dynamic-range">Dynamic Range</a>
+      <ol>
+        <li><a href="#linear-dynamic-range">Linear Dynamic Range</a></li>
+        <li><a href="#spurious-free-dynamic-range">Spurious-Free Dynamic Range</a></li>
       </ol>
     </li>
   </ol>
@@ -352,7 +372,7 @@
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -771,7 +791,174 @@ $$</p>
 <p>$$
 \begin{gather}
 \begin{aligned}
-v_o &amp;= a_0 + a_1 v_i + a_2 v_i^2 + &hellip;
+v_o &amp;= a_0 + a_1 v_i + a_2 v_i^2 + &hellip; \\
+a_0 &amp;= v_o(0) &amp; DC \\
+a_1 &amp;= \frac{ dV_o(0) }{ dt } &amp; Linear \ Output \\
+a_2 &amp;= \frac{ dV^2(0) }{ dt^2 } &amp; Squared \ Output
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="gain-compression">Gain Compression</h2>
+<h3 id="output-voltage-expressions">Output Voltage Expressions</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+v_o &amp;= a_0 + a_1 V_0 \cos ( \omega_0 t) + a_2 V_0^2 cos^2( \omega_0 t) + a_3 V_0^3cos^3( \omega_0 t) \\
+&amp;= (a_0 + \frac{ 1 }{ 2 } a_2 V_0^2) + (a_1V_0 + \frac{ 3 }{ 4 } a_3 V_0^3) \cos(\omega_0 t) + \frac{ 1 }{ 2 } a_2V_0^2 cos(2 \omega_0 t) +  \frac{ 1 }{ 4 } a_3V_0^3 cos(3 \omega_0 t)
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="gain-at-center-frequency">Gain at Center Frequency</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+G_v &amp;=  \frac{ v_o^{( \omega_0)} }{ v_i^{( \omega_0)} } \\
+&amp;= \frac{ a_1 V_0 + \frac{ 3 }{ 4 } a_3 V_0^3 }{ V_0 } \\
+&amp;= a_1 + \frac{ 3 }{ 4 } a_3 V_0^3
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="1db-compression-point">1dB Compression Point</h3>
+<p><img src="/p/10.-noise-nonlinear-distortion/11.png"
+	width="1498"
+	height="1056"
+	srcset="/p/10.-noise-nonlinear-distortion/11_hu13217e7992d9353518e915d3fb8d56e8_111827_480x0_resize_box_3.png 480w, /p/10.-noise-nonlinear-distortion/11_hu13217e7992d9353518e915d3fb8d56e8_111827_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="340px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+OP_{1dB} &amp;= IP_{1dB} + G  - 1dB
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="harmonic--intermodulation-distortion">Harmonic &amp; Intermodulation Distortion</h2>
+<h3 id="analysis-of-two-tone-input-signal">Analysis of Two-Tone Input Signal</h3>
+<ol>
+<li>公式推导</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+v_i &amp;= V_0 \Big[ \cos ( \omega_1 t)  + cos ( \omega_2 t)\Big] \\
+v_o &amp;= a_0 + a_1 V_0 ( \cos ( \omega_1 t) + \cos ( \omega_2 t)) + a_2 V_0^2 ( \cos \omega_1 t + \cos( \omega_2 t))^2 \\
+&amp; + a_3 V_0^3(\cos ( \omega_1 t) + \cos( \omega_2 t))^3 + &hellip;\\
+&amp;= \Big[ a_0 + a_2 V_0^2 \Big]  \\
+&amp;+ \Big[  a_1V_0 + \frac{ 9 }{ 4 } a_3 V_0^3 \Big] \cos( \omega_1 t) + \Big[ a_1 V_0 + \frac{ 9 }{ 4 } a_3 V_0^3 \Big] \cos ( \omega_2 t) \\
+&amp; + \frac{ 1 }{ 2 } a_2 V_0^2cos(2 \omega_1 t) + \frac{ 1 }{ 2 } a_2V_0^2 \cos( 2 \omega_2 t) \\
+&amp;+ a_2 V_0^2 \cos \Big[ ( \omega_1 - \omega_2) t\Big] + a_2V_0^2 \cos \Big[ ( \omega_1 + \omega_2) t\Big] \\
+&amp;+ \frac{ 1 }{ 4 } a_3V_0^3 \cos( 3 \omega_1 t) + \frac{ 1 }{ 4 } a_3V_0^3 \cos( 3 \omega_2 t) \\
+&amp;+ \frac{ 3 }{ 4 } a_3 V_0^3 \Big[ \cos(2 \omega_1 - \omega_2) t \Big] + \frac{ 3 }{ 4 } a_3 V_0^3 \Big[ \cos(2 \omega_1 + \omega_2) t \Big] \\
+&amp;+ \frac{ 3 }{ 4 } a_3 V_0^3 \Big[ \cos(2 \omega_2 - \omega_1) t \Big] + \frac{ 3 }{ 4 } a_3 V_0^3 \Big[ \cos(2 \omega_2 + \omega_1) t \Big]
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>频率分布</li>
+</ol>
+<p><img src="/p/10.-noise-nonlinear-distortion/12.png"
+	width="2154"
+	height="522"
+	srcset="/p/10.-noise-nonlinear-distortion/12_hu53808554ac0165c281825453c0a3399b_77431_480x0_resize_box_3.png 480w, /p/10.-noise-nonlinear-distortion/12_hu53808554ac0165c281825453c0a3399b_77431_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="412"
+		data-flex-basis="990px"
+	
+></p>
+<h3 id="third-order-intercept-point">Third-Order Intercept Point</h3>
+<ol>
+<li>$OIP_3$求解</li>
+</ol>
+<ul>
+<li>$P_{\omega_1}$指的是$\omega_1$(<strong>Desired Frequency</strong>)处的功率</li>
+</ul>
+<p><img src="/p/10.-noise-nonlinear-distortion/13.png"
+	width="1604"
+	height="1154"
+	srcset="/p/10.-noise-nonlinear-distortion/13_hu2d29129eaaf5c712aca4b83b595e6bba_157393_480x0_resize_box_3.png 480w, /p/10.-noise-nonlinear-distortion/13_hu2d29129eaaf5c712aca4b83b595e6bba_157393_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="138"
+		data-flex-basis="333px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_{ \omega_1} &amp;\approx \frac{ 1 }{ 2 } a_1^2 V_0^2 \\
+P_{2 \omega_1 - \omega_2} &amp;= \frac{ 1 }{ 2 } ( \frac{ 3 }{ 4 }a_3 V_0^3 )^2 \\
+&amp;= \frac{ 9 }{ 32 } a_3^2 V_0^6 \\
+P_{ \omega_1} &amp;= P_{2 \omega_1 - \omega_2} \\
+\therefore V_{IP} &amp;= \sqrt{ \frac{ 4a_1 }{ 3a_3 } } \\
+\therefore OIP_3 &amp;= \frac{ 2a_1^3 }{ 3a_3 }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="intercept-point-of-a-cascaded-system">Intercept Point of a Cascaded System</h2>
+<p><img src="/p/10.-noise-nonlinear-distortion/14.png"
+	width="2002"
+	height="464"
+	srcset="/p/10.-noise-nonlinear-distortion/14_hu616cd113b66db4b6073134f0a18ffd9d_67611_480x0_resize_box_3.png 480w, /p/10.-noise-nonlinear-distortion/14_hu616cd113b66db4b6073134f0a18ffd9d_67611_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="431"
+		data-flex-basis="1035px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P&rsquo;<em>{2\omega_1 - \omega_2}  &amp;= \frac{ P</em>{ \omega_1}&rsquo;^3 }{ (OIP_3&rsquo;)^2 } \\
+\therefore V&rsquo;<em>{2 \omega_1 - \omega_2}&amp;= \sqrt{ P&rsquo;</em>{2 \omega_1 - \omega_2} Z_0 } \\
+&amp;= \frac{ \sqrt{ P_{ \omega_1}&rsquo;^3 \cdot Z_0 } }{ OIP_3&rsquo; } \\
+V&rsquo;&rsquo;<em>{2 \omega_1 - \omega_2} &amp;= \sqrt{ G_2 } V&rsquo;</em>{2 \omega_1 - \omega_2} + \frac{ \sqrt{ P_{ \omega_1}&rsquo;^3 \cdot Z_0 } }{ OIP_3&rsquo; } \\
+P_{2 \omega_1 - \omega_2}&rsquo;&rsquo;&amp;=  \Big[ \frac{ 1 }{ G_2 (OIP_3&rsquo;) } + \frac{ 1 }{ OIP_3&rsquo;&rsquo; }  \Big]^2 P_{ \omega_1}&rsquo;&rsquo;^3 \\
+&amp;= \frac{ (P_{ \omega_1}&rsquo;&rsquo;)^3 }{ (OIP_3&rsquo;&rsquo;)^2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>Intercept Point of a Cascaded System</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+OIP_3 = \begin{cases}
+\Big[ \dfrac{ 1 }{ G_2 (OIP_3&rsquo;) } + \dfrac{ 1 }{ OIP_3&rsquo;&rsquo; }  \Big]^{-1} &amp; Coherent \\
+\Big[ \dfrac{ 1 }{ (G_2 (OIP_3&rsquo;))^2 } + \dfrac{ 1 }{ (OIP_3&rsquo;&rsquo;)^2}  \Big]^{-1/2} &amp; Incoherent
+\end{cases}<br>
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="dynamic-range">Dynamic Range</h1>
+<h2 id="linear-dynamic-range">Linear Dynamic Range</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+LDR(dB) &amp;= OP_{1dB} - N_o
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="spurious-free-dynamic-range">Spurious-Free Dynamic Range</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+SFDR &amp;= \frac{ P_{ \omega_1} }{ P_{2 \omega_1 - \omega_2} } \\
+&amp;= \Big( \dfrac{ OIP_3 }{ N_o } \Big)^{2/3} \\
+SFDR(dB) &amp;= \frac{ 2 }{ 3 } (OIP_3 - N_o)
 \end{aligned}
 \end{gather}
 $$</p>

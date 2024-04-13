@@ -302,7 +302,12 @@ Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_
             <li><a href="#constant-gain-circles">Constant Gain Circles</a></li>
           </ol>
         </li>
-        <li><a href="#low-noise-amplifier-design-">Low Noise Amplifier Design (!!!)</a></li>
+        <li><a href="#low-noise-amplifier-design">Low Noise Amplifier Design</a>
+          <ol>
+            <li><a href="#noise-figure-parameter">Noise Figure Parameter</a></li>
+            <li><a href="#low-noise-mosfet-amplifier">Low Noise MOSFET Amplifier</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#broadband-transistor-amplifier-design">Broadband Transistor Amplifier Design</a>
@@ -384,7 +389,7 @@ Circuit Analysis Reflection Coefficients $\Gamma_L$ 与 $\Gamma_{out}$, $\Gamma_
 
 
                 <time class="article-time--reading">
-                    7 minute read
+                    8 minute read
                 </time>
             </div>
         
@@ -733,7 +738,71 @@ R_L &amp;= \frac{ \sqrt{ 1 - g_L } ( 1 - |S_{22}|^2)}{ 1 - (1 - g_L) |S_{22}|^2 
 \end{aligned}
 \end{gather}
 $$</p>
-<h2 id="low-noise-amplifier-design-">Low Noise Amplifier Design (!!!)</h2>
+<h2 id="low-noise-amplifier-design">Low Noise Amplifier Design</h2>
+<h3 id="noise-figure-parameter">Noise Figure Parameter</h3>
+<ol>
+<li>Noise Figure of a <strong>Transistor</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+F &amp;= F_{min} + \frac{ R_N }{ G_S } |Y_S - Y_{opt}|^2
+\end{aligned}
+\end{gather}
+$$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$Y_S = G_S + j B_S$</td>
+<td style="text-align:center">Source Admittance presented to the Transistor</td>
+</tr>
+<tr>
+<td style="text-align:center">$Y_{opt}$</td>
+<td style="text-align:center">The one leading to <strong>Minimum Noise Figure</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">$F_{min}$</td>
+<td style="text-align:center"><strong>Minimum Noise Figure</strong> of Transistor</td>
+</tr>
+<tr>
+<td style="text-align:center">$R_N$</td>
+<td style="text-align:center">Equivalent Resistance of Transistor</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="2">
+<li>Define <strong>Noise Figure Parameter</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Y_S &amp;= \frac{ 1 }{ Z_S } \frac{ 1 - \Gamma_S }{ 1 + \Gamma_S } \\
+Y_{opt} &amp;= \frac{ 1 }{ Z_{opt} } \frac{ 1 - \Gamma_{opt} }{ 1 + \Gamma_{opt} } \\
+\therefore F &amp;= F_{min} + \frac{ 4R_N }{ Z_0 } \frac{ | \Gamma_S - \Gamma_{opt}|^2 }{ (1 - | \Gamma_S|^2) | 1 + \Gamma_{opt}|^2 } \\
+N &amp;= \frac{ | \Gamma_S - \Gamma_{opt}|^2 }{ 1 - | \Gamma_S|^2 } \\
+&amp;= \frac{ F - F_{min} }{ 4R_N/Z_0 } | 1 + \Gamma_{opt}|^2 \\
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="3">
+<li>Noise Figure Center</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+| \Gamma_S - C_F| &amp;= |R_F| \\
+C_F &amp;= \frac{ \Gamma_{opt} }{ N + 1} \\
+R_F &amp;= \frac{ \sqrt{ N(N+1 - | \Gamma_{opt}|^2) } }{ N + 1 }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="low-noise-mosfet-amplifier">Low Noise MOSFET Amplifier</h3>
 <h1 id="broadband-transistor-amplifier-design">Broadband Transistor Amplifier Design</h1>
 <h2 id="增加带宽的做法">增加带宽的做法</h2>
 <div class="table-wrapper"><table>

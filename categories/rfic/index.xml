@@ -346,7 +346,71 @@ R_L &amp;amp;= \frac{ \sqrt{ 1 - g_L } ( 1 - |S_{22}|^2)}{ 1 - (1 - g_L) |S_{22}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;low-noise-amplifier-design-&#34;&gt;Low Noise Amplifier Design (!!!)&lt;/h2&gt;
+&lt;h2 id=&#34;low-noise-amplifier-design&#34;&gt;Low Noise Amplifier Design&lt;/h2&gt;
+&lt;h3 id=&#34;noise-figure-parameter&#34;&gt;Noise Figure Parameter&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Noise Figure of a &lt;strong&gt;Transistor&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+F &amp;amp;= F_{min} + \frac{ R_N }{ G_S } |Y_S - Y_{opt}|^2
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Y_S = G_S + j B_S$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Source Admittance presented to the Transistor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Y_{opt}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;The one leading to &lt;strong&gt;Minimum Noise Figure&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$F_{min}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Minimum Noise Figure&lt;/strong&gt; of Transistor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$R_N$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Equivalent Resistance of Transistor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Define &lt;strong&gt;Noise Figure Parameter&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Y_S &amp;amp;= \frac{ 1 }{ Z_S } \frac{ 1 - \Gamma_S }{ 1 + \Gamma_S } \\
+Y_{opt} &amp;amp;= \frac{ 1 }{ Z_{opt} } \frac{ 1 - \Gamma_{opt} }{ 1 + \Gamma_{opt} } \\
+\therefore F &amp;amp;= F_{min} + \frac{ 4R_N }{ Z_0 } \frac{ | \Gamma_S - \Gamma_{opt}|^2 }{ (1 - | \Gamma_S|^2) | 1 + \Gamma_{opt}|^2 } \\
+N &amp;amp;= \frac{ | \Gamma_S - \Gamma_{opt}|^2 }{ 1 - | \Gamma_S|^2 } \\
+&amp;amp;= \frac{ F - F_{min} }{ 4R_N/Z_0 } | 1 + \Gamma_{opt}|^2 \\
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Noise Figure Center&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+| \Gamma_S - C_F| &amp;amp;= |R_F| \\
+C_F &amp;amp;= \frac{ \Gamma_{opt} }{ N + 1} \\
+R_F &amp;amp;= \frac{ \sqrt{ N(N+1 - | \Gamma_{opt}|^2) } }{ N + 1 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;low-noise-mosfet-amplifier&#34;&gt;Low Noise MOSFET Amplifier&lt;/h3&gt;
 &lt;h1 id=&#34;broadband-transistor-amplifier-design&#34;&gt;Broadband Transistor Amplifier Design&lt;/h1&gt;
 &lt;h2 id=&#34;增加带宽的做法&#34;&gt;增加带宽的做法&lt;/h2&gt;
 &lt;table&gt;
@@ -929,7 +993,174 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-v_o &amp;amp;= a_0 + a_1 v_i + a_2 v_i^2 + &amp;hellip;
+v_o &amp;amp;= a_0 + a_1 v_i + a_2 v_i^2 + &amp;hellip; \\
+a_0 &amp;amp;= v_o(0) &amp;amp; DC \\
+a_1 &amp;amp;= \frac{ dV_o(0) }{ dt } &amp;amp; Linear \ Output \\
+a_2 &amp;amp;= \frac{ dV^2(0) }{ dt^2 } &amp;amp; Squared \ Output
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;gain-compression&#34;&gt;Gain Compression&lt;/h2&gt;
+&lt;h3 id=&#34;output-voltage-expressions&#34;&gt;Output Voltage Expressions&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+v_o &amp;amp;= a_0 + a_1 V_0 \cos ( \omega_0 t) + a_2 V_0^2 cos^2( \omega_0 t) + a_3 V_0^3cos^3( \omega_0 t) \\
+&amp;amp;= (a_0 + \frac{ 1 }{ 2 } a_2 V_0^2) + (a_1V_0 + \frac{ 3 }{ 4 } a_3 V_0^3) \cos(\omega_0 t) + \frac{ 1 }{ 2 } a_2V_0^2 cos(2 \omega_0 t) +  \frac{ 1 }{ 4 } a_3V_0^3 cos(3 \omega_0 t)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;gain-at-center-frequency&#34;&gt;Gain at Center Frequency&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+G_v &amp;amp;=  \frac{ v_o^{( \omega_0)} }{ v_i^{( \omega_0)} } \\
+&amp;amp;= \frac{ a_1 V_0 + \frac{ 3 }{ 4 } a_3 V_0^3 }{ V_0 } \\
+&amp;amp;= a_1 + \frac{ 3 }{ 4 } a_3 V_0^3
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;1db-compression-point&#34;&gt;1dB Compression Point&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/11.png&#34;
+	width=&#34;1498&#34;
+	height=&#34;1056&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/11_hu13217e7992d9353518e915d3fb8d56e8_111827_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/11_hu13217e7992d9353518e915d3fb8d56e8_111827_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;340px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+OP_{1dB} &amp;amp;= IP_{1dB} + G  - 1dB
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;harmonic--intermodulation-distortion&#34;&gt;Harmonic &amp;amp; Intermodulation Distortion&lt;/h2&gt;
+&lt;h3 id=&#34;analysis-of-two-tone-input-signal&#34;&gt;Analysis of Two-Tone Input Signal&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;公式推导&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+v_i &amp;amp;= V_0 \Big[ \cos ( \omega_1 t)  + cos ( \omega_2 t)\Big] \\
+v_o &amp;amp;= a_0 + a_1 V_0 ( \cos ( \omega_1 t) + \cos ( \omega_2 t)) + a_2 V_0^2 ( \cos \omega_1 t + \cos( \omega_2 t))^2 \\
+&amp;amp; + a_3 V_0^3(\cos ( \omega_1 t) + \cos( \omega_2 t))^3 + &amp;hellip;\\
+&amp;amp;= \Big[ a_0 + a_2 V_0^2 \Big]  \\
+&amp;amp;+ \Big[  a_1V_0 + \frac{ 9 }{ 4 } a_3 V_0^3 \Big] \cos( \omega_1 t) + \Big[ a_1 V_0 + \frac{ 9 }{ 4 } a_3 V_0^3 \Big] \cos ( \omega_2 t) \\
+&amp;amp; + \frac{ 1 }{ 2 } a_2 V_0^2cos(2 \omega_1 t) + \frac{ 1 }{ 2 } a_2V_0^2 \cos( 2 \omega_2 t) \\
+&amp;amp;+ a_2 V_0^2 \cos \Big[ ( \omega_1 - \omega_2) t\Big] + a_2V_0^2 \cos \Big[ ( \omega_1 + \omega_2) t\Big] \\
+&amp;amp;+ \frac{ 1 }{ 4 } a_3V_0^3 \cos( 3 \omega_1 t) + \frac{ 1 }{ 4 } a_3V_0^3 \cos( 3 \omega_2 t) \\
+&amp;amp;+ \frac{ 3 }{ 4 } a_3 V_0^3 \Big[ \cos(2 \omega_1 - \omega_2) t \Big] + \frac{ 3 }{ 4 } a_3 V_0^3 \Big[ \cos(2 \omega_1 + \omega_2) t \Big] \\
+&amp;amp;+ \frac{ 3 }{ 4 } a_3 V_0^3 \Big[ \cos(2 \omega_2 - \omega_1) t \Big] + \frac{ 3 }{ 4 } a_3 V_0^3 \Big[ \cos(2 \omega_2 + \omega_1) t \Big]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;频率分布&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/12.png&#34;
+	width=&#34;2154&#34;
+	height=&#34;522&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/12_hu53808554ac0165c281825453c0a3399b_77431_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/12_hu53808554ac0165c281825453c0a3399b_77431_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;412&#34;
+		data-flex-basis=&#34;990px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;third-order-intercept-point&#34;&gt;Third-Order Intercept Point&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;$OIP_3$求解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;$P_{\omega_1}$指的是$\omega_1$(&lt;strong&gt;Desired Frequency&lt;/strong&gt;)处的功率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/13.png&#34;
+	width=&#34;1604&#34;
+	height=&#34;1154&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/13_hu2d29129eaaf5c712aca4b83b595e6bba_157393_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/13_hu2d29129eaaf5c712aca4b83b595e6bba_157393_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;138&#34;
+		data-flex-basis=&#34;333px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{ \omega_1} &amp;amp;\approx \frac{ 1 }{ 2 } a_1^2 V_0^2 \\
+P_{2 \omega_1 - \omega_2} &amp;amp;= \frac{ 1 }{ 2 } ( \frac{ 3 }{ 4 }a_3 V_0^3 )^2 \\
+&amp;amp;= \frac{ 9 }{ 32 } a_3^2 V_0^6 \\
+P_{ \omega_1} &amp;amp;= P_{2 \omega_1 - \omega_2} \\
+\therefore V_{IP} &amp;amp;= \sqrt{ \frac{ 4a_1 }{ 3a_3 } } \\
+\therefore OIP_3 &amp;amp;= \frac{ 2a_1^3 }{ 3a_3 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;intercept-point-of-a-cascaded-system&#34;&gt;Intercept Point of a Cascaded System&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/14.png&#34;
+	width=&#34;2002&#34;
+	height=&#34;464&#34;
+	srcset=&#34;https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/14_hu616cd113b66db4b6073134f0a18ffd9d_67611_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/10.-noise-nonlinear-distortion/14_hu616cd113b66db4b6073134f0a18ffd9d_67611_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;431&#34;
+		data-flex-basis=&#34;1035px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P&amp;rsquo;&lt;em&gt;{2\omega_1 - \omega_2}  &amp;amp;= \frac{ P&lt;/em&gt;{ \omega_1}&amp;rsquo;^3 }{ (OIP_3&amp;rsquo;)^2 } \\
+\therefore V&amp;rsquo;&lt;em&gt;{2 \omega_1 - \omega_2}&amp;amp;= \sqrt{ P&amp;rsquo;&lt;/em&gt;{2 \omega_1 - \omega_2} Z_0 } \\
+&amp;amp;= \frac{ \sqrt{ P_{ \omega_1}&amp;rsquo;^3 \cdot Z_0 } }{ OIP_3&amp;rsquo; } \\
+V&amp;rsquo;&amp;rsquo;&lt;em&gt;{2 \omega_1 - \omega_2} &amp;amp;= \sqrt{ G_2 } V&amp;rsquo;&lt;/em&gt;{2 \omega_1 - \omega_2} + \frac{ \sqrt{ P_{ \omega_1}&amp;rsquo;^3 \cdot Z_0 } }{ OIP_3&amp;rsquo; } \\
+P_{2 \omega_1 - \omega_2}&amp;rsquo;&amp;rsquo;&amp;amp;=  \Big[ \frac{ 1 }{ G_2 (OIP_3&amp;rsquo;) } + \frac{ 1 }{ OIP_3&amp;rsquo;&amp;rsquo; }  \Big]^2 P_{ \omega_1}&amp;rsquo;&amp;rsquo;^3 \\
+&amp;amp;= \frac{ (P_{ \omega_1}&amp;rsquo;&amp;rsquo;)^3 }{ (OIP_3&amp;rsquo;&amp;rsquo;)^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Intercept Point of a Cascaded System&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+OIP_3 = \begin{cases}
+\Big[ \dfrac{ 1 }{ G_2 (OIP_3&amp;rsquo;) } + \dfrac{ 1 }{ OIP_3&amp;rsquo;&amp;rsquo; }  \Big]^{-1} &amp;amp; Coherent \\
+\Big[ \dfrac{ 1 }{ (G_2 (OIP_3&amp;rsquo;))^2 } + \dfrac{ 1 }{ (OIP_3&amp;rsquo;&amp;rsquo;)^2}  \Big]^{-1/2} &amp;amp; Incoherent
+\end{cases}&lt;br&gt;
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;dynamic-range&#34;&gt;Dynamic Range&lt;/h1&gt;
+&lt;h2 id=&#34;linear-dynamic-range&#34;&gt;Linear Dynamic Range&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+LDR(dB) &amp;amp;= OP_{1dB} - N_o
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;spurious-free-dynamic-range&#34;&gt;Spurious-Free Dynamic Range&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+SFDR &amp;amp;= \frac{ P_{ \omega_1} }{ P_{2 \omega_1 - \omega_2} } \\
+&amp;amp;= \Big( \dfrac{ OIP_3 }{ N_o } \Big)^{2/3} \\
+SFDR(dB) &amp;amp;= \frac{ 2 }{ 3 } (OIP_3 - N_o)
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -4131,10 +4362,6 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;分为4个等级，等级越高，晶体管的参数越详细&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Stack Distributed Power Amplifier&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Refactoring&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Logic/Layout/Time-Sequence/Power Consumption Refactoring&lt;/td&gt;
 &lt;/tr&gt;
@@ -4145,6 +4372,10 @@ $$&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;DRC&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Design Rule Check，检查&lt;strong&gt;最短距离, 线宽, 层间距离, 射频规则, 器件尺寸、延伸规则&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;LVS&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Layout vs. Schematic, 比对原理图和版图，检查错误&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;PEX&lt;/td&gt;
@@ -4275,20 +4506,12 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;两个或两个以上信号通过一个非线性器件传输时产生的新的频率分量,对设备的性能产生负面影响。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;THD&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;第三阶互调失真&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Bypass, Decoupling Capacitor&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;提供电源的交流信号路径 ;解耦电容, 过滤噪声&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;SMD&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Surface Mount Decice, 芯片表面的贴片&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Center Frequency&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;频率范围的中间值&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;C,D,E band&lt;/td&gt;
@@ -4321,6 +4544,25 @@ $$&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;RAPD&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;5G网络中的一个应用层协议&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;stm32&#34;&gt;STM32&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;外部晶振&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;可以增加设备稳定性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;复位电路&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;利用它把电路恢复到起始状态&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
