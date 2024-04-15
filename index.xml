@@ -6,7 +6,143 @@
         <description>Recent content on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Thu, 11 Apr 2024 12:06:29 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 14 Apr 2024 17:05:55 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>4. AI 论文精读(一）</title>
+        <link>https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/</link>
+        <pubDate>Sun, 14 Apr 2024 17:05:55 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/</guid>
+        <description>&lt;h1 id=&#34;mamba&#34;&gt;Mamba&lt;/h1&gt;
+&lt;h2 id=&#34;ssm&#34;&gt;SSM&lt;/h2&gt;
+&lt;h3 id=&#34;s4structured-state-space-sequence-model&#34;&gt;S4(Structured State Space Sequence Model)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/1.png&#34;
+	width=&#34;1294&#34;
+	height=&#34;510&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/1_hu90655fa03233f4947f4083f44e002be2_170699_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/1_hu90655fa03233f4947f4083f44e002be2_170699_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;253&#34;
+		data-flex-basis=&#34;608px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Discretizationa &amp;amp; Dimensions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+h&amp;rsquo;(t) &amp;amp;= Ah(t) + Bx(t) \\
+y(t) &amp;amp;= Ch(t) \\
+\overline{ A } &amp;amp;= f_A( \Delta.A) \\
+\overline{ B } &amp;amp;= f_A( \Delta, A, B) \\
+\mathcal{A} &amp;amp;\in \mathcal{R}^{N \times N} \\
+\mathcal{B} &amp;amp;\in \mathcal{R}^{N \times 1} \\
+\mathcal{C} &amp;amp;\in \mathcal{R}^{1 \times N}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中，$f$可以有很多选择，比如&lt;strong&gt;Zero-Order Hold&lt;/strong&gt;, &lt;strong&gt;exp&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;计算&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在训练时使用&lt;strong&gt;CNN&lt;/strong&gt;, 方便&lt;strong&gt;获取全局信息&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在推理时使用&lt;strong&gt;RNN&lt;/strong&gt;, 方便&lt;strong&gt;线性递归&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;绝大多数&lt;strong&gt;SSM&lt;/strong&gt;都是&lt;strong&gt;LTI&lt;/strong&gt;系统&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ssm-1&#34;&gt;SSM&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Linear Attention&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/2.png&#34;
+	width=&#34;1266&#34;
+	height=&#34;388&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/2_hu5bd4853a786e6f171383881c956b4169_179529_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/2_hu5bd4853a786e6f171383881c956b4169_179529_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;326&#34;
+		data-flex-basis=&#34;783px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Linear Attention&lt;/strong&gt; 是&lt;strong&gt;Self-Attention&lt;/strong&gt;的近似，计算复杂度更低&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ssm--s4&#34;&gt;SSM &amp;amp; S4&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/5.png&#34;
+	width=&#34;2754&#34;
+	height=&#34;816&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/5_hua20d64b6e8ed9ce90df328693c1b8271_226558_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/5_hua20d64b6e8ed9ce90df328693c1b8271_226558_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;337&#34;
+		data-flex-basis=&#34;810px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;selective-space-state-model&#34;&gt;Selective Space State Model&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Copying&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;典型&lt;strong&gt;LTI&lt;/strong&gt;任务, 直接复制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Selective Copying&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Time-Varying&lt;/strong&gt; Task,&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Induction Heads&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;根据文本生成答案，&lt;strong&gt;LLM&lt;/strong&gt;常用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/4.png&#34;
+	width=&#34;2842&#34;
+	height=&#34;712&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/4_hu0ef0b1c3d320e58e030b13a8a8638ed3_111434_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/4_hu0ef0b1c3d320e58e030b13a8a8638ed3_111434_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;399&#34;
+		data-flex-basis=&#34;957px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mamba-1&#34;&gt;Mamba&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/3.png&#34;
+	width=&#34;1262&#34;
+	height=&#34;512&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/3_hu814a4b7759af300d0f2d276048c231b6_170591_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/3_hu814a4b7759af300d0f2d276048c231b6_170591_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;246&#34;
+		data-flex-basis=&#34;591px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>12. Microwave Amplifier</title>
         <link>https://downeyflyfan.com/p/12.-microwave-amplifier/</link>
         <pubDate>Thu, 11 Apr 2024 12:06:29 +0800</pubDate>
@@ -124,7 +260,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-P_{avs} &amp;amp;= P_{in} |&lt;em&gt;{\Gamma&lt;/em&gt;{in} = \Gamma_S^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
+P_{avs} &amp;amp;= P_{in}|&lt;em&gt;{\Gamma&lt;/em&gt;{in} = \Gamma_S^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -594,8 +730,8 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-f(a) &amp;amp;= \sum_{ n = 0 }^{ \infin  } \frac{ f^{(n)} (a)}{ n! }(x -a)^n \\
-f(0) &amp;amp;= \sum_{ n = 0 }^{ \infin  } \frac{ f^{(n)} (0)}{ n! } x^n
+f(x - a) &amp;amp;= \sum_{ n = 0 }^{ \infin  } \frac{ f^{(n)} (a)}{ n! }(x -a)^n \\
+f(x) &amp;amp;= \sum_{ n = 0 }^{ \infin  } \frac{ f^{(n)} (0)}{ n! } x^n
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -3060,7 +3196,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;激活函数&#34;&gt;激活函数&lt;/h3&gt;
+&lt;h3 id=&#34;activation-functions&#34;&gt;Activation Functions&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3071,11 +3207,19 @@ $$&lt;/p&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.ReLU(inplace=False)&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;激活函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$ReLU(x) = x, x &amp;gt;0$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.Sigmoid(*args, **kwargs)&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;激活函数&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Sigmoid(x) = \dfrac{ 1 }{ 1 + e^{-x} }$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.LeakyReLU(negative_slope=0.01, inplace=False)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$f(x) = \begin{cases} x &amp;amp; x &amp;gt; 0 \\ -NS \cdot x &amp;amp; x &amp;lt; 0 \end{cases}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;torch.nn.SiLU(inplace=False)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$SiLu = x \cdot Sigmoid(x)$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3170,7 +3314,7 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;HDF5 是一种数据存储格式和库，用于有效地组织、存储和管理大量的科学数据。HDF5 文件可以包含多个数据集（dataset）和组（group），以层次结构的方式组织数据。每个数据集可以存储多维数组、表格数据、图像、文本等各种类型的数据。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;经验--技巧总结&#34;&gt;经验 &amp;amp; 技巧总结&lt;/h2&gt;
+&lt;h1 id=&#34;经验--技巧总结&#34;&gt;经验 &amp;amp; 技巧总结&lt;/h1&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3212,21 +3356,6 @@ $$&lt;/p&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\dfrac{ H }{2 } \times \dfrac{ W }{ 2 }$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h1 id=&#34;常用简写&#34;&gt;常用简写&lt;/h1&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;Resblock&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Residual Block&lt;/strong&gt;, 残差块&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -8182,7 +8311,7 @@ Q &amp;amp;= \frac{ \mathcal{Im}(Z) }{ \mathcal{Re}(Z) } \\
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;pad&#34;&gt;Pad&lt;/h1&gt;
+&lt;h1 id=&#34;transformer&#34;&gt;Transformer&lt;/h1&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Lumped Components&lt;/strong&gt; 离周围至少3倍线款&lt;/li&gt;
