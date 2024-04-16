@@ -922,8 +922,9 @@ $$&lt;/p&gt;
         <pubDate>Tue, 26 Dec 2023 14:30:55 +0800</pubDate>
         
         <guid>https://downeyflyfan.com/p/1.-electromagnetic-theory/</guid>
-        <description>&lt;h1 id=&#34;maxwell-equation&#34;&gt;Maxwell Equation&lt;/h1&gt;
-&lt;h2 id=&#34;differetial-form&#34;&gt;Differetial Form&lt;/h2&gt;
+        <description>&lt;h1 id=&#34;maxwell-equation--fields&#34;&gt;Maxwell Equation &amp;amp; Fields&lt;/h1&gt;
+&lt;h2 id=&#34;maxwell-equation&#34;&gt;Maxwell Equation&lt;/h2&gt;
+&lt;h3 id=&#34;differetial-form&#34;&gt;Differetial Form&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -934,7 +935,7 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;integral-form&#34;&gt;Integral Form&lt;/h2&gt;
+&lt;h3 id=&#34;integral-form&#34;&gt;Integral Form&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -942,6 +943,122 @@ $$&lt;/p&gt;
 \oint_{  }^{  } \overrightarrow { H} d \overrightarrow{l} &amp;amp;= \frac{ \partial }{ \partial t } \int_{  }^{  } \pmb{ D } d \overrightarrow{S} + I \\
 \int_{  }^{  } \overrightarrow{ \varepsilon } d \overrightarrow{ S } &amp;amp;= \int_{  }^{  } \rho dV \\
 \int_{  }^{  } \overrightarrow{  H} d \overrightarrow{ S } &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;fields&#34;&gt;Fields&lt;/h2&gt;
+&lt;h3 id=&#34;average--rms-electric-field&#34;&gt;Average &amp;amp; RMS Electric Field&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+|\overline{\varepsilon}|^2_{avg} &amp;amp;= \frac{ 1 }{ T } \int_{ 0 }^{ T }  \overline{ \varepsilon } \cdot \overline{ \varepsilon } dt \\
+&amp;amp;= \frac{ 1 }{ 2 }(E_x^2 + E_y^2 + E_z^2) \\
+&amp;amp;= \frac{ 1 }{ 2 } | \overrightarrow{ E }|^2 \\
+| \varepsilon|_{rms} &amp;amp;= \frac{ 1 }{ \sqrt{ 2 } } | \overrightarrow{ E }|
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;electric-polarization--electrical-susceptibility&#34;&gt;Electric Polarization &amp;amp; Electrical Susceptibility&lt;/h3&gt;
+&lt;h4 id=&#34;polarization--susceptibility--displacement-current&#34;&gt;Polarization &amp;amp; Susceptibility &amp;amp; Displacement Current&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ P_e } &amp;amp;= \epsilon_0 \chi_e \overrightarrow{ E } \\
+\overrightarrow{ D } &amp;amp;= \epsilon_0 \overrightarrow{ E } + \overrightarrow{ P_e } \\
+&amp;amp;= \epsilon_0 (1 + \chi_e) \overrightarrow{ E } \\
+&amp;amp;= \epsilon \overrightarrow{ E }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;permittivity&#34;&gt;Permittivity&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\epsilon&amp;rsquo; &amp;amp;= \epsilon_0 \epsilon_r \\
+\epsilon &amp;amp;= \epsilon&amp;rsquo; - j \epsilon&amp;rsquo;&amp;rsquo; \\
+&amp;amp;= \epsilon_0 \epsilon_r ( 1 - j tan \delta )
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;conducting-current-density&#34;&gt;Conducting Current Density&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ J } &amp;amp;= \sigma \overrightarrow{ E }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;maxwell-equation--loss-tangent&#34;&gt;Maxwell Equation &amp;amp; Loss Tangent&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\nabla \times \overrightarrow{ H } &amp;amp;= j \omega \overrightarrow{ D } + \overrightarrow{ J } \\
+&amp;amp;= j \omega \epsilon \overrightarrow{ E } + \sigma \overrightarrow{ E } \\
+&amp;amp;= j \omega \epsilon&amp;rsquo; \overrightarrow{ E } + ( \omega \epsilon&amp;rsquo;&amp;rsquo; + \sigma) \overrightarrow{ E } \\
+&amp;amp;= j \omega \Big[ \epsilon - j ( \epsilon&amp;rsquo;&amp;rsquo; + \frac{ \sigma }{ \omega }) \Big] \overrightarrow{ E } \\
+tan \delta &amp;amp;= \frac{ \omega \epsilon&amp;rsquo;&amp;rsquo; + \sigma }{ \omega \epsilon&amp;rsquo; }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;for-isotropic-materials&#34;&gt;For Isotropic Materials&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[D] &amp;amp;= [\epsilon] [E]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;fields-at-a-general-material-surface&#34;&gt;Fields at a General Material Surface&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/1.-electromagnetic-theory/5.png&#34;
+	width=&#34;1314&#34;
+	height=&#34;532&#34;
+	srcset=&#34;https://downeyflyfan.com/p/1.-electromagnetic-theory/5_hu007e40d70e3980221dd154186f5da44d_55363_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/1.-electromagnetic-theory/5_hu007e40d70e3980221dd154186f5da44d_55363_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;246&#34;
+		data-flex-basis=&#34;592px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\oint_{ S }^{  } \overrightarrow{ D } \cdot d \overrightarrow{ S } &amp;amp;= \int_{ V }^{  }  \rho \ dV \\
+(D_{n2} - D_{1n})  \Delta S &amp;amp;= \Delta S \rho_s \\
+\therefore \rho_s &amp;amp;= D_{2n} - D_{1n}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/1.-electromagnetic-theory/6.png&#34;
+	width=&#34;1290&#34;
+	height=&#34;342&#34;
+	srcset=&#34;https://downeyflyfan.com/p/1.-electromagnetic-theory/6_hu066fc9b8e477c06630db6463ae5c4ef1_44934_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/1.-electromagnetic-theory/6_hu066fc9b8e477c06630db6463ae5c4ef1_44934_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;377&#34;
+		data-flex-basis=&#34;905px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\oint_{ C }^{  } \overrightarrow{ E } \cdot  d \overrightarrow{ l } &amp;amp;= - j \omega \int_{  }^{  } \overrightarrow{ B } d \overrightarrow{ S } - \int_{  }^{  } \overrightarrow{ M } d \overrightarrow{ S } \\
+(E_{t1} - E_{t2}) \Delta l&amp;amp;= - \Delta l M_s \\
+E_{t1} - E_{t2} &amp;amp;= - M_s
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;fields-at-dielectric-interface&#34;&gt;Fields at Dielectric Interface&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ n } \cdot \overrightarrow{ D }_1 &amp;amp;= \overrightarrow{ n } \cdot \overrightarrow{ D }_2 \\
+\overrightarrow{ n } \cdot \overrightarrow{ B }_1 &amp;amp;= \overrightarrow{ n } \cdot \overrightarrow{ B}_2 \\
+\overrightarrow{ n } \times \overrightarrow{ E_1 } &amp;amp;= \overrightarrow{ n } \times \overrightarrow{ E_2 } \\
+\overrightarrow{ n } \times \overrightarrow{ H_1 } &amp;amp;= \overrightarrow{ n } \times \overrightarrow{ H_2 }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -1077,7 +1194,7 @@ $$&lt;/p&gt;
 \begin{gather}
 \begin{aligned}
 \nabla^2 \overrightarrow{ E } + k_0^2 \overrightarrow{ E } &amp;amp;= 0 \\
-\frac{ \partial^2 E_i }{ \partial x^2} + \frac{ \partial^2 E_i }{ \partial y^2 } + \frac{ \partial^2 E_i }{ \partial z^2 } + k_0^2 E_i&amp;amp;= 0 \\
+\frac{ \partial^2 E_i }{ \partial x^2} + \frac{ \partial^2 E_i }{ \partial y^2 } + \frac{ \partial^2 E_i }{ \partial z^2 } + k_0^2 E_i&amp;amp;= 0
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -1189,6 +1306,17 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2 id=&#34;plane-waves-in-a-general-lossy-medium&#34;&gt;Plane Waves in a General Lossy Medium&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+0 &amp;amp;= \nabla^2 \overrightarrow{ E } + \omega^2 \mu \epsilon ( 1 - j \frac{ \sigma }{ \omega \epsilon }) \overrightarrow{ E } \\
+\gamma &amp;amp;= \alpha + j \beta \\
+&amp;amp;= \omega \sqrt{ \mu \epsilon } \sqrt{ 1 - j \frac{ \sigma }{ \omega \epsilon } } \\
+\mu &amp;amp;= \frac{ j \omega \mu }{ \gamma }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h2 id=&#34;plane-waves-in-a-good-conductor&#34;&gt;Plane Waves in a Good Conductor&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1232,18 +1360,12 @@ $$&lt;/p&gt;
 &lt;p&gt;定义为电场强度衰减为原来的$e^{-1}$时的深度&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;energy-and-power&#34;&gt;Energy and Power&lt;/h1&gt;
-&lt;h2 id=&#34;time-average-stored-energy&#34;&gt;Time-Average Stored Energy&lt;/h2&gt;
+&lt;h2 id=&#34;time-average-stored-electric--magenetic-energy&#34;&gt;Time-Average Stored Electric &amp;amp; Magenetic Energy&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
 W_e &amp;amp;= \frac{ 1 }{ 4 } \mathcal{Re} \int_{ V }^{  } \overrightarrow{ E } \cdot \overrightarrow{ D }^* dV \\
-&amp;amp;= \frac{ \epsilon }{  4} \int_{ V }^{  } \overrightarrow{ E } \cdot \overrightarrow{ E }^* dV
-\end{aligned}
-\end{gather}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-\begin{gather}
-\begin{aligned}
+&amp;amp;= \frac{ \epsilon }{  4} \int_{ V }^{  } \overrightarrow{ E } \cdot \overrightarrow{ E }^* dV \\
 W_m &amp;amp;= \frac{ \mu }{ 4 } \int_{ V }^{  } \overrightarrow{ H } \cdot \overrightarrow{ H }^* dV
 \end{aligned}
 \end{gather}
@@ -1495,7 +1617,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;对于$z&amp;lt;0$, $\sigma \longrightarrow \infin, \delta_s \longrightarrow 0, \eta \longrightarrow 0, T=0, \Gamma = -1, \alpha \longrightarrow \infin$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;fields&#34;&gt;Fields&lt;/h3&gt;
+&lt;h3 id=&#34;fields-1&#34;&gt;Fields&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -1848,7 +1970,7 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;低功耗抗干扰fsk-调制调解器&#34;&gt;低功耗抗干扰FSK 调制调解器&lt;/h3&gt;
 &lt;h3 id=&#34;谐波抑制器&#34;&gt;谐波抑制器&lt;/h3&gt;
 &lt;h3 id=&#34;前馈线性化&#34;&gt;前馈线性化&lt;/h3&gt;
-&lt;h2 id=&#34;short-academic-phrases&#34;&gt;Short Academic Phrases&lt;/h2&gt;
+&lt;h2 id=&#34;射频常用术语&#34;&gt;射频常用术语&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -2044,6 +2166,10 @@ $$&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;RAPD&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;5G网络中的一个应用层协议&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Equalizer(均衡器)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
