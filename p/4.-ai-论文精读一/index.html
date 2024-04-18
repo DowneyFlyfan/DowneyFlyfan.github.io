@@ -4,7 +4,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Mamba SSM S4(Structured State Space Sequence Model) Discretizationa &amp;amp; Dimensions $$ \begin{gather} \begin{aligned} h&amp;rsquo;(t) &amp;amp;= Ah(t) &#43; Bx(t) \\ y(t) &amp;amp;= Ch(t) \\ \overline{ A } &amp;amp;= f_A( \Delta.A) \\ \overline{ B } &amp;amp;= f_A( \Delta, A, B) \\ \mathcal{A} &amp;amp;\in \mathcal{R}^{N \times N} \\ \mathcal{B} &amp;amp;\in \mathcal{R}^{N \times 1} \\ \mathcal{C} &amp;amp;\in \mathcal{R}^{1 \times N} \end{aligned} \end{gather} $$
 其中，$f$可以有很多选择，比如Zero-Order Hold, exp 计算 在训练时使用CNN, 方便获取全局信息
 在推理时使用RNN, 方便线性递归
-绝大多数SSM都是LTI系统 SSM Linear Attention Linear Attention 是Self-Attention的近似，计算复杂度更低 SSM &amp;amp; S4 Selective Space State Model Model Empirical Tasks Category Concept Copying 典型LTI任务, 直接复制 Selective Copying Time-Varying Task, Induction Heads 根据文本生成答案，LLM常用 Mamba '>
+绝大多数SSM都是LTI系统 SSM Linear Attention Linear Attention 是Self-Attention的近似，计算复杂度更低 SSM &amp;amp; S4 Selective Space State Model Model Empirical Tasks Category Concept Copying 典型LTI任务, 直接复制 Selective Copying Time-Varying Task, Induction Heads 根据文本生成答案，LLM常用 Mamba Masked Autoencoder Sturcture Related Work Category Concept Masked Language Modeling BERT, GPT等模型 Autoencoder Input -&amp;gt; Encoder -&amp;gt; Latent Representation -&amp;gt; Decoder -&amp;gt; Output, K-Means, PCA都是这一类 Masked Image Encoding ViT等, 使用CNN进行Encode Self-Supervised Learning 借助人工设计的预处理任务指导模型从无标注数据中学习出对下游任务有用的表示 Visual Autoregressive Modeling Related Work Category Concept Scaling Laws 模型越大，效果越好 Zero-Shot Generalization 模型在没训练过的数据上的表现 Masked Prediction Model Diffusion Model 正向扩散，逆向学习, 再输入数据 Methods 重新审视图像自回归建模问题 传统的自回归方法是对图像token进行线性扁平化,然后逐个预测下一个token。作者认为这种方式违背了图像特征向量之间的相互依赖关系,也破坏了图像的空间局部性。'>
 <title>4. AI 论文精读(一）</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/'>
@@ -13,7 +13,7 @@
 <meta property='og:description' content='Mamba SSM S4(Structured State Space Sequence Model) Discretizationa &amp;amp; Dimensions $$ \begin{gather} \begin{aligned} h&amp;rsquo;(t) &amp;amp;= Ah(t) &#43; Bx(t) \\ y(t) &amp;amp;= Ch(t) \\ \overline{ A } &amp;amp;= f_A( \Delta.A) \\ \overline{ B } &amp;amp;= f_A( \Delta, A, B) \\ \mathcal{A} &amp;amp;\in \mathcal{R}^{N \times N} \\ \mathcal{B} &amp;amp;\in \mathcal{R}^{N \times 1} \\ \mathcal{C} &amp;amp;\in \mathcal{R}^{1 \times N} \end{aligned} \end{gather} $$
 其中，$f$可以有很多选择，比如Zero-Order Hold, exp 计算 在训练时使用CNN, 方便获取全局信息
 在推理时使用RNN, 方便线性递归
-绝大多数SSM都是LTI系统 SSM Linear Attention Linear Attention 是Self-Attention的近似，计算复杂度更低 SSM &amp;amp; S4 Selective Space State Model Model Empirical Tasks Category Concept Copying 典型LTI任务, 直接复制 Selective Copying Time-Varying Task, Induction Heads 根据文本生成答案，LLM常用 Mamba '>
+绝大多数SSM都是LTI系统 SSM Linear Attention Linear Attention 是Self-Attention的近似，计算复杂度更低 SSM &amp;amp; S4 Selective Space State Model Model Empirical Tasks Category Concept Copying 典型LTI任务, 直接复制 Selective Copying Time-Varying Task, Induction Heads 根据文本生成答案，LLM常用 Mamba Masked Autoencoder Sturcture Related Work Category Concept Masked Language Modeling BERT, GPT等模型 Autoencoder Input -&amp;gt; Encoder -&amp;gt; Latent Representation -&amp;gt; Decoder -&amp;gt; Output, K-Means, PCA都是这一类 Masked Image Encoding ViT等, 使用CNN进行Encode Self-Supervised Learning 借助人工设计的预处理任务指导模型从无标注数据中学习出对下游任务有用的表示 Visual Autoregressive Modeling Related Work Category Concept Scaling Laws 模型越大，效果越好 Zero-Shot Generalization 模型在没训练过的数据上的表现 Masked Prediction Model Diffusion Model 正向扩散，逆向学习, 再输入数据 Methods 重新审视图像自回归建模问题 传统的自回归方法是对图像token进行线性扁平化,然后逐个预测下一个token。作者认为这种方式违背了图像特征向量之间的相互依赖关系,也破坏了图像的空间局部性。'>
 <meta property='og:url' content='https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/'>
 <meta property='og:site_name' content='Flyfan Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-04-14T17:05:55&#43;08:00'/><meta property='article:modified_time' content='2024-04-14T17:05:55&#43;08:00'/>
@@ -21,7 +21,7 @@
 <meta name="twitter:description" content="Mamba SSM S4(Structured State Space Sequence Model) Discretizationa &amp;amp; Dimensions $$ \begin{gather} \begin{aligned} h&amp;rsquo;(t) &amp;amp;= Ah(t) &#43; Bx(t) \\ y(t) &amp;amp;= Ch(t) \\ \overline{ A } &amp;amp;= f_A( \Delta.A) \\ \overline{ B } &amp;amp;= f_A( \Delta, A, B) \\ \mathcal{A} &amp;amp;\in \mathcal{R}^{N \times N} \\ \mathcal{B} &amp;amp;\in \mathcal{R}^{N \times 1} \\ \mathcal{C} &amp;amp;\in \mathcal{R}^{1 \times N} \end{aligned} \end{gather} $$
 其中，$f$可以有很多选择，比如Zero-Order Hold, exp 计算 在训练时使用CNN, 方便获取全局信息
 在推理时使用RNN, 方便线性递归
-绝大多数SSM都是LTI系统 SSM Linear Attention Linear Attention 是Self-Attention的近似，计算复杂度更低 SSM &amp;amp; S4 Selective Space State Model Model Empirical Tasks Category Concept Copying 典型LTI任务, 直接复制 Selective Copying Time-Varying Task, Induction Heads 根据文本生成答案，LLM常用 Mamba "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+绝大多数SSM都是LTI系统 SSM Linear Attention Linear Attention 是Self-Attention的近似，计算复杂度更低 SSM &amp;amp; S4 Selective Space State Model Model Empirical Tasks Category Concept Copying 典型LTI任务, 直接复制 Selective Copying Time-Varying Task, Induction Heads 根据文本生成答案，LLM常用 Mamba Masked Autoencoder Sturcture Related Work Category Concept Masked Language Modeling BERT, GPT等模型 Autoencoder Input -&amp;gt; Encoder -&amp;gt; Latent Representation -&amp;gt; Decoder -&amp;gt; Output, K-Means, PCA都是这一类 Masked Image Encoding ViT等, 使用CNN进行Encode Self-Supervised Learning 借助人工设计的预处理任务指导模型从无标注数据中学习出对下游任务有用的表示 Visual Autoregressive Modeling Related Work Category Concept Scaling Laws 模型越大，效果越好 Zero-Shot Generalization 模型在没训练过的数据上的表现 Masked Prediction Model Diffusion Model 正向扩散，逆向学习, 再输入数据 Methods 重新审视图像自回归建模问题 传统的自回归方法是对图像token进行线性扁平化,然后逐个预测下一个token。作者认为这种方式违背了图像特征向量之间的相互依赖关系,也破坏了图像的空间局部性。"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -277,6 +277,23 @@
         <li><a href="#mamba-1">Mamba</a></li>
       </ol>
     </li>
+    <li><a href="#masked-autoencoder">Masked Autoencoder</a>
+      <ol>
+        <li><a href="#sturcture">Sturcture</a></li>
+        <li><a href="#related-work">Related Work</a></li>
+      </ol>
+    </li>
+    <li><a href="#visual-autoregressive-modeling">Visual Autoregressive Modeling</a>
+      <ol>
+        <li><a href="#related-work-1">Related Work</a></li>
+        <li><a href="#methods">Methods</a>
+          <ol>
+            <li><a href="#重新审视图像自回归建模问题">重新审视图像自回归建模问题</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#new-technical-phrases--standard">New Technical Phrases &amp; Standard</a></li>
   </ol>
 </nav>
         </div>
@@ -498,6 +515,127 @@ $$</p>
 		data-flex-basis="591px"
 	
 ></p>
+<h1 id="masked-autoencoder">Masked Autoencoder</h1>
+<h2 id="sturcture">Sturcture</h2>
+<p><img src="/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/7.png"
+	width="690"
+	height="406"
+	srcset="/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/7_hu8a620db10e84174066f4af265b6e93ed_75344_480x0_resize_box_3.png 480w, /p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/7_hu8a620db10e84174066f4af265b6e93ed_75344_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="169"
+		data-flex-basis="407px"
+	
+></p>
+<h2 id="related-work">Related Work</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Masked Language Modeling</td>
+<td style="text-align:center">BERT, GPT等模型</td>
+</tr>
+<tr>
+<td style="text-align:center">Autoencoder</td>
+<td style="text-align:center">Input -&gt; Encoder -&gt; Latent Representation -&gt; Decoder -&gt; Output, <strong>K-Means, PCA</strong>都是这一类</td>
+</tr>
+<tr>
+<td style="text-align:center">Masked Image Encoding</td>
+<td style="text-align:center">ViT等, 使用CNN进行Encode</td>
+</tr>
+<tr>
+<td style="text-align:center">Self-Supervised Learning</td>
+<td style="text-align:center">借助人工设计的预处理任务指导模型从无标注数据中学习出对下游任务有用的表示</td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="visual-autoregressive-modeling">Visual Autoregressive Modeling</h1>
+<h2 id="related-work-1">Related Work</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Scaling Laws</td>
+<td style="text-align:center">模型越大，效果越好</td>
+</tr>
+<tr>
+<td style="text-align:center">Zero-Shot Generalization</td>
+<td style="text-align:center">模型在没训练过的数据上的表现</td>
+</tr>
+<tr>
+<td style="text-align:center">Masked Prediction Model</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Diffusion Model</td>
+<td style="text-align:center">正向扩散，逆向学习, 再输入数据</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="methods">Methods</h2>
+<h3 id="重新审视图像自回归建模问题">重新审视图像自回归建模问题</h3>
+<ol>
+<li>
+<p>传统的自回归方法是对图像token进行线性扁平化,然后逐个预测下一个token。作者认为这种方式违背了图像特征向量之间的相互依赖关系,也破坏了图像的空间局部性。</p>
+</li>
+<li>
+<p>提出了<strong>next-scale prediction</strong>的思路,将自回归的单位从单个token改为整个token map</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>将图像先编码为多尺度的token maps (r1, r2, &hellip;, rK),从低分辨率到高分辨率</p>
+</li>
+<li>
+<p>自回归过程从最低分辨率1x1的r1开始,逐步预测更高分辨率的token map rk,条件是所有前导的更低分辨率maps (r1, &hellip;, rk-1)</p>
+</li>
+<li>
+<p>在预测每个rk时,rk中所有tokens会被并行生成,而不是线性预测</p>
+</li>
+</ul>
+<ol start="3">
+<li>
+<p>设计了一种新的多尺度量化VariationalAutoEncoder(Multi-scale VQVAE),将图像编码为所需的多尺度token maps序列,作为VAR的输入。</p>
+</li>
+<li>
+<p>采用了类似GPT-2的Transformer解码器架构,对multi-scale token maps序列进行自回归建模和生成。</p>
+</li>
+</ol>
+<h1 id="new-technical-phrases--standard">New Technical Phrases &amp; Standard</h1>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ViT</td>
+<td style="text-align:center">Vision Transformer</td>
+</tr>
+<tr>
+<td style="text-align:center">Inception Score</td>
+<td style="text-align:center">图像多样性分数</td>
+</tr>
+<tr>
+<td style="text-align:center">FID(Fréchet Inception Distance)</td>
+<td style="text-align:center">真实数据和结果数据的距离，越小越好</td>
+</tr>
+</tbody>
+</table></div>
 
 </section>
 

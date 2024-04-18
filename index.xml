@@ -154,6 +154,127 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;591px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h1 id=&#34;masked-autoencoder&#34;&gt;Masked Autoencoder&lt;/h1&gt;
+&lt;h2 id=&#34;sturcture&#34;&gt;Sturcture&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/7.png&#34;
+	width=&#34;690&#34;
+	height=&#34;406&#34;
+	srcset=&#34;https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/7_hu8a620db10e84174066f4af265b6e93ed_75344_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/7_hu8a620db10e84174066f4af265b6e93ed_75344_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;169&#34;
+		data-flex-basis=&#34;407px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;related-work&#34;&gt;Related Work&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Masked Language Modeling&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BERT, GPT等模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Autoencoder&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Input -&amp;gt; Encoder -&amp;gt; Latent Representation -&amp;gt; Decoder -&amp;gt; Output, &lt;strong&gt;K-Means, PCA&lt;/strong&gt;都是这一类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Masked Image Encoding&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ViT等, 使用CNN进行Encode&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Self-Supervised Learning&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;借助人工设计的预处理任务指导模型从无标注数据中学习出对下游任务有用的表示&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;visual-autoregressive-modeling&#34;&gt;Visual Autoregressive Modeling&lt;/h1&gt;
+&lt;h2 id=&#34;related-work-1&#34;&gt;Related Work&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Scaling Laws&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;模型越大，效果越好&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Zero-Shot Generalization&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;模型在没训练过的数据上的表现&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Masked Prediction Model&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Diffusion Model&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;正向扩散，逆向学习, 再输入数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;methods&#34;&gt;Methods&lt;/h2&gt;
+&lt;h3 id=&#34;重新审视图像自回归建模问题&#34;&gt;重新审视图像自回归建模问题&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;传统的自回归方法是对图像token进行线性扁平化,然后逐个预测下一个token。作者认为这种方式违背了图像特征向量之间的相互依赖关系,也破坏了图像的空间局部性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;提出了&lt;strong&gt;next-scale prediction&lt;/strong&gt;的思路,将自回归的单位从单个token改为整个token map&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将图像先编码为多尺度的token maps (r1, r2, &amp;hellip;, rK),从低分辨率到高分辨率&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;自回归过程从最低分辨率1x1的r1开始,逐步预测更高分辨率的token map rk,条件是所有前导的更低分辨率maps (r1, &amp;hellip;, rk-1)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在预测每个rk时,rk中所有tokens会被并行生成,而不是线性预测&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;设计了一种新的多尺度量化VariationalAutoEncoder(Multi-scale VQVAE),将图像编码为所需的多尺度token maps序列,作为VAR的输入。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;采用了类似GPT-2的Transformer解码器架构,对multi-scale token maps序列进行自回归建模和生成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;new-technical-phrases--standard&#34;&gt;New Technical Phrases &amp;amp; Standard&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ViT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Vision Transformer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Inception Score&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;图像多样性分数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FID(Fréchet Inception Distance)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;真实数据和结果数据的距离，越小越好&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         <item>
@@ -3550,6 +3671,319 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;h1 id=&#34;parallel-plate-waveguide&#34;&gt;Parallel Plate Waveguide&lt;/h1&gt;
+&lt;h2 id=&#34;image&#34;&gt;Image&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2.png&#34;
+	width=&#34;1294&#34;
+	height=&#34;906&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2_huc37274206da932cbe791f48aa0a4cc30_60526_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/2_huc37274206da932cbe791f48aa0a4cc30_60526_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;142&#34;
+		data-flex-basis=&#34;342px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tem-mode&#34;&gt;TEM Mode&lt;/h2&gt;
+&lt;h3 id=&#34;voltage-potentials--transverse-electric-fields&#34;&gt;Voltage Potentials &amp;amp; Transverse Electric Fields&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\nabla^2_t \phi(x,y) &amp;amp;= 0 \\
+\phi(x, 0) &amp;amp;= 0 \\
+\phi(x, d) &amp;amp;= V_0 \\
+\therefore \phi(x,y) &amp;amp;= \frac{ V_0 }{ d } y \\
+\overrightarrow{ e }(x,y) &amp;amp;= - \nabla_t \phi(x,y) =  - \frac{ V_0 }{ d } \overrightarrow{ y }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;fields--wave-impedance&#34;&gt;Fields &amp;amp; Wave Impedance&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$V$和$I$指的是&lt;strong&gt;Top Metal&lt;/strong&gt;的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E } (x,y,z) &amp;amp;= \overrightarrow{ e }(x,y) \cdot e^{-j k z} \\
+&amp;amp;= - \overrightarrow{ y } \frac{ V_0 }{ d } e^{-j k z} \\
+\overrightarrow{ H }(x,y,z) &amp;amp;= \frac{ 1 }{ \eta } \overrightarrow{ z } \times \overrightarrow{ E } \\
+&amp;amp;= \overrightarrow{ x } \frac{ V_0 }{ \eta d } e^{-j k z} \\
+V &amp;amp;= - \int_{ y= 0  }^{ d } \overrightarrow{ E }&lt;em&gt;y d \overrightarrow{ y } = V_0 e^{-j k z} \\
+I &amp;amp;= \int&lt;/em&gt;{ x = 0 }^{ W } \overrightarrow{ H }_x \cdot  d \overrightarrow{ x } = \frac{ V_0 W }{ \eta d } e^{-j k z} \\
+Z &amp;amp;= \frac{ V }{ I } = \frac{ \eta d }{ W }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;tm-mode&#34;&gt;TM Mode&lt;/h2&gt;
+&lt;h3 id=&#34;electric-field&#34;&gt;Electric Field&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;注意到$\dfrac{ \partial }{ \partial x } = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+( \frac{ \partial^2 }{ \partial y^2 } + k_c^2) e_z(x,y) &amp;amp;= 0 \\
+\therefore e_z(x,y) &amp;amp;= A \sin (k_c x)  + B \cos (k_c x) \\
+e_z(x,y) &amp;amp;= 0, y = 0, d \\
+\therefore k_c &amp;amp;= \frac{ n \pi }{ d },  n = 0,1,2,3 \\
+\beta &amp;amp;= \sqrt{ k^2 - k_c^2 } \\
+\therefore E_z(x,y,z) &amp;amp;= e_z(x,y) \cdot e^{-j \beta z} \\
+&amp;amp;= A_n \sin \Big( \frac{ n \pi }{ d }  x\Big) \cdot e^{-j \beta z}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;由此可以得到$E_x, H_x, E_y, H_y$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;wave-impedance-cutoff-frequency--wavelength&#34;&gt;Wave Impedance&amp;amp; Cutoff Frequency &amp;amp; Wavelength&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z &amp;amp;= -\frac{ E_y }{ H_x } = \frac{ \beta }{ \omega \epsilon } = \frac{ \beta \eta }{ k } \\
+f_c &amp;amp;= \frac{ k_c }{ 2\pi \sqrt{ \epsilon \mu } } = \frac{ n }{2d \sqrt{ \epsilon \mu }  } \\
+\lambda_g &amp;amp;= \frac{ 2\pi }{ \beta } \\
+\lambda_c &amp;amp;= \frac{ 2\pi }{ k_c } = \frac{ 2d }{ n }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;低于$f_c$的叫做&lt;strong&gt;Cutoff Mode&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;power--dominant-mode&#34;&gt;Power &amp;amp; Dominant Mode&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Power&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_o &amp;amp;= \frac{ 1 }{ 2 } \mathcal{Re} \int_{ y= 0 }^{ d } \int_{x = 0  }^{ W } \overrightarrow{ E } \times \overrightarrow{ H }^* \cdot \overrightarrow{ z } dx dy \\
+&amp;amp;= \begin{cases}
+\dfrac{ W \mathcal{Re} ( \beta)  \omega \epsilon}{ 2 k_c^2 } |A_n|^2 &amp;amp; n = 0 \\
+\dfrac{ W \mathcal{Re} ( \beta)  \omega \epsilon}{ 4 k_c^2 } |A_n|^2 &amp;amp; n &amp;gt; 0
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Dominant $TM_1$ Mode&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/3.png&#34;
+	width=&#34;1250&#34;
+	height=&#34;446&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/3_hu6f2915fccf0f4cdce174d97f180b75f4_52115_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/3_hu6f2915fccf0f4cdce174d97f180b75f4_52115_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;280&#34;
+		data-flex-basis=&#34;672px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Electric Field&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+E_z &amp;amp;= A_1 \sin \Big( \frac{ \pi }{ d } y \Big) e^{-j \beta z} \\
+&amp;amp;= \frac{ A_1 }{ 2j } \Big[ e^{j(\pi y /d - \beta_1 z)} - e^{-j ( \pi y/d + \beta_1 z)} \Big]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Angle $\theta$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+( \frac{ \pi }{ d })^2 + \beta_1^2 &amp;amp;= k^2 \\
+k \sin \theta &amp;amp;= \frac{ \pi }{ d } \\
+k \cos \theta &amp;amp;= \beta_1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;dielectric-loss&#34;&gt;Dielectric Loss&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_l &amp;amp;= I^2 R_S \\
+&amp;amp;=  R_s \oint_{ x = 0 }^{ W } H_x \cdot  d \overrightarrow{ x } \\
+&amp;amp;= \frac{ \omega^2 \epsilon^2 W^2  R_s}{ k_c^2 } |A_n|^2 \\
+\therefore \alpha_c &amp;amp;= \frac{ P_l }{ 2P_o }  \\
+&amp;amp;= \frac{ 2k R_s }{ \beta \eta d }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;te-mode&#34;&gt;TE Mode&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;跟&lt;strong&gt;TM Mode&lt;/strong&gt;同理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/4.png&#34;
+	width=&#34;1936&#34;
+	height=&#34;1342&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/4_huc3a07be3a189d513912c14fca7056978_244862_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/4_huc3a07be3a189d513912c14fca7056978_244862_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;346px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;rectangular-waveguide&#34;&gt;Rectangular Waveguide&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;一个导体产生不了&lt;strong&gt;TEM&lt;/strong&gt; Mode&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;te-mode-1&#34;&gt;TE Mode&lt;/h2&gt;
+&lt;h3 id=&#34;image-1&#34;&gt;Image&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/5.png&#34;
+	width=&#34;724&#34;
+	height=&#34;624&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/5_hua55a89e3b20d90da38e6f589dd5c0345_36779_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/5_hua55a89e3b20d90da38e6f589dd5c0345_36779_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;278px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;magnetic-field&#34;&gt;Magnetic Field&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+0 &amp;amp;= \Big( \frac{ \partial^2 }{ \partial x^2 } + \frac{ \partial^2 }{ \partial y^2 } + k_c^2 \Big) h_z(x,y) \\
+h_z &amp;amp;= X(x) Y(y) \\
+h_z(x,y) &amp;amp;= (A \cos (k_x x) + B \cos (k_x y))(C \cos(k_x x) + D \sin (k_y y)) \\
+e_x(x,y) &amp;amp;= 0, x = 0, a \\
+e_y(x,y) &amp;amp;= 0, y = 0,b \\
+\therefore H_z(x,y,z) &amp;amp;= A_{mn} \cos \frac{ m \pi x}{ a }  \cos \frac{ n \pi y }{ b } e^{-j \beta z}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;wavelength-cutoff-frequency-wave-impedance&#34;&gt;Wavelength, Cutoff Frequency, Wave Impedance&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+f_{c \ mn} &amp;amp;= \frac{ k_c }{ 2 \pi \sqrt{ \epsilon \mu } } = \frac{ 1 }{ 2 \pi \sqrt{ \epsilon \mu } } \sqrt{ ( \frac{ m \pi }{ a })^2 + ( \frac{ n \pi }{ b })^2 } \\
+\lambda_g &amp;amp;= \frac{ 2\pi }{ \beta } &amp;gt; \lambda = \frac{ 2 \pi }{ k } \\
+Z_{TE} &amp;amp;= \frac{ k \eta }{ \beta }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;dominant-mode-power--dielectric-loss&#34;&gt;Dominant Mode Power &amp;amp; Dielectric Loss&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在$TE_{10}$ Mode 下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{10} &amp;amp;= \frac{ 1 }{ 2 } \mathcal{Re} \int_{ x = 0 }^{ a } \int_{ y = 0 }^{ b }  \overrightarrow{ E } \times  \overrightarrow{ H }^* dx dy \\
+&amp;amp;= \frac{ \omega \mu a^3 b |A_{10}|^2}{ 4 \pi^2 } \mathcal{Re} ( \beta) \\
+P_l &amp;amp;= R_s \Big[ \Big( \int_{  }^{  } H_x dx\Big)^2 + \Big( \int_{  }^{  } H_y dy \Big)^2 \Big] \\
+&amp;amp;= R_S|A_{10}|^2 ( b + \frac{ a }{ 2} + \frac{ \beta^2 a^3 }{ 2 \pi^2 }) \\
+\alpha_c &amp;amp;= \frac{ P_l }{ 2P_o } \\
+&amp;amp;= \frac{ R_S }{ a^3 b \beta k \eta } (2 b \pi^2 + a^3 k^2)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;tm-mode-1&#34;&gt;TM Mode&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;同理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;tmm0-mode-in-a-partially-loaded-waveguide&#34;&gt;TMm0 Mode in a Partially Loaded Waveguide&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/8.png&#34;
+	width=&#34;862&#34;
+	height=&#34;530&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/8_huceba114ea4dc40114230b7c4eae3f391_23074_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/8_huceba114ea4dc40114230b7c4eae3f391_23074_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;162&#34;
+		data-flex-basis=&#34;390px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;电磁波的&lt;strong&gt;Phase&lt;/strong&gt;在&lt;strong&gt;Interface&lt;/strong&gt;上具有连续性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+h_z &amp;amp;= \begin{cases}
+A \cos(k_d x) + B \sin (k_d x) &amp;amp; 0 &amp;lt; x &amp;lt; t\\
+C \cos \Big[ k_d(a - x) \Big] + D \sin\Big[ k_d( a- d)  \Big] &amp;amp; t &amp;lt; x &amp;lt; a
+\end{cases} \\
+\beta &amp;amp;= \sqrt{ \epsilon_r k^2 - k_d^2 } \\
+&amp;amp;= \sqrt{ k^2 - k_a^2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为了满足&lt;strong&gt;Boundary Condition&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+k_a \cdot \tan (k_d t) + k_a \cdot \tan \Big[ k_a (a - t) \Big] &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;summary-1&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/6.png&#34;
+	width=&#34;1630&#34;
+	height=&#34;1618&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/6_hu3fc65ad6d85125423e87859dec9d8123_220537_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/6_hu3fc65ad6d85125423e87859dec9d8123_220537_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;241px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;circular-waveguide&#34;&gt;Circular Waveguide(!!!)&lt;/h1&gt;
+&lt;h1 id=&#34;coaxial-line&#34;&gt;Coaxial Line&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/9.png&#34;
+	width=&#34;1116&#34;
+	height=&#34;960&#34;
+	srcset=&#34;https://downeyflyfan.com/p/3.-transmission-lines-waveguides/9_hu549c22937e216deeee751a52b882d1bc_222201_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/3.-transmission-lines-waveguides/9_hu549c22937e216deeee751a52b882d1bc_222201_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;279px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tem-mode-1&#34;&gt;TEM Mode&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\nabla^2 \Phi( \rho, \phi) &amp;amp;= 0 \\
+\frac{ 1 }{ \rho } \frac{ \partial }{ \partial \rho } \Big( \rho \cdot \frac{ \partial \Phi }{ \partial \rho } \Big) + \frac{ 1 }{ \rho^2 } \Big( \frac{ \partial^2 \Phi}{ \partial \phi^2 } \Big) &amp;amp;= 0 \\
+\Phi ( \rho, \phi)&amp;amp;= R( \rho) P( \phi) \\
+\therefore \frac{ \rho }{ R } \frac{ \partial }{ \partial \rho } \Big( \rho \cdot \frac{ d^2 R}{ d \rho^2 } \Big) &amp;amp;= - k_{ \rho}^2 \\
+\frac{ 1 }{ P } \frac{ d^2 P }{ d \phi^2 } &amp;amp;= -k_{ \phi}^2 \\
+k_{ \rho}^2 + k_{ \phi}^2 &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;由于&lt;strong&gt;Volatge&lt;/strong&gt;和&lt;strong&gt;Angle&lt;/strong&gt;没有关系, 所以$k_{ \phi}= 0$, 所以$k_{ \phi} = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\Phi( \rho, \phi) &amp;amp;= C ln \rho + D \\
+\Phi(a, \phi) &amp;amp;= V_0, \Phi(b, \phi) = 0 \\
+\therefore \Phi( \rho, \phi) &amp;amp;= \frac{ V_0 ln(b / \rho)}{ ln(b/a) }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;higher-order-modes&#34;&gt;Higher Order Modes&lt;/h2&gt;
 </description>
         </item>
         <item>
@@ -5177,7 +5611,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\int_{ V }^{  } \overrightarrow{ E_1 } \cdot  \overrightarrow{ J }&lt;em&gt;2 - \overrightarrow{ H_1 } \cdot  \overrightarrow{ M_2 } dV &amp;amp;= \int&lt;/em&gt;{ V }^{  } \overrightarrow{ E_2 } \cdot \overrightarrow{ J_1 } - \overrightarrow{ H_2 } \cdot  \overrightarrow{ M_1} dV
+\int_{ V } \overrightarrow{ E_1 } \cdot  \overrightarrow{ J }&lt;em&gt;2 - \overrightarrow{ H_1 } \cdot  \overrightarrow{ M_2 } dV &amp;amp;= \int&lt;/em&gt;{ V }\overrightarrow{ E_2 } \cdot \overrightarrow{ J_1 } - \overrightarrow{ H_2 } \cdot  \overrightarrow{ M_1} dV
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
