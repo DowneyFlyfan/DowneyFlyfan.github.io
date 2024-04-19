@@ -325,6 +325,24 @@
         <li><a href="#higher-order-modes">Higher Order Modes</a></li>
       </ol>
     </li>
+    <li><a href="#surface-wave-on-a-grounded-dielectric-sheet">Surface Wave on a Grounded Dielectric Sheet</a>
+      <ol>
+        <li><a href="#image-2">Image</a></li>
+        <li><a href="#tm-mode-2">TM Mode</a>
+          <ol>
+            <li><a href="#e-field-in-both-medias">E-Field in Both Medias</a></li>
+            <li><a href="#boundary-condition--solutions">Boundary Condition &amp; Solutions</a></li>
+            <li><a href="#field-solutions">Field Solutions</a></li>
+          </ol>
+        </li>
+        <li><a href="#te-mode-2">TE Mode</a></li>
+      </ol>
+    </li>
+    <li><a href="#stripline--microtrip-line">Stripline &amp; Microtrip Line</a>
+      <ol>
+        <li><a href="#propogation-coefficient--impedance">Propogation Coefficient &amp; Impedance</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -389,7 +407,7 @@
 
 
                 <time class="article-time--reading">
-                    10 minute read
+                    11 minute read
                 </time>
             </div>
         
@@ -886,6 +904,134 @@ $$</p>
 \end{gather}
 $$</p>
 <h2 id="higher-order-modes">Higher Order Modes</h2>
+<h1 id="surface-wave-on-a-grounded-dielectric-sheet">Surface Wave on a Grounded Dielectric Sheet</h1>
+<h2 id="image-2">Image</h2>
+<p><img src="/p/3.-transmission-lines-waveguides/10.png"
+	width="1590"
+	height="554"
+	srcset="/p/3.-transmission-lines-waveguides/10_hufbb9fc8d63ff3027f847ec23966d942b_53372_480x0_resize_box_3.png 480w, /p/3.-transmission-lines-waveguides/10_hufbb9fc8d63ff3027f847ec23966d942b_53372_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="287"
+		data-flex-basis="688px"
+	
+></p>
+<h2 id="tm-mode-2">TM Mode</h2>
+<h3 id="e-field-in-both-medias">E-Field in Both Medias</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+k_c^2 &amp;= \epsilon_r^2 k_0^2 - \beta^2 \\
+h^2 &amp;= \beta^2 - k_0^2 \\
+k_c^2 + h^2 &amp;= ( \epsilon_r + 1) k_0^2 \\
+e_z(x,y) &amp;= \begin{cases}
+A \sin (k_c x) + B (\cos(k_c x)) &amp; 0 &lt; x &lt; d\\
+C e^{hx} + D e^{-hx} &amp; x &gt; d
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="boundary-condition--solutions">Boundary Condition &amp; Solutions</h3>
+<ol>
+<li>Boundary Condition</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\overrightarrow{ E }_z(0, y, z) &amp;=0 \Longrightarrow A =0 \\
+\overrightarrow{ E }_z ( \infin , y, z) &amp;&lt; \infin \Longrightarrow C =0  \\
+\overrightarrow{ E }_z (d,y,z) \ &amp;Continuous \Longrightarrow A \sin (k_c d) = D e^{-h d} \\
+\overrightarrow{ H }_y \ &amp;Continuous \Longrightarrow \frac{ \epsilon_r A }{ k_c } \cos(k_c d) = \frac{ D }{ h } e^{-hd}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>Solutions from <strong>BC</strong> and <strong>Propogation Equation</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\frac{ k }{ \epsilon_r } \tan (k_c d) &amp;= h \\
+\therefore k_c d \tan(k_c d) &amp;= \epsilon_r hd \\
+(k_c d)^2 + (hd)^2 &amp;= ( \epsilon_r + 1) (k_0 d)^2
+\end{aligned}
+\end{gather}
+$$</p>
+<p><img src="/p/3.-transmission-lines-waveguides/11.png"
+	width="704"
+	height="358"
+	srcset="/p/3.-transmission-lines-waveguides/11_hu2dae0a05979b09dc3b836ccb9c085b60_33315_480x0_resize_box_3.png 480w, /p/3.-transmission-lines-waveguides/11_hu2dae0a05979b09dc3b836ccb9c085b60_33315_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="196"
+		data-flex-basis="471px"
+	
+></p>
+<ol start="3">
+<li>Cutoff Frequency</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+f_c &amp;= \frac{ nc }{ 2 d \sqrt{ \epsilon_r -1 } }
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="field-solutions">Field Solutions</h3>
+<p><img src="/p/3.-transmission-lines-waveguides/12.png"
+	width="1388"
+	height="646"
+	srcset="/p/3.-transmission-lines-waveguides/12_hu281c78f14ec206201323ea288f56df5d_125924_480x0_resize_box_3.png 480w, /p/3.-transmission-lines-waveguides/12_hu281c78f14ec206201323ea288f56df5d_125924_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="214"
+		data-flex-basis="515px"
+	
+></p>
+<h2 id="te-mode-2">TE Mode</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+-k_c d \cot (k_c d) &amp;= hd \\
+(k_c d)^2 + (hd)^2 &amp;= ( \epsilon_r - 1)(k_0 d)^2 \\
+f_c &amp;= \frac{ (2n -1)c }{ 4d \sqrt{ \epsilon_r - 1 } }
+\end{aligned}
+\end{gather}
+$$</p>
+<p><img src="/p/3.-transmission-lines-waveguides/13.png"
+	width="1366"
+	height="700"
+	srcset="/p/3.-transmission-lines-waveguides/13_hu350a7d280424bc358a65704a43b06917_164856_480x0_resize_box_3.png 480w, /p/3.-transmission-lines-waveguides/13_hu350a7d280424bc358a65704a43b06917_164856_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="195"
+		data-flex-basis="468px"
+	
+></p>
+<h1 id="stripline--microtrip-line">Stripline &amp; Microtrip Line</h1>
+<h2 id="propogation-coefficient--impedance">Propogation Coefficient &amp; Impedance</h2>
+<p>$$
+\begin{gather}
+\begin{aligned}
+v_p &amp;= \frac{ 1 }{ \sqrt{ \epsilon_r } } \\
+\beta &amp;= \frac{ \omega }{ v_p } \\
+&amp;= \sqrt{ \epsilon_r } k_0 \\
+Z_0 &amp;= \sqrt{ \frac{ L }{ C } } \\
+&amp;= \frac{ 1 }{ v_p C }
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>其他的公式感觉暂时用不上，以后再学吧</li>
+</ul>
 
 </section>
 
