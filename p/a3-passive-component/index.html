@@ -297,6 +297,14 @@
     </li>
     <li><a href="#inductor">Inductor</a></li>
     <li><a href="#transformer">Transformer</a></li>
+    <li><a href="#mom-capacitor">MOM Capacitor</a>
+      <ol>
+        <li><a href="#连接--端口放置方式">连接 &amp; 端口放置方式</a></li>
+        <li><a href="#电容大小">电容大小</a></li>
+        <li><a href="#电容分类">电容分类</a></li>
+        <li><a href="#偕振点的计算方式">偕振点的计算方式</a></li>
+      </ol>
+    </li>
     <li><a href="#appendix">Appendix</a></li>
   </ol>
 </nav>
@@ -362,7 +370,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -643,9 +651,80 @@ Q &amp;= \frac{ \mathcal{Im}(Z) }{ \mathcal{Re}(Z) } \\
 \end{gather}
 $$</p>
 <h1 id="transformer">Transformer</h1>
+<h1 id="mom-capacitor">MOM Capacitor</h1>
+<h2 id="连接--端口放置方式">连接 &amp; 端口放置方式</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>对角线接法</th>
+<th>L Bus 应足够长, 其长度对电容影响不大</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L型</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><img src="/p/a3-passive-component/1.png"
+	width="1500"
+	height="1240"
+	srcset="/p/a3-passive-component/1_hud0245ce401338832ca3b5b5b37f64dd7_157602_480x0_resize_box_3.png 480w, /p/a3-passive-component/1_hud0245ce401338832ca3b5b5b37f64dd7_157602_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="120"
+		data-flex-basis="290px"
+	
+></p>
+<h2 id="电容大小">电容大小</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>50 Finger以内 + 对角线接法</th>
+<th>随频率变化不大</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大Finger, Space</td>
+<td>更大的电容</td>
+</tr>
+<tr>
+<td>用不同NV, NH</td>
+<td>没辙了，可以用这招</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="电容分类">电容分类</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>单端电容</th>
+<th>一端接地，用于Decoupling, Bypass, Filtering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>差分电容</td>
+<td>两段都连接别的电路元件</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="偕振点的计算方式">偕振点的计算方式</h2>
+<p>$$
+\omega_p = \frac{1}{R_m C_p}
+$$</p>
 <h1 id="appendix">Appendix</h1>
 <ol>
-<li><strong>Lumped Components</strong> 离周围至少3倍线款</li>
+<li>
+<p><strong>Lumped Components</strong> 离周围至少3倍线款</p>
+</li>
+<li>
+<p>当端口只有一个边激励时，一定要将激励端口放在<strong>走线的Edge</strong>上</p>
+</li>
 </ol>
 
 </section>
