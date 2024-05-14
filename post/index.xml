@@ -385,17 +385,12 @@ P_L &amp;amp;= \frac{ |V_2^-|^2 }{ 2Z_0 } (1 - | \Gamma_L|^2) \\
 \end{gather}
 $$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;$P_{avs}$, 即&lt;strong&gt;Maximum Power Avaiable from the source&lt;/strong&gt;, 阻抗匹配时的功率&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;此时，$\Gamma$的实部、虚部的平方和为1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;$P_{avs}$, 即&lt;strong&gt;Maximum Power Avaiable from the source&lt;/strong&gt;, 阻抗匹配时的功率&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-P_{avs} &amp;amp;= P_{in}|&lt;em&gt;{\Gamma&lt;/em&gt;{in} = \Gamma_S^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
+P_{avs} &amp;amp;= P_{in} ({\Gamma_{in} = \Gamma_S^*}) = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_S|^2) }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -405,7 +400,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-P_{avn} &amp;amp;= P_L|&lt;em&gt;{\Gamma&lt;/em&gt;{out} = \Gamma_L^*} = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_{out}|^2) } \frac{ |S_{21}|^2 }{ |1 - S_{11} \Gamma_S|^2 }
+P_{avn} &amp;amp;= P_L ({\Gamma_{out} = \Gamma_L^*}) = \frac{ |V_S|^2 }{ 8Z_0 } \frac{ (1- \Gamma_S)^2 }{ (1- |\Gamma_{out}|^2) } \frac{ |S_{21}|^2 }{ |1 - S_{11} \Gamma_S|^2 }
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -447,7 +442,7 @@ G_L &amp;amp;= \frac{ 1 - | \Gamma_L|^2 }{ | 1 - S_{22} \Gamma_L|^2}
 \end{gather}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;stability&#34;&gt;Stability&lt;/h1&gt;
-&lt;h2 id=&#34;difinition-1&#34;&gt;Difinition&lt;/h2&gt;
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
@@ -484,8 +479,8 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-| \Gamma_L - \frac{ (S_{22} - \Delta S_{11}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{22} - | \Delta|^2 } | &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } | \\
-C_L &amp;amp;= \frac{ (S_{22} - \Delta S_{11}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{22} - | \Delta|^2} \\
+| \Gamma_L - \frac{ (S_{22} - \Delta S_{11}&amp;rsquo;)&amp;rsquo; }{ |S_{22} - | \Delta|^2 } | &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } | \\
+C_L &amp;amp;= \frac{ (S_{22} - \Delta S_{11}&amp;rsquo;)&amp;rsquo; }{ |S_{22} - | \Delta|^2} \\
 R_L &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{22}|^2 - | \Delta|^2 } |
 \end{aligned}
 \end{gather}
@@ -497,8 +492,8 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-| \Gamma_S - \frac{ (S_{11} - \Delta S_{22}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{11} - | \Delta|^2 } | &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } | \\
-C_L &amp;amp;= \frac{ (S_{11} - \Delta S_{22}^&lt;em&gt;)^&lt;/em&gt; }{ |S_{11} - | \Delta|^2} \\
+| \Gamma_S - \frac{ (S_{11} - \Delta S_{22}&amp;rsquo;)&amp;rsquo; }{ |S_{11} - | \Delta|^2 } | &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } | \\
+C_L &amp;amp;= \frac{ (S_{11} - \Delta S_{22}&amp;rsquo;)&amp;rsquo; }{ |S_{11} - | \Delta|^2} \\
 R_L &amp;amp;= | \frac{ S_{12} S_{21} }{ |S_{11}|^2 - | \Delta|^2 } |
 \end{aligned}
 \end{gather}
@@ -528,11 +523,11 @@ K &amp;amp;= \frac{ 1 - |S_{11}|^2 - |S_{22}|^2 + | \Delta|^2 }{ 2 |S_{12} S_{21
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;mu-test&#34;&gt;\mu Test&lt;/h3&gt;
+&lt;h3 id=&#34;mu-test&#34;&gt;mu Test&lt;/h3&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\mu = \frac{ 1 - |S_{11}|^2 }{ |S_{22} - \Delta S_{11}^*| + |S_{12} S_{21}| } &amp;gt; 1
+\mu = \frac{ 1 - |S_{11}|^2 }{ |S_{22} - \Delta S_{11}&amp;rsquo;| + |S_{12} S_{21}| } &amp;gt; 1
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -575,7 +570,7 @@ $$&lt;/p&gt;
 \begin{gather}
 \begin{aligned}
 S_{12} &amp;amp;= 0 \\
-\Gamma_{in} &amp;amp;= S_{11}^&lt;em&gt;, \Gamma_{out} = S_{22}^&lt;/em&gt; \\
+\Gamma_{in} &amp;amp;= S_{11}&amp;rsquo;, \Gamma_{out} = S_{22}&amp;rsquo; \\
 G_{TUmax} &amp;amp;= \frac{ |S_{21}|^2 }{ (1 - |S_{11}|^2)(1 - |S_{22}|^2) }
 \end{aligned}
 \end{gather}
@@ -9750,6 +9745,10 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Equalizer(均衡器)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;浅口&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
