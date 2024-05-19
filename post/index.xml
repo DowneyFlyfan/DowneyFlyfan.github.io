@@ -6,7 +6,242 @@
         <description>Recent content in Posts on Flyfan Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 14 Apr 2024 17:05:55 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 17 May 2024 20:31:00 +0800</lastBuildDate><atom:link href="https://downeyflyfan.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>12B RF Amplifier</title>
+        <link>https://downeyflyfan.com/p/12b-rf-amplifier/</link>
+        <pubDate>Fri, 17 May 2024 20:31:00 +0800</pubDate>
+        
+        <guid>https://downeyflyfan.com/p/12b-rf-amplifier/</guid>
+        <description>&lt;h1 id=&#34;category-by-conduction-angle&#34;&gt;Category By Conduction Angle&lt;/h1&gt;
+&lt;h2 id=&#34;class-a-pa&#34;&gt;Class A PA&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/1.png&#34;
+	width=&#34;1176&#34;
+	height=&#34;972&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/1_hu8a1f68836d84acf76ee5b5d5d0f24121_155439_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/1_hu8a1f68836d84acf76ee5b5d5d0f24121_155439_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;120&#34;
+		data-flex-basis=&#34;290px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;输出电流--集电极电压&#34;&gt;输出电流 &amp;amp; 集电极电压&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+v_{in} &amp;amp;= V_b + V_{in} \cos ( \omega t)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在$V_b - V_p \ge V_{in}$时, 输出电流也有$\cos$特性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+i &amp;amp;= I_q + I \cos ( \omega t) \\
+\overline{ i } &amp;amp;= I_q \\
+I_q &amp;amp;\ge I_c
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+v &amp;amp;= V_{cc} - V \cos( \omega t)
+v &amp;amp;= V_{cc} - (i - I_q) R \\
+\therefore i &amp;amp;= ( I_q + \frac{ V_{cc} }{ R }) - \frac{ v }{ R }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;效率&#34;&gt;效率&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_o &amp;amp;= I_q V_{cc} \\
+P &amp;amp;= \frac{ 1 }{ 2 } IV \\
+\eta &amp;amp;= \frac{ P }{ P_o } = \frac{ 1 }{ 2 } \frac{ I }{ I_q } \frac{ V }{ V_{cc} } \le  50%
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;class-b-ab-pa&#34;&gt;Class B, AB PA&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/2.png&#34;
+	width=&#34;1390&#34;
+	height=&#34;1158&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/2_hu75d449cabe13395f4699d9ba6d836e5e_185044_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/2_hu75d449cabe13395f4699d9ba6d836e5e_185044_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;120&#34;
+		data-flex-basis=&#34;288px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;电流和导通角&#34;&gt;电流和导通角&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+i &amp;amp;= \begin{cases}
+I_q +  I \cos( \omega t) &amp;amp; - \theta \le \omega t &amp;lt; \theta \\
+0 &amp;amp; \theta \le \omega t &amp;lt; 2 \pi - \theta
+\end{cases} \\
+\cos \theta &amp;amp;= - \frac{ I_q }{ I } \\
+\therefore i &amp;amp;= I( \cos ( \omega t) - \cos \theta) \\
+i_{max} &amp;amp;= I( 1 - \cos \theta)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;效率-1&#34;&gt;效率&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;傅里叶分解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+i &amp;amp;= I_0 + I_1 \cos( \omega t) + I_2 \cos( 2 \omega t) + &amp;hellip; \\
+I_0 &amp;amp;= \frac{ 1 }{ 2\pi } \int_{ - \theta }^{ \theta}I ( \cos ( \omega t) - \cos \theta) d ( \omega t) = I \gamma_{r0} \\
+I_1 &amp;amp;= \frac{ 1 }{ 2\pi } \int_{ - \theta }^{ \theta}I ( \cos ( \omega t) - \cos \theta) \cos ( \omega t) d ( \omega t) = I \gamma_{r1} \\
+\gamma_{r1} &amp;amp;= \frac{ 1 }{ \pi } ( \sin \theta - \theta \cos \theta) \\
+\gamma_{r2} &amp;amp;= \frac{ 1 }{ \pi } ( \theta - \sin \theta \cos \theta)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;效率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\eta &amp;amp;= \frac{ P_1 }{ P_o } = \frac{ 1 }{ 2 } \frac{ I_1 }{ I_0 } \frac{ V_c }{ V_{cc}} = \frac{ 1 }{ 2 } \frac{ \gamma_{r1} }{ \gamma_{r2} } \xi \\
+\eta_{max} &amp;amp;= \frac{ \pi }{ 4 } \approx 78.5% (\xi = 1, \theta = \frac{ \pi }{ 2 })
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;电流(基于基波调谐) &amp;amp; 放大倍数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+i &amp;amp;= ( I_q + \frac{ V_{cc} }{ \gamma_{r2} R }) - \frac{ v }{ \gamma_{r2} R} \\
+\tan \beta &amp;amp;= \frac{ 1 }{ V(1 - \cos \theta) } = \frac{ 1 }{ \gamma_{r2} R }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;push-pull-pa&#34;&gt;Push-Pull PA&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/3.png&#34;
+	width=&#34;1074&#34;
+	height=&#34;1216&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/3_hu050af6c43e7227a24eab235bcb4a714b_151911_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/3_hu050af6c43e7227a24eab235bcb4a714b_151911_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;88&#34;
+		data-flex-basis=&#34;211px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+i_L( \theta) &amp;amp;= i_{c1}( \theta)- i_{c2}( \theta) = I_c \sin \theta \\
+i_{cc} ( \theta) &amp;amp;= i_{c1} ( \theta) + i_{c2} ( \theta) = I_c |\sin ( \theta)| \\
+v_L( \theta) &amp;amp;= i_c R_L \sin \theta = V_L \sin ( \theta) \\
+I_0 &amp;amp;= \frac{ 1 }{ 2\pi } \int_{ 0 }^{ 2\pi } i_{cc} (\theta) d \theta = \frac{2}{\pi  } I_c
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;overdriven-class-b-pa&#34;&gt;Overdriven Class-B PA&lt;/h1&gt;
+&lt;h1 id=&#34;pa实际设计&#34;&gt;PA实际设计&lt;/h1&gt;
+&lt;h2 id=&#34;pa设计指标&#34;&gt;PA设计指标&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PAE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$PAE = \dfrac{ P_{out} - P_{in} }{ P_{out} }$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;相对工作带宽$RBW$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$RBW = \dfrac{ 2 (f_H - f_L) }{ f_H + f_L }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;工作带宽与中心频率的比值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;增益平坦度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\Delta G = \dfrac{ G_{max} - G_{min} }{ 2 }$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;指的是带宽内&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;回退功率(Back-Off Power)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$P_{bo} = P_{sat} - P_{in}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;回退功率越大, 线性度越好，效率越低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;稳定度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$K&amp;gt;1$时绝对稳定&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$1dB$压缩点&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;分为$IP1dB$和$OP1dB$, 对应线性压缩的1dB点&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Bode-Fano准则&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\Delta \omega ln \dfrac{ 1 }{ \Gamma_m } &amp;lt; \dfrac{ \pi R }{ L }$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bode Fano 准则&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/1.png&#34;
+	width=&#34;1176&#34;
+	height=&#34;972&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/1_hu8a1f68836d84acf76ee5b5d5d0f24121_155439_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/1_hu8a1f68836d84acf76ee5b5d5d0f24121_155439_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;120&#34;
+		data-flex-basis=&#34;290px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一般&lt;strong&gt;Drive Stage&lt;/strong&gt;使用&lt;strong&gt;小栅宽，大增益&lt;/strong&gt;；&lt;strong&gt;Power Stage&lt;/strong&gt;用&lt;strong&gt;大栅宽，大功率&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pa-设计技巧&#34;&gt;PA 设计技巧&lt;/h2&gt;
+&lt;h3 id=&#34;馈电原则&#34;&gt;馈电原则&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;串联电感&lt;/strong&gt;用来&lt;strong&gt;隔交通直&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;串联电容&lt;/strong&gt;用来&lt;strong&gt;隔直通交&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
+&lt;h2 id=&#34;典型的放大器的电流-电压-系数&#34;&gt;典型的放大器的电流 电压 系数&lt;/h2&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\gamma_{r0} &amp;amp;= \frac{ 1 }{ \pg } ( \sin \theta - \theta \cos \theta) \\
+\gamma_{r1} &amp;amp;= \frac{ 1 }{ \pi } ( \theta - \sin \theta \cos \theta)
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>4. AI 论文精读(一）</title>
         <link>https://downeyflyfan.com/p/4.-ai-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E4%B8%80/</link>
         <pubDate>Sun, 14 Apr 2024 17:05:55 +0800</pubDate>
@@ -278,11 +513,11 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>12. Microwave Amplifier</title>
-        <link>https://downeyflyfan.com/p/12.-microwave-amplifier/</link>
+        <title>12A Microwave Amplifier</title>
+        <link>https://downeyflyfan.com/p/12a-microwave-amplifier/</link>
         <pubDate>Thu, 11 Apr 2024 12:06:29 +0800</pubDate>
         
-        <guid>https://downeyflyfan.com/p/12.-microwave-amplifier/</guid>
+        <guid>https://downeyflyfan.com/p/12a-microwave-amplifier/</guid>
         <description>&lt;h1 id=&#34;two-port-power-gain&#34;&gt;Two-Port Power Gain&lt;/h1&gt;
 &lt;h2 id=&#34;difinition&#34;&gt;Difinition&lt;/h2&gt;
 &lt;h3 id=&#34;3-gains&#34;&gt;3 Gains&lt;/h3&gt;
@@ -296,10 +531,10 @@ Transducer \ Gain \ G_T &amp;amp;= \frac{ P_L }{ P_S }
 \end{gather}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;circuit-analysis&#34;&gt;Circuit Analysis&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/5.png&#34;
 	width=&#34;1490&#34;
 	height=&#34;426&#34;
-	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/5_hu9e88a343a17971aa583769d0be0142e1_56415_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/5_hu9e88a343a17971aa583769d0be0142e1_56415_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/5_hu9e88a343a17971aa583769d0be0142e1_56415_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/5_hu9e88a343a17971aa583769d0be0142e1_56415_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -419,10 +654,10 @@ G_{TU} &amp;amp;= \frac{ P_{out} }{ P_{in} } = \frac{ |S_{21}|^2 ( 1- | \Gamma_S
 \end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;2-port-power-gain-in-a-amplifier-model&#34;&gt;2-Port Power Gain in a Amplifier Model&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/6.png&#34;
 	width=&#34;2100&#34;
 	height=&#34;478&#34;
-	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/6_hu9df34516eeb53d0bd917e97ac14b57e5_71897_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/6_hu9df34516eeb53d0bd917e97ac14b57e5_71897_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/6_hu9df34516eeb53d0bd917e97ac14b57e5_71897_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/6_hu9df34516eeb53d0bd917e97ac14b57e5_71897_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -501,10 +736,10 @@ $$&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Output Stability Circles&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/7.png&#34;
 	width=&#34;2132&#34;
 	height=&#34;1224&#34;
-	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/7_hu4b860409c8b93aca7dba818022ffce17_270215_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/7_hu4b860409c8b93aca7dba818022ffce17_270215_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/7_hu4b860409c8b93aca7dba818022ffce17_270215_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/7_hu4b860409c8b93aca7dba818022ffce17_270215_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -515,11 +750,24 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;test-for-unconditionally-stable&#34;&gt;Test for Unconditionally Stable&lt;/h2&gt;
 &lt;h3 id=&#34;rollet-condition&#34;&gt;Rollet Condition&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;S参数&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
 K &amp;amp;= \frac{ 1 - |S_{11}|^2 - |S_{22}|^2 + | \Delta|^2 }{ 2 |S_{12} S_{21}| } &amp;gt; 1 \\
 |\Delta| &amp;amp;&amp;lt; 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;导抗参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+K &amp;amp;= \frac{ 2 \mathcal{Re} (W_{11})\mathcal{Re} ( W_{22}) - \mathcal{Re} ( W_{12} W_{21})}{ | W_{12} W_{21} |}
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
@@ -531,6 +779,86 @@ $$&lt;/p&gt;
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
+&lt;h2 id=&#34;potential-unstable-factors-for-mosfet&#34;&gt;Potential Unstable Factors for MOSFET&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/8.png&#34;
+	width=&#34;1350&#34;
+	height=&#34;654&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/8_hu1e988171ed3463f67b6ad8ad010d25c3_92661_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/8_hu1e988171ed3463f67b6ad8ad010d25c3_92661_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;206&#34;
+		data-flex-basis=&#34;495px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;inner-feedback-capacitance&#34;&gt;Inner Feedback Capacitance&lt;/h3&gt;
+&lt;h4 id=&#34;y-parameter&#34;&gt;Y Parameter&lt;/h4&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[Y] &amp;amp;= \begin{bmatrix}
+j \omega C_{gd} + \dfrac{ j \omega C_{gs} }{ 1 + j \omega R_{gs} C_{gs} }&amp;amp; - j \omega C_{gd} \\
+\dfrac{ g_m }{ 1 + j \omega R_{gs} C_{gs} } - j \omega C_{gd} &amp;amp; \dfrac{ 1 }{ R_{ds} } + j \omega ( C_{ds} + C_{gd}) \\
+\end{bmatrix} \\
+Y_{in} &amp;amp;= \frac{ j \omega C_{gs} }{ 1 + j \omega R_{gs} C_{gs} } \Big[ 1 + g_m R_{ds} \frac{ 1 - j \dfrac{ \omega }{ \omega_T } ( 1 + j \omega R_{gs} C_{gs}) }{ 1 + j \omega R_{ds} C_{ds} \Big( 1 + \dfrac{ C_{gd} }{ C_{ds}  }  + \dfrac{ B_L }{ \omega C_{ds} } \Big)} \Big]
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;stability-factor&#34;&gt;Stability Factor&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;将&lt;strong&gt;Y参数&lt;/strong&gt;带入导抗参数表达的$K$中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+K &amp;amp;= \Big[ 1 + \frac{ 2 }{ g_m R_{ds} } (1 + \frac{ C_{gs} }{ C_{gd} })\Big] \frac{ \omega R_{gs} C_{gs} }{ \sqrt{ 1 + ( \omega R_{gs} C_{gs})^2 } } \\
+\underset{ \omega \longrightarrow \infin }{ lim } K &amp;amp;= \Big[ 1 + \frac{ 2 }{ g_m R_{ds} } (1 + \frac{ C_{gs} }{ C_{gd} })\Big] \\
+\underset{ \omega \longrightarrow 0}{ lim } K &amp;amp;= 0
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;稳定频带边界&#34;&gt;稳定频带边界&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Power MOSFET 经验条件: $g_m R_{ds} = \dfrac{ 10 }{ 30 }, \dfrac{ C_{gd} }{ C_{gs} } = \dfrac{ 0.1 }{ 0.2 }$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+f_{p1} &amp;amp;\approx \frac{ 10^{-6} }{ 2 \pi R_{gs} C_{gs}} \\
+f_{p2} &amp;amp;= \frac{ 1 }{ 4 \pi R_{gs} C_{gs} } \frac{ g_m R_{ds}}{ \sqrt{ 1 + \dfrac{ C_{gs} }{ C_{gd}  } }} \frac{ 1 }{ \sqrt{ 1 + \dfrac{ C_{gs} }{ C_{gd} } + g_m R_{ds} } }
+&amp;amp;\approx \frac{ 1 }{ 4\pi R_{gs} C_{gs} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;parasitic-source-inductance&#34;&gt;Parasitic Source Inductance&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/9.png&#34;
+	width=&#34;876&#34;
+	height=&#34;580&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/9_hu2b936f400ab93a7acfac5b337041e376_63916_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/9_hu2b936f400ab93a7acfac5b337041e376_63916_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;362px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\kappa = \dfrac{ \omega_T L_S }{ R_{gs} }$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/10.png&#34;
+	width=&#34;676&#34;
+	height=&#34;510&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/10_hu6bb3ab42b9e9c4b26de60e0b5d856f2f_57796_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/10_hu6bb3ab42b9e9c4b26de60e0b5d856f2f_57796_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;318px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h1 id=&#34;single-stage-amplifier-design&#34;&gt;Single-Stage Amplifier Design&lt;/h1&gt;
 &lt;h2 id=&#34;design-for-maximum-gain&#34;&gt;Design for Maximum Gain&lt;/h2&gt;
 &lt;h3 id=&#34;maximum-gain--max-stable-gain&#34;&gt;Maximum Gain &amp;amp; Max Stable Gain&lt;/h3&gt;
@@ -721,10 +1049,10 @@ $$&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;balanced-amplifiers&#34;&gt;Balanced Amplifiers&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/1.png&#34;
 	width=&#34;2222&#34;
 	height=&#34;672&#34;
-	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -742,10 +1070,10 @@ S_{11} &amp;amp;= \frac{ 1 }{ 2 } ( \Gamma_A - \Gamma_B )
 \end{gather}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;distributed-amplifier&#34;&gt;Distributed Amplifier&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/2.png&#34;
 	width=&#34;1780&#34;
 	height=&#34;542&#34;
-	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/2_hu3ef1c5a9c93e83ed8956181ef8cb0ee7_64285_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/2_hu3ef1c5a9c93e83ed8956181ef8cb0ee7_64285_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/2_hu3ef1c5a9c93e83ed8956181ef8cb0ee7_64285_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/2_hu3ef1c5a9c93e83ed8956181ef8cb0ee7_64285_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -756,10 +1084,10 @@ $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;differential-amplifier&#34;&gt;Differential Amplifier&lt;/h2&gt;
 &lt;h3 id=&#34;single-ended--differential-amplifier-symbols&#34;&gt;Single-Ended &amp;amp; Differential Amplifier (Symbols)&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/3.png&#34;
 	width=&#34;1684&#34;
 	height=&#34;426&#34;
-	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/3_hu8e6f40c502b23d173b8594f69f3157de_37692_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/3_hu8e6f40c502b23d173b8594f69f3157de_37692_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/3_hu8e6f40c502b23d173b8594f69f3157de_37692_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/3_hu8e6f40c502b23d173b8594f69f3157de_37692_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -769,10 +1097,10 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;balun-lines&#34;&gt;Balun Lines&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/4.png&#34;
 	width=&#34;1986&#34;
 	height=&#34;528&#34;
-	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/4_hu1cc4f0017c292b82a6f094045ea17741_59911_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/4_hu1cc4f0017c292b82a6f094045ea17741_59911_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12a-microwave-amplifier/4_hu1cc4f0017c292b82a6f094045ea17741_59911_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12a-microwave-amplifier/4_hu1cc4f0017c292b82a6f094045ea17741_59911_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -782,71 +1110,6 @@ $$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;differential-amplifier-circuit&#34;&gt;Differential Amplifier Circuit&lt;/h3&gt;
-&lt;h2 id=&#34;pa指标&#34;&gt;PA指标&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;备注&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;PAE&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$PAE = \dfrac{ P_{out} - P_{in} }{ P_{out} }$&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;相对工作带宽$RBW$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$RBW = \dfrac{ 2 (f_H - f_L) }{ f_H + f_L }$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;工作带宽与中心频率的比值&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;增益平坦度&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\Delta G = \dfrac{ G_{max} - G_{min} }{ 2 }$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;指的是带宽内&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;回退功率(Back-Off Power)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$P_{bo} = P_{sat} - P_{in}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;回退功率越大, 线性度越好，效率越低&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;稳定度&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$K&amp;gt;1$时绝对稳定&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$1dB$压缩点&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;分为$IP1dB$和$OP1dB$, 对应线性压缩的1dB点&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Bode-Fano准则&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;$\Delta \omega ln \dfrac{ 1 }{ \Gamma_m } &amp;lt; \dfrac{ \pi R }{ L }$&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Bode Fano 准则&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/1.png&#34;
-	width=&#34;2222&#34;
-	height=&#34;672&#34;
-	srcset=&#34;https://downeyflyfan.com/p/12.-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12.-microwave-amplifier/1_hu761d9d3bedd3ef2be91e812cf986b1dc_127462_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;330&#34;
-		data-flex-basis=&#34;793px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一般&lt;strong&gt;Drive Stage&lt;/strong&gt;使用&lt;strong&gt;小栅宽，大增益&lt;/strong&gt;；&lt;strong&gt;Power Stage&lt;/strong&gt;用&lt;strong&gt;大栅宽，大功率&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
         </item>
         <item>
