@@ -219,8 +219,21 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;一般&lt;strong&gt;Drive Stage&lt;/strong&gt;使用&lt;strong&gt;小栅宽，大增益&lt;/strong&gt;；&lt;strong&gt;Power Stage&lt;/strong&gt;用&lt;strong&gt;大栅宽，大功率&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;pa-设计技巧&#34;&gt;PA 设计技巧&lt;/h2&gt;
-&lt;h3 id=&#34;馈电原则&#34;&gt;馈电原则&lt;/h3&gt;
+&lt;h2 id=&#34;馈电原则&#34;&gt;馈电原则&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;描述&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;DC分量 流入 DC Source&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AC分量 不流入 DC Source&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;方法&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;串联电感&lt;/strong&gt;用来&lt;strong&gt;隔交通直&lt;/strong&gt;&lt;/p&gt;
@@ -229,6 +242,31 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;串联电容&lt;/strong&gt;用来&lt;strong&gt;隔直通交&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;匹配网络设计&#34;&gt;匹配网络设计&lt;/h2&gt;
+&lt;h3 id=&#34;并联谐振回路型&#34;&gt;并联谐振回路型&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;利用变压器完成阻抗匹配&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;$r$为电感的阻值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+R_{e0} &amp;amp;= Z_0 Q_e \\
+Z_0 &amp;amp;= \frac{ 1 }{ \omega_0 C } = \omega_0 L \\
+\omega_0 &amp;amp;= \frac{ 1 }{ \sqrt{ LC }} \\
+Q_e &amp;amp;= \frac{ 1 }{ \omega_0 C r } = \frac{ \omega_0 L }{ r } = \frac{ f_0 }{ BW }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;滤波器型匹配网络&#34;&gt;滤波器型匹配网络&lt;/h3&gt;
+&lt;h4 id=&#34;l型匹配网络&#34;&gt;L型匹配网络&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;使用前提: $R_L \gg R_e$ or $R_L \ll R_e$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;pi型--t型匹配网络&#34;&gt;\pi型 &amp;amp; T型匹配网络&lt;/h4&gt;
+&lt;h4 id=&#34;heading&#34;&gt;&lt;/h4&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;典型的放大器的电流-电压-系数&#34;&gt;典型的放大器的电流 电压 系数&lt;/h2&gt;
 &lt;p&gt;$$
@@ -5058,6 +5096,54 @@ Q &amp;amp;= \frac{ \mathcal{Im}(Z) }{ \mathcal{Re}(Z) } \\
 \end{gather}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;transformer&#34;&gt;Transformer&lt;/h1&gt;
+&lt;h2 id=&#34;性质和特征&#34;&gt;性质和特征&lt;/h2&gt;
+&lt;h3 id=&#34;匝数比--耦合系数&#34;&gt;匝数比 &amp;amp; 耦合系数&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+N &amp;amp;= \frac{ n_1 }{ n_2 } \\
+0 &amp;lt; k &amp;amp;= \frac{ M }{ \sqrt{ L_1 L_2 } } &amp;lt; 1
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;拓展&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+N&amp;rsquo; &amp;amp;= k \cdot N  \\
+&amp;amp;= \frac{ V_2 }{ V_1 } = \sqrt{ \frac{ Z_1 }{ Z_2 } } \\
+&amp;amp;= \frac{ I_2 }{ I_1 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;其他性质&#34;&gt;其他性质&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;虚部阻抗&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;感性器件&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AC/DC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;通交流电，阻直流电&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Q&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h1 id=&#34;mom-capacitor&#34;&gt;MOM Capacitor&lt;/h1&gt;
 &lt;h2 id=&#34;连接--端口放置方式&#34;&gt;连接 &amp;amp; 端口放置方式&lt;/h2&gt;
 &lt;table&gt;
@@ -5295,21 +5381,29 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
-&lt;h2 id=&#34;师兄的项目&#34;&gt;师兄的项目&lt;/h2&gt;
-&lt;h3 id=&#34;2-18ghz-硅基功率放大器&#34;&gt;2-18GHz 硅基功率放大器&lt;/h3&gt;
+&lt;h1 id=&#34;电路中的实用技巧&#34;&gt;电路中的实用技巧&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;Peaking inductor&lt;/li&gt;
+&lt;li&gt;导纳计算&lt;/li&gt;
 &lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;$C_{GS}$, $C_L$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Intra-Stack Coupling&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;低功耗抗干扰fsk-调制调解器&#34;&gt;低功耗抗干扰FSK 调制调解器&lt;/h3&gt;
-&lt;h3 id=&#34;谐波抑制器&#34;&gt;谐波抑制器&lt;/h3&gt;
-&lt;h3 id=&#34;前馈线性化&#34;&gt;前馈线性化&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Category&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;串联&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;阻抗相加的倒数&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;并联&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;阻抗倒数的相加&lt;/strong&gt;*&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;射频常用术语&#34;&gt;射频常用术语&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -5512,7 +5606,11 @@ $$&lt;/p&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;浅口&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;浅口天线&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;前馈线性化&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
