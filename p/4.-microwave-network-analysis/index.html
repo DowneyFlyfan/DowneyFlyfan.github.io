@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Impedance &amp;amp; Admittance Matrix Expressions &amp;amp; Explanations $$ \begin{gather} \begin{aligned} [V] &amp;amp;= [Z][I] \\ [I] &amp;amp;= [Y][V] \\ [Z] &amp;amp;= [Y]^{-1} \\ Z_{ij} &amp;amp;= \frac{ V_i }{ I_j } \Big|{I_k = 0, k \neq j} \\ Y{ij} &amp;amp;= \frac{ I_i }{ V_j } \Big|_{V_k = 0, k \neq j} \end{aligned} \end{gather} $$
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Impedance &amp;amp; Admittance Matrix Expressions &amp;amp; Explanations $$ \begin{gather} \begin{aligned} [V] &amp;amp;= [Z][I] \\ [I] &amp;amp;= [Y][V] \\ [Z] &amp;amp;= [Y]^{-1} \\ Z_{ij} &amp;amp;= \frac{ V_i }{ I_j } , I_k = 0, k \neq j \\ Y_{ij} &amp;amp;= \frac{ I_i }{ V_j }, V_k = 0, k \neq j \end{aligned} \end{gather} $$
 Category Concept $Z_{ij}$ 用$I_j$驱动Port j, 开路其他所有端口，测量$V_i$; 表示其他端口均开路时的$i$到$j$的Transfer Impedance $Z_{ii}$ 开路其他所有端口时Port $i$的阻抗 $Y_{ij}$ 用$V_j$驱动Port j, 短路其他所有端口，测量$I_i$; 表示其他端口均短路时的$i$到$j$的Transfer Admittance Reciprocal &amp;amp; Lossless Network $$ \begin{gather} \begin{aligned} Reciprocal \Longrightarrow [Y] = [Y]^t \\ Lossless \Longrightarrow \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= 0 \\ P_{avg} &amp;amp;= \frac{ 1 }{ 2 } [V]^t [I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } [I]^t [Z]^t[I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } \sum_{ n = 1 }^{ N } \sum_{ m = 1 }^{ N } I_m Z_{mn} I_n^* \\ \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= \frac{ 1 }{ 2 } |I_n|^2 \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace \\ &amp;amp;= 0 \\ \therefore \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace &amp;amp;= 0 \end{aligned} \end{gather} $$'>
 <title>4. Microwave Network Analysis</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/4.-microwave-network-analysis/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='4. Microwave Network Analysis'>
-<meta property='og:description' content='Impedance &amp;amp; Admittance Matrix Expressions &amp;amp; Explanations $$ \begin{gather} \begin{aligned} [V] &amp;amp;= [Z][I] \\ [I] &amp;amp;= [Y][V] \\ [Z] &amp;amp;= [Y]^{-1} \\ Z_{ij} &amp;amp;= \frac{ V_i }{ I_j } \Big|{I_k = 0, k \neq j} \\ Y{ij} &amp;amp;= \frac{ I_i }{ V_j } \Big|_{V_k = 0, k \neq j} \end{aligned} \end{gather} $$
+<meta property='og:description' content='Impedance &amp;amp; Admittance Matrix Expressions &amp;amp; Explanations $$ \begin{gather} \begin{aligned} [V] &amp;amp;= [Z][I] \\ [I] &amp;amp;= [Y][V] \\ [Z] &amp;amp;= [Y]^{-1} \\ Z_{ij} &amp;amp;= \frac{ V_i }{ I_j } , I_k = 0, k \neq j \\ Y_{ij} &amp;amp;= \frac{ I_i }{ V_j }, V_k = 0, k \neq j \end{aligned} \end{gather} $$
 Category Concept $Z_{ij}$ 用$I_j$驱动Port j, 开路其他所有端口，测量$V_i$; 表示其他端口均开路时的$i$到$j$的Transfer Impedance $Z_{ii}$ 开路其他所有端口时Port $i$的阻抗 $Y_{ij}$ 用$V_j$驱动Port j, 短路其他所有端口，测量$I_i$; 表示其他端口均短路时的$i$到$j$的Transfer Admittance Reciprocal &amp;amp; Lossless Network $$ \begin{gather} \begin{aligned} Reciprocal \Longrightarrow [Y] = [Y]^t \\ Lossless \Longrightarrow \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= 0 \\ P_{avg} &amp;amp;= \frac{ 1 }{ 2 } [V]^t [I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } [I]^t [Z]^t[I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } \sum_{ n = 1 }^{ N } \sum_{ m = 1 }^{ N } I_m Z_{mn} I_n^* \\ \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= \frac{ 1 }{ 2 } |I_n|^2 \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace \\ &amp;amp;= 0 \\ \therefore \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace &amp;amp;= 0 \end{aligned} \end{gather} $$'>
 <meta property='og:url' content='https://downeyflyfan.com/p/4.-microwave-network-analysis/'>
 <meta property='og:site_name' content='Flyfan Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-04-06T15:16:49&#43;08:00'/><meta property='article:modified_time' content='2024-04-06T15:16:49&#43;08:00'/>
 <meta name="twitter:title" content="4. Microwave Network Analysis">
-<meta name="twitter:description" content="Impedance &amp;amp; Admittance Matrix Expressions &amp;amp; Explanations $$ \begin{gather} \begin{aligned} [V] &amp;amp;= [Z][I] \\ [I] &amp;amp;= [Y][V] \\ [Z] &amp;amp;= [Y]^{-1} \\ Z_{ij} &amp;amp;= \frac{ V_i }{ I_j } \Big|{I_k = 0, k \neq j} \\ Y{ij} &amp;amp;= \frac{ I_i }{ V_j } \Big|_{V_k = 0, k \neq j} \end{aligned} \end{gather} $$
+<meta name="twitter:description" content="Impedance &amp;amp; Admittance Matrix Expressions &amp;amp; Explanations $$ \begin{gather} \begin{aligned} [V] &amp;amp;= [Z][I] \\ [I] &amp;amp;= [Y][V] \\ [Z] &amp;amp;= [Y]^{-1} \\ Z_{ij} &amp;amp;= \frac{ V_i }{ I_j } , I_k = 0, k \neq j \\ Y_{ij} &amp;amp;= \frac{ I_i }{ V_j }, V_k = 0, k \neq j \end{aligned} \end{gather} $$
 Category Concept $Z_{ij}$ 用$I_j$驱动Port j, 开路其他所有端口，测量$V_i$; 表示其他端口均开路时的$i$到$j$的Transfer Impedance $Z_{ii}$ 开路其他所有端口时Port $i$的阻抗 $Y_{ij}$ 用$V_j$驱动Port j, 短路其他所有端口，测量$I_i$; 表示其他端口均短路时的$i$到$j$的Transfer Admittance Reciprocal &amp;amp; Lossless Network $$ \begin{gather} \begin{aligned} Reciprocal \Longrightarrow [Y] = [Y]^t \\ Lossless \Longrightarrow \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= 0 \\ P_{avg} &amp;amp;= \frac{ 1 }{ 2 } [V]^t [I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } [I]^t [Z]^t[I]^* \\ &amp;amp;= \frac{ 1 }{ 2 } \sum_{ n = 1 }^{ N } \sum_{ m = 1 }^{ N } I_m Z_{mn} I_n^* \\ \mathcal{Re} \Big\lbrace P_{avg} \Big\rbrace &amp;amp;= \frac{ 1 }{ 2 } |I_n|^2 \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace \\ &amp;amp;= 0 \\ \therefore \mathcal{Re} \Big\lbrace Z_{mn} \Big\rbrace &amp;amp;= 0 \end{aligned} \end{gather} $$"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
@@ -382,8 +382,8 @@ Category Concept $Z_{ij}$ 用$I_j$驱动Port j, 开路其他所有端口，测�
 [V] &amp;= [Z][I] \\
 [I] &amp;= [Y][V] \\
 [Z] &amp;= [Y]^{-1} \\
-Z_{ij} &amp;= \frac{ V_i }{ I_j } \Big|<em>{I_k = 0, k \neq j} \\
-Y</em>{ij} &amp;= \frac{ I_i }{ V_j } \Big|_{V_k = 0, k \neq j}
+Z_{ij} &amp;= \frac{ V_i }{ I_j } , I_k = 0, k \neq j \\
+Y_{ij} &amp;= \frac{ I_i }{ V_j }, V_k = 0, k \neq j
 \end{aligned}
 \end{gather}
 $$</p>
@@ -431,7 +431,7 @@ $$</p>
 \begin{gather}
 \begin{aligned}
 [V^-] &amp;= [S] [V^+] \\
-S_{ij} &amp;= \frac{ V^-_i }{ V^+<em>j} \Big|</em>{V_k^+ = 0, k \neq j}
+S_{ij} &amp;= \frac{ V^-_i }{ V^+_j} , V_k^+ = 0, k \neq j
 \end{aligned}
 \end{gather}
 $$</p>
