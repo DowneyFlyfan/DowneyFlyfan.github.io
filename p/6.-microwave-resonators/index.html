@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Transistor Category Concept 栅宽$W$ $W$越大, 饱和输出功率$P_{Sout}$越大，增益$G$越小 栅指宽度$w$ $w$越大，越不利于散热 栅指数量$N$ $N$越大，寄生参数越大，阻抗减小，不利于匹配 功率密度$\rho_P (mW/mm)$ $\rho_P$是该功率下的最小栅宽总和，否则有负载风险 工艺角 tt(Typical Corner), ff(Fast Corner),时间增长，功率下降 ss(Slow Corner), 时间减短，功率增高 Layout Category Concept PO Poly(多晶硅)层 OD Oxide Diffusion, 有源层 CO Contact, 金属接触层 CBM Capacitor Bottom Metal CTM Capacitor Top Metal PA 设计经验 小总结 相邻走线可以交替M8, M9, 避免耦合|
-连接晶体管的走线一定不要靠在一起!
-晶体管版图连接 两个晶体管并联 四个晶体管并联 '>
-<title>A2. Active Component &amp; Layout</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=' '>
+<title>6. Microwave Resonators</title>
 
-<link rel='canonical' href='https://downeyflyfan.com/p/a2.-active-component-layout/'>
+<link rel='canonical' href='https://downeyflyfan.com/p/6.-microwave-resonators/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='A2. Active Component &amp; Layout'>
-<meta property='og:description' content='Transistor Category Concept 栅宽$W$ $W$越大, 饱和输出功率$P_{Sout}$越大，增益$G$越小 栅指宽度$w$ $w$越大，越不利于散热 栅指数量$N$ $N$越大，寄生参数越大，阻抗减小，不利于匹配 功率密度$\rho_P (mW/mm)$ $\rho_P$是该功率下的最小栅宽总和，否则有负载风险 工艺角 tt(Typical Corner), ff(Fast Corner),时间增长，功率下降 ss(Slow Corner), 时间减短，功率增高 Layout Category Concept PO Poly(多晶硅)层 OD Oxide Diffusion, 有源层 CO Contact, 金属接触层 CBM Capacitor Bottom Metal CTM Capacitor Top Metal PA 设计经验 小总结 相邻走线可以交替M8, M9, 避免耦合|
-连接晶体管的走线一定不要靠在一起!
-晶体管版图连接 两个晶体管并联 四个晶体管并联 '>
-<meta property='og:url' content='https://downeyflyfan.com/p/a2.-active-component-layout/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='6. Microwave Resonators'>
+<meta property='og:description' content=' '>
+<meta property='og:url' content='https://downeyflyfan.com/p/6.-microwave-resonators/'>
 <meta property='og:site_name' content='Flyfan Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='RFIC' /><meta property='article:published_time' content='2023-10-19T16:14:41&#43;08:00'/><meta property='article:modified_time' content='2023-10-19T16:14:41&#43;08:00'/>
-<meta name="twitter:title" content="A2. Active Component &amp; Layout">
-<meta name="twitter:description" content="Transistor Category Concept 栅宽$W$ $W$越大, 饱和输出功率$P_{Sout}$越大，增益$G$越小 栅指宽度$w$ $w$越大，越不利于散热 栅指数量$N$ $N$越大，寄生参数越大，阻抗减小，不利于匹配 功率密度$\rho_P (mW/mm)$ $\rho_P$是该功率下的最小栅宽总和，否则有负载风险 工艺角 tt(Typical Corner), ff(Fast Corner),时间增长，功率下降 ss(Slow Corner), 时间减短，功率增高 Layout Category Concept PO Poly(多晶硅)层 OD Oxide Diffusion, 有源层 CO Contact, 金属接触层 CBM Capacitor Bottom Metal CTM Capacitor Top Metal PA 设计经验 小总结 相邻走线可以交替M8, M9, 避免耦合|
-连接晶体管的走线一定不要靠在一起!
-晶体管版图连接 两个晶体管并联 四个晶体管并联 "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-05-22T14:39:16&#43;08:00'/><meta property='article:modified_time' content='2024-05-22T14:39:16&#43;08:00'/>
+<meta name="twitter:title" content="6. Microwave Resonators">
+<meta name="twitter:description" content=" "><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -234,50 +228,7 @@
     </ol>
 </aside>
 
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#transistor">Transistor</a></li>
-    <li><a href="#layout">Layout</a></li>
-    <li><a href="#pa-设计经验">PA 设计经验</a>
-      <ol>
-        <li><a href="#小总结">小总结</a></li>
-        <li><a href="#晶体管版图连接">晶体管版图连接</a>
-          <ol>
-            <li><a href="#两个晶体管并联">两个晶体管并联</a></li>
-            <li><a href="#四个晶体管并联">四个晶体管并联</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
-    </aside>
-
+    
 
             <main class="main full-width">
     <article class="main-article">
@@ -296,7 +247,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/a2.-active-component-layout/">A2. Active Component &amp; Layout</a>
+            <a href="/p/6.-microwave-resonators/">6. Microwave Resonators</a>
         </h2>
     
         
@@ -318,7 +269,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Oct 19, 2023</time>
+                <time class="article-time--published">May 22, 2024</time>
             </div>
         
 
@@ -333,7 +284,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    0 minute read
                 </time>
             </div>
         
@@ -348,105 +299,7 @@
     <section class="article-content">
     
     
-    <h1 id="transistor">Transistor</h1>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">Category</th>
-<th style="text-align:center">Concept</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">栅宽$W$</td>
-<td style="text-align:center">$W$越大, 饱和输出功率$P_{Sout}$越大，增益$G$越小</td>
-</tr>
-<tr>
-<td style="text-align:center">栅指宽度$w$</td>
-<td style="text-align:center">$w$越大，越不利于散热</td>
-</tr>
-<tr>
-<td style="text-align:center">栅指数量$N$</td>
-<td style="text-align:center">$N$越大，寄生参数越大，阻抗减小，不利于匹配</td>
-</tr>
-<tr>
-<td style="text-align:center">功率密度$\rho_P (mW/mm)$</td>
-<td style="text-align:center">$\rho_P$是该功率下的最小栅宽总和，否则有负载风险</td>
-</tr>
-<tr>
-<td style="text-align:center">工艺角</td>
-<td style="text-align:center">tt(Typical Corner), ff(Fast Corner),时间增长，功率下降 ss(Slow Corner), 时间减短，功率增高</td>
-</tr>
-</tbody>
-</table></div>
-<h1 id="layout">Layout</h1>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">Category</th>
-<th style="text-align:center">Concept</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">PO</td>
-<td style="text-align:center">Poly(多晶硅)层</td>
-</tr>
-<tr>
-<td style="text-align:center">OD</td>
-<td style="text-align:center">Oxide Diffusion, 有源层</td>
-</tr>
-<tr>
-<td style="text-align:center">CO</td>
-<td style="text-align:center">Contact, 金属接触层</td>
-</tr>
-<tr>
-<td style="text-align:center">CBM</td>
-<td style="text-align:center">Capacitor Bottom Metal</td>
-</tr>
-<tr>
-<td style="text-align:center">CTM</td>
-<td style="text-align:center">Capacitor Top Metal</td>
-</tr>
-</tbody>
-</table></div>
-<h1 id="pa-设计经验">PA 设计经验</h1>
-<h2 id="小总结">小总结</h2>
-<ol>
-<li>
-<p>相邻走线可以交替M8, M9, 避免耦合|</p>
-</li>
-<li>
-<p>连接晶体管的走线一定不要靠在一起!</p>
-</li>
-</ol>
-<h2 id="晶体管版图连接">晶体管版图连接</h2>
-<h3 id="两个晶体管并联">两个晶体管并联</h3>
-<p><img src="/p/a2.-active-component-layout/2.png"
-	width="644"
-	height="1154"
-	srcset="/p/a2.-active-component-layout/2_hu76e4d6d4d02f00932399670e8e9f282b_57564_480x0_resize_box_3.png 480w, /p/a2.-active-component-layout/2_hu76e4d6d4d02f00932399670e8e9f282b_57564_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="55"
-		data-flex-basis="133px"
-	
-></p>
-<h3 id="四个晶体管并联">四个晶体管并联</h3>
-<p><img src="/p/a2.-active-component-layout/3.png"
-	width="766"
-	height="962"
-	srcset="/p/a2.-active-component-layout/3_hu4d1aa530fbcd23bd79e770e0d2616742_53017_480x0_resize_box_3.png 480w, /p/a2.-active-component-layout/3_hu4d1aa530fbcd23bd79e770e0d2616742_53017_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="79"
-		data-flex-basis="191px"
-	
-></p>
+    <h1 id="heading"></h1>
 
 </section>
 
@@ -454,8 +307,6 @@
     <footer class="article-footer">
     
     <section class="article-tags">
-        
-            <a href="/tags/rfic/">RFIC</a>
         
     </section>
 
@@ -512,12 +363,12 @@
             
                 
 <article class="">
-    <a href="/p/3.-transmission-lines-waveguides/">
+    <a href="/p/12b-rf-amplifier/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">3. Transmission Lines &amp; Waveguides</h2>
+            <h2 class="article-title">12B RF Amplifier</h2>
         </div>
     </a>
 </article>
@@ -525,12 +376,12 @@
             
                 
 <article class="">
-    <a href="/p/2.-transmission-line-theory/">
+    <a href="/p/12a-microwave-amplifier/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">2. Transmission Line Theory</h2>
+            <h2 class="article-title">12A Microwave Amplifier</h2>
         </div>
     </a>
 </article>
@@ -538,12 +389,12 @@
             
                 
 <article class="">
-    <a href="/p/1.-electromagnetic-theory/">
+    <a href="/p/10.-noise-nonlinear-distortion/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">1. Electromagnetic Theory</h2>
+            <h2 class="article-title">10. Noise &amp; Nonlinear Distortion</h2>
         </div>
     </a>
 </article>
@@ -551,12 +402,12 @@
             
                 
 <article class="">
-    <a href="/p/a1-fragmentray-knowledge/">
+    <a href="/p/7.-power-dividers-directional-coupler/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">A1 Fragmentray Knowledge</h2>
+            <h2 class="article-title">7. Power Dividers &amp; Directional Coupler</h2>
         </div>
     </a>
 </article>
@@ -564,12 +415,12 @@
             
                 
 <article class="">
-    <a href="/p/6.-microwave-resonators/">
+    <a href="/p/4.-microwave-network-analysis/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">6. Microwave Resonators</h2>
+            <h2 class="article-title">4. Microwave Network Analysis</h2>
         </div>
     </a>
 </article>

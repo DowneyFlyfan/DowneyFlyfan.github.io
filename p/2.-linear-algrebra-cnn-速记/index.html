@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Matrix Norms $$ \begin{gather} \begin{aligned} || \mathcal{X} ||0 &amp;amp;= \sum{ i=1 }^{ n } \frac{ \mathcal{X}_i }{ \mathcal{X_i} }, \mathcal{X}i \neq 0 \\ || \mathcal{X} ||p &amp;amp;= \Big[ \sum{ i = 1 }^{ n } \mathcal{X}i^p \Big]^{1/p} \\ || \mathcal{X} ||{\infin} &amp;amp;= \mathcal{X}{max} \end{aligned} \end{gather} $$
 Mode-n Unfolding Matrix 沿着第$n$个纬度把张量展开
-指标介绍 MS-Fusion Category Concept HS-HRI $\longrightarrow$ HS-LRI $\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k &#43; \pmb{N}_k$ $f$ 模糊算子 $\pmb N$ 噪声 $\downarrow^k$ 下采样$n$倍 Category Concept HS-HRI$\longrightarrow$ MS-HRI(Pan) $\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$ Cross Correlation CNN Category Category Concept Width 太宽容易过拟合 Depth 过深，有些层可能会失效；梯度可能会消失 Multi-Path Feature-Maps 卷积核对特征的提取 Attention 对图像重点部分的关注 Channel(Dimension) 分路卷积，分别提取Spatial/Channel Imformation Channel Boosting 特征增强 超过3层才叫Deep Network Application Denoise AWNI(Additive White Noisy Imgae) Changing Network Architecture Category Concept Fusion 改变Width, Depth 改变Loss Function Cascade Connection Skip Connection Plugins Activation, Pooling, Fully-Connected Layer(展开成一维) Real Noisy Image (现实中的噪声)'>
+Global Pooling Category Concept 全局平均池化(Global Average Pooling, GAP) 对特征图上的所有元素取平均值 全局最大池化(Global Max Pooling, GMP) 对特征图上的所有元素取最大值 Q-Shift Category Concept 计算效率高 模型压缩 保留表达能力 指标介绍 MS-Fusion Category Concept HS-HRI $\longrightarrow$ HS-LRI $\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k &#43; \pmb{N}_k$ $f$ 模糊算子 $\pmb N$ 噪声 $\downarrow^k$ 下采样$n$倍 Category Concept HS-HRI$\longrightarrow$ MS-HRI(Pan) $\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$ Cross Correlation CNN Category Category Concept Width 太宽容易过拟合 Depth 过深，有些层可能会失效；梯度可能会消失 Multi-Path Feature-Maps 卷积核对特征的提取 Attention 对图像重点部分的关注 Channel(Dimension) 分路卷积，分别提取Spatial/Channel Imformation Channel Boosting 特征增强 超过3层才叫Deep Network Application Denoise AWNI(Additive White Noisy Imgae) Changing Network Architecture Category Concept Fusion 改变Width, Depth 改变Loss Function Cascade Connection Skip Connection Plugins Activation, Pooling, Fully-Connected Layer(展开成一维) Real Noisy Image (现实中的噪声)'>
 <title>2. Linear Algrebra &amp; CNN &amp; 速记</title>
 
 <link rel='canonical' href='https://downeyflyfan.com/p/2.-linear-algrebra-cnn-%E9%80%9F%E8%AE%B0/'>
@@ -11,14 +11,14 @@ Mode-n Unfolding Matrix 沿着第$n$个纬度把张量展开
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='2. Linear Algrebra &amp; CNN &amp; 速记'>
 <meta property='og:description' content='Matrix Norms $$ \begin{gather} \begin{aligned} || \mathcal{X} ||0 &amp;amp;= \sum{ i=1 }^{ n } \frac{ \mathcal{X}_i }{ \mathcal{X_i} }, \mathcal{X}i \neq 0 \\ || \mathcal{X} ||p &amp;amp;= \Big[ \sum{ i = 1 }^{ n } \mathcal{X}i^p \Big]^{1/p} \\ || \mathcal{X} ||{\infin} &amp;amp;= \mathcal{X}{max} \end{aligned} \end{gather} $$
 Mode-n Unfolding Matrix 沿着第$n$个纬度把张量展开
-指标介绍 MS-Fusion Category Concept HS-HRI $\longrightarrow$ HS-LRI $\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k &#43; \pmb{N}_k$ $f$ 模糊算子 $\pmb N$ 噪声 $\downarrow^k$ 下采样$n$倍 Category Concept HS-HRI$\longrightarrow$ MS-HRI(Pan) $\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$ Cross Correlation CNN Category Category Concept Width 太宽容易过拟合 Depth 过深，有些层可能会失效；梯度可能会消失 Multi-Path Feature-Maps 卷积核对特征的提取 Attention 对图像重点部分的关注 Channel(Dimension) 分路卷积，分别提取Spatial/Channel Imformation Channel Boosting 特征增强 超过3层才叫Deep Network Application Denoise AWNI(Additive White Noisy Imgae) Changing Network Architecture Category Concept Fusion 改变Width, Depth 改变Loss Function Cascade Connection Skip Connection Plugins Activation, Pooling, Fully-Connected Layer(展开成一维) Real Noisy Image (现实中的噪声)'>
+Global Pooling Category Concept 全局平均池化(Global Average Pooling, GAP) 对特征图上的所有元素取平均值 全局最大池化(Global Max Pooling, GMP) 对特征图上的所有元素取最大值 Q-Shift Category Concept 计算效率高 模型压缩 保留表达能力 指标介绍 MS-Fusion Category Concept HS-HRI $\longrightarrow$ HS-LRI $\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k &#43; \pmb{N}_k$ $f$ 模糊算子 $\pmb N$ 噪声 $\downarrow^k$ 下采样$n$倍 Category Concept HS-HRI$\longrightarrow$ MS-HRI(Pan) $\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$ Cross Correlation CNN Category Category Concept Width 太宽容易过拟合 Depth 过深，有些层可能会失效；梯度可能会消失 Multi-Path Feature-Maps 卷积核对特征的提取 Attention 对图像重点部分的关注 Channel(Dimension) 分路卷积，分别提取Spatial/Channel Imformation Channel Boosting 特征增强 超过3层才叫Deep Network Application Denoise AWNI(Additive White Noisy Imgae) Changing Network Architecture Category Concept Fusion 改变Width, Depth 改变Loss Function Cascade Connection Skip Connection Plugins Activation, Pooling, Fully-Connected Layer(展开成一维) Real Noisy Image (现实中的噪声)'>
 <meta property='og:url' content='https://downeyflyfan.com/p/2.-linear-algrebra-cnn-%E9%80%9F%E8%AE%B0/'>
 <meta property='og:site_name' content='Flyfan Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-03-23T17:14:34&#43;08:00'/><meta property='article:modified_time' content='2024-03-23T17:14:34&#43;08:00'/>
 <meta name="twitter:title" content="2. Linear Algrebra &amp; CNN &amp; 速记">
 <meta name="twitter:description" content="Matrix Norms $$ \begin{gather} \begin{aligned} || \mathcal{X} ||0 &amp;amp;= \sum{ i=1 }^{ n } \frac{ \mathcal{X}_i }{ \mathcal{X_i} }, \mathcal{X}i \neq 0 \\ || \mathcal{X} ||p &amp;amp;= \Big[ \sum{ i = 1 }^{ n } \mathcal{X}i^p \Big]^{1/p} \\ || \mathcal{X} ||{\infin} &amp;amp;= \mathcal{X}{max} \end{aligned} \end{gather} $$
 Mode-n Unfolding Matrix 沿着第$n$个纬度把张量展开
-指标介绍 MS-Fusion Category Concept HS-HRI $\longrightarrow$ HS-LRI $\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k &#43; \pmb{N}_k$ $f$ 模糊算子 $\pmb N$ 噪声 $\downarrow^k$ 下采样$n$倍 Category Concept HS-HRI$\longrightarrow$ MS-HRI(Pan) $\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$ Cross Correlation CNN Category Category Concept Width 太宽容易过拟合 Depth 过深，有些层可能会失效；梯度可能会消失 Multi-Path Feature-Maps 卷积核对特征的提取 Attention 对图像重点部分的关注 Channel(Dimension) 分路卷积，分别提取Spatial/Channel Imformation Channel Boosting 特征增强 超过3层才叫Deep Network Application Denoise AWNI(Additive White Noisy Imgae) Changing Network Architecture Category Concept Fusion 改变Width, Depth 改变Loss Function Cascade Connection Skip Connection Plugins Activation, Pooling, Fully-Connected Layer(展开成一维) Real Noisy Image (现实中的噪声)"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+Global Pooling Category Concept 全局平均池化(Global Average Pooling, GAP) 对特征图上的所有元素取平均值 全局最大池化(Global Max Pooling, GMP) 对特征图上的所有元素取最大值 Q-Shift Category Concept 计算效率高 模型压缩 保留表达能力 指标介绍 MS-Fusion Category Concept HS-HRI $\longrightarrow$ HS-LRI $\widehat{ MS }_k = (f * \widehat{ MS }_k) \downarrow^k &#43; \pmb{N}_k$ $f$ 模糊算子 $\pmb N$ 噪声 $\downarrow^k$ 下采样$n$倍 Category Concept HS-HRI$\longrightarrow$ MS-HRI(Pan) $\pmb P = \pmb r^T \mathcal{MS} = \sum_{ k=1 }^{ N } \pmb{r_k MS_k}, \sum_{ k =1 }^{ N } r_i = 1$ Cross Correlation CNN Category Category Concept Width 太宽容易过拟合 Depth 过深，有些层可能会失效；梯度可能会消失 Multi-Path Feature-Maps 卷积核对特征的提取 Attention 对图像重点部分的关注 Channel(Dimension) 分路卷积，分别提取Spatial/Channel Imformation Channel Boosting 特征增强 超过3层才叫Deep Network Application Denoise AWNI(Additive White Noisy Imgae) Changing Network Architecture Category Concept Fusion 改变Width, Depth 改变Loss Function Cascade Connection Skip Connection Plugins Activation, Pooling, Fully-Connected Layer(展开成一维) Real Noisy Image (现实中的噪声)"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     </head>
     <body class="
@@ -260,6 +260,8 @@ Mode-n Unfolding Matrix 沿着第$n$个纬度把张量展开
       <ol>
         <li><a href="#norms">Norms</a></li>
         <li><a href="#mode-n-unfolding-matrix">Mode-n Unfolding Matrix</a></li>
+        <li><a href="#global-pooling">Global Pooling</a></li>
+        <li><a href="#q-shift">Q-Shift</a></li>
       </ol>
     </li>
     <li><a href="#指标介绍">指标介绍</a>
@@ -381,6 +383,48 @@ $$</p>
 <blockquote>
 <p>沿着第$n$个纬度把张量展开</p>
 </blockquote>
+<h2 id="global-pooling">Global Pooling</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">全局平均池化(Global Average Pooling, GAP)</td>
+<td style="text-align:center">对特征图上的所有元素取平均值</td>
+</tr>
+<tr>
+<td style="text-align:center">全局最大池化(Global Max Pooling, GMP)</td>
+<td style="text-align:center">对特征图上的所有元素取最大值</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="q-shift">Q-Shift</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">计算效率高</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">模型压缩</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">保留表达能力</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
 <h1 id="指标介绍">指标介绍</h1>
 <h2 id="ms-fusion">MS-Fusion</h2>
 <div class="table-wrapper"><table>
@@ -566,6 +610,10 @@ $$</p>
 <tr>
 <td style="text-align:center">Weak Edge-Information Noisy Image</td>
 <td style="text-align:center">物体与背景的边缘模糊</td>
+</tr>
+<tr>
+<td style="text-align:center">Sparse Input</td>
+<td style="text-align:center">大部分输入数据为0</td>
 </tr>
 </tbody>
 </table></div>
