@@ -273,7 +273,6 @@ $$ \begin{gather} \begin{aligned} v &amp;amp;= V_{cc} - V \cos( \omega t) v &amp
         <li><a href="#push-pull-pa">Push-Pull PA</a></li>
       </ol>
     </li>
-    <li><a href="#overdriven-class-b-pa">Overdriven Class-B PA</a></li>
     <li><a href="#pa实际设计">PA实际设计</a>
       <ol>
         <li><a href="#pa设计指标">PA设计指标</a></li>
@@ -285,9 +284,48 @@ $$ \begin{gather} \begin{aligned} v &amp;amp;= V_{cc} - V \cos( \omega t) v &amp
               <ol>
                 <li><a href="#l型匹配网络">L型匹配网络</a></li>
                 <li><a href="#pi型--t型匹配网络">\pi型 &amp; T型匹配网络</a></li>
-                <li><a href="#heading"></a></li>
               </ol>
             </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#lmba-pa">LMBA PA</a>
+      <ol>
+        <li><a href="#impedance-analysis">Impedance Analysis</a>
+          <ol>
+            <li><a href="#s--z-matrix">S &amp; Z Matrix</a></li>
+            <li><a href="#active-load-modulated-schematic">Active Load Modulated Schematic</a>
+              <ol>
+                <li><a href="#欧姆定律">欧姆定律</a></li>
+              </ol>
+            </li>
+            <li><a href="#电流关系-控制电压-输出电压">电流关系, 控制电压, 输出电压</a></li>
+            <li><a href="#平衡放大器电压电阻">平衡放大器电压、电阻</a></li>
+            <li><a href="#功率-效率">功率 效率</a></li>
+          </ol>
+        </li>
+        <li><a href="#lmba-负载调制">LMBA 负载调制</a>
+          <ol>
+            <li><a href="#两个阶段--电压电流">两个阶段 &amp; 电压、电流</a></li>
+            <li><a href="#直流功率-输出功率-效率-回退饱和功率">直流功率 输出功率 效率 回退/饱和功率</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#doherty-pa">Doherty PA</a>
+      <ol>
+        <li><a href="#有源基波负载调制">有源基波负载调制</a>
+          <ol>
+            <li><a href="#两个合成阻抗">两个合成阻抗</a></li>
+            <li><a href="#特性">特性</a></li>
+            <li><a href="#峰值载波合成处-v-i-z">峰值、载波、合成处 V I Z</a></li>
+          </ol>
+        </li>
+        <li><a href="#饱和回退点">饱和、回退点</a>
+          <ol>
+            <li><a href="#电压-电流-电阻">电压 电流 电阻</a></li>
+            <li><a href="#功率-效率-1">功率 效率</a></li>
           </ol>
         </li>
       </ol>
@@ -361,7 +399,7 @@ $$ \begin{gather} \begin{aligned} v &amp;amp;= V_{cc} - V \cos( \omega t) v &amp
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    11 minute read
                 </time>
             </div>
         
@@ -516,7 +554,6 @@ I_0 &amp;= \frac{ 1 }{ 2\pi } \int_{ 0 }^{ 2\pi } i_{cc} (\theta) d \theta = \fr
 \end{aligned}
 \end{gather}
 $$</p>
-<h1 id="overdriven-class-b-pa">Overdriven Class-B PA</h1>
 <h1 id="pa实际设计">PA实际设计</h1>
 <h2 id="pa设计指标">PA设计指标</h2>
 <div class="table-wrapper"><table>
@@ -630,13 +667,443 @@ $$</p>
 <li>使用前提: $R_L \gg R_e$ or $R_L \ll R_e$</li>
 </ol>
 <h4 id="pi型--t型匹配网络">\pi型 &amp; T型匹配网络</h4>
-<h4 id="heading"></h4>
+<h1 id="lmba-pa">LMBA PA</h1>
+<p><img src="/p/12b-rf-amplifier/4.png"
+	width="1238"
+	height="738"
+	srcset="/p/12b-rf-amplifier/4_hu31feadf68dfb7325edddb5b51eff02a9_113985_480x0_resize_box_3.png 480w, /p/12b-rf-amplifier/4_hu31feadf68dfb7325edddb5b51eff02a9_113985_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="167"
+		data-flex-basis="402px"
+	
+></p>
+<h2 id="impedance-analysis">Impedance Analysis</h2>
+<h3 id="s--z-matrix">S &amp; Z Matrix</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;= - \frac{ 1 }{ \sqrt{ 2 } } \begin{bmatrix}
+0 &amp; j &amp; 1 &amp; 0 \\
+j &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; j \\
+0 &amp; 1 &amp; j &amp; 0
+\end{bmatrix} \\
+[Z] &amp;= Z_0 [ U + S] [ U - S]^{-1} \\
+\therefore [Z] &amp;= Z_0 \begin{bmatrix}
+0 &amp; \sqrt{ 2 }j &amp; 0 &amp; j \\
+\sqrt{ 2 } j &amp; 0 &amp; j &amp; 0 \\
+0 &amp; j &amp; 0 &amp; - \sqrt{ 2 } j \\
+j &amp; 0 &amp; - \sqrt{ 2 } j &amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="active-load-modulated-schematic">Active Load Modulated Schematic</h3>
+<h4 id="欧姆定律">欧姆定律</h4>
+<p><img src="/p/12b-rf-amplifier/5.png"
+	width="1210"
+	height="632"
+	srcset="/p/12b-rf-amplifier/5_hu6aecf7d8c8770659813050148612b6f9_79929_480x0_resize_box_3.png 480w, /p/12b-rf-amplifier/5_hu6aecf7d8c8770659813050148612b6f9_79929_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="459px"
+	
+></p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+V_{b1} \\
+V_C \\
+V_0 \\
+V_{b2}
+\end{bmatrix} &amp;= [Z] \begin{bmatrix}
+I_{b1} \\
+I_c \\
+-I_0 \\
+I_{b2}
+\end{bmatrix} \\
+I_{b1} &amp;= j I_{b2} \\
+V_{b1} &amp;= j V_{b2}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="电流关系-控制电压-输出电压">电流关系, 控制电压, 输出电压</h3>
+<ul>
+<li>通过解以上方程</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+I_o &amp;= j I_c - \sqrt{ 2 } I_{b1} \\
+V_c &amp;= Z_0 I_c \\
+V_o &amp;= j Z_0 (I_c - \sqrt{ 2 } I_{b2})
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="平衡放大器电压电阻">平衡放大器电压、电阻</h3>
+<ul>
+<li>假设 $I_{b1} = \alpha I_c e^{j \Delta \theta_c}$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_{b1} &amp;= j Z_0 ( - \sqrt{ 2 } I_c + I_{b2}) \\
+Z_{b1} &amp;= Z_0 (1 - \sqrt{ 2 } \frac{ e^{ j (\dfrac{ \pi }{ 2 } - \Delta \theta_c )} }{ \alpha })
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="功率-效率">功率 效率</h3>
+<ol>
+<li>输出功率</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_c &amp;= \frac{ 1 }{ 2 } \mathcal{Re} \Big\lbrace V_c I_c&rsquo; \Big\rbrace = \frac{ 1 }{ 2 } Z_0 I_c^2 \\
+P_b &amp;= 2 \frac{ 1 }{ 2 } \mathcal{Re} \Big\lbrace V_{b1} I_{b1}&rsquo; \Big\rbrace = Z_0 I_c^2 \Big[ \alpha^2 - \sqrt{ 2 } \alpha \cos ( \Delta \theta_c - \frac{ \pi }{ 2 }) \Big] \\
+P_{out} &amp;= P_c + P_b
+\end{aligned}
+\end{gather}
+$$</p>
+<p><img src="/p/12b-rf-amplifier/6.png"
+	width="860"
+	height="744"
+	srcset="/p/12b-rf-amplifier/6_hu2dfa51b6d0faaa3dcea301a1f4f6cafc_138946_480x0_resize_box_3.png 480w, /p/12b-rf-amplifier/6_hu2dfa51b6d0faaa3dcea301a1f4f6cafc_138946_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="115"
+		data-flex-basis="277px"
+	
+></p>
+<ol start="2">
+<li>直流功率 &amp; 效率</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_{c,DC} &amp;= \frac{ 2 }{ \pi } I_c V_{c, DC} \\
+P_{b,DC} &amp;= 2 V_{b1, DC} I_{b1, DC} \\
+\eta_{LMBA} &amp;= \frac{ P_c + P_b }{ P_{c,DC} + P_{b,DC} }
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="lmba-负载调制">LMBA 负载调制</h2>
+<h3 id="两个阶段--电压电流">两个阶段 &amp; 电压、电流</h3>
+<p><img src="/p/12b-rf-amplifier/7.png"
+	width="712"
+	height="544"
+	srcset="/p/12b-rf-amplifier/7_hu48f456843a4d88a773b0ca840baa06c9_60719_480x0_resize_box_3.png 480w, /p/12b-rf-amplifier/7_hu48f456843a4d88a773b0ca840baa06c9_60719_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="130"
+		data-flex-basis="314px"
+	
+></p>
+<ol>
+<li>电流</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+I_c &amp;= \begin{cases}
+I_{c, max} \dfrac{ V_{inc} }{ V_{inc, max} } &amp; Low \ Power \\
+I_{c, max} &amp; High \ Power
+\end{cases} \\
+I_{b1} &amp;= \begin{cases}
+0 &amp; Low \ Power \\
+\alpha e^{j \Delta \theta_c} I_{c,max} \dfrac{ V_{inb} }{ V_{inb, max} } &amp; High \ Power
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>电压</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_c &amp;= \begin{cases}
+Z_0 I_{c,max} \frac{ V_{inc} }{ V_{inc, max} } &amp; Low \ Power \\
+V_{b1} &amp;= \begin{cases}
+-j \sqrt{ 2 } Z_0 I_{c,max} \frac{ V_{inc} }{ V_{inc, max} } &amp; Low \ Power \\
+Z_0 I_{c,max} ( \alpha e^{j \Delta \theta_c} \frac{ V_{inb} }{  V_{inb, max} } - j \sqrt{ 2 }) &amp; High \ Power
+\end{cases}
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="直流功率-输出功率-效率-回退饱和功率">直流功率 输出功率 效率 回退/饱和功率</h3>
+<ol>
+<li>直流功率</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_{DC} &amp;= P_{c,DC} + 2P_{b1,DC} = \begin{cases}
+\frac{ 2 }{ \pi} Z_0 I_{c,max}^2 \dfrac{ V_{inc} }{ V_{inc, max} } &amp; Low \ Power \\
+\frac{ 2 }{ \pi } Z_0 I_{c,max}^2 [ 1 + 2 ( \alpha^2 + \sqrt{ 2 } \alpha) \dfrac{ V_{inb} }{ V_{inb, max} }] &amp; High \ Power
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>输出功率</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_{out} &amp;= \begin{cases}
+\dfrac{ 1 }{ 2 } Z_0 I_{c,max}^2 ( \dfrac{ V_{inc} }{ V_{inc, max} })^2 &amp; Low \ Power \\
+Z_0 I_{c,max}^2 [ \dfrac{ 1 }{ 2 } + \alpha^2 ( \dfrac{ V_{inb} }{ V_{inb, max} })^2 - \sqrt{ 2 } \alpha \cos( \dfrac{ \pi }{ 2 } - \Delta \theta_c) \dfrac{ V_{inb} }{ V_{inb, max} }] &amp; High \ Power
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="3">
+<li>效率</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\eta_{LMBA} &amp;= \begin{cases}
+\dfrac{ \pi }{ 4 } \dfrac{ V_{inc} }{ V_{inc, max} } &amp; Low \ Power \\
+\dfrac{ \pi }{ 4 } \dfrac{ 1 + 2 \alpha^2 ( \dfrac{ V_{inb} }{ V_{inb, max} })^2 - 2 \sqrt{ 2 } \alpha \cos( \dfrac{ \pi }{ 2 } - \Delta \theta_c) \dfrac{ V_{inb} }{ V_{inb, max} }}{ 1 + 2 ( \alpha^2 + \sqrt{ 2 } \alpha) \dfrac{ V_{inb} }{ V_{inb, max} } } &amp; High \ Power
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="4">
+<li>回退和饱和功率</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_{bo} &amp; \frac{ 1 }{ 2 } Z_0 I_{c,max}^2 &amp; V_{inc} = V_{inc,max}, I_{inb} = 0 \\
+P_{sat} &amp;= \frac{ 1 }{ 2 } Z_0 I_{c,max}^2 ( 1 + \sqrt{ 2 } \alpha)^2 &amp; V_{inc} = V_{inc, max}, V_{inb} = V_{inb,max}, \Delta \theta_c = \dfrac{ 3 \pi }{ 2 }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="5">
+<li>功率回退量</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+OBO &amp;= \frac{ P_{sat} }{ P_{bo} } = (1 + \sqrt{ 2 } \alpha)^2
+\end{aligned}
+\end{gather}
+$$</p>
+<h1 id="doherty-pa">Doherty PA</h1>
+<h2 id="有源基波负载调制">有源基波负载调制</h2>
+<p><img src="/p/12b-rf-amplifier/8.png"
+	width="878"
+	height="566"
+	srcset="/p/12b-rf-amplifier/8_hu8232d181c6adf6f7f61671cc574523ea_57369_480x0_resize_box_3.png 480w, /p/12b-rf-amplifier/8_hu8232d181c6adf6f7f61671cc574523ea_57369_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="372px"
+	
+></p>
+<ul>
+<li><strong>已知量</strong>: $I_{ci}, I_{pi}, Z_0, Z_L$</li>
+</ul>
+<h3 id="两个合成阻抗">两个合成阻抗</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_{pi} &amp;= Z_L I_L = Z_L (I_{cs} + I_{pi}) \\
+Z_{cs} &amp;= \frac{ V_{pi} }{ I_{cs} } = Z_L( 1 + \frac{ I_{pi} }{ I_{cs} }) \\
+Z_{pi} &amp;= Z_L ( 1+ \frac{ I_{cs} }{ I_{pi} })
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="特性">特性</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_0^2 &amp;= Z_{ci} Z_{cs} = \frac{ V_{ci} }{ I_{ci} } \frac{ V_{pi} }{ I_{cs} } \\
+V_{ci} I_{ci} &amp;= V_{pi} I_{cs}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="峰值载波合成处-v-i-z">峰值、载波、合成处 V I Z</h3>
+<ol>
+<li>合成处</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_{pi} &amp;= I_{ci} Z_0 \\
+I_{cs} &amp;= \frac{ Z_0 }{ Z_L } I_{ci} - I_{pi} \\
+Z_{cs} &amp;= \frac{ I_{ci} Z_0 Z_L }{ Z_0 I_{ci} - Z_L I_{pi} }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>载波</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_{ci} &amp;= Z_0 I_{ci} ( \frac{ Z_0 }{ Z_L } - \frac{ I_{pi} }{ I_{ci} }) \\
+Z_{ci} &amp;= Z_0 ( \frac{ Z_0 }{ Z_L } - \frac{ I_{pi} }{ I_{ci} })
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="3">
+<li>峰值路</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{pi} &amp;= Z_0 \frac{ I_{ci} }{ I_{pi} }
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="4">
+<li><strong>总结</strong></li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+Carrier \\
+Synthesis \\
+Peak
+\end{bmatrix} &amp;= \begin{bmatrix}
+V_{ci} = Z_0 I_{ci} ( \dfrac{ Z_0 }{ Z_L } - \dfrac{ I_{pi} }{ I_{ci} }) &amp; I_{ci} &amp; Z_{ci} = Z_0 ( \dfrac{ Z_0 }{ Z_L } - \dfrac{ I_{pi} }{ I_{ci} }) \\
+V_{cs} = V_{pi} &amp; I_{cs} = \dfrac{ Z_0 }{ Z_L } I_{ci} - I_{pi} &amp; Z_{cs} = \dfrac{ I_{ci} Z_0 Z_L }{ Z_0 I_{ci} - Z_L I_{pi} } \\
+V_{pi} = I_{ci} Z_0 &amp; I_{pi} &amp; Z_{pi} = Z_0 \dfrac{ I_{ci} }{ I_{pi} }
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$</p>
+<h2 id="饱和回退点">饱和、回退点</h2>
+<h3 id="电压-电流-电阻">电压 电流 电阻</h3>
+<ol>
+<li>假设 $I_{pi,max} = \delta I_{ci,max}, V_{pi,max} = \sigma V_{ci, max}$。传统Doherty $\delta = \sigma = 1$</li>
+</ol>
+<ul>
+<li>功率回退点，功率饱和点</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_{in} &amp;= \begin{cases}
+\dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} &amp; Back \ Off \\
+V_{in,max} &amp; Saturation
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="2">
+<li>电流</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+I_{ci} &amp;= \frac{ I_{ci, max} }{ V_{in, max} } \\
+I_{pi} &amp;= \begin{cases}
+0 &amp; 0 \le V_{in} \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+\dfrac{ I_{ci,max} }{ V_{in,max} } \Big[ ( \delta + \dfrac{ 1 }{ \sigma }) V_{in} - \dfrac{ 1 }{ \delta } V_{in,max} \Big] &amp; \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<ol start="3">
+<li>电压</li>
+</ol>
+<ul>
+<li>为了使得载波功放在<strong>回退点</strong>获得最大效率，应该有$Z_0 = ( \dfrac{ 1 }{ \sigma } + \delta) Z_L$</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+V_{ci} &amp;= \begin{cases}
+( \dfrac{ 1 }{ \sigma } + \delta ) Z_0 \dfrac{ I_{ci,max} }{ V_{in,max} } V_{in} &amp; 0 \le V_{in}  \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+Z_0 \dfrac{ I_{ci,max} }{ V_{in,max} } \dfrac{ 1 }{ \sigma } V_{in,max} &amp; \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases} \\
+V_{pi} &amp;= Z_0 \dfrac{ I_{ci,max} }{ V_{in,max} } V_{in}, 0 \le V_{in} \le V_{in,max}
+\end{aligned}
+\end{gather}
+$$</p>
+<p><img src="/p/12b-rf-amplifier/9.png"
+	width="2458"
+	height="1140"
+	srcset="/p/12b-rf-amplifier/9_huc465d18b0533d4fd676f55c4efa50286_246438_480x0_resize_box_3.png 480w, /p/12b-rf-amplifier/9_huc465d18b0533d4fd676f55c4efa50286_246438_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="215"
+		data-flex-basis="517px"
+	
+></p>
+<ol start="4">
+<li>阻抗</li>
+</ol>
+<p>$$
+\begin{gather}
+\begin{aligned}
+Z_{ci} &amp;= \begin{cases}
+( \dfrac{ 1 }{ \sigma } + \delta ) Z_0 &amp; 0 \le V_{in} \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+Z_0 \dfrac{ V_{in,max} }{ \sigma V_{in} } &amp; \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases} \\
+Z_{pi} &amp;= \begin{cases}
+\infin &amp; 0 \le V_{in} \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+Z_0 \dfrac{ V_{in} }{ \Big[ ( \delta + \dfrac{ 1 }{ \sigma }) C_{in} - \dfrac{ 1 }{ \sigma } V_{in,max} \Big] } &amp; \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<h3 id="功率-效率-1">功率 效率</h3>
+<p>$$
+\begin{gather}
+\begin{aligned}
+P_{out} &amp;= \frac{ 1 }{ 2 } Z_0 ( \frac{ I_{ci,max} }{ V_{in,max} })^2 ( \frac{ 1 }{ \sigma } + \delta ) V_{in}^2
+\end{aligned}
+\end{gather}
+$$</p>
+<p>$$
+\begin{gather}
+\begin{aligned}
+\eta_{DPA} &amp;= \begin{cases}
+\dfrac{ \pi }{ 4 V_{in,max} } ( 1 + \sigma \delta ) V_{in} &amp; 0 \le V_{in} \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+\dfrac{ \pi }{ 4 V_{in,max} } \dfrac{ (1 + \sigma \delta) V_{in}^2 }{ (2 + \sigma \delta) V_{in} - V_{in,max} } &amp; \dfrac{ 1 }{ 1 + \delta  \sigma } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases}
+\end{aligned}
+\end{gather}
+$$</p>
+<ul>
+<li>回退量</li>
+</ul>
+<p>$$
+\begin{gather}
+\begin{aligned}
+OBO &amp;= \frac{ P_{sat} }{ P_{bo} } = (1 + \delta \sigma)^2
+\end{aligned}
+\end{gather}
+$$</p>
 <h1 id="appendix">Appendix</h1>
 <h2 id="典型的放大器的电流-电压-系数">典型的放大器的电流 电压 系数</h2>
 <p>$$
 \begin{gather}
 \begin{aligned}
-\gamma_{r0} &amp;= \frac{ 1 }{ \pg } ( \sin \theta - \theta \cos \theta) \\
+\gamma_{r0} &amp;= \frac{ 1 }{ \pi } ( \sin \theta - \theta \cos \theta) \\
 \gamma_{r1} &amp;= \frac{ 1 }{ \pi } ( \theta - \sin \theta \cos \theta)
 \end{aligned}
 \end{gather}

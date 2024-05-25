@@ -161,7 +161,6 @@ I_0 &amp;amp;= \frac{ 1 }{ 2\pi } \int_{ 0 }^{ 2\pi } i_{cc} (\theta) d \theta =
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h1 id=&#34;overdriven-class-b-pa&#34;&gt;Overdriven Class-B PA&lt;/h1&gt;
 &lt;h1 id=&#34;pa实际设计&#34;&gt;PA实际设计&lt;/h1&gt;
 &lt;h2 id=&#34;pa设计指标&#34;&gt;PA设计指标&lt;/h2&gt;
 &lt;table&gt;
@@ -275,13 +274,443 @@ $$&lt;/p&gt;
 &lt;li&gt;使用前提: $R_L \gg R_e$ or $R_L \ll R_e$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;pi型--t型匹配网络&#34;&gt;\pi型 &amp;amp; T型匹配网络&lt;/h4&gt;
-&lt;h4 id=&#34;heading&#34;&gt;&lt;/h4&gt;
+&lt;h1 id=&#34;lmba-pa&#34;&gt;LMBA PA&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/4.png&#34;
+	width=&#34;1238&#34;
+	height=&#34;738&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/4_hu31feadf68dfb7325edddb5b51eff02a9_113985_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/4_hu31feadf68dfb7325edddb5b51eff02a9_113985_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;167&#34;
+		data-flex-basis=&#34;402px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;impedance-analysis&#34;&gt;Impedance Analysis&lt;/h2&gt;
+&lt;h3 id=&#34;s--z-matrix&#34;&gt;S &amp;amp; Z Matrix&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+[S] &amp;amp;= - \frac{ 1 }{ \sqrt{ 2 } } \begin{bmatrix}
+0 &amp;amp; j &amp;amp; 1 &amp;amp; 0 \\
+j &amp;amp; 0 &amp;amp; 0 &amp;amp; 1 \\
+1 &amp;amp; 0 &amp;amp; 0 &amp;amp; j \\
+0 &amp;amp; 1 &amp;amp; j &amp;amp; 0
+\end{bmatrix} \\
+[Z] &amp;amp;= Z_0 [ U + S] [ U - S]^{-1} \\
+\therefore [Z] &amp;amp;= Z_0 \begin{bmatrix}
+0 &amp;amp; \sqrt{ 2 }j &amp;amp; 0 &amp;amp; j \\
+\sqrt{ 2 } j &amp;amp; 0 &amp;amp; j &amp;amp; 0 \\
+0 &amp;amp; j &amp;amp; 0 &amp;amp; - \sqrt{ 2 } j \\
+j &amp;amp; 0 &amp;amp; - \sqrt{ 2 } j &amp;amp; 0
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;active-load-modulated-schematic&#34;&gt;Active Load Modulated Schematic&lt;/h3&gt;
+&lt;h4 id=&#34;欧姆定律&#34;&gt;欧姆定律&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/5.png&#34;
+	width=&#34;1210&#34;
+	height=&#34;632&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/5_hu6aecf7d8c8770659813050148612b6f9_79929_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/5_hu6aecf7d8c8770659813050148612b6f9_79929_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;191&#34;
+		data-flex-basis=&#34;459px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+V_{b1} \\
+V_C \\
+V_0 \\
+V_{b2}
+\end{bmatrix} &amp;amp;= [Z] \begin{bmatrix}
+I_{b1} \\
+I_c \\
+-I_0 \\
+I_{b2}
+\end{bmatrix} \\
+I_{b1} &amp;amp;= j I_{b2} \\
+V_{b1} &amp;amp;= j V_{b2}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;电流关系-控制电压-输出电压&#34;&gt;电流关系, 控制电压, 输出电压&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;通过解以上方程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_o &amp;amp;= j I_c - \sqrt{ 2 } I_{b1} \\
+V_c &amp;amp;= Z_0 I_c \\
+V_o &amp;amp;= j Z_0 (I_c - \sqrt{ 2 } I_{b2})
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;平衡放大器电压电阻&#34;&gt;平衡放大器电压、电阻&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;假设 $I_{b1} = \alpha I_c e^{j \Delta \theta_c}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{b1} &amp;amp;= j Z_0 ( - \sqrt{ 2 } I_c + I_{b2}) \\
+Z_{b1} &amp;amp;= Z_0 (1 - \sqrt{ 2 } \frac{ e^{ j (\dfrac{ \pi }{ 2 } - \Delta \theta_c )} }{ \alpha })
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;功率-效率&#34;&gt;功率 效率&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;输出功率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_c &amp;amp;= \frac{ 1 }{ 2 } \mathcal{Re} \Big\lbrace V_c I_c&amp;rsquo; \Big\rbrace = \frac{ 1 }{ 2 } Z_0 I_c^2 \\
+P_b &amp;amp;= 2 \frac{ 1 }{ 2 } \mathcal{Re} \Big\lbrace V_{b1} I_{b1}&amp;rsquo; \Big\rbrace = Z_0 I_c^2 \Big[ \alpha^2 - \sqrt{ 2 } \alpha \cos ( \Delta \theta_c - \frac{ \pi }{ 2 }) \Big] \\
+P_{out} &amp;amp;= P_c + P_b
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/6.png&#34;
+	width=&#34;860&#34;
+	height=&#34;744&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/6_hu2dfa51b6d0faaa3dcea301a1f4f6cafc_138946_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/6_hu2dfa51b6d0faaa3dcea301a1f4f6cafc_138946_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;115&#34;
+		data-flex-basis=&#34;277px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;直流功率 &amp;amp; 效率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{c,DC} &amp;amp;= \frac{ 2 }{ \pi } I_c V_{c, DC} \\
+P_{b,DC} &amp;amp;= 2 V_{b1, DC} I_{b1, DC} \\
+\eta_{LMBA} &amp;amp;= \frac{ P_c + P_b }{ P_{c,DC} + P_{b,DC} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;lmba-负载调制&#34;&gt;LMBA 负载调制&lt;/h2&gt;
+&lt;h3 id=&#34;两个阶段--电压电流&#34;&gt;两个阶段 &amp;amp; 电压、电流&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/7.png&#34;
+	width=&#34;712&#34;
+	height=&#34;544&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/7_hu48f456843a4d88a773b0ca840baa06c9_60719_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/7_hu48f456843a4d88a773b0ca840baa06c9_60719_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;130&#34;
+		data-flex-basis=&#34;314px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;电流&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_c &amp;amp;= \begin{cases}
+I_{c, max} \dfrac{ V_{inc} }{ V_{inc, max} } &amp;amp; Low \ Power \\
+I_{c, max} &amp;amp; High \ Power
+\end{cases} \\
+I_{b1} &amp;amp;= \begin{cases}
+0 &amp;amp; Low \ Power \\
+\alpha e^{j \Delta \theta_c} I_{c,max} \dfrac{ V_{inb} }{ V_{inb, max} } &amp;amp; High \ Power
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;电压&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_c &amp;amp;= \begin{cases}
+Z_0 I_{c,max} \frac{ V_{inc} }{ V_{inc, max} } &amp;amp; Low \ Power \\
+V_{b1} &amp;amp;= \begin{cases}
+-j \sqrt{ 2 } Z_0 I_{c,max} \frac{ V_{inc} }{ V_{inc, max} } &amp;amp; Low \ Power \\
+Z_0 I_{c,max} ( \alpha e^{j \Delta \theta_c} \frac{ V_{inb} }{  V_{inb, max} } - j \sqrt{ 2 }) &amp;amp; High \ Power
+\end{cases}
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;直流功率-输出功率-效率-回退饱和功率&#34;&gt;直流功率 输出功率 效率 回退/饱和功率&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;直流功率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{DC} &amp;amp;= P_{c,DC} + 2P_{b1,DC} = \begin{cases}
+\frac{ 2 }{ \pi} Z_0 I_{c,max}^2 \dfrac{ V_{inc} }{ V_{inc, max} } &amp;amp; Low \ Power \\
+\frac{ 2 }{ \pi } Z_0 I_{c,max}^2 [ 1 + 2 ( \alpha^2 + \sqrt{ 2 } \alpha) \dfrac{ V_{inb} }{ V_{inb, max} }] &amp;amp; High \ Power
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;输出功率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{out} &amp;amp;= \begin{cases}
+\dfrac{ 1 }{ 2 } Z_0 I_{c,max}^2 ( \dfrac{ V_{inc} }{ V_{inc, max} })^2 &amp;amp; Low \ Power \\
+Z_0 I_{c,max}^2 [ \dfrac{ 1 }{ 2 } + \alpha^2 ( \dfrac{ V_{inb} }{ V_{inb, max} })^2 - \sqrt{ 2 } \alpha \cos( \dfrac{ \pi }{ 2 } - \Delta \theta_c) \dfrac{ V_{inb} }{ V_{inb, max} }] &amp;amp; High \ Power
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;效率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\eta_{LMBA} &amp;amp;= \begin{cases}
+\dfrac{ \pi }{ 4 } \dfrac{ V_{inc} }{ V_{inc, max} } &amp;amp; Low \ Power \\
+\dfrac{ \pi }{ 4 } \dfrac{ 1 + 2 \alpha^2 ( \dfrac{ V_{inb} }{ V_{inb, max} })^2 - 2 \sqrt{ 2 } \alpha \cos( \dfrac{ \pi }{ 2 } - \Delta \theta_c) \dfrac{ V_{inb} }{ V_{inb, max} }}{ 1 + 2 ( \alpha^2 + \sqrt{ 2 } \alpha) \dfrac{ V_{inb} }{ V_{inb, max} } } &amp;amp; High \ Power
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;回退和饱和功率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{bo} &amp;amp; \frac{ 1 }{ 2 } Z_0 I_{c,max}^2 &amp;amp; V_{inc} = V_{inc,max}, I_{inb} = 0 \\
+P_{sat} &amp;amp;= \frac{ 1 }{ 2 } Z_0 I_{c,max}^2 ( 1 + \sqrt{ 2 } \alpha)^2 &amp;amp; V_{inc} = V_{inc, max}, V_{inb} = V_{inb,max}, \Delta \theta_c = \dfrac{ 3 \pi }{ 2 }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;功率回退量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+OBO &amp;amp;= \frac{ P_{sat} }{ P_{bo} } = (1 + \sqrt{ 2 } \alpha)^2
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;doherty-pa&#34;&gt;Doherty PA&lt;/h1&gt;
+&lt;h2 id=&#34;有源基波负载调制&#34;&gt;有源基波负载调制&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/8.png&#34;
+	width=&#34;878&#34;
+	height=&#34;566&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/8_hu8232d181c6adf6f7f61671cc574523ea_57369_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/8_hu8232d181c6adf6f7f61671cc574523ea_57369_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;155&#34;
+		data-flex-basis=&#34;372px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;已知量&lt;/strong&gt;: $I_{ci}, I_{pi}, Z_0, Z_L$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;两个合成阻抗&#34;&gt;两个合成阻抗&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{pi} &amp;amp;= Z_L I_L = Z_L (I_{cs} + I_{pi}) \\
+Z_{cs} &amp;amp;= \frac{ V_{pi} }{ I_{cs} } = Z_L( 1 + \frac{ I_{pi} }{ I_{cs} }) \\
+Z_{pi} &amp;amp;= Z_L ( 1+ \frac{ I_{cs} }{ I_{pi} })
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;特性&#34;&gt;特性&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_0^2 &amp;amp;= Z_{ci} Z_{cs} = \frac{ V_{ci} }{ I_{ci} } \frac{ V_{pi} }{ I_{cs} } \\
+V_{ci} I_{ci} &amp;amp;= V_{pi} I_{cs}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;峰值载波合成处-v-i-z&#34;&gt;峰值、载波、合成处 V I Z&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;合成处&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{pi} &amp;amp;= I_{ci} Z_0 \\
+I_{cs} &amp;amp;= \frac{ Z_0 }{ Z_L } I_{ci} - I_{pi} \\
+Z_{cs} &amp;amp;= \frac{ I_{ci} Z_0 Z_L }{ Z_0 I_{ci} - Z_L I_{pi} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;载波&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{ci} &amp;amp;= Z_0 I_{ci} ( \frac{ Z_0 }{ Z_L } - \frac{ I_{pi} }{ I_{ci} }) \\
+Z_{ci} &amp;amp;= Z_0 ( \frac{ Z_0 }{ Z_L } - \frac{ I_{pi} }{ I_{ci} })
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;峰值路&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{pi} &amp;amp;= Z_0 \frac{ I_{ci} }{ I_{pi} }
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;总结&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\begin{bmatrix}
+Carrier \\
+Synthesis \\
+Peak
+\end{bmatrix} &amp;amp;= \begin{bmatrix}
+V_{ci} = Z_0 I_{ci} ( \dfrac{ Z_0 }{ Z_L } - \dfrac{ I_{pi} }{ I_{ci} }) &amp;amp; I_{ci} &amp;amp; Z_{ci} = Z_0 ( \dfrac{ Z_0 }{ Z_L } - \dfrac{ I_{pi} }{ I_{ci} }) \\
+V_{cs} = V_{pi} &amp;amp; I_{cs} = \dfrac{ Z_0 }{ Z_L } I_{ci} - I_{pi} &amp;amp; Z_{cs} = \dfrac{ I_{ci} Z_0 Z_L }{ Z_0 I_{ci} - Z_L I_{pi} } \\
+V_{pi} = I_{ci} Z_0 &amp;amp; I_{pi} &amp;amp; Z_{pi} = Z_0 \dfrac{ I_{ci} }{ I_{pi} }
+\end{bmatrix}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;饱和回退点&#34;&gt;饱和、回退点&lt;/h2&gt;
+&lt;h3 id=&#34;电压-电流-电阻&#34;&gt;电压 电流 电阻&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;假设 $I_{pi,max} = \delta I_{ci,max}, V_{pi,max} = \sigma V_{ci, max}$。传统Doherty $\delta = \sigma = 1$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;功率回退点，功率饱和点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{in} &amp;amp;= \begin{cases}
+\dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} &amp;amp; Back \ Off \\
+V_{in,max} &amp;amp; Saturation
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;电流&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+I_{ci} &amp;amp;= \frac{ I_{ci, max} }{ V_{in, max} } \\
+I_{pi} &amp;amp;= \begin{cases}
+0 &amp;amp; 0 \le V_{in} \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+\dfrac{ I_{ci,max} }{ V_{in,max} } \Big[ ( \delta + \dfrac{ 1 }{ \sigma }) V_{in} - \dfrac{ 1 }{ \delta } V_{in,max} \Big] &amp;amp; \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;电压&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;为了使得载波功放在&lt;strong&gt;回退点&lt;/strong&gt;获得最大效率，应该有$Z_0 = ( \dfrac{ 1 }{ \sigma } + \delta) Z_L$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+V_{ci} &amp;amp;= \begin{cases}
+( \dfrac{ 1 }{ \sigma } + \delta ) Z_0 \dfrac{ I_{ci,max} }{ V_{in,max} } V_{in} &amp;amp; 0 \le V_{in}  \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+Z_0 \dfrac{ I_{ci,max} }{ V_{in,max} } \dfrac{ 1 }{ \sigma } V_{in,max} &amp;amp; \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases} \\
+V_{pi} &amp;amp;= Z_0 \dfrac{ I_{ci,max} }{ V_{in,max} } V_{in}, 0 \le V_{in} \le V_{in,max}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/9.png&#34;
+	width=&#34;2458&#34;
+	height=&#34;1140&#34;
+	srcset=&#34;https://downeyflyfan.com/p/12b-rf-amplifier/9_huc465d18b0533d4fd676f55c4efa50286_246438_480x0_resize_box_3.png 480w, https://downeyflyfan.com/p/12b-rf-amplifier/9_huc465d18b0533d4fd676f55c4efa50286_246438_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;215&#34;
+		data-flex-basis=&#34;517px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;阻抗&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+Z_{ci} &amp;amp;= \begin{cases}
+( \dfrac{ 1 }{ \sigma } + \delta ) Z_0 &amp;amp; 0 \le V_{in} \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+Z_0 \dfrac{ V_{in,max} }{ \sigma V_{in} } &amp;amp; \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases} \\
+Z_{pi} &amp;amp;= \begin{cases}
+\infin &amp;amp; 0 \le V_{in} \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+Z_0 \dfrac{ V_{in} }{ \Big[ ( \delta + \dfrac{ 1 }{ \sigma }) C_{in} - \dfrac{ 1 }{ \sigma } V_{in,max} \Big] } &amp;amp; \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;功率-效率-1&#34;&gt;功率 效率&lt;/h3&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+P_{out} &amp;amp;= \frac{ 1 }{ 2 } Z_0 ( \frac{ I_{ci,max} }{ V_{in,max} })^2 ( \frac{ 1 }{ \sigma } + \delta ) V_{in}^2
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+\eta_{DPA} &amp;amp;= \begin{cases}
+\dfrac{ \pi }{ 4 V_{in,max} } ( 1 + \sigma \delta ) V_{in} &amp;amp; 0 \le V_{in} \le \dfrac{ 1 }{ 1 + \sigma \delta } V_{in,max} \\
+\dfrac{ \pi }{ 4 V_{in,max} } \dfrac{ (1 + \sigma \delta) V_{in}^2 }{ (2 + \sigma \delta) V_{in} - V_{in,max} } &amp;amp; \dfrac{ 1 }{ 1 + \delta  \sigma } V_{in,max} \le V_{in} \le V_{in,max}
+\end{cases}
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;回退量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\begin{gather}
+\begin{aligned}
+OBO &amp;amp;= \frac{ P_{sat} }{ P_{bo} } = (1 + \delta \sigma)^2
+\end{aligned}
+\end{gather}
+$$&lt;/p&gt;
 &lt;h1 id=&#34;appendix&#34;&gt;Appendix&lt;/h1&gt;
 &lt;h2 id=&#34;典型的放大器的电流-电压-系数&#34;&gt;典型的放大器的电流 电压 系数&lt;/h2&gt;
 &lt;p&gt;$$
 \begin{gather}
 \begin{aligned}
-\gamma_{r0} &amp;amp;= \frac{ 1 }{ \pg } ( \sin \theta - \theta \cos \theta) \\
+\gamma_{r0} &amp;amp;= \frac{ 1 }{ \pi } ( \sin \theta - \theta \cos \theta) \\
 \gamma_{r1} &amp;amp;= \frac{ 1 }{ \pi } ( \theta - \sin \theta \cos \theta)
 \end{aligned}
 \end{gather}
@@ -2308,7 +2737,7 @@ S_{ij} &amp;amp;= \frac{ V^-_i }{ V^+_j} , V_k^+ = 0, k \neq j
 \end{aligned}
 \end{gather}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;scattering-matrix-to-impedance-matrix&#34;&gt;Scattering Matrix to Impedance Matrix&lt;/h3&gt;
+&lt;h3 id=&#34;s---z-conversion&#34;&gt;S - Z Conversion&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;假设所有端口的&lt;strong&gt;Characteristic Impedance&lt;/strong&gt; $Z_{0n} = 1$&lt;/li&gt;
 &lt;/ul&gt;
@@ -2478,7 +2907,7 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;240px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;s-z-y-abcd-参数转换表&#34;&gt;S Z Y ABCD 参数转换表&lt;/h2&gt;
+&lt;h2 id=&#34;s-z-y-abcd-conversion-for-2-port-network&#34;&gt;S Z Y ABCD Conversion (For 2-Port Network)&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://downeyflyfan.com/p/4.-microwave-network-analysis/6.png&#34;
 	width=&#34;2578&#34;
 	height=&#34;1776&#34;
